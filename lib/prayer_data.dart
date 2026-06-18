@@ -73,39 +73,23 @@ class prayer_data{
     'The Guardian Angel Prayer':[
       PrayerStep(
           titleEn: 'The Guardian Angel Prayer',
-          titleAm: 'የቅዱስ ፍራንቸስኮስ ጸሎት',
-          contentEn: 'Lord, make me an instrument of your peace:\n'
-              'where there is hatred, let me sow love;\n'
-              'where there is injury, pardon;\n'
-              'where there is doubt, faith;\n'
-              'where there is despair, hope;\n'
-              'where there is darkness, light;\n'
-              'where there is sadness, joy.\n'
-              'O divine Master, grant that I may not so much seek\n'
-              'to be consoled as to console,\n'
-              'to be understood as to understand,\n'
-              'to be loved as to love.\n'
-              'For it is in giving that we receive,\n'
-              'it is in pardoning that we are pardoned,\n'
-              'and it is in dying that we are born to eternal life.\n'
-              'Amen',
-          contentAm: 'ጌታ ሆይ የሰላም መሳሪያ እንድሆን አድርገኝ፤\n'
-              'ጥል ባለበት ፍቅር፣\n'
-              'በደል ባለበት ይቅርታ፣\n'
-              'ክርክር ባለበት ስምምነት፣\n'
-              'ጥርጣሬ ባለበት እምነት፣\n'
-              'ስህተት ባለበት እዉነት፣\n'
-              'ተስፋ መቁረጥ ባለበት መጽናናት፣\n'
-              'ሓዘን ባለበት ደስታ፣\n'
-              'ጨለማ ባለበት ብርሃን እንዲገኝ አደርግ ዘንድ አብቃኝ፡፡\n'
-              'ጌታ ሆይ\n'
-              'ከመጽናናት ማጽናናት፣\n'
-              'ከመግባባት ማግባባት፣\n'
-              'ከመወደድ መዉደድ፣\n'
-              'ከመቀበል መስጠት፣\n'
-              'ይቅር ለመባል ይቅር ማለት፣\n'
-              'የዘለዓለም ሕይወት ለማግኘት መሞት እንዳለብኝ ለማወቅ እርዳኝ፡፡\n'
-              'አሜን፡፡',
+          titleAm: 'ፀሎት ወደ ቅዱስ ጠባቂ መልአክ',
+          contentEn: 'Angel of God,\n'
+              'my guardian dear,\n'
+              'To whom God\'s love\n'
+              'commits me here,\n'
+              'Ever this day,\n'
+              'be at my side,\n'
+              'To light and guard,\n'
+              'Rule and guide.',
+          contentAm: 'ጠባቂዬ የሆንህ\n'
+              'የእግዚአብሔር መልአክ ሆይ፣\n'
+              'አንተ እንድትጠብቀኝ\n'
+              'በአምላክ ቸርነት ላንተ ተሰጥቼአለሁና፣\n'
+              'አዕምሮዬን አብራልኝ፣\n'
+              'ጠብቀኝ፣\n'
+              'ምራኝ፣\n'
+              'እርዳኝ፡፡',
           imagePath: 'assets/St. Francis.jpg')
     ],
 

@@ -35,9 +35,21 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          title: isPraying ? null : Text(widget.prayerTitle),
+          title: isPraying ? null : Text(widget.prayerTitle,style: TextStyle(color: Colors.white)),
           backgroundColor: Colors.transparent,
           elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              if (isPraying == true) {
+                setState(() {
+                  isPraying = false; // Gracefully step back out to the card view
+                });
+              } else {
+                Navigator.pop(context); // Pop the screen back to the homepage
+              }
+            },
+          ),
         ),
         body: Stack(
               children: [
@@ -46,6 +58,18 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
                   fit: BoxFit.cover,
                   height: double.infinity,
                   width: double.infinity),
+
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                      height: double.infinity,
+                      width: double.infinity,
+                      color: Colors.black.withOpacity(0.45),
+                    ),
+                  ),
+                ),
 
                 if(isPraying==false) ...[
 
@@ -107,7 +131,7 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              const SizedBox(height: 20),
+                              const Spacer(),
 
                               Text(
                                 'Find Stillness. \nLet His Presence Fill You.',
@@ -152,7 +176,7 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
                       child: SafeArea(
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Text(prayerContent,
+                          child: Text(prayerContent,style: TextStyle(color: Colors.white),
                           ),
                         ),
                       )
