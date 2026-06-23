@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/NewPrayerTemplatePage.dart';
+import 'package:operation_001/angelusScreen.dart';
+import 'package:operation_001/chapelScreen.dart';
 import 'package:operation_001/expansionTile.dart';
 import 'package:operation_001/novena_combo.dart';
+import 'package:operation_001/rosaryScreen.dart';
 
 class Contain extends StatefulWidget {
   final String title;
@@ -44,6 +47,15 @@ class _ContainState extends State<Contain> {
                     if(prayer.text=='Morning Psalm Prayers') {
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => MorningPsalmPage()));
+                    }
+                    else if(prayer.text=='Angelus'){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>angelus()));
+                    }
+                    else if(prayer.text=='Divine Mercy Chaplet'){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>chaplet()));
+                    }
+                    else if(prayer.text=='Rosary'){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> rosary()));
                     }
                     else {
                       Navigator.push(context,

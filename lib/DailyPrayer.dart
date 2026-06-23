@@ -16,7 +16,7 @@ class Dailyprayer extends StatelessWidget {
     NovenaCombo(text: 'Prayer of St. Francis', imagePath: 'assets/francis.jpg'),
     NovenaCombo(text: 'The Guardian Angel Prayer', imagePath: 'assets/guardian angel.jpg'),
     NovenaCombo(text: 'Morning Psalm Prayers', imagePath: 'assets/morning rosary.jpg'),
-    NovenaCombo(text: 'The Benedictus ', imagePath: 'assets/My Daily Journal.jpg'),
+    NovenaCombo(text: 'The Benedictus', imagePath: 'assets/My Daily Journal.jpg'),
   ];
 
   final List<NovenaCombo> midDayPrayers = [
@@ -104,18 +104,23 @@ class Dailyprayer extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(
-                            'assets/Rosariia.svg',
-                            height: 80,
-                            width: 80,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(height: 8),
-                          const Text('Rosary'),
-                        ],
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> rosary()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/Rosariia.svg',
+                              height: 80,
+                              width: 80,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(height: 8),
+                            const Text('Rosary'),
+                          ],
+                        ),
                       ),
                     ),
                   ),
