@@ -168,7 +168,7 @@ class prayer_data{
               'ይቅር ለመባል ይቅር ማለት፣\n'
               'የዘለዓለም ሕይወት ለማግኘት መሞት እንዳለብኝ ለማወቅ እርዳኝ፡፡\n'
               'አሜን፡፡',
-          imagePath: 'assets/St. Francis.jpg')
+          imagePath: 'assets/My Daily Journal.jpg')
     ],
 
     'Angelus':[

@@ -1,0 +1,3428 @@
+﻿========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\angelusScreen.dart
+========================================
+import 'package:flutter/material.dart';
+
+class angelus extends StatefulWidget {
+  const angelus({super.key});
+
+  @override
+  State<angelus> createState() => _angelusState();
+}
+
+List<String> angelusPrayer=[
+  """V. The Angel of the Lord declared unto Mary.
+R. And she conceived of the Holy Spirit.
+
+Hail Mary, full of grace,
+    the Lord is with you!
+Blessed are you among women,
+and blessed is the fruit of your
+womb, Jesus.
+
+Holy Mary, Mother of God,
+    pray for us sinners,
+    now and at the hour of our death.
+
+V. Behold the handmaid of the Lord.
+R. Be it done unto me according to your word.
+
+Hail Mary . . .
+
+V. And the Word was made Flesh.
+R. And dwelt among us.
+
+Hail Mary . . .
+
+V. Pray for us, O holy Mother of God.
+R. That we may be made worthy of the promises of Christ.
+
+Let us pray:
+
+Pour forth we beseech you, O Lord, your grace into our hearts, that we, to whom the incarnation of Christ your Son was made known by the message of an angel, may by his passion and cross be brought to the glory of his resurrection.
+
+Through the same Christ Our Lord.
+
+Amen."""
+];
+
+List<String> angelusAmharic=[
+  """V. የእግዚአብሔር መልአክ ማርያምን አበሠራት፡፡
+     R. እርሷም በመንፈስ ቅዱስ ፀነሰች፡፡
+
+      ጸጋ የመላሽ ማርያም ሆይ …
+      ቅድስት ማርያም …
+
+     V. እነሆኝ የእግዚአብሔር አገልጋይ፡፡
+     R. እንዳልከኝ ይሁንልኝ፡፡
+
+      ጸጋ የመላሽ ማርያም ሆይ …
+      ቅድስት ማርያም …
+
+     V. ቃል ሥጋ ሆነ፡፡
+     R. በኛም አደረ፡፡
+
+      ጸጋ የመላሽ ማርያም ሆይ …
+      ቅድስት ማርያም …
+
+     V.ቅድስት የአምላክ እናት ሆይ ለምኝልን፡፡
+     R.ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን፡፡
+
+      እንጸልይ
+
+      እግዚአብሔር ሆይ በመልአኩ ምስራች የልጅህን የኢየሱስ ክርስቶስን ሰው መሆኑን እንዳወቅን:
+      በህማሙና በመስቀሉ ወደ ትንሣኤ ክብር እንድንደርስ ጸጋህን ስጠን፡፡
+      በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡"""
+
+
+];
+
+class _angelusState extends State<angelus> {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Angelus', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),),
+          centerTitle: true,
+          bottom: TabBar(
+              tabs: [
+                Tab(child: Text("English")),
+                Tab(child: Text("Amharic")),
+              ]),
+        ),
+        body: TabBarView(
+            children: [
+              Stack(
+                children: [
+
+                  SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                        child: Image.asset('assets/img_19.png', scale: 3,),
+                      ),
+                      SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 5, left: 5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white70,
+                                borderRadius: BorderRadius.circular(10)
+                              ),
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                             child: Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 Text(angelusPrayer[0], style: TextStyle(fontSize: 20),)
+                               ],
+                             ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 120),
+
+                    ],
+                  ),
+                ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        color: Colors.white70,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            ),
+                            onPressed: (){},
+                            child: const Text('Amen', style: TextStyle(color: Colors.white)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ]),
+
+              Stack(
+                children: [SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                        child: Image.asset('assets/img_19.png', scale: 3,),
+                      ),
+                      SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 5, left: 5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white70,
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(angelusAmharic[0], style: TextStyle(fontSize: 20),)
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 120),
+                    ],
+                  ),
+                ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        color: Colors.white70,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            ),
+                            onPressed: (){},
+                            child: const Text('Amen', style: TextStyle(color: Colors.white)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ])
+
+            ])
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\chapelScreen.dart
+========================================
+import 'package:flutter/material.dart';
+
+class chaplet extends StatefulWidget {
+  const chaplet({super.key});
+
+  @override
+  State<chaplet> createState() => _chapletState();
+}
+
+class _chapletState extends State<chaplet> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Divine Mercy Chaplet', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),),
+        centerTitle: true,
+
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\container.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/NewPrayerTemplatePage.dart';
+import 'package:operation_001/expansionTile.dart';
+import 'package:operation_001/novena_combo.dart';
+
+class Contain extends StatefulWidget {
+  final String title;
+  final List<NovenaCombo> prayers;
+  const Contain({super.key, required this.title, required this.prayers});
+
+  @override
+  State<Contain> createState() => _ContainState();
+}
+
+class _ContainState extends State<Contain> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.deepPurple,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          // This ensures everything starts from the LEFT
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+            ),
+            const SizedBox(height: 20),
+            ...widget.prayers.map((prayer) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: GestureDetector(
+                  onTap: (){
+                    if(prayer.text=='Morning Psalm Prayers') {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => MorningPsalmPage()));
+                    }
+                    else {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                              Newprayertemplatepage(
+                                  prayerTitle: prayer.text,
+                                  prayerImage: prayer.imagePath)));
+                    }
+                  },
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          prayer.imagePath,
+                          height: 45,
+                          width: 45,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => const Icon(
+                            Icons.image_not_supported,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Text(
+                          prayer.text,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }).toList(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\DailyPrayer.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:operation_001/angelusScreen.dart';
+import 'package:operation_001/chapelScreen.dart';
+import 'package:operation_001/novena_combo.dart';
+import 'package:operation_001/container.dart';
+import 'package:operation_001/rosaryScreen.dart';
+import 'package:operation_001/NewPrayerTemplatePage.dart';
+import 'package:operation_001/expansionTile.dart';
+
+class Dailyprayer extends StatelessWidget {
+  Dailyprayer({super.key});
+
+  final List<NovenaCombo> morningPrayers = [
+    NovenaCombo(text: 'The Morning Offering', imagePath: 'assets/morning offering.jpg'),
+    NovenaCombo(text: 'Prayer of St. Francis', imagePath: 'assets/francis.jpg'),
+    NovenaCombo(text: 'The Guardian Angel Prayer', imagePath: 'assets/guardian angel.jpg'),
+    NovenaCombo(text: 'Morning Psalm Prayers', imagePath: 'assets/morning rosary.jpg'),
+    NovenaCombo(text: 'The Benedictus ', imagePath: 'assets/My Daily Journal.jpg'),
+  ];
+
+  final List<NovenaCombo> midDayPrayers = [
+    NovenaCombo(text: 'Angelus', imagePath: 'assets/img_1.png'),
+    NovenaCombo(text: 'Act Of Contrition', imagePath: 'assets/img_2.png'),
+    NovenaCombo(text: 'Prayer for the Hour of Mercy', imagePath: 'assets/img_5.png'),
+    NovenaCombo(text: 'Prayer to St. Michael the Archangel', imagePath: 'assets/img_4.png'),
+    NovenaCombo(text: 'Divine Mercy Chaplet', imagePath: 'assets/img_3.png'),
+  ];
+
+  final List<NovenaCombo> eveningPrayers = [
+    NovenaCombo(text: 'Rosary', imagePath: 'assets/img_6.png'),
+    NovenaCombo(text: 'Vespers (Evening Prayer)', imagePath: 'assets/img_7.png'),
+    NovenaCombo(text: 'The Magnificat', imagePath: 'assets/img_8.png'),
+    NovenaCombo(text: 'Prayer of St. Augustine', imagePath: 'assets/img_9.png'),
+    NovenaCombo(text: 'Compline (Night Prayer)', imagePath: 'assets/img_10.png'),
+  ];
+
+  final List<NovenaCombo> intercessionPrayers = [
+    NovenaCombo(text: 'The Memorare', imagePath: 'assets/img_11.png'),
+    NovenaCombo(text: 'Prayer to Saint Joseph', imagePath: 'assets/img_12.png'),
+    NovenaCombo(text: 'Prayer to St. Michael the Archangel', imagePath: 'assets/img_13.png'),
+    NovenaCombo(text: 'Prayer to St. Francis of Assisi', imagePath: 'assets/img_14.png'),
+    NovenaCombo(text: 'The Litany of the Saints', imagePath: 'assets/img_15.png'),
+  ];
+
+  final List<NovenaCombo> otherPrayers = [
+    NovenaCombo(text: 'Prayer of Abandonment', imagePath: 'assets/father.jpg'),
+    NovenaCombo(text: 'Anima Christi', imagePath: 'assets/anima christi vip.jpg'),
+    NovenaCombo(text: 'Litany of the Holy Name of Jesus', imagePath: 'assets/img_16.png'),
+    NovenaCombo(text: 'Come, Holy Spirit', imagePath: 'assets/img_17.png'),
+    NovenaCombo(text: 'Hail Holy Queen', imagePath: 'assets/img_18.png'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 20, left: 20),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Row(
+                children: [
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => angelus()));
+
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/angeelus.svg',
+                              height: 80,
+                              width: 80,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(height: 8),
+                            const Text('Angelus'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/Rosariia.svg',
+                            height: 80,
+                            width: 80,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(height: 8),
+                          const Text('Rosary'),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: GestureDetector(
+                        onTap: (){
+
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => chaplet()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/Sacred-Heart-of-Jesus.svg',
+                              height: 80,
+                              width: 80,
+                              fit: BoxFit.contain,
+                            ),
+                            const Text('Chaplet'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 50),
+        GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Newprayertemplatepage(
+              prayerTitle: 'The Morning Prayer',
+              prayerImage: 'assets/sunrise',
+            )
+
+            ));
+    },
+          child: Contain(
+            title: 'Morning Prayers',
+            prayers: morningPrayers,
+          ),
+        ),
+        const SizedBox(height: 50),
+        Contain(
+          title: 'Mid-Day Prayers',
+          prayers: midDayPrayers,
+        ),
+        const SizedBox(height: 50),
+        Contain(
+          title: 'Evening Prayers',
+          prayers: eveningPrayers,
+        ),
+        const SizedBox(height: 50),
+        Contain(
+          title: 'Intercession Prayers',
+          prayers: intercessionPrayers,
+        ),
+        const SizedBox(height: 50),
+        Contain(
+          title: 'Other Prayers',
+          prayers: otherPrayers,
+        ),
+      ],
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\dashboard_section.dart
+========================================
+import 'package:flutter/material.dart';
+
+class DashboardSection extends StatefulWidget {
+  const DashboardSection({super.key});
+
+  @override
+  State<DashboardSection> createState() => _DashboardSectionState();
+}
+
+class _DashboardSectionState extends State<DashboardSection> {
+
+
+  String selectedDay = 'Mon';
+  List<String> days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+
+  Widget _buildDailyButton(String label) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () => print(label),
+          child: Text(label),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.white70,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(
+                    'Daily Progress Dashboard',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: days.map((day) {
+                      bool isSelected = selectedDay == day;
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedDay = day;
+                          });
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: isSelected ? Colors.deepPurple : Colors.grey[300],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            day,
+                            style: TextStyle(
+                              color: isSelected ? Colors.white : Colors.black,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                const SizedBox(height: 25),
+                Text(
+                  "Selected: $selectedDay",
+                  style: const TextStyle(
+                    color: Colors.deepPurple,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                _buildDailyButton("Read today's Gospel"),
+                _buildDailyButton("Pray today's Angelus"),
+                if (selectedDay != 'Sun')
+                  _buildDailyButton("Pray today's Rosary"),
+                if (selectedDay == 'Fri')
+                  _buildDailyButton("Special Friday Divine Mercy"),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\expansionTile.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/PsalmModel.dart';
+
+class MorningPsalmPage extends StatefulWidget {
+  const MorningPsalmPage({super.key});
+
+
+  @override
+  State<MorningPsalmPage> createState() => _MorningPsalmPageState();
+}
+
+class _MorningPsalmPageState extends State<MorningPsalmPage> {
+
+  final List<PsalmModel> morningPsalms=[
+
+      PsalmModel(
+          title: 'Psalm 95',
+          fullText: """1 Come, let us ring out our joy to the LORD;
+          hail the rock who saves us.
+      2 Let us come into his presence, giving thanks;
+      let us hail him with a song of praise.
+
+          3 A mighty God is the LORD,
+          a great king above all gods.
+      4 In his hands are the depths of the earth;
+      the heights of the mountains are his.
+      5 To him belongs the sea, for he made it,
+      and the dry land that he shaped by his hand.
+
+      6 O come; let us bow and bend low.
+      Let us kneel before the Lord who made us,
+      7 for he is our God, and we the people,
+      the people of his pasture, the flock of his hand.
+
+      O that today you would listen to his voice!
+      8 “Harden not your hearts as at Meribah,
+      as on that day at Massah in the desert
+      9 when your forebears put me to the test;
+      when they tried me, though they saw my work.
+
+          10 For forty years I abhorred that generation,
+          and I said, ‘Their heart goes astray;
+      this people does not know my ways.’
+      11 Then I took an oath in my anger,
+      ‘Never shall they enter my rest.""",
+      AmTitle: 'መዝሙረ ዳዊት 95',
+      AmFullText: """ኑ፥በእግዚአብሔር ደስ ይበለን፤ ለአምላክ ለመድኃኒታችን እልል እንበል።
+          2 በምስጋና ወደ ፊቱ እንድረስ፥ በዝማሬም ለእርሱ እልል እንበል፤
+      3 እግዚአብሔር ታላቅ አምላክ ነውና፥ በአማልክትም ሁሉ ላይ ታላቅ ንጉሥ ነውና።
+      4 እግዚአብሔር ሕዝቡን አይጥላቸውም፤ የምድር ዳርቻዎችም በእጁ ውስጥ ናቸው፥ የተራሮች ከፍታዎች የእርሱ ናቸው።
+      5 ባሕር የእርሱ ናት እርሱም አደረጋት፥ የብስንም እጆቹ ሠሩአት።
+      6 ኑ፥ እንስገድ ለእርሱም እንገዛ፤ በእርሱ ባደረገን በእግዚአብሔር ፊት እንበርከክ፤
+      7 እርሱ አምላካችን ነውና፥ እኛ የማሰማርያው ሕዝብ የእጁም በጎች ነንና።
+      8 በምድረ በዳ እንደ ተፈታተኑት እንዳስቈጡት ጊዜ፥ ዛሬ ድምፁን ብትሰሙ ልባችሁን አታጽኑ።
+      9 የተፈታተኑኝ አባቶቻችሁ ፈተኑኝ ሥራዬንም አዩ።
+      10 ያችን ትውልድ አርባ ዓመት ተቈጥቻት ነበር። ሁልጊዜ ልባቸው ይስታል፥ እነርሱም መንገዴን አላወቁም አልሁ።
+      11 ወደ ዕረፍቴም እንዳይገቡ በቁጣዬ ማልሁ።"""),
+
+      PsalmModel(
+          title: 'Psalm 63:2-9',
+          fullText: """2 O God, you are my God; at dawn I seek you;
+          for you my soul is thirsting.
+      For you my flesh is pining,
+          like a dry, weary land without water.
+      3 I have come before you in the sanctuary,
+          to behold your strength and your glory.
+
+      4 Your loving mercy is better than life;
+      my lips will speak your praise.
+      5 I will bless you all my life;
+      in your name I will lift up my hands.
+      6 My soul shall be filled as with a banquet;
+          with joyful lips, my mouth shall praise you.
+
+      7 When I remember you upon my bed,
+          I muse on you through the watches of the night.
+      8 For you have been my strength;
+      in the shadow of your wings I rejoice.
+      9 My soul clings fast to you;
+      your right hand upholds me.""",
+      AmTitle: 'መዝሙረ ዳዊት 63:2-9',
+      AmFullText: """2 ኃይልህንና ክብርህን አይ ዘንድ እንዲሁ በመቅደስ ውስጥ ተመለከትሁህ።
+          3 ምሕረትህ ከሕይወት ይሻላልና ከንፈሮቼ ያመሰግኑሃል።
+      4 እንዲህ በሕይወቴ ዘመን አመሰግንሃለሁ፥ በአንተም ስም እጆቼን አነሣለሁ።
+      5 ነፍሴ በቅቤና በስብ እንደሚጠግቡ ትጠግባለች፥ ከንፈሮቼም ስምህን በደስታ ያመሰግናሉ።
+      6 በመኝታዬም አስብሃለሁ፥ በማለዳም እናገርልሃለሁ፤
+      7 ረዳቴ ሆነኸኛልና፥ በክንፎችህም ጥላ ደስ ይለኛልና።
+      8 ነፍሴ በኋላህ ተከታተለች፥ እኔንም ቀኝህ ተቀበለችኝ።
+      9 እነርሱ ግን ነፍሴን ለከንቱ ፈለጓት፤ ወደ ምድር ጥልቅ ይገባሉ።"""),
+
+      PsalmModel(
+          title: 'Psalm 67:2-8',
+          fullText: """2 May God be gracious and bless us
+          and let his face shed its light upon us.
+      3 So will your ways be known upon earth
+      and all nations learn your salvation.
+
+      4 Let the peoples praise you, O God;
+      let all the peoples praise you.
+
+      5 Let the nations be glad and shout for joy;
+      with uprightness you rule the peoples,
+          you guide the nations on earth.
+
+      6 Let the peoples praise you, O God;
+      let all the peoples praise you.
+
+      7 The earth has yielded its fruit
+          for God, our God, has blessed us.
+      8 May God still give us his blessing
+          that all the ends of the earth may revere him.""",
+      AmTitle: 'መዝሙረ ዳዊት 67:1-7',
+      AmFullText: """እግዚአብሔር ይማረን ይባርከንም፥ ፊቱንም በላያችን ያብራ፤
+          2 በአሕዛብ ሁሉ መካከል ማዳንህን፥ መንገድህንም በምድር እናውቅ ዘንድ።
+      3 አቤቱ፥ አሕዛብ ያመስግኑህ፥ አሕዛብ ሁሉ ያመስግኑህ።
+      4 ለአሕዛብ በቅን ትፈርድላቸዋለህና፥ አሕዛብንም በምድር ላይ ትመራለህና አሕዛብ ደስ ይበላቸው ሐሤትም ያድርጉ።
+      5 አቤቱ፥ አሕዛብ ያመስግኑህ፥ አሕዛብ ሁሉ ያመስግኑህ።
+      6 ምድር ፍሬዋን ሰጠች፤ እግዚአብሔር አምላካችንም ይባርከናል።
+      7 እግዚአብሔር ይባርከናል፥ የምድርም ዳርቻ ሁሉ ይፈሩታል።"""),
+
+      PsalmModel(
+          title: 'Psalm 51',
+          fullText: """3 Have mercy on me, O God,
+          according to your merciful love;
+      according to your great compassion,
+          blot out my transgressions.
+      4 Wash me completely from my iniquity,
+          and cleanse me from my sin.
+
+          5 My transgressions, truly I know them;
+      my sin is always before me.
+          6 Against you, you alone, have I sinned;
+      what is evil in your sight I have done.
+          So you are just in your sentence,
+          without reproach in your judgment.
+
+          7 Behold, in guilt I was born,
+      a sinner when my mother conceived me.
+      8 Behold, you delight in sincerity of heart;
+      in secret you teach me wisdom.
+      9 Cleanse me with hyssop, and I shall be pure;
+      wash me, and I shall be whiter than snow.
+
+      10 Let me hear rejoicing and gladness,
+      that the bones you have crushed may exult.
+      11 Turn away your face from my sins,
+      and blot out all my guilt.
+
+      12 Create a pure heart for me, O God;
+      renew a steadfast spirit within me.
+      13 Do not cast me away from your presence;
+      take not your holy spirit from me.
+
+      14 Restore in me the joy of your salvation;
+      sustain in me a willing spirit.
+      15 I will teach transgressors your ways,
+      that sinners may return to you.
+
+      16 Rescue me from bloodshed, O God,
+      O God of my salvation,
+      and then my tongue shall ring out your justice.
+      17 O Lord, open my lips
+      and my mouth shall proclaim your praise.
+
+      18 For in sacrifice you take no delight;
+      burnt offering from me would not please you.
+      19 My sacrifice to God, a broken spirit:
+      a broken and humbled heart,
+      you will not spurn, O God.
+
+      20 In your good pleasure, show favor to Zion;
+      rebuild the walls of Jerusalem.
+      21 Then you will delight in right sacrifice,
+      burnt offerings wholly consumed.
+      Then you will be offered young bulls on your altar.""",
+      AmTitle: 'መዝሙረ ዳዊት 51',
+      AmFullText: """አቤቱ፥ እንደ ቸርነትህ መጠን ማረኝ፤ እንደ ምሕረትህም ብዛት መተላለፌን ደምስስ።
+          2 ከበደሌ ፈጽሞ እጠበኝ፥ ከኃጢአቴም አንጻኝ፤
+      3 እኔ መተላለፌን አውቃለሁና፥ ኃጢአቴም ሁልጊዜ በፊቴ ነውና።
+      4 አንተን ብቻ በደልሁ፥ በፊትህም ክፋትን አደረግሁ፥ በነገርህም ትጸድቅ ዘንድ በፍርድህም ንጹሕ ትሆን ዘንድ።
+      5 እነሆ፥ በዓመፃ ተፀነስሁ፥ እናቴም በኃጢአት ወለደችኝ።
+      6 እነሆ፥ እውነትን ወደድህ፤ የማይታይ ስውር ጥበብን አስታወቅኸኝ።
+      7 በሂሶጵ እርጨኝ፥ እነጻማለሁ፤ እጠበኝ፥ ከበረዶም ይልቅ ነጭ እሆናለሁ።
+      8 ሐሤትንና ደስታን አሰማኝ፥ የሰበርሃቸውም አጥንቶቼ ደስ ይላቸዋል።
+      9 ከኃጢአቴ ፊትህን መልስ፥ በደሌንም ሁሉ ደምስስልኝ።
+      10 አቤቱ፥ ንጹሕ ልብን ፍጠርልኝ፥ የቀናውንም መንፈስ በውስጤ አድስ።
+      11 ከፊትህ አትጣለኝ፥ ቅዱስ መንፈስህንም ከእኔ ላይ አትውሰድብኝ።
+      12 የማዳንህን ደስታ ስጠኝ፥ በእሽታ መንፈስም ደግፈኝ።
+      13 ለሕግ ተላላፎች መንገድህን አስተምራለሁ፥ ኃጢአተኞችም ወደ አንተ ይመለሳሉ።
+      14 የመድኃኒቴ አምላክ እግዚአብሔር ሆይ፥ ከደም አድነኝ፥ አንደበቴም በአንተ ጽድቅ ትደሰታለች።
+      15 አቤቱ፥ ከንፈሮቼን ክፈት፥ አፌም ምስጋናህን ያወራል።
+      16 መሥዋዕትን ብትወድድስ በሰጠሁህ ነበር፤ የሚቃጠለውም መሥዋዕት ደስ አያሰኝህም።
+      17 የእግዚአብሔር መሥዋዕት የተሰበረ መንፈስ ነው፥ የተሰበርውንና የተዋረደውን ልብ እግዚአብሔር አይንቅም።
+      18 አቤቱ፥ በውዴታህ ጽዮንን አሰማምራት፤ የኢየሩሳሌምንም ቅጽሮች ሥራ።
+          19 የጽድቁን መሥዋዕት መባውንም የሚቃጠለውንም መሥዋዕት በወደድህ ጊዜ፥ ያን ጊዜ በመሠዊያህ ላይ ፍሪዳዎችን ይሠዋሉ።"""),
+
+      PsalmModel(
+          title: 'Psalm 149',
+          fullText: """1 Alleluia!
+
+          Sing a new song to the LORD,
+          his praise in the assembly of the faithful.
+      2 Let Israel rejoice in its Maker;
+      let Zion’s children exult in their king.
+      3 Let them praise his name with dancing,
+          and make music with timbrel and harp.
+
+      4 For the LORD takes delight in his people;
+      he adorns the poor with salvation.
+      5 Let the faithful exult in glory,
+          and rejoice as they take their rest.
+      6 Let the praise of God be in their mouths
+      and a two-edged sword in their hand,
+
+          7 to deal out vengeance to the nations
+      and punishment upon the peoples;
+      8 to bind their kings in chains
+      and their nobles in fetters of iron;
+      9 to carry out the judgment decreed.
+      This is an honor for all his faithful.
+
+      Alleluia!""",
+      AmTitle: 'መዝሙረ ዳዊት 149',
+      AmFullText: """ሃሌ ሉያ። ለእግዚአብሔር አዲሱን ቅኔ ተቀኙለት፤ ምስጋናው በቅዱሳኑ ጉባኤ ነው።
+          2 እስራኤል በፈጣሪው ደስ ይበለው፥ የጽዮንም ልጆች በንጉሣቸው ሐሤትን ያድርጉ።
+      3 ስሙን በዘፈን ያመስግኑ፥ በከበሮና በመሰንቆም ይዘምሩለት።
+      4 እግዚአብሔር በሕዝቡ ተደስቶአልና፥ የዋሃንንም በማዳኑ ከፍ ከፍ ያደርጋልና።
+      5 ቅዱሳን በክብር ይመካሉ፤ በምንጣፋቸውም ላይ ሐሤትን ያደርጋሉ።
+      6 የእግዚአብሔር ምስጋና በጕሮሮአቸው ነው፤ ሁለት አፍ ያለውም ሰይፍ በእጃቸው ነው፥
+      7 በአሕዛብ ላይ በቀልን በሰዎችም መካከል ቅጣትን ያደርጉ ዘንድ፤
+      8 ንጉሦቻቸውን በሰንሰለት፥ አለቆቻቸውንም በእግር ብረት ያስሩ ዘንድ፤
+      9 የተጻፈውን ፍርድ ያደርጉባቸው ዘንድ። ለቅዱሳን ሁሉ ይህች ክብር ናት። ሃሌ ሉያ።"""),
+
+      PsalmModel(
+          title: 'Psalm 91',
+          fullText: """1 He who dwells in the shelter of the Most High,
+          and abides in the shade of the Almighty,
+    2 says to the LORD, “My refuge,
+    my stronghold, my God in whom I trust!”
+
+    3 He will free you from the snare of the fowler,
+    from the destructive plague;
+    4 he will conceal you with his pinions,
+    and under his wings you will find refuge.
+    His faithfulness is buckler and shield.
+
+    5 You will not fear the terror of the night,
+    nor the arrow that flies by day,
+    6 nor the plague that prowls in the darkness,
+    nor the scourge that lays waste at noon.
+
+    7 A thousand may fall at your side,
+    ten thousand fall at your right:
+    you it will never approach.
+
+    8 Your eyes have only to look
+    to see how the wicked are repaid.
+    9 For you, O LORD, are my refuge.
+    You have made the Most High your dwelling.
+
+    10 Upon you no evil shall fall,
+    no plague approach your tent.
+    11 For you has he commanded his angels
+    to keep you in all your ways.
+
+    12 They shall bear you upon their hands,
+    lest you strike your foot against a stone.
+    13 On the lion and the viper you will tread,
+    and trample the young lion and the serpent.
+
+    14 Since he clings to me in love, I will free him,
+    protect him, for he knows my name.
+    15 When he calls on me, I will answer him;
+    I will be with him in distress;
+    I will deliver him, and give him glory.
+
+    16 With length of days I will content him;
+    I will show him my saving power.""",
+      AmTitle: 'መዝሙረ ዳዊት 91',
+      AmFullText: """በልዑል መጠጊያ የሚኖር ሁሉን በሚችል አምላክ ጥላ ውስጥ ያድራል።
+    2 እግዚአብሔርን። አንተ መታመኛዬ ነህ እለዋለሁ፤ አምላኬና መሸሸጊያዬ ነው፥ በእርሱም እታመናለሁ።
+    3 እርሱ ከአዳኝ ወጥመድ ከሚያስደነግጥም ነገር ያድንሃልና።
+    4 በላባዎቹ ይጋርድሃል፥ በክንፎቹም በታች ትተማመናለህ፤ እውነት እንደ ጋሻ ይከብብሃል።
+    5 ከሌሊት ግርማ፥ በቀን ከሚበርር ፍላጻ፥
+    6 በጨለማ ከሚሄድ ክፉ ነገር፥ ከአደጋና ከቀትር ጋኔን አትፈራም።
+    7 በአጠገብህ ሺህ በቀኝህም አሥር ሺህ ይወድቃሉ፤ ወደ አንተ ግን አይቀርብም።
+    8 በዓይኖችህ ብቻ ትመለከታለህ፥ የኃጥኣንንም ብድራት ታያለህ።
+    9 አቤቱ፥ አንተ ተስፋዬ ነህና፤ ልዑልን መጠጊያህ አደረግህ።
+    10 ክፉ ነገር ወደ አንተ አይቀርብም፥ መቅሠፍትም ወደ ቤትህ አይገባም።
+    11 በመንገድህ ሁሉ ይጠብቁህ ዘንድ መላእክቱን ስለ አንተ ያዝዛቸዋልና፤
+    12 እግርህም በድንጋይ እንዳትሰናከል በእጆቻቸው ያነሡሃል።
+    13 በተኵላና በእባብ ላይ ትጫማለህ፤ አንበሳውንና ዘንዶውን ትረግጣለህ።
+    14 በእኔ ተማምኖአልና አስጥለዋለሁ፤ ስሜንም አውቆአልና እጋርደዋለሁ።
+    15 ይጠራኛል እመልስለትማለሁ፥ በመከራውም ጊዜ ከእርሱ ጋራ እሆናለሁ፤ አድነዋለሁ አከብረውማለሁ።
+    16 ረጅምን ዕድሜ አጠግበዋለሁ፥ ማዳኔንም አሳየዋለሁ።"""),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: Text('Morning Psalm Prayers',style: TextStyle(color: Colors.white)),
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              }, icon: Icon(Icons.arrow_back),color: Colors.white)
+        ),
+        body: Stack(
+          children: [
+
+            Positioned.fill(
+                child: Image.asset('assets/morning rosary.jpg',fit: BoxFit.cover)),
+            Positioned.fill(child: Container(
+              color: Colors.black.withOpacity(0.4),
+            )),
+            SafeArea(
+            child: ListView(
+              physics: BouncingScrollPhysics(),
+              children: [
+
+                ...morningPsalms.map((prayer){
+
+                  return Card(
+                  color: Colors.white.withOpacity(0.05),
+                  margin: EdgeInsets.only(bottom: 16),
+                  child: ExpansionTile(title: Text(prayer.title,style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        prayer.fullText, // Injects your massive multi-line verse string
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          height: 1.6,
+                        ),
+                      ),
+                    ),
+                ]));
+                }).toList(),
+
+              ],
+            ),
+          )]
+        )
+    );
+
+  }
+}
+
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\GlassBox.dart
+========================================
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+class Glassbox extends StatelessWidget {
+
+final Widget child;
+
+const Glassbox({super.key, required this.child});
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+
+        child: Stack(
+          children: [
+
+            BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaY: 5,
+                  sigmaX: 5,
+                ),
+              child: Container(),
+            ),
+
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white.withValues(alpha:0.2)),
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(
+
+                  begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+
+                    colors: [
+                      Colors.white.withValues(alpha: 0.5),
+                      Colors.white.withValues(alpha: 0.1),
+                    ],)
+              ),
+            ),
+            child,
+          ],
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\glorious.dart
+========================================
+import 'package:flutter/material.dart';
+// Note: We are keeping the model import because we will need it to rebuild our data structure later
+import 'package:operation_001/prayer_model.dart';
+
+class gloriousScreen extends StatefulWidget {
+  const gloriousScreen({super.key});
+
+  @override
+  State<gloriousScreen> createState() => _gloriousScreenState();
+}
+
+class _gloriousScreenState extends State<gloriousScreen> {
+  bool isAmharic = false;
+
+  final int weeks = DateTime.now().weekday;
+  final List<String> week = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  final List<String> weekend = ['', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
+
+  @override
+  Widget build(BuildContext context) {
+    const titleStyle = TextStyle(
+      fontSize: 32.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      shadows: [
+        Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
+      ],
+    );
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: SizedBox(
+          width: screenWidth * 0.6,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: Text(
+              isAmharic ? 'የክብር ምሥጢር' : 'The Glorious Mystery',
+              key: ValueKey<bool>(isAmharic),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          TextButton(
+            onPressed: () => setState(() => isAmharic = !isAmharic),
+            child: Text(
+              isAmharic ? 'አማ' : 'EN',
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
+      body: Stack(
+        children: [
+          // Background Image
+          SizedBox.expand(
+            child: Image.asset('assets/wmremove-transformed (9).jpeg', fit: BoxFit.cover),
+          ),
+          Container(color: Colors.black.withOpacity(0.4)),
+
+          // Home UI
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(flex: 3),
+                _buildAnimatedText(
+                  isAmharic ? 'ዛሬ ${weekend[weeks]} ነው' : 'Today is ${week[weeks]}',
+                  titleStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w400),
+                ),
+                _buildAnimatedText(
+                  isAmharic ? 'በክብር ምሥጢር\nእናሰላስል' : 'Let\'s Meditate Through The Glorious Mystery',
+                  titleStyle,
+                ),
+                const Spacer(flex: 2),
+
+                ElevatedButton(
+                  onPressed: () {
+                    // Logic removed - Ready for new learning-based implementation
+                    print("Start Prayer Clicked!");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurpleAccent,
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    elevation: 8,
+                  ),
+                  child: Text(
+                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 80),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnimatedText(String text, TextStyle style) {
+    return SizedBox(
+      width: double.infinity,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: Text(
+          text,
+          key: ValueKey<String>(text),
+          textAlign: TextAlign.center,
+          style: style,
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\images.dart
+========================================
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\joyful.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/prayer_model.dart';
+
+class joyfulScreen extends StatefulWidget {
+  const joyfulScreen({super.key});
+
+  @override
+  State<joyfulScreen> createState() => _joyfulScreenState();
+}
+
+class _joyfulScreenState extends State<joyfulScreen> {
+  bool isAmharic = false;
+
+  final int dayNumber = DateTime.now().weekday;
+  final List<String> weekDay = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  final List<String> weekdays = ['', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
+
+  @override
+  Widget build(BuildContext context) {
+    const titleStyle = TextStyle(
+      fontSize: 32.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      shadows: [
+        Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
+      ],
+    );
+
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: SizedBox(
+          width: screenWidth * 0.6,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: Text(
+              isAmharic ? 'የደስታ ምሥጢር' : 'The Joyful Mystery',
+              key: ValueKey(isAmharic),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          TextButton(
+            onPressed: () => setState(() => isAmharic = !isAmharic),
+            child: Text(
+              isAmharic ? 'አማ' : 'EN',
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
+      body: Stack(
+        children: [
+          // Background Image
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/wmremove-transformed (3).jpeg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(color: Colors.black.withOpacity(0.4)),
+
+          // Home UI
+          Column(
+            children: [
+              const Spacer(flex: 4),
+              _buildAnimatedText(
+                isAmharic ? 'ዛሬ ${weekdays[dayNumber]} ነው' : 'Today is ${weekDay[dayNumber]}',
+                titleStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w400),
+              ),
+              const SizedBox(height: 10),
+              _buildAnimatedText(
+                isAmharic ? 'በደስታ ምስጢር\nእናሰላስል' : 'Let\'s Meditate Through The Joyful Mystery',
+                titleStyle,
+              ),
+              const Spacer(flex: 2),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurpleAccent,
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                  elevation: 8,
+                ),
+                onPressed: () {
+                  // RESET: Navigation removed for skill-building
+                  print("Joyful Start Clicked! Ready to build.");
+                },
+                child: Text(
+                  isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 80),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnimatedText(String text, TextStyle style) {
+    return SizedBox(
+      width: double.infinity,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: Text(
+          text,
+          key: ValueKey<String>(text),
+          textAlign: TextAlign.center,
+          style: style,
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\luminous.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/prayer_model.dart';
+
+class luminousScreen extends StatefulWidget {
+  const luminousScreen({super.key});
+
+  @override
+  State<luminousScreen> createState() => _luminousScreenState();
+}
+
+class _luminousScreenState extends State<luminousScreen> {
+  bool isAmharic = false;
+
+  final List<String> weeks = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  final List<String> weekend = ['', 'áˆ°áŠž', 'áˆ›áŠ­áˆ°áŠž', 'áˆ¨á‰¡á‹•', 'áˆáˆ™áˆµ', 'áŠ áˆ­á‰¥', 'á‰…á‹³áˆœ', 'áŠ¥áˆá‹µ'];
+  final int week = DateTime.now().weekday;
+
+  @override
+  Widget build(BuildContext context) {
+    const titleStyle = TextStyle(
+      fontSize: 32.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      shadows: [
+        Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
+      ],
+    );
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: SizedBox(
+          width: screenWidth * 0.6,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: Text(
+              isAmharic ? 'á‹¨á‰¥áˆ­áˆƒáŠ• áˆáˆ¥áŒ¢áˆ­' : 'The Luminous Mystery',
+              key: ValueKey(isAmharic),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          TextButton(
+            onPressed: () => setState(() => isAmharic = !isAmharic),
+            child: Text(
+              isAmharic ? 'áŠ áˆ›' : 'EN',
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
+      body: Stack(
+        children: [
+          // Background Layer
+          SizedBox.expand(
+            child: Image.asset('assets/wmremove-transformed (10).png', fit: BoxFit.cover),
+          ),
+          Container(color: Colors.black.withOpacity(0.4)),
+
+          // Home UI Layer
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(flex: 4),
+              _buildAnimatedText(
+                isAmharic ? 'á‹›áˆ¬ ${weekend[week]} áŠá‹' : 'Today is ${weeks[week]}',
+                titleStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w400),
+              ),
+              const SizedBox(height: 10),
+              _buildAnimatedText(
+                isAmharic ? 'á‰ á‰¥áˆ­áˆƒáŠ• áˆáˆ¥áŒ¢áˆ­\náŠ¥áŠ“áˆ°áˆ‹áˆµáˆ' : 'Let\'s Meditate Through The Luminous Mystery',
+                titleStyle,
+              ),
+              const Spacer(flex: 2),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurpleAccent,
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                  elevation: 8,
+                ),
+                onPressed: () {
+                  // Navigation Logic Removed
+                  print("Luminous Start Clicked!");
+                },
+                child: Text(
+                  isAmharic ? 'áŒ¸áˆŽá‰±áŠ• áŒ€áˆáˆ­' : 'START PRAYER',
+                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 80),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnimatedText(String text, TextStyle style) {
+    return SizedBox(
+      width: double.infinity,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: Text(
+          text,
+          key: ValueKey<String>(text),
+          textAlign: TextAlign.center,
+          style: style,
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\main.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:operation_001/pages/bible.dart';
+import 'package:operation_001/pages/daily.dart';
+import 'package:operation_001/pages/home.dart';
+import 'package:operation_001/pages/more.dart';
+import 'package:operation_001/DailyPrayer.dart';
+
+void main() => runApp(const MaterialApp(
+  debugShowCheckedModeBanner: false,
+  home: Home(),
+));
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    const UserHome(),
+    const UserBible(),
+    const UserDaily(),
+    const UserMore(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white, // Clean background for better readability
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(0.1),
+              offset: const Offset(0, -5), // Shadow goes UP to separate nav from body
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 8,
+              activeColor: Colors.deepPurple,
+              iconSize: 24,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.deepPurple.withOpacity(0.1),
+              color: Colors.black54,
+              tabs: const [
+                GButton(icon: Icons.home, text: 'Home'),
+                GButton(icon: Icons.menu_book, text: 'Bible'),
+                GButton(icon: Icons.auto_awesome, text: 'Daily'),
+                GButton(icon: Icons.more_horiz, text: 'More'),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\NewPrayerTemplatePage.dart
+========================================
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:operation_001/prayer_data.dart';
+import 'package:operation_001/prayer_model.dart';
+class Newprayertemplatepage extends StatefulWidget {
+
+  final String prayerTitle;
+  final String prayerImage;
+
+  Newprayertemplatepage({
+    required this.prayerTitle, required this.prayerImage,
+});
+
+  @override
+  State<Newprayertemplatepage> createState() => _NewprayertemplatepageState();
+}
+
+class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
+
+  bool isPraying=false;
+
+  @override
+  Widget build(BuildContext context) {
+    final String prayerContent= prayer_data.masterPrayerDB[widget.prayerTitle]![0].contentEn;
+    return PopScope(
+      canPop: !isPraying,
+      onPopInvokedWithResult: (didPop,result){
+        if(didPop) return;
+        if(isPraying==true){
+          setState(() {
+            isPraying=false;
+          });
+        }
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          title: isPraying ? null : Text(widget.prayerTitle,style: TextStyle(color: Colors.white)),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              if (isPraying == true) {
+                setState(() {
+                  isPraying = false; // Gracefully step back out to the card view
+                });
+              } else {
+                Navigator.pop(context); // Pop the screen back to the homepage
+              }
+            },
+          ),
+        ),
+        body: Stack(
+              children: [
+                Image.asset(
+                  widget.prayerImage,
+                  fit: BoxFit.cover,
+                  height: double.infinity,
+                  width: double.infinity),
+
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                      height: double.infinity,
+                      width: double.infinity,
+                      color: Colors.black.withOpacity(0.45),
+                    ),
+                  ),
+                ),
+
+                if(isPraying==false) ...[
+
+                  Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(24),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          height: MediaQuery.of(context).size.height * 0.49,
+                          padding: EdgeInsets.all(25),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.4), // Semi-transparent dark background
+                            borderRadius: BorderRadius.circular(20.0), // Rounded modern corners
+                            border: Border.all(color: Colors.white10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'MOMENT OF PEACE',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 2.5, // Spreads out the letters for a modern aesthetic
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+
+                              Text(
+                                'Peace That Surpasses',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
+                              const SizedBox(height: 24),
+
+                              Text(
+                                '"At dawn let me hear of your mercy,\nfor in you I trust.\nShow me the path I should walk,\nfor I lift up my soul to you."',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 17,
+                                  height: 1.5,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                'â€” Psalm 143:8',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const Spacer(),
+
+                              Text(
+                                'Find Stillness. \nLet His Presence Fill You.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white38.withOpacity(0.7), // Beautifully muted gray-white
+                                  letterSpacing: 0.5,
+
+                                ),
+                              ),
+
+                              SizedBox(height: 20),
+                              FloatingActionButton.extended(
+                                backgroundColor: Colors.white.withOpacity(0.9), // Bright, glowing premium button face
+                                elevation: 0,
+                                onPressed: () {
+                                  setState(() {
+                                    isPraying = true;
+                                  });
+                                },
+                                label: Text(
+                                  'LET US PRAY',
+                                  style: TextStyle(
+                                    color: Colors.black87, // Dark text on light background ensures perfect contrast
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.5,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ]
+                else ...[
+
+                  SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      child: SafeArea(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Text(prayerContent,style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                  ),
+                ],
+              ],
+            ),
+
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\novena_combo.dart
+========================================
+class NovenaCombo {
+
+  final String text;
+  final String imagePath;
+
+  NovenaCombo({required this.text, required this.imagePath});
+
+
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\novena_section.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/novena_combo.dart';
+
+class NovenaSection extends StatefulWidget {
+  const NovenaSection({super.key});
+
+  @override
+  State<NovenaSection> createState() => _NovenaSectionState();
+}
+
+class _NovenaSectionState extends State<NovenaSection> {
+
+
+  List<NovenaCombo> prayers=[
+
+    NovenaCombo(text: 'Adoration', imagePath: 'assets/Adoration.jpg'),
+    NovenaCombo(text: 'Arch Angel Rafael', imagePath: 'assets/Arch Angel Rafael.jpg'),
+    NovenaCombo(text: 'Ash Wednesday', imagePath: 'assets/Ash Wednesday.jpg'),
+    NovenaCombo(text: 'Baptism', imagePath: 'assets/Baptism.jpg'),
+    NovenaCombo(text: 'Christ iS Born', imagePath: 'assets/Christ Is Born.jpg'),
+    NovenaCombo(text: 'Good Deed Thursday', imagePath: 'assets/Good Deed Thursday.jpg'),
+    NovenaCombo(text: 'Good Friday', imagePath: 'assets/Good Friday (2).jpg'),
+    NovenaCombo(text: 'He Is Risen', imagePath: 'assets/He is Risen.jpg'),
+    NovenaCombo(text: 'Holy Mass', imagePath: 'assets/Holy Mass.jpg'),
+    NovenaCombo(text: 'Holy Trinity', imagePath: 'assets/Holy Trinity.jpg'),
+    NovenaCombo(text: 'Jesus And Mary', imagePath: 'assets/Jesus And Mary.jpg'),
+    NovenaCombo(text: 'Lent', imagePath: 'assets/Lent.jpg'),
+    NovenaCombo(text: 'My Daily Journal', imagePath: 'assets/My Daily Journal.jpg'),
+    NovenaCombo(text: 'My Day Is Blessed', imagePath: 'assets/My Day I blessed.jpg'),
+    NovenaCombo(text: 'Palm Sunday', imagePath: 'assets/Pakm Sunday 2.jpg'),
+    NovenaCombo(text: 'Priesthood', imagePath: 'assets/Priestlyhood.jpg'),
+    NovenaCombo(text: 'Saint Dominic', imagePath: 'assets/Saint Dominic.jpg'),
+    NovenaCombo(text: 'The Ascension Of Mary', imagePath: 'assets/The Ascencion Of Mary.jpg'),
+    NovenaCombo(text: 'The End Is Near', imagePath: 'assets/The End Is Near.jpg'),
+    NovenaCombo(text: 'The Sacrament Of Marriage', imagePath: 'assets/The Sacrament Of Marriage.jpg'),
+    NovenaCombo(text: 'The Sorrows Of Mary', imagePath: 'assets/The Sorrows Of Mary.jpg'),
+
+  ];
+
+  List<NovenaCombo> novenaTitles = [
+    NovenaCombo(text: 'Mary Mother Of God', imagePath: 'assets/Mary.jpg'),
+    NovenaCombo(text: 'Sacred Heart', imagePath: 'assets/SacredHeart.jpg'),
+    NovenaCombo(text: 'Arch Angel Michael', imagePath: 'assets/Michael.jpg'),
+    NovenaCombo(text: 'Holy Trinity', imagePath: 'assets/Trinity.jpg'),
+    NovenaCombo(text: 'Pentecost', imagePath: 'assets/Pentecost.jpg'),
+    NovenaCombo(text: 'Pope Leo', imagePath: 'assets/Leo.jpg'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: double.infinity,
+          color: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Spiritual Lessons',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 440,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  itemCount: prayers.length,
+                  itemBuilder: (context, index) {
+                    final pray = prayers[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 280,
+                            height: 380,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                image: AssetImage(pray.imagePath),
+                                fit: BoxFit.cover,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.08),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, 5),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          SizedBox(
+                            width: 280,
+                            child: Text(
+                              pray.text,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 30),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            'Novena',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        const SizedBox(height: 15),
+        SizedBox(
+          height: 180,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            itemCount: novenaTitles.length,
+            itemBuilder: (context, index) {
+              final item = novenaTitles[index];
+              return Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 110,
+                      height: 110,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                          image: AssetImage(item.imagePath),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      width: 110,
+                      child: Text(
+                        item.text,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+        const SizedBox(height: 20),
+      ],
+    );
+  }
+  }
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\prayer_data.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/prayer_model.dart';
+
+class prayer_data{
+
+  static Map<String,List<PrayerStep>> masterPrayerDB= {
+    'The Morning Offering':[
+          PrayerStep(
+              titleEn: 'In The Name Of The Father\n And Of The Son\n And Of The Holy Spirit\n Amen!',
+              titleAm: 'á‹¨áŒ á‹‹á‰µ áˆ˜áˆµá‹‹á‹•á‰µ',
+              contentEn: 'O Jesus,\n'
+                  'through the Immaculate Heart of Mary,\n'
+                  'I offer You my prayers, works,\n'
+                  'joys and sufferings\n'
+                  'of this day for all the intentions\n'
+                  'of Your Sacred Heart,\n'
+                  'in union with the Holy Sacrifice of the Mass\n'
+                  'throughout the world,\n'
+                  'in reparation for my sins,\n'
+                  'for the intentions of all my relatives and friends,\n'
+                  'and in particular\n'
+                  'for the intentions of the Holy Father.\n'
+                  'Amen',
+              contentAm: 'áŠ¥áŒá‹šáŠ á‰¥áˆ”áˆ­á£á‹¨áŠ¢á‹¨áˆ±áˆµ áˆá‰¥á£\n'
+                  'á‹«áˆˆ áŠ á‹³áˆ áŠƒáŒ¢áŠ á‰µ á‹¨á‰°áŒ¸áŠáˆµá‰½\n'
+                  'áŠ¥áŠ•á‹²áˆáˆ á‹¨á‰¤á‰°áŠ­áˆ­áˆµá‰²á‹«áŠ• áŠ¥áŠ“á‰µ á‰ áˆ†áŠá‰½á‹‰\n'
+                  ' á‰ áˆ›áˆ­á‹«áˆ á‰ áŠ©áˆá£\n'
+                  'á‰ á‰…á‹±áˆµ á‰áˆ­á‰£áŠ• áˆ˜áˆµá‹‹á‹•á‰µ á‰ áŠ©áˆá£\n'
+                  'áˆáˆ˜áŠ“á‹Žá‰¼áŠ• áˆ¥áˆ«á‹Žá‰¼áŠ• á‰°áˆµá‹á‹Žá‰¼áŠ•áŠ“\n'
+                  'á‹¨á‹›áˆ¬ á‰€áŠ• áˆ˜áŠ¨áˆ«á‹Žá‰¼áŠ• áˆˆá‹ˆáŠ•á‹¶á‰½áŠ“ áˆˆáˆ´á‰¶á‰½á£\n'
+                  'áˆˆáˆ°á‹ áˆáŒ†á‰½ áˆáˆ‰ á‹°áˆ…áŠ•áŠá‰µáŠ“ áˆˆáŠƒáŒ¢áŠ á‰¶á‰½ áŠ«áˆ£ áŠ¥áŠ•á‹²áˆ†áŠ• áŠ á‰€áˆ­á‰£áˆˆáˆá¡á¡',
+              imagePath: 'assets/sunrise.jpeg')
+],
+    'Prayer of St. Francis':[
+      PrayerStep(
+          titleEn: 'Prayer Of St. Francis',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+          'where there is injury, pardon;\n'
+          'where there is doubt, faith;\n'
+          'where there is despair, hope;\n'
+          'where there is darkness, light;\n'
+          'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+          'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+          'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+          'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+          'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+          'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+          'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+          'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+          'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+          'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+          'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+          'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+          'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+          'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+          'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'The Guardian Angel Prayer':[
+      PrayerStep(
+          titleEn: 'The Guardian Angel Prayer',
+          titleAm: 'á€áˆŽá‰µ á‹ˆá‹° á‰…á‹±áˆµ áŒ á‰£á‰‚ áˆ˜áˆáŠ áŠ­',
+          contentEn: 'Angel of God,\n'
+              'my guardian dear,\n'
+              'To whom God\'s love\n'
+              'commits me here,\n'
+              'Ever this day,\n'
+              'be at my side,\n'
+              'To light and guard,\n'
+              'Rule and guide.',
+          contentAm: 'áŒ á‰£á‰‚á‹¬ á‹¨áˆ†áŠ•áˆ…\n'
+              'á‹¨áŠ¥áŒá‹šáŠ á‰¥áˆ”áˆ­ áˆ˜áˆáŠ áŠ­ áˆ†á‹­á£\n'
+              'áŠ áŠ•á‰° áŠ¥áŠ•á‹µá‰µáŒ á‰¥á‰€áŠ\n'
+              'á‰ áŠ áˆáˆ‹áŠ­ á‰¸áˆ­áŠá‰µ áˆ‹áŠ•á‰° á‰°áˆ°áŒ¥á‰¼áŠ áˆˆáˆáŠ“á£\n'
+              'áŠ á‹•áˆáˆ®á‹¬áŠ• áŠ á‰¥áˆ«áˆáŠá£\n'
+              'áŒ á‰¥á‰€áŠá£\n'
+              'áˆáˆ«áŠá£\n'
+              'áŠ¥áˆ­á‹³áŠá¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Morning Psalm Prayers':[
+      PrayerStep(
+          titleEn: 'Morning Psalm Prayers',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'The Benedictus':[
+      PrayerStep(
+          titleEn: 'The Benedictus',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/My Daily Journal.jpg')
+    ],
+
+    'Angelus':[
+      PrayerStep(
+          titleEn: 'Angelus',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Act Of Contrition':[
+      PrayerStep(
+          titleEn: 'Act Of Contrition',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Prayer for the Hour of Mercy':[
+      PrayerStep(
+          titleEn: 'Prayer for the Hour of Mercy',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Prayer to St. Michael the Archangel':[
+      PrayerStep(
+          titleEn: 'Prayer to St. Michael the Archangel',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Divine Mercy Chaplet':[
+      PrayerStep(
+          titleEn: 'Divine Mercy Chaplet',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Rosary':[
+      PrayerStep(
+          titleEn: 'Rosary',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Vespers (Evening Prayer)':[
+      PrayerStep(
+          titleEn: 'Vespers(Evening Prayer)',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'The Magnificat':[
+      PrayerStep(
+          titleEn: 'The Magnificat',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Prayer of St. Augustine':[
+      PrayerStep(
+          titleEn: 'Act Of Contrition',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Compline (Night Prayer)':[
+      PrayerStep(
+          titleEn: 'Act Of Contrition',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'The Memorare':[
+      PrayerStep(
+          titleEn: 'The Memorare',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Prayer to Saint Joseph':[
+      PrayerStep(
+          titleEn: 'Prayer to Saint Joseph',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Prayer to St. Francis of Assisi':[
+      PrayerStep(
+          titleEn: 'Prayer to St. Francis of Assisi',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'The Litany of the Saints':[
+      PrayerStep(
+          titleEn: 'The Litany of the Saints',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Prayer of Abandonment':[
+      PrayerStep(
+          titleEn: 'Prayer of Abandonment',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Anima Christi':[
+      PrayerStep(
+          titleEn: 'Anima Christi',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Litany Of The Holy Name Of Jesus':[
+      PrayerStep(
+          titleEn: 'Litany Of The Holy Name Of Jesus',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Come, Holy Spirit':[
+      PrayerStep(
+          titleEn: 'Come, Holy Spirit',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+
+    'Hail Holy Queen':[
+      PrayerStep(
+          titleEn: 'Hail Holy Queen',
+          titleAm: 'á‹¨á‰…á‹±áˆµ ááˆ«áŠ•á‰¸áˆµáŠ®áˆµ áŒ¸áˆŽá‰µ',
+          contentEn: 'Lord, make me an instrument of your peace:\n'
+              'where there is hatred, let me sow love;\n'
+              'where there is injury, pardon;\n'
+              'where there is doubt, faith;\n'
+              'where there is despair, hope;\n'
+              'where there is darkness, light;\n'
+              'where there is sadness, joy.\n'
+              'O divine Master, grant that I may not so much seek\n'
+              'to be consoled as to console,\n'
+              'to be understood as to understand,\n'
+              'to be loved as to love.\n'
+              'For it is in giving that we receive,\n'
+              'it is in pardoning that we are pardoned,\n'
+              'and it is in dying that we are born to eternal life.\n'
+              'Amen',
+          contentAm: 'áŒŒá‰³ áˆ†á‹­ á‹¨áˆ°áˆ‹áˆ áˆ˜áˆ³áˆªá‹« áŠ¥áŠ•á‹µáˆ†áŠ• áŠ á‹µáˆ­áŒˆáŠá¤\n'
+              'áŒ¥áˆ á‰£áˆˆá‰ á‰µ áá‰…áˆ­á£\n'
+              'á‰ á‹°áˆ á‰£áˆˆá‰ á‰µ á‹­á‰…áˆ­á‰³á£\n'
+              'áŠ­áˆ­áŠ­áˆ­ á‰£áˆˆá‰ á‰µ áˆµáˆáˆáŠá‰µá£\n'
+              'áŒ¥áˆ­áŒ£áˆ¬ á‰£áˆˆá‰ á‰µ áŠ¥áˆáŠá‰µá£\n'
+              'áˆµáˆ…á‰°á‰µ á‰£áˆˆá‰ á‰µ áŠ¥á‹‰áŠá‰µá£\n'
+              'á‰°áˆµá‹ áˆ˜á‰áˆ¨áŒ¥ á‰£áˆˆá‰ á‰µ áˆ˜áŒ½áŠ“áŠ“á‰µá£\n'
+              'áˆ“á‹˜áŠ• á‰£áˆˆá‰ á‰µ á‹°áˆµá‰³á£\n'
+              'áŒ¨áˆˆáˆ› á‰£áˆˆá‰ á‰µ á‰¥áˆ­áˆƒáŠ• áŠ¥áŠ•á‹²áŒˆáŠ áŠ á‹°áˆ­áŒ á‹˜áŠ•á‹µ áŠ á‰¥á‰ƒáŠá¡á¡\n'
+              'áŒŒá‰³ áˆ†á‹­\n'
+              'áŠ¨áˆ˜áŒ½áŠ“áŠ“á‰µ áˆ›áŒ½áŠ“áŠ“á‰µá£\n'
+              'áŠ¨áˆ˜áŒá‰£á‰£á‰µ áˆ›áŒá‰£á‰£á‰µá£\n'
+              'áŠ¨áˆ˜á‹ˆá‹°á‹µ áˆ˜á‹‰á‹°á‹µá£\n'
+              'áŠ¨áˆ˜á‰€á‰ áˆ áˆ˜áˆµáŒ á‰µá£\n'
+              'á‹­á‰…áˆ­ áˆˆáˆ˜á‰£áˆ á‹­á‰…áˆ­ áˆ›áˆˆá‰µá£\n'
+              'á‹¨á‹˜áˆˆá‹“áˆˆáˆ áˆ•á‹­á‹ˆá‰µ áˆˆáˆ›áŒáŠ˜á‰µ áˆ˜áˆžá‰µ áŠ¥áŠ•á‹³áˆˆá‰¥áŠ áˆˆáˆ›á‹ˆá‰… áŠ¥áˆ­á‹³áŠá¡á¡\n'
+              'áŠ áˆœáŠ•á¡á¡',
+          imagePath: 'assets/St. Francis.jpg')
+    ],
+  };
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\prayer_model.dart
+========================================
+
+class PrayerStep {
+  final String titleEn;
+  final String titleAm;
+  final String contentEn;
+  final String contentAm;
+  final String imagePath;
+
+  PrayerStep({
+    required this.titleEn,
+    required this.titleAm,
+    required this.contentEn,
+    required this.contentAm,
+    required this.imagePath,
+  });
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\PsalmModel.dart
+========================================
+class PsalmModel{
+  String title;
+  String fullText;
+  String AmTitle;
+  String AmFullText;
+
+  PsalmModel({required this.title, required this.fullText, required this.AmTitle, required this.AmFullText});
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\Quote.dart
+========================================
+class Quote {
+
+  String text;
+  String author;
+
+  Quote({required this.text, required this.author});
+
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\rosaryScreen.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/joyful.dart';
+import 'package:operation_001/sorrowful.dart';
+import 'package:operation_001/glorious.dart';
+import 'package:operation_001/luminous.dart';
+
+
+class rosary extends StatefulWidget {
+  const rosary({super.key});
+
+  @override
+  State<rosary> createState() => _rosaryState();
+}
+
+class _rosaryState extends State<rosary> {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Rosary',
+            style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          bottom: const TabBar(
+            tabs: [
+              Tab(child: Text('English')),
+              Tab(child: Text('Amharic')),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            _buildMysteryList(),
+            _buildMysteryList(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMysteryList() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+        child: Column(
+          children: [
+            _buildMysteryCard(
+              'Joyful Mysteries',
+              'Mon, Sat',
+              '"In the joyful mysteries we see, the joy of family, motherhood..."',
+              'â€” Saint John Paul II',
+              'assets/morning rosary.jpg',
+                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const joyfulScreen())),
+            ),
+            const SizedBox(height: 10),
+            _buildMysteryCard(
+              'Sorrowful Mysteries',
+              'Tue, Fri',
+              '"The Rosary is the book of the blind, where souls see and there enact the greatest drama of love..."',
+              'â€” Venerable Fulton Sheen',
+              'assets/img_20.png',
+                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const sorrowfulScreen())),
+            ),
+            const SizedBox(height: 10),
+
+            _buildMysteryCard(
+              'Glorious Mysteries',
+              'Wed, Sun',
+              'In the glorious mysteries the hopes of eternal life are revived.',
+              'â€” Saint John Paul II',
+              'assets/He is Risen.jpg',
+                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const gloriousScreen())),
+            ),
+
+            const SizedBox(height: 10),
+            _buildMysteryCard(
+              'Luminous Mysteries',
+              'Thur',
+              'These mysteries make it possible to reach the threshold of contemplation...',
+              'â€” Saint John Paul II',
+              'assets/holy communion.jpg',
+                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const luminousScreen())),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMysteryCard(String title, String days, String quote, String author, String imagePath, VoidCallback onTap) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      color: Colors.white,
+      elevation: 4,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: InkWell(
+        splashColor: Colors.grey.withValues(alpha: 50),
+        onTap: onTap,
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                width: 100,
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        days,
+                        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Colors.deepPurple),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        quote,
+                        style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        author,
+                        style: const TextStyle(fontSize: 11, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\sorrowful.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/prayer_model.dart';
+
+class sorrowfulScreen extends StatefulWidget {
+  const sorrowfulScreen({super.key});
+  @override
+  State<sorrowfulScreen> createState() => _sorrowfulScreenState();
+}
+
+class _sorrowfulScreenState extends State<sorrowfulScreen> {
+  bool isAmharic = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final int weeks = DateTime.now().weekday;
+    final List<String> weekday = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    final List<String> weekdays = ['', 'áˆ°áŠž', 'áˆ›áŠ­áˆ°áŠž', 'áˆ¨á‰¡á‹•', 'áˆáˆ™áˆµ', 'áŠ áˆ­á‰¥', 'á‰…á‹³áˆœ', 'áŠ¥áˆá‹µ'];
+
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: SizedBox(
+          width: screenWidth * 0.6,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: Text(
+              isAmharic ? 'á‹¨áˆá‹˜áŠ• áˆáˆµáŒ¢áˆ­' : 'The Sorrowful Mystery',
+              key: ValueKey(isAmharic),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          TextButton(
+            onPressed: () => setState(() => isAmharic = !isAmharic),
+            child: Text(
+              isAmharic ? 'áŠ áˆ›' : 'EN',
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: Image.asset(
+                'assets/wmremove-transformed (6).jpeg',
+                fit: BoxFit.cover
+            ),
+          ),
+          Container(color: Colors.black.withOpacity(0.4)),
+          SafeArea(
+            child: Column(
+              children: [
+                const Spacer(flex: 4),
+                _buildAnimatedText(
+                    isAmharic ? 'á‹›áˆ¬ ${weekdays[weeks]} áŠá‹' : 'Today is ${weekday[weeks]}',
+                    24,
+                    FontWeight.w400
+                ),
+                const SizedBox(height: 10),
+                _buildAnimatedText(
+                    isAmharic ? 'á‰ áˆá‹˜áŠ• áˆáˆµáŒ¢áˆ­ áŠ¥áŠ“áˆ°áˆ‹áˆµáˆ' : 'Let\'s Meditate Through\nThe Sorrowful Mystery',
+                    32,
+                    FontWeight.bold
+                ),
+                const Spacer(flex: 2),
+                ElevatedButton(
+                  onPressed: () {
+                    // Logic reset - Ready to learn how to bridge to the next screen
+                    print("Sorrowful Start Clicked!");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    elevation: 8,
+                  ),
+                  child: Text(
+                    isAmharic ? "áŒ¸áˆŽá‰±áŠ• áŒ€áˆáˆ­" : "START PRAYER",
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 80),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnimatedText(String text, double size, FontWeight weight) {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Text(
+          text,
+          key: ValueKey<String>(text),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: size,
+            fontWeight: weight,
+            shadows: const [
+              Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\sunClipper.dart
+========================================
+import 'package:flutter/material.dart';
+
+class SunRevealClipper extends CustomClipper<Path> {
+  final double revealPercent;
+  final Offset center; // The starting point (the button)
+
+  SunRevealClipper(this.revealPercent, this.center);
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    // 1. The full screen "Curtain"
+    path.addRect(Rect.fromLTWH(0, 0, size.width, size.height));
+
+    // 2. The expanding "Window"
+    // We calculate a radius large enough to cover the whole screen eventually
+    double maxRadius = size.longestSide * 1.5;
+    double radius = maxRadius * revealPercent;
+
+    Path circlePath = Path()
+      ..addOval(Rect.fromCircle(
+        center: center,
+        radius: radius,
+      ));
+
+    // 3. Subtract the circle from the rectangle (The "Hole" effect)
+    return Path.combine(PathOperation.difference, path, circlePath);
+  }
+
+  @override
+  bool shouldReclip(SunRevealClipper oldClipper) =>
+      revealPercent != oldClipper.revealPercent || center != oldClipper.center;
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\core\constants.dart
+========================================
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\core\theme.dart
+========================================
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\pages\bible.dart
+========================================
+import 'package:flutter/material.dart';
+
+class UserBible extends StatefulWidget {
+  const UserBible({super.key});
+
+  @override
+  State<UserBible> createState() => _UserBibleState();
+}
+
+class _UserBibleState extends State<UserBible> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('MENU', style: TextStyle(fontSize: 50.0)),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\pages\daily.dart
+========================================
+import 'package:flutter/material.dart';
+
+class UserDaily extends StatefulWidget {
+  const UserDaily({super.key});
+
+  @override
+  State<UserDaily> createState() => _UserDailyState();
+}
+
+class _UserDailyState extends State<UserDaily> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('DAILY', style: TextStyle(fontSize: 50.0)),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\pages\home.dart
+========================================
+import 'package:flutter/material.dart';
+import 'package:operation_001/DailyPrayer.dart';
+import 'package:operation_001/Quote.dart';
+import 'package:operation_001/dashboard_section.dart';
+import 'package:operation_001/novena_section.dart';
+
+
+class UserHome extends StatefulWidget {
+  const UserHome({super.key});
+
+  @override
+  State<UserHome> createState() => _UserHomeState();
+}
+
+class _UserHomeState extends State<UserHome> {
+  List<Quote> quotes = [
+    Quote(
+        text: 'O lord for your mercy never abandons me, for your immaculate mercy embraces me. I shall not fear my fear, i shall not falter. For tou are by my side my Lord, I shall not Fall! My heart rejoices in your love, trembles in your presence. When all looks dim and dark, your name illuminates my path. I take pride in being your son, for nothing else makes me happy in this world.Amen',
+        author: 'Bible')
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Builder( // This Builder creates the correct 'context'
+          builder: (context) {
+            return CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverAppBar(
+                  leading: const Icon(Icons.menu, color: Colors.white),
+                  expandedHeight: MediaQuery.of(context).size.height * 0.4,
+                  backgroundColor: Colors.deepPurple,
+                  pinned: true,
+                  stretch: true,
+                  bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(60),
+                    child: TabBar(
+                      labelColor: Colors.white,
+                      unselectedLabelColor: Colors.white70,
+                      indicatorColor: Colors.white,
+                      tabs: const [
+                        Tab(icon: Icon(Icons.church)),
+                        Tab(icon: Icon(Icons.wb_sunny)),
+                      ],
+                    ),
+                  ),
+                  flexibleSpace: FlexibleSpaceBar(
+                    titlePadding: const EdgeInsets.only(bottom: 70),
+                    centerTitle: true,
+                    title: const Text(
+                      'The Word of God',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    background: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Colors.deepPurple, Color(0xFF673AB7)],
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(25, 40, 25, 100),
+                        child: Center(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: quotes.map((quote) => Text(
+                                '"${quote.text}"',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  height: 1.5,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                  color: Colors.white70,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              )).toList(),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: AnimatedBuilder(
+                    animation: DefaultTabController.of(context),
+                    builder: (context, child) {
+                      final index = DefaultTabController.of(context).index;
+
+                      return Column(
+                        children: [
+                          const SizedBox(height: 25),
+
+                          // Collection-If Logic
+                          if (index == 0) ...[
+                            const NovenaSection(),
+                            const SizedBox(height: 25),
+                            MyUniversalCard(
+                              title: "Gospel Of The Day",
+                              description: "Reflect your day with this Gospel verse",
+                              buttonColor: Colors.deepPurple,
+                              onPressed: () {},
+                            ),
+                          ] else ...[
+                            const SizedBox(height: 50),
+                             Dailyprayer(),
+                            const SizedBox(height: 50),
+                          ],
+
+                          const SizedBox(height: 20),
+                          const DashboardSection(),
+                          const SizedBox(height: 100),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          }
+      ),
+    );
+  }
+}
+
+class MyUniversalCard extends StatelessWidget {
+  final String title;
+  final String description;
+  final Color buttonColor;
+  final VoidCallback onPressed;
+
+  const MyUniversalCard({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.buttonColor,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      color: Colors.white,
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              description,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 15, color: Colors.black87),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: buttonColor,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                ),
+                onPressed: onPressed,
+                child: const Text('Read', style: TextStyle(color: Colors.white)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\pages\more.dart
+========================================
+import 'package:flutter/material.dart';
+
+class UserMore extends StatefulWidget {
+  const UserMore({super.key});
+
+  @override
+  State<UserMore> createState() => _UserMoreState();
+}
+
+class _UserMoreState extends State<UserMore> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('MORE', style: TextStyle(fontSize: 50.0)),
+    );
+  }
+}
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\screens\main_navigation.dart
+========================================
+========================================
+C:\Users\hp\StudioProjects\OPERATION_001\lib\screens\home\home_screen.dart
+========================================

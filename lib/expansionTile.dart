@@ -297,7 +297,57 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: Text('Morning Psalm Prayers',style: TextStyle(color: Colors.white)),
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              }, icon: Icon(Icons.arrow_back),color: Colors.white)
+        ),
+        body: Stack(
+          children: [
+
+            Positioned.fill(
+                child: Image.asset('assets/morning rosary.jpg',fit: BoxFit.cover)),
+            Positioned.fill(child: Container(
+              color: Colors.black.withOpacity(0.4),
+            )),
+            SafeArea(
+            child: ListView(
+              physics: BouncingScrollPhysics(),
+              children: [
+
+                ...morningPsalms.map((prayer){
+
+                  return Card(
+                  color: Colors.white.withOpacity(0.05),
+                  margin: EdgeInsets.only(bottom: 16),
+                  child: ExpansionTile(title: Text(prayer.title,style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        prayer.fullText, // Injects your massive multi-line verse string
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          height: 1.6,
+                        ),
+                      ),
+                    ),
+                ]));
+                }).toList(),
+
+              ],
+            ),
+          )]
+        )
+    );
+
   }
 }
 

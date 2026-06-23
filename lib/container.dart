@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/NewPrayerTemplatePage.dart';
+import 'package:operation_001/expansionTile.dart';
 import 'package:operation_001/novena_combo.dart';
 
 class Contain extends StatefulWidget {
@@ -40,9 +41,17 @@ class _ContainState extends State<Contain> {
                 padding: const EdgeInsets.only(bottom: 15),
                 child: GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Newprayertemplatepage(
-                        prayerTitle: prayer.text,
-                        prayerImage: prayer.imagePath)));
+                    if(prayer.text=='Morning Psalm Prayers') {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => MorningPsalmPage()));
+                    }
+                    else {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                              Newprayertemplatepage(
+                                  prayerTitle: prayer.text,
+                                  prayerImage: prayer.imagePath)));
+                    }
                   },
                   child: Row(
                     children: [
