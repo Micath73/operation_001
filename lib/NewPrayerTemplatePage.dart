@@ -22,7 +22,10 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
 
   @override
   Widget build(BuildContext context) {
-    final String prayerContent= prayer_data.masterPrayerDB[widget.prayerTitle]![0].contentEn;
+    final steps = prayer_data.masterPrayerDB[widget.prayerTitle];
+    final String prayerContent = (steps != null && steps.isNotEmpty)
+        ? steps[0].contentEn
+        : 'Prayer text coming soon...';
     return PopScope(
       canPop: !isPraying,
       onPopInvokedWithResult: (didPop,result){
@@ -34,6 +37,7 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
         }
       },
       child: Scaffold(
+        backgroundColor: const Color(0xFFF5EFD7),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           title: isPraying ? null : Text(widget.prayerTitle,style: TextStyle(color: Colors.white)),
@@ -53,15 +57,16 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
           ),
         ),
         body: Stack(
+          fit: StackFit.expand,
               children: [
                 Positioned(
           top: -(_scrollOffset * 0.38), // This math creates the parallax speed!
           left: 0,
           right: 0,
+                  height: MediaQuery.of(context).size.height * 0.5,
                   child: Image.asset(
                     widget.prayerImage,
                     fit: BoxFit.cover,
-                    height: MediaQuery.of(context).size.height * 0.5,
                     width: double.infinity),
                 ),
 
