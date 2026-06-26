@@ -89,6 +89,84 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
                   ),
                 ),
 
+                if(isPraying)...[
+                  Positioned(
+                      top: MediaQuery.of(context).size.height * 0.45,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF5EFD7), // Your parchment color
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(30),  // Smooth curve for the top left
+                            topRight: Radius.circular(30), // Smooth curve for the top right
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2), // Subtle shadow
+                              blurRadius: 10,
+                              offset: const Offset(0, -5), // This lifts the top edge
+                            ),
+                          ],
+                        ),
+                      child:  SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Column(
+                            children: [
+                              Center(
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(vertical: 20),
+                                  width: 40,
+                                  height: 4,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFD6CDB0),
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
+                                ),
+                              ),
+
+                              // 2. The Header
+                              const Text(
+                                'CATHOLIC DEVOTIONAL',
+                                style: TextStyle(
+                                  color: Color(0xFFC9922A),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 2.0,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+
+                              // 3. The Title
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 30),
+                                child: Text(
+                                  widget.prayerTitle.toUpperCase(),
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Color(0xFF1A0F2E),
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ),
+
+                              // 4. The Liturgical Divider
+                              const SizedBox(height: 20),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 60),
+                                child: Divider(color: const Color(0xFFC9922A).withOpacity(0.5), thickness: 1),
+                              ),
+                              const SizedBox(height: 30),
+                            ],
+                          )
+                      ),
+                      )
+                  ),
+                ],
+
+
                 if(isPraying==false) ...[
 
                   Center(
@@ -187,19 +265,6 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
                     ),
                   )
                 ]
-                else ...[
-
-                  SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
-                      child: SafeArea(
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Text(prayerContent,style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )
-                  ),
-                ],
               ],
             ),
 
