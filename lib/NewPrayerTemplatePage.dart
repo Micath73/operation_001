@@ -18,6 +18,7 @@ class Newprayertemplatepage extends StatefulWidget {
 class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
 
   bool isPraying=false;
+  double _scrollOffset = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -53,20 +54,32 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> {
         ),
         body: Stack(
               children: [
-                Image.asset(
-                  widget.prayerImage,
-                  fit: BoxFit.cover,
-                  height: double.infinity,
-                  width: double.infinity),
+                Positioned(
+          top: -(_scrollOffset * 0.38), // This math creates the parallax speed!
+          left: 0,
+          right: 0,
+                  child: Image.asset(
+                    widget.prayerImage,
+                    fit: BoxFit.cover,
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    width: double.infinity),
+                ),
 
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child: Container(
-                      height: double.infinity,
-                      width: double.infinity,
-                      color: Colors.black.withOpacity(0.45),
+                Positioned(
+                  top: -(_scrollOffset * 0.38), // This math creates the parallax speed!
+                  left: 0,
+                  right: 0,
+                  height: MediaQuery.of(context).size.height * 0.5,
+
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                      child: Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        color: Colors.black.withOpacity(0.45),
+                      ),
                     ),
                   ),
                 ),
