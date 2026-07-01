@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/joyful.dart';
+import 'package:operation_001/joyfulMystery.dart';
 import 'package:operation_001/sorrowful.dart';
+import 'package:operation_001/sorrowfulMystery.dart';
 import 'package:operation_001/glorious.dart';
+import 'package:operation_001/gloriousMystery.dart';
 import 'package:operation_001/luminous.dart';
+import 'package:operation_001/luminousMystery.dart';
 
 
 class rosary extends StatefulWidget {
