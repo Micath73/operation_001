@@ -15,7 +15,7 @@ class UserHome extends StatefulWidget {
 class _UserHomeState extends State<UserHome> {
   List<Quote> quotes = [
     Quote(
-        text: 'O lord for your mercy never abandons me, for your immaculate mercy embraces me. I shall not fear my fear, i shall not falter. For tou are by my side my Lord, I shall not Fall! My heart rejoices in your love, trembles in your presence. When all looks dim and dark, your name illuminates my path. I take pride in being your son, for nothing else makes me happy in this world.Amen',
+        text: 'O lord for your mercy never abandons me, for your immaculate mercy embraces me. I shall not fear my fear, i shall not falter. For you are by my side my Lord, I shall not Fall! My heart rejoices in your love, trembles in your presence. When all looks dim and dark, your name illuminates my path. I take pride in being your son, for nothing else makes me happy in this world.Amen',
         author: 'Bible')
   ];
 
