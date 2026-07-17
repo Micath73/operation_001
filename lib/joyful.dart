@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
+import 'package:operation_001/prayer_session_screen.dart';
 
 class joyfulScreen extends StatefulWidget {
   const joyfulScreen({super.key});
@@ -92,9 +93,14 @@ class _joyfulScreenState extends State<joyfulScreen> {
                   // RESET: Navigation removed for skill-building
                   print("Joyful Start Clicked! Ready to build.");
                 },
-                child: Text(
-                  isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> prayer_session()));
+                  },
+                  child: Text(
+                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
               const SizedBox(height: 80),
