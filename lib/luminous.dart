@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
+import 'package:operation_001/prayer_session_screen.dart';
 
 class luminousScreen extends StatefulWidget {
   const luminousScreen({super.key});
@@ -79,21 +80,26 @@ class _luminousScreenState extends State<luminousScreen> {
               const Spacer(flex: 2),
 
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurpleAccent,
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                  elevation: 8,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurpleAccent,
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    elevation: 8,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>prayer_session(
+                      bgImage: 'assets/wmremove-transformed (10).png',
+                      title: 'Sign Of The Cross',
+                      prayerBody: 'In The Name Of The Father,\nAnd Of The Son,\nAnd Of The Holy Spirit.\nAmen',
+                    )));
+                    print("Luminous Start Clicked!");
+                  },
+                  child: Text(
+                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                onPressed: () {
-                  // Navigation Logic Removed
-                  print("Luminous Start Clicked!");
-                },
-                child: Text(
-                  isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
+
               const SizedBox(height: 80),
             ],
           ),

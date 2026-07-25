@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
+import 'package:operation_001/prayer_session_screen.dart';
 
 class sorrowfulScreen extends StatefulWidget {
   const sorrowfulScreen({super.key});
@@ -70,22 +71,28 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                     FontWeight.bold
                 ),
                 const Spacer(flex: 2),
+
                 ElevatedButton(
-                  onPressed: () {
-                    // Logic reset - Ready to learn how to bridge to the next screen
-                    print("Sorrowful Start Clicked!");
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                    elevation: 8,
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>prayer_session(
+                        bgImage: 'assets/wmremove-transformed (6).jpeg',
+                        title: 'Sign Of The Cross',
+                        prayerBody: 'In The Name Of The Father,\nAnd Of The Son,\nAnd Of The Holy Spirit.\nAmen',
+                      )));
+                      print("Sorrowful Start Clicked!");
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepPurple,
+                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                      elevation: 8,
+                    ),
+                    child: Text(
+                      isAmharic ? "ጸሎቱን ጀምር" : "START PRAYER",
+                      style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  child: Text(
-                    isAmharic ? "ጸሎቱን ጀምር" : "START PRAYER",
-                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
+
                 const SizedBox(height: 80),
               ],
             ),

@@ -95,7 +95,11 @@ class _joyfulScreenState extends State<joyfulScreen> {
                 },
                 child: GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> prayer_session()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> prayer_session(
+                      bgImage: 'assets/wmremove-transformed (3).jpeg',
+                      title: 'Sign Of The Cross',
+                      prayerBody: 'In The Name Of The Father,\nAnd Of The Son,\nAnd Of The Holy Spirit.\nAmen',
+                    )));
                   },
                   child: Text(
                     isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
