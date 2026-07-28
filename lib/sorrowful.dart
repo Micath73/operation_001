@@ -89,22 +89,14 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
             "let this cup pass from me;\n"
             "nevertheless, not as I will,\n"
             "but as you will'\"\n"
-            "(Mt 26:36-39)."
+            "(Mt 26:36-39).",
 
-            "Our Father...\n"
-            "10 Hail Marys\n"
-            "Glory be to the Father...\n"
-            "Fatima Prayer...",
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
             "በጌተሰማኒ አትክልት ውስጥ ጸሎት እያደረሰ፡\n"
             " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
             "የምስጢሩ ፍሬ ሐሳብ፡\n"
-            "በኃጢአታችን በሚገባ ማዘን ነው፡፡\n\n\n"
+            "በኃጢአታችን በሚገባ ማዘን ነው፡፡\n\n\n",
 
-            "አባታችን ሆይ...\n"
-            "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-            "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-            "የፋጢማ ጸሎት...\n",
         imagePath: "assets/img_22.png",
       ),
 
@@ -117,21 +109,13 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
             "but after he had Jesus scourged,\n"
             "he handed him over\n"
             "to be crucified\"\n"
-            "(Mt 27:26)."
+            "(Mt 27:26).",
 
-            "Our Father...\n"
-            "10 Hail Marys\n"
-            "Glory be to the Father...\n"
-            "Fatima Prayer...",
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
             " በጵላጦስ ፊት ደም እስከሚጎርፍ ድረስ፡\n"
             " ስለኃጢአታችን አለ ልክ መገረፉን ማሰብ ነው፡፡\n"
-            " የምስጢሩ ፍሬ ሐሳብ: ከኃጢአት መራቅ ነው፡፡\n\n\n"
+            " የምስጢሩ ፍሬ ሐሳብ: ከኃጢአት መራቅ ነው፡፡\n\n\n",
 
-            "አባታችን ሆይ...\n"
-            "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-            "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-            "የፋጢማ ጸሎት...\n",
         imagePath: "assets/img_23.png",
       ),
 
@@ -152,21 +136,12 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
             "And kneeling before him\n"
             "they mocked him, saying,\n"
             "'Hail, King of the Jews!'\"\n"
-            "(Mt 27:27-29)."
+            "(Mt 27:27-29).",
 
-            "Our Father...\n"
-            "10 Hail Marys\n"
-            "Glory be to the Father...\n"
-            "Fatima Prayer...",
         contentAm: "በጌታችን ኢየሱስ ክርስቶስ፡\n"
             "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
             "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
-            "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n\n"
-
-            "አባታችን ሆይ...\n"
-            "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-            "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-            "የፋጢማ ጸሎት...\n",
+            "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n\n",
 
         imagePath: "assets/img_24.png",
       ),
@@ -184,22 +159,14 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
             "And they brought him to the place\n"
             "called Golgotha\n"
             "(which means the place of a skull)\"\n"
-            "(Mk 15:21-22)."
+            "(Mk 15:21-22).",
 
-            "Our Father...\n"
-            "10 Hail Marys\n"
-            "Glory be to the Father...\n"
-            "Fatima Prayer...",
         contentAm: "አይሁዳዊን በጌታችን ኢየሱስ ክርስቶስ ላይ፡\n"
             "የሞት ፍርድ እንደፈረዱና ስቃይን ለመጨመር፡\n"
             "ከባድ መስቀል ማሸከማቸውን ማሰብ ነው፡፡\n"
             " የምስጢሩ ፍሬ ሐሳብ\n"
-            "ስቃያችንን ስለ እግዚአብሔር ብለን መታገስ ነው፡፡\n\n\n"
+            "ስቃያችንን ስለ እግዚአብሔር ብለን መታገስ ነው፡፡\n\n\n",
 
-            "አባታችን ሆይ...\n"
-            "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-            "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-            "የፋጢማ ጸሎት...\n",
         imagePath: "assets/img_25.png",
       ),
 
@@ -226,23 +193,15 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
             "I commit my spirit!'\n"
             "And having said this\n"
             "he breathed his last\"\n"
-            "(Lk 23:33-46)."
+            "(Lk 23:33-46).",
 
-            "Our Father...\n"
-            "10 Hail Marys\n"
-            "Glory be to the Father...\n"
-            "Fatima Prayer...",
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
             "ቀራንዮ በደረሰ ጊዜ ልብሱን ገፈውት እራቁቱ መሆኑን፡\n"
             "አለ ምሕረትም በመስቀል ላይ መቸንከሩን፡\n"
             "የመከራ ጎደኛው እናቱም ይህን ሁሉ መከራውን አይታ መጨነቅዋን ማሰብ ነው፡፡\n"
             "የምስጢሩ ፍሬ ሐሳብ፡\n"
-            "የሱስንና ማርያምን ወደን ኃጢአትን ሁሉ መተው፡፡\n\n\n"
+            "የሱስንና ማርያምን ወደን ኃጢአትን ሁሉ መተው፡፡\n\n\n",
 
-            "አባታችን ሆይ...\n"
-            "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-            "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-            "የፋጢማ ጸሎት...\n",
         imagePath: "assets/img_26.png",
       ),
     ];

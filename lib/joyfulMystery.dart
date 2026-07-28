@@ -12,12 +12,8 @@ final List<PrayerStep> joysFulSteps=[
           "to a city of Galilee named Nazareth,\n"
           "to a virgin betrothed to a man whose name was Joseph, of the house of David;\n"
           "and the virgin's name was Mary\n"
-          "(Lk 1:26-27).\n\n\n"
+          "(Lk 1:26-27).\n\n\n",
 
-          "Our Father...\n"
-          "10 Hail Marys\n"
-          "Glory be to the Father...\n"
-          "Fatima Prayer...",
       contentAm: "ቅዱስ ገብርኤል\n"
           "ከሰማይ መጥቶ ለድንግል ማርያም እንዲህ አላት፡፡\n"
           "ጸጋ የሞላሽ ሰላም ላንቺ!\n"
@@ -27,12 +23,8 @@ final List<PrayerStep> joysFulSteps=[
           "በዚያ ጊዜ ኢየሱስ በመንፈስ ቅዱስ ኃይል መፀነሱንና\n"
           "ለኛ ሰው መሆኑን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "ትዕብትን መናቅና ትህትናን መለመን፡፡\n\n\n"
+          "ትዕብትን መናቅና ትህትናን መለመን፡፡\n\n\n",
 
-          "አባታችን ሆይ...\n"
-          "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-          "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-          "የፋጢማ ጸሎት...\n",
       imagePath: "assets/img_32.png"
   ),
 
@@ -49,23 +41,15 @@ final List<PrayerStep> joysFulSteps=[
           "and Elizabeth was filled with the Holy Spirit\n"
           "and she exclaimed with a loud cry,\n"
           "'Blessed are you among women, and blessed is the fruit of your womb!'\n"
-          "(Lk 1:39-42).\n\n\n"
+          "(Lk 1:39-42).\n\n\n",
 
-          "Our Father...\n"
-          "10 Hail Marys\n"
-          "Glory be to the Father...\n"
-          "Fatima Prayer...",
       contentAm: "እመቤታችን ድንግል ማርያም\n"
           " የቅድስት ኤልሳቤጥን መፅነስ በሰማች ጊዜ\n"
           "ልትጎበኛት ወደ እሷ መሄድዋን:\n"
           " በእርስዋም ዘንድ ሶስት ወር መቀመጧን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "የሰውን ፍቅር መለመንና ለማግኘት መትጋት ነው፡፡\n\n\n"
+          "የሰውን ፍቅር መለመንና ለማግኘት መትጋት ነው፡፡\n\n\n",
 
-          "አባታችን ሆይ...\n"
-          "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-          "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-          "የፋጢማ ጸሎት...\n",
       imagePath: "assets/img_33.png"
   ),
 
@@ -89,22 +73,14 @@ final List<PrayerStep> joysFulSteps=[
           "and wrapped him in swaddling cloths,\n"
           "and laid him in a manger,\n"
           "because there was no place for them in the inn.\n"
-          "(Lk 2:1-7).\n\n\n"
+          "(Lk 2:1-7).\n\n\n",
 
-          "Our Father...\n"
-          "10 Hail Marys\n"
-          "Glory be to the Father...\n"
-          "Fatima Prayer...",
       contentAm: "እመቤታችን\n"
           "ጌታችን ኢየሱስ ክርስቶስን የምትወልድበት ቀን በደረሰ ጊዜ\n"
           "በቤተልሔም በከብቶች በረት መውለድዋን ማሰብ ነው::\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "የዚህ ዓለም ሀብት መናቅና ድህነትን መቻል ነው፡፡\n\n\n"
+          "የዚህ ዓለም ሀብት መናቅና ድህነትን መቻል ነው፡፡\n\n\n",
 
-          "አባታችን ሆይ...\n"
-          "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-          "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-          "የፋጢማ ጸሎት...\n",
       imagePath: "assets/img_34.png"
   ),
 
@@ -123,22 +99,14 @@ final List<PrayerStep> joysFulSteps=[
           "'Every male that opens the womb shall be called holy to the Lord')\n"
           "and to offer a sacrifice according to what is said in the law of the Lord,\n"
           "'a pair of turtledoves, or two young pigeons.'\n"
-          "(Lk 2:21-24).\n\n\n"
+          "(Lk 2:21-24).\n\n\n",
 
-          "Our Father...\n"
-          "10 Hail Marys\n"
-          "Glory be to the Father...\n"
-          "Fatima Prayer...",
       contentAm: "እመቤታችን ማርያም\n"
           "ጌታችን ከወለደች በኋላ ወደ ቤተመቅደስ ወስዳ\n"
           "ቅዱስ ስምኦንም እርሱን በብዙ ደስታ መቀበሉን ማሰብ ነው::\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "የእግዚአብሔርንና የቤተክርቲያንን ደንብ መጠበቅ ነው፡፡\n\n\n"
+          "የእግዚአብሔርንና የቤተክርቲያንን ደንብ መጠበቅ ነው፡፡\n\n\n",
 
-          "አባታችን ሆይ...\n"
-          "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-          "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-          "የፋጢማ ጸሎት...\n",
       imagePath: "assets/img_35.png"
   ),
 
@@ -157,23 +125,15 @@ final List<PrayerStep> joysFulSteps=[
           "sitting among the teachers,\n"
           "listening to them and asking them questions;\n"
           "and all who heard him were amazed at his understanding and his answers\n"
-          "(Lk 2:41-47).\n\n\n"
+          "(Lk 2:41-47).\n\n\n",
 
-          "Our Father...\n"
-          "10 Hail Marys\n"
-          "Glory be to the Father...\n"
-          "Fatima Prayer...",
       contentAm: "ጌታችን ኢየሱስ\n"
           "በተወለደ በአሥራ ሁለት ዓመቱ\n"
           "እመቤታችን ማርያም ሳታውቅ በኢየሩሳሌም\n"
           "የእግዚአብሔር ህግ በሚያስተምሩት መካከል መገኘቱን ማሰብ ነው::\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "የእግዚአብሔርን ሕግ መማር ነው፡፡\n\n\n"
+          "የእግዚአብሔርን ሕግ መማር ነው፡፡\n\n\n",
 
-          "አባታችን ሆይ...\n"
-          "(10) ጸጋ የሞለሽ ማርያም ሆይ...\n"
-          "ለአብና ለወልድ ለመንፋስ ቅዱስ...\n"
-          "የፋጢማ ጸሎት...\n",
       imagePath: "assets/img_36.png"
   )
 
