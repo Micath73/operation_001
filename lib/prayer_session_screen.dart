@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:operation_001/prayer_model.dart';
+import 'package:operation_001/rosary_completion_screen.dart';
 
 class prayer_session extends StatefulWidget {
   final List<PrayerStep> prayerSteps;
@@ -37,13 +38,14 @@ class _prayer_sessionState extends State<prayer_session> {
         _currentPosition = 0.0;
       });
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            widget.isAmharic ? 'ጸሎቱ ተጠናቋል!' : 'Rosary Session Completed!',
-            style: const TextStyle(fontWeight: FontWeight.bold),
+      // Navigate to the Completion Screen instead of showing a SnackBar
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => RosaryCompletionScreen(
+            isAmharic: widget.isAmharic,
+            mysteryTitle: widget.prayerSteps.first.sectionHeader ??
+                (widget.isAmharic ? 'መደበኛ ጸሎት' : 'Rosary Session'),
           ),
-          backgroundColor: Colors.deepPurpleAccent,
         ),
       );
     }
