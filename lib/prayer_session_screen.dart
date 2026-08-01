@@ -6,10 +6,12 @@ import 'package:operation_001/rosary_completion_screen.dart';
 class prayer_session extends StatefulWidget {
   final List<PrayerStep> prayerSteps;
   final bool isAmharic;
+  final String? mysteryTitle; // Optional!
 
   const prayer_session({
     super.key,
     required this.prayerSteps,
+    this.mysteryTitle,
     this.isAmharic = false,
   });
 
@@ -38,16 +40,47 @@ class _prayer_sessionState extends State<prayer_session> {
         _currentPosition = 0.0;
       });
     } else {
-      // Navigate to the Completion Screen instead of showing a SnackBar
+      String resolvedTitle = widget.mysteryTitle ?? _extractOverallMysteryTitle();
+
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => RosaryCompletionScreen(
             isAmharic: widget.isAmharic,
-            mysteryTitle: widget.prayerSteps.first.sectionHeader ??
-                (widget.isAmharic ? 'መደበኛ ጸሎት' : 'Rosary Session'),
+            mysteryTitle: resolvedTitle,
           ),
         ),
       );
+    }
+  }
+
+  // Automatically cleans '1st Joyful Mystery' -> 'Joyful Mysteries'
+  String _extractOverallMysteryTitle() {
+    PrayerStep? mysteryStep;
+
+    try {
+      mysteryStep = widget.prayerSteps.firstWhere(
+            (step) =>
+        (step.sectionHeader != null &&
+            (step.sectionHeader!.contains('Mystery') || step.sectionHeader!.contains('ምሥጢር'))) ||
+            (step.titleEn.contains('Mystery') || step.titleAm.contains('ምሥጢር')),
+      );
+    } catch (_) {
+      mysteryStep = widget.prayerSteps.first;
+    }
+
+    String rawTitle = widget.isAmharic
+        ? (mysteryStep.sectionHeader ?? mysteryStep.titleAm)
+        : (mysteryStep.sectionHeader ?? mysteryStep.titleEn);
+
+    if (widget.isAmharic) {
+      return rawTitle
+          .replaceAll(RegExp(r'^(አንደኛ|ሁለተኛ|ሦስተኛ|አራተኛ|አምስተኛ)\s*'), '')
+          .trim();
+    } else {
+      return rawTitle
+          .replaceAll(RegExp(r'^(1st|2nd|3rd|4th|5th|First|Second|Third|Fourth|Fifth)\s*', caseSensitive: false), '')
+          .replaceAll(RegExp(r'\bMystery\b', caseSensitive: false), 'Mystery')
+          .trim();
     }
   }
 
@@ -239,7 +272,6 @@ class _prayer_sessionState extends State<prayer_session> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(22.0),
                                 decoration: BoxDecoration(
-                                  // Translucent tint lets background blur shine through
                                   color: Colors.black.withOpacity(0.22),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -278,7 +310,7 @@ class _prayer_sessionState extends State<prayer_session> {
                             ),
                           ),
 
-                          // Interactive/Separated Prayer Sequence Badges for Mysteries
+                          // Interactive Badges
                           if (isMysteryStep) ...[
                             const SizedBox(height: 18),
                             Padding(

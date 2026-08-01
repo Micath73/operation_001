@@ -12,12 +12,11 @@ class luminousScreen extends StatefulWidget {
 class _luminousScreenState extends State<luminousScreen> {
   bool isAmharic = false;
 
-  final List<String> weeks = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  final List<String> weekend = ['', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
-  final int week = DateTime.now().weekday;
+  final int dayNumber = DateTime.now().weekday;
+  final List<String> weekDay = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  final List<String> weekdays = ['', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
 
-
-  // 1. Define your prayer sequence using your PrayerStep model
+  // Define prayer sequence using PrayerStep model
   final List<PrayerStep> prayerSequence = [
     PrayerStep(
       sectionHeader: 'Sign of the Cross',
@@ -77,14 +76,11 @@ class _luminousScreenState extends State<luminousScreen> {
             "and alighting on Him, and lo, a voice from heaven, saying\n"
             "'this is My beloved Son,” with whom I am well pleased.'\n"
             "(Matthew 3:16-17).\n\n\n",
-
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ\n"
             "በዮርዳኖስ ወንዝ በአጥማቂው\n"
             "ዮሐንስ እጅ እንደተጠመቀ ማሰብ ነው፡፡\n\n\n",
-
         imagePath: "assets/img_37.png"
     ),
-
     PrayerStep(
         titleEn: "Second Luminous Mystery",
         titleAm: "ሁለተኛ የብርሃን ምስጢር",
@@ -95,14 +91,11 @@ class _luminousScreenState extends State<luminousScreen> {
             "'Fill the jars with water.'\n"
             "And they filled them up to the brim.\n"
             "(John 2:5-7).\n\n\n",
-
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ\n"
             " በቃና ዘገሊላ በመጀመሪያ ተአምር\n"
             "ውኃን ወደ ወይን ጠጅ መለወጡን ማሰብ ነው፡፡\n\n\n",
-
         imagePath: "assets/img_38.png"
     ),
-
     PrayerStep(
         titleEn: "Third Luminous Mystery",
         titleAm: "ሶስተኛ የብርሃን ምስጢር",
@@ -112,14 +105,11 @@ class _luminousScreenState extends State<luminousScreen> {
             "Heal the sick, raise the dead, cleanse lepers, cast out demons.\n"
             "You received without pay, give without pay.\n"
             "(Matthew 10:7-8).\n\n\n",
-
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ\n"
             "ስለ እግዚአብሔር መንግስት\n"
             "አዋጅ እንዳደረገ ማሰብ ነው፡፡\n\n\n",
-
         imagePath: "assets/img_39.png"
     ),
-
     PrayerStep(
         titleEn: "Fourth Luminous Mystery",
         titleAm: "አራተኛ የብርሃን ምስጢር",
@@ -130,14 +120,11 @@ class _luminousScreenState extends State<luminousScreen> {
             "And a voice came out of the cloud saying,\n"
             "'This is My Son, My chosen; listen to Him!'\n"
             "(Luke 9:29, 35).\n\n\n",
-
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ\n"
             "በታቦር ተራራ ላይ በሐዋርያት ፊት\n"
             "መልኩ መለወጡን ማሰብ ነው፡፡\n\n\n",
-
         imagePath: "assets/img_40.png"
     ),
-
     PrayerStep(
         titleEn: "Fifth Luminous Mystery",
         titleAm: "አምስተኛ የብርሃን ምስጢር",
@@ -150,17 +137,18 @@ class _luminousScreenState extends State<luminousScreen> {
             "'This cup which is poured out for you is\n"
             "the new covenant in My blood.'\n"
             "(Luke 22:19-20)\n\n\n",
-
         contentAm: "ጌታችን ኢየሱስ ክርስቶስ\n"
             "በጸሎት ሐሙስ ማታ ከሐዋርያት ጋር ሆነው\n"
             "ቅዱስ ቁርባንን መመሥረቱን ማሰብ ነው፡፡\n\n\n",
-
         imagePath: "assets/img_41.png"
     )
   ];
 
   @override
   Widget build(BuildContext context) {
+    // Thursday = 4
+    bool isLuminousDay = (dayNumber == 4);
+
     const titleStyle = TextStyle(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
@@ -180,7 +168,7 @@ class _luminousScreenState extends State<luminousScreen> {
             duration: const Duration(milliseconds: 300),
             child: Text(
               isAmharic ? 'የብርሃን ምሥጢር' : 'The Luminous Mystery',
-              key: ValueKey(isAmharic),
+              key: ValueKey<bool>(isAmharic),
               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
@@ -207,48 +195,55 @@ class _luminousScreenState extends State<luminousScreen> {
           Container(color: Colors.black.withOpacity(0.4)),
 
           // Home UI Layer
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(flex: 4),
-              _buildAnimatedText(
-                isAmharic ? 'ዛሬ ${weekend[week]} ነው' : 'Today is ${weeks[week]}',
-                titleStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w400),
-              ),
-              const SizedBox(height: 10),
-              _buildAnimatedText(
-                isAmharic ? 'በብርሃን ምሥጢር\nእናሰላስል' : 'Let\'s Meditate Through The Luminous Mystery',
-                titleStyle,
-              ),
-              const Spacer(flex: 2),
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(flex: 4),
+                _buildAnimatedText(
+                  isLuminousDay
+                      ? (isAmharic
+                      ? 'ዛሬ ${weekdays[dayNumber]} ነው'
+                      : 'Today is ${weekDay[dayNumber]}')
+                      : (isAmharic
+                      ? ''
+                      : ''),
+                  titleStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w400),
+                ),
+                const SizedBox(height: 10),
+                _buildAnimatedText(
+                  isAmharic ? 'በብርሃን ምሥጢር\nእናሰላስል' : 'Let\'s Meditate Through The Luminous Mystery',
+                  titleStyle,
+                ),
+                const Spacer(flex: 2),
 
-              ElevatedButton(
+                ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurpleAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     elevation: 8,
                   ),
-                onPressed: () {
-
+                  onPressed: () {
                     Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => prayer_session(
-                        prayerSteps: prayerSequence, // 👈 Fixes the constructor mismatch!
-                        isAmharic: isAmharic,           // 👈 Passes language toggle state
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => prayer_session(
+                          prayerSteps: prayerSequence,
+                          isAmharic: isAmharic,
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
                   child: Text(
                     isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
                     style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
 
-              const SizedBox(height: 80),
-            ],
+                const SizedBox(height: 80),
+              ],
+            ),
           ),
         ],
       ),

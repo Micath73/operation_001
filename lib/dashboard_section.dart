@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/angelusScreen.dart';
 
 class DashboardSection extends StatefulWidget {
   const DashboardSection({super.key});
@@ -87,7 +88,11 @@ class _DashboardSectionState extends State<DashboardSection> {
                 ),
                 const SizedBox(height: 15),
                 _buildDailyButton("Read today's Gospel"),
-                _buildDailyButton("Pray today's Angelus"),
+                GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>angelus()));
+                    },
+                    child: _buildDailyButton("Pray today's Angelus")),
                 if (selectedDay != 'Sun')
                   _buildDailyButton("Pray today's Rosary"),
                 if (selectedDay == 'Fri')

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Note: We are keeping the model import because we will need it to rebuild our data structure later
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
 
@@ -13,11 +12,11 @@ class gloriousScreen extends StatefulWidget {
 class _gloriousScreenState extends State<gloriousScreen> {
   bool isAmharic = false;
 
-  final int weeks = DateTime.now().weekday;
-  final List<String> week = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  final List<String> weekend = ['', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
+  final int dayNumber = DateTime.now().weekday;
+  final List<String> weekDay = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  final List<String> weekdays = ['', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
 
-  // 1. Define your prayer sequence using your PrayerStep model
+  // Define prayer sequence using PrayerStep model
   final List<PrayerStep> prayerSequence = [
     PrayerStep(
       sectionHeader: 'Sign of the Cross',
@@ -68,32 +67,28 @@ class _gloriousScreenState extends State<gloriousScreen> {
       imagePath: 'assets/wmremove-transformed (9).jpeg',
     ),
     PrayerStep(
-        titleEn: "First Glorious Mystery",
-        titleAm: "አንደኛ የክብር ምስጢር",
-        contentEn: "The Resurrection.\n\n"
-            "\"But on the first day of the week, at early dawn,\n"
-            "they went to the tomb, taking the spices which they had prepared.\n"
-            "And they found the stone rolled away from the tomb,\n"
-            "but when they went in they did not find the body.\n"
-            "While they were perplexed about this,\n"
-            "behold, two men stood by them in dazzling apparel;\n"
-            "and as they were frightened and bowed their faces to the ground,\n\n"
-            "the men said to them,\n"
-            "'Why do you seek the living among the dead? He is not here, but has risen'\n"
-            "(Lk 24:1-5)\n\n\n",
-
-        contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
-            "ሞቶ ከተቀበረ በኋላ በሶስተኛው ቀን፡\n"
-            " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
-            "ከሙታን መነሳቱን፡\n"
-            "እንዲሁም ሁለተኛ የማይሞት መሆኑን ማሰብ ነው፡፡\n"
-            "የምስጢሩ ፍሬ ሐሳብ፡\n"
-            "ከኃጢአት ተነሥቶ እንደገና ወደ ኃጢአት አለመመለስ ነው፡፡\n\n\n"
-            "አባታችን ሆይ...\n",
-
-        imagePath: "assets/img_27.png"
+      titleEn: "First Glorious Mystery",
+      titleAm: "አንደኛ የክብር ምስጢር",
+      contentEn: "The Resurrection.\n\n"
+          "\"But on the first day of the week, at early dawn,\n"
+          "they went to the tomb, taking the spices which they had prepared.\n"
+          "And they found the stone rolled away from the tomb,\n"
+          "but when they went in they did not find the body.\n"
+          "While they were perplexed about this,\n"
+          "behold, two men stood by them in dazzling apparel;\n"
+          "and as they were frightened and bowed their faces to the ground,\n\n"
+          "the men said to them,\n"
+          "'Why do you seek the living among the dead? He is not here, but has risen'\n"
+          "(Lk 24:1-5)\n\n\n",
+      contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+          "ሞቶ ከተቀበረ በኋላ በሶስተኛው ቀን፡\n"
+          " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
+          "ከሙታን መነሳቱን፡\n"
+          "እንዲሁም ሁለተኛ የማይሞት መሆኑን ማሰብ ነው፡፡\n"
+          "የምስጢሩ ፍሬ ሐሳብ፡\n"
+          "ከኃጢአት ተነሥቶ እንደገና ወደ ኃጢአት አለመመለስ ነው፡፡\n\n\n",
+      imagePath: "assets/img_27.png",
     ),
-
     PrayerStep(
       titleEn: "Second Glorious Mystery",
       titleAm: "ሁለተኛ የክብር ምስጢር",
@@ -103,16 +98,13 @@ class _gloriousScreenState extends State<gloriousScreen> {
           "was taken up into heaven,\n"
           " and sat down at the right hand of God.\n"
           "(Mk 16:19).\n\n\n",
-
       contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
           "ከሙታን በተነሣ በአርባኛው ቀን፡\n"
           "በታላቅ ክብር ወደ ሰማይ መውጣቱን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "ሰማይን ዘወትር ማሰብና መመኘት ነው፡፡\n\n\n",
-
       imagePath: "assets/img_28.png",
     ),
-
     PrayerStep(
       titleEn: "Third Glorious Mystery",
       titleAm: "ሶስተኛ የክብር ምስጢር",
@@ -128,58 +120,51 @@ class _gloriousScreenState extends State<gloriousScreen> {
           "and began to speak in other tongues,\n"
           "as the Spirit gave them utterance.\n"
           "(Acts 2:1-4).\n\n\n",
-
       contentAm: "ሐዋርያት ከእመቤታችን ጋር፡\n"
           "በኢየሩሳሌም ተሰብስበው ሲጸልዩ፡\n"
           "በሃምሳኛው ቀን መንፈስ ቅዱስ መውረዱን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "የእግዚሰብሔርን ፍቅር ለማግኘት፡\n"
           "መንፈስ ቅዱስን መለመን ነው፡፡\n\n\n",
-
       imagePath: "assets/img_29.png",
     ),
-
     PrayerStep(
-      titleEn: "The Annunciation",
+      titleEn: "Fourth Glorious Mystery",
       titleAm: "አራተኛ የክብር ምስጢር",
-      contentEn: "The descent of the Holy Spirit.\n\n"
+      contentEn: "The Assumption of Mary.\n\n"
           "\"Henceforth all generations will call me blessed;\n"
           "for he who is mighty has done great things for me.\n"
           "(Lk 1:48-49).\n\n\n",
-
       contentAm: "እመቤታችን ቅድስት ድንግል ማርያም፡\n"
           "በእግዚአብሔር ኃይል ወደ ሰማይ መውጣትዋን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "መልካም ሞት ለመሞት፡\n"
           "በየቀኑ ማርያምን መለመን ነው፡፡\n\n\n",
-
       imagePath: "assets/img_30.png",
     ),
-
     PrayerStep(
       titleEn: "Fifth Glorious Mystery",
       titleAm: "አምስተኛ የክብር ምስጢር",
-      contentEn: "The crowning of Our Lady Queen of Heaven.\n\n"
+      contentEn: "The Coronation of Our Lady Queen of Heaven.\n\n"
           "\"And a great portent appeared in heaven,\n"
           "a woman clothed with the sun,\n"
           "with the moon under her feet,\n"
           "and on her head a crown of twelve stars.\n"
           "(Rev 12:1 ).\n\n\n",
-
       contentAm: "እመቤታችን ቅድስት ድንግል ማርያም፡\n"
           "ከእግዚአብሔር የክብር አክሊል ማግኘትዋንና፡\n"
           "የሰማይና የምድር ንግሥት መሆኑዋን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "እመቤታችን ማርያምን ዕለት ዕለት መቁጠሪያ እየደገምን ማክበር ነው፡፡\n\n\n",
-
       imagePath: "assets/img_31.png",
     )
-
   ];
-
 
   @override
   Widget build(BuildContext context) {
+    // Wednesday = 3, Sunday = 7
+    bool isGloriousDay = (dayNumber == 3 || dayNumber == 7);
+
     const titleStyle = TextStyle(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
@@ -188,6 +173,7 @@ class _gloriousScreenState extends State<gloriousScreen> {
         Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
       ],
     );
+
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -221,20 +207,29 @@ class _gloriousScreenState extends State<gloriousScreen> {
         children: [
           // Background Image
           SizedBox.expand(
-            child: Image.asset('assets/wmremove-transformed (9).jpeg', fit: BoxFit.cover),
+            child: Image.asset(
+              'assets/wmremove-transformed (9).jpeg',
+              fit: BoxFit.cover,
+            ),
           ),
           Container(color: Colors.black.withOpacity(0.4)),
 
           // Home UI
           SafeArea(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Spacer(flex: 3),
+                const Spacer(flex: 4),
                 _buildAnimatedText(
-                  isAmharic ? 'ዛሬ ${weekend[weeks]} ነው' : 'Today is ${week[weeks]}',
-                  titleStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w400),
+                  isGloriousDay
+                      ? (isAmharic
+                      ? 'ዛሬ ${weekdays[dayNumber]} ነው'
+                      : 'Today is ${weekDay[dayNumber]}')
+                      : (isAmharic
+                      ? ''
+                      : ''),
+                  titleStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w400),
                 ),
+                const SizedBox(height: 10),
                 _buildAnimatedText(
                   isAmharic ? 'በክብር ምሥጢር\nእናሰላስል' : 'Let\'s Meditate Through The Glorious Mystery',
                   titleStyle,
@@ -243,29 +238,27 @@ class _gloriousScreenState extends State<gloriousScreen> {
 
                 ElevatedButton(
                   onPressed: () {
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => prayer_session(
-                          prayerSteps: prayerSequence, // 👈 Fixes the constructor mismatch!
-                          isAmharic: isAmharic,           // 👈 Passes language toggle state
+                          prayerSteps: prayerSequence,
+                          isAmharic: isAmharic,
                         ),
                       ),
                     );
                   },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurpleAccent,
-                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                      elevation: 8,
-                    ),
-                    child: Text(
-                      isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                      style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurpleAccent,
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    elevation: 8,
                   ),
-
+                  child: Text(
+                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
                 const SizedBox(height: 80),
               ],
             ),
