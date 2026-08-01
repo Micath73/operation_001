@@ -1,21 +1,35 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
-class RosaryCompletionScreen extends StatefulWidget {
+class PrayerCompletionScreen extends StatefulWidget {
   final bool isAmharic;
-  final String mysteryTitle;
+  final String detailValue; // e.g., "Sorrowful Mystery", "The Angelus", "Divine Mercy"
+  final String? titleEn;
+  final String? titleAm;
+  final String? subtitleEn;
+  final String? subtitleAm;
+  final String? detailLabelEn;
+  final String? detailLabelAm;
+  final VoidCallback? onReturnHome;
 
-  const RosaryCompletionScreen({
+  const PrayerCompletionScreen({
     super.key,
     required this.isAmharic,
-    required this.mysteryTitle,
+    required this.detailValue,
+    this.titleEn,
+    this.titleAm,
+    this.subtitleEn,
+    this.subtitleAm,
+    this.detailLabelEn,
+    this.detailLabelAm,
+    this.onReturnHome,
   });
 
   @override
-  State<RosaryCompletionScreen> createState() => _RosaryCompletionScreenState();
+  State<PrayerCompletionScreen> createState() => _PrayerCompletionScreenState();
 }
 
-class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
+class _PrayerCompletionScreenState extends State<PrayerCompletionScreen>
     with TickerProviderStateMixin {
   // One-time entry animation
   late AnimationController _entryController;
@@ -83,6 +97,19 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
   Widget build(BuildContext context) {
     final now = DateTime.now();
     final dateString = "${now.day}/${now.month}/${now.year}";
+
+    // Fallback texts
+    final title = widget.isAmharic
+        ? (widget.titleAm ?? 'ጸሎቱ በስኬት ተጠናቋል')
+        : (widget.titleEn ?? 'Prayer Completed');
+
+    final subtitle = widget.isAmharic
+        ? (widget.subtitleAm ?? 'እግዚአብሔር ጸሎትህን/ሽን ይስማ')
+        : (widget.subtitleEn ?? 'May God hear your prayer today');
+
+    final detailLabel = widget.isAmharic
+        ? (widget.detailLabelAm ?? 'የጸሎት ዓይነት')
+        : (widget.detailLabelEn ?? 'Prayer');
 
     return Scaffold(
       backgroundColor: _ink,
@@ -182,7 +209,7 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
 
                   const SizedBox(height: 32),
 
-                  // Eyebrow Label (Matches CATHOLIC DEVOTIONAL style)
+                  // Eyebrow Label
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: const Text(
@@ -199,11 +226,11 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
 
                   const SizedBox(height: 10),
 
-                  // Title Text (Matches Page Titles)
+                  // Title Text
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: Text(
-                      widget.isAmharic ? 'ጸሎቱ በስኬት ተጠናቋል' : 'Rosary Completed',
+                      title,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontFamily: 'Georgia',
@@ -217,13 +244,11 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
 
                   const SizedBox(height: 10),
 
-                  // Subtitle (Matches Verse Style)
+                  // Subtitle Text
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: Text(
-                      widget.isAmharic
-                          ? 'እግዚአብሔር ጸሎትህን/ሽን ይስማ'
-                          : 'May God hear your prayer today',
+                      subtitle,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Georgia',
@@ -267,7 +292,7 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
 
                   const Spacer(flex: 2),
 
-                  // Summary Card (Matches Intro Card Styling)
+                  // Summary Card
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: Container(
@@ -281,8 +306,8 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
                       child: Column(
                         children: [
                           _SummaryRow(
-                            label: widget.isAmharic ? 'የጸሎት ዓይነት' : 'Mystery',
-                            value: widget.mysteryTitle,
+                            label: detailLabel,
+                            value: widget.detailValue,
                             vellum: _vellum,
                             gold: _goldLight,
                           ),
@@ -302,7 +327,7 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
 
                   const Spacer(flex: 3),
 
-                  // Bottom Action Button (Matches LET US PRAY Button Style)
+                  // Bottom Action Button
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: SizedBox(
@@ -317,9 +342,10 @@ class _RosaryCompletionScreenState extends State<RosaryCompletionScreen>
                           ),
                           elevation: 4,
                         ),
-                        onPressed: () {
-                          Navigator.of(context).popUntil((route) => route.isFirst);
-                        },
+                        onPressed: widget.onReturnHome ??
+                                () {
+                              Navigator.of(context).popUntil((route) => route.isFirst);
+                            },
                         child: Text(
                           widget.isAmharic ? 'ወደ ዋና ገጽ' : 'RETURN HOME',
                           style: const TextStyle(
@@ -390,7 +416,6 @@ class _SummaryRow extends StatelessWidget {
   }
 }
 
-// Gold completion ring painter
 class _CompletionRingPainter extends CustomPainter {
   final double progress;
   final Color color;
@@ -425,7 +450,6 @@ class _CompletionRingPainter extends CustomPainter {
       oldDelegate.progress != progress;
 }
 
-// Liturgical Cross Ornament matching _CrossOrnamentPainter from Newprayertemplatepage
 class _CrossOrnamentPainter extends CustomPainter {
   final Color color;
   _CrossOrnamentPainter({required this.color});

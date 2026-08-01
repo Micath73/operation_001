@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:operation_001/prayer_model.dart';
-import 'package:operation_001/rosary_completion_screen.dart';
+import 'package:operation_001/PrayerCompletionScreen.dart';
 
 class prayer_session extends StatefulWidget {
   final List<PrayerStep> prayerSteps;
@@ -44,9 +44,13 @@ class _prayer_sessionState extends State<prayer_session> {
 
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => RosaryCompletionScreen(
+          builder: (context) => PrayerCompletionScreen(
             isAmharic: widget.isAmharic,
-            mysteryTitle: resolvedTitle,
+            detailValue: resolvedTitle,
+            detailLabelEn: 'Mystery',
+            detailLabelAm: 'ምስጢር',
+            titleEn: 'Rosary Completed',
+            titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
           ),
         ),
       );

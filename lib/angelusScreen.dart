@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/PrayerCompletionScreen.dart';
 
 class angelus extends StatefulWidget {
   const angelus({super.key});
@@ -7,7 +8,7 @@ class angelus extends StatefulWidget {
   State<angelus> createState() => _angelusState();
 }
 
-List<String> angelusPrayer=[
+List<String> angelusPrayer = [
   """V. The Angel of the Lord declared unto Mary.
 R. And she conceived of the Holy Spirit.
 
@@ -43,7 +44,7 @@ Through the same Christ Our Lord.
 Amen."""
 ];
 
-List<String> angelusAmharic=[
+List<String> angelusAmharic = [
   """V. የእግዚአብሔር መልአክ ማርያምን አበሠራት፡፡
 R. እርሷም በመንፈስ ቅዱስ ፀነሰች፡፡
 
@@ -70,8 +71,6 @@ R.ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን፡�
  እግዚአብሔር ሆይ በመልአኩ ምስራች የልጅህን የኢየሱስ ክርስቶስን ሰው መሆኑን እንዳወቅን:
  በህማሙና በመስቀሉ ወደ ትንሣኤ ክብር እንድንደርስ ጸጋህን ስጠን፡፡
  በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡"""
-
-
 ];
 
 class _angelusState extends State<angelus> {
@@ -81,134 +80,179 @@ class _angelusState extends State<angelus> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Angelus', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),),
+          title: const Text(
+            'Angelus',
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           centerTitle: true,
-          bottom: TabBar(
-              tabs: [
-                Tab(child: Text("English")),
-                Tab(child: Text("Amharic")),
-              ]),
+          bottom: const TabBar(
+            tabs: [
+              Tab(child: Text("English")),
+              Tab(child: Text("Amharic")),
+            ],
+          ),
         ),
         body: TabBarView(
-            children: [
-              Stack(
-                children: [
-
-                  SingleChildScrollView(
+          children: [
+            // ==================== ENGLISH TAB ====================
+            Stack(
+              children: [
+                SingleChildScrollView(
                   child: Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                        child: Image.asset('assets/img_19.png', scale: 3,),
+                        child: Image.asset('assets/img_19.png', scale: 3),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: SizedBox(
                           width: double.infinity,
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 5, left: 5),
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white70,
-                                borderRadius: BorderRadius.circular(10)
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              padding: EdgeInsets.symmetric(vertical: 20),
-                             child: Column(
-                               crossAxisAlignment: CrossAxisAlignment.start,
-                               children: [
-                                 Text(angelusPrayer[0], style: TextStyle(fontSize: 20),)
-                               ],
-                             ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 120),
-
-                    ],
-                  ),
-                ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Container(
-                        color: Colors.white70,
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.deepPurple,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                            ),
-                            onPressed: (){},
-                            child: const Text('Amen', style: TextStyle(color: Colors.white)),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-              ]),
-
-              Stack(
-                children: [SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                        child: Image.asset('assets/img_19.png', scale: 3,),
-                      ),
-                      SizedBox(height: 30),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 5, left: 5),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white70,
-                                  borderRadius: BorderRadius.circular(10)
-                              ),
-                              padding: EdgeInsets.symmetric(vertical: 20),
+                              padding: const EdgeInsets.symmetric(vertical: 20),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(angelusAmharic[0], style: TextStyle(fontSize: 20),)
+                                  Text(
+                                    angelusPrayer[0],
+                                    style: const TextStyle(fontSize: 20),
+                                  ),
                                 ],
                               ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 120),
+                      const SizedBox(height: 120),
                     ],
                   ),
                 ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Container(
-                        color: Colors.white70,
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.deepPurple,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Container(
+                      color: Colors.white70,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.deepPurple,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            onPressed: (){},
-                            child: const Text('Amen', style: TextStyle(color: Colors.white)),
                           ),
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PrayerCompletionScreen(
+                                  isAmharic: false, // Strictly English for this tab
+                                  detailValue: 'The Angelus',
+                                  detailLabelEn: 'Prayer',
+                                  titleEn: 'Angelus Completed',
+                                ),
+                              ),
+                            );
+                          },
+                          child: const Text('Amen', style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     ),
                   ),
-              ])
+                ),
+              ],
+            ),
 
-            ])
+            // ==================== AMHARIC TAB ====================
+            Stack(
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                        child: Image.asset('assets/img_19.png', scale: 3),
+                      ),
+                      const SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white70,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    angelusAmharic[0],
+                                    style: const TextStyle(fontSize: 20),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 120),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Container(
+                      color: Colors.white70,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.deepPurple,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PrayerCompletionScreen(
+                                  isAmharic: true, // Strictly Amharic for this tab
+                                  detailValue: 'መልአኩ ሰላምታ',
+                                  detailLabelAm: 'የጸሎት ዓይነት',
+                                  titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
+                                ),
+                              ),
+                            );
+                          },
+                          child: const Text('አሜን', style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

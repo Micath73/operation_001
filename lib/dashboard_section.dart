@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/angelusScreen.dart';
-
+import 'package:operation_001/joyful.dart';
+import 'package:operation_001/glorious.dart';
+import 'package:operation_001/luminous.dart';
+import 'package:operation_001/sorrowful.dart';
 class DashboardSection extends StatefulWidget {
   const DashboardSection({super.key});
 
@@ -9,18 +12,52 @@ class DashboardSection extends StatefulWidget {
 }
 
 class _DashboardSectionState extends State<DashboardSection> {
-
-
   String selectedDay = 'Mon';
-  List<String> days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
 
-  Widget _buildDailyButton(String label) {
+  @override
+  void initState() {
+    super.initState();
+    // Automatically select current day of the week on load
+    int todayWeekday = DateTime.now().weekday; // 1 = Mon, 7 = Sun
+    List<String> dayMap = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+    selectedDay = dayMap[todayWeekday - 1];
+  }
+
+  // Returns the correct Rosary screen widget based on selected day or today's weekday
+  Widget _getRosaryScreenForDay(String day) {
+    switch (day) {
+      case 'Mon':
+      case 'Sat':
+        return const joyfulScreen();
+      case 'Tue':
+      case 'Fri':
+        return const sorrowfulScreen();
+      case 'Wed':
+      case 'Sun':
+        return const gloriousScreen();
+      case 'Thur':
+        return const luminousScreen();
+      default:
+        return const joyfulScreen();
+    }
+  }
+
+  // Refactored helper button accepting custom onPressed callback
+  Widget _buildDailyButton(String label, VoidCallback onPressed) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () => print(label),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          onPressed: onPressed,
           child: Text(label),
         ),
       ),
@@ -45,7 +82,7 @@ class _DashboardSectionState extends State<DashboardSection> {
                   alignment: Alignment.topCenter,
                   child: Text(
                     'Daily Progress Dashboard',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -71,6 +108,7 @@ class _DashboardSectionState extends State<DashboardSection> {
                             day,
                             style: TextStyle(
                               color: isSelected ? Colors.white : Colors.black,
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                             ),
                           ),
                         ),
@@ -87,16 +125,28 @@ class _DashboardSectionState extends State<DashboardSection> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                _buildDailyButton("Read today's Gospel"),
-                GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>angelus()));
-                    },
-                    child: _buildDailyButton("Pray today's Angelus")),
-                if (selectedDay != 'Sun')
-                  _buildDailyButton("Pray today's Rosary"),
+                _buildDailyButton("Read today's Gospel", () {
+                  // TODO: Connect Gospel screen here when ready
+                  print("Reading Gospel for $selectedDay");
+                }),
+                _buildDailyButton("Pray today's Angelus", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const angelus()),
+                  );
+                }),
+                _buildDailyButton("Pray today's Rosary", () {
+                  Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => rosaryTarget),
+                  );
+                }),
                 if (selectedDay == 'Fri')
-                  _buildDailyButton("Special Friday Divine Mercy"),
+                  _buildDailyButton("Special Friday Divine Mercy", () {
+                    // TODO: Connect Divine Mercy screen
+                    print("Navigating to Divine Mercy");
+                  }),
               ],
             ),
           ),
