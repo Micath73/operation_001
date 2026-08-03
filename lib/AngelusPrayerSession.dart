@@ -1,26 +1,25 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'dart:ui'; // Required for ImageFilter.blur
-import 'package:operation_001/PrayerCompletionScreen.dart'; // Adjust path if needed
+import 'package:operation_001/PrayerCompletionScreen.dart';
 
-class DivineMercyChaplet extends StatefulWidget {
+class AngelusPrayerSession extends StatefulWidget {
   final bool isAmharic;
 
-  const DivineMercyChaplet({
+  const AngelusPrayerSession({
     super.key,
     this.isAmharic = false,
   });
 
   @override
-  State<DivineMercyChaplet> createState() => _DivineMercyChapletState();
+  State<AngelusPrayerSession> createState() => _AngelusPrayerSessionState();
 }
 
-class _DivineMercyChapletState extends State<DivineMercyChaplet> {
-  // Audio Player State Variables
+class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
+  // Audio Player State
   double _currentPosition = 0.0;
-  final double _totalDuration = 300.0; // ~5 minutes dummy duration
+  final double _totalDuration = 180.0; // 3 minutes
   bool _isPlaying = false;
 
-  // Duration Formatter Helper
   String _formatDuration(double seconds) {
     int totalSeconds = seconds.toInt();
     int minutes = totalSeconds ~/ 60;
@@ -29,8 +28,44 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
     return '$minutes:$secondsStr';
   }
 
+  // English Prayer Content
+  static const String _angelusEnglish =
+      "V. The Angel of the Lord declared unto Mary.\n"
+      "R. And she conceived of the Holy Spirit.\n\n"
+      "Hail Mary, full of grace, the Lord is with you!\n"
+      "Blessed are you among women, and blessed is the fruit of your womb, Jesus.\n"
+      "Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\n"
+      "V. Behold the handmaid of the Lord.\n"
+      "R. Be it done unto me according to your word.\n\n"
+      "Hail Mary, full of grace...\n\n"
+      "V. And the Word was made Flesh.\n"
+      "R. And dwelt among us.\n\n"
+      "Hail Mary, full of grace...\n\n"
+      "V. Pray for us, O holy Mother of God.\n"
+      "R. That we may be made worthy of the promises of Christ.\n\n"
+      "Let us pray:\n"
+      "Pour forth we beseech you, O Lord, your grace into our hearts, that we, to whom the incarnation of Christ your Son was made known by the message of an angel, may by his passion and cross be brought to the glory of his resurrection. Through the same Christ Our Lord. Amen.";
+
+  // Amharic Prayer Content
+  static const String _angelusAmharicText =
+      "V. የእግዚአብሔር መልአክ ማርያምን አበሠራት፡፡\n"
+      "R. እርሷም በመንፈስ ቅዱስ ፀነሰች፡፡\n\n"
+      "ጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\n"
+      "V. እነሆኝ የእግዚአብሔር አገልጋይ፡፡\n"
+      "R. እንዳልከኝ ይሁንልኝ፡፡\n\n"
+      "ጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\n"
+      "V. ቃል ሥጋ ሆነ፡፡\n"
+      "R. በኛም አደረ፡፡\n\n"
+      "ጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\n"
+      "V. ቅድስት የአምላክ እናት ሆይ ለምኝልን፡፡\n"
+      "R. ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን፡፡\n\n"
+      "እንጸልይ:\n"
+      "እግዚአብሔር ሆይ በመልአኩ ምስራች የልጅህን የኢየሱስ ክርስቶስን ሰው መሆኑን እንዳወቅን፤ በህማሙና በመስቀሉ ወደ ትንሣኤ ክብር እንድንደርስ ጸጋህን ስጠን፡፡ በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡";
+
   @override
   Widget build(BuildContext context) {
+    final String content = widget.isAmharic ? _angelusAmharicText : _angelusEnglish;
+
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
@@ -38,28 +73,26 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          widget.isAmharic ? 'የማሕሪው ኢየሱስ ጸሎት' : 'Divine Mercy Chaplet',
+          widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
           style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back, color: Colors.white),
         ),
       ),
       body: Stack(
         children: [
-          // 1. Fixed Background Image
+          // 1. Shared Asset Background
           Positioned.fill(
             child: Image.asset(
-              'assets/img_3.png',
+              'assets/img_19.png',
               fit: BoxFit.cover,
             ),
           ),
 
-          // 2. Blurred Dark Overlay
+          // 2. Blurred Overlay
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
@@ -71,7 +104,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
             ),
           ),
 
-          // 3. Downward Scrollable Prayer Content
+          // 3. Scrollable Prayer View
           Positioned.fill(
             child: SafeArea(
               child: SingleChildScrollView(
@@ -80,7 +113,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // --- Mini Glassmorphic Audio Player Card ---
+                    // --- Mini Glassmorphic Audio Player ---
                     Container(
                       height: 110,
                       margin: const EdgeInsets.only(bottom: 20),
@@ -104,7 +137,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                   decoration: BoxDecoration(
                                     color: Colors.white24,
                                     image: const DecorationImage(
-                                      image: AssetImage('assets/img_3.png'),
+                                      image: AssetImage('assets/img_19.png'),
                                       fit: BoxFit.cover,
                                     ),
                                     borderRadius: BorderRadius.circular(12),
@@ -120,7 +153,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              widget.isAmharic ? 'የማሕሪው ኢየሱስ ድምፅ' : 'Divine Mercy Chaplet Audio',
+                                              widget.isAmharic ? 'የመልአኩ ሰላምታ ድምፅ' : 'The Angelus Audio',
                                               style: const TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.bold,
@@ -197,52 +230,66 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       ),
                     ),
 
-                    // --- Step 1: Sign of the Cross & Opening Prayers ---
-                    _buildPrayerCard(
-                      title: '1. Opening Prayers',
-                      content:
-                      'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n'
-                          'You expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, enfold the whole world and empty Yourself out upon us.\n\n'
-                          'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of mercy for us, I trust in You! (Repeat 3 times)',
+                    // --- Prayer Content Card ---
+                    CustomPaint(
+                      painter: GradientBorderPainter(
+                        strokeWidth: 1.5,
+                        radius: 20,
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.white.withOpacity(0.65),
+                            Colors.white.withOpacity(0.10),
+                            Colors.purpleAccent.withOpacity(0.35),
+                            Colors.white.withOpacity(0.50),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(22.0),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.25),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.isAmharic ? 'የመክፈቻ ጸሎት' : 'Devotional Text',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.amber.shade200,
+                                shadows: [
+                                  Shadow(blurRadius: 8, color: Colors.black.withOpacity(0.6), offset: const Offset(0, 2))
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Divider(color: Colors.white.withOpacity(0.25), thickness: 1),
+                            const SizedBox(height: 10),
+                            Text(
+                              content,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white.withOpacity(0.95),
+                                height: 1.6,
+                                shadows: [
+                                  Shadow(blurRadius: 6, color: Colors.black.withOpacity(0.8), offset: const Offset(1, 1))
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                    const SizedBox(height: 16),
 
-                    // --- Step 2: Preparatory Prayers ---
-                    _buildPrayerCard(
-                      title: '2. Preparatory Prayers',
-                      content:
-                      'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.\n\n'
-                          'Hail Mary, full of grace. The Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\n'
-                          'The Apostles\' Creed:\n'
-                          'I believe in God, the Father Almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and is seated at the right hand of God the Father Almighty; from there He will come to judge the living and the dead. I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.',
-                    ),
-                    const SizedBox(height: 16),
-
-                    // --- Step 3: The 5 Decades ---
-                    _buildPrayerCard(
-                      title: '3. The 5 Decades',
-                      content:
-                      'For each of the 5 Decades, pray the following:\n\n'
-                          'On the Large Bead (Eternal Father):\n'
-                          '"Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your Dearly Beloved Son, Our Lord, Jesus Christ, in atonement for our sins and those of the whole world." \n\n'
-                          'On the 10 Small Beads (Sorrowful Passion):\n'
-                          '"For the sake of His sorrowful Passion, have mercy on us and on the whole world."',
-                    ),
-                    const SizedBox(height: 16),
-
-                    // --- Step 4: Concluding Doxology ---
-                    _buildPrayerCard(
-                      title: '4. Concluding Doxology',
-                      content:
-                      'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n(Repeat 3 times)\n\n'
-                          'Closing Prayer:\n'
-                          'Eternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself. Amen.',
-                    ),
                     const SizedBox(height: 32),
 
-                    // --- Amen Finish Button ---
-                    // Inside DivineMercyChaplet widget...
-
+                    // --- AMEN Finish Button ---
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 24.0),
@@ -256,20 +303,20 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                             elevation: 8,
                           ),
                           onPressed: () {
-                            // Smooth Fade & Micro-Zoom Transition
+                            // Smooth Fade & Zoom to PrayerCompletionScreen
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
                                 transitionDuration: const Duration(milliseconds: 650),
                                 reverseTransitionDuration: const Duration(milliseconds: 400),
                                 pageBuilder: (context, animation, secondaryAnimation) => PrayerCompletionScreen(
                                   isAmharic: widget.isAmharic,
-                                  detailValue: widget.isAmharic ? 'የማሕሪው ኢየሱስ ጸሎት' : 'Divine Mercy Chaplet',
+                                  detailValue: widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
                                   detailLabelEn: 'Devotional',
                                   detailLabelAm: 'ጸሎት',
-                                  titleEn: 'Chaplet Completed',
-                                  titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
-                                  subtitleEn: 'May His Divine Mercy shine upon you',
-                                  subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
+                                  titleEn: 'Angelus Completed',
+                                  titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
+                                  subtitleEn: 'May the grace of His Incarnation fill your heart',
+                                  subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
                                 ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(
@@ -317,68 +364,9 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
       ),
     );
   }
-
-  // --- Helper Widget to Build Glassmorphic Cards ---
-  Widget _buildPrayerCard({required String title, required String content}) {
-    return CustomPaint(
-      painter: GradientBorderPainter(
-        strokeWidth: 1.5,
-        radius: 20,
-        gradient: LinearGradient(
-          colors: [
-            Colors.white.withOpacity(0.65),
-            Colors.white.withOpacity(0.10),
-            Colors.purpleAccent.withOpacity(0.35),
-            Colors.white.withOpacity(0.50),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.25),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.amber.shade200,
-                shadows: [
-                  Shadow(blurRadius: 8, color: Colors.black.withOpacity(0.6), offset: const Offset(0, 2))
-                ],
-              ),
-            ),
-            const SizedBox(height: 8),
-            Divider(color: Colors.white.withOpacity(0.25), thickness: 1),
-            const SizedBox(height: 10),
-            Text(
-              content,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: Colors.white.withOpacity(0.95),
-                height: 1.55,
-                shadows: [
-                  Shadow(blurRadius: 6, color: Colors.black.withOpacity(0.8), offset: const Offset(1, 1))
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
 
-// --- Custom Border Painter for Gradient Card Edges ---
+// Custom Painter for Gradient Card Borders
 class GradientBorderPainter extends CustomPainter {
   final double strokeWidth;
   final double radius;

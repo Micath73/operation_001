@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/Divine_Mercy_Chaplet.dart';
 import 'package:operation_001/angelusScreen.dart';
 import 'package:operation_001/joyful.dart';
 import 'package:operation_001/glorious.dart';
@@ -146,6 +147,7 @@ class _DashboardSectionState extends State<DashboardSection> {
                   _buildDailyButton("Special Friday Divine Mercy", () {
                     // TODO: Connect Divine Mercy screen
                     print("Navigating to Divine Mercy");
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>DivineMercyChaplet()));
                   }),
               ],
             ),

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:operation_001/Divine_Mercy_Chaplet.dart';
 
 class chaplet extends StatefulWidget {
   const chaplet({super.key});
@@ -27,11 +28,6 @@ class _chapletState extends State<chaplet> {
             child: Image.asset(
               'assets/img_3.png',
               fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.45),
             ),
           ),
           Center(
@@ -129,7 +125,25 @@ class _chapletState extends State<chaplet> {
                             ),
                           ),
                           onPressed: () {
-                            // Navigate to Chaplet Session
+                            // Smooth In-Place Cross-Fade Transition
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration: const Duration(milliseconds: 550),
+                                reverseTransitionDuration: const Duration(milliseconds: 400),
+                                pageBuilder: (context, animation, secondaryAnimation) =>
+                                const DivineMercyChaplet(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  return FadeTransition(
+                                    opacity: CurvedAnimation(
+                                      parent: animation,
+                                      curve: Curves.easeInOut,
+                                    ),
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
                           },
                           child: const Text(
                             'LET US PRAY',

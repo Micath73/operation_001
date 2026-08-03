@@ -1,258 +1,178 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:operation_001/PrayerCompletionScreen.dart';
+import 'package:operation_001/AngelusPrayerSession.dart';
 
 class angelus extends StatefulWidget {
-  const angelus({super.key});
+  final bool isAmharic;
+
+  const angelus({
+    super.key,
+    this.isAmharic = false,
+  });
 
   @override
   State<angelus> createState() => _angelusState();
 }
 
-List<String> angelusPrayer = [
-  """V. The Angel of the Lord declared unto Mary.
-R. And she conceived of the Holy Spirit.
-
-Hail Mary, full of grace,
-    the Lord is with you!
-Blessed are you among women,
-and blessed is the fruit of your
-womb, Jesus.
-
-Holy Mary, Mother of God,
-    pray for us sinners,
-    now and at the hour of our death.
-
-V. Behold the handmaid of the Lord.
-R. Be it done unto me according to your word.
-
-Hail Mary . . .
-
-V. And the Word was made Flesh.
-R. And dwelt among us.
-
-Hail Mary . . .
-
-V. Pray for us, O holy Mother of God.
-R. That we may be made worthy of the promises of Christ.
-
-Let us pray:
-
-Pour forth we beseech you, O Lord, your grace into our hearts, that we, to whom the incarnation of Christ your Son was made known by the message of an angel, may by his passion and cross be brought to the glory of his resurrection.
-
-Through the same Christ Our Lord.
-
-Amen."""
-];
-
-List<String> angelusAmharic = [
-  """V. የእግዚአብሔር መልአክ ማርያምን አበሠራት፡፡
-R. እርሷም በመንፈስ ቅዱስ ፀነሰች፡፡
-
- ጸጋ የመላሽ ማርያም ሆይ …
- ቅድስት ማርያም …
-
-V. እነሆኝ የእግዚአብሔር አገልጋይ፡፡
-R. እንዳልከኝ ይሁንልኝ፡፡
-
- ጸጋ የመላሽ ማርያም ሆይ …
- ቅድስት ማርያም …
-
-V. ቃል ሥጋ ሆነ፡፡
-R. በኛም አደረ፡፡
-
- ጸጋ የመላሽ ማርያም ሆይ …
- ቅድስት ማርያም …
-
-V.ቅድስት የአምላክ እናት ሆይ ለምኝልን፡፡
-R.ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን፡፡
-
- እንጸልይ
-
- እግዚአብሔር ሆይ በመልአኩ ምስራች የልጅህን የኢየሱስ ክርስቶስን ሰው መሆኑን እንዳወቅን:
- በህማሙና በመስቀሉ ወደ ትንሣኤ ክብር እንድንደርስ ጸጋህን ስጠን፡፡
- በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡"""
-];
-
 class _angelusState extends State<angelus> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Angelus',
-            style: TextStyle(
-              fontSize: 25,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          centerTitle: true,
-          bottom: const TabBar(
-            tabs: [
-              Tab(child: Text("English")),
-              Tab(child: Text("Amharic")),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            // ==================== ENGLISH TAB ====================
-            Stack(
-              children: [
-                SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                        child: Image.asset('assets/img_19.png', scale: 3),
-                      ),
-                      const SizedBox(height: 30),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white70,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              padding: const EdgeInsets.symmetric(vertical: 20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    angelusPrayer[0],
-                                    style: const TextStyle(fontSize: 20),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 120),
-                    ],
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Container(
-                      color: Colors.white70,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PrayerCompletionScreen(
-                                  isAmharic: false, // Strictly English for this tab
-                                  detailValue: 'The Angelus',
-                                  detailLabelEn: 'Prayer',
-                                  titleEn: 'Angelus Completed',
-                                ),
-                              ),
-                            );
-                          },
-                          child: const Text('Amen', style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+    final double fullHeight = MediaQuery.of(context).size.height;
+    final double fullWidth = MediaQuery.of(context).size.width;
 
-            // ==================== AMHARIC TAB ====================
-            Stack(
-              children: [
-                SingleChildScrollView(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      body: Stack(
+        children: [
+          // Background Image
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/img_19.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          // Central Frosted Glass Card
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaY: 8, sigmaX: 8),
+                child: Container(
+                  width: fullWidth * 0.86,
+                  height: fullHeight * 0.54,
+                  padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: const Color(0xFF1A0F2E).withOpacity(0.55),
+                    border: Border.all(
+                      color: const Color(0xFFC9922A).withOpacity(0.35),
+                      width: 1.2,
+                    ),
+                  ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                        child: Image.asset('assets/img_19.png', scale: 3),
+                      // --- TITLE ---
+                      Text(
+                        widget.isAmharic ? 'የመልአኩ ሰላምታ' : 'THE ANGELUS',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: 'Georgia',
+                          color: Color(0xFFE8B84B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.8,
+                          shadows: [
+                            Shadow(
+                              blurRadius: 10.0,
+                              color: Color(0xFFC9922A),
+                              offset: Offset(0, 0),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 30),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white70,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              padding: const EdgeInsets.symmetric(vertical: 20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    angelusAmharic[0],
-                                    style: const TextStyle(fontSize: 20),
-                                  ),
-                                ],
+                      const SizedBox(height: 12),
+
+                      // Accent Divider
+                      Container(
+                        width: 40,
+                        height: 1.5,
+                        color: const Color(0xFFC9922A).withOpacity(0.6),
+                      ),
+                      const SizedBox(height: 20),
+
+                      // --- QUOTE TEXT ---
+                      Expanded(
+                        child: Center(
+                          child: SingleChildScrollView(
+                            physics: const BouncingScrollPhysics(),
+                            child: Text(
+                              widget.isAmharic
+                                  ? '"የእግዚአብሔር መልአክ ማርያምን አበሠራት፤ እርሷም በመንፈስ ቅዱስ ፀነሰች።"'
+                                  : '"The Angel of the Lord declared unto Mary, and she conceived of the Holy Spirit."',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Georgia',
+                                color: const Color(0xFFF5EFD7).withOpacity(0.95),
+                                fontSize: 15,
+                                fontStyle: FontStyle.italic,
+                                height: 1.5,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 120),
-                    ],
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Container(
-                      color: Colors.white70,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(80, 10, 80, 20),
+
+                      // Citation
+                      Text(
+                        '— Luke 1:38',
+                        style: TextStyle(
+                          fontFamily: 'Georgia',
+                          color: const Color(0xFFE8B84B).withOpacity(0.8),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      // --- ACTION BUTTON ---
+                      SizedBox(
+                        width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
+                            backgroundColor: const Color(0xFFE8B84B),
+                            foregroundColor: const Color(0xFF1A0F2E),
+                            elevation: 4,
+                            padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           onPressed: () {
-                            Navigator.pushReplacement(
+                            // Seamless In-Place Cross-Fade
+                            Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) => const PrayerCompletionScreen(
-                                  isAmharic: true, // Strictly Amharic for this tab
-                                  detailValue: 'መልአኩ ሰላምታ',
-                                  detailLabelAm: 'የጸሎት ዓይነት',
-                                  titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
-                                ),
+                              PageRouteBuilder(
+                                transitionDuration: const Duration(milliseconds: 550),
+                                reverseTransitionDuration: const Duration(milliseconds: 400),
+                                pageBuilder: (context, animation, secondaryAnimation) =>
+                                    AngelusPrayerSession(isAmharic: widget.isAmharic),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  return FadeTransition(
+                                    opacity: CurvedAnimation(
+                                      parent: animation,
+                                      curve: Curves.easeInOut,
+                                    ),
+                                    child: child,
+                                  );
+                                },
                               ),
                             );
                           },
-                          child: const Text('አሜን', style: TextStyle(color: Colors.white)),
+                          child: Text(
+                            widget.isAmharic ? 'እንጸልይ' : 'LET US PRAY',
+                            style: const TextStyle(
+                              fontFamily: 'Georgia',
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.2,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
