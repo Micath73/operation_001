@@ -38,7 +38,7 @@ class _NovenaSectionState extends State<NovenaSection> {
   ];
 
   List<NovenaCombo> novenaTitles = [
-    NovenaCombo(text: 'Mary Mother Of God', imagePath: 'assets/Mary.jpg'),
+    NovenaCombo(text: 'Divine Mercy Chaplet', imagePath: 'assets/img_3.png'),
     NovenaCombo(text: 'Sacred Heart', imagePath: 'assets/SacredHeart.jpg'),
     NovenaCombo(text: 'Arch Angel Michael', imagePath: 'assets/Michael.jpg'),
     NovenaCombo(text: 'Holy Trinity', imagePath: 'assets/Trinity.jpg'),

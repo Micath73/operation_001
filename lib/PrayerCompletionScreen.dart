@@ -1,133 +1,85 @@
-import 'dart:math' as math;
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:operation_001/prayer_tracker.dart';
 
 class PrayerCompletionScreen extends StatefulWidget {
   final bool isAmharic;
-  final String detailValue; // e.g., "Sorrowful Mystery", "The Angelus", "Divine Mercy"
-  final String? titleEn;
-  final String? titleAm;
+  final String detailValue;
+  final String detailLabelEn;
+  final String detailLabelAm;
+  final String titleEn;
+  final String titleAm;
   final String? subtitleEn;
   final String? subtitleAm;
-  final String? detailLabelEn;
-  final String? detailLabelAm;
-  final VoidCallback? onReturnHome;
 
   const PrayerCompletionScreen({
     super.key,
     required this.isAmharic,
     required this.detailValue,
-    this.titleEn,
-    this.titleAm,
+    this.detailLabelEn = 'Prayer',
+    this.detailLabelAm = 'ጸሎት',
+    this.titleEn = 'Prayer Completed',
+    this.titleAm = 'ጸሎቱ በስኬት ተጠናቋል',
     this.subtitleEn,
     this.subtitleAm,
-    this.detailLabelEn,
-    this.detailLabelAm,
-    this.onReturnHome,
   });
 
   @override
   State<PrayerCompletionScreen> createState() => _PrayerCompletionScreenState();
 }
 
-class _PrayerCompletionScreenState extends State<PrayerCompletionScreen>
-    with TickerProviderStateMixin {
-  // One-time entry animation
-  late AnimationController _entryController;
-  late Animation<double> _fadeAnimation;
-  late Animation<Offset> _riseAnimation;
-
-  // Gold ring completion animation
-  late AnimationController _ringController;
-  late Animation<double> _ringSweep;
-
-  // Gentle breathing glow behind the badge
-  late AnimationController _breathController;
-  late Animation<double> _breathAnimation;
-
-  // Exact color palette matching Newprayertemplatepage
-  static const Color _ink = Color(0xFF1A0F2E);
-  static const Color _inkDeep = Color(0xFF0D0718);
-  static const Color _gold = Color(0xFFC9922A);
-  static const Color _goldLight = Color(0xFFE8B84B);
-  static const Color _vellum = Color(0xFFF5EFD7);
+class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
+  int _currentStreak = 1;
+  int _totalPrayers = 1;
+  bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-
-    _entryController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 700),
-    );
-    _fadeAnimation = CurvedAnimation(parent: _entryController, curve: Curves.easeOut);
-    _riseAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.04),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _entryController, curve: Curves.easeOutCubic));
-
-    _ringController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1100),
-    );
-    _ringSweep = CurvedAnimation(parent: _ringController, curve: Curves.easeInOutCubic);
-
-    _breathController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 3200),
-    )..repeat(reverse: true);
-    _breathAnimation = Tween<double>(begin: 0.97, end: 1.03).animate(
-      CurvedAnimation(parent: _breathController, curve: Curves.easeInOut),
-    );
-
-    _entryController.forward();
-    Future.delayed(const Duration(milliseconds: 250), () {
-      if (mounted) _ringController.forward();
-    });
+    _saveAndFetchProgress();
   }
 
-  @override
-  void dispose() {
-    _entryController.dispose();
-    _ringController.dispose();
-    _breathController.dispose();
-    super.dispose();
+  Future<void> _saveAndFetchProgress() async {
+    try {
+      final stats = await PrayerTracker.recordCompletion(widget.detailValue);
+      if (mounted) {
+        setState(() {
+          _currentStreak = stats['streak'] ?? 1;
+          _totalPrayers = stats['total'] ?? 1;
+        });
+      }
+    } catch (e) {
+      // Fallback log if SharedPreferences or platform plugin encounters an issue
+      debugPrint('Error saving prayer completion progress: $e');
+    } finally {
+      // Always stop loading regardless of success or error
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    final dateString = "${now.day}/${now.month}/${now.year}";
-
-    // Fallback texts
-    final title = widget.isAmharic
-        ? (widget.titleAm ?? 'ጸሎቱ በስኬት ተጠናቋል')
-        : (widget.titleEn ?? 'Prayer Completed');
-
-    final subtitle = widget.isAmharic
-        ? (widget.subtitleAm ?? 'እግዚአብሔር ጸሎትህን/ሽን ይስማ')
-        : (widget.subtitleEn ?? 'May God hear your prayer today');
-
-    final detailLabel = widget.isAmharic
-        ? (widget.detailLabelAm ?? 'የጸሎት ዓይነት')
-        : (widget.detailLabelEn ?? 'Prayer');
-
     return Scaffold(
-      backgroundColor: _ink,
+      backgroundColor: const Color(0xFF0D0814),
       body: Stack(
         children: [
-          // Ambient Radial Glow matching the dark prayer background
+          // Background Image with Blur
           Positioned.fill(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: const Alignment(0.0, -0.35),
-                  radius: 1.2,
-                  colors: [
-                    _gold.withOpacity(0.12),
-                    _ink,
-                    _inkDeep,
-                  ],
-                  stops: const [0.0, 0.55, 1.0],
+            child: Image.asset(
+              'assets/img_19.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                child: Container(
+                  color: Colors.black.withOpacity(0.65),
                 ),
               ),
             ),
@@ -135,232 +87,119 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen>
 
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 28.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Spacer(flex: 3),
+                  const Spacer(),
 
-                  // Animated Gold Badge & Breathing Glow
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: SlideTransition(
-                      position: _riseAnimation,
-                      child: AnimatedBuilder(
-                        animation: Listenable.merge([_ringController, _breathController]),
-                        builder: (context, child) {
-                          return SizedBox(
-                            width: 128,
-                            height: 128,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Transform.scale(
-                                  scale: _breathAnimation.value,
-                                  child: Container(
-                                    width: 112,
-                                    height: 112,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: _gold.withOpacity(0.20),
-                                          blurRadius: 36,
-                                          spreadRadius: 4,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                CustomPaint(
-                                  size: const Size(128, 128),
-                                  painter: _CompletionRingPainter(
-                                    progress: _ringSweep.value,
-                                    color: _goldLight,
-                                  ),
-                                ),
-                                Container(
-                                  width: 84,
-                                  height: 84,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: _vellum,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.3),
-                                        blurRadius: 14,
-                                        offset: const Offset(0, 6),
-                                      ),
-                                    ],
-                                  ),
-                                  child: const Icon(
-                                    Icons.check_rounded,
-                                    color: _ink,
-                                    size: 40,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
+                  // Completion Checkmark Icon
+                  Container(
+                    width: 90,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: const Color(0xFFE8B84B).withOpacity(0.15),
+                      border: Border.all(color: const Color(0xFFE8B84B), width: 2),
+                    ),
+                    child: const Icon(
+                      Icons.check_rounded,
+                      color: Color(0xFFE8B84B),
+                      size: 52,
                     ),
                   ),
-
-                  const SizedBox(height: 32),
-
-                  // Eyebrow Label
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: const Text(
-                      'DEVOTIONAL COMPLETE',
-                      style: TextStyle(
-                        fontFamily: 'Georgia',
-                        color: _goldLight,
-                        fontSize: 11,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 3.0,
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  // Title Text
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontFamily: 'Georgia',
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: _vellum,
-                        letterSpacing: 0.3,
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  // Subtitle Text
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: Text(
-                      subtitle,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'Georgia',
-                        fontSize: 15,
-                        fontStyle: FontStyle.italic,
-                        color: _vellum.withOpacity(0.85),
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  // Liturgical Gold Cross Ornamental Divider
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 0.5,
-                            color: _gold.withOpacity(0.4),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: CustomPaint(
-                            size: const Size(12, 12),
-                            painter: _CrossOrnamentPainter(color: _gold),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: 0.5,
-                            color: _gold.withOpacity(0.4),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const Spacer(flex: 2),
-
-                  // Summary Card
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(22),
-                      decoration: BoxDecoration(
-                        color: _ink.withOpacity(0.45),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: _gold.withOpacity(0.25), width: 1),
-                      ),
-                      child: Column(
-                        children: [
-                          _SummaryRow(
-                            label: detailLabel,
-                            value: widget.detailValue,
-                            vellum: _vellum,
-                            gold: _goldLight,
-                          ),
-                          const SizedBox(height: 14),
-                          Divider(color: _gold.withOpacity(0.2), thickness: 0.6, height: 1),
-                          const SizedBox(height: 14),
-                          _SummaryRow(
-                            label: widget.isAmharic ? 'ቀን' : 'Date',
-                            value: dateString,
-                            vellum: _vellum,
-                            gold: _goldLight,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  const Spacer(flex: 3),
-
-                  // Bottom Action Button
-                  FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: 54,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: _vellum,
-                          foregroundColor: _ink,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(27),
-                          ),
-                          elevation: 4,
-                        ),
-                        onPressed: widget.onReturnHome ??
-                                () {
-                              Navigator.of(context).popUntil((route) => route.isFirst);
-                            },
-                        child: Text(
-                          widget.isAmharic ? 'ወደ ዋና ገጽ' : 'RETURN HOME',
-                          style: const TextStyle(
-                            fontFamily: 'Georgia',
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2.0,
-                            color: _ink,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
                   const SizedBox(height: 24),
+
+                  // Header Title
+                  Text(
+                    widget.isAmharic ? widget.titleAm : widget.titleEn,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontFamily: 'Georgia',
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.1,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+
+                  // Subtitle with Fallback Defaults
+                  Text(
+                    widget.isAmharic
+                        ? (widget.subtitleAm ?? 'ጸሎትዎን በተሳካ ሁኔታ አጠናቀዋል')
+                        : (widget.subtitleEn ?? 'May the grace of your prayer remain with you today.'),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Georgia',
+                      fontSize: 14,
+                      color: Colors.white.withOpacity(0.7),
+                      height: 1.4,
+                    ),
+                  ),
+
+                  const SizedBox(height: 36),
+
+                  // --- STREAK & STATS CARDS ---
+                  _isLoading
+                      ? const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: CircularProgressIndicator(color: Color(0xFFE8B84B)),
+                  )
+                      : Row(
+                    children: [
+                      // Daily Streak Card
+                      Expanded(
+                        child: _buildStatTile(
+                          icon: Icons.local_fire_department_rounded,
+                          iconColor: Colors.orangeAccent,
+                          value: '$_currentStreak',
+                          label: widget.isAmharic ? 'ቀን ቅደም ተከተል' : 'Day Streak',
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      // Total Completed Card
+                      Expanded(
+                        child: _buildStatTile(
+                          icon: Icons.auto_awesome_rounded,
+                          iconColor: const Color(0xFFE8B84B),
+                          value: '$_totalPrayers',
+                          label: widget.isAmharic ? 'ጠቅላላ ጸሎቶች' : 'Total Prayers',
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Spacer(),
+
+                  // Return Home Action Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFE8B84B),
+                        foregroundColor: const Color(0xFF1A0F2E),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 4,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).popUntil((route) => route.isFirst);
+                      },
+                      child: Text(
+                        widget.isAmharic ? 'ወደ መነሻ ገጽ ተመለስ' : 'RETURN HOME',
+                        style: const TextStyle(
+                          fontFamily: 'Georgia',
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
                 ],
               ),
             ),
@@ -369,103 +208,43 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen>
       ),
     );
   }
-}
 
-class _SummaryRow extends StatelessWidget {
-  final String label;
-  final String value;
-  final Color vellum;
-  final Color gold;
-
-  const _SummaryRow({
-    required this.label,
-    required this.value,
-    required this.vellum,
-    required this.gold,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          label.toUpperCase(),
-          style: TextStyle(
-            fontFamily: 'Georgia',
-            color: gold,
-            fontSize: 11,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.5,
-          ),
-        ),
-        Flexible(
-          child: Text(
+  Widget _buildStatTile({
+    required IconData icon,
+    required Color iconColor,
+    required String value,
+    required String label,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.06),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withOpacity(0.12)),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, color: iconColor, size: 28),
+          const SizedBox(height: 8),
+          Text(
             value,
-            textAlign: TextAlign.end,
-            style: TextStyle(
-              fontFamily: 'Georgia',
-              color: vellum,
+            style: const TextStyle(
+              fontSize: 22,
               fontWeight: FontWeight.bold,
-              fontSize: 14,
+              color: Colors.white,
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 4),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.white.withOpacity(0.6),
+            ),
+          ),
+        ],
+      ),
     );
   }
-}
-
-class _CompletionRingPainter extends CustomPainter {
-  final double progress;
-  final Color color;
-
-  _CompletionRingPainter({required this.progress, required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2 - 3;
-
-    final paint = Paint()
-      ..color = color.withOpacity(0.9)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.2
-      ..strokeCap = StrokeCap.round;
-
-    const startAngle = -math.pi / 2;
-    final sweepAngle = 2 * math.pi * progress;
-
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      startAngle,
-      sweepAngle,
-      false,
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant _CompletionRingPainter oldDelegate) =>
-      oldDelegate.progress != progress;
-}
-
-class _CrossOrnamentPainter extends CustomPainter {
-  final Color color;
-  _CrossOrnamentPainter({required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = 1.5
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
-
-    canvas.drawLine(Offset(size.width / 2, 0), Offset(size.width / 2, size.height), paint);
-    canvas.drawLine(Offset(0, size.height * 0.35), Offset(size.width, size.height * 0.35), paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
