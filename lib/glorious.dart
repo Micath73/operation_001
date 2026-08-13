@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
+import 'package:operation_001/pre_prayer_intention_screen.dart'; // Added import for pre-prayer intention page
 
 class gloriousScreen extends StatefulWidget {
   const gloriousScreen({super.key});
@@ -241,9 +242,13 @@ class _gloriousScreenState extends State<gloriousScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => prayer_session(
-                          prayerSteps: prayerSequence,
+                        builder: (context) => PrePrayerIntentionScreen(
+                          prayerCategory: 'Glorious Mystery',
                           isAmharic: isAmharic,
+                          targetPrayerPage: prayer_session(
+                            prayerSteps: prayerSequence,
+                            isAmharic: isAmharic,
+                          ),
                         ),
                       ),
                     );

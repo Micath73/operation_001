@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
+import 'package:operation_001/pre_prayer_intention_screen.dart';
 
 class sorrowfulScreen extends StatefulWidget {
   const sorrowfulScreen({super.key});
@@ -267,9 +268,13 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => prayer_session(
-                          prayerSteps: prayerSequence,
+                        builder: (context) => PrePrayerIntentionScreen(
+                          prayerCategory: 'Sorrowful Mystery',
                           isAmharic: isAmharic,
+                          targetPrayerPage: prayer_session(
+                            prayerSteps: prayerSequence,
+                            isAmharic: isAmharic,
+                          ),
                         ),
                       ),
                     );

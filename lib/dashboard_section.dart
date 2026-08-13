@@ -6,6 +6,8 @@ import 'package:operation_001/joyful.dart';
 import 'package:operation_001/glorious.dart';
 import 'package:operation_001/luminous.dart';
 import 'package:operation_001/sorrowful.dart';
+import 'package:operation_001/pre_prayer_intention_screen.dart'; // Added import for pre-prayer intention page
+
 class DashboardSection extends StatefulWidget {
   const DashboardSection({super.key});
 
@@ -134,21 +136,40 @@ class _DashboardSectionState extends State<DashboardSection> {
                 _buildDailyButton("Pray today's Angelus", () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const angelus()),
+                    MaterialPageRoute(
+                      builder: (context) => const PrePrayerIntentionScreen(
+                        prayerCategory: 'Angelus',
+                        isAmharic: false,
+                        targetPrayerPage: angelus(),
+                      ),
+                    ),
                   );
                 }),
                 _buildDailyButton("Pray today's Rosary", () {
                   Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => rosaryTarget),
+                    MaterialPageRoute(
+                      builder: (context) => PrePrayerIntentionScreen(
+                        prayerCategory: 'Rosary',
+                        isAmharic: false,
+                        targetPrayerPage: rosaryTarget,
+                      ),
+                    ),
                   );
                 }),
                 if (selectedDay == 'Fri')
                   _buildDailyButton("Special Friday Divine Mercy", () {
-                    // TODO: Connect Divine Mercy screen
-                    print("Navigating to Divine Mercy");
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>chaplet()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PrePrayerIntentionScreen(
+                          prayerCategory: 'Divine Chaplet',
+                          isAmharic: false,
+                          targetPrayerPage: chaplet(),
+                        ),
+                      ),
+                    );
                   }),
               ],
             ),
