@@ -219,27 +219,23 @@ class _luminousScreenState extends State<luminousScreen> {
                 const Spacer(flex: 2),
 
                 ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => prayer_session(
+                          prayerSteps: prayerSequence,
+                          isAmharic: isAmharic,
+                        ),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurpleAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     elevation: 8,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PrePrayerIntentionScreen(
-                          prayerCategory: 'Luminous Mystery',
-                          isAmharic: isAmharic,
-                          targetPrayerPage: prayer_session(
-                            prayerSteps: prayerSequence,
-                            isAmharic: isAmharic,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
                   child: Text(
                     isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
                     style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),

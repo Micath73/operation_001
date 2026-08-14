@@ -25,7 +25,7 @@ class PrayerCompletionScreen extends StatefulWidget {
     this.detailLabelAm,
     this.subtitleEn,
     this.subtitleAm,
-    this.bgImagePath = 'assets/images/prayer_bg.jpg', // <-- Replace with your default prayer bg asset
+    this.bgImagePath = 'assets/images/prayer_bg.jpg', // Default prayer bg asset
   });
 
   @override
@@ -221,6 +221,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
           onTap: onTap,
           borderRadius: BorderRadius.circular(20),
           child: Container(
+            width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.07),
@@ -243,7 +244,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // 1. Background Image Asset (Matching Intention Page)
+          // 1. Background Image Asset
           Positioned.fill(
             child: widget.bgImagePath != null
                 ? Image.asset(
@@ -254,12 +255,12 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                 : Container(color: const Color(0xFF0D0814)),
           ),
 
-          // 2. Frosted Glass Blur & Dark Translucent Tint Overlay
+          // 2. Frosted Glass Blur & Dark Overlay
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 16.0, sigmaY: 16.0),
               child: Container(
-                color: Colors.black.withOpacity(0.55), // Match the dark dim overlay
+                color: Colors.black.withOpacity(0.55),
               ),
             ),
           ),
@@ -319,10 +320,11 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                       ? const CircularProgressIndicator(color: Color(0xFFE8B84B))
                       : Row(
                     children: [
-                      // Streak Card
+                      // 1. Streak Card
                       Expanded(
                         child: _buildGlassCard(
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 28),
                               const SizedBox(height: 8),
@@ -341,13 +343,15 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                         ),
                       ),
                       const SizedBox(width: 14),
-                      // Total Prayers Card + Reset
+
+                      // 2. Total Prayers Card + Embedded Corner Reset Button
                       Expanded(
                         child: Stack(
                           children: [
                             _buildGlassCard(
                               onTap: _showPrayerHistoryDialog,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   const Icon(Icons.auto_awesome_rounded, color: Color(0xFFE8B84B), size: 28),
                                   const SizedBox(height: 8),
@@ -364,11 +368,17 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                                 ],
                               ),
                             ),
+                            // Reset icon overlaid neatly on the top-right corner
                             Positioned(
-                              top: 4,
-                              right: 4,
+                              top: 2,
+                              right: 2,
                               child: IconButton(
-                                icon: Icon(Icons.refresh_rounded, size: 18, color: Colors.white.withOpacity(0.5)),
+                                splashRadius: 18,
+                                icon: Icon(
+                                  Icons.refresh_rounded,
+                                  size: 18,
+                                  color: Colors.white.withOpacity(0.4),
+                                ),
                                 onPressed: _showResetConfirmationDialog,
                               ),
                             ),
@@ -378,7 +388,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                     ],
                   ),
                   const Spacer(),
-                  // Golden Glass Button
+                  // Golden Glass Return Button
                   Container(
                     width: double.infinity,
                     height: 52,

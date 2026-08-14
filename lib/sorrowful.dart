@@ -268,25 +268,21 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PrePrayerIntentionScreen(
-                          prayerCategory: 'Sorrowful Mystery',
+                        builder: (context) => prayer_session(
+                          prayerSteps: prayerSequence,
                           isAmharic: isAmharic,
-                          targetPrayerPage: prayer_session(
-                            prayerSteps: prayerSequence,
-                            isAmharic: isAmharic,
-                          ),
                         ),
                       ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
+                    backgroundColor: Colors.deepPurpleAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     elevation: 8,
                   ),
                   child: Text(
-                    isAmharic ? "ጸሎቱን ጀምር" : "START PRAYER",
+                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
                     style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),

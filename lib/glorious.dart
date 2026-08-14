@@ -242,13 +242,9 @@ class _gloriousScreenState extends State<gloriousScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PrePrayerIntentionScreen(
-                          prayerCategory: 'Glorious Mystery',
+                        builder: (context) => prayer_session(
+                          prayerSteps: prayerSequence,
                           isAmharic: isAmharic,
-                          targetPrayerPage: prayer_session(
-                            prayerSteps: prayerSequence,
-                            isAmharic: isAmharic,
-                          ),
                         ),
                       ),
                     );
