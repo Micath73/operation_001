@@ -41,6 +41,7 @@ class _prayer_sessionState extends State<prayer_session> {
       });
     } else {
       String resolvedTitle = widget.mysteryTitle ?? _extractOverallMysteryTitle();
+      final currentStep = widget.prayerSteps[_currentIndex];
 
       // Smooth Fade & Zoom Transition to PrayerCompletionScreen
       Navigator.of(context).pushReplacement(
@@ -54,6 +55,7 @@ class _prayer_sessionState extends State<prayer_session> {
             detailLabelAm: 'ምስጢር',
             titleEn: 'Rosary Completed',
             titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
+            bgImagePath: currentStep.imagePath, // Passed image path String directly
           ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             final fadeAnimation = CurvedAnimation(

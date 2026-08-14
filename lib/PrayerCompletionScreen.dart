@@ -12,6 +12,7 @@ class PrayerCompletionScreen extends StatefulWidget {
   final String? detailLabelAm;
   final String? subtitleEn;
   final String? subtitleAm;
+  final String? bgImagePath; // Path to background image (e.g. assets/images/prayer_bg.jpg)
 
   const PrayerCompletionScreen({
     super.key,
@@ -24,6 +25,7 @@ class PrayerCompletionScreen extends StatefulWidget {
     this.detailLabelAm,
     this.subtitleEn,
     this.subtitleAm,
+    this.bgImagePath = 'assets/images/prayer_bg.jpg', // <-- Replace with your default prayer bg asset
   });
 
   @override
@@ -52,7 +54,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
   Future<void> _refreshStatsOnly() async {
     final total = await DatabaseHelper.instance.getTotalPrayersCount();
     final streak = await DatabaseHelper.instance.calculateStreak();
-
     if (mounted) {
       setState(() {
         _totalPrayers = total;
@@ -64,16 +65,15 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
 
   void _showPrayerHistoryDialog() {
     String selectedFilter = 'today';
-
     showDialog(
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) {
           return AlertDialog(
-            backgroundColor: const Color(0xFF140C24).withOpacity(0.9),
+            backgroundColor: const Color(0xFF140C24).withOpacity(0.95),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
-              side: BorderSide(color: const Color(0xFFE8B84B).withOpacity(0.3))
+              side: BorderSide(color: const Color(0xFFE8B84B).withOpacity(0.3)),
             ),
             title: Text(
               widget.isAmharic ? 'የጸሎት የታሪክ መዝገብ' : 'Prayer History Logs',
@@ -111,7 +111,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                         if (!snapshot.hasData) {
                           return const Center(child: CircularProgressIndicator(color: Color(0xFFE8B84B)));
                         }
-
                         final history = snapshot.data!;
                         if (history.isEmpty) {
                           return Center(
@@ -121,7 +120,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                             ),
                           );
                         }
-
                         return ListView.builder(
                           itemCount: history.length,
                           itemBuilder: (context, index) {
@@ -129,7 +127,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                             final dt = DateTime.parse(entry['completed_at']);
                             final formattedTime =
                                 "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} (${dt.year}-${dt.month}-${dt.day})";
-
                             return ListTile(
                               dense: true,
                               leading: const Icon(Icons.check_circle_outline, color: Color(0xFFE8B84B), size: 18),
@@ -182,10 +179,10 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF140C24).withOpacity(0.9),
+        backgroundColor: const Color(0xFF140C24).withOpacity(0.95),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.redAccent.withOpacity(0.4)), // Fixed: BorderSide instead of Border.all
+          side: BorderSide(color: Colors.redAccent.withOpacity(0.4)),
         ),
         title: Text(
           widget.isAmharic ? 'ጸሎትን እንደገና አስጀምር?' : 'Reset Today\'s Prayers?',
@@ -244,35 +241,30 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
         : (widget.subtitleEn ?? widget.detailValue);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0814),
       body: Stack(
         children: [
-          // Background Glow Orbs
-          Positioned(
-            top: -50,
-            left: -50,
-            child: Container(
-              width: 250,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xFFE8B84B).withOpacity(0.12),
-              ),
-            ),
+          // 1. Background Image Asset (Matching Intention Page)
+          Positioned.fill(
+            child: widget.bgImagePath != null
+                ? Image.asset(
+              widget.bgImagePath!,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(color: const Color(0xFF0D0814)),
+            )
+                : Container(color: const Color(0xFF0D0814)),
           ),
-          Positioned(
-            bottom: -80,
-            right: -50,
-            child: Container(
-              width: 300,
-              height: 300,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xFF4A154B).withOpacity(0.3),
+
+          // 2. Frosted Glass Blur & Dark Translucent Tint Overlay
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 16.0, sigmaY: 16.0),
+              child: Container(
+                color: Colors.black.withOpacity(0.55), // Match the dark dim overlay
               ),
             ),
           ),
 
+          // 3. Foreground Content
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
@@ -280,7 +272,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-
                   // Golden Check Ring
                   Container(
                     width: 90,
@@ -300,7 +291,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                     child: const Icon(Icons.check_rounded, color: Color(0xFFE8B84B), size: 52),
                   ),
                   const SizedBox(height: 24),
-
                   Text(
                     widget.isAmharic ? widget.titleAm : widget.titleEn,
                     textAlign: TextAlign.center,
@@ -312,7 +302,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                       letterSpacing: 1.1,
                     ),
                   ),
-
                   if (displaySubtitle.isNotEmpty) ...[
                     const SizedBox(height: 8),
                     Text(
@@ -325,9 +314,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                       ),
                     ),
                   ],
-
                   const SizedBox(height: 36),
-
                   _isLoading
                       ? const CircularProgressIndicator(color: Color(0xFFE8B84B))
                       : Row(
@@ -354,7 +341,6 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                         ),
                       ),
                       const SizedBox(width: 14),
-
                       // Total Prayers Card + Reset
                       Expanded(
                         child: Stack(
@@ -391,9 +377,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                       ),
                     ],
                   ),
-
                   const Spacer(),
-
                   // Golden Glass Button
                   Container(
                     width: double.infinity,

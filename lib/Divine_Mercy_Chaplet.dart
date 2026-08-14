@@ -241,8 +241,6 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                     const SizedBox(height: 32),
 
                     // --- Amen Finish Button ---
-                    // Inside DivineMercyChaplet widget...
-
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 24.0),
@@ -270,6 +268,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                   titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
                                   subtitleEn: 'May His Divine Mercy shine upon you',
                                   subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
+                                  bgImagePath: 'assets/img_3.png', // Matched to Chaplet background asset
                                 ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(

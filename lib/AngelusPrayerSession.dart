@@ -304,6 +304,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                           ),
                           onPressed: () {
                             // Smooth Fade & Zoom to PrayerCompletionScreen
+                            // Smooth Fade & Zoom to PrayerCompletionScreen
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
                                 transitionDuration: const Duration(milliseconds: 650),
@@ -317,6 +318,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                   titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
                                   subtitleEn: 'May the grace of His Incarnation fill your heart',
                                   subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
+                                  bgImagePath: 'assets/img_19.png', // ← Pass the string path here!
                                 ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(
