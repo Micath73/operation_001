@@ -1,5 +1,5 @@
-import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
@@ -9,7 +9,7 @@ class DatabaseHelper {
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _initDB('operation_001_v2.db');
+    _database = await _initDB('prayers.db');
     return _database!;
   }
 
@@ -25,171 +25,156 @@ class DatabaseHelper {
   }
 
   Future<void> _createDB(Database db, int version) async {
-    // 1. Prayer History Table
     await db.execute('''
       CREATE TABLE prayer_logs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         prayer_type TEXT NOT NULL,
         prayer_name TEXT NOT NULL,
-        completed_at TEXT NOT NULL,
-        date_only TEXT NOT NULL
+        completed_at TEXT NOT NULL
       )
     ''');
 
-    // 2. Intentions & Petitions Table
     await db.execute('''
-      CREATE TABLE prayer_intentions (
+      CREATE TABLE intentions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title TEXT NOT NULL,
         category TEXT NOT NULL,
+        intention TEXT NOT NULL,
         is_answered INTEGER NOT NULL DEFAULT 0,
-        created_at TEXT NOT NULL,
-        answered_at TEXT
+        created_at TEXT NOT NULL
       )
     ''');
   }
 
-  // ================= PRAYER LOGS & TRACKING =================
-
-  Future<void> logPrayerCompletion({
-    required String prayerType,
-    required String prayerName,
-  }) async {
+  Future<int> logPrayerCompletion({required String prayerType, required String prayerName}) async {
     final db = await instance.database;
-    final now = DateTime.now();
-    final dateOnly = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
-
-    await db.insert('prayer_logs', {
+    return await db.insert('prayer_logs', {
       'prayer_type': prayerType,
       'prayer_name': prayerName,
-      'completed_at': now.toIso8601String(),
-      'date_only': dateOnly,
+      'completed_at': DateTime.now().toIso8601String(),
     });
   }
 
-  /// Get total accumulated count
   Future<int> getTotalPrayersCount() async {
     final db = await instance.database;
     final result = await db.rawQuery('SELECT COUNT(*) as count FROM prayer_logs');
     return Sqflite.firstIntValue(result) ?? 0;
   }
 
-  /// Accurate Streak Calculation (Consecutive distinct calendar days)
   Future<int> calculateStreak() async {
     final db = await instance.database;
     final List<Map<String, dynamic>> maps = await db.rawQuery('''
-      SELECT DISTINCT date_only FROM prayer_logs ORDER BY date_only DESC
+      SELECT DISTINCT DATE(completed_at) as date 
+      FROM prayer_logs 
+      ORDER BY date DESC
     ''');
 
     if (maps.isEmpty) return 0;
 
-    final List<String> dates = maps.map((e) => e['date_only'] as String).toList();
-    final DateTime now = DateTime.now();
-    final String todayStr = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
-    final String yesterdayStr = "${now.subtract(const Duration(days: 1)).year}-${now.subtract(const Duration(days: 1)).month.toString().padLeft(2, '0')}-${now.subtract(const Duration(days: 1)).day.toString().padLeft(2, '0')}";
+    int streak = 0;
+    DateTime now = DateTime.now();
+    DateTime today = DateTime(now.year, now.month, now.day);
+    DateTime expectedDate = today;
 
-    // Check if streak is active (logged either today or yesterday)
-    if (!dates.contains(todayStr) && !dates.contains(yesterdayStr)) {
-      return 0;
+    final firstLoggedDate = DateTime.parse(maps.first['date']);
+    if (firstLoggedDate.isBefore(today)) {
+      expectedDate = today.subtract(const Duration(days: 1));
+      if (firstLoggedDate.isBefore(expectedDate)) return 0;
     }
 
-    int streak = 0;
-    DateTime checkDate = dates.contains(todayStr) ? now : now.subtract(const Duration(days: 1));
-
-    while (true) {
-      final dateFormatted = "${checkDate.year}-${checkDate.month.toString().padLeft(2, '0')}-${checkDate.day.toString().padLeft(2, '0')}";
-      if (dates.contains(dateFormatted)) {
+    for (var map in maps) {
+      final logDate = DateTime.parse(map['date']);
+      if (logDate.year == expectedDate.year &&
+          logDate.month == expectedDate.month &&
+          logDate.day == expectedDate.day) {
         streak++;
-        checkDate = checkDate.subtract(const Duration(days: 1));
+        expectedDate = expectedDate.subtract(const Duration(days: 1));
       } else {
         break;
       }
     }
-
     return streak;
   }
 
-  /// Filtered History Retrieval
   Future<List<Map<String, dynamic>>> getFilteredPrayerHistory(String filter) async {
     final db = await instance.database;
-    final now = DateTime.now();
-
-    String query = "SELECT * FROM prayer_logs ";
-    List<dynamic> args = [];
+    DateTime now = DateTime.now();
+    String whereClause = '';
+    List<dynamic> whereArgs = [];
 
     if (filter == 'today') {
-      final todayStr = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
-      query += "WHERE date_only = ?";
-      args.add(todayStr);
+      final startOfDay = DateTime(now.year, now.month, now.day).toIso8601String();
+      whereClause = 'completed_at >= ?';
+      whereArgs = [startOfDay];
     } else if (filter == 'yesterday') {
-      final yesterday = now.subtract(const Duration(days: 1));
-      final yestStr = "${yesterday.year}-${yesterday.month.toString().padLeft(2, '0')}-${yesterday.day.toString().padLeft(2, '0')}";
-      query += "WHERE date_only = ?";
-      args.add(yestStr);
+      final startOfYesterday = DateTime(now.year, now.month, now.day - 1).toIso8601String();
+      final endOfYesterday = DateTime(now.year, now.month, now.day).toIso8601String();
+      whereClause = 'completed_at >= ? AND completed_at < ?';
+      whereArgs = [startOfYesterday, endOfYesterday];
     } else if (filter == 'last_week') {
-      final weekAgo = now.subtract(const Duration(days: 7)).toIso8601String();
-      query += "WHERE completed_at >= ?";
-      args.add(weekAgo);
+      final lastWeek = now.subtract(const Duration(days: 7)).toIso8601String();
+      whereClause = 'completed_at >= ?';
+      whereArgs = [lastWeek];
     } else if (filter == 'last_month') {
-      final monthAgo = now.subtract(const Duration(days: 30)).toIso8601String();
-      query += "WHERE completed_at >= ?";
-      args.add(monthAgo);
+      final lastMonth = now.subtract(const Duration(days: 30)).toIso8601String();
+      whereClause = 'completed_at >= ?';
+      whereArgs = [lastMonth];
     }
 
-    query += " ORDER BY id DESC";
-    return await db.rawQuery(query, args);
-  }
-
-  /// Reset today's prayers safely
-  Future<void> resetTodaysPrayers() async {
-    final db = await instance.database;
-    final now = DateTime.now();
-    final todayStr = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
-
-    await db.delete(
+    return await db.query(
       'prayer_logs',
-      where: 'date_only = ?',
-      whereArgs: [todayStr],
+      where: whereClause.isEmpty ? null : whereClause,
+      whereArgs: whereArgs.isEmpty ? null : whereArgs,
+      orderBy: 'completed_at DESC',
     );
   }
 
-  // ================= PRAYER INTENTIONS & PETITIONS =================
-
-  Future<void> addIntention(String title, String category) async {
+  Future<int> resetTodaysPrayers() async {
     final db = await instance.database;
-    await db.insert('prayer_intentions', {
-      'title': title,
-      'category': category,
-      'is_answered': 0,
-      'created_at': DateTime.now().toIso8601String(),
-    });
+    final now = DateTime.now();
+    final startOfDay = DateTime(now.year, now.month, now.day).toIso8601String();
+    return await db.delete(
+      'prayer_logs',
+      where: 'completed_at >= ?',
+      whereArgs: [startOfDay],
+    );
   }
 
   Future<List<Map<String, dynamic>>> getIntentions({required String category}) async {
     final db = await instance.database;
     return await db.query(
-      'prayer_intentions',
-      where: 'category = ? OR category = ?',
-      whereArgs: [category, 'General'],
-      orderBy: 'is_answered ASC, id DESC',
+      'intentions',
+      where: 'category = ?',
+      whereArgs: [category],
+      orderBy: 'created_at DESC',
     );
   }
 
-  Future<void> toggleIntentionAnswered(int id, bool isAnswered) async {
+  Future<int> addIntention({required String category, required String intention}) async {
     final db = await instance.database;
-    await db.update(
-      'prayer_intentions',
-      {
-        'is_answered': isAnswered ? 1 : 0,
-        'answered_at': isAnswered ? DateTime.now().toIso8601String() : null,
-      },
+    return await db.insert('intentions', {
+      'category': category,
+      'intention': intention,
+      'is_answered': 0,
+      'created_at': DateTime.now().toIso8601String(),
+    });
+  }
+
+  Future<int> toggleIntentionAnswered(int id, bool isAnswered) async {
+    final db = await instance.database;
+    return await db.update(
+      'intentions',
+      {'is_answered': isAnswered ? 1 : 0},
       where: 'id = ?',
       whereArgs: [id],
     );
   }
 
-  Future<void> deleteIntention(int id) async {
+  Future<int> deleteIntention(int id) async {
     final db = await instance.database;
-    await db.delete('prayer_intentions', where: 'id = ?', whereArgs: [id]);
+    return await db.delete(
+      'intentions',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 }

@@ -1,6 +1,6 @@
+import 'package:operation_001/db_helper.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:operation_001/db_helper.dart';
 
 class PrayerCompletionScreen extends StatefulWidget {
   final bool isAmharic;

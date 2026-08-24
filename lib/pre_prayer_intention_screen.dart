@@ -1,6 +1,6 @@
+import 'package:operation_001/db_helper.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:operation_001/db_helper.dart';
 
 class PrePrayerIntentionScreen extends StatefulWidget {
   final String prayerCategory; // e.g. "Novena", "Rosary", "Divine Chaplet", "Angelus"
@@ -51,32 +51,40 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
   }
 
   void _addIntention() async {
-    final title = _titleController.text.trim();
-    final details = _detailsController.text.trim();
+    final String title = _titleController.text.trim();
+    final String details = _detailsController.text.trim();
 
     if (title.isEmpty) return;
 
-    final fullPayload = details.isNotEmpty ? "$title\n$details" : title;
+    final String fullPayload = details.isNotEmpty ? "$title\n$details" : title;
 
+    // Matched exact parameter name 'intention:' from DatabaseHelper
     await DatabaseHelper.instance.addIntention(
-      fullPayload,
-      widget.prayerCategory,
+      category: widget.prayerCategory,
+      intention: fullPayload,
     );
+
+    if (!mounted) return;
 
     _titleController.clear();
     _detailsController.clear();
     setState(() => _isAddingNew = false);
-    _fetchIntentions();
+
+    await _fetchIntentions();
   }
 
   void _toggleAnswered(int id, bool currentStatus) async {
     await DatabaseHelper.instance.toggleIntentionAnswered(id, !currentStatus);
-    _fetchIntentions();
+    if (mounted) {
+      _fetchIntentions();
+    }
   }
 
   void _deleteIntention(int id) async {
     await DatabaseHelper.instance.deleteIntention(id);
-    _fetchIntentions();
+    if (mounted) {
+      _fetchIntentions();
+    }
   }
 
   void _confirmDelete(int id) {
@@ -413,7 +421,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
   Widget _buildIntentionTile(Map<String, dynamic> item) {
     final isAnswered = item['is_answered'] == 1;
     final int id = item['id'];
-    final String rawText = item['title'] ?? '';
+
+    // Matched table column 'intention' instead of 'title'
+    final String rawText = item['intention'] ?? '';
     final isExpanded = _expandedId == id;
 
     final lines = rawText.split('\n');
