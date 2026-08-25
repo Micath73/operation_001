@@ -62,7 +62,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final activeDayData = widget.days.firstWhere(
-          (d) => d.dayNumber == currentDay,
+      (d) => d.dayNumber == currentDay,
       orElse: () => widget.days.first,
     );
 
@@ -109,7 +109,11 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           if (isDone)
-                            const Icon(Icons.check, size: 14, color: Colors.green),
+                            const Icon(
+                              Icons.check,
+                              size: 14,
+                              color: Colors.green,
+                            ),
                           if (isDone) const SizedBox(width: 4),
                           Text('Day $dayNum'),
                         ],
@@ -120,7 +124,9 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                         color: isSelected
                             ? theme.colorScheme.onPrimary
                             : theme.colorScheme.onSurface,
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                        fontWeight: isSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
                       ),
                       backgroundColor: theme.colorScheme.background,
                       onSelected: (_) {
@@ -154,7 +160,10 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.edit_note, color: theme.colorScheme.secondary),
+                              Icon(
+                                Icons.edit_note,
+                                color: theme.colorScheme.secondary,
+                              ),
                               const SizedBox(width: 8),
                               Text(
                                 "My Personal Intention",
@@ -175,9 +184,12 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                               color: theme.colorScheme.onSurface,
                             ),
                             decoration: InputDecoration(
-                              hintText: "Type your prayer intention for this novena...",
+                              hintText:
+                                  "Type your prayer intention for this novena...",
                               hintStyle: TextStyle(
-                                color: theme.colorScheme.onSurface.withOpacity(0.5),
+                                color: theme.colorScheme.onSurface.withOpacity(
+                                  0.5,
+                                ),
                               ),
                               border: InputBorder.none,
                               isDense: true,
@@ -199,7 +211,10 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                       color: theme.colorScheme.primary,
                     ),
                   ),
-                  Divider(height: 24, color: theme.colorScheme.onSurface.withOpacity(0.12)),
+                  Divider(
+                    height: 24,
+                    color: theme.colorScheme.onSurface.withOpacity(0.12),
+                  ),
 
                   // MAIN PRAYER TEXT
                   Text(

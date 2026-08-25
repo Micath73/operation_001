@@ -17,11 +17,7 @@ class DatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(
-      path,
-      version: 1,
-      onCreate: _createDB,
-    );
+    return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
   Future<void> _createDB(Database db, int version) async {
@@ -45,7 +41,10 @@ class DatabaseHelper {
     ''');
   }
 
-  Future<int> logPrayerCompletion({required String prayerType, required String prayerName}) async {
+  Future<int> logPrayerCompletion({
+    required String prayerType,
+    required String prayerName,
+  }) async {
     final db = await instance.database;
     return await db.insert('prayer_logs', {
       'prayer_type': prayerType,
@@ -56,7 +55,9 @@ class DatabaseHelper {
 
   Future<int> getTotalPrayersCount() async {
     final db = await instance.database;
-    final result = await db.rawQuery('SELECT COUNT(*) as count FROM prayer_logs');
+    final result = await db.rawQuery(
+      'SELECT COUNT(*) as count FROM prayer_logs',
+    );
     return Sqflite.firstIntValue(result) ?? 0;
   }
 
@@ -95,19 +96,33 @@ class DatabaseHelper {
     return streak;
   }
 
-  Future<List<Map<String, dynamic>>> getFilteredPrayerHistory(String filter) async {
+  Future<List<Map<String, dynamic>>> getFilteredPrayerHistory(
+    String filter,
+  ) async {
     final db = await instance.database;
     DateTime now = DateTime.now();
     String whereClause = '';
     List<dynamic> whereArgs = [];
 
     if (filter == 'today') {
-      final startOfDay = DateTime(now.year, now.month, now.day).toIso8601String();
+      final startOfDay = DateTime(
+        now.year,
+        now.month,
+        now.day,
+      ).toIso8601String();
       whereClause = 'completed_at >= ?';
       whereArgs = [startOfDay];
     } else if (filter == 'yesterday') {
-      final startOfYesterday = DateTime(now.year, now.month, now.day - 1).toIso8601String();
-      final endOfYesterday = DateTime(now.year, now.month, now.day).toIso8601String();
+      final startOfYesterday = DateTime(
+        now.year,
+        now.month,
+        now.day - 1,
+      ).toIso8601String();
+      final endOfYesterday = DateTime(
+        now.year,
+        now.month,
+        now.day,
+      ).toIso8601String();
       whereClause = 'completed_at >= ? AND completed_at < ?';
       whereArgs = [startOfYesterday, endOfYesterday];
     } else if (filter == 'last_week') {
@@ -115,7 +130,9 @@ class DatabaseHelper {
       whereClause = 'completed_at >= ?';
       whereArgs = [lastWeek];
     } else if (filter == 'last_month') {
-      final lastMonth = now.subtract(const Duration(days: 30)).toIso8601String();
+      final lastMonth = now
+          .subtract(const Duration(days: 30))
+          .toIso8601String();
       whereClause = 'completed_at >= ?';
       whereArgs = [lastMonth];
     }
@@ -139,7 +156,9 @@ class DatabaseHelper {
     );
   }
 
-  Future<List<Map<String, dynamic>>> getIntentions({required String category}) async {
+  Future<List<Map<String, dynamic>>> getIntentions({
+    required String category,
+  }) async {
     final db = await instance.database;
     return await db.query(
       'intentions',
@@ -149,7 +168,10 @@ class DatabaseHelper {
     );
   }
 
-  Future<int> addIntention({required String category, required String intention}) async {
+  Future<int> addIntention({
+    required String category,
+    required String intention,
+  }) async {
     final db = await instance.database;
     return await db.insert('intentions', {
       'category': category,
@@ -171,10 +193,6 @@ class DatabaseHelper {
 
   Future<int> deleteIntention(int id) async {
     final db = await instance.database;
-    return await db.delete(
-      'intentions',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await db.delete('intentions', where: 'id = ?', whereArgs: [id]);
   }
 }

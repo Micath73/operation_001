@@ -1,4 +1,3 @@
-
 class PrayerStep {
   final String? sectionHeader;
   final String titleEn;

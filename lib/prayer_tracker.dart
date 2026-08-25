@@ -25,7 +25,9 @@ class PrayerTracker {
   static const String _keyPrayerHistory = 'prayer_history_logs';
 
   /// Record a prayer completion entry with a timestamp
-  static Future<Map<String, dynamic>> recordCompletion(String prayerName) async {
+  static Future<Map<String, dynamic>> recordCompletion(
+    String prayerName,
+  ) async {
     final prefs = await SharedPreferences.getInstance();
 
     // 1. Increment Total Prayers Count
@@ -34,7 +36,10 @@ class PrayerTracker {
 
     // 2. Append log entry with timestamp
     List<String> historyJson = prefs.getStringList(_keyPrayerHistory) ?? [];
-    final entry = PrayerEntry(prayerName: prayerName, timestamp: DateTime.now());
+    final entry = PrayerEntry(
+      prayerName: prayerName,
+      timestamp: DateTime.now(),
+    );
     historyJson.add(jsonEncode(entry.toJson()));
     await prefs.setStringList(_keyPrayerHistory, historyJson);
 
@@ -48,7 +53,11 @@ class PrayerTracker {
       streak = 1;
     } else {
       final DateTime lastDate = DateTime.parse(lastDateStr);
-      final DateTime lastCompletedDay = DateTime(lastDate.year, lastDate.month, lastDate.day);
+      final DateTime lastCompletedDay = DateTime(
+        lastDate.year,
+        lastDate.month,
+        lastDate.day,
+      );
       final int difference = today.difference(lastCompletedDay).inDays;
 
       if (difference == 1) {
@@ -62,10 +71,7 @@ class PrayerTracker {
     await prefs.setInt(_keyCurrentStreak, streak);
     await prefs.setString(_keyLastCompletedDate, today.toIso8601String());
 
-    return {
-      'total': total,
-      'streak': streak,
-    };
+    return {'total': total, 'streak': streak};
   }
 
   /// Fetch current total prayers and streak without recording a new prayer
@@ -101,7 +107,11 @@ class PrayerTracker {
 
     for (String item in historyJson) {
       final entry = PrayerEntry.fromJson(jsonDecode(item));
-      final entryDay = DateTime(entry.timestamp.year, entry.timestamp.month, entry.timestamp.day);
+      final entryDay = DateTime(
+        entry.timestamp.year,
+        entry.timestamp.month,
+        entry.timestamp.day,
+      );
 
       if (entryDay.isAtSameMomentAs(today)) {
         removedCount++;
@@ -117,9 +127,6 @@ class PrayerTracker {
     await prefs.setInt(_keyTotalPrayers, newTotal);
     await prefs.setStringList(_keyPrayerHistory, updatedHistory);
 
-    return {
-      'total': newTotal,
-      'streak': prefs.getInt(_keyCurrentStreak) ?? 0,
-    };
+    return {'total': newTotal, 'streak': prefs.getInt(_keyCurrentStreak) ?? 0};
   }
 }

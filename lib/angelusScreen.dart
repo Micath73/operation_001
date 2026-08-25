@@ -5,10 +5,7 @@ import 'package:operation_001/AngelusPrayerSession.dart';
 class angelus extends StatefulWidget {
   final bool isAmharic;
 
-  const angelus({
-    super.key,
-    this.isAmharic = false,
-  });
+  const angelus({super.key, this.isAmharic = false});
 
   @override
   State<angelus> createState() => _angelusState();
@@ -32,10 +29,7 @@ class _angelusState extends State<angelus> {
         children: [
           // Background Image
           SizedBox.expand(
-            child: Image.asset(
-              'assets/img_19.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/img_19.png', fit: BoxFit.cover),
           ),
 
           // Central Frosted Glass Card
@@ -47,7 +41,10 @@ class _angelusState extends State<angelus> {
                 child: Container(
                   width: fullWidth * 0.86,
                   height: fullHeight * 0.54,
-                  padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 22,
+                    vertical: 24,
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: theme.colorScheme.surface.withOpacity(0.85),
@@ -72,7 +69,9 @@ class _angelusState extends State<angelus> {
                           shadows: [
                             Shadow(
                               blurRadius: 10.0,
-                              color: theme.colorScheme.secondary.withOpacity(0.4),
+                              color: theme.colorScheme.secondary.withOpacity(
+                                0.4,
+                              ),
                               offset: const Offset(0, 0),
                             ),
                           ],
@@ -140,19 +139,32 @@ class _angelusState extends State<angelus> {
                             Navigator.push(
                               context,
                               PageRouteBuilder(
-                                transitionDuration: const Duration(milliseconds: 550),
-                                reverseTransitionDuration: const Duration(milliseconds: 400),
-                                pageBuilder: (context, animation, secondaryAnimation) =>
-                                    AngelusPrayerSession(isAmharic: widget.isAmharic),
-                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  return FadeTransition(
-                                    opacity: CurvedAnimation(
-                                      parent: animation,
-                                      curve: Curves.easeInOut,
-                                    ),
-                                    child: child,
-                                  );
-                                },
+                                transitionDuration: const Duration(
+                                  milliseconds: 550,
+                                ),
+                                reverseTransitionDuration: const Duration(
+                                  milliseconds: 400,
+                                ),
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        AngelusPrayerSession(
+                                          isAmharic: widget.isAmharic,
+                                        ),
+                                transitionsBuilder:
+                                    (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      return FadeTransition(
+                                        opacity: CurvedAnimation(
+                                          parent: animation,
+                                          curve: Curves.easeInOut,
+                                        ),
+                                        child: child,
+                                      );
+                                    },
                               ),
                             );
                           },

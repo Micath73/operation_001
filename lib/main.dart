@@ -48,10 +48,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       backgroundColor: theme.colorScheme.background,
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
+      body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,
@@ -60,7 +57,7 @@ class _HomeState extends State<Home> {
               blurRadius: 20,
               color: Colors.black.withOpacity(0.08),
               offset: const Offset(0, -5),
-            )
+            ),
           ],
         ),
         child: SafeArea(
@@ -70,7 +67,8 @@ class _HomeState extends State<Home> {
               rippleColor: theme.colorScheme.primary.withOpacity(0.1),
               hoverColor: theme.colorScheme.primary.withOpacity(0.05),
               gap: 8,
-              activeColor: theme.colorScheme.primary, // Uses 0xFF4A2574 (Deep Violet)
+              activeColor:
+                  theme.colorScheme.primary, // Uses 0xFF4A2574 (Deep Violet)
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
@@ -86,7 +84,7 @@ class _HomeState extends State<Home> {
               onTabChange: (index) {
                 setState(() => _selectedIndex = index);
               },
-            )
+            ),
           ),
         ),
       ),

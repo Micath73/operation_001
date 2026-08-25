@@ -15,7 +15,8 @@ class BibleDatabaseHelper {
     if (_database != null && _database!.isOpen) return _database!;
 
     // If a custom downloaded DB is selected, open that instead
-    if (_currentCustomDbPath != null && File(_currentCustomDbPath!).existsSync()) {
+    if (_currentCustomDbPath != null &&
+        File(_currentCustomDbPath!).existsSync()) {
       _database = await openDatabase(_currentCustomDbPath!, version: 1);
       return _database!;
     }
@@ -45,11 +46,15 @@ class BibleDatabaseHelper {
     try {
       // Direct POSIX string path for Flutter asset bundle loading
       ByteData data = await rootBundle.load('assets/db/bible.db');
-      List<int> bytes =
-      data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      List<int> bytes = data.buffer.asUint8List(
+        data.offsetInBytes,
+        data.lengthInBytes,
+      );
 
       await File(path).writeAsBytes(bytes, flush: true);
-      print('DEBUG: Database copied successfully! Size: ${bytes.length} bytes.');
+      print(
+        'DEBUG: Database copied successfully! Size: ${bytes.length} bytes.',
+      );
     } catch (e) {
       print('DEBUG: ERROR copying asset database: $e');
     }

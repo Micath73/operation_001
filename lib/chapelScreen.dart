@@ -26,10 +26,7 @@ class _chapletState extends State<chaplet> {
       body: Stack(
         children: [
           SizedBox.expand(
-            child: Image.asset(
-              'assets/img_3.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/img_3.png', fit: BoxFit.cover),
           ),
           Center(
             child: ClipRRect(
@@ -39,7 +36,10 @@ class _chapletState extends State<chaplet> {
                 child: Container(
                   width: fullWidth * 0.86,
                   height: fullHeight * 0.54,
-                  padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 22,
+                    vertical: 24,
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: theme.colorScheme.surface.withOpacity(0.85),
@@ -64,7 +64,9 @@ class _chapletState extends State<chaplet> {
                           shadows: [
                             Shadow(
                               blurRadius: 10.0,
-                              color: theme.colorScheme.secondary.withOpacity(0.4),
+                              color: theme.colorScheme.secondary.withOpacity(
+                                0.4,
+                              ),
                               offset: const Offset(0, 0),
                             ),
                           ],
@@ -130,19 +132,30 @@ class _chapletState extends State<chaplet> {
                             Navigator.push(
                               context,
                               PageRouteBuilder(
-                                transitionDuration: const Duration(milliseconds: 550),
-                                reverseTransitionDuration: const Duration(milliseconds: 400),
-                                pageBuilder: (context, animation, secondaryAnimation) =>
-                                const DivineMercyChaplet(),
-                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  return FadeTransition(
-                                    opacity: CurvedAnimation(
-                                      parent: animation,
-                                      curve: Curves.easeInOut,
-                                    ),
-                                    child: child,
-                                  );
-                                },
+                                transitionDuration: const Duration(
+                                  milliseconds: 550,
+                                ),
+                                reverseTransitionDuration: const Duration(
+                                  milliseconds: 400,
+                                ),
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        const DivineMercyChaplet(),
+                                transitionsBuilder:
+                                    (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      return FadeTransition(
+                                        opacity: CurvedAnimation(
+                                          parent: animation,
+                                          curve: Curves.easeInOut,
+                                        ),
+                                        child: child,
+                                      );
+                                    },
                               ),
                             );
                           },

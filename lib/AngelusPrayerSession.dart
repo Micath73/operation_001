@@ -5,10 +5,7 @@ import 'package:operation_001/PrayerCompletionScreen.dart';
 class AngelusPrayerSession extends StatefulWidget {
   final bool isAmharic;
 
-  const AngelusPrayerSession({
-    super.key,
-    this.isAmharic = false,
-  });
+  const AngelusPrayerSession({super.key, this.isAmharic = false});
 
   @override
   State<AngelusPrayerSession> createState() => _AngelusPrayerSessionState();
@@ -24,7 +21,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
     int totalSeconds = seconds.toInt();
     int minutes = totalSeconds ~/ 60;
     int remainingSeconds = totalSeconds % 60;
-    String secondsStr = remainingSeconds < 10 ? '0$remainingSeconds' : '$remainingSeconds';
+    String secondsStr = remainingSeconds < 10
+        ? '0$remainingSeconds'
+        : '$remainingSeconds';
     return '$minutes:$secondsStr';
   }
 
@@ -65,7 +64,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final String content = widget.isAmharic ? _angelusAmharicText : _angelusEnglish;
+    final String content = widget.isAmharic
+        ? _angelusAmharicText
+        : _angelusEnglish;
 
     return Scaffold(
       backgroundColor: theme.colorScheme.background,
@@ -90,10 +91,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
         children: [
           // 1. Shared Asset Background
           Positioned.fill(
-            child: Image.asset(
-              'assets/img_19.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/img_19.png', fit: BoxFit.cover),
           ),
 
           // 2. Adaptive Blurred Overlay
@@ -113,7 +111,10 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
             child: SafeArea(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -142,7 +143,8 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                   height: 80,
                                   width: 80,
                                   decoration: BoxDecoration(
-                                    color: theme.colorScheme.surface.withOpacity(0.2),
+                                    color: theme.colorScheme.surface
+                                        .withOpacity(0.2),
                                     image: const DecorationImage(
                                       image: AssetImage('assets/img_19.png'),
                                       fit: BoxFit.cover,
@@ -153,18 +155,22 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              widget.isAmharic ? 'የመልአኩ ሰላምታ ድምፅ' : 'The Angelus Audio',
+                                              widget.isAmharic
+                                                  ? 'የመልአኩ ሰላምታ ድምፅ'
+                                                  : 'The Angelus Audio',
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.bold,
-                                                color: theme.colorScheme.onSurface,
+                                                color:
+                                                    theme.colorScheme.onSurface,
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -178,7 +184,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                               });
                                             },
                                             icon: Icon(
-                                              _isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
+                                              _isPlaying
+                                                  ? Icons.pause_circle_filled
+                                                  : Icons.play_circle_fill,
                                               color: theme.colorScheme.primary,
                                               size: 32,
                                             ),
@@ -187,24 +195,37 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                       ),
                                       const SizedBox(height: 4),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text(
                                             _formatDuration(_currentPosition),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: theme.colorScheme.onSurface.withOpacity(0.6),
+                                              color: theme.colorScheme.onSurface
+                                                  .withOpacity(0.6),
                                             ),
                                           ),
                                           Expanded(
                                             child: SliderTheme(
                                               data: SliderTheme.of(context).copyWith(
                                                 trackHeight: 3,
-                                                activeTrackColor: theme.colorScheme.primary,
-                                                inactiveTrackColor: theme.colorScheme.onSurface.withOpacity(0.2),
-                                                thumbColor: theme.colorScheme.primary,
-                                                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
-                                                overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
+                                                activeTrackColor:
+                                                    theme.colorScheme.primary,
+                                                inactiveTrackColor: theme
+                                                    .colorScheme
+                                                    .onSurface
+                                                    .withOpacity(0.2),
+                                                thumbColor:
+                                                    theme.colorScheme.primary,
+                                                thumbShape:
+                                                    const RoundSliderThumbShape(
+                                                      enabledThumbRadius: 6,
+                                                    ),
+                                                overlayShape:
+                                                    const RoundSliderOverlayShape(
+                                                      overlayRadius: 14,
+                                                    ),
                                               ),
                                               child: Slider(
                                                 value: _currentPosition,
@@ -222,7 +243,8 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                             _formatDuration(_totalDuration),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: theme.colorScheme.onSurface.withOpacity(0.6),
+                                              color: theme.colorScheme.onSurface
+                                                  .withOpacity(0.6),
                                             ),
                                           ),
                                         ],
@@ -264,7 +286,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.isAmharic ? 'የመክፈቻ ጸሎት' : 'Devotional Text',
+                              widget.isAmharic
+                                  ? 'የመክፈቻ ጸሎት'
+                                  : 'Devotional Text',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -272,7 +296,12 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            Divider(color: theme.colorScheme.onSurface.withOpacity(0.15), thickness: 1),
+                            Divider(
+                              color: theme.colorScheme.onSurface.withOpacity(
+                                0.15,
+                              ),
+                              thickness: 1,
+                            ),
                             const SizedBox(height: 10),
                             Text(
                               content,
@@ -298,7 +327,10 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: theme.colorScheme.primary,
                             foregroundColor: theme.colorScheme.onPrimary,
-                            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 40,
+                              vertical: 16,
+                            ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -307,44 +339,70 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
-                                transitionDuration: const Duration(milliseconds: 650),
-                                reverseTransitionDuration: const Duration(milliseconds: 400),
-                                pageBuilder: (context, animation, secondaryAnimation) => PrayerCompletionScreen(
-                                  isAmharic: widget.isAmharic,
-                                  detailValue: widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
-                                  detailLabelEn: 'Devotional',
-                                  detailLabelAm: 'ጸሎት',
-                                  titleEn: 'Angelus Completed',
-                                  titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
-                                  subtitleEn: 'May the grace of His Incarnation fill your heart',
-                                  subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
-                                  bgImagePath: 'assets/img_19.png',
+                                transitionDuration: const Duration(
+                                  milliseconds: 650,
                                 ),
-                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  final fadeAnimation = CurvedAnimation(
-                                    parent: animation,
-                                    curve: Curves.easeOutCubic,
-                                  );
-
-                                  final scaleAnimation = Tween<double>(begin: 0.95, end: 1.0).animate(
-                                    CurvedAnimation(
-                                      parent: animation,
-                                      curve: Curves.easeOutCubic,
+                                reverseTransitionDuration: const Duration(
+                                  milliseconds: 400,
+                                ),
+                                pageBuilder:
+                                    (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                    ) => PrayerCompletionScreen(
+                                      isAmharic: widget.isAmharic,
+                                      detailValue: widget.isAmharic
+                                          ? 'መልአኩ ሰላምታ'
+                                          : 'The Angelus',
+                                      detailLabelEn: 'Devotional',
+                                      detailLabelAm: 'ጸሎት',
+                                      titleEn: 'Angelus Completed',
+                                      titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
+                                      subtitleEn:
+                                          'May the grace of His Incarnation fill your heart',
+                                      subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
+                                      bgImagePath: 'assets/img_19.png',
                                     ),
-                                  );
+                                transitionsBuilder:
+                                    (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      final fadeAnimation = CurvedAnimation(
+                                        parent: animation,
+                                        curve: Curves.easeOutCubic,
+                                      );
 
-                                  return FadeTransition(
-                                    opacity: fadeAnimation,
-                                    child: ScaleTransition(
-                                      scale: scaleAnimation,
-                                      child: child,
-                                    ),
-                                  );
-                                },
+                                      final scaleAnimation =
+                                          Tween<double>(
+                                            begin: 0.95,
+                                            end: 1.0,
+                                          ).animate(
+                                            CurvedAnimation(
+                                              parent: animation,
+                                              curve: Curves.easeOutCubic,
+                                            ),
+                                          );
+
+                                      return FadeTransition(
+                                        opacity: fadeAnimation,
+                                        child: ScaleTransition(
+                                          scale: scaleAnimation,
+                                          child: child,
+                                        ),
+                                      );
+                                    },
                               ),
                             );
                           },
-                          icon: Icon(Icons.check_circle, color: theme.colorScheme.onPrimary, size: 24),
+                          icon: Icon(
+                            Icons.check_circle,
+                            color: theme.colorScheme.onPrimary,
+                            size: 24,
+                          ),
                           label: Text(
                             widget.isAmharic ? 'አሜን' : 'AMEN',
                             style: TextStyle(

@@ -3,8 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class PrePrayerIntentionScreen extends StatefulWidget {
-  final String prayerCategory; // e.g. "Novena", "Rosary", "Divine Chaplet", "Angelus"
-  final Widget targetPrayerPage; // The page that will show blurred in the background
+  final String
+  prayerCategory; // e.g. "Novena", "Rosary", "Divine Chaplet", "Angelus"
+  final Widget
+  targetPrayerPage; // The page that will show blurred in the background
   final bool isAmharic;
 
   const PrePrayerIntentionScreen({
@@ -15,7 +17,8 @@ class PrePrayerIntentionScreen extends StatefulWidget {
   });
 
   @override
-  State<PrePrayerIntentionScreen> createState() => _PrePrayerIntentionScreenState();
+  State<PrePrayerIntentionScreen> createState() =>
+      _PrePrayerIntentionScreenState();
 }
 
 class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
@@ -41,7 +44,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
   }
 
   Future<void> _fetchIntentions() async {
-    final data = await DatabaseHelper.instance.getIntentions(category: widget.prayerCategory);
+    final data = await DatabaseHelper.instance.getIntentions(
+      category: widget.prayerCategory,
+    );
     if (mounted) {
       setState(() {
         _intentions = data;
@@ -98,7 +103,11 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
         ),
         title: Text(
           widget.isAmharic ? 'የጸሎት ጥያቄውን ይሰርዙ?' : 'Delete Intention?',
-          style: const TextStyle(color: Colors.white, fontFamily: 'Georgia', fontSize: 18),
+          style: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Georgia',
+            fontSize: 18,
+          ),
         ),
         content: Text(
           widget.isAmharic
@@ -121,7 +130,10 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
             },
             child: Text(
               widget.isAmharic ? 'አጥፋ' : 'Delete',
-              style: const TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                color: Colors.redAccent,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],
@@ -134,7 +146,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
       context,
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 300),
-        pageBuilder: (context, animation, secondaryAnimation) => widget.targetPrayerPage,
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            widget.targetPrayerPage,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: animation, child: child);
         },
@@ -143,11 +156,15 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
   }
 
   String _formatDate(String? rawDate) {
-    final dt = rawDate != null ? DateTime.tryParse(rawDate) ?? DateTime.now() : DateTime.now();
+    final dt = rawDate != null
+        ? DateTime.tryParse(rawDate) ?? DateTime.now()
+        : DateTime.now();
     final daysEn = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     final daysAm = ['ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሁድ'];
 
-    final dayName = widget.isAmharic ? daysAm[dt.weekday - 1] : daysEn[dt.weekday - 1];
+    final dayName = widget.isAmharic
+        ? daysAm[dt.weekday - 1]
+        : daysEn[dt.weekday - 1];
     return "$dayName, ${dt.day}/${dt.month}/${dt.year}";
   }
 
@@ -168,9 +185,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 16.0, sigmaY: 16.0),
-              child: Container(
-                color: Colors.black.withOpacity(0.58),
-              ),
+              child: Container(color: Colors.black.withOpacity(0.58)),
             ),
           ),
 
@@ -180,7 +195,10 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
               children: [
                 // Top Header Bar
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 12.0,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -188,7 +206,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.isAmharic ? 'የጸሎት ዓላማዎች' : 'PRAYER INTENTIONS',
+                            widget.isAmharic
+                                ? 'የጸሎት ዓላማዎች'
+                                : 'PRAYER INTENTIONS',
                             style: const TextStyle(
                               fontFamily: 'Georgia',
                               fontSize: 19,
@@ -210,7 +230,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                       TextButton(
                         onPressed: _proceedToPrayer,
                         child: Text(
-                          widget.isAmharic ? 'ወደ ጸሎት ይለፉ →' : 'SKIP TO PRAYER →',
+                          widget.isAmharic
+                              ? 'ወደ ጸሎት ይለፉ →'
+                              : 'SKIP TO PRAYER →',
                           style: const TextStyle(
                             color: Color(0xFFE8B84B),
                             fontWeight: FontWeight.bold,
@@ -240,7 +262,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              widget.isAmharic ? 'የተመዘገቡ የጸሎት ጥያቄዎች' : 'Petitions & Intentions',
+                              widget.isAmharic
+                                  ? 'የተመዘገቡ የጸሎት ጥያቄዎች'
+                                  : 'Petitions & Intentions',
                               style: const TextStyle(
                                 fontFamily: 'Georgia',
                                 color: Colors.white,
@@ -263,21 +287,25 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
 
                         _isLoading
                             ? const Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 30),
-                            child: CircularProgressIndicator(color: Color(0xFFE8B84B)),
-                          ),
-                        )
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 30),
+                                  child: CircularProgressIndicator(
+                                    color: Color(0xFFE8B84B),
+                                  ),
+                                ),
+                              )
                             : _intentions.isEmpty
                             ? _buildEmptyState()
                             : ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: _intentions.length,
-                          itemBuilder: (context, index) {
-                            return _buildIntentionTile(_intentions[index]);
-                          },
-                        ),
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: _intentions.length,
+                                itemBuilder: (context, index) {
+                                  return _buildIntentionTile(
+                                    _intentions[index],
+                                  );
+                                },
+                              ),
                       ],
                     ),
                   ),
@@ -285,10 +313,15 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
 
                 // Bottom Action Button
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 14,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.4),
-                    border: const Border(top: BorderSide(color: Colors.white12)),
+                    border: const Border(
+                      top: BorderSide(color: Colors.white12),
+                    ),
                   ),
                   child: SizedBox(
                     width: double.infinity,
@@ -297,7 +330,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                         backgroundColor: const Color(0xFFE8B84B),
                         foregroundColor: const Color(0xFF120A21),
                         padding: const EdgeInsets.symmetric(vertical: 15),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
                         elevation: 4,
                       ),
                       onPressed: _proceedToPrayer,
@@ -345,7 +380,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
               ),
               IconButton(
                 icon: Icon(
-                  _isAddingNew ? Icons.keyboard_arrow_up : Icons.add_circle_outline,
+                  _isAddingNew
+                      ? Icons.keyboard_arrow_up
+                      : Icons.add_circle_outline,
                   color: const Color(0xFFE8B84B),
                 ),
                 onPressed: () => setState(() => _isAddingNew = !_isAddingNew),
@@ -359,7 +396,10 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                 widget.isAmharic
                     ? 'በዚህ ጸሎት ምን መጠየቅ ይፈልጋሉ? ለማከል እዚህ ይጫኑ...'
                     : 'Tap here to speak your mind & add a petition...',
-                style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 13),
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.5),
+                  fontSize: 13,
+                ),
               ),
             ),
           if (_isAddingNew) ...[
@@ -368,11 +408,19 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
               controller: _titleController,
               style: const TextStyle(color: Colors.white, fontSize: 14),
               decoration: InputDecoration(
-                hintText: widget.isAmharic ? 'ርዕስ (ለምሳሌ፦ ስለ ቤተሰብ ሰላም)' : 'Title (e.g. For Family Health)',
-                hintStyle: TextStyle(color: Colors.white.withOpacity(0.4), fontSize: 13),
+                hintText: widget.isAmharic
+                    ? 'ርዕስ (ለምሳሌ፦ ስለ ቤተሰብ ሰላም)'
+                    : 'Title (e.g. For Family Health)',
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.4),
+                  fontSize: 13,
+                ),
                 filled: true,
                 fillColor: Colors.black.withOpacity(0.4),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 12,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -388,7 +436,10 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                 hintText: widget.isAmharic
                     ? 'ዝርዝር መግለጫ ወይም የልብዎን ሀሳብ ይጻፉ (አማራጭ)...'
                     : 'Write out your detailed prayer intention or thoughts (optional)...',
-                hintStyle: TextStyle(color: Colors.white.withOpacity(0.4), fontSize: 12),
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.4),
+                  fontSize: 12,
+                ),
                 filled: true,
                 fillColor: Colors.black.withOpacity(0.4),
                 contentPadding: const EdgeInsets.all(14),
@@ -405,14 +456,16 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFE8B84B),
                   foregroundColor: const Color(0xFF120A21),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
                 onPressed: _addIntention,
                 icon: const Icon(Icons.check_rounded, size: 18),
                 label: Text(widget.isAmharic ? 'መዝግብ' : 'Save Petition'),
               ),
-            )
-          ]
+            ),
+          ],
         ],
       ),
     );
@@ -476,7 +529,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                       value: isAnswered,
                       activeColor: const Color(0xFF4CAF50),
                       checkColor: Colors.black,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      ),
                       onChanged: (val) {
                         _toggleAnswered(id, isAnswered);
                       },
@@ -489,7 +544,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                             title,
                             style: TextStyle(
                               color: isAnswered ? Colors.white60 : Colors.white,
-                              decoration: isAnswered ? TextDecoration.lineThrough : null,
+                              decoration: isAnswered
+                                  ? TextDecoration.lineThrough
+                                  : null,
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                             ),
@@ -508,7 +565,10 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     if (isAnswered)
                       Container(
                         margin: const EdgeInsets.only(right: 6),
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           color: const Color(0xFF4CAF50).withOpacity(0.2),
                           borderRadius: BorderRadius.circular(8),
@@ -523,7 +583,11 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                         ),
                       ),
                     IconButton(
-                      icon: Icon(Icons.delete_outline, color: Colors.white.withOpacity(0.4), size: 20),
+                      icon: Icon(
+                        Icons.delete_outline,
+                        color: Colors.white.withOpacity(0.4),
+                        size: 20,
+                      ),
                       onPressed: () => _confirmDelete(id),
                     ),
                     if (details != null)
@@ -536,7 +600,11 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                 if (isExpanded && details != null) ...[
                   const Divider(color: Colors.white12, height: 16),
                   Padding(
-                    padding: const EdgeInsets.only(left: 48, right: 12, bottom: 6),
+                    padding: const EdgeInsets.only(
+                      left: 48,
+                      right: 12,
+                      bottom: 6,
+                    ),
                     child: Text(
                       details,
                       style: TextStyle(
@@ -561,14 +629,21 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
         padding: const EdgeInsets.symmetric(vertical: 40),
         child: Column(
           children: [
-            Icon(Icons.volunteer_activism_outlined, size: 40, color: Colors.white.withOpacity(0.3)),
+            Icon(
+              Icons.volunteer_activism_outlined,
+              size: 40,
+              color: Colors.white.withOpacity(0.3),
+            ),
             const SizedBox(height: 12),
             Text(
               widget.isAmharic
                   ? 'ምንም የተመዘገበ የጸሎት ዓላማ የለም።'
                   : 'No prayer intentions saved for this session.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 13),
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.6),
+                fontSize: 13,
+              ),
             ),
           ],
         ),

@@ -5,7 +5,8 @@ final List<PrayerStep> gloriousSteps = [
   PrayerStep(
     titleEn: "First Glorious Mystery",
     titleAm: "አንደኛ የክብር ምስጢር",
-    contentEn: "The Resurrection.\n\n"
+    contentEn:
+        "The Resurrection.\n\n"
         "\"But on the first day of the week, at early dawn,\n"
         "they went to the tomb, taking the spices which they had prepared.\n"
         "And they found the stone rolled away from the tomb,\n"
@@ -16,7 +17,8 @@ final List<PrayerStep> gloriousSteps = [
         "the men said to them,\n"
         "'Why do you seek the living among the dead? He is not here, but has risen'\n"
         "(Lk 24:1-5)\n\n\n",
-    contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+    contentAm:
+        "ጌታችን ኢየሱስ ክርስቶስ፡\n"
         "ሞቶ ከተቀበረ በኋላ በሶስተኛው ቀን፡\n"
         " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
         "ከሙታን መነሳቱን፡\n"
@@ -28,13 +30,15 @@ final List<PrayerStep> gloriousSteps = [
   PrayerStep(
     titleEn: "Second Glorious Mystery",
     titleAm: "ሁለተኛ የክብር ምስጢር",
-    contentEn: "The Ascension.\n\n"
+    contentEn:
+        "The Ascension.\n\n"
         "\"So then the Lord Jesus,\n"
         "after he had spoken to them,\n"
         "was taken up into heaven,\n"
         " and sat down at the right hand of God.\n"
         "(Mk 16:19).\n\n\n",
-    contentAm: "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+    contentAm:
+        "ጌታችን ኢየሱስ ክርስቶስ፡\n"
         "ከሙታን በተነሣ በአርባኛው ቀን፡\n"
         "በታላቅ ክብር ወደ ሰማይ መውጣቱን ማሰብ ነው፡፡\n"
         "የምስጢሩ ፍሬ ሐሳብ፡\n"
@@ -44,7 +48,8 @@ final List<PrayerStep> gloriousSteps = [
   PrayerStep(
     titleEn: "Third Glorious Mystery",
     titleAm: "ሶስተኛ የክብር ምስጢር",
-    contentEn: "The Descent of the Holy Spirit.\n\n"
+    contentEn:
+        "The Descent of the Holy Spirit.\n\n"
         "\"When the day of Pentecost had come,\n"
         "they were all together in one place.\n"
         "And suddenly a sound came from heaven,\n"
@@ -56,7 +61,8 @@ final List<PrayerStep> gloriousSteps = [
         "and began to speak in other tongues,\n"
         "as the Spirit gave them utterance.\n"
         "(Acts 2:1-4).\n\n\n",
-    contentAm: "ሐዋርያት ከእመቤታችን ጋር፡\n"
+    contentAm:
+        "ሐዋርያት ከእመቤታችን ጋር፡\n"
         "በኢየሩሳሌም ተሰብስበው ሲጸልዩ፡\n"
         "በሃምሳኛው ቀን መንፈስ ቅዱስ መውረዱን ማሰብ ነው፡፡\n"
         "የምስጢሩ ፍሬ ሐሳብ፡\n"
@@ -67,11 +73,13 @@ final List<PrayerStep> gloriousSteps = [
   PrayerStep(
     titleEn: "Fourth Glorious Mystery",
     titleAm: "አራተኛ የክብር ምስጢር",
-    contentEn: "The Assumption of Mary.\n\n"
+    contentEn:
+        "The Assumption of Mary.\n\n"
         "\"Henceforth all generations will call me blessed;\n"
         "for he who is mighty has done great things for me.\n"
         "(Lk 1:48-49).\n\n\n",
-    contentAm: "እመቤታችን ቅድስት ድንግል ማርያም፡\n"
+    contentAm:
+        "እመቤታችን ቅድስት ድንግል ማርያም፡\n"
         "በእግዚአብሔር ኃይል ወደ ሰማይ መውጣትዋን ማሰብ ነው፡፡\n"
         "የምስጢሩ ፍሬ ሐሳብ፡\n"
         "መልካም ሞት ለመሞት፡\n"
@@ -81,13 +89,15 @@ final List<PrayerStep> gloriousSteps = [
   PrayerStep(
     titleEn: "Fifth Glorious Mystery",
     titleAm: "አምስተኛ የክብር ምስጢር",
-    contentEn: "The Coronation of Our Lady Queen of Heaven.\n\n"
+    contentEn:
+        "The Coronation of Our Lady Queen of Heaven.\n\n"
         "\"And a great portent appeared in heaven,\n"
         "a woman clothed with the sun,\n"
         "with the moon under her feet,\n"
         "and on her head a crown of twelve stars.\n"
         "(Rev 12:1).\n\n\n",
-    contentAm: "እመቤታችን ቅድስት ድንግል ማርያም፡\n"
+    contentAm:
+        "እመቤታችን ቅድስት ድንግል ማርያም፡\n"
         "ከእግዚአብሔር የክብር አክሊል ማግኘትዋንና፡\n"
         "የሰማይና የምድር ንግሥት መሆኑዋን ማሰብ ነው፡፡\n"
         "የምስጢሩ ፍሬ ሐሳብ፡\n"

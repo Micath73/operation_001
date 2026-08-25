@@ -13,26 +13,50 @@ class NovenaSection extends StatefulWidget {
 class _NovenaSectionState extends State<NovenaSection> {
   final List<NovenaCombo> prayers = [
     NovenaCombo(text: 'Adoration', imagePath: 'assets/Adoration.jpg'),
-    NovenaCombo(text: 'Arch Angel Rafael', imagePath: 'assets/Arch Angel Rafael.jpg'),
+    NovenaCombo(
+      text: 'Arch Angel Rafael',
+      imagePath: 'assets/Arch Angel Rafael.jpg',
+    ),
     NovenaCombo(text: 'Ash Wednesday', imagePath: 'assets/Ash Wednesday.jpg'),
     NovenaCombo(text: 'Baptism', imagePath: 'assets/Baptism.jpg'),
     NovenaCombo(text: 'Christ iS Born', imagePath: 'assets/Christ Is Born.jpg'),
-    NovenaCombo(text: 'Good Deed Thursday', imagePath: 'assets/Good Deed Thursday.jpg'),
+    NovenaCombo(
+      text: 'Good Deed Thursday',
+      imagePath: 'assets/Good Deed Thursday.jpg',
+    ),
     NovenaCombo(text: 'Good Friday', imagePath: 'assets/Good Friday (2).jpg'),
     NovenaCombo(text: 'He Is Risen', imagePath: 'assets/He is Risen.jpg'),
     NovenaCombo(text: 'Holy Mass', imagePath: 'assets/Holy Mass.jpg'),
     NovenaCombo(text: 'Holy Trinity', imagePath: 'assets/Holy Trinity.jpg'),
     NovenaCombo(text: 'Jesus And Mary', imagePath: 'assets/Jesus And Mary.jpg'),
     NovenaCombo(text: 'Lent', imagePath: 'assets/Lent.jpg'),
-    NovenaCombo(text: 'My Daily Journal', imagePath: 'assets/My Daily Journal.jpg'),
-    NovenaCombo(text: 'My Day Is Blessed', imagePath: 'assets/My Day I blessed.jpg'),
+    NovenaCombo(
+      text: 'My Daily Journal',
+      imagePath: 'assets/My Daily Journal.jpg',
+    ),
+    NovenaCombo(
+      text: 'My Day Is Blessed',
+      imagePath: 'assets/My Day I blessed.jpg',
+    ),
     NovenaCombo(text: 'Palm Sunday', imagePath: 'assets/Pakm Sunday 2.jpg'),
     NovenaCombo(text: 'Priesthood', imagePath: 'assets/Priestlyhood.jpg'),
     NovenaCombo(text: 'Saint Dominic', imagePath: 'assets/Saint Dominic.jpg'),
-    NovenaCombo(text: 'The Ascension Of Mary', imagePath: 'assets/The Ascencion Of Mary.jpg'),
-    NovenaCombo(text: 'The End Is Near', imagePath: 'assets/The End Is Near.jpg'),
-    NovenaCombo(text: 'The Sacrament Of Marriage', imagePath: 'assets/The Sacrament Of Marriage.jpg'),
-    NovenaCombo(text: 'The Sorrows Of Mary', imagePath: 'assets/The Sorrows Of Mary.jpg'),
+    NovenaCombo(
+      text: 'The Ascension Of Mary',
+      imagePath: 'assets/The Ascencion Of Mary.jpg',
+    ),
+    NovenaCombo(
+      text: 'The End Is Near',
+      imagePath: 'assets/The End Is Near.jpg',
+    ),
+    NovenaCombo(
+      text: 'The Sacrament Of Marriage',
+      imagePath: 'assets/The Sacrament Of Marriage.jpg',
+    ),
+    NovenaCombo(
+      text: 'The Sorrows Of Mary',
+      imagePath: 'assets/The Sorrows Of Mary.jpg',
+    ),
   ];
 
   final List<NovenaCombo> novenaTitles = [
@@ -45,24 +69,22 @@ class _NovenaSectionState extends State<NovenaSection> {
   ];
 
   void _openNovenaDetail(BuildContext context, String title) {
-    final dataset = novenaData[title] ??
+    final dataset =
+        novenaData[title] ??
         List.generate(
           9,
-              (i) => NovenaDayContent(
+          (i) => NovenaDayContent(
             dayNumber: i + 1,
             theme: "Day ${i + 1}: $title Prayer",
             prayer:
-            "Opening prayer for Day ${i + 1} of $title...\n\nLord, hear our prayers and bless our intentions. Amen.",
+                "Opening prayer for Day ${i + 1} of $title...\n\nLord, hear our prayers and bless our intentions. Amen.",
           ),
         );
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => NovenaDetailScreen(
-          title: title,
-          days: dataset,
-        ),
+        builder: (context) => NovenaDetailScreen(title: title, days: dataset),
       ),
     );
   }
@@ -111,8 +133,11 @@ class _NovenaSectionState extends State<NovenaSection> {
                           ),
                         );
                       },
-                      icon: const Icon(Icons.arrow_forward_ios,
-                          size: 14, color: Colors.deepPurple),
+                      icon: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 14,
+                        color: Colors.deepPurple,
+                      ),
                       label: const Text(
                         'See All',
                         style: TextStyle(
@@ -154,7 +179,7 @@ class _NovenaSectionState extends State<NovenaSection> {
                                     color: Colors.black.withOpacity(0.08),
                                     blurRadius: 10,
                                     offset: const Offset(0, 5),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -215,8 +240,11 @@ class _NovenaSectionState extends State<NovenaSection> {
                     ),
                   );
                 },
-                icon: const Icon(Icons.arrow_forward_ios,
-                    size: 14, color: Colors.deepPurple),
+                icon: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 14,
+                  color: Colors.deepPurple,
+                ),
                 label: const Text(
                   'See All',
                   style: TextStyle(
@@ -335,7 +363,7 @@ class SeeAllGridPage extends StatelessWidget {
                           color: Colors.black.withOpacity(0.08),
                           blurRadius: 6,
                           offset: const Offset(0, 3),
-                        )
+                        ),
                       ],
                     ),
                   ),

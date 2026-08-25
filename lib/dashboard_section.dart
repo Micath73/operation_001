@@ -45,7 +45,11 @@ class _DashboardSectionState extends State<DashboardSection> {
     }
   }
 
-  Widget _buildDailyButton(String label, VoidCallback onPressed, ThemeData theme) {
+  Widget _buildDailyButton(
+    String label,
+    VoidCallback onPressed,
+    ThemeData theme,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: SizedBox(
@@ -119,8 +123,9 @@ class _DashboardSectionState extends State<DashboardSection> {
                               color: isSelected
                                   ? theme.colorScheme.onPrimary
                                   : theme.colorScheme.onSurfaceVariant,
-                              fontWeight:
-                              isSelected ? FontWeight.bold : FontWeight.normal,
+                              fontWeight: isSelected
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
                             ),
                           ),
                         ),
@@ -137,63 +142,47 @@ class _DashboardSectionState extends State<DashboardSection> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                _buildDailyButton(
-                  "Read today's Gospel",
-                      () {
-                    print("Reading Gospel for $selectedDay");
-                  },
-                  theme,
-                ),
-                _buildDailyButton(
-                  "Pray today's Angelus",
-                      () {
+                _buildDailyButton("Read today's Gospel", () {
+                  print("Reading Gospel for $selectedDay");
+                }, theme),
+                _buildDailyButton("Pray today's Angelus", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PrePrayerIntentionScreen(
+                        prayerCategory: 'Angelus',
+                        isAmharic: false,
+                        targetPrayerPage: angelus(),
+                      ),
+                    ),
+                  );
+                }, theme),
+                _buildDailyButton("Pray today's Rosary", () {
+                  Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PrePrayerIntentionScreen(
+                        prayerCategory: 'Rosary',
+                        isAmharic: false,
+                        targetPrayerPage: rosaryTarget,
+                      ),
+                    ),
+                  );
+                }, theme),
+                if (selectedDay == 'Fri')
+                  _buildDailyButton("Special Friday Divine Mercy", () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const PrePrayerIntentionScreen(
-                          prayerCategory: 'Angelus',
+                          prayerCategory: 'Divine Chaplet',
                           isAmharic: false,
-                          targetPrayerPage: angelus(),
+                          targetPrayerPage: chaplet(),
                         ),
                       ),
                     );
-                  },
-                  theme,
-                ),
-                _buildDailyButton(
-                  "Pray today's Rosary",
-                      () {
-                    Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PrePrayerIntentionScreen(
-                          prayerCategory: 'Rosary',
-                          isAmharic: false,
-                          targetPrayerPage: rosaryTarget,
-                        ),
-                      ),
-                    );
-                  },
-                  theme,
-                ),
-                if (selectedDay == 'Fri')
-                  _buildDailyButton(
-                    "Special Friday Divine Mercy",
-                        () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PrePrayerIntentionScreen(
-                            prayerCategory: 'Divine Chaplet',
-                            isAmharic: false,
-                            targetPrayerPage: chaplet(),
-                          ),
-                        ),
-                      );
-                    },
-                    theme,
-                  ),
+                  }, theme),
               ],
             ),
           ),

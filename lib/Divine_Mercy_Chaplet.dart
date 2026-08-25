@@ -5,10 +5,7 @@ import 'package:operation_001/PrayerCompletionScreen.dart';
 class DivineMercyChaplet extends StatefulWidget {
   final bool isAmharic;
 
-  const DivineMercyChaplet({
-    super.key,
-    this.isAmharic = false,
-  });
+  const DivineMercyChaplet({super.key, this.isAmharic = false});
 
   @override
   State<DivineMercyChaplet> createState() => _DivineMercyChapletState();
@@ -25,7 +22,9 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
     int totalSeconds = seconds.toInt();
     int minutes = totalSeconds ~/ 60;
     int remainingSeconds = totalSeconds % 60;
-    String secondsStr = remainingSeconds < 10 ? '0$remainingSeconds' : '$remainingSeconds';
+    String secondsStr = remainingSeconds < 10
+        ? '0$remainingSeconds'
+        : '$remainingSeconds';
     return '$minutes:$secondsStr';
   }
 
@@ -41,7 +40,10 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
         elevation: 0,
         title: Text(
           widget.isAmharic ? 'የማሕሪው ኢየሱስ ጸሎት' : 'Divine Mercy Chaplet',
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -55,10 +57,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
         children: [
           // 1. Fixed Background Image
           Positioned.fill(
-            child: Image.asset(
-              'assets/img_3.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/img_3.png', fit: BoxFit.cover),
           ),
 
           // 2. Blurred Dark Overlay
@@ -66,9 +65,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                child: Container(
-                  color: Colors.black.withOpacity(0.55),
-                ),
+                child: Container(color: Colors.black.withOpacity(0.55)),
               ),
             ),
           ),
@@ -78,7 +75,10 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
             child: SafeArea(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -88,7 +88,10 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       margin: const EdgeInsets.only(bottom: 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.white.withOpacity(0.18), width: 1.2),
+                        border: Border.all(
+                          color: Colors.white.withOpacity(0.18),
+                          width: 1.2,
+                        ),
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
@@ -115,14 +118,17 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              widget.isAmharic ? 'የማሕሪው ኢየሱስ ድምፅ' : 'Divine Mercy Chaplet Audio',
+                                              widget.isAmharic
+                                                  ? 'የማሕሪው ኢየሱስ ድምፅ'
+                                                  : 'Divine Mercy Chaplet Audio',
                                               style: const TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.bold,
@@ -140,8 +146,11 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                               });
                                             },
                                             icon: Icon(
-                                              _isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
-                                              color: theme.colorScheme.secondary,
+                                              _isPlaying
+                                                  ? Icons.pause_circle_filled
+                                                  : Icons.play_circle_fill,
+                                              color:
+                                                  theme.colorScheme.secondary,
                                               size: 32,
                                             ),
                                           ),
@@ -149,24 +158,36 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                       ),
                                       const SizedBox(height: 4),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text(
                                             _formatDuration(_currentPosition),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withOpacity(0.6),
+                                              color: Colors.white.withOpacity(
+                                                0.6,
+                                              ),
                                             ),
                                           ),
                                           Expanded(
                                             child: SliderTheme(
                                               data: SliderTheme.of(context).copyWith(
                                                 trackHeight: 3,
-                                                activeTrackColor: theme.colorScheme.secondary,
-                                                inactiveTrackColor: Colors.white.withOpacity(0.2),
-                                                thumbColor: theme.colorScheme.secondary,
-                                                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
-                                                overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
+                                                activeTrackColor:
+                                                    theme.colorScheme.secondary,
+                                                inactiveTrackColor: Colors.white
+                                                    .withOpacity(0.2),
+                                                thumbColor:
+                                                    theme.colorScheme.secondary,
+                                                thumbShape:
+                                                    const RoundSliderThumbShape(
+                                                      enabledThumbRadius: 6,
+                                                    ),
+                                                overlayShape:
+                                                    const RoundSliderOverlayShape(
+                                                      overlayRadius: 14,
+                                                    ),
                                               ),
                                               child: Slider(
                                                 value: _currentPosition,
@@ -184,7 +205,9 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                             _formatDuration(_totalDuration),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withOpacity(0.6),
+                                              color: Colors.white.withOpacity(
+                                                0.6,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -204,7 +227,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       theme: theme,
                       title: '1. Opening Prayers',
                       content:
-                      'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n'
+                          'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n'
                           'You expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, enfold the whole world and empty Yourself out upon us.\n\n'
                           'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of mercy for us, I trust in You! (Repeat 3 times)',
                     ),
@@ -215,7 +238,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       theme: theme,
                       title: '2. Preparatory Prayers',
                       content:
-                      'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.\n\n'
+                          'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.\n\n'
                           'Hail Mary, full of grace. The Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\n'
                           'The Apostles\' Creed:\n'
                           'I believe in God, the Father Almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and is seated at the right hand of God the Father Almighty; from there He will come to judge the living and the dead. I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.',
@@ -227,7 +250,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       theme: theme,
                       title: '3. The 5 Decades',
                       content:
-                      'For each of the 5 Decades, pray the following:\n\n'
+                          'For each of the 5 Decades, pray the following:\n\n'
                           'On the Large Bead (Eternal Father):\n'
                           '"Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your Dearly Beloved Son, Our Lord, Jesus Christ, in atonement for our sins and those of the whole world." \n\n'
                           'On the 10 Small Beads (Sorrowful Passion):\n'
@@ -240,7 +263,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       theme: theme,
                       title: '4. Concluding Doxology',
                       content:
-                      'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n(Repeat 3 times)\n\n'
+                          'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n(Repeat 3 times)\n\n'
                           'Closing Prayer:\n'
                           'Eternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself. Amen.',
                     ),
@@ -254,7 +277,10 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: theme.colorScheme.primary,
                             foregroundColor: theme.colorScheme.onPrimary,
-                            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 40,
+                              vertical: 16,
+                            ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -263,44 +289,70 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
-                                transitionDuration: const Duration(milliseconds: 650),
-                                reverseTransitionDuration: const Duration(milliseconds: 400),
-                                pageBuilder: (context, animation, secondaryAnimation) => PrayerCompletionScreen(
-                                  isAmharic: widget.isAmharic,
-                                  detailValue: widget.isAmharic ? 'የማሕሪው ኢየሱስ ጸሎት' : 'Divine Mercy Chaplet',
-                                  detailLabelEn: 'Devotional',
-                                  detailLabelAm: 'ጸሎት',
-                                  titleEn: 'Chaplet Completed',
-                                  titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
-                                  subtitleEn: 'May His Divine Mercy shine upon you',
-                                  subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
-                                  bgImagePath: 'assets/img_3.png',
+                                transitionDuration: const Duration(
+                                  milliseconds: 650,
                                 ),
-                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  final fadeAnimation = CurvedAnimation(
-                                    parent: animation,
-                                    curve: Curves.easeOutCubic,
-                                  );
-
-                                  final scaleAnimation = Tween<double>(begin: 0.95, end: 1.0).animate(
-                                    CurvedAnimation(
-                                      parent: animation,
-                                      curve: Curves.easeOutCubic,
+                                reverseTransitionDuration: const Duration(
+                                  milliseconds: 400,
+                                ),
+                                pageBuilder:
+                                    (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                    ) => PrayerCompletionScreen(
+                                      isAmharic: widget.isAmharic,
+                                      detailValue: widget.isAmharic
+                                          ? 'የማሕሪው ኢየሱስ ጸሎት'
+                                          : 'Divine Mercy Chaplet',
+                                      detailLabelEn: 'Devotional',
+                                      detailLabelAm: 'ጸሎት',
+                                      titleEn: 'Chaplet Completed',
+                                      titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
+                                      subtitleEn:
+                                          'May His Divine Mercy shine upon you',
+                                      subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
+                                      bgImagePath: 'assets/img_3.png',
                                     ),
-                                  );
+                                transitionsBuilder:
+                                    (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      child,
+                                    ) {
+                                      final fadeAnimation = CurvedAnimation(
+                                        parent: animation,
+                                        curve: Curves.easeOutCubic,
+                                      );
 
-                                  return FadeTransition(
-                                    opacity: fadeAnimation,
-                                    child: ScaleTransition(
-                                      scale: scaleAnimation,
-                                      child: child,
-                                    ),
-                                  );
-                                },
+                                      final scaleAnimation =
+                                          Tween<double>(
+                                            begin: 0.95,
+                                            end: 1.0,
+                                          ).animate(
+                                            CurvedAnimation(
+                                              parent: animation,
+                                              curve: Curves.easeOutCubic,
+                                            ),
+                                          );
+
+                                      return FadeTransition(
+                                        opacity: fadeAnimation,
+                                        child: ScaleTransition(
+                                          scale: scaleAnimation,
+                                          child: child,
+                                        ),
+                                      );
+                                    },
                               ),
                             );
                           },
-                          icon: Icon(Icons.check_circle, color: theme.colorScheme.onPrimary, size: 24),
+                          icon: Icon(
+                            Icons.check_circle,
+                            color: theme.colorScheme.onPrimary,
+                            size: 24,
+                          ),
                           label: Text(
                             widget.isAmharic ? 'አሜን' : 'AMEN',
                             style: TextStyle(
@@ -361,7 +413,11 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                 fontSize: 20,
                 color: theme.colorScheme.secondary,
                 shadows: [
-                  Shadow(blurRadius: 8, color: Colors.black.withOpacity(0.6), offset: const Offset(0, 2))
+                  Shadow(
+                    blurRadius: 8,
+                    color: Colors.black.withOpacity(0.6),
+                    offset: const Offset(0, 2),
+                  ),
                 ],
               ),
             ),
@@ -376,7 +432,11 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                 color: Colors.white.withOpacity(0.95),
                 height: 1.55,
                 shadows: [
-                  Shadow(blurRadius: 6, color: Colors.black.withOpacity(0.8), offset: const Offset(1, 1))
+                  Shadow(
+                    blurRadius: 6,
+                    color: Colors.black.withOpacity(0.8),
+                    offset: const Offset(1, 1),
+                  ),
                 ],
               ),
             ),

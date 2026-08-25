@@ -76,9 +76,7 @@ class _ContainState extends State<Contain> {
                     } else if (prayer.text == 'Rosary') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => const rosary(),
-                        ),
+                        MaterialPageRoute(builder: (context) => const rosary()),
                       );
                     } else {
                       Navigator.push(

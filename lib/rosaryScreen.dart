@@ -8,7 +8,6 @@ import 'package:operation_001/gloriousMystery.dart';
 import 'package:operation_001/luminous.dart';
 import 'package:operation_001/luminousMystery.dart';
 
-
 class rosary extends StatefulWidget {
   const rosary({super.key});
 
@@ -25,7 +24,11 @@ class _rosaryState extends State<rosary> {
         appBar: AppBar(
           title: const Text(
             'Rosary',
-            style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           centerTitle: true,
           bottom: const TabBar(
@@ -35,12 +38,7 @@ class _rosaryState extends State<rosary> {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            _buildMysteryList(),
-            _buildMysteryList(),
-          ],
-        ),
+        body: TabBarView(children: [_buildMysteryList(), _buildMysteryList()]),
       ),
     );
   }
@@ -57,7 +55,10 @@ class _rosaryState extends State<rosary> {
               '"In the joyful mysteries we see, the joy of family, motherhood..."',
               '— Saint John Paul II',
               'assets/morning rosary.jpg',
-                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const joyfulScreen())),
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const joyfulScreen()),
+              ),
             ),
             const SizedBox(height: 10),
             _buildMysteryCard(
@@ -66,7 +67,12 @@ class _rosaryState extends State<rosary> {
               '"The Rosary is the book of the blind, where souls see and there enact the greatest drama of love..."',
               '— Venerable Fulton Sheen',
               'assets/img_20.png',
-                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const sorrowfulScreen())),
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const sorrowfulScreen(),
+                ),
+              ),
             ),
             const SizedBox(height: 10),
 
@@ -76,7 +82,10 @@ class _rosaryState extends State<rosary> {
               'In the glorious mysteries the hopes of eternal life are revived.',
               '— Saint John Paul II',
               'assets/He is Risen.jpg',
-                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const gloriousScreen())),
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const gloriousScreen()),
+              ),
             ),
 
             const SizedBox(height: 10),
@@ -86,7 +95,10 @@ class _rosaryState extends State<rosary> {
               'These mysteries make it possible to reach the threshold of contemplation...',
               '— Saint John Paul II',
               'assets/holy communion.jpg',
-                  () => Navigator.push(context, MaterialPageRoute(builder: (context) => const luminousScreen())),
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const luminousScreen()),
+              ),
             ),
           ],
         ),
@@ -94,7 +106,14 @@ class _rosaryState extends State<rosary> {
     );
   }
 
-  Widget _buildMysteryCard(String title, String days, String quote, String author, String imagePath, VoidCallback onTap) {
+  Widget _buildMysteryCard(
+    String title,
+    String days,
+    String quote,
+    String author,
+    String imagePath,
+    VoidCallback onTap,
+  ) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       color: Colors.white,
@@ -110,10 +129,7 @@ class _rosaryState extends State<rosary> {
             children: [
               SizedBox(
                 width: 100,
-                child: Image.asset(
-                  imagePath,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(imagePath, fit: BoxFit.cover),
               ),
               Expanded(
                 child: Padding(
@@ -124,22 +140,35 @@ class _rosaryState extends State<rosary> {
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         days,
-                        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Colors.deepPurple),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                          color: Colors.deepPurple,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         quote,
-                        style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
+                        style: const TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontSize: 12,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         author,
-                        style: const TextStyle(fontSize: 11, color: Colors.grey),
+                        style: const TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey,
+                        ),
                       ),
                     ],
                   ),

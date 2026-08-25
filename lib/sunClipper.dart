@@ -18,10 +18,7 @@ class SunRevealClipper extends CustomClipper<Path> {
     double radius = maxRadius * revealPercent;
 
     Path circlePath = Path()
-      ..addOval(Rect.fromCircle(
-        center: center,
-        radius: radius,
-      ));
+      ..addOval(Rect.fromCircle(center: center, radius: radius));
 
     // 3. Subtract the circle from the rectangle (The "Hole" effect)
     return Path.combine(PathOperation.difference, path, circlePath);

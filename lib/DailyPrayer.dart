@@ -12,41 +12,80 @@ class Dailyprayer extends StatelessWidget {
   Dailyprayer({super.key});
 
   final List<NovenaCombo> morningPrayers = [
-    NovenaCombo(text: 'The Morning Offering', imagePath: 'assets/morning offering.jpg'),
+    NovenaCombo(
+      text: 'The Morning Offering',
+      imagePath: 'assets/morning offering.jpg',
+    ),
     NovenaCombo(text: 'Prayer of St. Francis', imagePath: 'assets/francis.jpg'),
-    NovenaCombo(text: 'The Guardian Angel Prayer', imagePath: 'assets/guardian angel.jpg'),
-    NovenaCombo(text: 'Morning Psalm Prayers', imagePath: 'assets/morning rosary.jpg'),
-    NovenaCombo(text: 'The Benedictus', imagePath: 'assets/My Daily Journal.jpg'),
+    NovenaCombo(
+      text: 'The Guardian Angel Prayer',
+      imagePath: 'assets/guardian angel.jpg',
+    ),
+    NovenaCombo(
+      text: 'Morning Psalm Prayers',
+      imagePath: 'assets/morning rosary.jpg',
+    ),
+    NovenaCombo(
+      text: 'The Benedictus',
+      imagePath: 'assets/My Daily Journal.jpg',
+    ),
   ];
 
   final List<NovenaCombo> midDayPrayers = [
     NovenaCombo(text: 'Angelus', imagePath: 'assets/img_1.png'),
     NovenaCombo(text: 'Act Of Contrition', imagePath: 'assets/img_2.png'),
-    NovenaCombo(text: 'Prayer for the Hour of Mercy', imagePath: 'assets/img_5.png'),
-    NovenaCombo(text: 'Prayer to St. Michael the Archangel', imagePath: 'assets/img_4.png'),
+    NovenaCombo(
+      text: 'Prayer for the Hour of Mercy',
+      imagePath: 'assets/img_5.png',
+    ),
+    NovenaCombo(
+      text: 'Prayer to St. Michael the Archangel',
+      imagePath: 'assets/img_4.png',
+    ),
     NovenaCombo(text: 'Divine Mercy Chaplet', imagePath: 'assets/img_3.png'),
   ];
 
   final List<NovenaCombo> eveningPrayers = [
     NovenaCombo(text: 'Rosary', imagePath: 'assets/img_6.png'),
-    NovenaCombo(text: 'Vespers (Evening Prayer)', imagePath: 'assets/img_7.png'),
+    NovenaCombo(
+      text: 'Vespers (Evening Prayer)',
+      imagePath: 'assets/img_7.png',
+    ),
     NovenaCombo(text: 'The Magnificat', imagePath: 'assets/img_8.png'),
     NovenaCombo(text: 'Prayer of St. Augustine', imagePath: 'assets/img_9.png'),
-    NovenaCombo(text: 'Compline (Night Prayer)', imagePath: 'assets/img_10.png'),
+    NovenaCombo(
+      text: 'Compline (Night Prayer)',
+      imagePath: 'assets/img_10.png',
+    ),
   ];
 
   final List<NovenaCombo> intercessionPrayers = [
     NovenaCombo(text: 'The Memorare', imagePath: 'assets/img_11.png'),
     NovenaCombo(text: 'Prayer to Saint Joseph', imagePath: 'assets/img_12.png'),
-    NovenaCombo(text: 'Prayer to St. Michael the Archangel', imagePath: 'assets/img_13.png'),
-    NovenaCombo(text: 'Prayer to St. Francis of Assisi', imagePath: 'assets/img_14.png'),
-    NovenaCombo(text: 'The Litany of the Saints', imagePath: 'assets/img_15.png'),
+    NovenaCombo(
+      text: 'Prayer to St. Michael the Archangel',
+      imagePath: 'assets/img_13.png',
+    ),
+    NovenaCombo(
+      text: 'Prayer to St. Francis of Assisi',
+      imagePath: 'assets/img_14.png',
+    ),
+    NovenaCombo(
+      text: 'The Litany of the Saints',
+      imagePath: 'assets/img_15.png',
+    ),
   ];
 
   final List<NovenaCombo> otherPrayers = [
     NovenaCombo(text: 'Prayer of Abandonment', imagePath: 'assets/father.jpg'),
-    NovenaCombo(text: 'Anima Christi', imagePath: 'assets/anima christi vip.jpg'),
-    NovenaCombo(text: 'Litany of the Holy Name of Jesus', imagePath: 'assets/img_16.png'),
+    NovenaCombo(
+      text: 'Anima Christi',
+      imagePath: 'assets/anima christi vip.jpg',
+    ),
+    NovenaCombo(
+      text: 'Litany of the Holy Name of Jesus',
+      imagePath: 'assets/img_16.png',
+    ),
     NovenaCombo(text: 'Come, Holy Spirit', imagePath: 'assets/img_17.png'),
     NovenaCombo(text: 'Hail Holy Queen', imagePath: 'assets/img_18.png'),
   ];
@@ -81,7 +120,9 @@ class Dailyprayer extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const angelus()),
+                            MaterialPageRoute(
+                              builder: (context) => const angelus(),
+                            ),
                           );
                         },
                         child: Column(
@@ -118,7 +159,9 @@ class Dailyprayer extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const rosary()),
+                            MaterialPageRoute(
+                              builder: (context) => const rosary(),
+                            ),
                           );
                         },
                         child: Column(
@@ -155,7 +198,9 @@ class Dailyprayer extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const chaplet()),
+                            MaterialPageRoute(
+                              builder: (context) => const chaplet(),
+                            ),
                           );
                         },
                         child: Column(
@@ -198,31 +243,16 @@ class Dailyprayer extends StatelessWidget {
               ),
             );
           },
-          child: Contain(
-            title: 'Morning Prayers',
-            prayers: morningPrayers,
-          ),
+          child: Contain(title: 'Morning Prayers', prayers: morningPrayers),
         ),
         const SizedBox(height: 50),
-        Contain(
-          title: 'Mid-Day Prayers',
-          prayers: midDayPrayers,
-        ),
+        Contain(title: 'Mid-Day Prayers', prayers: midDayPrayers),
         const SizedBox(height: 50),
-        Contain(
-          title: 'Evening Prayers',
-          prayers: eveningPrayers,
-        ),
+        Contain(title: 'Evening Prayers', prayers: eveningPrayers),
         const SizedBox(height: 50),
-        Contain(
-          title: 'Intercession Prayers',
-          prayers: intercessionPrayers,
-        ),
+        Contain(title: 'Intercession Prayers', prayers: intercessionPrayers),
         const SizedBox(height: 50),
-        Contain(
-          title: 'Other Prayers',
-          prayers: otherPrayers,
-        ),
+        Contain(title: 'Other Prayers', prayers: otherPrayers),
       ],
     );
   }

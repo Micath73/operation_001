@@ -317,15 +317,10 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(
-              'assets/morning rosary.jpg',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/morning rosary.jpg', fit: BoxFit.cover),
           ),
           Positioned.fill(
-            child: Container(
-              color: Colors.black.withOpacity(0.55),
-            ),
+            child: Container(color: Colors.black.withOpacity(0.55)),
           ),
           SafeArea(
             child: ListView(
@@ -345,9 +340,7 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
                     ),
                     margin: const EdgeInsets.only(bottom: 16),
                     child: Theme(
-                      data: theme.copyWith(
-                        dividerColor: Colors.transparent,
-                      ),
+                      data: theme.copyWith(dividerColor: Colors.transparent),
                       child: ExpansionTile(
                         iconColor: theme.colorScheme.secondary,
                         collapsedIconColor: Colors.white70,

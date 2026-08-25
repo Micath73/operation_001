@@ -10,8 +10,6 @@ class UserDaily extends StatefulWidget {
 class _UserDailyState extends State<UserDaily> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('DAILY', style: TextStyle(fontSize: 50.0)),
-    );
+    return Center(child: Text('DAILY', style: TextStyle(fontSize: 50.0)));
   }
 }

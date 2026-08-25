@@ -8,16 +8,14 @@ class Newprayertemplatepage extends StatefulWidget {
   final String prayerTitle;
   final String prayerImage;
 
-  Newprayertemplatepage({
-    required this.prayerTitle,
-    required this.prayerImage,
-  });
+  Newprayertemplatepage({required this.prayerTitle, required this.prayerImage});
 
   @override
   State<Newprayertemplatepage> createState() => _NewprayertemplatepageState();
 }
 
-class _NewprayertemplatepageState extends State<Newprayertemplatepage> with TickerProviderStateMixin {
+class _NewprayertemplatepageState extends State<Newprayertemplatepage>
+    with TickerProviderStateMixin {
   bool isPraying = false;
   int? _focusedStepIndex;
 
@@ -76,7 +74,9 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
     final steps = prayer_data.masterPrayerDB[widget.prayerTitle];
 
     final double fullHeight = MediaQuery.of(context).size.height;
-    final double dynamicImageHeight = isPraying ? fullHeight * 0.45 : fullHeight;
+    final double dynamicImageHeight = isPraying
+        ? fullHeight * 0.45
+        : fullHeight;
     final double manuscriptTop = isPraying ? fullHeight * 0.38 : fullHeight;
 
     return PopScope(
@@ -84,7 +84,8 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) return;
         if (isPraying) {
-          if (_focusedStepIndex != null) _glowControllers[_focusedStepIndex!]?.reverse();
+          if (_focusedStepIndex != null)
+            _glowControllers[_focusedStepIndex!]?.reverse();
           setState(() {
             isPraying = false;
             _focusedStepIndex = null;
@@ -98,10 +99,15 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFE8B84B), size: 20),
+            icon: const Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Color(0xFFE8B84B),
+              size: 20,
+            ),
             onPressed: () {
               if (isPraying) {
-                if (_focusedStepIndex != null) _glowControllers[_focusedStepIndex!]?.reverse();
+                if (_focusedStepIndex != null)
+                  _glowControllers[_focusedStepIndex!]?.reverse();
                 setState(() {
                   isPraying = false;
                   _focusedStepIndex = null;
@@ -131,7 +137,11 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                         gradient: RadialGradient(
                           center: Alignment(0.0, -0.3),
                           radius: 1.4,
-                          colors: [Color(0xFF3D1F5C), Color(0xFF1E0E38), Color(0xFF0D0718)],
+                          colors: [
+                            Color(0xFF3D1F5C),
+                            Color(0xFF1E0E38),
+                            Color(0xFF0D0718),
+                          ],
                         ),
                       ),
                       child: CustomPaint(painter: _GothicArchPainter()),
@@ -176,7 +186,9 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                       decoration: BoxDecoration(
                         color: const Color(0xFF1A0F2E).withOpacity(0.45),
                         borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: const Color(0xFFC9922A).withOpacity(0.2)),
+                        border: Border.all(
+                          color: const Color(0xFFC9922A).withOpacity(0.2),
+                        ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -306,7 +318,11 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                                 // Title Header Eyebrow
                                 Row(
                                   children: [
-                                    Container(width: 3, height: 14, color: const Color(0xFFC9922A)),
+                                    Container(
+                                      width: 3,
+                                      height: 14,
+                                      color: const Color(0xFFC9922A),
+                                    ),
                                     const SizedBox(width: 8),
                                     const Text(
                                       'CATHOLIC DEVOTIONAL',
@@ -336,15 +352,31 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                                 // Beautiful Gold Ornamental Liturgical Rule
                                 Row(
                                   children: [
-                                    Expanded(child: Container(height: 0.5, color: const Color(0xFFC9922A).withOpacity(0.4))),
+                                    Expanded(
+                                      child: Container(
+                                        height: 0.5,
+                                        color: const Color(
+                                          0xFFC9922A,
+                                        ).withOpacity(0.4),
+                                      ),
+                                    ),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                      ),
                                       child: CustomPaint(
                                         size: const Size(12, 12),
                                         painter: _CrossOrnamentPainter(),
                                       ),
                                     ),
-                                    Expanded(child: Container(height: 0.5, color: const Color(0xFFC9922A).withOpacity(0.4))),
+                                    Expanded(
+                                      child: Container(
+                                        height: 0.5,
+                                        color: const Color(
+                                          0xFFC9922A,
+                                        ).withOpacity(0.4),
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 const SizedBox(height: 24),
@@ -354,8 +386,11 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                                   for (int i = 0; i < steps.length; i++) ...[
                                     Builder(
                                       builder: (context) {
-                                        final bool isFocused = (_focusedStepIndex == i);
-                                        final bool isDimmed = (_focusedStepIndex != null && _focusedStepIndex != i);
+                                        final bool isFocused =
+                                            (_focusedStepIndex == i);
+                                        final bool isDimmed =
+                                            (_focusedStepIndex != null &&
+                                            _focusedStepIndex != i);
                                         final animation = _getGlowAnimation(i);
                                         final stepData = steps[i];
 
@@ -366,27 +401,54 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                                             animation: animation,
                                             builder: (context, child) {
                                               return AnimatedOpacity(
-                                                duration: const Duration(milliseconds: 300),
+                                                duration: const Duration(
+                                                  milliseconds: 300,
+                                                ),
                                                 opacity: isDimmed ? 0.38 : 1.0,
                                                 child: Stack(
                                                   children: [
                                                     // Sacred Candle Glow Highlighting Container
-                                                    if (isFocused || animation.value > 0.0)
+                                                    if (isFocused ||
+                                                        animation.value > 0.0)
                                                       Positioned.fill(
                                                         child: Opacity(
-                                                          opacity: animation.value,
+                                                          opacity:
+                                                              animation.value,
                                                           child: Container(
                                                             decoration: BoxDecoration(
-                                                              color: const Color(0xFFFFF3C4).withOpacity(0.65),
-                                                              borderRadius: BorderRadius.circular(10),
+                                                              color:
+                                                                  const Color(
+                                                                    0xFFFFF3C4,
+                                                                  ).withOpacity(
+                                                                    0.65,
+                                                                  ),
+                                                              borderRadius:
+                                                                  BorderRadius.circular(
+                                                                    10,
+                                                                  ),
                                                               border: Border.all(
-                                                                color: const Color(0xFFE8B84B).withOpacity(0.35 * animation.value),
+                                                                color:
+                                                                    const Color(
+                                                                      0xFFE8B84B,
+                                                                    ).withOpacity(
+                                                                      0.35 *
+                                                                          animation
+                                                                              .value,
+                                                                    ),
                                                               ),
                                                               boxShadow: [
                                                                 BoxShadow(
-                                                                  color: const Color(0xFFC9922A).withOpacity(0.15 * animation.value),
-                                                                  blurRadius: 16,
-                                                                  spreadRadius: 1,
+                                                                  color:
+                                                                      const Color(
+                                                                        0xFFC9922A,
+                                                                      ).withOpacity(
+                                                                        0.15 *
+                                                                            animation.value,
+                                                                      ),
+                                                                  blurRadius:
+                                                                      16,
+                                                                  spreadRadius:
+                                                                      1,
                                                                 ),
                                                               ],
                                                             ),
@@ -396,35 +458,72 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
 
                                                     // Text Layout Padding
                                                     Padding(
-                                                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                                      padding:
+                                                          const EdgeInsets.symmetric(
+                                                            horizontal: 12,
+                                                            vertical: 12,
+                                                          ),
                                                       child: Column(
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
                                                         children: [
                                                           // Display Custom Label Line if present and not 'reading focus'
-                                                          if (stepData.sectionHeader != null && stepData.sectionHeader != 'reading focus') ...[
+                                                          if (stepData.sectionHeader !=
+                                                                  null &&
+                                                              stepData.sectionHeader !=
+                                                                  'reading focus') ...[
                                                             Row(
                                                               children: [
-                                                                Container(width: 16, height: 1, color: const Color(0xFF5C1A6B).withOpacity(0.4)),
-                                                                const SizedBox(width: 8),
+                                                                Container(
+                                                                  width: 16,
+                                                                  height: 1,
+                                                                  color:
+                                                                      const Color(
+                                                                        0xFF5C1A6B,
+                                                                      ).withOpacity(
+                                                                        0.4,
+                                                                      ),
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 8,
+                                                                ),
                                                                 Text(
-                                                                  stepData.sectionHeader!.toUpperCase(),
+                                                                  stepData
+                                                                      .sectionHeader!
+                                                                      .toUpperCase(),
                                                                   style: const TextStyle(
-                                                                    fontFamily: 'Georgia',
-                                                                    fontSize: 11,
-                                                                    fontWeight: FontWeight.bold,
-                                                                    color: Color(0xFF5C1A6B),
-                                                                    letterSpacing: 2.2,
+                                                                    fontFamily:
+                                                                        'Georgia',
+                                                                    fontSize:
+                                                                        11,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    color: Color(
+                                                                      0xFF5C1A6B,
+                                                                    ),
+                                                                    letterSpacing:
+                                                                        2.2,
                                                                   ),
                                                                 ),
                                                               ],
                                                             ),
-                                                            const SizedBox(height: 10),
+                                                            const SizedBox(
+                                                              height: 10,
+                                                            ),
                                                           ],
 
                                                           // Core Content Logic (Initial Drop-Cap vs Standard Block)
                                                           (i == 0)
-                                                              ? _buildDropCapBody(stepData.contentEn)
-                                                              : _buildStandardBody(stepData.contentEn),
+                                                              ? _buildDropCapBody(
+                                                                  stepData
+                                                                      .contentEn,
+                                                                )
+                                                              : _buildStandardBody(
+                                                                  stepData
+                                                                      .contentEn,
+                                                                ),
                                                         ],
                                                       ),
                                                     ),
@@ -436,7 +535,8 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                                         );
                                       },
                                     ),
-                                    if (i < steps.length - 1) const SizedBox(height: 16),
+                                    if (i < steps.length - 1)
+                                      const SizedBox(height: 16),
                                   ],
 
                                 // Bottom Finishing Ornament
@@ -444,12 +544,32 @@ class _NewprayertemplatepageState extends State<Newprayertemplatepage> with Tick
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Container(width: 50, height: 0.5, color: const Color(0xFFC9922A).withOpacity(0.4)),
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 12),
-                                      child: Text('✦', style: TextStyle(color: Color(0xFFC9922A), fontSize: 12)),
+                                    Container(
+                                      width: 50,
+                                      height: 0.5,
+                                      color: const Color(
+                                        0xFFC9922A,
+                                      ).withOpacity(0.4),
                                     ),
-                                    Container(width: 50, height: 0.5, color: const Color(0xFFC9922A).withOpacity(0.4)),
+                                    const Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                      ),
+                                      child: Text(
+                                        '✦',
+                                        style: TextStyle(
+                                          color: Color(0xFFC9922A),
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 50,
+                                      height: 0.5,
+                                      color: const Color(
+                                        0xFFC9922A,
+                                      ).withOpacity(0.4),
+                                    ),
                                   ],
                                 ),
                                 const SizedBox(height: 12),
@@ -545,9 +665,18 @@ class _CrossOrnamentPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    canvas.drawLine(Offset(size.width / 2, 0), Offset(size.width / 2, size.height), paint);
-    canvas.drawLine(Offset(0, size.height * 0.35), Offset(size.width, size.height * 0.35), paint);
+    canvas.drawLine(
+      Offset(size.width / 2, 0),
+      Offset(size.width / 2, size.height),
+      paint,
+    );
+    canvas.drawLine(
+      Offset(0, size.height * 0.35),
+      Offset(size.width, size.height * 0.35),
+      paint,
+    );
   }
+
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
@@ -569,6 +698,7 @@ class _GothicArchPainter extends CustomPainter {
       canvas.drawPath(path, paint);
     }
   }
+
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

@@ -10,8 +10,6 @@ class UserMore extends StatefulWidget {
 class _UserMoreState extends State<UserMore> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('MORE', style: TextStyle(fontSize: 50.0)),
-    );
+    return Center(child: Text('MORE', style: TextStyle(fontSize: 50.0)));
   }
 }
