@@ -64,22 +64,26 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final String content = widget.isAmharic ? _angelusAmharicText : _angelusEnglish;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: theme.colorScheme.background,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
           widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: theme.colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
         ),
       ),
       body: Stack(
@@ -92,13 +96,13 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
             ),
           ),
 
-          // 2. Blurred Overlay
+          // 2. Adaptive Blurred Overlay
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
                 child: Container(
-                  color: Colors.black.withOpacity(0.45),
+                  color: theme.colorScheme.background.withOpacity(0.65),
                 ),
               ),
             ),
@@ -119,14 +123,17 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                       margin: const EdgeInsets.only(bottom: 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.white.withOpacity(0.18), width: 1.2),
+                        border: Border.all(
+                          color: theme.colorScheme.onSurface.withOpacity(0.18),
+                          width: 1.2,
+                        ),
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                           child: Container(
-                            color: Colors.white.withOpacity(0.08),
+                            color: theme.colorScheme.surface.withOpacity(0.3),
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,7 +142,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                   height: 80,
                                   width: 80,
                                   decoration: BoxDecoration(
-                                    color: Colors.white24,
+                                    color: theme.colorScheme.surface.withOpacity(0.2),
                                     image: const DecorationImage(
                                       image: AssetImage('assets/img_19.png'),
                                       fit: BoxFit.cover,
@@ -154,10 +161,10 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                           Expanded(
                                             child: Text(
                                               widget.isAmharic ? 'የመልአኩ ሰላምታ ድምፅ' : 'The Angelus Audio',
-                                              style: const TextStyle(
+                                              style: TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.bold,
-                                                color: Colors.white,
+                                                color: theme.colorScheme.onSurface,
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -172,7 +179,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                             },
                                             icon: Icon(
                                               _isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
-                                              color: Colors.white,
+                                              color: theme.colorScheme.primary,
                                               size: 32,
                                             ),
                                           ),
@@ -186,16 +193,16 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                             _formatDuration(_currentPosition),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withOpacity(0.6),
+                                              color: theme.colorScheme.onSurface.withOpacity(0.6),
                                             ),
                                           ),
                                           Expanded(
                                             child: SliderTheme(
                                               data: SliderTheme.of(context).copyWith(
                                                 trackHeight: 3,
-                                                activeTrackColor: Colors.white,
-                                                inactiveTrackColor: Colors.white.withOpacity(0.2),
-                                                thumbColor: Colors.white,
+                                                activeTrackColor: theme.colorScheme.primary,
+                                                inactiveTrackColor: theme.colorScheme.onSurface.withOpacity(0.2),
+                                                thumbColor: theme.colorScheme.primary,
                                                 thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
                                                 overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
                                               ),
@@ -215,7 +222,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                             _formatDuration(_totalDuration),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withOpacity(0.6),
+                                              color: theme.colorScheme.onSurface.withOpacity(0.6),
                                             ),
                                           ),
                                         ],
@@ -237,10 +244,10 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         radius: 20,
                         gradient: LinearGradient(
                           colors: [
-                            Colors.white.withOpacity(0.65),
-                            Colors.white.withOpacity(0.10),
-                            Colors.purpleAccent.withOpacity(0.35),
-                            Colors.white.withOpacity(0.50),
+                            theme.colorScheme.primary.withOpacity(0.65),
+                            theme.colorScheme.onSurface.withOpacity(0.10),
+                            theme.colorScheme.secondary.withOpacity(0.35),
+                            theme.colorScheme.primary.withOpacity(0.50),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -250,7 +257,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(22.0),
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.25),
+                          color: theme.colorScheme.surface.withOpacity(0.85),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -261,25 +268,19 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
-                                color: Colors.amber.shade200,
-                                shadows: [
-                                  Shadow(blurRadius: 8, color: Colors.black.withOpacity(0.6), offset: const Offset(0, 2))
-                                ],
+                                color: theme.colorScheme.secondary,
                               ),
                             ),
                             const SizedBox(height: 8),
-                            Divider(color: Colors.white.withOpacity(0.25), thickness: 1),
+                            Divider(color: theme.colorScheme.onSurface.withOpacity(0.15), thickness: 1),
                             const SizedBox(height: 10),
                             Text(
                               content,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
-                                color: Colors.white.withOpacity(0.95),
+                                color: theme.colorScheme.onSurface,
                                 height: 1.6,
-                                shadows: [
-                                  Shadow(blurRadius: 6, color: Colors.black.withOpacity(0.8), offset: const Offset(1, 1))
-                                ],
                               ),
                             ),
                           ],
@@ -295,16 +296,15 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         padding: const EdgeInsets.only(bottom: 24.0),
                         child: ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurpleAccent,
+                            backgroundColor: theme.colorScheme.primary,
+                            foregroundColor: theme.colorScheme.onPrimary,
                             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            elevation: 8,
+                            elevation: 4,
                           ),
                           onPressed: () {
-                            // Smooth Fade & Zoom to PrayerCompletionScreen
-                            // Smooth Fade & Zoom to PrayerCompletionScreen
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
                                 transitionDuration: const Duration(milliseconds: 650),
@@ -318,7 +318,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                   titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
                                   subtitleEn: 'May the grace of His Incarnation fill your heart',
                                   subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
-                                  bgImagePath: 'assets/img_19.png', // ← Pass the string path here!
+                                  bgImagePath: 'assets/img_19.png',
                                 ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(
@@ -344,11 +344,11 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                               ),
                             );
                           },
-                          icon: const Icon(Icons.check_circle, color: Colors.white, size: 24),
+                          icon: Icon(Icons.check_circle, color: theme.colorScheme.onPrimary, size: 24),
                           label: Text(
                             widget.isAmharic ? 'አሜን' : 'AMEN',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: theme.colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               letterSpacing: 1.2,

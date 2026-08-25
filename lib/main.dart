@@ -4,12 +4,26 @@ import 'package:operation_001/pages/bible.dart';
 import 'package:operation_001/pages/daily.dart';
 import 'package:operation_001/pages/home.dart';
 import 'package:operation_001/pages/more.dart';
-import 'package:operation_001/DailyPrayer.dart';
+import 'package:operation_001/theme.dart';
+import 'package:operation_001/theme.dart';
 
-void main() => runApp(const MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: Home(),
-));
+void main() => runApp(const CatholicApp());
+
+class CatholicApp extends StatelessWidget {
+  const CatholicApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Catholic Prayer App',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system, // Automatically adapts to Light/Dark mode
+      home: const Home(),
+    );
+  }
+}
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -30,20 +44,22 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: Colors.white, // Clean background for better readability
+      backgroundColor: theme.colorScheme.background,
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.colorScheme.surface,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
-              color: Colors.black.withOpacity(0.1),
-              offset: const Offset(0, -5), // Shadow goes UP to separate nav from body
+              color: Colors.black.withOpacity(0.08),
+              offset: const Offset(0, -5),
             )
           ],
         ),
@@ -51,15 +67,15 @@ class _HomeState extends State<Home> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: Colors.grey[300]!,
-              hoverColor: Colors.grey[100]!,
+              rippleColor: theme.colorScheme.primary.withOpacity(0.1),
+              hoverColor: theme.colorScheme.primary.withOpacity(0.05),
               gap: 8,
-              activeColor: Colors.deepPurple,
+              activeColor: theme.colorScheme.primary, // Uses 0xFF4A2574 (Deep Violet)
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.deepPurple.withOpacity(0.1),
-              color: Colors.black54,
+              tabBackgroundColor: theme.colorScheme.primary.withOpacity(0.12),
+              color: theme.colorScheme.onSurface.withOpacity(0.6),
               tabs: const [
                 GButton(icon: Icons.home, text: 'Home'),
                 GButton(icon: Icons.menu_book, text: 'Bible'),
@@ -68,11 +84,9 @@ class _HomeState extends State<Home> {
               ],
               selectedIndex: _selectedIndex,
               onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
+                setState(() => _selectedIndex = index);
               },
-            ),
+            )
           ),
         ),
       ),
