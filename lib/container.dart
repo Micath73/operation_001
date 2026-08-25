@@ -82,7 +82,7 @@ class _ContainState extends State<Contain> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Newprayertemplatepage(
+                          builder: (context) => NewPrayerTemplatePage(
                             prayerTitle: prayer.text,
                             prayerImage: prayer.imagePath,
                           ),

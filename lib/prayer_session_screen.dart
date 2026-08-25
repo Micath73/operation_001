@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:operation_001/prayer_model.dart';
+import 'package:flutter/material.dart';
 import 'package:operation_001/PrayerCompletionScreen.dart';
+import 'package:operation_001/prayer_model.dart';
 
-class prayer_session extends StatefulWidget {
+class PrayerSession extends StatefulWidget {
   final List<PrayerStep> prayerSteps;
   final bool isAmharic;
-  final String? mysteryTitle; // Optional!
+  final String? mysteryTitle;
 
-  const prayer_session({
+  const PrayerSession({
     super.key,
     required this.prayerSteps,
     this.mysteryTitle,
@@ -16,22 +16,21 @@ class prayer_session extends StatefulWidget {
   });
 
   @override
-  State<prayer_session> createState() => _prayer_sessionState();
+  State<PrayerSession> createState() => _PrayerSessionState();
 }
 
-class _prayer_sessionState extends State<prayer_session> {
+class _PrayerSessionState extends State<PrayerSession> {
   int _currentIndex = 0;
   double _currentPosition = 0.0;
   final double _totalDuration = 150.0;
   bool _isPlaying = false;
 
   String _formatDuration(double seconds) {
-    int totalSeconds = seconds.toInt();
-    int minutes = totalSeconds ~/ 60;
-    int remainingSeconds = totalSeconds % 60;
-    String secondsStr = remainingSeconds < 10
-        ? '0$remainingSeconds'
-        : '$remainingSeconds';
+    final int totalSeconds = seconds.toInt();
+    final int minutes = totalSeconds ~/ 60;
+    final int remainingSeconds = totalSeconds % 60;
+    final String secondsStr =
+    remainingSeconds < 10 ? '0$remainingSeconds' : '$remainingSeconds';
     return '$minutes:$secondsStr';
   }
 
@@ -42,11 +41,10 @@ class _prayer_sessionState extends State<prayer_session> {
         _currentPosition = 0.0;
       });
     } else {
-      String resolvedTitle =
+      final String resolvedTitle =
           widget.mysteryTitle ?? _extractOverallMysteryTitle();
       final currentStep = widget.prayerSteps[_currentIndex];
 
-      // Smooth Fade & Zoom Transition to PrayerCompletionScreen
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           transitionDuration: const Duration(milliseconds: 650),
@@ -59,8 +57,7 @@ class _prayer_sessionState extends State<prayer_session> {
                 detailLabelAm: 'ምስጢር',
                 titleEn: 'Rosary Completed',
                 titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
-                bgImagePath:
-                    currentStep.imagePath, // Passed image path String directly
+                bgImagePath: currentStep.imagePath,
               ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             final fadeAnimation = CurvedAnimation(
@@ -82,23 +79,17 @@ class _prayer_sessionState extends State<prayer_session> {
     }
   }
 
-  // Automatically cleans '1st Joyful Mystery' -> 'Joyful Mysteries'
   String _extractOverallMysteryTitle() {
-    PrayerStep? mysteryStep;
+    final PrayerStep mysteryStep = widget.prayerSteps.firstWhere(
+          (step) =>
+      (step.sectionHeader != null &&
+          (step.sectionHeader!.contains('Mystery') ||
+              step.sectionHeader!.contains('ምሥጢር'))) ||
+          (step.titleEn.contains('Mystery') || step.titleAm.contains('ምሥጢር')),
+      orElse: () => widget.prayerSteps.first,
+    );
 
-    try {
-      mysteryStep = widget.prayerSteps.firstWhere(
-        (step) =>
-            (step.sectionHeader != null &&
-                (step.sectionHeader!.contains('Mystery') ||
-                    step.sectionHeader!.contains('ምሥጢር'))) ||
-            (step.titleEn.contains('Mystery') || step.titleAm.contains('ምሥጢር')),
-      );
-    } catch (_) {
-      mysteryStep = widget.prayerSteps.first;
-    }
-
-    String rawTitle = widget.isAmharic
+    final String rawTitle = widget.isAmharic
         ? (mysteryStep.sectionHeader ?? mysteryStep.titleAm)
         : (mysteryStep.sectionHeader ?? mysteryStep.titleEn);
 
@@ -109,12 +100,12 @@ class _prayer_sessionState extends State<prayer_session> {
     } else {
       return rawTitle
           .replaceAll(
-            RegExp(
-              r'^(1st|2nd|3rd|4th|5th|First|Second|Third|Fourth|Fifth)\s*',
-              caseSensitive: false,
-            ),
-            '',
-          )
+        RegExp(
+          r'^(1st|2nd|3rd|4th|5th|First|Second|Third|Fourth|Fifth)\s*',
+          caseSensitive: false,
+        ),
+        '',
+      )
           .replaceAll(RegExp(r'\bMystery\b', caseSensitive: false), 'Mystery')
           .trim();
     }
@@ -132,15 +123,12 @@ class _prayer_sessionState extends State<prayer_session> {
   @override
   Widget build(BuildContext context) {
     final currentStep = widget.prayerSteps[_currentIndex];
-    final String currentTitle = widget.isAmharic
-        ? currentStep.titleAm
-        : currentStep.titleEn;
-    final String currentContent = widget.isAmharic
-        ? currentStep.contentAm
-        : currentStep.contentEn;
+    final String currentTitle =
+    widget.isAmharic ? currentStep.titleAm : currentStep.titleEn;
+    final String currentContent =
+    widget.isAmharic ? currentStep.contentAm : currentStep.contentEn;
 
-    final bool isMysteryStep =
-        currentStep.sectionHeader == null &&
+    final bool isMysteryStep = currentStep.sectionHeader == null &&
         (currentTitle.contains('Mystery') || currentTitle.contains('ምሥጢር'));
 
     return Scaffold(
@@ -178,7 +166,7 @@ class _prayer_sessionState extends State<prayer_session> {
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                child: Container(color: Colors.black.withOpacity(0.40)),
+                child: Container(color: Colors.black.withValues(alpha: 0.40)),
               ),
             ),
           ),
@@ -202,7 +190,7 @@ class _prayer_sessionState extends State<prayer_session> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: Colors.white.withOpacity(0.18),
+                                color: Colors.white.withValues(alpha: 0.18),
                                 width: 1.2,
                               ),
                             ),
@@ -214,13 +202,11 @@ class _prayer_sessionState extends State<prayer_session> {
                                   sigmaY: 5.0,
                                 ),
                                 child: Container(
-                                  color: Colors.white.withOpacity(0.08),
+                                  color: Colors.white.withValues(alpha: 0.08),
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
                                   ),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
                                         height: 80,
@@ -233,18 +219,17 @@ class _prayer_sessionState extends State<prayer_session> {
                                             ),
                                             fit: BoxFit.cover,
                                           ),
-                                          borderRadius: BorderRadius.circular(
-                                            12,
-                                          ),
+                                          borderRadius:
+                                          BorderRadius.circular(12),
                                         ),
                                       ),
                                       const SizedBox(width: 12),
                                       Expanded(
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                           children: [
                                             Row(
                                               children: [
@@ -254,17 +239,17 @@ class _prayer_sessionState extends State<prayer_session> {
                                                     style: const TextStyle(
                                                       fontSize: 16,
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                      FontWeight.bold,
                                                       color: Colors.white,
                                                     ),
                                                     overflow:
-                                                        TextOverflow.ellipsis,
+                                                    TextOverflow.ellipsis,
                                                   ),
                                                 ),
                                                 IconButton(
                                                   padding: EdgeInsets.zero,
                                                   constraints:
-                                                      const BoxConstraints(),
+                                                  const BoxConstraints(),
                                                   onPressed: () {
                                                     setState(() {
                                                       _isPlaying = !_isPlaying;
@@ -281,8 +266,6 @@ class _prayer_sessionState extends State<prayer_session> {
                                             ),
                                             const SizedBox(height: 4),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   _formatDuration(
@@ -291,28 +274,31 @@ class _prayer_sessionState extends State<prayer_session> {
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.white
-                                                        .withOpacity(0.6),
+                                                        .withValues(alpha: 0.6),
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: SliderTheme(
-                                                    data: SliderTheme.of(context).copyWith(
+                                                    data: SliderTheme.of(
+                                                      context,
+                                                    ).copyWith(
                                                       trackHeight: 3,
                                                       activeTrackColor:
-                                                          Colors.white,
+                                                      Colors.white,
                                                       inactiveTrackColor: Colors
                                                           .white
-                                                          .withOpacity(0.2),
+                                                          .withValues(
+                                                        alpha: 0.2,
+                                                      ),
                                                       thumbColor: Colors.white,
                                                       thumbShape:
-                                                          const RoundSliderThumbShape(
-                                                            enabledThumbRadius:
-                                                                6,
-                                                          ),
+                                                      const RoundSliderThumbShape(
+                                                        enabledThumbRadius: 6,
+                                                      ),
                                                       overlayShape:
-                                                          const RoundSliderOverlayShape(
-                                                            overlayRadius: 14,
-                                                          ),
+                                                      const RoundSliderOverlayShape(
+                                                        overlayRadius: 14,
+                                                      ),
                                                     ),
                                                     child: Slider(
                                                       value: _currentPosition,
@@ -334,7 +320,7 @@ class _prayer_sessionState extends State<prayer_session> {
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.white
-                                                        .withOpacity(0.6),
+                                                        .withValues(alpha: 0.6),
                                                   ),
                                                 ),
                                               ],
@@ -350,21 +336,20 @@ class _prayer_sessionState extends State<prayer_session> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Transparent Edge-Gradient Card for Scripture / Prayer
+                          // Scripture / Prayer Glass Card
                           Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16.0,
-                            ),
+                            padding:
+                            const EdgeInsets.symmetric(horizontal: 16.0),
                             child: CustomPaint(
                               painter: GradientBorderPainter(
                                 strokeWidth: 1.5,
                                 radius: 20,
                                 gradient: LinearGradient(
                                   colors: [
-                                    Colors.white.withOpacity(0.65),
-                                    Colors.white.withOpacity(0.10),
-                                    Colors.purpleAccent.withOpacity(0.35),
-                                    Colors.white.withOpacity(0.50),
+                                    Colors.white.withValues(alpha: 0.65),
+                                    Colors.white.withValues(alpha: 0.10),
+                                    Colors.purpleAccent.withValues(alpha: 0.35),
+                                    Colors.white.withValues(alpha: 0.50),
                                   ],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -374,7 +359,7 @@ class _prayer_sessionState extends State<prayer_session> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(22.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.22),
+                                  color: Colors.black.withValues(alpha: 0.22),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Column(
@@ -389,17 +374,17 @@ class _prayer_sessionState extends State<prayer_session> {
                                         shadows: [
                                           Shadow(
                                             blurRadius: 8,
-                                            color: Colors.black.withOpacity(
-                                              0.5,
-                                            ),
-                                            offset: Offset(0, 2),
+                                            color: Colors.black
+                                                .withValues(alpha: 0.5),
+                                            offset: const Offset(0, 2),
                                           ),
                                         ],
                                       ),
                                     ),
                                     const SizedBox(height: 12),
                                     Divider(
-                                      color: Colors.white.withOpacity(0.25),
+                                      color:
+                                      Colors.white.withValues(alpha: 0.25),
                                       thickness: 1,
                                     ),
                                     const SizedBox(height: 12),
@@ -408,15 +393,15 @@ class _prayer_sessionState extends State<prayer_session> {
                                       style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.w500,
-                                        color: Colors.white.withOpacity(0.95),
+                                        color: Colors.white
+                                            .withValues(alpha: 0.95),
                                         height: 1.6,
                                         shadows: [
                                           Shadow(
                                             blurRadius: 6,
-                                            color: Colors.black.withOpacity(
-                                              0.8,
-                                            ),
-                                            offset: Offset(1, 1),
+                                            color: Colors.black
+                                                .withValues(alpha: 0.8),
+                                            offset: const Offset(1, 1),
                                           ),
                                         ],
                                       ),
@@ -431,9 +416,8 @@ class _prayer_sessionState extends State<prayer_session> {
                           if (isMysteryStep) ...[
                             const SizedBox(height: 18),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0,
-                              ),
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 16.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -491,7 +475,7 @@ class _prayer_sessionState extends State<prayer_session> {
                     ),
                   ),
 
-                  // Bottom Action Buttons
+                  // Bottom Navigation Buttons
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20.0,
@@ -504,7 +488,7 @@ class _prayer_sessionState extends State<prayer_session> {
                           OutlinedButton.icon(
                             style: OutlinedButton.styleFrom(
                               side: BorderSide(
-                                color: Colors.white.withOpacity(0.3),
+                                color: Colors.white.withValues(alpha: 0.3),
                               ),
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 18,
@@ -547,8 +531,8 @@ class _prayer_sessionState extends State<prayer_session> {
                             _currentIndex == widget.prayerSteps.length - 1
                                 ? (widget.isAmharic ? 'ጨርስ' : 'FINISH')
                                 : (widget.isAmharic
-                                      ? 'ቀጣይ ጸሎት'
-                                      : 'NEXT PRAYER'),
+                                ? 'ቀጣይ ጸሎት'
+                                : 'NEXT PRAYER'),
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -579,9 +563,9 @@ class _prayer_sessionState extends State<prayer_session> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.12),
+        color: Colors.white.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
       ),
       child: Text(
         label,
@@ -619,5 +603,9 @@ class GradientBorderPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant GradientBorderPainter oldDelegate) {
+    return oldDelegate.strokeWidth != strokeWidth ||
+        oldDelegate.radius != radius ||
+        oldDelegate.gradient != gradient;
+  }
 }

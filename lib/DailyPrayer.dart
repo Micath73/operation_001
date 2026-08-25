@@ -236,7 +236,7 @@ class Dailyprayer extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Newprayertemplatepage(
+                builder: (context) => NewPrayerTemplatePage(
                   prayerTitle: 'The Morning Prayer',
                   prayerImage: 'assets/sunrise',
                 ),

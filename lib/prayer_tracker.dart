@@ -26,8 +26,8 @@ class PrayerTracker {
 
   /// Record a prayer completion entry with a timestamp
   static Future<Map<String, dynamic>> recordCompletion(
-    String prayerName,
-  ) async {
+      String prayerName,
+      ) async {
     final prefs = await SharedPreferences.getInstance();
 
     // 1. Increment Total Prayers Count
@@ -74,13 +74,32 @@ class PrayerTracker {
     return {'total': total, 'streak': streak};
   }
 
-  /// Fetch current total prayers and streak without recording a new prayer
+  /// Fetch current total prayers and streak, accounting for broken streaks
   static Future<Map<String, int>> getStats() async {
     final prefs = await SharedPreferences.getInstance();
-    return {
-      'total': prefs.getInt(_keyTotalPrayers) ?? 0,
-      'streak': prefs.getInt(_keyCurrentStreak) ?? 0,
-    };
+    final int total = prefs.getInt(_keyTotalPrayers) ?? 0;
+    int streak = prefs.getInt(_keyCurrentStreak) ?? 0;
+    final String? lastDateStr = prefs.getString(_keyLastCompletedDate);
+
+    if (lastDateStr != null) {
+      final DateTime now = DateTime.now();
+      final DateTime today = DateTime(now.year, now.month, now.day);
+      final DateTime lastDate = DateTime.parse(lastDateStr);
+      final DateTime lastCompletedDay = DateTime(
+        lastDate.year,
+        lastDate.month,
+        lastDate.day,
+      );
+      final int difference = today.difference(lastCompletedDay).inDays;
+
+      // If user missed more than 1 day, reset streak to 0
+      if (difference > 1) {
+        streak = 0;
+        await prefs.setInt(_keyCurrentStreak, 0);
+      }
+    }
+
+    return {'total': total, 'streak': streak};
   }
 
   /// Retrieve all logged prayer entries (most recent first)
@@ -94,7 +113,7 @@ class PrayerTracker {
         .toList();
   }
 
-  /// Reset today's logged prayers and deduct them from the total count
+  /// Reset today's logged prayers, deduct total count, and update streak
   static Future<Map<String, int>> resetTodaysPrayers() async {
     final prefs = await SharedPreferences.getInstance();
     List<String> historyJson = prefs.getStringList(_keyPrayerHistory) ?? [];
@@ -124,9 +143,44 @@ class PrayerTracker {
     int currentTotal = prefs.getInt(_keyTotalPrayers) ?? 0;
     int newTotal = (currentTotal - removedCount).clamp(0, 999999);
 
+    int streak = prefs.getInt(_keyCurrentStreak) ?? 0;
+
+    // If today's prayers were deleted, roll back streak state
+    if (removedCount > 0) {
+      if (updatedHistory.isNotEmpty) {
+        final lastRemainingEntry = PrayerEntry.fromJson(
+          jsonDecode(updatedHistory.last),
+        );
+        final lastDate = lastRemainingEntry.timestamp;
+        final lastCompletedDay = DateTime(
+          lastDate.year,
+          lastDate.month,
+          lastDate.day,
+        );
+
+        await prefs.setString(
+          _keyLastCompletedDate,
+          lastCompletedDay.toIso8601String(),
+        );
+
+        // Check if the latest remaining entry was yesterday or older
+        final int difference = today.difference(lastCompletedDay).inDays;
+        if (difference > 1) {
+          streak = 0;
+        } else {
+          streak = (streak - 1).clamp(0, 999999);
+        }
+      } else {
+        // No history left at all
+        streak = 0;
+        await prefs.remove(_keyLastCompletedDate);
+      }
+      await prefs.setInt(_keyCurrentStreak, streak);
+    }
+
     await prefs.setInt(_keyTotalPrayers, newTotal);
     await prefs.setStringList(_keyPrayerHistory, updatedHistory);
 
-    return {'total': newTotal, 'streak': prefs.getInt(_keyCurrentStreak) ?? 0};
+    return {'total': newTotal, 'streak': streak};
   }
 }

@@ -276,7 +276,7 @@ class _luminousScreenState extends State<luminousScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => prayer_session(
+                        builder: (context) => PrayerSession(
                           prayerSteps: prayerSequence,
                           isAmharic: isAmharic,
                         ),

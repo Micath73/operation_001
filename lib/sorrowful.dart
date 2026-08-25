@@ -315,7 +315,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => prayer_session(
+                        builder: (context) => PrayerSession(
                           prayerSteps: prayerSequence,
                           isAmharic: isAmharic,
                         ),

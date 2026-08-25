@@ -11,7 +11,7 @@ class NovenaSection extends StatefulWidget {
 }
 
 class _NovenaSectionState extends State<NovenaSection> {
-  final List<NovenaCombo> prayers = [
+  static const List<NovenaCombo> prayers = [
     NovenaCombo(text: 'Adoration', imagePath: 'assets/Adoration.jpg'),
     NovenaCombo(
       text: 'Arch Angel Rafael',
@@ -59,7 +59,7 @@ class _NovenaSectionState extends State<NovenaSection> {
     ),
   ];
 
-  final List<NovenaCombo> novenaTitles = [
+  static const List<NovenaCombo> novenaTitles = [
     NovenaCombo(text: 'Divine Mercy Chaplet', imagePath: 'assets/img_3.png'),
     NovenaCombo(text: 'Sacred Heart', imagePath: 'assets/SacredHeart.jpg'),
     NovenaCombo(text: 'Arch Angel Michael', imagePath: 'assets/Michael.jpg'),
@@ -71,15 +71,15 @@ class _NovenaSectionState extends State<NovenaSection> {
   void _openNovenaDetail(BuildContext context, String title) {
     final dataset =
         novenaData[title] ??
-        List.generate(
-          9,
-          (i) => NovenaDayContent(
-            dayNumber: i + 1,
-            theme: "Day ${i + 1}: $title Prayer",
-            prayer:
+            List.generate(
+              9,
+                  (i) => NovenaDayContent(
+                dayNumber: i + 1,
+                theme: "Day ${i + 1}: $title Prayer",
+                prayer:
                 "Opening prayer for Day ${i + 1} of $title...\n\nLord, hear our prayers and bless our intentions. Amen.",
-          ),
-        );
+              ),
+            );
 
     Navigator.push(
       context,
@@ -176,7 +176,7 @@ class _NovenaSectionState extends State<NovenaSection> {
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.08),
+                                    color: Colors.black.withValues(alpha: 0.08),
                                     blurRadius: 10,
                                     offset: const Offset(0, 5),
                                   ),
@@ -360,7 +360,7 @@ class SeeAllGridPage extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.08),
+                          color: Colors.black.withValues(alpha: 0.08),
                           blurRadius: 6,
                           offset: const Offset(0, 3),
                         ),

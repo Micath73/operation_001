@@ -292,7 +292,7 @@ class _gloriousScreenState extends State<gloriousScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => prayer_session(
+                        builder: (context) => PrayerSession(
                           prayerSteps: prayerSequence,
                           isAmharic: isAmharic,
                         ),

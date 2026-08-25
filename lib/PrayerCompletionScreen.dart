@@ -1,6 +1,6 @@
-import 'package:operation_001/db_helper.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:operation_001/db_helper.dart';
 
 class PrayerCompletionScreen extends StatefulWidget {
   final bool isAmharic;
@@ -12,8 +12,7 @@ class PrayerCompletionScreen extends StatefulWidget {
   final String? detailLabelAm;
   final String? subtitleEn;
   final String? subtitleAm;
-  final String?
-  bgImagePath; // Path to background image (e.g. assets/images/prayer_bg.jpg)
+  final String? bgImagePath;
 
   const PrayerCompletionScreen({
     super.key,
@@ -26,7 +25,7 @@ class PrayerCompletionScreen extends StatefulWidget {
     this.detailLabelAm,
     this.subtitleEn,
     this.subtitleAm,
-    this.bgImagePath = 'assets/images/prayer_bg.jpg', // Default prayer bg asset
+    this.bgImagePath = 'assets/images/prayer_bg.jpg',
   });
 
   @override
@@ -51,6 +50,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
           ? widget.detailValue
           : widget.prayerType,
     );
+    if (!mounted) return;
     await _refreshStatsOnly();
   }
 
@@ -67,143 +67,134 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
   }
 
   void _showPrayerHistoryDialog() {
-    String selectedFilter = 'today';
     showDialog(
       context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setDialogState) {
-          return AlertDialog(
-            backgroundColor: const Color(0xFF140C24).withOpacity(0.95),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-              side: BorderSide(color: const Color(0xFFE8B84B).withOpacity(0.3)),
-            ),
-            title: Text(
-              widget.isAmharic ? 'የጸሎት የታሪክ መዝገብ' : 'Prayer History Logs',
-              style: const TextStyle(
-                color: Color(0xFFE8B84B),
-                fontFamily: 'Georgia',
+      builder: (context) {
+        String selectedFilter = 'today';
+        return StatefulBuilder(
+          builder: (context, setDialogState) {
+            return AlertDialog(
+              backgroundColor: const Color(0xFF140C24).withValues(alpha: 0.95),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: BorderSide(color: const Color(0xFFE8B84B).withValues(alpha: 0.3)),
               ),
-            ),
-            content: SizedBox(
-              width: double.maxFinite,
-              height: 380,
-              child: Column(
-                children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        _filterChip('Today', 'today', selectedFilter, (val) {
-                          setDialogState(() => selectedFilter = val);
-                        }),
-                        _filterChip('Yesterday', 'yesterday', selectedFilter, (
-                          val,
-                        ) {
-                          setDialogState(() => selectedFilter = val);
-                        }),
-                        _filterChip(
-                          'Last 7 Days',
-                          'last_week',
-                          selectedFilter,
-                          (val) {
-                            setDialogState(() => selectedFilter = val);
-                          },
-                        ),
-                        _filterChip(
-                          'Last 30 Days',
-                          'last_month',
-                          selectedFilter,
-                          (val) {
-                            setDialogState(() => selectedFilter = val);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Expanded(
-                    child: FutureBuilder<List<Map<String, dynamic>>>(
-                      future: DatabaseHelper.instance.getFilteredPrayerHistory(
-                        selectedFilter,
-                      ),
-                      builder: (context, snapshot) {
-                        if (!snapshot.hasData) {
-                          return const Center(
-                            child: CircularProgressIndicator(
-                              color: Color(0xFFE8B84B),
-                            ),
-                          );
-                        }
-                        final history = snapshot.data!;
-                        if (history.isEmpty) {
-                          return Center(
-                            child: Text(
-                              widget.isAmharic
-                                  ? 'በዚህ ጊዜ ውስጥ የተመዘገበ ጸሎት የለም'
-                                  : 'No prayer records found for this filter.',
-                              style: const TextStyle(color: Colors.white70),
-                            ),
-                          );
-                        }
-                        return ListView.builder(
-                          itemCount: history.length,
-                          itemBuilder: (context, index) {
-                            final entry = history[index];
-                            final dt = DateTime.parse(entry['completed_at']);
-                            final formattedTime =
-                                "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} (${dt.year}-${dt.month}-${dt.day})";
-                            return ListTile(
-                              dense: true,
-                              leading: const Icon(
-                                Icons.check_circle_outline,
-                                color: Color(0xFFE8B84B),
-                                size: 18,
-                              ),
-                              title: Text(
-                                entry['prayer_name'],
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              subtitle: Text(
-                                "${entry['prayer_type']} • $formattedTime",
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.5),
-                                  fontSize: 11,
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text(
-                  widget.isAmharic ? 'ዝጋ' : 'Close',
-                  style: const TextStyle(color: Color(0xFFE8B84B)),
+              title: Text(
+                widget.isAmharic ? 'የጸሎት የታሪክ መዝገብ' : 'Prayer History Logs',
+                style: const TextStyle(
+                  color: Color(0xFFE8B84B),
+                  fontFamily: 'Georgia',
                 ),
               ),
-            ],
-          );
-        },
-      ),
+              content: SizedBox(
+                width: double.maxFinite,
+                height: 380,
+                child: Column(
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          _filterChip('Today', 'today', selectedFilter, (val) {
+                            setDialogState(() => selectedFilter = val);
+                          }),
+                          _filterChip('Yesterday', 'yesterday', selectedFilter, (val) {
+                            setDialogState(() => selectedFilter = val);
+                          }),
+                          _filterChip('Last 7 Days', 'last_week', selectedFilter, (val) {
+                            setDialogState(() => selectedFilter = val);
+                          }),
+                          _filterChip('Last 30 Days', 'last_month', selectedFilter, (val) {
+                            setDialogState(() => selectedFilter = val);
+                          }),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Expanded(
+                      child: FutureBuilder<List<Map<String, dynamic>>>(
+                        key: ValueKey(selectedFilter),
+                        future: DatabaseHelper.instance.getFilteredPrayerHistory(
+                          selectedFilter,
+                        ),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: Color(0xFFE8B84B),
+                              ),
+                            );
+                          }
+                          final history = snapshot.data!;
+                          if (history.isEmpty) {
+                            return Center(
+                              child: Text(
+                                widget.isAmharic
+                                    ? 'በዚህ ጊዜ ውስጥ የተመዘገበ ጸሎት የለም'
+                                    : 'No prayer records found for this filter.',
+                                style: const TextStyle(color: Colors.white70),
+                              ),
+                            );
+                          }
+                          return ListView.builder(
+                            itemCount: history.length,
+                            itemBuilder: (context, index) {
+                              final entry = history[index];
+                              final dt = DateTime.parse(entry['completed_at']);
+                              final formattedTime =
+                                  "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} (${dt.year}-${dt.month}-${dt.day})";
+                              return ListTile(
+                                dense: true,
+                                leading: const Icon(
+                                  Icons.check_circle_outline,
+                                  color: Color(0xFFE8B84B),
+                                  size: 18,
+                                ),
+                                title: Text(
+                                  entry['prayer_name'],
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  "${entry['prayer_type']} • $formattedTime",
+                                  style: TextStyle(
+                                    color: Colors.white.withValues(alpha: 0.5),
+                                    fontSize: 11,
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(
+                    widget.isAmharic ? 'ዝጋ' : 'Close',
+                    style: const TextStyle(color: Color(0xFFE8B84B)),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 
   Widget _filterChip(
-    String label,
-    String value,
-    String currentSelected,
-    Function(String) onSelect,
-  ) {
+      String label,
+      String value,
+      String currentSelected,
+      Function(String) onSelect,
+      ) {
     final isSelected = value == currentSelected;
     return Padding(
       padding: const EdgeInsets.only(right: 6.0),
@@ -217,7 +208,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
         ),
         selected: isSelected,
         selectedColor: const Color(0xFFE8B84B),
-        backgroundColor: Colors.white.withOpacity(0.1),
+        backgroundColor: Colors.white.withValues(alpha: 0.1),
         onSelected: (bool selected) {
           if (selected) onSelect(value);
         },
@@ -229,10 +220,10 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF140C24).withOpacity(0.95),
+        backgroundColor: const Color(0xFF140C24).withValues(alpha: 0.95),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.redAccent.withOpacity(0.4)),
+          side: BorderSide(color: Colors.redAccent.withValues(alpha: 0.4)),
         ),
         title: Text(
           widget.isAmharic ? 'ጸሎትን እንደገና አስጀምር?' : 'Reset Today\'s Prayers?',
@@ -242,7 +233,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
           widget.isAmharic
               ? 'የዛሬውን የጸሎት መዝገብ በሙሉ ማጽዳት ይፈልጋሉ?'
               : 'Do you want to reset all of today\'s logged prayers?',
-          style: TextStyle(color: Colors.white.withOpacity(0.8)),
+          style: TextStyle(color: Colors.white.withValues(alpha: 0.8)),
         ),
         actions: [
           TextButton(
@@ -280,9 +271,9 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.07),
+              color: Colors.white.withValues(alpha: 0.07),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.white.withOpacity(0.15)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
             ),
             child: child,
           ),
@@ -300,27 +291,22 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // 1. Background Image Asset
           Positioned.fill(
             child: widget.bgImagePath != null
                 ? Image.asset(
-                    widget.bgImagePath!,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) =>
-                        Container(color: const Color(0xFF0D0814)),
-                  )
+              widget.bgImagePath!,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) =>
+                  Container(color: const Color(0xFF0D0814)),
+            )
                 : Container(color: const Color(0xFF0D0814)),
           ),
-
-          // 2. Frosted Glass Blur & Dark Overlay
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 16.0, sigmaY: 16.0),
-              child: Container(color: Colors.black.withOpacity(0.55)),
+              child: Container(color: Colors.black.withValues(alpha: 0.55)),
             ),
           ),
-
-          // 3. Foreground Content
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -331,20 +317,19 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  // Golden Check Ring
                   Container(
                     width: 90,
                     height: 90,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: const Color(0xFFE8B84B).withOpacity(0.15),
+                      color: const Color(0xFFE8B84B).withValues(alpha: 0.15),
                       border: Border.all(
                         color: const Color(0xFFE8B84B),
                         width: 2,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFE8B84B).withOpacity(0.25),
+                          color: const Color(0xFFE8B84B).withValues(alpha: 0.25),
                           blurRadius: 20,
                           spreadRadius: 2,
                         ),
@@ -383,108 +368,103 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                   const SizedBox(height: 36),
                   _isLoading
                       ? const CircularProgressIndicator(
-                          color: Color(0xFFE8B84B),
-                        )
+                    color: Color(0xFFE8B84B),
+                  )
                       : Row(
-                          children: [
-                            // 1. Streak Card
-                            Expanded(
-                              child: _buildGlassCard(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(
-                                      Icons.local_fire_department_rounded,
-                                      color: Colors.orangeAccent,
-                                      size: 28,
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      '$_currentStreak',
-                                      style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      widget.isAmharic
-                                          ? 'ቀን ቅደም ተከተል'
-                                          : 'Day Streak',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white.withOpacity(0.6),
-                                      ),
-                                    ),
-                                  ],
+                    children: [
+                      Expanded(
+                        child: _buildGlassCard(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.local_fire_department_rounded,
+                                color: Colors.orangeAccent,
+                                size: 28,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                '$_currentStreak',
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: 14),
-
-                            // 2. Total Prayers Card + Embedded Corner Reset Button
-                            Expanded(
-                              child: Stack(
+                              const SizedBox(height: 4),
+                              Text(
+                                widget.isAmharic
+                                    ? 'ቀን ቅደም ተከተል'
+                                    : 'Day Streak',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white.withValues(alpha: 0.6),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            _buildGlassCard(
+                              onTap: _showPrayerHistoryDialog,
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.center,
                                 children: [
-                                  _buildGlassCard(
-                                    onTap: _showPrayerHistoryDialog,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const Icon(
-                                          Icons.auto_awesome_rounded,
-                                          color: Color(0xFFE8B84B),
-                                          size: 28,
-                                        ),
-                                        const SizedBox(height: 8),
-                                        Text(
-                                          '$_totalPrayers',
-                                          style: const TextStyle(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          widget.isAmharic
-                                              ? 'ጠቅላላ ጸሎቶች'
-                                              : 'Total Prayers',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.white.withOpacity(
-                                              0.6,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                  const Icon(
+                                    Icons.auto_awesome_rounded,
+                                    color: Color(0xFFE8B84B),
+                                    size: 28,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    '$_totalPrayers',
+                                    style: const TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  // Reset icon overlaid neatly on the top-right corner
-                                  Positioned(
-                                    top: 2,
-                                    right: 2,
-                                    child: IconButton(
-                                      splashRadius: 18,
-                                      icon: Icon(
-                                        Icons.refresh_rounded,
-                                        size: 18,
-                                        color: Colors.white.withOpacity(0.4),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    widget.isAmharic
+                                        ? 'ጠቅላላ ጸሎቶች'
+                                        : 'Total Prayers',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white.withValues(
+                                        alpha: 0.6,
                                       ),
-                                      onPressed: _showResetConfirmationDialog,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
+                            Positioned(
+                              top: 2,
+                              right: 2,
+                              child: IconButton(
+                                splashRadius: 18,
+                                icon: Icon(
+                                  Icons.refresh_rounded,
+                                  size: 18,
+                                  color: Colors.white.withValues(alpha: 0.4),
+                                ),
+                                onPressed: _showResetConfirmationDialog,
+                              ),
+                            ),
                           ],
                         ),
+                      ),
+                    ],
+                  ),
                   const Spacer(),
-                  // Golden Glass Return Button
                   Container(
                     width: double.infinity,
                     height: 52,
@@ -495,7 +475,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFE8B84B).withOpacity(0.3),
+                          color: const Color(0xFFE8B84B).withValues(alpha: 0.3),
                           blurRadius: 15,
                           offset: const Offset(0, 4),
                         ),

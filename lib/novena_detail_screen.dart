@@ -62,12 +62,12 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final activeDayData = widget.days.firstWhere(
-      (d) => d.dayNumber == currentDay,
+          (d) => d.dayNumber == currentDay,
       orElse: () => widget.days.first,
     );
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.background,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
@@ -128,7 +128,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                             ? FontWeight.bold
                             : FontWeight.normal,
                       ),
-                      backgroundColor: theme.colorScheme.background,
+                      backgroundColor: theme.scaffoldBackgroundColor,
                       onSelected: (_) {
                         setState(() => currentDay = dayNum);
                       },
@@ -185,10 +185,10 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                             ),
                             decoration: InputDecoration(
                               hintText:
-                                  "Type your prayer intention for this novena...",
+                              "Type your prayer intention for this novena...",
                               hintStyle: TextStyle(
-                                color: theme.colorScheme.onSurface.withOpacity(
-                                  0.5,
+                                color: theme.colorScheme.onSurface.withValues(
+                                  alpha: 0.5,
                                 ),
                               ),
                               border: InputBorder.none,
@@ -213,7 +213,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                   ),
                   Divider(
                     height: 24,
-                    color: theme.colorScheme.onSurface.withOpacity(0.12),
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.12),
                   ),
 
                   // MAIN PRAYER TEXT
@@ -237,7 +237,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
               color: theme.colorScheme.surface,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 10,
                   offset: const Offset(0, -3),
                 ),
@@ -288,7 +288,7 @@ class PrayerCompletedScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.background,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -298,7 +298,7 @@ class PrayerCompletedScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.secondary.withOpacity(0.15),
+                  color: theme.colorScheme.secondary.withValues(alpha: 0.15),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -324,7 +324,7 @@ class PrayerCompletedScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 15,
                   height: 1.5,
-                  color: theme.colorScheme.onSurface.withOpacity(0.8),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
                 ),
               ),
               const SizedBox(height: 36),
@@ -339,7 +339,7 @@ class PrayerCompletedScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.popUntil(context, (route) => route.isFirst),
                   child: const Text(
                     "Return to Home",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
