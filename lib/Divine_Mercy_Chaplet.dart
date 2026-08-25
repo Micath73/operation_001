@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui'; // Required for ImageFilter.blur
-import 'package:operation_001/PrayerCompletionScreen.dart'; // Adjust path if needed
+import 'package:operation_001/PrayerCompletionScreen.dart';
 
 class DivineMercyChaplet extends StatefulWidget {
   final bool isAmharic;
@@ -31,8 +31,10 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: theme.colorScheme.surface,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -65,7 +67,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
                 child: Container(
-                  color: Colors.black.withOpacity(0.45),
+                  color: Colors.black.withOpacity(0.55),
                 ),
               ),
             ),
@@ -139,7 +141,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                             },
                                             icon: Icon(
                                               _isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
-                                              color: Colors.white,
+                                              color: theme.colorScheme.secondary,
                                               size: 32,
                                             ),
                                           ),
@@ -160,9 +162,9 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                             child: SliderTheme(
                                               data: SliderTheme.of(context).copyWith(
                                                 trackHeight: 3,
-                                                activeTrackColor: Colors.white,
+                                                activeTrackColor: theme.colorScheme.secondary,
                                                 inactiveTrackColor: Colors.white.withOpacity(0.2),
-                                                thumbColor: Colors.white,
+                                                thumbColor: theme.colorScheme.secondary,
                                                 thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
                                                 overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
                                               ),
@@ -199,6 +201,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
 
                     // --- Step 1: Sign of the Cross & Opening Prayers ---
                     _buildPrayerCard(
+                      theme: theme,
                       title: '1. Opening Prayers',
                       content:
                       'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n'
@@ -209,6 +212,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
 
                     // --- Step 2: Preparatory Prayers ---
                     _buildPrayerCard(
+                      theme: theme,
                       title: '2. Preparatory Prayers',
                       content:
                       'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.\n\n'
@@ -220,6 +224,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
 
                     // --- Step 3: The 5 Decades ---
                     _buildPrayerCard(
+                      theme: theme,
                       title: '3. The 5 Decades',
                       content:
                       'For each of the 5 Decades, pray the following:\n\n'
@@ -232,6 +237,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
 
                     // --- Step 4: Concluding Doxology ---
                     _buildPrayerCard(
+                      theme: theme,
                       title: '4. Concluding Doxology',
                       content:
                       'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n(Repeat 3 times)\n\n'
@@ -246,7 +252,8 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                         padding: const EdgeInsets.only(bottom: 24.0),
                         child: ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurpleAccent,
+                            backgroundColor: theme.colorScheme.primary,
+                            foregroundColor: theme.colorScheme.onPrimary,
                             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
@@ -254,7 +261,6 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                             elevation: 8,
                           ),
                           onPressed: () {
-                            // Smooth Fade & Micro-Zoom Transition
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
                                 transitionDuration: const Duration(milliseconds: 650),
@@ -268,7 +274,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                   titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
                                   subtitleEn: 'May His Divine Mercy shine upon you',
                                   subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
-                                  bgImagePath: 'assets/img_3.png', // Matched to Chaplet background asset
+                                  bgImagePath: 'assets/img_3.png',
                                 ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(
@@ -294,11 +300,11 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                               ),
                             );
                           },
-                          icon: const Icon(Icons.check_circle, color: Colors.white, size: 24),
+                          icon: Icon(Icons.check_circle, color: theme.colorScheme.onPrimary, size: 24),
                           label: Text(
                             widget.isAmharic ? 'አሜን' : 'AMEN',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: theme.colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               letterSpacing: 1.2,
@@ -318,16 +324,20 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
   }
 
   // --- Helper Widget to Build Glassmorphic Cards ---
-  Widget _buildPrayerCard({required String title, required String content}) {
+  Widget _buildPrayerCard({
+    required ThemeData theme,
+    required String title,
+    required String content,
+  }) {
     return CustomPaint(
       painter: GradientBorderPainter(
         strokeWidth: 1.5,
         radius: 20,
         gradient: LinearGradient(
           colors: [
-            Colors.white.withOpacity(0.65),
+            theme.colorScheme.secondary.withOpacity(0.65),
             Colors.white.withOpacity(0.10),
-            Colors.purpleAccent.withOpacity(0.35),
+            theme.colorScheme.primary.withOpacity(0.35),
             Colors.white.withOpacity(0.50),
           ],
           begin: Alignment.topLeft,
@@ -349,7 +359,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
-                color: Colors.amber.shade200,
+                color: theme.colorScheme.secondary,
                 shadows: [
                   Shadow(blurRadius: 8, color: Colors.black.withOpacity(0.6), offset: const Offset(0, 2))
                 ],
@@ -377,7 +387,6 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
   }
 }
 
-// --- Custom Border Painter for Gradient Card Edges ---
 class GradientBorderPainter extends CustomPainter {
   final double strokeWidth;
   final double radius;

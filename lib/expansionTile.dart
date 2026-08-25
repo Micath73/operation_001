@@ -4,18 +4,15 @@ import 'package:operation_001/PsalmModel.dart';
 class MorningPsalmPage extends StatefulWidget {
   const MorningPsalmPage({super.key});
 
-
   @override
   State<MorningPsalmPage> createState() => _MorningPsalmPageState();
 }
 
 class _MorningPsalmPageState extends State<MorningPsalmPage> {
-
-  final List<PsalmModel> morningPsalms=[
-
+  final List<PsalmModel> morningPsalms = [
     PsalmModel(
-        title: 'Psalm 95',
-        fullText: """1 Come, let us ring out our joy to the LORD;
+      title: 'Psalm 95',
+      fullText: """1 Come, let us ring out our joy to the LORD;
         hail the rock who saves us.
     2 Let us come into his presence, giving thanks;
     let us hail him with a song of praise.
@@ -43,8 +40,8 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     this people does not know my ways.’
     11 Then I took an oath in my anger,
     ‘Never shall they enter my rest.""",
-    AmTitle: 'መዝሙረ ዳዊት 95',
-    AmFullText: """ኑ፥በእግዚአብሔር ደስ ይበለን፤ ለአምላክ ለመድኃኒታችን እልል እንበል።
+      AmTitle: 'መዝሙረ ዳዊት 95',
+      AmFullText: """ኑ፥በእግዚአብሔር ደስ ይበለን፤ ለአምላክ ለመድኃኒታችን እልል እንበል።
         2 በምስጋና ወደ ፊቱ እንድረስ፥ በዝማሬም ለእርሱ እልል እንበል፤
     3 እግዚአብሔር ታላቅ አምላክ ነውና፥ በአማልክትም ሁሉ ላይ ታላቅ ንጉሥ ነውና።
     4 እግዚአብሔር ሕዝቡን አይጥላቸውም፤ የምድር ዳርቻዎችም በእጁ ውስጥ ናቸው፥ የተራሮች ከፍታዎች የእርሱ ናቸው።
@@ -54,11 +51,11 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     8 በምድረ በዳ እንደ ተፈታተኑት እንዳስቈጡት ጊዜ፥ ዛሬ ድምፁን ብትሰሙ ልባችሁን አታጽኑ።
     9 የተፈታተኑኝ አባቶቻችሁ ፈተኑኝ ሥራዬንም አዩ።
     10 ያችን ትውልድ አርባ ዓመት ተቈጥቻት ነበር። ሁልጊዜ ልባቸው ይስታል፥ እነርሱም መንገዴን አላወቁም አልሁ።
-    11 ወደ ዕረፍቴም እንዳይገቡ በቁጣዬ ማልሁ።"""),
-
+    11 ወደ ዕረፍቴም እንዳይገቡ በቁጣዬ ማልሁ።""",
+    ),
     PsalmModel(
-        title: 'Psalm 63:2-9',
-        fullText: """2 O God, you are my God; at dawn I seek you;
+      title: 'Psalm 63:2-9',
+      fullText: """2 O God, you are my God; at dawn I seek you;
         for you my soul is thirsting.
     For you my flesh is pining,
         like a dry, weary land without water.
@@ -78,19 +75,19 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     in the shadow of your wings I rejoice.
     9 My soul clings fast to you;
     your right hand upholds me.""",
-    AmTitle: 'መዝሙረ ዳዊት 63:2-9',
-    AmFullText: """2 ኃይልህንና ክብርህን አይ ዘንድ እንዲሁ በመቅደስ ውስጥ ተመለከትሁህ።
+      AmTitle: 'መዝሙረ ዳዊት 63:2-9',
+      AmFullText: """2 ኃይልህንና ክብርህን አይ ዘንድ እንዲሁ በመቅደስ ውስጥ ተመለከትሁህ።
         3 ምሕረትህ ከሕይወት ይሻላልና ከንፈሮቼ ያመሰግኑሃል።
     4 እንዲህ በሕይወቴ ዘመን አመሰግንሃለሁ፥ በአንተም ስም እጆቼን አነሣለሁ።
     5 ነፍሴ በቅቤና በስብ እንደሚጠግቡ ትጠግባለች፥ ከንፈሮቼም ስምህን በደስታ ያመሰግናሉ።
     6 በመኝታዬም አስብሃለሁ፥ በማለዳም እናገርልሃለሁ፤
     7 ረዳቴ ሆነኸኛልና፥ በክንፎችህም ጥላ ደስ ይለኛልና።
     8 ነፍሴ በኋላህ ተከታተለች፥ እኔንም ቀኝህ ተቀበለችኝ።
-    9 እነርሱ ግን ነፍሴን ለከንቱ ፈለጓት፤ ወደ ምድር ጥልቅ ይገባሉ።"""),
-
+    9 እነርሱ ግን ነፍሴን ለከንቱ ፈለጓት፤ ወደ ምድር ጥልቅ ይገባሉ።""",
+    ),
     PsalmModel(
-        title: 'Psalm 67:2-8',
-        fullText: """2 May God be gracious and bless us
+      title: 'Psalm 67:2-8',
+      fullText: """2 May God be gracious and bless us
         and let his face shed its light upon us.
     3 So will your ways be known upon earth
     and all nations learn your salvation.
@@ -109,18 +106,18 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
         for God, our God, has blessed us.
     8 May God still give us his blessing
         that all the ends of the earth may revere him.""",
-    AmTitle: 'መዝሙረ ዳዊት 67:1-7',
-    AmFullText: """እግዚአብሔር ይማረን ይባርከንም፥ ፊቱንም በላያችን ያብራ፤
+      AmTitle: 'መዝሙረ ዳዊት 67:1-7',
+      AmFullText: """እግዚአብሔር ይማረን ይባርከንም፥ ፊቱንም በላያችን ያብራ፤
         2 በአሕዛብ ሁሉ መካከል ማዳንህን፥ መንገድህንም በምድር እናውቅ ዘንድ።
     3 አቤቱ፥ አሕዛብ ያመስግኑህ፥ አሕዛብ ሁሉ ያመስግኑህ።
     4 ለአሕዛብ በቅን ትፈርድላቸዋለህና፥ አሕዛብንም በምድር ላይ ትመራለህና አሕዛብ ደስ ይበላቸው ሐሤትም ያድርጉ።
     5 አቤቱ፥ አሕዛብ ያመስግኑህ፥ አሕዛብ ሁሉ ያመስግኑህ።
     6 ምድር ፍሬዋን ሰጠች፤ እግዚአብሔር አምላካችንም ይባርከናል።
-    7 እግዚአብሔር ይባርከናል፥ የምድርም ዳርቻ ሁሉ ይፈሩታል።"""),
-
+    7 እግዚአብሔር ይባርከናል፥ የምድርም ዳርቻ ሁሉ ይፈሩታል።""",
+    ),
     PsalmModel(
-        title: 'Psalm 51',
-        fullText: """3 Have mercy on me, O God,
+      title: 'Psalm 51',
+      fullText: """3 Have mercy on me, O God,
         according to your merciful love;
     according to your great compassion,
         blot out my transgressions.
@@ -173,8 +170,8 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     21 Then you will delight in right sacrifice,
     burnt offerings wholly consumed.
     Then you will be offered young bulls on your altar.""",
-    AmTitle: 'መዝሙረ ዳዊት 51',
-    AmFullText: """አቤቱ፥ እንደ ቸርነትህ መጠን ማረኝ፤ እንደ ምሕረትህም ብዛት መተላለፌን ደምስስ።
+      AmTitle: 'መዝሙረ ዳዊት 51',
+      AmFullText: """አቤቱ፥ እንደ ቸርነትህ መጠን ማረኝ፤ እንደ ምሕረትህም ብዛት መተላለፌን ደምስስ።
         2 ከበደሌ ፈጽሞ እጠበኝ፥ ከኃጢአቴም አንጻኝ፤
     3 እኔ መተላለፌን አውቃለሁና፥ ኃጢአቴም ሁልጊዜ በፊቴ ነውና።
     4 አንተን ብቻ በደልሁ፥ በፊትህም ክፋትን አደረግሁ፥ በነገርህም ትጸድቅ ዘንድ በፍርድህም ንጹሕ ትሆን ዘንድ።
@@ -192,11 +189,11 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     16 መሥዋዕትን ብትወድድስ በሰጠሁህ ነበር፤ የሚቃጠለውም መሥዋዕት ደስ አያሰኝህም።
     17 የእግዚአብሔር መሥዋዕት የተሰበረ መንፈስ ነው፥ የተሰበርውንና የተዋረደውን ልብ እግዚአብሔር አይንቅም።
     18 አቤቱ፥ በውዴታህ ጽዮንን አሰማምራት፤ የኢየሩሳሌምንም ቅጽሮች ሥራ።
-        19 የጽድቁን መሥዋዕት መባውንም የሚቃጠለውንም መሥዋዕት በወደድህ ጊዜ፥ ያን ጊዜ በመሠዊያህ ላይ ፍሪዳዎችን ይሠዋሉ።"""),
-
+        19 የጽድቁን መሥዋዕት መባውንም የሚቃጠለውንም መሥዋዕት በወደድህ ጊዜ፥ ያን ጊዜ በመሠዊያህ ላይ ፍሪዳዎችን ይሠዋሉ።""",
+    ),
     PsalmModel(
-        title: 'Psalm 149',
-        fullText: """1 Alleluia!
+      title: 'Psalm 149',
+      fullText: """1 Alleluia!
 
         Sing a new song to the LORD,
         his praise in the assembly of the faithful.
@@ -220,8 +217,8 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     This is an honor for all his faithful.
 
     Alleluia!""",
-    AmTitle: 'መዝሙረ ዳዊት 149',
-    AmFullText: """ሃሌ ሉያ። ለእግዚአብሔር አዲሱን ቅኔ ተቀኙለት፤ ምስጋናው በቅዱሳኑ ጉባኤ ነው።
+      AmTitle: 'መዝሙረ ዳዊት 149',
+      AmFullText: """ሃሌ ሉያ። ለእግዚአብሔር አዲሱን ቅኔ ተቀኙለት፤ ምስጋናው በቅዱሳኑ ጉባኤ ነው።
         2 እስራኤል በፈጣሪው ደስ ይበለው፥ የጽዮንም ልጆች በንጉሣቸው ሐሤትን ያድርጉ።
     3 ስሙን በዘፈን ያመስግኑ፥ በከበሮና በመሰንቆም ይዘምሩለት።
     4 እግዚአብሔር በሕዝቡ ተደስቶአልና፥ የዋሃንንም በማዳኑ ከፍ ከፍ ያደርጋልና።
@@ -229,11 +226,11 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
     6 የእግዚአብሔር ምስጋና በጕሮሮአቸው ነው፤ ሁለት አፍ ያለውም ሰይፍ በእጃቸው ነው፥
     7 በአሕዛብ ላይ በቀልን በሰዎችም መካከል ቅጣትን ያደርጉ ዘንድ፤
     8 ንጉሦቻቸውን በሰንሰለት፥ አለቆቻቸውንም በእግር ብረት ያስሩ ዘንድ፤
-    9 የተጻፈውን ፍርድ ያደርጉባቸው ዘንድ። ለቅዱሳን ሁሉ ይህች ክብር ናት። ሃሌ ሉያ።"""),
-
+    9 የተጻፈውን ፍርድ ያደርጉባቸው ዘንድ። ለቅዱሳን ሁሉ ይህች ክብር ናት። ሃሌ ሉያ።""",
+    ),
     PsalmModel(
-        title: 'Psalm 91',
-        fullText: """1 He who dwells in the shelter of the Most High,
+      title: 'Psalm 91',
+      fullText: """1 He who dwells in the shelter of the Most High,
         and abides in the shade of the Almighty,
   2 says to the LORD, “My refuge,
   my stronghold, my God in whom I trust!”
@@ -276,8 +273,8 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
 
   16 With length of days I will content him;
   I will show him my saving power.""",
-    AmTitle: 'መዝሙረ ዳዊት 91',
-    AmFullText: """በልዑል መጠጊያ የሚኖር ሁሉን በሚችል አምላክ ጥላ ውስጥ ያድራል።
+      AmTitle: 'መዝሙረ ዳዊት 91',
+      AmFullText: """በልዑል መጠጊያ የሚኖር ሁሉን በሚችል አምላክ ጥላ ውስጥ ያድራል።
   2 እግዚአብሔርን። አንተ መታመኛዬ ነህ እለዋለሁ፤ አምላኬና መሸሸጊያዬ ነው፥ በእርሱም እታመናለሁ።
   3 እርሱ ከአዳኝ ወጥመድ ከሚያስደነግጥም ነገር ያድንሃልና።
   4 በላባዎቹ ይጋርድሃል፥ በክንፎቹም በታች ትተማመናለህ፤ እውነት እንደ ጋሻ ይከብብሃል።
@@ -286,68 +283,104 @@ class _MorningPsalmPageState extends State<MorningPsalmPage> {
   7 በአጠገብህ ሺህ በቀኝህም አሥር ሺህ ይወድቃሉ፤ ወደ አንተ ግን አይቀርብም።
   8 በዓይኖችህ ብቻ ትመለከታለህ፥ የኃጥኣንንም ብድራት ታያለህ።
   9 አቤቱ፥ አንተ ተስፋዬ ነህና፤ ልዑልን መጠጊያህ አደረግህ።
-  10 ክፉ ነገር ወደ አንተ አይቀርብም፥ መቅሠፍትም ወደ ቤትህ አይገባም።
+  10 ክፉ ነገር ወደ አንተ አይቀርብም፥ መቅሠፍትም ወደ ቤትህ እንዳይገባ።
   11 በመንገድህ ሁሉ ይጠብቁህ ዘንድ መላእክቱን ስለ አንተ ያዝዛቸዋልና፤
   12 እግርህም በድንጋይ እንዳትሰናከል በእጆቻቸው ያነሡሃል።
   13 በተኵላና በእባብ ላይ ትጫማለህ፤ አንበሳውንና ዘንዶውን ትረግጣለህ።
   14 በእኔ ተማምኖአልና አስጥለዋለሁ፤ ስሜንም አውቆአልና እጋርደዋለሁ።
   15 ይጠራኛል እመልስለትማለሁ፥ በመከራውም ጊዜ ከእርሱ ጋራ እሆናለሁ፤ አድነዋለሁ አከብረውማለሁ።
-  16 ረጅምን ዕድሜ አጠግበዋለሁ፥ ማዳኔንም አሳየዋለሁ።"""),
-
+  16 ረጅምን ዕድሜ አጠግበዋለሁ፥ ማዳኔንም አሳየዋለሁ።""",
+    ),
   ];
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
-        appBar: AppBar(
-          title: Text('Morning Psalm Prayers',style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-              onPressed: (){
-                Navigator.pop(context);
-              }, icon: Icon(Icons.arrow_back),color: Colors.white)
+      backgroundColor: theme.colorScheme.surface,
+      appBar: AppBar(
+        title: const Text(
+          'Morning Psalm Prayers',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        body: Stack(
-          children: [
-
-            Positioned.fill(
-                child: Image.asset('assets/morning rosary.jpg',fit: BoxFit.cover)),
-            Positioned.fill(child: Container(
-              color: Colors.black.withOpacity(0.4),
-            )),
-            SafeArea(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+        ),
+      ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/morning rosary.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.55),
+            ),
+          ),
+          SafeArea(
             child: ListView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               children: [
-
-                ...morningPsalms.map((prayer){
-
+                ...morningPsalms.map((prayer) {
                   return Card(
-                  color: Colors.white.withOpacity(0.05),
-                  margin: EdgeInsets.only(bottom: 16),
-                  child: ExpansionTile(title: Text(prayer.title,style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        prayer.fullText, // Injects your massive multi-line verse string
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          height: 1.6,
-                        ),
+                    color: Colors.white.withOpacity(0.12),
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: Colors.white.withOpacity(0.2),
+                        width: 1,
                       ),
                     ),
-                ]));
+                    margin: const EdgeInsets.only(bottom: 16),
+                    child: Theme(
+                      data: theme.copyWith(
+                        dividerColor: Colors.transparent,
+                      ),
+                      child: ExpansionTile(
+                        iconColor: theme.colorScheme.secondary,
+                        collapsedIconColor: Colors.white70,
+                        title: Text(
+                          prayer.title,
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              prayer.fullText,
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.95),
+                                fontSize: 16,
+                                height: 1.6,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 }).toList(),
-
               ],
             ),
-          )]
-        )
+          ),
+        ],
+      ),
     );
-
   }
 }
-

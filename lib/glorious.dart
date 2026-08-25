@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
-import 'package:operation_001/pre_prayer_intention_screen.dart'; // Added import for pre-prayer intention page
 
 class gloriousScreen extends StatefulWidget {
   const gloriousScreen({super.key});
@@ -163,6 +162,8 @@ class _gloriousScreenState extends State<gloriousScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     // Wednesday = 3, Sunday = 7
     bool isGloriousDay = (dayNumber == 3 || dayNumber == 7);
 
@@ -179,6 +180,7 @@ class _gloriousScreenState extends State<gloriousScreen> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         title: SizedBox(
           width: screenWidth * 0.6,
@@ -199,7 +201,11 @@ class _gloriousScreenState extends State<gloriousScreen> {
             onPressed: () => setState(() => isAmharic = !isAmharic),
             child: Text(
               isAmharic ? 'አማ' : 'EN',
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: theme.colorScheme.secondary,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
           )
         ],
@@ -213,7 +219,7 @@ class _gloriousScreenState extends State<gloriousScreen> {
               fit: BoxFit.cover,
             ),
           ),
-          Container(color: Colors.black.withOpacity(0.4)),
+          Container(color: Colors.black.withOpacity(0.45)),
 
           // Home UI
           SafeArea(
@@ -225,9 +231,7 @@ class _gloriousScreenState extends State<gloriousScreen> {
                       ? (isAmharic
                       ? 'ዛሬ ${weekdays[dayNumber]} ነው'
                       : 'Today is ${weekDay[dayNumber]}')
-                      : (isAmharic
-                      ? ''
-                      : ''),
+                      : '',
                   titleStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w400),
                 ),
                 const SizedBox(height: 10),
@@ -250,14 +254,19 @@ class _gloriousScreenState extends State<gloriousScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurpleAccent,
+                    backgroundColor: theme.colorScheme.primary,
+                    foregroundColor: theme.colorScheme.onPrimary,
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     elevation: 8,
                   ),
                   child: Text(
                     isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: theme.colorScheme.onPrimary,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 80),

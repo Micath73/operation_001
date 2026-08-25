@@ -6,7 +6,7 @@ import 'package:operation_001/joyful.dart';
 import 'package:operation_001/glorious.dart';
 import 'package:operation_001/luminous.dart';
 import 'package:operation_001/sorrowful.dart';
-import 'package:operation_001/pre_prayer_intention_screen.dart'; // Added import for pre-prayer intention page
+import 'package:operation_001/pre_prayer_intention_screen.dart';
 
 class DashboardSection extends StatefulWidget {
   const DashboardSection({super.key});
@@ -22,13 +22,11 @@ class _DashboardSectionState extends State<DashboardSection> {
   @override
   void initState() {
     super.initState();
-    // Automatically select current day of the week on load
     int todayWeekday = DateTime.now().weekday; // 1 = Mon, 7 = Sun
     List<String> dayMap = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
     selectedDay = dayMap[todayWeekday - 1];
   }
 
-  // Returns the correct Rosary screen widget based on selected day or today's weekday
   Widget _getRosaryScreenForDay(String day) {
     switch (day) {
       case 'Mon':
@@ -47,16 +45,15 @@ class _DashboardSectionState extends State<DashboardSection> {
     }
   }
 
-  // Refactored helper button accepting custom onPressed callback
-  Widget _buildDailyButton(String label, VoidCallback onPressed) {
+  Widget _buildDailyButton(String label, VoidCallback onPressed, ThemeData theme) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurple,
-            foregroundColor: Colors.white,
+            backgroundColor: theme.colorScheme.primary,
+            foregroundColor: theme.colorScheme.onPrimary,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -70,6 +67,8 @@ class _DashboardSectionState extends State<DashboardSection> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         Padding(
@@ -77,16 +76,20 @@ class _DashboardSectionState extends State<DashboardSection> {
           child: Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: Colors.white70,
+              color: theme.colorScheme.surfaceContainerHigh,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
               children: [
-                const Align(
+                Align(
                   alignment: Alignment.topCenter,
                   child: Text(
                     'Daily Progress Dashboard',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: theme.colorScheme.onSurface,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -105,14 +108,19 @@ class _DashboardSectionState extends State<DashboardSection> {
                           margin: const EdgeInsets.symmetric(horizontal: 5),
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: isSelected ? Colors.deepPurple : Colors.grey[300],
+                            color: isSelected
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.surfaceContainerHighest,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(
                             day,
                             style: TextStyle(
-                              color: isSelected ? Colors.white : Colors.black,
-                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                              color: isSelected
+                                  ? theme.colorScheme.onPrimary
+                                  : theme.colorScheme.onSurfaceVariant,
+                              fontWeight:
+                              isSelected ? FontWeight.bold : FontWeight.normal,
                             ),
                           ),
                         ),
@@ -123,54 +131,69 @@ class _DashboardSectionState extends State<DashboardSection> {
                 const SizedBox(height: 25),
                 Text(
                   "Selected: $selectedDay",
-                  style: const TextStyle(
-                    color: Colors.deepPurple,
+                  style: TextStyle(
+                    color: theme.colorScheme.primary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 15),
-                _buildDailyButton("Read today's Gospel", () {
-                  // TODO: Connect Gospel screen here when ready
-                  print("Reading Gospel for $selectedDay");
-                }),
-                _buildDailyButton("Pray today's Angelus", () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PrePrayerIntentionScreen(
-                        prayerCategory: 'Angelus',
-                        isAmharic: false,
-                        targetPrayerPage: angelus(),
-                      ),
-                    ),
-                  );
-                }),
-                _buildDailyButton("Pray today's Rosary", () {
-                  Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PrePrayerIntentionScreen(
-                        prayerCategory: 'Rosary',
-                        isAmharic: false,
-                        targetPrayerPage: rosaryTarget,
-                      ),
-                    ),
-                  );
-                }),
-                if (selectedDay == 'Fri')
-                  _buildDailyButton("Special Friday Divine Mercy", () {
+                _buildDailyButton(
+                  "Read today's Gospel",
+                      () {
+                    print("Reading Gospel for $selectedDay");
+                  },
+                  theme,
+                ),
+                _buildDailyButton(
+                  "Pray today's Angelus",
+                      () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const PrePrayerIntentionScreen(
-                          prayerCategory: 'Divine Chaplet',
+                          prayerCategory: 'Angelus',
                           isAmharic: false,
-                          targetPrayerPage: chaplet(),
+                          targetPrayerPage: angelus(),
                         ),
                       ),
                     );
-                  }),
+                  },
+                  theme,
+                ),
+                _buildDailyButton(
+                  "Pray today's Rosary",
+                      () {
+                    Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PrePrayerIntentionScreen(
+                          prayerCategory: 'Rosary',
+                          isAmharic: false,
+                          targetPrayerPage: rosaryTarget,
+                        ),
+                      ),
+                    );
+                  },
+                  theme,
+                ),
+                if (selectedDay == 'Fri')
+                  _buildDailyButton(
+                    "Special Friday Divine Mercy",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PrePrayerIntentionScreen(
+                            prayerCategory: 'Divine Chaplet',
+                            isAmharic: false,
+                            targetPrayerPage: chaplet(),
+                          ),
+                        ),
+                      );
+                    },
+                    theme,
+                  ),
               ],
             ),
           ),
