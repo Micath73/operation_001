@@ -53,16 +53,18 @@ class Dailyprayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         SizedBox(
           width: double.infinity,
           child: Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 20),
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: theme.colorScheme.primary,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Row(
@@ -72,13 +74,15 @@ class Dailyprayer extends StatelessWidget {
                     child: Container(
                       height: 120,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: theme.colorScheme.surface,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => angelus()));
-
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const angelus()),
+                          );
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +94,13 @@ class Dailyprayer extends StatelessWidget {
                               fit: BoxFit.contain,
                             ),
                             const SizedBox(height: 8),
-                            const Text('Angelus'),
+                            Text(
+                              'Angelus',
+                              style: TextStyle(
+                                color: theme.colorScheme.onSurface,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -101,12 +111,15 @@ class Dailyprayer extends StatelessWidget {
                     child: Container(
                       height: 120,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: theme.colorScheme.surface,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> rosary()));
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const rosary()),
+                          );
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +131,13 @@ class Dailyprayer extends StatelessWidget {
                               fit: BoxFit.contain,
                             ),
                             const SizedBox(height: 8),
-                            const Text('Rosary'),
+                            Text(
+                              'Rosary',
+                              style: TextStyle(
+                                color: theme.colorScheme.onSurface,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -129,13 +148,15 @@ class Dailyprayer extends StatelessWidget {
                     child: Container(
                       height: 120,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: theme.colorScheme.surface,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: GestureDetector(
-                        onTap: (){
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => chaplet()));
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const chaplet()),
+                          );
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -146,7 +167,13 @@ class Dailyprayer extends StatelessWidget {
                               width: 80,
                               fit: BoxFit.contain,
                             ),
-                            const Text('Chaplet'),
+                            Text(
+                              'Chaplet',
+                              style: TextStyle(
+                                color: theme.colorScheme.onSurface,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -160,14 +187,17 @@ class Dailyprayer extends StatelessWidget {
         ),
         const SizedBox(height: 50),
         GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Newprayertemplatepage(
-              prayerTitle: 'The Morning Prayer',
-              prayerImage: 'assets/sunrise',
-            )
-
-            ));
-    },
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Newprayertemplatepage(
+                  prayerTitle: 'The Morning Prayer',
+                  prayerImage: 'assets/sunrise',
+                ),
+              ),
+            );
+          },
           child: Contain(
             title: 'Morning Prayers',
             prayers: morningPrayers,

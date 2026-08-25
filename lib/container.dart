@@ -18,22 +18,30 @@ class Contain extends StatefulWidget {
 class _ContainState extends State<Contain> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.deepPurple,
+          color: theme.colorScheme.primary,
           borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Column(
-          // This ensures everything starts from the LEFT
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               widget.title,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: theme.colorScheme.onPrimary,
                 fontWeight: FontWeight.bold,
                 fontSize: 25,
               ),
@@ -43,26 +51,45 @@ class _ContainState extends State<Contain> {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 15),
                 child: GestureDetector(
-                  onTap: (){
-                    if(prayer.text=='Morning Psalm Prayers') {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => MorningPsalmPage()));
-                    }
-                    else if(prayer.text=='Angelus'){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>angelus()));
-                    }
-                    else if(prayer.text=='Divine Mercy Chaplet'){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>chaplet()));
-                    }
-                    else if(prayer.text=='Rosary'){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> rosary()));
-                    }
-                    else {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) =>
-                              Newprayertemplatepage(
-                                  prayerTitle: prayer.text,
-                                  prayerImage: prayer.imagePath)));
+                  onTap: () {
+                    if (prayer.text == 'Morning Psalm Prayers') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MorningPsalmPage(),
+                        ),
+                      );
+                    } else if (prayer.text == 'Angelus') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const angelus(),
+                        ),
+                      );
+                    } else if (prayer.text == 'Divine Mercy Chaplet') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const chaplet(),
+                        ),
+                      );
+                    } else if (prayer.text == 'Rosary') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const rosary(),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Newprayertemplatepage(
+                            prayerTitle: prayer.text,
+                            prayerImage: prayer.imagePath,
+                          ),
+                        ),
+                      );
                     }
                   },
                   child: Row(
@@ -74,9 +101,9 @@ class _ContainState extends State<Contain> {
                           height: 45,
                           width: 45,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => const Icon(
+                          errorBuilder: (context, error, stackTrace) => Icon(
                             Icons.image_not_supported,
-                            color: Colors.white70,
+                            color: theme.colorScheme.onPrimary.withOpacity(0.7),
                           ),
                         ),
                       ),
@@ -84,8 +111,8 @@ class _ContainState extends State<Contain> {
                       Expanded(
                         child: Text(
                           prayer.text,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: theme.colorScheme.onPrimary,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),

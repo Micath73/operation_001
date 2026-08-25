@@ -12,6 +12,7 @@ class chaplet extends StatefulWidget {
 class _chapletState extends State<chaplet> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final double fullHeight = MediaQuery.of(context).size.height;
     final double fullWidth = MediaQuery.of(context).size.width;
 
@@ -20,7 +21,7 @@ class _chapletState extends State<chaplet> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: theme.colorScheme.onSurface),
       ),
       body: Stack(
         children: [
@@ -41,9 +42,9 @@ class _chapletState extends State<chaplet> {
                   padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    color: const Color(0xFF1A0F2E).withOpacity(0.55),
+                    color: theme.colorScheme.surface.withOpacity(0.85),
                     border: Border.all(
-                      color: const Color(0xFFC9922A).withOpacity(0.35),
+                      color: theme.colorScheme.secondary.withOpacity(0.5),
                       width: 1.2,
                     ),
                   ),
@@ -51,20 +52,20 @@ class _chapletState extends State<chaplet> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // --- TITLE ---
-                      const Text(
+                      Text(
                         'THE DIVINE MERCY CHAPLET',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Georgia',
-                          color: Color(0xFFE8B84B),
+                          color: theme.colorScheme.secondary,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.8,
                           shadows: [
                             Shadow(
                               blurRadius: 10.0,
-                              color: Color(0xFFC9922A),
-                              offset: Offset(0, 0),
+                              color: theme.colorScheme.secondary.withOpacity(0.4),
+                              offset: const Offset(0, 0),
                             ),
                           ],
                         ),
@@ -75,7 +76,7 @@ class _chapletState extends State<chaplet> {
                       Container(
                         width: 40,
                         height: 1.5,
-                        color: const Color(0xFFC9922A).withOpacity(0.6),
+                        color: theme.colorScheme.secondary.withOpacity(0.6),
                       ),
                       const SizedBox(height: 20),
 
@@ -89,7 +90,7 @@ class _chapletState extends State<chaplet> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Georgia',
-                                color: const Color(0xFFF5EFD7).withOpacity(0.95),
+                                color: theme.colorScheme.onSurface,
                                 fontSize: 15,
                                 fontStyle: FontStyle.italic,
                                 height: 1.5,
@@ -104,7 +105,7 @@ class _chapletState extends State<chaplet> {
                         '— Diary, 1541',
                         style: TextStyle(
                           fontFamily: 'Georgia',
-                          color: const Color(0xFFE8B84B).withOpacity(0.8),
+                          color: theme.colorScheme.secondary,
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
                         ),
@@ -116,8 +117,8 @@ class _chapletState extends State<chaplet> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFE8B84B),
-                            foregroundColor: const Color(0xFF1A0F2E),
+                            backgroundColor: theme.colorScheme.primary,
+                            foregroundColor: theme.colorScheme.onPrimary,
                             elevation: 4,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
