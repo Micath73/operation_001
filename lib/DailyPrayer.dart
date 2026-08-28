@@ -160,7 +160,10 @@ class Dailyprayer extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const rosary(),
+                                builder: (context) => RosaryDetailScreen(
+                                  title: 'Holy Rosary',
+                                  steps: defaultRosaryList,
+                                ),
                             ),
                           );
                         },

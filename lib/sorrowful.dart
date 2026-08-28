@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
-import 'package:operation_001/pre_prayer_intention_screen.dart';
 
 class sorrowfulScreen extends StatefulWidget {
   const sorrowfulScreen({super.key});
@@ -35,14 +34,13 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
     'እሁድ',
   ];
 
-  // Define prayer sequence using PrayerStep model
   final List<PrayerStep> prayerSequence = [
     PrayerStep(
       sectionHeader: 'Sign of the Cross',
       titleEn: 'Sign Of The Cross',
       titleAm: 'በስመ አብ ወወልድ ወመንፈስ ቅዱስ',
       contentEn:
-          'In The Name Of The Father,\nAnd Of The Son,\nAnd Of The Holy Spirit.\nAmen',
+      'In The Name Of The Father,\nAnd Of The Son,\nAnd Of The Holy Spirit.\nAmen',
       contentAm: 'በስመ አብ ወወልድ ወመንፈስ ቅዱስ አሐዱ አምላክ አሜን።',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
@@ -51,9 +49,9 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: 'The Apostles\' Creed',
       titleAm: 'የሐዋርያት እምነት',
       contentEn:
-          'I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and seated at the right hand of God, the Father almighty; from thence He shall come to judge, the living and the dead. I believe in the Holy Spirit, the holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body and life everlasting.\nAmen!',
+      'I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and seated at the right hand of God, the Father almighty; from thence He shall come to judge, the living and the dead. I believe in the Holy Spirit, the holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body and life everlasting.\nAmen!',
       contentAm:
-          'ሁሉን በሚችል ሰማይንና ምድርን በፈጠረ\nበእግዚአብሔር አብ አምናለሁ፡፡\nአንድ ልጁ በሆነዉ በጌታችን\nበኢየሱስ ክርስቶስ አምናለሁ፤\nእሱ በመንፋስ ቅዱስ ተጸንሶ\nከድንግል ማርያም ተወለደ፡፡\nበጴንጤናዊው ጲላጦስ ዘመን ተሰቃየ፣\nተሰቀለ፣ ሞተ፣ ተቀበረ፣\nወደ ሲኦል ወረደ፣\nበሶስተኛው ቀን ከሙታን ተለይቶ ተነሣ፣\nወደ ሰማይ ወጣ፣\nሁሉን በሚችል በእግዚአብሔር አብ ቀኝ ተቀመጠ፣\nያሉትንና የሞቱትን ሊፈርድ ዳግመኛ ይመጣል፣\n በመንፈስ ቅዱስም አምናለሁ፣\nየሁሉም በሆነችው በቅድስት ቤተክርስቲያን\nበቅዱሳንም አንድነት አምናለሁ፣\nበኃጢአት ስርየት፣\nበሙታን ትንሣኤ፣\nበዘላለም ሕይወት አምናለሁ፡፡\nአሜን!',
+      'ሁሉን በሚችል ሰማይንና ምድርን በፈጠረ\nበእግዚአብሔር አብ አምናለሁ፡፡\nአንድ ልጁ በሆነዉ በጌታችን\nበኢየሱስ ክርስቶስ አምናለሁ፤\nእሱ በመንፋስ ቅዱስ ተጸንሶ\nከድንግል ማርያም ተወለደ፡፡\nበጴንጤናዊው ጲላጦስ ዘመን ተሰቃየ፣\nተሰቀለ፣ ሞተ፣ ተቀበረ፣\nወደ ሲኦል ወረደ፣\nበሶስተኛው ቀን ከሙታን ተለይቶ ተነሣ፣\nወደ ሰማይ ወጣ፣\nሁሉን በሚችል በእግዚአብሔር አብ ቀኝ ተቀመጠ፣\nያሉትንና የሞቱትን ሊፈርድ ዳግመኛ ይመጣል፣\n በመንፈስ ቅዱስም አምናለሁ፣\nየሁሉም በሆነችው በቅድስት ቤተክርስቲያን\nበቅዱሳንም አንድነት አምናለሁ፣\nበኃጢአት ስርየት፣\nበሙታን ትንሣኤ፣\nበዘላለም ሕይወት አምናለሁ፡፡\nአሜን!',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
     PrayerStep(
@@ -61,9 +59,9 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: 'Our Father',
       titleAm: 'አባታችን ሆይ',
       contentEn:
-          'Our Father, who art in heaven, hallowed be thy name; thy kingdom come; thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil.\nAmen!',
+      'Our Father, who art in heaven, hallowed be thy name; thy kingdom come; thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil.\nAmen!',
       contentAm:
-          'በሰማይ የምትኖር አባታችን ሆይ፣ስምህ ይመስገን፣መንግሥትህ ትምጣ፡ፈቃድህ በሰማይ እንደሆነ:እንዲሁም በምድር ይሁን። የዕለት እንጀራችንን ዛሬ ስጠን፤እኛ የበደሉንን ይቅር እንደምንል:በደላችንን ይቅር በልልን፤ከክፉ ሁሉ ሰውርን እንጂ ወደ ፈተና አታግባን፡፡ መንግስት ኃይልና ክብር ለዘለዓለም ያንተ ነውና፡፡\nአሜን!',
+      'በሰማይ የምትኖር አባታችን ሆይ፣ስምህ ይመስገን፣መንግሥትህ ትምጣ፡ፈቃድህ በሰማይ እንደሆነ:እንዲሁም በምድር ይሁን። የዕለት እንጀራችንን ዛሬ ስጠን፤እኛ የበደሉንን ይቅር እንደምንል:በደላችንን ይቅር በልልን፤ከክፉ ሁሉ ሰውርን እንጂ ወደ ፈተና አታግባን፡፡ መንግስት ኃይልና ክብር ለዘለዓለም ያንተ ነውና፡፡\nአሜን!',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
     PrayerStep(
@@ -71,9 +69,9 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: 'Hail Mary',
       titleAm: 'ጸጋ የመላሽ',
       contentEn:
-          'Hail Mary, full of grace, the Lord is with you; Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners now and at the hour of our death.\nAmen!',
+      'Hail Mary, full of grace, the Lord is with you; Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners now and at the hour of our death.\nAmen!',
       contentAm:
-          'ጸጋ የመላሽ ማርይም ሆይ:ሰላም ላንቺ ይሁን፣እግዚአብሔር ካንቺ ጋር ነው፣ከሴቶች ሁሉ የተባረክሽ ነሽ፣የሆድሽም ፍሬ ኢየሱስ የተባረከ ነው፡፡ ቅድስት ማርያም የአምላክ እናት:ለኛ ለኃጢአተኞች:አሁንም በሞታችንም ጊዜ ለምኝልን፡፡\nአሜን።',
+      'ጸጋ የመላሽ ማርይም ሆይ:ሰላም ላንቺ ይሁን፣እግዚአብሔር ካንቺ ጋር ነው፣ከሴቶች ሁሉ የተባረክሽ ነሽ፣የሆድሽም ፍሬ ኢየሱስ የተባረከ ነው፡፡ ቅድስት ማርያም የአምላክ እናት:ለኛ ለኃጢአተኞች:አሁንም በሞታችንም ጊዜ ለምኝልን፡፡\nአሜን።',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
     PrayerStep(
@@ -81,7 +79,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: 'Glory Be',
       titleAm: 'ስብሐት ለአብ',
       contentEn:
-          'Glory be to the Father,\nand to the Son,\nand to the Holy Spirit;\nas it was in the beginning,\nis now, and ever shall be,\nworld without end.\nAmen!',
+      'Glory be to the Father,\nand to the Son,\nand to the Holy Spirit;\nas it was in the beginning,\nis now, and ever shall be,\nworld without end.\nAmen!',
       contentAm: 'ለአብ:ለወልድና:ለመንፈስ ቅዱስ ምስጋና ይሁን\nአሁንም ዘወትርም ለዘለዓለምም::\n አሜን!"',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
@@ -90,16 +88,16 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: 'Fatima Prayer',
       titleAm: 'የፋጢማ ጸሎት',
       contentEn:
-          'O my Jesus,\nforgive us our sins,\nsave us from the fires of hell;\nlead all souls to Heaven,\nespecially those who have\nmost need of your mercy.\nAmen.',
+      'O my Jesus,\nforgive us our sins,\nsave us from the fires of hell;\nlead all souls to Heaven,\nespecially those who have\nmost need of your mercy.\nAmen.',
       contentAm:
-          'አቤቱ ጌታዬ ኢየሱስ ሆይ፡\nኃጢአታችንን ይቅር በለን፡\nከገሃነም እሳት አድነን፡\nነፍሳትን ሁሉ ወደ መንግሥተ ሰማያት አግባ። አሜን።',
+      'አቤቱ ጌታዬ ኢየሱስ ሆይ፡\nኃጢአታችንን ይቅር በለን፡\nከገሃነም እሳት አድነን፡\nነፍሳትን ሁሉ ወደ መንግሥተ ሰማያት አግባ። አሜን።',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
     PrayerStep(
       titleEn: "First Sorrowful Mystery",
       titleAm: "የመጀመሪያ የህመም ምሥጢር",
       contentEn:
-          "The agony in the Garden.\n\n"
+      "The agony in the Garden.\n\n"
           "\"Then Jesus went with them\n"
           "to a place called Gethsemane,\n"
           "and he said to his disciples,\n"
@@ -119,7 +117,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
           "but as you will'\"\n"
           "(Mt 26:36-39).",
       contentAm:
-          "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+      "ጌታችን ኢየሱስ ክርስቶስ፡\n"
           "በጌተሰማኒ አትክልት ውስጥ ጸሎት እያደረሰ፡\n"
           " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
@@ -130,14 +128,14 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: "Second Sorrowful Mystery",
       titleAm: "ሁለተኛዉ የህመም ምሥጢር",
       contentEn:
-          "The Scourging at the Pillar.\n\n"
+      "The Scourging at the Pillar.\n\n"
           "\"Pilate released Barabbas to them,\n"
           "but after he had Jesus scourged,\n"
           "he handed him over\n"
           "to be crucified\"\n"
           "(Mt 27:26).",
       contentAm:
-          "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+      "ጌታችን ኢየሱስ ክርስቶስ፡\n"
           " በጵላጦስ ፊት ደም እስከሚጎርፍ ድረስ፡\n"
           " ስለኃጢአታችን አለ ልክ መገረፉን ማሰብ ነው፡፡\n"
           " የምስጢሩ ፍሬ ሐሳብ: ከኃጢአት መራቅ ነው፡፡\n\n\n",
@@ -147,7 +145,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: "Third Sorrowful Mystery",
       titleAm: "ሦስተኛዉ የህመም ምሥጢር",
       contentEn:
-          "The Crowning with Thorns.\n\n"
+      "The Crowning with Thorns.\n\n"
           "\"Then the soldiers of the governor\n"
           "took Jesus into the praetorium,\n"
           "and they gathered the whole\n"
@@ -162,7 +160,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
           "'Hail, King of the Jews!'\"\n"
           "(Mt 27:27-29).",
       contentAm:
-          "በጌታችን ኢየሱስ ክርስቶስ፡\n"
+      "በጌታችን ኢየሱስ ክርስቶስ፡\n"
           "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
           "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n\n",
@@ -172,7 +170,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: "Fourth Sorrowful Mystery",
       titleAm: "አራተኛዉ የህመም ምሥጢር",
       contentEn:
-          "The Carrying of the Cross.\n\n"
+      "The Carrying of the Cross.\n\n"
           "\"And they compelled a passer-by,\n"
           "Simon of Cyrene,\n"
           "who was coming in from the country,\n"
@@ -183,7 +181,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
           "(which means the place of a skull)\"\n"
           "(Mk 15:21-22).",
       contentAm:
-          "አይሁዳዊን በጌታችን ኢየሱስ ክርስቶስ ላይ፡\n"
+      "አይሁዳዊን በጌታችን ኢየሱስ ክርስቶስ ላይ፡\n"
           "የሞት ፍርድ እንደፈረዱና ስቃይን ለመጨመር፡\n"
           "ከባድ መስቀል ማሸከማቸውን ማሰብ ነው፡፡\n"
           " የምስጢሩ ፍሬ ሐሳብ\n"
@@ -194,7 +192,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleEn: "Fifth Sorrowful Mystery",
       titleAm: "አምስተኛዉ የህመም ምሥጢር",
       contentEn:
-          "The Crucifixion and Death.\n\n"
+      "The Crucifixion and Death.\n\n"
           "\"And when they came to the place\n"
           "which is called The Skull,\n"
           "there they crucified him,\n"
@@ -215,7 +213,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
           "he breathed his last\"\n"
           "(Lk 23:33-46).",
       contentAm:
-          "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+      "ጌታችን ኢየሱስ ክርስቶስ፡\n"
           "ቀራንዮ በደረሰ ጊዜ ልብሱን ገፈውት እራቁቱ መሆኑን፡\n"
           "አለ ምሕረትም በመስቀል ላይ መቸንከሩን፡\n"
           "የመከራ ጎደኛው እናቱም ይህን ሁሉ መከራውን አይታ መጨነቅዋን ማሰብ ነው፡፡\n"
@@ -227,15 +225,14 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Tuesday = 2, Friday = 5
     bool isSorrowfulDay = (dayNumber == 2 || dayNumber == 5);
 
     const titleStyle = TextStyle(
-      fontSize: 32.0,
+      fontSize: 28.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
       shadows: [
-        Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
+        Shadow(blurRadius: 10.0, color: Colors.black54, offset: Offset(2, 2)),
       ],
     );
 
@@ -262,13 +259,22 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
-          TextButton(
-            onPressed: () => setState(() => isAmharic = !isAmharic),
-            child: Text(
-              isAmharic ? 'አማ' : 'EN',
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+          Container(
+            margin: const EdgeInsets.only(right: 12),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.white24,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () => setState(() => isAmharic = !isAmharic),
+              child: Text(
+                isAmharic ? 'EN' : 'አማ',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -276,16 +282,30 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       ),
       body: Stack(
         children: [
-          // Background Layer
+          // Background Image
           SizedBox.expand(
             child: Image.asset(
               'assets/wmremove-transformed (6).jpeg',
               fit: BoxFit.cover,
             ),
           ),
-          Container(color: Colors.black.withOpacity(0.4)),
 
-          // Home UI Layer
+          // Theme Tint Overlay
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0.5),
+                  Colors.deepPurple.withOpacity(0.6),
+                  Colors.deepPurple[900]!.withOpacity(0.85),
+                ],
+              ),
+            ),
+          ),
+
+          // Content Layer
           SafeArea(
             child: Column(
               children: [
@@ -293,12 +313,13 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                 _buildAnimatedText(
                   isSorrowfulDay
                       ? (isAmharic
-                            ? 'ዛሬ ${weekdays[dayNumber]} ነው'
-                            : 'Today is ${weekDay[dayNumber]}')
-                      : (isAmharic ? '' : ''),
+                      ? 'ዛሬ ${weekdays[dayNumber]} ነው'
+                      : 'Today is ${weekDay[dayNumber]}')
+                      : '',
                   titleStyle.copyWith(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w400,
+                    color: Colors.amberAccent,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -310,6 +331,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                 ),
                 const Spacer(flex: 2),
 
+                // Button matching primary deepPurple theme
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -323,27 +345,28 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurpleAccent,
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 18,
+                      horizontal: 45,
+                      vertical: 16,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(25),
                     ),
-                    elevation: 8,
+                    elevation: 6,
                   ),
                   child: Text(
                     isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
                     style: const TextStyle(
-                      color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 1.1,
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 80),
+                const SizedBox(height: 60),
               ],
             ),
           ),

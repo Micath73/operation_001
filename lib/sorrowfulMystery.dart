@@ -6,7 +6,7 @@ final List<PrayerStep> sorrowfulSteps = [
     titleEn: "First Sorrowful Mystery",
     titleAm: "የመጀመሪያ የህመም ምሥጢር",
     contentEn:
-        "The agony in the Garden.\n\n"
+    "The agony in the Garden.\n\n"
         "\"Then Jesus went with them\n"
         "to a place called Gethsemane,\n"
         "and he said to his disciples,\n"
@@ -25,14 +25,12 @@ final List<PrayerStep> sorrowfulSteps = [
         "nevertheless, not as I will,\n"
         "but as you will'\"\n"
         "(Mt 26:36-39).",
-
     contentAm:
-        "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+    "ጌታችን ኢየሱስ ክርስቶስ፡\n"
         "በጌተሰማኒ አትክልት ውስጥ ጸሎት እያደረሰ፡\n"
         " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
         "የምስጢሩ ፍሬ ሐሳብ፡\n"
-        "በኃጢአታችን በሚገባ ማዘን ነው፡፡\n\n\n",
-
+        "በኃጢአታችን በሚገባ ማዘን ነው፡፡\n\n",
     imagePath: "assets/img_22.png",
   ),
 
@@ -41,19 +39,17 @@ final List<PrayerStep> sorrowfulSteps = [
     titleEn: "Second Sorrowful Mystery",
     titleAm: "ሁለተኛዉ የህመም ምሥጢር",
     contentEn:
-        "The Scourging at the Pillar.\n\n"
+    "The Scourging at the Pillar.\n\n"
         "\"Pilate released Barabbas to them,\n"
         "but after he had Jesus scourged,\n"
         "he handed him over\n"
         "to be crucified\"\n"
         "(Mt 27:26).",
-
     contentAm:
-        "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+    "ጌታችን ኢየሱስ ክርስቶስ፡\n"
         " በጵላጦስ ፊት ደም እስከሚጎርፍ ድረስ፡\n"
         " ስለኃጢአታችን አለ ልክ መገረፉን ማሰብ ነው፡፡\n"
-        " የምስጢሩ ፍሬ ሐሳብ: ከኃጢአት መራቅ ነው፡፡\n\n\n",
-
+        " የምስጢሩ ፍሬ ሐሳብ: ከኃጢአት መራቅ ነው፡፡\n\n",
     imagePath: "assets/img_23.png",
   ),
 
@@ -62,7 +58,7 @@ final List<PrayerStep> sorrowfulSteps = [
     titleEn: "Third Sorrowful Mystery",
     titleAm: "ሦስተኛዉ የህመም ምሥጢር",
     contentEn:
-        "The Crowning with Thorns.\n\n"
+    "The Crowning with Thorns.\n\n"
         "\"Then the soldiers of the governor\n"
         "took Jesus into the praetorium,\n"
         "and they gathered the whole\n"
@@ -76,13 +72,10 @@ final List<PrayerStep> sorrowfulSteps = [
         "they mocked him, saying,\n"
         "'Hail, King of the Jews!'\"\n"
         "(Mt 27:27-29).",
-
     contentAm:
-        "በጌታችን ኢየሱስ ክርስቶስ፡\n"
+    "በጌታችን ኢየሱስ ክርስቶስ፡\n"
         "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
-        "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
-        "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n\n",
-
+        "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n",
     imagePath: "assets/img_24.png",
   ),
 
@@ -91,7 +84,7 @@ final List<PrayerStep> sorrowfulSteps = [
     titleEn: "Fourth Sorrowful Mystery",
     titleAm: "አራተኛዉ የህመም ምሥጢር",
     contentEn:
-        "The Carrying of the Cross.\n\n"
+    "The Carrying of the Cross.\n\n"
         "\"And they compelled a passer-by,\n"
         "Simon of Cyrene,\n"
         "who was coming in from the country,\n"
@@ -101,14 +94,12 @@ final List<PrayerStep> sorrowfulSteps = [
         "called Golgotha\n"
         "(which means the place of a skull)\"\n"
         "(Mk 15:21-22).",
-
     contentAm:
-        "አይሁዳዊን በጌታችን ኢየሱስ ክርስቶስ ላይ፡\n"
+    "አይሁዳዊን በጌታችን ኢየሱስ ክርስቶስ ላይ፡\n"
         "የሞት ፍርድ እንደፈረዱና ስቃይን ለመጨመር፡\n"
         "ከባድ መስቀል ማሸከማቸውን ማሰብ ነው፡፡\n"
         " የምስጢሩ ፍሬ ሐሳብ\n"
-        "ስቃያችንን ስለ እግዚአብሔር ብለን መታገስ ነው፡፡\n\n\n",
-
+        "ስቃያችንን ስለ እግዚአብሔር ብለን መታገስ ነው፡፡\n\n",
     imagePath: "assets/img_25.png",
   ),
 
@@ -117,7 +108,7 @@ final List<PrayerStep> sorrowfulSteps = [
     titleEn: "Fifth Sorrowful Mystery",
     titleAm: "አምስተኛዉ የህመም ምሥጢር",
     contentEn:
-        "The Crucifixion and Death.\n\n"
+    "The Crucifixion and Death.\n\n"
         "\"And when they came to the place\n"
         "which is called The Skull,\n"
         "there they crucified him,\n"
@@ -137,15 +128,13 @@ final List<PrayerStep> sorrowfulSteps = [
         "And having said this\n"
         "he breathed his last\"\n"
         "(Lk 23:33-46).",
-
     contentAm:
-        "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+    "ጌታችን ኢየሱስ ክርስቶስ፡\n"
         "ቀራንዮ በደረሰ ጊዜ ልብሱን ገፈውት እራቁቱ መሆኑን፡\n"
         "አለ ምሕረትም በመስቀል ላይ መቸንከሩን፡\n"
         "የመከራ ጎደኛው እናቱም ይህን ሁሉ መከራውን አይታ መጨነቅዋን ማሰብ ነው፡፡\n"
         "የምስጢሩ ፍሬ ሐሳብ፡\n"
-        "የሱስንና ማርያምን ወደን ኃጢአትን ሁሉ መተው፡፡\n\n\n",
-
+        "የሱስንና ማርያምን ወደን ኃጢአትን ሁሉ መተው፡፡\n\n",
     imagePath: "assets/img_26.png",
   ),
 ];

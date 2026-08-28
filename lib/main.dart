@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:operation_001/pages/bible.dart';
-import 'package:operation_001/pages/daily.dart';
+import 'package:operation_001/mass_screen.dart';
 import 'package:operation_001/pages/home.dart';
 import 'package:operation_001/pages/more.dart';
+import 'package:operation_001/pages/mass.dart';
 import 'package:operation_001/theme.dart';
 
 void main() => runApp(const CatholicApp());
@@ -37,7 +38,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _pages = [
     const UserHome(),
     const UserBible(),
-    const UserDaily(),
+    const UserMass(),
     const UserMore(),
   ];
 
@@ -87,8 +88,8 @@ class _HomeState extends State<Home> {
                   text: 'Bible',
                 ),
                 GButton(
-                  icon: Icons.auto_awesome_rounded,
-                  text: 'Daily',
+                  icon: Icons.church_rounded,
+                  text: 'Mass',
                 ),
                 GButton(
                   icon: Icons.more_horiz_rounded,

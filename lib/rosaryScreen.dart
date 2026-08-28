@@ -1,182 +1,106 @@
 import 'package:flutter/material.dart';
-import 'package:operation_001/joyful.dart';
-import 'package:operation_001/joyfulMystery.dart';
-import 'package:operation_001/sorrowful.dart';
-import 'package:operation_001/sorrowfulMystery.dart';
-import 'package:operation_001/glorious.dart';
-import 'package:operation_001/gloriousMystery.dart';
-import 'package:operation_001/luminous.dart';
-import 'package:operation_001/luminousMystery.dart';
 
-class rosary extends StatefulWidget {
-  const rosary({super.key});
+class RosaryItem {
+  final String title;
+  final String days;
+  final String quote;
 
-  @override
-  State<rosary> createState() => _rosaryState();
+  RosaryItem({
+    required this.title,
+    required this.days,
+    required this.quote,
+  });
 }
 
-class _rosaryState extends State<rosary> {
+// Global list of Rosaries with days and Saint quotes
+final List<RosaryItem> defaultRosaryList = [
+  RosaryItem(
+    title: 'The Joyful Mysteries',
+    days: 'Mondays & Saturdays',
+    quote: '"The Rosary is the most beautiful and the most rich in graces of all prayers." — Pope St. Pius X',
+  ),
+  RosaryItem(
+    title: 'The Sorrowful Mysteries',
+    days: 'Tuesdays & Fridays',
+    quote: '"Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did." — St. Maximilian Kolbe',
+  ),
+  RosaryItem(
+    title: 'The Glorious Mysteries',
+    days: 'Wednesdays & Sundays',
+    quote: '"Give me an army saying the Rosary and I will conquer the world." — Blessed Pope Pius IX',
+  ),
+  RosaryItem(
+    title: 'The Luminous Mysteries',
+    days: 'Thursdays',
+    quote: '"The Rosary is a powerful weapon to put the demons to flight and to keep oneself from sin." — Pope Pius XI',
+  ),
+];
+
+class RosaryDetailScreen extends StatelessWidget {
+  final String title;
+  final List<RosaryItem> steps;
+
+  const RosaryDetailScreen({
+    super.key,
+    required this.title,
+    required this.steps,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Rosary',
-            style: TextStyle(
-              fontSize: 25,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          centerTitle: true,
-          bottom: const TabBar(
-            tabs: [
-              Tab(child: Text('English')),
-              Tab(child: Text('Amharic')),
-            ],
-          ),
-        ),
-        body: TabBarView(children: [_buildMysteryList(), _buildMysteryList()]),
+    return Scaffold(
+      backgroundColor: Colors.deepPurple[900],
+      appBar: AppBar(
+        title: Text(title),
+        backgroundColor: Colors.deepPurple,
       ),
-    );
-  }
-
-  Widget _buildMysteryList() {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-        child: Column(
-          children: [
-            _buildMysteryCard(
-              'Joyful Mysteries',
-              'Mon, Sat',
-              '"In the joyful mysteries we see, the joy of family, motherhood..."',
-              '— Saint John Paul II',
-              'assets/morning rosary.jpg',
-              () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const joyfulScreen()),
-              ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: steps.length,
+        itemBuilder: (context, index) {
+          final item = steps[index];
+          return Card(
+            color: Colors.deepPurple[700],
+            margin: const EdgeInsets.only(bottom: 16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
             ),
-            const SizedBox(height: 10),
-            _buildMysteryCard(
-              'Sorrowful Mysteries',
-              'Tue, Fri',
-              '"The Rosary is the book of the blind, where souls see and there enact the greatest drama of love..."',
-              '— Venerable Fulton Sheen',
-              'assets/img_20.png',
-              () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const sorrowfulScreen(),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            _buildMysteryCard(
-              'Glorious Mysteries',
-              'Wed, Sun',
-              'In the glorious mysteries the hopes of eternal life are revived.',
-              '— Saint John Paul II',
-              'assets/He is Risen.jpg',
-              () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const gloriousScreen()),
-              ),
-            ),
-
-            const SizedBox(height: 10),
-            _buildMysteryCard(
-              'Luminous Mysteries',
-              'Thur',
-              'These mysteries make it possible to reach the threshold of contemplation...',
-              '— Saint John Paul II',
-              'assets/holy communion.jpg',
-              () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const luminousScreen()),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMysteryCard(
-    String title,
-    String days,
-    String quote,
-    String author,
-    String imagePath,
-    VoidCallback onTap,
-  ) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      color: Colors.white,
-      elevation: 4,
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: InkWell(
-        splashColor: Colors.grey.withValues(alpha: 50),
-        onTap: onTap,
-        child: IntrinsicHeight(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                width: 100,
-                child: Image.asset(imagePath, fit: BoxFit.cover),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        days,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 13,
-                          color: Colors.deepPurple,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        quote,
-                        style: const TextStyle(
-                          fontStyle: FontStyle.italic,
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        author,
-                        style: const TextStyle(
-                          fontSize: 11,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 5),
+                  Text(
+                    'Prayed on: ${item.days}',
+                    style: const TextStyle(
+                      color: Colors.amberAccent,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    item.quote,
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 13,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
