@@ -1,53 +1,50 @@
 class DailyReading {
-  final String date; // Format: YYYY-MM-DD
-  final String liturgicalTitle; // e.g., "Twenty-First Sunday in Ordinary Time"
-  final String liturgicalColor; // e.g., "Green", "Purple", "White", "Red"
-  final String firstReadingTitle; // e.g., "First Reading: Isaiah 22:19-23"
+  final String id;
+  final String date;
+  final String liturgicalTitle;
+  final String liturgicalColor;
+  final String firstReadingTitle;
   final String firstReadingText;
-  final String psalmResponse; // e.g., "R. Lord, your love is eternal..."
+  final String psalmResponse;
   final String psalmText;
-  final String? secondReadingTitle; // Optional (Sundays & Solemnities)
+  final String? secondReadingTitle;
   final String? secondReadingText;
-  final String gospelAcclamation;
-  final String gospelTitle; // e.g., "Gospel: Matthew 16:13-20"
+  final String? gospelAcclamation;
+  final String gospelTitle;
   final String gospelText;
 
   DailyReading({
+    required this.id,
     required this.date,
     required this.liturgicalTitle,
     required this.liturgicalColor,
     required this.firstReadingTitle,
-    required this.firstReadingText,
+    required String firstReadingText,
     required this.psalmResponse,
-    required this.psalmText,
+    required String psalmText,
     this.secondReadingTitle,
-    this.secondReadingText,
-    required this.gospelAcclamation,
+    String? secondReadingText,
+    String? gospelAcclamation,
     required this.gospelTitle,
-    required this.gospelText,
-  });
+    required String gospelText,
+  })  : firstReadingText = _cleanText(firstReadingText),
+        psalmText = _cleanText(psalmText),
+        secondReadingText =
+        secondReadingText != null ? _cleanText(secondReadingText) : null,
+        gospelAcclamation =
+        gospelAcclamation != null ? _cleanText(gospelAcclamation) : null,
+        gospelText = _cleanText(gospelText);
 
-  // Convert JSON map to DailyReading object
-  factory DailyReading.fromJson(Map<String, dynamic> json) {
-    return DailyReading(
-      date: json['date'] as String? ?? '',
-      liturgicalTitle: json['liturgicalTitle'] as String? ?? '',
-      liturgicalColor: json['liturgicalColor'] as String? ?? 'Green',
-      firstReadingTitle: json['firstReadingTitle'] as String? ?? '',
-      firstReadingText: json['firstReadingText'] as String? ?? '',
-      psalmResponse: json['psalmResponse'] as String? ?? '',
-      psalmText: json['psalmText'] as String? ?? '',
-      secondReadingTitle: json['secondReadingTitle'] as String?,
-      secondReadingText: json['secondReadingText'] as String?,
-      gospelAcclamation: json['gospelAcclamation'] as String? ?? '',
-      gospelTitle: json['gospelTitle'] as String? ?? '',
-      gospelText: json['gospelText'] as String? ?? '',
-    );
+  static String _cleanText(String rawText) {
+    return rawText
+        .replaceAll(RegExp(r'\[NABRE\]', caseSensitive: false), '')
+        .replaceAll(RegExp(r'\[.*?\]'), '')
+        .trim();
   }
 
-  // Convert DailyReading object back to Map for SQLite database storage
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'date': date,
       'liturgicalTitle': liturgicalTitle,
       'liturgicalColor': liturgicalColor,
@@ -61,5 +58,29 @@ class DailyReading {
       'gospelTitle': gospelTitle,
       'gospelText': gospelText,
     };
+  }
+
+  factory DailyReading.fromMap(Map<String, dynamic> map) {
+    return DailyReading(
+      id: map['id']?.toString() ?? '',
+      date: map['date'] ?? '',
+      liturgicalTitle: map['liturgicalTitle'] ?? map['liturgical_title'] ?? '',
+      liturgicalColor:
+      map['liturgicalColor'] ?? map['liturgical_color'] ?? 'Green',
+      firstReadingTitle:
+      map['firstReadingTitle'] ?? map['first_reading_title'] ?? '',
+      firstReadingText:
+      map['firstReadingText'] ?? map['first_reading_text'] ?? '',
+      psalmResponse: map['psalmResponse'] ?? map['psalm_response'] ?? '',
+      psalmText: map['psalmText'] ?? map['psalm_text'] ?? '',
+      secondReadingTitle:
+      map['secondReadingTitle'] ?? map['second_reading_title'],
+      secondReadingText:
+      map['secondReadingText'] ?? map['second_reading_text'],
+      gospelAcclamation:
+      map['gospelAcclamation'] ?? map['gospel_acclamation'],
+      gospelTitle: map['gospelTitle'] ?? map['gospel_title'] ?? '',
+      gospelText: map['gospelText'] ?? map['gospel_text'] ?? '',
+    );
   }
 }

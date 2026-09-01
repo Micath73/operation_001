@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
 
-class sorrowfulScreen extends StatefulWidget {
-  const sorrowfulScreen({super.key});
+/// Legacy alias to maintain compatibility if referenced elsewhere in the project.
+typedef sorrowfulScreen = SorrowfulScreen;
+
+class SorrowfulScreen extends StatefulWidget {
+  const SorrowfulScreen({super.key});
 
   @override
-  State<sorrowfulScreen> createState() => _sorrowfulScreenState();
+  State<SorrowfulScreen> createState() => _SorrowfulScreenState();
 }
 
-class _sorrowfulScreenState extends State<sorrowfulScreen> {
+class _SorrowfulScreenState extends State<SorrowfulScreen> {
   bool isAmharic = false;
 
   final int dayNumber = DateTime.now().weekday;
@@ -80,7 +83,8 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       titleAm: 'ስብሐት ለአብ',
       contentEn:
       'Glory be to the Father,\nand to the Son,\nand to the Holy Spirit;\nas it was in the beginning,\nis now, and ever shall be,\nworld without end.\nAmen!',
-      contentAm: 'ለአብ:ለወልድና:ለመንፈስ ቅዱስ ምስጋና ይሁን\nአሁንም ዘወትርም ለዘለዓለምም::\n አሜን!"',
+      contentAm:
+      'ለአብ:ለወልድና:ለመንፈስ ቅዱስ ምስጋና ይሁን\nአሁንም ዘወትርም ለዘለዓለምም::\n አሜን!"',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
     PrayerStep(
@@ -162,7 +166,6 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
       contentAm:
       "በጌታችን ኢየሱስ ክርስቶስ፡\n"
           "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
-          "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n\n",
       imagePath: "assets/img_24.png",
     ),
@@ -225,18 +228,19 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isSorrowfulDay = (dayNumber == 2 || dayNumber == 5);
+    final bool isSorrowfulDay = (dayNumber == 2 || dayNumber == 5);
 
     const titleStyle = TextStyle(
       fontSize: 28.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
+      fontFamily: 'Georgia',
       shadows: [
         Shadow(blurRadius: 10.0, color: Colors.black54, offset: Offset(2, 2)),
       ],
     );
 
-    double screenWidth = MediaQuery.of(context).size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -249,21 +253,22 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
               isAmharic ? 'የሐዘን ምስጢር' : 'The Sorrowful Mystery',
               key: ValueKey<bool>(isAmharic),
               style: const TextStyle(
-                color: Colors.white,
+                color: Color(0xFFE8B84B),
                 fontWeight: FontWeight.bold,
+                fontFamily: 'Georgia',
               ),
             ),
           ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Color(0xFFE8B84B)),
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 12),
             child: TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: Colors.white24,
+                backgroundColor: Colors.white.withValues(alpha: 0.15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -297,9 +302,9 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.black.withOpacity(0.5),
-                  Colors.deepPurple.withOpacity(0.6),
-                  Colors.deepPurple[900]!.withOpacity(0.85),
+                  Colors.black.withValues(alpha: 0.5),
+                  const Color(0xFF120A21).withValues(alpha: 0.75),
+                  const Color(0xFF120A21).withValues(alpha: 0.95),
                 ],
               ),
             ),
@@ -319,7 +324,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                   titleStyle.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
-                    color: Colors.amberAccent,
+                    color: const Color(0xFFE8B84B),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -331,7 +336,7 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                 ),
                 const Spacer(flex: 2),
 
-                // Button matching primary deepPurple theme
+                // Primary Golden Accent Button
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -345,8 +350,8 @@ class _sorrowfulScreenState extends State<sorrowfulScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    foregroundColor: Colors.white,
+                    backgroundColor: const Color(0xFFE8B84B),
+                    foregroundColor: const Color(0xFF120A21),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 45,
                       vertical: 16,

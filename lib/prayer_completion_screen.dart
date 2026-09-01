@@ -29,7 +29,8 @@ class PrayerCompletionScreen extends StatefulWidget {
   });
 
   @override
-  State<PrayerCompletionScreen> createState() => _PrayerCompletionScreenState();
+  State<PrayerCompletionScreen> createState() =>
+      _PrayerCompletionScreenState();
 }
 
 class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
@@ -67,6 +68,8 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
   }
 
   void _showPrayerHistoryDialog() {
+    final theme = Theme.of(context);
+
     showDialog(
       context: context,
       builder: (context) {
@@ -74,16 +77,18 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
         return StatefulBuilder(
           builder: (context, setDialogState) {
             return AlertDialog(
-              backgroundColor: const Color(0xFF140C24).withValues(alpha: 0.95),
+              backgroundColor: theme.colorScheme.surface.withValues(alpha: 0.94),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
-                side: BorderSide(color: const Color(0xFFE8B84B).withValues(alpha: 0.3)),
+                side: BorderSide(
+                  color: theme.colorScheme.secondary.withValues(alpha: 0.3),
+                ),
               ),
               title: Text(
                 widget.isAmharic ? 'የጸሎት የታሪክ መዝገብ' : 'Prayer History Logs',
-                style: const TextStyle(
-                  color: Color(0xFFE8B84B),
-                  fontFamily: 'Georgia',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  color: theme.colorScheme.secondary,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               content: SizedBox(
@@ -98,15 +103,27 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                           _filterChip('Today', 'today', selectedFilter, (val) {
                             setDialogState(() => selectedFilter = val);
                           }),
-                          _filterChip('Yesterday', 'yesterday', selectedFilter, (val) {
+                          _filterChip('Yesterday', 'yesterday', selectedFilter, (
+                              val,
+                              ) {
                             setDialogState(() => selectedFilter = val);
                           }),
-                          _filterChip('Last 7 Days', 'last_week', selectedFilter, (val) {
-                            setDialogState(() => selectedFilter = val);
-                          }),
-                          _filterChip('Last 30 Days', 'last_month', selectedFilter, (val) {
-                            setDialogState(() => selectedFilter = val);
-                          }),
+                          _filterChip(
+                            'Last 7 Days',
+                            'last_week',
+                            selectedFilter,
+                                (val) {
+                              setDialogState(() => selectedFilter = val);
+                            },
+                          ),
+                          _filterChip(
+                            'Last 30 Days',
+                            'last_month',
+                            selectedFilter,
+                                (val) {
+                              setDialogState(() => selectedFilter = val);
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -114,14 +131,13 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                     Expanded(
                       child: FutureBuilder<List<Map<String, dynamic>>>(
                         key: ValueKey(selectedFilter),
-                        future: DatabaseHelper.instance.getFilteredPrayerHistory(
-                          selectedFilter,
-                        ),
+                        future: DatabaseHelper.instance
+                            .getFilteredPrayerHistory(selectedFilter),
                         builder: (context, snapshot) {
                           if (!snapshot.hasData) {
-                            return const Center(
+                            return Center(
                               child: CircularProgressIndicator(
-                                color: Color(0xFFE8B84B),
+                                color: theme.colorScheme.secondary,
                               ),
                             );
                           }
@@ -132,7 +148,10 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                                 widget.isAmharic
                                     ? 'በዚህ ጊዜ ውስጥ የተመዘገበ ጸሎት የለም'
                                     : 'No prayer records found for this filter.',
-                                style: const TextStyle(color: Colors.white70),
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.7),
+                                ),
                               ),
                             );
                           }
@@ -140,28 +159,30 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                             itemCount: history.length,
                             itemBuilder: (context, index) {
                               final entry = history[index];
-                              final dt = DateTime.parse(entry['completed_at']);
+                              final dt = DateTime.parse(
+                                entry['completed_at'] as String,
+                              );
                               final formattedTime =
                                   "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} (${dt.year}-${dt.month}-${dt.day})";
                               return ListTile(
                                 dense: true,
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.check_circle_outline,
-                                  color: Color(0xFFE8B84B),
+                                  color: theme.colorScheme.secondary,
                                   size: 18,
                                 ),
                                 title: Text(
-                                  entry['prayer_name'],
-                                  style: const TextStyle(
-                                    color: Colors.white,
+                                  entry['prayer_name'] as String? ?? 'Prayer',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: theme.colorScheme.onSurface,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 subtitle: Text(
                                   "${entry['prayer_type']} • $formattedTime",
-                                  style: TextStyle(
-                                    color: Colors.white.withValues(alpha: 0.5),
-                                    fontSize: 11,
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.55),
                                   ),
                                 ),
                               );
@@ -178,7 +199,7 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     widget.isAmharic ? 'ዝጋ' : 'Close',
-                    style: const TextStyle(color: Color(0xFFE8B84B)),
+                    style: TextStyle(color: theme.colorScheme.secondary),
                   ),
                 ),
               ],
@@ -195,20 +216,24 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
       String currentSelected,
       Function(String) onSelect,
       ) {
+    final theme = Theme.of(context);
     final isSelected = value == currentSelected;
+
     return Padding(
       padding: const EdgeInsets.only(right: 6.0),
       child: ChoiceChip(
         label: Text(
           label,
-          style: TextStyle(
-            fontSize: 11,
-            color: isSelected ? Colors.black : Colors.white,
+          style: theme.textTheme.labelSmall?.copyWith(
+            color: isSelected
+                ? theme.colorScheme.onSecondary
+                : theme.colorScheme.onSurface,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),
         ),
         selected: isSelected,
-        selectedColor: const Color(0xFFE8B84B),
-        backgroundColor: Colors.white.withValues(alpha: 0.1),
+        selectedColor: theme.colorScheme.secondary,
+        backgroundColor: theme.colorScheme.surface.withValues(alpha: 0.4),
         onSelected: (bool selected) {
           if (selected) onSelect(value);
         },
@@ -217,41 +242,54 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
   }
 
   void _showResetConfirmationDialog() {
+    final theme = Theme.of(context);
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF140C24).withValues(alpha: 0.95),
+        backgroundColor: theme.colorScheme.surface.withValues(alpha: 0.94),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.redAccent.withValues(alpha: 0.4)),
+          side: BorderSide(
+            color: theme.colorScheme.error.withValues(alpha: 0.4),
+          ),
         ),
         title: Text(
           widget.isAmharic ? 'ጸሎትን እንደገና አስጀምር?' : 'Reset Today\'s Prayers?',
-          style: const TextStyle(color: Colors.white, fontFamily: 'Georgia'),
+          style: theme.textTheme.titleLarge?.copyWith(
+            color: theme.colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         content: Text(
           widget.isAmharic
               ? 'የዛሬውን የጸሎት መዝገብ በሙሉ ማጽዳት ይፈልጋሉ?'
               : 'Do you want to reset all of today\'s logged prayers?',
-          style: TextStyle(color: Colors.white.withValues(alpha: 0.8)),
+          style: theme.textTheme.bodyMedium?.copyWith(
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
               widget.isAmharic ? 'አይ' : 'Cancel',
-              style: const TextStyle(color: Colors.white54),
+              style: TextStyle(
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.55),
+              ),
             ),
           ),
           TextButton(
             onPressed: () async {
               Navigator.pop(context);
               await DatabaseHelper.instance.resetTodaysPrayers();
-              await _refreshStatsOnly();
+              if (mounted) {
+                await _refreshStatsOnly();
+              }
             },
             child: Text(
               widget.isAmharic ? 'አዎ' : 'Reset',
-              style: const TextStyle(color: Colors.redAccent),
+              style: TextStyle(color: theme.colorScheme.error),
             ),
           ),
         ],
@@ -260,6 +298,8 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
   }
 
   Widget _buildGlassCard({required Widget child, VoidCallback? onTap}) {
+    final theme = Theme.of(context);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: BackdropFilter(
@@ -271,9 +311,11 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.07),
+              color: theme.colorScheme.surface.withValues(alpha: 0.7),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
+              border: Border.all(
+                color: theme.colorScheme.outline.withValues(alpha: 0.25),
+              ),
             ),
             child: child,
           ),
@@ -284,29 +326,37 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final displaySubtitle = widget.isAmharic
         ? (widget.subtitleAm ?? widget.detailValue)
         : (widget.subtitleEn ?? widget.detailValue);
 
     return Scaffold(
+      backgroundColor: theme.colorScheme.surface,
       body: Stack(
         children: [
+          // Background Image Asset
           Positioned.fill(
             child: widget.bgImagePath != null
                 ? Image.asset(
               widget.bgImagePath!,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) =>
-                  Container(color: const Color(0xFF0D0814)),
+                  Container(color: theme.colorScheme.surface),
             )
-                : Container(color: const Color(0xFF0D0814)),
+                : Container(color: theme.colorScheme.surface),
           ),
+
+          // Adaptive Blur Scrim
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 16.0, sigmaY: 16.0),
-              child: Container(color: Colors.black.withValues(alpha: 0.55)),
+              child: Container(
+                color: theme.colorScheme.surface.withValues(alpha: 0.78),
+              ),
             ),
           ),
+
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -317,61 +367,68 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
+
+                  // Completion Check Icon
                   Container(
                     width: 90,
                     height: 90,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: const Color(0xFFE8B84B).withValues(alpha: 0.15),
+                      color: theme.colorScheme.secondary.withValues(alpha: 0.15),
                       border: Border.all(
-                        color: const Color(0xFFE8B84B),
+                        color: theme.colorScheme.secondary,
                         width: 2,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFE8B84B).withValues(alpha: 0.25),
+                          color: theme.colorScheme.secondary.withValues(alpha: 0.25),
                           blurRadius: 20,
                           spreadRadius: 2,
                         ),
                       ],
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.check_rounded,
-                      color: Color(0xFFE8B84B),
+                      color: theme.colorScheme.secondary,
                       size: 52,
                     ),
                   ),
                   const SizedBox(height: 24),
+
+                  // Title Text
                   Text(
                     widget.isAmharic ? widget.titleAm : widget.titleEn,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontFamily: 'Georgia',
-                      fontSize: 24,
+                    style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: theme.colorScheme.onSurface,
                       letterSpacing: 1.1,
                     ),
                   ),
+
+                  // Subtitle Text
                   if (displaySubtitle.isNotEmpty) ...[
                     const SizedBox(height: 8),
                     Text(
                       displaySubtitle,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xFFE8B84B),
-                        fontSize: 16,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.secondary,
                         fontStyle: FontStyle.italic,
                       ),
                     ),
                   ],
+
                   const SizedBox(height: 36),
+
+                  // Stats Row
                   _isLoading
-                      ? const CircularProgressIndicator(
-                    color: Color(0xFFE8B84B),
+                      ? CircularProgressIndicator(
+                    color: theme.colorScheme.secondary,
                   )
                       : Row(
                     children: [
+                      // Day Streak Card
                       Expanded(
                         child: _buildGlassCard(
                           child: Column(
@@ -385,10 +442,10 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                               const SizedBox(height: 8),
                               Text(
                                 '$_currentStreak',
-                                style: const TextStyle(
-                                  fontSize: 22,
+                                style:
+                                theme.textTheme.titleLarge?.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: theme.colorScheme.onSurface,
                                 ),
                               ),
                               const SizedBox(height: 4),
@@ -397,9 +454,10 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                                     ? 'ቀን ቅደም ተከተል'
                                     : 'Day Streak',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white.withValues(alpha: 0.6),
+                                style:
+                                theme.textTheme.labelSmall?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.6),
                                 ),
                               ),
                             ],
@@ -407,6 +465,8 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                         ),
                       ),
                       const SizedBox(width: 14),
+
+                      // Total Prayers Card
                       Expanded(
                         child: Stack(
                           children: [
@@ -416,18 +476,18 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                                 mainAxisAlignment:
                                 MainAxisAlignment.center,
                                 children: [
-                                  const Icon(
+                                  Icon(
                                     Icons.auto_awesome_rounded,
-                                    color: Color(0xFFE8B84B),
+                                    color: theme.colorScheme.secondary,
                                     size: 28,
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
                                     '$_totalPrayers',
-                                    style: const TextStyle(
-                                      fontSize: 22,
+                                    style: theme.textTheme.titleLarge
+                                        ?.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: theme.colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
@@ -436,11 +496,10 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                                         ? 'ጠቅላላ ጸሎቶች'
                                         : 'Total Prayers',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.white.withValues(
-                                        alpha: 0.6,
-                                      ),
+                                    style: theme.textTheme.labelSmall
+                                        ?.copyWith(
+                                      color: theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.6),
                                     ),
                                   ),
                                 ],
@@ -454,7 +513,8 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                                 icon: Icon(
                                   Icons.refresh_rounded,
                                   size: 18,
-                                  color: Colors.white.withValues(alpha: 0.4),
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.4),
                                 ),
                                 onPressed: _showResetConfirmationDialog,
                               ),
@@ -464,18 +524,24 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                       ),
                     ],
                   ),
+
                   const Spacer(),
+
+                  // Return Home Button
                   Container(
                     width: double.infinity,
                     height: 52,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFFE8B84B), Color(0xFFC5952B)],
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.colorScheme.secondary,
+                          theme.colorScheme.secondary.withValues(alpha: 0.8),
+                        ],
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFE8B84B).withValues(alpha: 0.3),
+                          color: theme.colorScheme.secondary.withValues(alpha: 0.3),
                           blurRadius: 15,
                           offset: const Offset(0, 4),
                         ),
@@ -490,17 +556,14 @@ class _PrayerCompletionScreenState extends State<PrayerCompletionScreen> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.of(
-                          context,
-                        ).popUntil((route) => route.isFirst);
+                        Navigator.of(context).popUntil((route) => route.isFirst);
                       },
                       child: Text(
                         widget.isAmharic ? 'ወደ መነሻ ገጽ ተመለስ' : 'RETURN HOME',
-                        style: const TextStyle(
-                          fontFamily: 'Georgia',
+                        style: theme.textTheme.titleMedium?.copyWith(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1A0F2E),
+                          color: theme.colorScheme.onSecondary,
                           letterSpacing: 1.2,
                         ),
                       ),

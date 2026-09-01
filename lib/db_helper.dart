@@ -17,7 +17,12 @@ class DatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(path, version: 1, onCreate: _createDB);
+    return await openDatabase(
+      path,
+      version: 3,
+      onCreate: _createDB,
+      onUpgrade: _onUpgrade,
+    );
   }
 
   Future<void> _createDB(Database db, int version) async {
@@ -39,7 +44,67 @@ class DatabaseHelper {
         created_at TEXT NOT NULL
       )
     ''');
+
+    await _createReadingsTable(db);
   }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await _createReadingsTable(db);
+    }
+    if (oldVersion < 3) {
+      await db.execute(
+        'ALTER TABLE readings ADD COLUMN gospelAcclamation TEXT',
+      );
+    }
+  }
+
+  Future<void> _createReadingsTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE readings (
+        id TEXT PRIMARY KEY,
+        date TEXT NOT NULL,
+        liturgicalTitle TEXT NOT NULL,
+        liturgicalColor TEXT NOT NULL,
+        firstReadingTitle TEXT NOT NULL,
+        firstReadingText TEXT NOT NULL,
+        psalmResponse TEXT NOT NULL,
+        psalmText TEXT NOT NULL,
+        secondReadingTitle TEXT,
+        secondReadingText TEXT,
+        gospelAcclamation TEXT,
+        gospelTitle TEXT NOT NULL,
+        gospelText TEXT NOT NULL
+      )
+    ''');
+  }
+
+  // --- DAILY READINGS METHODS ---
+
+  Future<int> insertReading(Map<String, dynamic> row) async {
+    final db = await instance.database;
+    return await db.insert(
+      'readings',
+      row,
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<Map<String, dynamic>?> getReadingByDate(String date) async {
+    final db = await instance.database;
+    final maps = await db.query(
+      'readings',
+      where: 'date = ?',
+      whereArgs: [date],
+    );
+
+    if (maps.isNotEmpty) {
+      return maps.first;
+    }
+    return null;
+  }
+
+  // --- PRAYER LOGS & INTENTIONS METHODS ---
 
   Future<int> logPrayerCompletion({
     required String prayerType,
@@ -97,42 +162,30 @@ class DatabaseHelper {
   }
 
   Future<List<Map<String, dynamic>>> getFilteredPrayerHistory(
-    String filter,
-  ) async {
+      String filter,
+      ) async {
     final db = await instance.database;
     DateTime now = DateTime.now();
+    DateTime todayStart = DateTime(now.year, now.month, now.day);
     String whereClause = '';
     List<dynamic> whereArgs = [];
 
     if (filter == 'today') {
-      final startOfDay = DateTime(
-        now.year,
-        now.month,
-        now.day,
-      ).toIso8601String();
       whereClause = 'completed_at >= ?';
-      whereArgs = [startOfDay];
+      whereArgs = [todayStart.toIso8601String()];
     } else if (filter == 'yesterday') {
-      final startOfYesterday = DateTime(
-        now.year,
-        now.month,
-        now.day - 1,
-      ).toIso8601String();
-      final endOfYesterday = DateTime(
-        now.year,
-        now.month,
-        now.day,
-      ).toIso8601String();
+      final startOfYesterday = todayStart.subtract(const Duration(days: 1));
       whereClause = 'completed_at >= ? AND completed_at < ?';
-      whereArgs = [startOfYesterday, endOfYesterday];
+      whereArgs = [
+        startOfYesterday.toIso8601String(),
+        todayStart.toIso8601String(),
+      ];
     } else if (filter == 'last_week') {
       final lastWeek = now.subtract(const Duration(days: 7)).toIso8601String();
       whereClause = 'completed_at >= ?';
       whereArgs = [lastWeek];
     } else if (filter == 'last_month') {
-      final lastMonth = now
-          .subtract(const Duration(days: 30))
-          .toIso8601String();
+      final lastMonth = now.subtract(const Duration(days: 30)).toIso8601String();
       whereClause = 'completed_at >= ?';
       whereArgs = [lastMonth];
     }
@@ -194,5 +247,11 @@ class DatabaseHelper {
   Future<int> deleteIntention(int id) async {
     final db = await instance.database;
     return await db.delete('intentions', where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<void> close() async {
+    final db = await instance.database;
+    await db.close();
+    _database = null;
   }
 }

@@ -5,7 +5,7 @@ class RosaryItem {
   final String days;
   final String quote;
 
-  RosaryItem({
+  const RosaryItem({
     required this.title,
     required this.days,
     required this.quote,
@@ -13,26 +13,30 @@ class RosaryItem {
 }
 
 // Global list of Rosaries with days and Saint quotes
-final List<RosaryItem> defaultRosaryList = [
+const List<RosaryItem> defaultRosaryList = [
   RosaryItem(
     title: 'The Joyful Mysteries',
     days: 'Mondays & Saturdays',
-    quote: '"The Rosary is the most beautiful and the most rich in graces of all prayers." — Pope St. Pius X',
+    quote:
+    '"The Rosary is the most beautiful and the most rich in graces of all prayers." — Pope St. Pius X',
   ),
   RosaryItem(
     title: 'The Sorrowful Mysteries',
     days: 'Tuesdays & Fridays',
-    quote: '"Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did." — St. Maximilian Kolbe',
+    quote:
+    '"Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did." — St. Maximilian Kolbe',
   ),
   RosaryItem(
     title: 'The Glorious Mysteries',
     days: 'Wednesdays & Sundays',
-    quote: '"Give me an army saying the Rosary and I will conquer the world." — Blessed Pope Pius IX',
+    quote:
+    '"Give me an army saying the Rosary and I will conquer the world." — Blessed Pope Pius IX',
   ),
   RosaryItem(
     title: 'The Luminous Mysteries',
     days: 'Thursdays',
-    quote: '"The Rosary is a powerful weapon to put the demons to flight and to keep oneself from sin." — Pope Pius XI',
+    quote:
+    '"The Rosary is a powerful weapon to put the demons to flight and to keep oneself from sin." — Pope Pius XI',
   ),
 ];
 
@@ -48,11 +52,14 @@ class RosaryDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: Colors.deepPurple[900],
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: theme.colorScheme.primaryContainer,
+        foregroundColor: theme.colorScheme.onPrimaryContainer,
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
@@ -60,7 +67,7 @@ class RosaryDetailScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = steps[index];
           return Card(
-            color: Colors.deepPurple[700],
+            color: theme.colorScheme.surfaceContainerHighest,
             margin: const EdgeInsets.only(bottom: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
@@ -72,27 +79,26 @@ class RosaryDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     item.title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
                     'Prayed on: ${item.days}',
-                    style: const TextStyle(
-                      color: Colors.amberAccent,
-                      fontSize: 14,
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      color: theme.colorScheme.primary,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 12),
                   Text(
                     item.quote,
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 13,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant.withValues(
+                        alpha: 0.8,
+                      ),
                       fontStyle: FontStyle.italic,
                     ),
                   ),

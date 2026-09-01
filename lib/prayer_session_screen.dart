@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:operation_001/PrayerCompletionScreen.dart';
+import 'package:operation_001/prayer_completion_screen.dart';
 import 'package:operation_001/prayer_model.dart';
 
 class PrayerSession extends StatefulWidget {
@@ -35,6 +35,8 @@ class _PrayerSessionState extends State<PrayerSession> {
   }
 
   void _nextPrayer() {
+    if (widget.prayerSteps.isEmpty) return;
+
     if (_currentIndex < widget.prayerSteps.length - 1) {
       setState(() {
         _currentIndex++;
@@ -44,6 +46,8 @@ class _PrayerSessionState extends State<PrayerSession> {
       final String resolvedTitle =
           widget.mysteryTitle ?? _extractOverallMysteryTitle();
       final currentStep = widget.prayerSteps[_currentIndex];
+
+      if (!mounted) return;
 
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
@@ -80,6 +84,8 @@ class _PrayerSessionState extends State<PrayerSession> {
   }
 
   String _extractOverallMysteryTitle() {
+    if (widget.prayerSteps.isEmpty) return '';
+
     final PrayerStep mysteryStep = widget.prayerSteps.firstWhere(
           (step) =>
       (step.sectionHeader != null &&
@@ -122,6 +128,23 @@ class _PrayerSessionState extends State<PrayerSession> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.prayerSteps.isEmpty) {
+      return Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.white),
+        ),
+        body: const Center(
+          child: Text(
+            'No prayer steps available.',
+            style: TextStyle(color: Colors.white70, fontSize: 16),
+          ),
+        ),
+      );
+    }
+
     final currentStep = widget.prayerSteps[_currentIndex];
     final String currentTitle =
     widget.isAmharic ? currentStep.titleAm : currentStep.titleEn;
@@ -159,6 +182,16 @@ class _PrayerSessionState extends State<PrayerSession> {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  color: Colors.black87,
+                  child: const Center(
+                    child: Icon(
+                      Icons.image_not_supported_rounded,
+                      color: Colors.white38,
+                      size: 48,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -213,14 +246,22 @@ class _PrayerSessionState extends State<PrayerSession> {
                                         width: 80,
                                         decoration: BoxDecoration(
                                           color: Colors.white24,
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                              currentStep.imagePath,
-                                            ),
-                                            fit: BoxFit.cover,
-                                          ),
                                           borderRadius:
                                           BorderRadius.circular(12),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                          BorderRadius.circular(12),
+                                          child: Image.asset(
+                                            currentStep.imagePath,
+                                            fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                            const Icon(
+                                              Icons.music_note_rounded,
+                                              color: Colors.white70,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(width: 12),
@@ -257,8 +298,8 @@ class _PrayerSessionState extends State<PrayerSession> {
                                                   },
                                                   icon: Icon(
                                                     _isPlaying
-                                                        ? Icons.pause
-                                                        : Icons.play_arrow,
+                                                        ? Icons.pause_rounded
+                                                        : Icons.play_arrow_rounded,
                                                     color: Colors.white,
                                                   ),
                                                 ),
@@ -500,7 +541,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                             ),
                             onPressed: _previousPrayer,
                             icon: const Icon(
-                              Icons.arrow_back,
+                              Icons.arrow_back_rounded,
                               color: Colors.white,
                               size: 18,
                             ),
@@ -541,8 +582,8 @@ class _PrayerSessionState extends State<PrayerSession> {
                           ),
                           icon: Icon(
                             _currentIndex == widget.prayerSteps.length - 1
-                                ? Icons.check_circle
-                                : Icons.arrow_forward,
+                                ? Icons.check_circle_rounded
+                                : Icons.arrow_forward_rounded,
                             color: Colors.white,
                             size: 18,
                           ),

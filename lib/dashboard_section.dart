@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:operation_001/Divine_Mercy_Chaplet.dart';
-import 'package:operation_001/angelusScreen.dart';
-import 'package:operation_001/chapelScreen.dart';
-import 'package:operation_001/joyful.dart';
+import 'package:operation_001/angelus_screen.dart';
+import 'package:operation_001/chapel_screen.dart';
+import 'package:operation_001/daily_readings_screen.dart';
 import 'package:operation_001/glorious.dart';
+import 'package:operation_001/joyful.dart';
 import 'package:operation_001/luminous.dart';
-import 'package:operation_001/sorrowful.dart';
 import 'package:operation_001/pre_prayer_intention_screen.dart';
+import 'package:operation_001/sorrowful.dart';
 
 class DashboardSection extends StatefulWidget {
   const DashboardSection({super.key});
@@ -31,39 +31,52 @@ class _DashboardSectionState extends State<DashboardSection> {
     switch (day) {
       case 'Mon':
       case 'Sat':
-        return const joyfulScreen();
+        return const JoyfulScreen();
       case 'Tue':
       case 'Fri':
-        return const sorrowfulScreen();
+        return const SorrowfulScreen();
       case 'Wed':
       case 'Sun':
-        return const gloriousScreen();
+        return const GloriousScreen();
       case 'Thur':
-        return const luminousScreen();
+        return const LuminousScreen();
       default:
-        return const joyfulScreen();
+        return const JoyfulScreen();
     }
   }
 
-  Widget _buildDailyButton(
-    String label,
-    VoidCallback onPressed,
-    ThemeData theme,
-  ) {
+  Widget _buildDailyButton({
+    required String label,
+    required VoidCallback onPressed,
+    required ThemeData theme,
+  }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.only(bottom: 10.0),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: theme.colorScheme.primary,
-            foregroundColor: theme.colorScheme.onPrimary,
+            backgroundColor: theme.colorScheme.surfaceContainerHighest,
+            foregroundColor: theme.colorScheme.onSurface,
+            elevation: 2,
+            padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(
+                color: theme.colorScheme.secondary.withAlpha(76),
+                width: 1,
+              ),
             ),
           ),
           onPressed: onPressed,
-          child: Text(label),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              color: theme.colorScheme.onSurface,
+            ),
+          ),
         ),
       ),
     );
@@ -81,7 +94,11 @@ class _DashboardSectionState extends State<DashboardSection> {
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: theme.colorScheme.surfaceContainerHigh,
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: theme.colorScheme.primary.withAlpha(38),
+                width: 1,
+              ),
             ),
             child: Column(
               children: [
@@ -92,40 +109,58 @@ class _DashboardSectionState extends State<DashboardSection> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: theme.colorScheme.onSurface,
+                      color: theme.colorScheme.secondary,
+                      letterSpacing: 0.5,
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
                   child: Row(
                     children: days.map((day) {
                       bool isSelected = selectedDay == day;
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            selectedDay = day;
-                          });
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 5),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: isSelected
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.surfaceContainerHighest,
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
                             borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            day,
-                            style: TextStyle(
-                              color: isSelected
-                                  ? theme.colorScheme.onPrimary
-                                  : theme.colorScheme.onSurfaceVariant,
-                              fontWeight: isSelected
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
+                            onTap: () {
+                              setState(() {
+                                selectedDay = day;
+                              });
+                            },
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 14,
+                                vertical: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                color: isSelected
+                                    ? theme.colorScheme.primary
+                                    : theme.colorScheme.surfaceContainerHighest,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: isSelected
+                                      ? theme.colorScheme.secondary
+                                      : theme.colorScheme.outline.withAlpha(38),
+                                  width: isSelected ? 1.5 : 1,
+                                ),
+                              ),
+                              child: Text(
+                                day,
+                                style: TextStyle(
+                                  color: isSelected
+                                      ? theme.colorScheme.onPrimary
+                                      : theme.colorScheme.onSurfaceVariant,
+                                  fontWeight: isSelected
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -133,56 +168,78 @@ class _DashboardSectionState extends State<DashboardSection> {
                     }).toList(),
                   ),
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
                 Text(
                   "Selected: $selectedDay",
                   style: TextStyle(
-                    color: theme.colorScheme.primary,
+                    color: theme.colorScheme.secondary,
                     fontWeight: FontWeight.bold,
+                    fontSize: 15,
                   ),
                 ),
-                const SizedBox(height: 15),
-                _buildDailyButton("Read today's Gospel", () {
-                  print("Reading Gospel for $selectedDay");
-                }, theme),
-                _buildDailyButton("Pray today's Angelus", () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PrePrayerIntentionScreen(
-                        prayerCategory: 'Angelus',
-                        isAmharic: false,
-                        targetPrayerPage: angelus(),
+                const SizedBox(height: 16),
+                _buildDailyButton(
+                  label: "Read today's Gospel",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DailyReadingsScreen(),
                       ),
-                    ),
-                  );
-                }, theme),
-                _buildDailyButton("Pray today's Rosary", () {
-                  Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PrePrayerIntentionScreen(
-                        prayerCategory: 'Rosary',
-                        isAmharic: false,
-                        targetPrayerPage: rosaryTarget,
-                      ),
-                    ),
-                  );
-                }, theme),
-                if (selectedDay == 'Fri')
-                  _buildDailyButton("Special Friday Divine Mercy", () {
+                    );
+                  },
+                  theme: theme,
+                ),
+                _buildDailyButton(
+                  label: "Pray today's Angelus",
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const PrePrayerIntentionScreen(
-                          prayerCategory: 'Divine Chaplet',
+                          prayerCategory: 'Angelus',
                           isAmharic: false,
-                          targetPrayerPage: chaplet(),
+                          targetPrayerPage: AngelusScreen(),
                         ),
                       ),
                     );
-                  }, theme),
+                  },
+                  theme: theme,
+                ),
+                _buildDailyButton(
+                  label: "Pray today's Rosary",
+                  onPressed: () {
+                    Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PrePrayerIntentionScreen(
+                          prayerCategory: 'Rosary',
+                          isAmharic: false,
+                          targetPrayerPage: rosaryTarget,
+                        ),
+                      ),
+                    );
+                  },
+                  theme: theme,
+                ),
+                if (selectedDay == 'Fri')
+                  _buildDailyButton(
+                    label: "Special Friday Divine Mercy",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PrePrayerIntentionScreen(
+                            prayerCategory: 'Divine Chaplet',
+                            isAmharic: false,
+                            targetPrayerPage: ChapletScreen(),
+                          ),
+                        ),
+                      );
+                    },
+                    theme: theme,
+                  ),
               ],
             ),
           ),

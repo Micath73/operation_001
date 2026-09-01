@@ -78,7 +78,6 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    // FIX 1: Referenced PrayerData class properly with UpperCamelCase
     final steps = PrayerData.masterPrayerDB[widget.prayerTitle];
 
     final double fullHeight = MediaQuery.of(context).size.height;
@@ -86,16 +85,17 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
     isPraying ? fullHeight * 0.45 : fullHeight;
     final double manuscriptTop = isPraying ? fullHeight * 0.38 : fullHeight;
 
-    // Liturgical theme colors
-    const goldAccent = Color(0xFFE8B84B);
-    const deepGold = Color(0xFFC9922A);
-    final vellumSheetBg =
-    isDark ? const Color(0xFF1E1726) : const Color(0xFFF5EFD7);
-    final textBodyColor =
-    isDark ? const Color(0xFFE2DCED) : const Color(0xFF1A0F2E);
+    // Liturgical theme colors dynamically sourced with AppTheme fallbacks
+    final goldAccent = theme.colorScheme.secondary;
+    final deepGold = theme.colorScheme.primary;
+
+    final vellumSheetBg = isDark
+        ? theme.colorScheme.surface
+        : const Color(0xFFF8F4E8); // Classic warm vellum tint in light mode
+    final textBodyColor = theme.colorScheme.onSurface;
     final cardBgColor = isDark
-        ? const Color(0xFF120B20).withValues(alpha: 0.65)
-        : const Color(0xFF1A0F2E).withValues(alpha: 0.45);
+        ? theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.75)
+        : theme.colorScheme.surface.withValues(alpha: 0.85);
 
     return PopScope(
       canPop: !isPraying,
@@ -118,7 +118,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new_rounded,
               color: goldAccent,
               size: 20,
@@ -164,7 +164,11 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                           ],
                         ),
                       ),
-                      child: CustomPaint(painter: _GothicArchPainter()),
+                      child: CustomPaint(
+                        painter: _GothicArchPainter(
+                          color: deepGold.withValues(alpha: 0.15),
+                        ),
+                      ),
                     ),
                   ),
                   Container(
@@ -173,8 +177,8 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          theme.colorScheme.surface.withValues(alpha: 0.4),
-                          theme.colorScheme.surface.withValues(alpha: 0.85),
+                          theme.colorScheme.surface.withValues(alpha: 0.3),
+                          theme.colorScheme.surface.withValues(alpha: 0.9),
                         ],
                       ),
                     ),
@@ -207,13 +211,13 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                         color: cardBgColor,
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(
-                          color: deepGold.withValues(alpha: 0.3),
+                          color: deepGold.withValues(alpha: 0.35),
                         ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Text(
+                          Text(
                             'MOMENT OF PEACE',
                             style: TextStyle(
                               fontFamily: 'Georgia',
@@ -227,22 +231,23 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                           Text(
                             widget.prayerTitle,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: 'Georgia',
-                              color: Color(0xFFF5EFD7),
+                              color: theme.colorScheme.onSurface,
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(height: 24),
-                          const Expanded(
+                          Expanded(
                             child: SingleChildScrollView(
                               child: Text(
                                 '"At dawn let me hear of your mercy,\nfor in you I trust.\nShow me the path I should walk,\nfor I lift up my soul to you."',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontFamily: 'Georgia',
-                                  color: Color(0xFFEDE3C0),
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.85),
                                   fontSize: 16,
                                   height: 1.6,
                                   fontStyle: FontStyle.italic,
@@ -251,18 +256,19 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                             ),
                           ),
                           const SizedBox(height: 8),
-                          const Text(
+                          Text(
                             '— Psalm 143:8',
                             style: TextStyle(
                               fontFamily: 'Georgia',
                               fontSize: 13,
                               color: deepGold,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const Spacer(),
                           FloatingActionButton.extended(
                             backgroundColor: goldAccent,
-                            foregroundColor: theme.colorScheme.surface,
+                            foregroundColor: theme.colorScheme.onSecondary,
                             elevation: 4,
                             onPressed: () => setState(() => isPraying = true),
                             label: Padding(
@@ -272,7 +278,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                 'LET US PRAY',
                                 style: TextStyle(
                                   fontFamily: 'Georgia',
-                                  color: theme.colorScheme.surface,
+                                  color: theme.colorScheme.onSecondary,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 2.0,
                                 ),
@@ -310,7 +316,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                         BoxShadow(
                           color: isDark
                               ? Colors.black.withValues(alpha: 0.6)
-                              : const Color(0x66000000),
+                              : Colors.black.withValues(alpha: 0.15),
                           blurRadius: 30,
                           offset: const Offset(0, -10),
                         ),
@@ -344,7 +350,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                       color: deepGold,
                                     ),
                                     const SizedBox(width: 8),
-                                    const Text(
+                                    Text(
                                       'CATHOLIC DEVOTIONAL',
                                       style: TextStyle(
                                         fontFamily: 'Georgia',
@@ -363,9 +369,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                     fontFamily: 'Georgia',
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
-                                    color: isDark
-                                        ? theme.colorScheme.onSurface
-                                        : const Color(0xFF2D1B4E),
+                                    color: textBodyColor,
                                     height: 1.2,
                                   ),
                                 ),
@@ -383,7 +387,9 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                           horizontal: 12),
                                       child: CustomPaint(
                                         size: const Size(12, 12),
-                                        painter: _CrossOrnamentPainter(),
+                                        painter: _CrossOrnamentPainter(
+                                          color: deepGold,
+                                        ),
                                       ),
                                     ),
                                     Expanded(
@@ -430,7 +436,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                                             BoxDecoration(
                                                               color: isDark
                                                                   ? theme.colorScheme.primary.withValues(alpha: 0.2)
-                                                                  : const Color(0xFFFFF3C4).withValues(alpha: 0.65),
+                                                                  : deepGold.withValues(alpha: 0.12),
                                                               borderRadius:
                                                               BorderRadius.circular(10),
                                                               border: Border.all(
@@ -480,7 +486,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                                             const SizedBox(height: 10),
                                                           ],
                                                           (i == 0)
-                                                              ? _buildDropCapBody(stepData.contentEn, textBodyColor)
+                                                              ? _buildDropCapBody(stepData.contentEn, textBodyColor, deepGold)
                                                               : _buildStandardBody(stepData.contentEn, textBodyColor),
                                                         ],
                                                       ),
@@ -505,9 +511,9 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                       height: 0.5,
                                       color: deepGold.withValues(alpha: 0.4),
                                     ),
-                                    const Padding(
-                                      padding:
-                                      EdgeInsets.symmetric(horizontal: 12),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12),
                                       child: Text(
                                         '✦',
                                         style: TextStyle(
@@ -552,7 +558,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
     );
   }
 
-  Widget _buildDropCapBody(String text, Color textBodyColor) {
+  Widget _buildDropCapBody(String text, Color textBodyColor, Color dropColor) {
     if (text.isEmpty) return const SizedBox.shrink();
     final dropLetter = text[0];
     final remainder = text.substring(1);
@@ -564,11 +570,11 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
           padding: const EdgeInsets.only(right: 8, bottom: 2),
           child: Text(
             dropLetter,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: 'Georgia',
               fontSize: 68,
               fontWeight: FontWeight.bold,
-              color: Color(0xFFC9922A),
+              color: dropColor,
               height: 0.85,
               letterSpacing: -2,
             ),
@@ -605,10 +611,14 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
 }
 
 class _CrossOrnamentPainter extends CustomPainter {
+  final Color color;
+
+  _CrossOrnamentPainter({required this.color});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = const Color(0xFFC9922A)
+      ..color = color
       ..strokeWidth = 1.5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
@@ -626,14 +636,19 @@ class _CrossOrnamentPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _CrossOrnamentPainter oldDelegate) =>
+      oldDelegate.color != color;
 }
 
 class _GothicArchPainter extends CustomPainter {
+  final Color color;
+
+  _GothicArchPainter({required this.color});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = const Color(0x12C9922A)
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 
@@ -647,5 +662,6 @@ class _GothicArchPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _GothicArchPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

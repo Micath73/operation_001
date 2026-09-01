@@ -1,9 +1,13 @@
-import 'package:sqflite/sqflite.dart';
+import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 import 'daily_reading_model.dart';
 
 class ReadingsDatabaseHelper {
-  static final ReadingsDatabaseHelper instance = ReadingsDatabaseHelper._init();
+  static final ReadingsDatabaseHelper instance =
+  ReadingsDatabaseHelper._init();
   static Database? _database;
 
   ReadingsDatabaseHelper._init();
@@ -20,15 +24,17 @@ class ReadingsDatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _createDB,
+      onUpgrade: _onUpgradeDB,
     );
   }
 
   Future<void> _createDB(Database db, int version) async {
     await db.execute('''
       CREATE TABLE daily_readings (
-        date TEXT PRIMARY KEY,
+        id TEXT PRIMARY KEY,
+        date TEXT NOT NULL,
         liturgicalTitle TEXT NOT NULL,
         liturgicalColor TEXT NOT NULL,
         firstReadingTitle TEXT NOT NULL,
@@ -37,50 +43,116 @@ class ReadingsDatabaseHelper {
         psalmText TEXT NOT NULL,
         secondReadingTitle TEXT,
         secondReadingText TEXT,
-        gospelAcclamation TEXT NOT NULL,
+        gospelAcclamation TEXT,
         gospelTitle TEXT NOT NULL,
         gospelText TEXT NOT NULL
       )
     ''');
+
+    // Index on date column for sub-millisecond lookup performance
+    await db.execute(
+      'CREATE INDEX IF NOT EXISTS idx_daily_readings_date ON daily_readings(date)',
+    );
+
+    await _seedInitialData(db);
   }
 
-  // Insert or update a single reading in local cache
+  Future<void> _onUpgradeDB(
+      Database db,
+      int oldVersion,
+      int newVersion,
+      ) async {
+    if (oldVersion < 2) {
+      // Create index for existing databases migrating from v1
+      await db.execute(
+        'CREATE INDEX IF NOT EXISTS idx_daily_readings_date ON daily_readings(date)',
+      );
+    }
+  }
+
+  Future<void> _seedInitialData(Database db) async {
+    try {
+      final String jsonString = await rootBundle.loadString(
+        'assets/json/default_readings.json',
+      );
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+
+      final batch = db.batch();
+      for (final item in jsonList) {
+        if (item is Map<String, dynamic>) {
+          final reading = DailyReading.fromMap(item);
+          batch.insert(
+            'daily_readings',
+            reading.toMap(),
+            conflictAlgorithm: ConflictAlgorithm.replace,
+          );
+        }
+      }
+      await batch.commit(noResult: true);
+    } catch (e) {
+      if (kDebugMode) {
+        print("⚠️ [SEED FAILED] Could not pre-load initial JSON readings: $e");
+      }
+    }
+  }
+
+  /// Inserts or updates a single reading in SQLite.
   Future<void> insertReading(DailyReading reading) async {
-    final db = await instance.database;
+    final db = await database;
     await db.insert(
       'daily_readings',
-      reading.toJson(),
+      reading.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  // Insert a full batch (e.g. 7 to 30 days) using a fast transaction batch
+  /// Batch inserts multiple readings in a single atomic transaction.
   Future<void> insertBatchReadings(List<DailyReading> readings) async {
-    final db = await instance.database;
+    if (readings.isEmpty) return;
+    final db = await database;
     final batch = db.batch();
+
     for (final reading in readings) {
       batch.insert(
         'daily_readings',
-        reading.toJson(),
+        reading.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
     }
     await batch.commit(noResult: true);
   }
 
-  // Fetch a reading by date string (Format: YYYY-MM-DD)
+  /// Fetches reading by ISO date string (YYYY-MM-DD).
   Future<DailyReading?> getReadingByDate(String date) async {
-    final db = await instance.database;
+    final db = await database;
     final maps = await db.query(
       'daily_readings',
       where: 'date = ?',
       whereArgs: [date],
+      limit: 1,
     );
 
     if (maps.isNotEmpty) {
-      return DailyReading.fromJson(maps.first);
-    } else {
-      return null; // Return null on cache miss
+      return DailyReading.fromMap(maps.first);
+    }
+    return null;
+  }
+
+  /// Clears database cache and optionally re-seeds default readings from assets.
+  Future<void> clearReadingsCache({bool reseedDefaultData = true}) async {
+    final db = await database;
+    await db.delete('daily_readings');
+    if (reseedDefaultData) {
+      await _seedInitialData(db);
+    }
+  }
+
+  /// Closes database connection safely on app shutdown.
+  Future<void> close() async {
+    final db = _database;
+    if (db != null && db.isOpen) {
+      await db.close();
+      _database = null;
     }
   }
 }

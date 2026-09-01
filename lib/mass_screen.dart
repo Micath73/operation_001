@@ -21,10 +21,17 @@ class _MassScreenState extends State<MassScreen> {
           bottom: TabBar(
             indicatorColor: colorScheme.secondary,
             labelColor: colorScheme.onPrimary,
-            unselectedLabelColor: colorScheme.onPrimary.withOpacity(0.7),
+            unselectedLabelColor:
+            colorScheme.onPrimary.withValues(alpha: 0.7),
             tabs: const [
-              Tab(icon: Icon(Icons.calendar_today), text: "Daily Readings"),
-              Tab(icon: Icon(Icons.menu_book), text: "Order of Mass"),
+              Tab(
+                icon: Icon(Icons.calendar_today_rounded),
+                text: "Daily Readings",
+              ),
+              Tab(
+                icon: Icon(Icons.menu_book_rounded),
+                text: "Order of Mass",
+              ),
             ],
           ),
         ),
@@ -49,6 +56,9 @@ class _MassScreenState extends State<MassScreen> {
         Card(
           elevation: 2,
           color: theme.colorScheme.surface,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -65,7 +75,7 @@ class _MassScreenState extends State<MassScreen> {
                 Text(
                   "Liturgical Readings for Today",
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: Colors.grey,
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
                 ),
               ],
@@ -92,7 +102,11 @@ class _MassScreenState extends State<MassScreen> {
     );
   }
 
-  Widget _buildReadingSection(BuildContext context, {required String title, required String passage}) {
+  Widget _buildReadingSection(
+      BuildContext context, {
+        required String title,
+        required String passage,
+      }) {
     final theme = Theme.of(context);
 
     return Container(
@@ -100,8 +114,10 @@ class _MassScreenState extends State<MassScreen> {
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.primary.withOpacity(0.1)),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: theme.colorScheme.primary.withValues(alpha: 0.1),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,6 +137,7 @@ class _MassScreenState extends State<MassScreen> {
   }
 
   Widget _buildOrderOfMassTab(BuildContext context) {
+    final theme = Theme.of(context);
     final List<String> parts = [
       "Introductory Rites",
       "Liturgy of the Word",
@@ -133,18 +150,29 @@ class _MassScreenState extends State<MassScreen> {
       itemCount: parts.length,
       itemBuilder: (context, index) {
         return Card(
+          elevation: 1,
           margin: const EdgeInsets.only(bottom: 12.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
             leading: CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              foregroundColor: Colors.white,
-              child: Text("${index + 1}"),
+              backgroundColor: theme.colorScheme.primary,
+              foregroundColor: theme.colorScheme.onPrimary,
+              child: Text(
+                "${index + 1}",
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             title: Text(
               parts[index],
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
             onTap: () {
               // Navigation to specific Mass section detail
             },

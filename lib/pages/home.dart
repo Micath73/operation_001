@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:operation_001/DailyPrayer.dart';
-import 'package:operation_001/Quote.dart';
+import 'package:operation_001/daily_prayer.dart';
+import 'package:operation_001/quote.dart';
 import 'package:operation_001/dashboard_section.dart';
 import 'package:operation_001/novena_section.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:operation_001/PrayerCompletionScreen.dart';
+import 'package:operation_001/prayer_completion_screen.dart';
 
 class AngelusPrayerSession extends StatefulWidget {
   final bool isAmharic;
@@ -69,14 +69,14 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
         : _angelusEnglish;
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.background,
+      backgroundColor: theme.colorScheme.surface,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
           widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
-          style: TextStyle(
+          style: theme.textTheme.titleLarge?.copyWith(
             color: theme.colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
@@ -98,9 +98,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+                filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
                 child: Container(
-                  color: theme.colorScheme.background.withOpacity(0.65),
+                  color: theme.colorScheme.surface.withAlpha(200),
                 ),
               ),
             ),
@@ -125,16 +125,16 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: theme.colorScheme.onSurface.withOpacity(0.18),
+                          color: theme.colorScheme.outline.withAlpha(80),
                           width: 1.2,
                         ),
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                          filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                           child: Container(
-                            color: theme.colorScheme.surface.withOpacity(0.3),
+                            color: theme.colorScheme.surface.withAlpha(120),
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,8 +143,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                   height: 80,
                                   width: 80,
                                   decoration: BoxDecoration(
-                                    color: theme.colorScheme.surface
-                                        .withOpacity(0.2),
+                                    color: theme.colorScheme.surface.withAlpha(51),
                                     image: const DecorationImage(
                                       image: AssetImage('assets/img_19.png'),
                                       fit: BoxFit.cover,
@@ -156,7 +155,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                 Expanded(
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
@@ -166,11 +165,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                               widget.isAmharic
                                                   ? 'የመልአኩ ሰላምታ ድምፅ'
                                                   : 'The Angelus Audio',
-                                              style: TextStyle(
-                                                fontSize: 15,
+                                              style: theme.textTheme.bodyMedium?.copyWith(
                                                 fontWeight: FontWeight.bold,
-                                                color:
-                                                    theme.colorScheme.onSurface,
+                                                color: theme.colorScheme.onSurface,
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -188,7 +185,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                                   ? Icons.pause_circle_filled
                                                   : Icons.play_circle_fill,
                                               color: theme.colorScheme.primary,
-                                              size: 32,
+                                              size: 36,
                                             ),
                                           ),
                                         ],
@@ -196,14 +193,13 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                       const SizedBox(height: 4),
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        MainAxisAlignment.start,
                                         children: [
                                           Text(
                                             _formatDuration(_currentPosition),
-                                            style: TextStyle(
-                                              fontSize: 12,
+                                            style: theme.textTheme.labelSmall?.copyWith(
                                               color: theme.colorScheme.onSurface
-                                                  .withOpacity(0.6),
+                                                  .withAlpha(160),
                                             ),
                                           ),
                                           Expanded(
@@ -211,21 +207,21 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                               data: SliderTheme.of(context).copyWith(
                                                 trackHeight: 3,
                                                 activeTrackColor:
-                                                    theme.colorScheme.primary,
+                                                theme.colorScheme.primary,
                                                 inactiveTrackColor: theme
                                                     .colorScheme
                                                     .onSurface
-                                                    .withOpacity(0.2),
+                                                    .withAlpha(51),
                                                 thumbColor:
-                                                    theme.colorScheme.primary,
+                                                theme.colorScheme.primary,
                                                 thumbShape:
-                                                    const RoundSliderThumbShape(
-                                                      enabledThumbRadius: 6,
-                                                    ),
+                                                const RoundSliderThumbShape(
+                                                  enabledThumbRadius: 6,
+                                                ),
                                                 overlayShape:
-                                                    const RoundSliderOverlayShape(
-                                                      overlayRadius: 14,
-                                                    ),
+                                                const RoundSliderOverlayShape(
+                                                  overlayRadius: 14,
+                                                ),
                                               ),
                                               child: Slider(
                                                 value: _currentPosition,
@@ -241,10 +237,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                           ),
                                           Text(
                                             _formatDuration(_totalDuration),
-                                            style: TextStyle(
-                                              fontSize: 12,
+                                            style: theme.textTheme.labelSmall?.copyWith(
                                               color: theme.colorScheme.onSurface
-                                                  .withOpacity(0.6),
+                                                  .withAlpha(160),
                                             ),
                                           ),
                                         ],
@@ -266,10 +261,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         radius: 20,
                         gradient: LinearGradient(
                           colors: [
-                            theme.colorScheme.primary.withOpacity(0.65),
-                            theme.colorScheme.onSurface.withOpacity(0.10),
-                            theme.colorScheme.secondary.withOpacity(0.35),
-                            theme.colorScheme.primary.withOpacity(0.50),
+                            theme.colorScheme.primary.withAlpha(180),
+                            theme.colorScheme.secondary.withAlpha(140),
+                            theme.colorScheme.primary.withAlpha(120),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -279,7 +273,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(22.0),
                         decoration: BoxDecoration(
-                          color: theme.colorScheme.surface.withOpacity(0.85),
+                          color: theme.colorScheme.surface.withAlpha(230),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -289,27 +283,21 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                               widget.isAmharic
                                   ? 'የመክፈቻ ጸሎት'
                                   : 'Devotional Text',
-                              style: TextStyle(
+                              style: theme.textTheme.titleLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 20,
                                 color: theme.colorScheme.secondary,
                               ),
                             ),
                             const SizedBox(height: 8),
                             Divider(
-                              color: theme.colorScheme.onSurface.withOpacity(
-                                0.15,
-                              ),
+                              color: theme.colorScheme.outline.withAlpha(60),
                               thickness: 1,
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 12),
                             Text(
                               content,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
+                              style: theme.textTheme.bodyLarge?.copyWith(
                                 color: theme.colorScheme.onSurface,
-                                height: 1.6,
                               ),
                             ),
                           ],
@@ -328,7 +316,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                             backgroundColor: theme.colorScheme.primary,
                             foregroundColor: theme.colorScheme.onPrimary,
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 40,
+                              horizontal: 44,
                               vertical: 16,
                             ),
                             shape: RoundedRectangleBorder(
@@ -347,54 +335,54 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                 ),
                                 pageBuilder:
                                     (
-                                      context,
-                                      animation,
-                                      secondaryAnimation,
+                                    context,
+                                    animation,
+                                    secondaryAnimation,
                                     ) => PrayerCompletionScreen(
-                                      isAmharic: widget.isAmharic,
-                                      detailValue: widget.isAmharic
-                                          ? 'መልአኩ ሰላምታ'
-                                          : 'The Angelus',
-                                      detailLabelEn: 'Devotional',
-                                      detailLabelAm: 'ጸሎት',
-                                      titleEn: 'Angelus Completed',
-                                      titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
-                                      subtitleEn:
-                                          'May the grace of His Incarnation fill your heart',
-                                      subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
-                                      bgImagePath: 'assets/img_19.png',
-                                    ),
+                                  isAmharic: widget.isAmharic,
+                                  detailValue: widget.isAmharic
+                                      ? 'መልአኩ ሰላምታ'
+                                      : 'The Angelus',
+                                  detailLabelEn: 'Devotional',
+                                  detailLabelAm: 'ጸሎት',
+                                  titleEn: 'Angelus Completed',
+                                  titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
+                                  subtitleEn:
+                                  'May the grace of His Incarnation fill your heart',
+                                  subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
+                                  bgImagePath: 'assets/img_19.png',
+                                ),
                                 transitionsBuilder:
                                     (
-                                      context,
-                                      animation,
-                                      secondaryAnimation,
-                                      child,
+                                    context,
+                                    animation,
+                                    secondaryAnimation,
+                                    child,
                                     ) {
-                                      final fadeAnimation = CurvedAnimation(
-                                        parent: animation,
-                                        curve: Curves.easeOutCubic,
-                                      );
+                                  final fadeAnimation = CurvedAnimation(
+                                    parent: animation,
+                                    curve: Curves.easeOutCubic,
+                                  );
 
-                                      final scaleAnimation =
-                                          Tween<double>(
-                                            begin: 0.95,
-                                            end: 1.0,
-                                          ).animate(
-                                            CurvedAnimation(
-                                              parent: animation,
-                                              curve: Curves.easeOutCubic,
-                                            ),
-                                          );
+                                  final scaleAnimation =
+                                  Tween<double>(
+                                    begin: 0.95,
+                                    end: 1.0,
+                                  ).animate(
+                                    CurvedAnimation(
+                                      parent: animation,
+                                      curve: Curves.easeOutCubic,
+                                    ),
+                                  );
 
-                                      return FadeTransition(
-                                        opacity: fadeAnimation,
-                                        child: ScaleTransition(
-                                          scale: scaleAnimation,
-                                          child: child,
-                                        ),
-                                      );
-                                    },
+                                  return FadeTransition(
+                                    opacity: fadeAnimation,
+                                    child: ScaleTransition(
+                                      scale: scaleAnimation,
+                                      child: child,
+                                    ),
+                                  );
+                                },
                               ),
                             );
                           },
@@ -405,10 +393,9 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                           ),
                           label: Text(
                             widget.isAmharic ? 'አሜን' : 'AMEN',
-                            style: TextStyle(
+                            style: theme.textTheme.titleMedium?.copyWith(
                               color: theme.colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
                               letterSpacing: 1.2,
                             ),
                           ),
@@ -426,7 +413,6 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
   }
 }
 
-// Custom Painter for Gradient Card Borders
 class GradientBorderPainter extends CustomPainter {
   final double strokeWidth;
   final double radius;

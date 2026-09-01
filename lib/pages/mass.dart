@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/daily_readings_screen.dart';
 
 class UserMass extends StatefulWidget {
   const UserMass({super.key});
@@ -1366,60 +1367,84 @@ class _UserMassState extends State<UserMass> {
       children: [
         Card(
           elevation: 0,
-          color: theme.colorScheme.primaryContainer.withOpacity(0.3),
+          color: theme.colorScheme.primaryContainer.withOpacity(0.4),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
             side: BorderSide(color: theme.colorScheme.primary.withOpacity(0.2)),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Icon(Icons.event_note_rounded, color: theme.colorScheme.primary, size: 32),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DailyReadingsScreen(),
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                     children: [
-                      Text(
-                        "Today's Mass Readings",
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
+                      Icon(
+                        Icons.auto_stories_rounded,
+                        color: theme.colorScheme.primary,
+                        size: 32,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Today's Mass Readings",
+                              style: theme.textTheme.titleLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              "Liturgical Readings & Psalms",
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.onSurface.withOpacity(0.7),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 2),
-                      Text(
-                        "Liturgical Calendar & Scripture",
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface.withOpacity(0.6),
-                        ),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: theme.colorScheme.primary,
+                        size: 18,
                       ),
                     ],
                   ),
-                ),
-              ],
+                  const Divider(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Tap to open full reader & calendar",
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: theme.colorScheme.secondary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(
+                        Icons.calendar_month_rounded,
+                        size: 18,
+                        color: theme.colorScheme.secondary,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 16),
-        _buildReadingSection(
-          context,
-          titleEn: "First Reading",
-          titleAm: "የመጀመሪያው ንባብ",
-          passage: "Scripture passage for today's First Reading will be loaded here...",
-        ),
-        _buildReadingSection(
-          context,
-          titleEn: "Responsorial Psalm",
-          titleAm: "መዝሙር ዘዳዊት",
-          passage: "Psalms responses and verses for today...",
-        ),
-        _buildReadingSection(
-          context,
-          titleEn: "Gospel",
-          titleAm: "ወንጌል",
-          passage: "Holy Gospel reading according to the liturgical day...",
         ),
       ],
     );
@@ -1549,7 +1574,6 @@ class _UserMassState extends State<UserMass> {
     );
   }
 }
-
 
 class OrderDetailScreen extends StatelessWidget {
   final Map<String, dynamic> section;

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:operation_001/pages/bible.dart';
-import 'package:operation_001/mass_screen.dart';
 import 'package:operation_001/pages/home.dart';
-import 'package:operation_001/pages/more.dart';
 import 'package:operation_001/pages/mass.dart';
+import 'package:operation_001/pages/more.dart';
 import 'package:operation_001/theme.dart';
 
 void main() => runApp(const CatholicApp());
@@ -19,7 +18,7 @@ class CatholicApp extends StatelessWidget {
       title: 'Catholic Prayer App',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system, // Automatically adapts to system Light/Dark mode
+      themeMode: ThemeMode.system,
       home: const Home(),
     );
   }
@@ -35,16 +34,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const UserHome(),
-    const UserBible(),
-    const UserMass(),
-    const UserMore(),
+  final List<Widget> _pages = const [
+    UserHome(),
+    UserBible(),
+    UserMass(),
+    UserMore(),
   ];
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
@@ -58,9 +58,9 @@ class _HomeState extends State<Home> {
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
-              color: theme.brightness == Brightness.dark
-                  ? Colors.black.withOpacity(0.3)
-                  : Colors.black.withOpacity(0.08),
+              color: isDark
+                  ? Colors.black.withValues(alpha: 0.3)
+                  : Colors.black.withValues(alpha: 0.08),
               offset: const Offset(0, -5),
             ),
           ],
@@ -69,15 +69,16 @@ class _HomeState extends State<Home> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: theme.colorScheme.primary.withOpacity(0.15),
-              hoverColor: theme.colorScheme.primary.withOpacity(0.08),
+              rippleColor: theme.colorScheme.primary.withValues(alpha: 0.15),
+              hoverColor: theme.colorScheme.primary.withValues(alpha: 0.08),
               gap: 8,
               activeColor: theme.colorScheme.primary,
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
               duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: theme.colorScheme.primaryContainer.withOpacity(0.4),
-              color: theme.colorScheme.onSurface.withOpacity(0.6),
+              tabBackgroundColor:
+              theme.colorScheme.primaryContainer.withValues(alpha: 0.4),
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
               tabs: const [
                 GButton(
                   icon: Icons.home_rounded,

@@ -13,8 +13,10 @@ class PrayerEntry {
   };
 
   factory PrayerEntry.fromJson(Map<String, dynamic> json) => PrayerEntry(
-    prayerName: json['prayerName'],
-    timestamp: DateTime.parse(json['timestamp']),
+    prayerName: json['prayerName'] as String? ?? 'Prayer',
+    timestamp: json['timestamp'] != null
+        ? DateTime.parse(json['timestamp'] as String)
+        : DateTime.now(),
   );
 }
 
@@ -23,6 +25,18 @@ class PrayerTracker {
   static const String _keyCurrentStreak = 'current_streak';
   static const String _keyLastCompletedDate = 'last_completed_date';
   static const String _keyPrayerHistory = 'prayer_history_logs';
+
+  /// Helper to get Date component only (midnight normalization)
+  static DateTime _normalizeDate(DateTime date) {
+    return DateTime(date.year, date.month, date.day);
+  }
+
+  /// Calculates real day difference between two DateTimes based on calendar days
+  static int _calendarDaysBetween(DateTime from, DateTime to) {
+    final fromDate = _normalizeDate(from);
+    final toDate = _normalizeDate(to);
+    return toDate.difference(fromDate).inDays;
+  }
 
   /// Record a prayer completion entry with a timestamp
   static Future<Map<String, dynamic>> recordCompletion(
@@ -35,7 +49,8 @@ class PrayerTracker {
     await prefs.setInt(_keyTotalPrayers, total);
 
     // 2. Append log entry with timestamp
-    List<String> historyJson = prefs.getStringList(_keyPrayerHistory) ?? [];
+    final List<String> historyJson =
+        prefs.getStringList(_keyPrayerHistory) ?? [];
     final entry = PrayerEntry(
       prayerName: prayerName,
       timestamp: DateTime.now(),
@@ -43,29 +58,29 @@ class PrayerTracker {
     historyJson.add(jsonEncode(entry.toJson()));
     await prefs.setStringList(_keyPrayerHistory, historyJson);
 
-    // 3. Update Streak Calculation
+    // 3. Update Streak Calculation accurately by Calendar Days
     final DateTime now = DateTime.now();
-    final DateTime today = DateTime(now.year, now.month, now.day);
+    final DateTime today = _normalizeDate(now);
     final String? lastDateStr = prefs.getString(_keyLastCompletedDate);
     int streak = prefs.getInt(_keyCurrentStreak) ?? 0;
 
     if (lastDateStr == null) {
       streak = 1;
     } else {
-      final DateTime lastDate = DateTime.parse(lastDateStr);
-      final DateTime lastCompletedDay = DateTime(
-        lastDate.year,
-        lastDate.month,
-        lastDate.day,
-      );
-      final int difference = today.difference(lastCompletedDay).inDays;
+      final DateTime lastCompletedDay = _normalizeDate(DateTime.parse(lastDateStr));
+      final int dayDiff = _calendarDaysBetween(lastCompletedDay, today);
 
-      if (difference == 1) {
+      if (dayDiff == 1) {
+        // First prayer on the consecutive day
         streak += 1;
-      } else if (difference > 1) {
+      } else if (dayDiff > 1) {
+        // Missed one or more days, reset streak to 1 for today
         streak = 1;
+      } else if (dayDiff < 0) {
+        // System clock anomaly handling guard
+        streak = streak == 0 ? 1 : streak;
       }
-      // If difference == 0, keep current streak unchanged
+      // If dayDiff == 0 (Already completed a prayer today), keep current streak unchanged
     }
 
     await prefs.setInt(_keyCurrentStreak, streak);
@@ -82,18 +97,12 @@ class PrayerTracker {
     final String? lastDateStr = prefs.getString(_keyLastCompletedDate);
 
     if (lastDateStr != null) {
-      final DateTime now = DateTime.now();
-      final DateTime today = DateTime(now.year, now.month, now.day);
-      final DateTime lastDate = DateTime.parse(lastDateStr);
-      final DateTime lastCompletedDay = DateTime(
-        lastDate.year,
-        lastDate.month,
-        lastDate.day,
-      );
-      final int difference = today.difference(lastCompletedDay).inDays;
+      final DateTime today = _normalizeDate(DateTime.now());
+      final DateTime lastCompletedDay = _normalizeDate(DateTime.parse(lastDateStr));
+      final int dayDiff = _calendarDaysBetween(lastCompletedDay, today);
 
-      // If user missed more than 1 day, reset streak to 0
-      if (difference > 1) {
+      // Reset streak to 0 if missed more than 1 calendar day
+      if (dayDiff > 1) {
         streak = 0;
         await prefs.setInt(_keyCurrentStreak, 0);
       }
@@ -105,73 +114,78 @@ class PrayerTracker {
   /// Retrieve all logged prayer entries (most recent first)
   static Future<List<PrayerEntry>> getPrayerHistory() async {
     final prefs = await SharedPreferences.getInstance();
-    List<String> historyJson = prefs.getStringList(_keyPrayerHistory) ?? [];
-    return historyJson
-        .map((e) => PrayerEntry.fromJson(jsonDecode(e)))
-        .toList()
-        .reversed
-        .toList();
-  }
+    final List<String> historyJson =
+        prefs.getStringList(_keyPrayerHistory) ?? [];
 
-  /// Reset today's logged prayers, deduct total count, and update streak
-  static Future<Map<String, int>> resetTodaysPrayers() async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String> historyJson = prefs.getStringList(_keyPrayerHistory) ?? [];
-
-    final DateTime now = DateTime.now();
-    final DateTime today = DateTime(now.year, now.month, now.day);
-
-    List<String> updatedHistory = [];
-    int removedCount = 0;
-
-    for (String item in historyJson) {
-      final entry = PrayerEntry.fromJson(jsonDecode(item));
-      final entryDay = DateTime(
-        entry.timestamp.year,
-        entry.timestamp.month,
-        entry.timestamp.day,
-      );
-
-      if (entryDay.isAtSameMomentAs(today)) {
-        removedCount++;
-      } else {
-        updatedHistory.add(item);
+    final List<PrayerEntry> history = [];
+    for (final item in historyJson) {
+      try {
+        final decoded = jsonDecode(item) as Map<String, dynamic>;
+        history.add(PrayerEntry.fromJson(decoded));
+      } catch (_) {
+        // Safe skip for legacy or corrupted log strings
       }
     }
 
-    // Deduct removed entries from total count safely
-    int currentTotal = prefs.getInt(_keyTotalPrayers) ?? 0;
-    int newTotal = (currentTotal - removedCount).clamp(0, 999999);
+    return history.reversed.toList();
+  }
+
+  /// Reset today's logged prayers, deduct total count, and restore previous streak state
+  static Future<Map<String, int>> resetTodaysPrayers() async {
+    final prefs = await SharedPreferences.getInstance();
+    final List<String> historyJson =
+        prefs.getStringList(_keyPrayerHistory) ?? [];
+
+    final DateTime today = _normalizeDate(DateTime.now());
+
+    final List<String> updatedHistory = [];
+    int removedCount = 0;
+
+    for (final item in historyJson) {
+      try {
+        final decoded = jsonDecode(item) as Map<String, dynamic>;
+        final entry = PrayerEntry.fromJson(decoded);
+        final entryDay = _normalizeDate(entry.timestamp);
+
+        if (entryDay.isAtSameMomentAs(today)) {
+          removedCount++;
+        } else {
+          updatedHistory.add(item);
+        }
+      } catch (_) {
+        // Exclude unparseable entries during cleanup
+      }
+    }
+
+    final int currentTotal = prefs.getInt(_keyTotalPrayers) ?? 0;
+    final int newTotal = (currentTotal - removedCount).clamp(0, 999999);
 
     int streak = prefs.getInt(_keyCurrentStreak) ?? 0;
 
-    // If today's prayers were deleted, roll back streak state
     if (removedCount > 0) {
       if (updatedHistory.isNotEmpty) {
-        final lastRemainingEntry = PrayerEntry.fromJson(
-          jsonDecode(updatedHistory.last),
-        );
-        final lastDate = lastRemainingEntry.timestamp;
-        final lastCompletedDay = DateTime(
-          lastDate.year,
-          lastDate.month,
-          lastDate.day,
-        );
+        try {
+          final lastRemainingEntry = PrayerEntry.fromJson(
+            jsonDecode(updatedHistory.last) as Map<String, dynamic>,
+          );
+          final lastCompletedDay = _normalizeDate(lastRemainingEntry.timestamp);
 
-        await prefs.setString(
-          _keyLastCompletedDate,
-          lastCompletedDay.toIso8601String(),
-        );
+          await prefs.setString(
+            _keyLastCompletedDate,
+            lastCompletedDay.toIso8601String(),
+          );
 
-        // Check if the latest remaining entry was yesterday or older
-        final int difference = today.difference(lastCompletedDay).inDays;
-        if (difference > 1) {
+          final int dayDiff = _calendarDaysBetween(lastCompletedDay, today);
+          if (dayDiff > 1) {
+            streak = 0;
+          } else {
+            // Re-adjust streak down by 1 since today's activity was cleared entirely
+            streak = (streak - 1).clamp(0, 999999);
+          }
+        } catch (_) {
           streak = 0;
-        } else {
-          streak = (streak - 1).clamp(0, 999999);
         }
       } else {
-        // No history left at all
         streak = 0;
         await prefs.remove(_keyLastCompletedDate);
       }

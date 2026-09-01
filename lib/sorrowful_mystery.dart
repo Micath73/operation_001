@@ -1,6 +1,6 @@
 import 'package:operation_001/prayer_model.dart';
 
-final List<PrayerStep> sorrowfulSteps = [
+ List<PrayerStep> sorrowfulSteps = [
   // 1st Mystery
   PrayerStep(
     titleEn: "First Sorrowful Mystery",

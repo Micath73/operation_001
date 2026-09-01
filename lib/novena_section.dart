@@ -69,17 +69,16 @@ class _NovenaSectionState extends State<NovenaSection> {
   ];
 
   void _openNovenaDetail(BuildContext context, String title) {
-    final dataset =
-        novenaData[title] ??
-            List.generate(
-              9,
-                  (i) => NovenaDayContent(
-                dayNumber: i + 1,
-                theme: "Day ${i + 1}: $title Prayer",
-                prayer:
-                "Opening prayer for Day ${i + 1} of $title...\n\nLord, hear our prayers and bless our intentions. Amen.",
-              ),
-            );
+    final dataset = NovenaData.masterNovenaDB[title] ??
+        List.generate(
+          9,
+              (i) => NovenaDayContent(
+            dayNumber: i + 1,
+            theme: "Day ${i + 1}: $title Prayer",
+            prayer:
+            "Opening prayer for Day ${i + 1} of $title...\n\nLord, hear our prayers and bless our intentions. Amen.",
+          ),
+        );
 
     Navigator.push(
       context,
@@ -91,6 +90,7 @@ class _NovenaSectionState extends State<NovenaSection> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final previewLessons = prayers.take(4).toList();
     final previewNovenas = novenaTitles.take(4).toList();
 
@@ -100,7 +100,7 @@ class _NovenaSectionState extends State<NovenaSection> {
         // SPIRITUAL LESSONS SECTION
         Container(
           width: double.infinity,
-          color: Colors.white,
+          color: theme.colorScheme.surface,
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,12 +110,12 @@ class _NovenaSectionState extends State<NovenaSection> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Spiritual Lessons',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                     TextButton.icon(
@@ -133,16 +133,16 @@ class _NovenaSectionState extends State<NovenaSection> {
                           ),
                         );
                       },
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
+                      icon: Icon(
+                        Icons.arrow_forward_ios_rounded,
                         size: 14,
-                        color: Colors.deepPurple,
+                        color: theme.colorScheme.primary,
                       ),
-                      label: const Text(
+                      label: Text(
                         'See All',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepPurple,
+                          color: theme.colorScheme.primary,
                         ),
                       ),
                     ),
@@ -170,10 +170,6 @@ class _NovenaSectionState extends State<NovenaSection> {
                               height: 220,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                image: DecorationImage(
-                                  image: AssetImage(pray.imagePath),
-                                  fit: BoxFit.cover,
-                                ),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black.withValues(alpha: 0.08),
@@ -181,6 +177,23 @@ class _NovenaSectionState extends State<NovenaSection> {
                                     offset: const Offset(0, 5),
                                   ),
                                 ],
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset(
+                                  pray.imagePath,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) =>
+                                      Container(
+                                        color: theme
+                                            .colorScheme.surfaceContainerHighest,
+                                        child: Icon(
+                                          Icons.image_not_supported_rounded,
+                                          color: theme.colorScheme.onSurface
+                                              .withValues(alpha: 0.4),
+                                        ),
+                                      ),
+                                ),
                               ),
                             ),
                             const SizedBox(height: 10),
@@ -191,10 +204,10 @@ class _NovenaSectionState extends State<NovenaSection> {
                                 textAlign: TextAlign.center,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.black87,
+                                  color: theme.colorScheme.onSurface,
                                 ),
                               ),
                             ),
@@ -217,12 +230,12 @@ class _NovenaSectionState extends State<NovenaSection> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Novena',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
               TextButton.icon(
@@ -240,16 +253,16 @@ class _NovenaSectionState extends State<NovenaSection> {
                     ),
                   );
                 },
-                icon: const Icon(
-                  Icons.arrow_forward_ios,
+                icon: Icon(
+                  Icons.arrow_forward_ios_rounded,
                   size: 14,
-                  color: Colors.deepPurple,
+                  color: theme.colorScheme.primary,
                 ),
-                label: const Text(
+                label: Text(
                   'See All',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
+                    color: theme.colorScheme.primary,
                   ),
                 ),
               ),
@@ -277,9 +290,21 @@ class _NovenaSectionState extends State<NovenaSection> {
                         height: 110,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          image: DecorationImage(
-                            image: AssetImage(item.imagePath),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            item.imagePath,
                             fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                Container(
+                                  color: theme.colorScheme.surfaceContainerHighest,
+                                  child: Icon(
+                                    Icons.image_not_supported_rounded,
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.4),
+                                  ),
+                                ),
                           ),
                         ),
                       ),
@@ -289,9 +314,10 @@ class _NovenaSectionState extends State<NovenaSection> {
                         child: Text(
                           item.text,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
+                            color: theme.colorScheme.onSurface,
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -327,11 +353,13 @@ class SeeAllGridPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
+        backgroundColor: theme.colorScheme.primary,
+        foregroundColor: theme.colorScheme.onPrimary,
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(16),
@@ -354,10 +382,6 @@ class SeeAllGridPage extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      image: DecorationImage(
-                        image: AssetImage(item.imagePath),
-                        fit: BoxFit.cover,
-                      ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.08),
@@ -365,6 +389,22 @@ class SeeAllGridPage extends StatelessWidget {
                           offset: const Offset(0, 3),
                         ),
                       ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        item.imagePath,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          color: theme.colorScheme.surfaceContainerHighest,
+                          child: Icon(
+                            Icons.image_not_supported_rounded,
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.4),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -374,9 +414,10 @@ class SeeAllGridPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ],
