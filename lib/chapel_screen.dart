@@ -21,28 +21,38 @@ class _ChapletScreenState extends State<ChapletScreen> {
     final double fullWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.surface,
+      backgroundColor: Colors.black, // Hardcoded dark base
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onSurface),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Stack(
         children: [
-          // Background Image
+          // 1. Background Image Asset
           SizedBox.expand(
             child: Image.asset('assets/img_3.png', fit: BoxFit.cover),
           ),
 
-          // Central Frosted Glass Card
+          // 2. Fixed Dark Blur Scrim (Immune to Light/Dark Mode switches)
+          Positioned.fill(
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
+                child: Container(color: Colors.black.withAlpha(140)),
+              ),
+            ),
+          ),
+
+          // 3. Central Glassmorphic Card
           Center(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(20),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaY: 8, sigmaX: 8),
+                  filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
                   child: Container(
                     width: fullWidth * 0.86,
                     constraints: BoxConstraints(
@@ -54,10 +64,10 @@ class _ChapletScreenState extends State<ChapletScreen> {
                       vertical: 24,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: theme.colorScheme.surface.withAlpha(216),
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black.withAlpha(160), // Dark glass fill
                       border: Border.all(
-                        color: theme.colorScheme.secondary.withAlpha(128),
+                        color: Colors.white.withAlpha(40), // Glass border
                         width: 1.2,
                       ),
                     ),
@@ -76,7 +86,7 @@ class _ChapletScreenState extends State<ChapletScreen> {
                             shadows: [
                               Shadow(
                                 blurRadius: 10.0,
-                                color: theme.colorScheme.secondary.withAlpha(102),
+                                color: theme.colorScheme.secondary.withAlpha(128),
                                 offset: const Offset(0, 0),
                               ),
                             ],
@@ -88,7 +98,7 @@ class _ChapletScreenState extends State<ChapletScreen> {
                         Container(
                           width: 40,
                           height: 1.5,
-                          color: theme.colorScheme.secondary.withAlpha(153),
+                          color: theme.colorScheme.secondary.withAlpha(180),
                         ),
                         const SizedBox(height: 20),
 
@@ -101,9 +111,17 @@ class _ChapletScreenState extends State<ChapletScreen> {
                                 '"My daughter, encourage souls to say the chaplet which I have given you. It pleases Me to grant everything they ask of Me by saying the chaplet."',
                                 textAlign: TextAlign.center,
                                 style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.onSurface,
+                                  color: Colors.white.withAlpha(230), // Explicit crisp white
                                   fontStyle: FontStyle.italic,
+                                  fontSize: 16,
                                   height: 1.5,
+                                  shadows: [
+                                    Shadow(
+                                      blurRadius: 6,
+                                      color: Colors.black.withAlpha(180),
+                                      offset: const Offset(1, 1),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -127,10 +145,10 @@ class _ChapletScreenState extends State<ChapletScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: theme.colorScheme.primary,
                               foregroundColor: theme.colorScheme.onPrimary,
-                              elevation: 4,
+                              elevation: 6,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(30),
                               ),
                             ),
                             onPressed: () {

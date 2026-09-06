@@ -19,7 +19,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 3,
+      version: 5, // Bumped to 5 for Index Optimizations
       onCreate: _createDB,
       onUpgrade: _onUpgrade,
     );
@@ -46,6 +46,8 @@ class DatabaseHelper {
     ''');
 
     await _createReadingsTable(db);
+    await _createNovenaProgressTable(db);
+    await _createIndexes(db);
   }
 
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
@@ -57,6 +59,26 @@ class DatabaseHelper {
         'ALTER TABLE readings ADD COLUMN gospelAcclamation TEXT',
       );
     }
+    if (oldVersion < 4) {
+      await _createNovenaProgressTable(db);
+    }
+    if (oldVersion < 5) {
+      await _createIndexes(db);
+    }
+  }
+
+  Future<void> _createIndexes(Database db) async {
+    // Accelerates novena query filtering and title lookups
+    await db.execute('''
+      CREATE INDEX IF NOT EXISTS idx_novena_title_completed 
+      ON novena_progress(novena_title, is_completed)
+    ''');
+
+    // Accelerates streak calculation and log filtering
+    await db.execute('''
+      CREATE INDEX IF NOT EXISTS idx_prayer_logs_completed_at 
+      ON prayer_logs(completed_at)
+    ''');
   }
 
   Future<void> _createReadingsTable(Database db) async {
@@ -79,6 +101,207 @@ class DatabaseHelper {
     ''');
   }
 
+  Future<void> _createNovenaProgressTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE novena_progress (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        novena_title TEXT NOT NULL,
+        day_number INTEGER NOT NULL,
+        is_completed INTEGER NOT NULL DEFAULT 0,
+        completed_at TEXT,
+        UNIQUE(novena_title, day_number) ON CONFLICT REPLACE
+      )
+    ''');
+  }
+
+  // --- OPTIMIZED NOVENA PROGRESS METHODS ---
+
+  /// Toggle or update completion status for a day
+  Future<void> setNovenaDayCompletion({
+    required String novenaTitle,
+    required int dayNumber,
+    required bool isCompleted,
+  }) async {
+    final db = await instance.database;
+    await db.insert(
+      'novena_progress',
+      {
+        'novena_title': novenaTitle,
+        'day_number': dayNumber,
+        'is_completed': isCompleted ? 1 : 0,
+        'completed_at': isCompleted ? DateTime.now().toIso8601String() : null,
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+
+    if (isCompleted) {
+      await logPrayerCompletion(
+        prayerType: 'Novena',
+        prayerName: '$novenaTitle - Day $dayNumber',
+      );
+    }
+  }
+
+  /// Check if a specific day is completed
+  Future<bool> isNovenaDayCompleted(String novenaTitle, int dayNumber) async {
+    final db = await instance.database;
+    final maps = await db.query(
+      'novena_progress',
+      columns: ['is_completed'],
+      where: 'LOWER(novena_title) = LOWER(?) AND day_number = ?',
+      whereArgs: [novenaTitle.trim(), dayNumber],
+      limit: 1,
+    );
+
+    if (maps.isNotEmpty) {
+      return (maps.first['is_completed'] as int) == 1;
+    }
+    return false;
+  }
+
+  /// Get set of completed day numbers
+  Future<Set<int>> getCompletedDaysForNovena(String novenaTitle) async {
+    final db = await instance.database;
+    final maps = await db.query(
+      'novena_progress',
+      columns: ['day_number'],
+      where: 'LOWER(novena_title) = LOWER(?) AND is_completed = 1',
+      whereArgs: [novenaTitle.trim()],
+    );
+
+    return maps.map((row) => row['day_number'] as int).toSet();
+  }
+
+  /// Get total completed days (e.g., 4 out of 9)
+  Future<int> getNovenaCompletedCount(String novenaTitle) async {
+    final db = await instance.database;
+    final result = await db.rawQuery(
+      'SELECT COUNT(*) as count FROM novena_progress WHERE LOWER(novena_title) = LOWER(?) AND is_completed = 1',
+      [novenaTitle.trim()],
+    );
+    return Sqflite.firstIntValue(result) ?? 0;
+  }
+
+  /// Fetches titles of novenas that have at least one completed day
+  Future<List<String>> getActiveNovenaTitles() async {
+    final db = await instance.database;
+    final result = await db.rawQuery(
+      'SELECT DISTINCT novena_title FROM novena_progress WHERE is_completed = 1',
+    );
+    return result.map((row) => row['novena_title'] as String).toList();
+  }
+
+  /// OPTIMIZED: Fetches all IN-PROGRESS novenas in 1 single database query
+  Future<List<Map<String, dynamic>>> getActiveNovenasOverview() async {
+    final db = await instance.database;
+
+    final result = await db.rawQuery('''
+      SELECT 
+        novena_title as title,
+        SUM(CASE WHEN is_completed = 1 THEN 1 ELSE 0 END) as completedDays
+      FROM novena_progress
+      GROUP BY novena_title
+      HAVING completedDays > 0 AND completedDays < 9
+    ''');
+
+    return result.map((row) {
+      return {
+        'title': row['title'] as String,
+        'completedDays': row['completedDays'] as int,
+        'totalDays': 9,
+      };
+    }).toList();
+  }
+
+  /// OPTIMIZED: Fetches all FULLY COMPLETED novenas in 1 single database query
+  Future<List<Map<String, dynamic>>> getCompletedNovenasOverview() async {
+    final db = await instance.database;
+
+    final result = await db.rawQuery('''
+      SELECT 
+        novena_title as title,
+        SUM(CASE WHEN is_completed = 1 THEN 1 ELSE 0 END) as completedDays
+      FROM novena_progress
+      GROUP BY novena_title
+      HAVING completedDays >= 9
+    ''');
+
+    return result.map((row) {
+      return {
+        'title': row['title'] as String,
+        'completedDays': row['completedDays'] as int,
+        'totalDays': 9,
+      };
+    }).toList();
+  }
+
+  /// Reset novena progress and purge its prayer logs completely
+  Future<int> resetNovenaProgress(String novenaTitle) async {
+    final db = await instance.database;
+    final cleanTitle = novenaTitle.trim();
+
+    await db.delete(
+      'prayer_logs',
+      where: 'prayer_type = ? AND LOWER(prayer_name) LIKE LOWER(?)',
+      whereArgs: ['Novena', '$cleanTitle - Day%'],
+    );
+
+    return await db.delete(
+      'novena_progress',
+      where: 'LOWER(novena_title) = LOWER(?)',
+      whereArgs: [cleanTitle],
+    );
+  }
+
+  /// Alias method for clearing novena progress
+  Future<int> clearNovenaProgress(String novenaTitle) async {
+    return await resetNovenaProgress(novenaTitle);
+  }
+
+  /// OPTIMIZED: Clears ALL in-progress novenas inside a single Transaction
+  Future<void> clearAllInProgressNovenas() async {
+    final db = await instance.database;
+    final activeList = await getActiveNovenasOverview();
+
+    await db.transaction((txn) async {
+      for (var novena in activeList) {
+        final cleanTitle = (novena['title'] as String).trim();
+        await txn.delete(
+          'prayer_logs',
+          where: 'prayer_type = ? AND LOWER(prayer_name) LIKE LOWER(?)',
+          whereArgs: ['Novena', '$cleanTitle - Day%'],
+        );
+        await txn.delete(
+          'novena_progress',
+          where: 'LOWER(novena_title) = LOWER(?)',
+          whereArgs: [cleanTitle],
+        );
+      }
+    });
+  }
+
+  /// OPTIMIZED: Clears ALL completed novenas inside a single Transaction
+  Future<void> clearAllCompletedNovenas() async {
+    final db = await instance.database;
+    final completedList = await getCompletedNovenasOverview();
+
+    await db.transaction((txn) async {
+      for (var novena in completedList) {
+        final cleanTitle = (novena['title'] as String).trim();
+        await txn.delete(
+          'prayer_logs',
+          where: 'prayer_type = ? AND LOWER(prayer_name) LIKE LOWER(?)',
+          whereArgs: ['Novena', '$cleanTitle - Day%'],
+        );
+        await txn.delete(
+          'novena_progress',
+          where: 'LOWER(novena_title) = LOWER(?)',
+          whereArgs: [cleanTitle],
+        );
+      }
+    });
+  }
+
   // --- DAILY READINGS METHODS ---
 
   Future<int> insertReading(Map<String, dynamic> row) async {
@@ -96,6 +319,7 @@ class DatabaseHelper {
       'readings',
       where: 'date = ?',
       whereArgs: [date],
+      limit: 1,
     );
 
     if (maps.isNotEmpty) {
@@ -185,7 +409,8 @@ class DatabaseHelper {
       whereClause = 'completed_at >= ?';
       whereArgs = [lastWeek];
     } else if (filter == 'last_month') {
-      final lastMonth = now.subtract(const Duration(days: 30)).toIso8601String();
+      final lastMonth =
+      now.subtract(const Duration(days: 30)).toIso8601String();
       whereClause = 'completed_at >= ?';
       whereArgs = [lastMonth];
     }
@@ -201,7 +426,8 @@ class DatabaseHelper {
   Future<int> resetTodaysPrayers() async {
     final db = await instance.database;
     final now = DateTime.now();
-    final startOfDay = DateTime(now.year, now.month, now.day).toIso8601String();
+    final startOfDay =
+    DateTime(now.year, now.month, now.day).toIso8601String();
     return await db.delete(
       'prayer_logs',
       where: 'completed_at >= ?',

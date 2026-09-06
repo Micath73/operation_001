@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_completion_screen.dart';
-import 'package:operation_001/db_helper.dart';
 
 class DivineMercyChaplet extends StatefulWidget {
   final bool isAmharic;
@@ -32,7 +31,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.surface,
+      backgroundColor: Colors.black, // Hardcoded dark base
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -52,9 +51,12 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
       ),
       body: Stack(
         children: [
+          // 1. Background Image Asset
           Positioned.fill(
             child: Image.asset('assets/img_3.png', fit: BoxFit.cover),
           ),
+
+          // 2. Fixed Dark Blur Scrim (Immune to Light/Dark Mode switch)
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
@@ -63,6 +65,8 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
               ),
             ),
           ),
+
+          // 3. Scrollable Prayer Content
           Positioned.fill(
             child: SafeArea(
               child: SingleChildScrollView(
@@ -90,7 +94,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                           child: Container(
-                            color: Colors.white.withAlpha(20),
+                            color: Colors.black.withAlpha(64), // Dark translucent fill
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -301,14 +305,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                             ),
                             elevation: 8,
                           ),
-                          onPressed: () async {
-                            await DatabaseHelper.instance.logPrayerCompletion(
-                              prayerType: 'Chaplet',
-                              prayerName: 'Divine Mercy Chaplet',
-                            );
-
-                            if (!context.mounted) return;
-
+                          onPressed: () {
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
                                 transitionDuration: const Duration(
@@ -327,13 +324,15 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                   detailValue: widget.isAmharic
                                       ? 'የማሕሪው ኢየሱስ ጸሎት'
                                       : 'Divine Mercy Chaplet',
+                                  prayerType: 'Chaplet',
                                   detailLabelEn: 'Devotional',
                                   detailLabelAm: 'ጸሎት',
                                   titleEn: 'Chaplet Completed',
                                   titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
                                   subtitleEn:
                                   'May His Divine Mercy shine upon you',
-                                  subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
+                                  subtitleAm:
+                                  'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
                                   bgImagePath: 'assets/img_3.png',
                                 ),
                                 transitionsBuilder: (

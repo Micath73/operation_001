@@ -1,42 +1,53 @@
 import 'package:flutter/material.dart';
 
+// Import your screen widgets (adjust paths matching your project structure)
+import 'package:operation_001/joyful.dart';
+import 'package:operation_001/sorrowful.dart';
+import 'package:operation_001/glorious.dart';
+import 'package:operation_001/luminous.dart';
+
 class RosaryItem {
   final String title;
   final String days;
   final String quote;
+  final String image;
 
   const RosaryItem({
     required this.title,
     required this.days,
     required this.quote,
+    required this.image,
   });
 }
 
-// Global list of Rosaries with days and Saint quotes
 const List<RosaryItem> defaultRosaryList = [
   RosaryItem(
     title: 'The Joyful Mysteries',
     days: 'Mondays & Saturdays',
     quote:
     '"The Rosary is the most beautiful and the most rich in graces of all prayers." — Pope St. Pius X',
+    image: 'assets/wmremove-transformed (3).jpeg',
   ),
   RosaryItem(
     title: 'The Sorrowful Mysteries',
     days: 'Tuesdays & Fridays',
     quote:
     '"Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did." — St. Maximilian Kolbe',
+    image: 'assets/wmremove-transformed (6).jpeg',
   ),
   RosaryItem(
     title: 'The Glorious Mysteries',
     days: 'Wednesdays & Sundays',
     quote:
     '"Give me an army saying the Rosary and I will conquer the world." — Blessed Pope Pius IX',
+    image: 'assets/wmremove-transformed (9).jpeg',
   ),
   RosaryItem(
     title: 'The Luminous Mysteries',
     days: 'Thursdays',
     quote:
     '"The Rosary is a powerful weapon to put the demons to flight and to keep oneself from sin." — Pope Pius XI',
+    image: 'assets/wmremove-transformed (10).png',
   ),
 ];
 
@@ -49,6 +60,21 @@ class RosaryDetailScreen extends StatelessWidget {
     required this.title,
     required this.steps,
   });
+
+  Widget _getMysteryTargetScreen(String title) {
+    switch (title) {
+      case 'The Joyful Mysteries':
+        return const JoyfulScreen();
+      case 'The Sorrowful Mysteries':
+        return const SorrowfulScreen();
+      case 'The Glorious Mysteries':
+        return const GloriousScreen();
+      case 'The Luminous Mysteries':
+        return const LuminousScreen();
+      default:
+        return const JoyfulScreen();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,40 +95,78 @@ class RosaryDetailScreen extends StatelessWidget {
           return Card(
             color: theme.colorScheme.surfaceContainerHighest,
             margin: const EdgeInsets.only(bottom: 16),
+            clipBehavior: Clip.antiAlias,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    item.title,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => _getMysteryTargetScreen(item.title),
                   ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Prayed on: ${item.days}',
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      color: theme.colorScheme.primary,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    item.quote,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant.withValues(
-                        alpha: 0.8,
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        item.image,
+                        width: 90,
+                        height: 110,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          width: 90,
+                          height: 110,
+                          color: theme.colorScheme.primaryContainer,
+                          child: Icon(
+                            Icons.image_not_supported_rounded,
+                            color: theme.colorScheme.onPrimaryContainer,
+                          ),
+                        ),
                       ),
-                      fontStyle: FontStyle.italic,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            item.title,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'Prayed on: ${item.days}',
+                            style: theme.textTheme.labelMedium?.copyWith(
+                              color: theme.colorScheme.primary,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            item.quote,
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant
+                                  .withValues(alpha: 0.8),
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );

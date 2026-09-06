@@ -4,7 +4,9 @@ import 'package:operation_001/novena_data.dart';
 import 'package:operation_001/novena_detail_screen.dart';
 
 class NovenaSection extends StatefulWidget {
-  const NovenaSection({super.key});
+  final VoidCallback? onNovenaChanged;
+
+  const NovenaSection({super.key, this.onNovenaChanged});
 
   @override
   State<NovenaSection> createState() => _NovenaSectionState();
@@ -68,24 +70,32 @@ class _NovenaSectionState extends State<NovenaSection> {
     NovenaCombo(text: 'Pope Leo', imagePath: 'assets/Leo.jpg'),
   ];
 
-  void _openNovenaDetail(BuildContext context, String title) {
-    final dataset = NovenaData.masterNovenaDB[title] ??
-        List.generate(
-          9,
-              (i) => NovenaDayContent(
-            dayNumber: i + 1,
-            theme: "Day ${i + 1}: $title Prayer",
-            prayer:
-            "Opening prayer for Day ${i + 1} of $title...\n\nLord, hear our prayers and bless our intentions. Amen.",
-          ),
-        );
+  Future<void> _openNovenaDetail(BuildContext context, String title) async {
+    final novenaMatch = novenaTitles.where((n) => n.text == title);
+    final lessonMatch = prayers.where((p) => p.text == title);
 
-    Navigator.push(
+    String imagePath = 'assets/img_3.png';
+
+    if (novenaMatch.isNotEmpty) {
+      imagePath = novenaMatch.first.imagePath;
+    } else if (lessonMatch.isNotEmpty) {
+      imagePath = lessonMatch.first.imagePath;
+    }
+
+    await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => NovenaDetailScreen(title: title, days: dataset),
+        builder: (context) => NovenaDetailScreen(
+          title: title,
+          novenaImage: imagePath,
+          storyText: getNovenaStoryForTitle(title),
+          days: getNovenaDaysForTitle(title),
+        ),
       ),
     );
+
+    // Notify Home screen to pull updated SQLite records when returning
+    widget.onNovenaChanged?.call();
   }
 
   @override

@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
 
-/// Legacy alias to maintain compatibility if referenced elsewhere in the project.
-typedef sorrowfulScreen = SorrowfulScreen;
-
 class SorrowfulScreen extends StatefulWidget {
   const SorrowfulScreen({super.key});
 
@@ -84,7 +81,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
       contentEn:
       'Glory be to the Father,\nand to the Son,\nand to the Holy Spirit;\nas it was in the beginning,\nis now, and ever shall be,\nworld without end.\nAmen!',
       contentAm:
-      'ለአብ:ለወልድና:ለመንፈስ ቅዱስ ምስጋና ይሁን\nአሁንም ዘወትርም ለዘለዓለምም::\n አሜን!"',
+      'ለአብ:ለወልድና:ለመንፈስ ቅዱስ ምስጋና ይሁን\nአሁንም ዘወትርም ለዘለዓለምም::\n አሜን!',
       imagePath: 'assets/wmremove-transformed (6).jpeg',
     ),
     PrayerStep(
@@ -99,186 +96,149 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
     ),
     PrayerStep(
       titleEn: "First Sorrowful Mystery",
-      titleAm: "የመጀመሪያ የህመም ምሥጢር",
+      titleAm: "አንደኛ የሕማማት ምስጢር",
       contentEn:
-      "The agony in the Garden.\n\n"
-          "\"Then Jesus went with them\n"
-          "to a place called Gethsemane,\n"
-          "and he said to his disciples,\n"
-          "'Sit here, while I go yonder and pray.'\n"
-          "And taking with him Peter\n"
-          "and the two sons of Zebedee,\n"
-          "he began to be sorrowful and troubled.\n\n"
-          "Then he said to them,\n"
-          "'My soul is very sorrowful,\n"
-          "even to death; remain here,\n"
-          "and watch with me.'\n"
-          "And going a little farther\n"
-          "he fell on his face and prayed,\n"
-          "'My Father, if it be possible,\n"
-          "let this cup pass from me;\n"
-          "nevertheless, not as I will,\n"
-          "but as you will'\"\n"
-          "(Mt 26:36-39).",
+      "The Agony in the Garden.\n\n"
+          "\"Then Jesus went with them to a place called Gethsemane,\n"
+          "and he said to his disciples, 'Sit here, while I go yonder and pray.'\n"
+          "And taking with him Peter and the two sons of Zebedee,\n"
+          "he began to be sorrowful and troubled.\"\n"
+          "(Mt 26:36-37)\n\n\n",
       contentAm:
       "ጌታችን ኢየሱስ ክርስቶስ፡\n"
-          "በጌተሰማኒ አትክልት ውስጥ ጸሎት እያደረሰ፡\n"
-          " ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
+          "በጌቴሴማኔ የአትክልት ቦታ፡\n"
+          "ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "በኃጢአታችን በሚገባ ማዘን ነው፡፡\n\n\n",
-      imagePath: "assets/img_22.png",
+          "የኃጢአታችንን ታላቅነት አውቀን መጸጸት ነው፡፡\n\n\n",
+      imagePath: "assets/img_18.png",
     ),
     PrayerStep(
       titleEn: "Second Sorrowful Mystery",
-      titleAm: "ሁለተኛዉ የህመም ምሥጢር",
+      titleAm: "ሁለተኛ የሕማማት ምስጢር",
       contentEn:
       "The Scourging at the Pillar.\n\n"
-          "\"Pilate released Barabbas to them,\n"
+          "\"Pilate released Barabbas to them;\n"
           "but after he had Jesus scourged,\n"
-          "he handed him over\n"
-          "to be crucified\"\n"
-          "(Mt 27:26).",
+          "he handed him over to be crucified.\"\n"
+          "(Mt 27:26)\n\n\n",
       contentAm:
       "ጌታችን ኢየሱስ ክርስቶስ፡\n"
-          " በጵላጦስ ፊት ደም እስከሚጎርፍ ድረስ፡\n"
-          " ስለኃጢአታችን አለ ልክ መገረፉን ማሰብ ነው፡፡\n"
-          " የምስጢሩ ፍሬ ሐሳብ: ከኃጢአት መራቅ ነው፡፡\n\n\n",
-      imagePath: "assets/img_23.png",
+          "በጲላጦስ ቤት በግፍ መንገላታቱንና፡\n"
+          "በሰንሰለት ታስሮ መገረፉን ማሰብ ነው፡፡\n"
+          "የምስጢሩ ፍሬ ሐሳብ፡\n"
+          "የስጋችንን ፈቃድና ፍላጎት መግታት ነው፡፡\n\n\n",
+      imagePath: "assets/img_19.png",
     ),
     PrayerStep(
       titleEn: "Third Sorrowful Mystery",
-      titleAm: "ሦስተኛዉ የህመም ምሥጢር",
+      titleAm: "ሶስተኛ የሕማማት ምስጢር",
       contentEn:
       "The Crowning with Thorns.\n\n"
-          "\"Then the soldiers of the governor\n"
-          "took Jesus into the praetorium,\n"
-          "and they gathered the whole\n"
-          "battalion before him.\n"
-          "And they stripped him and put\n"
-          "a scarlet robe upon him,\n"
-          "and plaiting a crown of thorns\n"
-          "they put it on his head,\n"
-          "and put a reed in his right hand.\n\n"
-          "And kneeling before him\n"
-          "they mocked him, saying,\n"
+          "\"Plaiting a crown of thorns they put it on his head,\n"
+          "and put a reed in his right hand.\n"
+          "And kneeling before him they mocked him, saying,\n"
           "'Hail, King of the Jews!'\"\n"
-          "(Mt 27:27-29).",
+          "(Mt 27:29)\n\n\n",
       contentAm:
-      "በጌታችን ኢየሱስ ክርስቶስ፡\n"
-          "ራስ ላይ የእሾኸ አክሊል መደፋቱን ማሰብ ነው፡፡\n"
-          "የምስጢሩ ፍሬ ሐሳብ:ኢየሱስን እንደ ንጉሣችን ማክበር ነው፡፡\n\n\n",
-      imagePath: "assets/img_24.png",
+      "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+          "በጨካኞች ወታደሮች የሾህ አክሊል በመደፋቱ፡\n"
+          "የደረሰበትን የራስ ምታትና ስቃይ ማሰብ ነው፡፡\n"
+          "የምስጢሩ ፍሬ ሐሳብ፡\n"
+          "የትዕቢትንና የክፉ አሳቦችን ፈተና ማሸነፍ ነው፡፡\n\n\n",
+      imagePath: "assets/img_20.png",
     ),
     PrayerStep(
       titleEn: "Fourth Sorrowful Mystery",
-      titleAm: "አራተኛዉ የህመም ምሥጢር",
+      titleAm: "አራተኛ የሕማማት ምስጢር",
       contentEn:
       "The Carrying of the Cross.\n\n"
-          "\"And they compelled a passer-by,\n"
-          "Simon of Cyrene,\n"
-          "who was coming in from the country,\n"
-          "the father of Alexander and Rufus,\n"
-          "to carry his cross.\n"
-          "And they brought him to the place\n"
-          "called Golgotha\n"
-          "(which means the place of a skull)\"\n"
-          "(Mk 15:21-22).",
+          "\"So they took Jesus, and he went out,\n"
+          "bearing his own cross, to the place called the place of a skull,\n"
+          "which is called in Hebrew Golgotha.\"\n"
+          "(Jn 19:17)\n\n\n",
       contentAm:
-      "አይሁዳዊን በጌታችን ኢየሱስ ክርስቶስ ላይ፡\n"
-          "የሞት ፍርድ እንደፈረዱና ስቃይን ለመጨመር፡\n"
-          "ከባድ መስቀል ማሸከማቸውን ማሰብ ነው፡፡\n"
-          " የምስጢሩ ፍሬ ሐሳብ\n"
-          "ስቃያችንን ስለ እግዚአብሔር ብለን መታገስ ነው፡፡\n\n\n",
-      imagePath: "assets/img_25.png",
+      "ጌታችን ኢየሱስ ክርስቶስ፡\n"
+          "ከባድ መስቀል ተሸክሞ፡\n"
+          "ወደ ቀራንዮ ተራራ መጓዙን ማሰብ ነው፡፡\n"
+          "የምስጢሩ ፍሬ ሐሳብ፡\n"
+          "የሚደርስብንን ችግርና መከራ በትዕግሥት መቀበል ነው፡፡\n\n\n",
+      imagePath: "assets/img_21.png",
     ),
     PrayerStep(
       titleEn: "Fifth Sorrowful Mystery",
-      titleAm: "አምስተኛዉ የህመም ምሥጢር",
+      titleAm: "አምስተኛ የሕማማት ምስጢር",
       contentEn:
-      "The Crucifixion and Death.\n\n"
-          "\"And when they came to the place\n"
-          "which is called The Skull,\n"
-          "there they crucified him,\n"
-          "and the criminals,\n"
-          "one on the right and one on the left.\n"
-          "And Jesus said, 'Father, forgive them;\n"
-          "for they know not what they do'...\n\n"
-          "It was now about the sixth hour,\n"
-          "and there was darkness over the\n"
-          "whole land until the ninth hour,\n"
-          "while the sun's light failed;\n"
-          "and the curtain of the temple\n"
-          "was torn in two.\n"
-          "Then Jesus, crying with a loud voice,\n"
-          "said, 'Father, into thy hands\n"
-          "I commit my spirit!'\n"
-          "And having said this\n"
-          "he breathed his last\"\n"
-          "(Lk 23:33-46).",
+      "The Crucifixion and Death of Jesus.\n\n"
+          "\"And when they came to the place which is called The Skull,\n"
+          "there they crucified him...\n"
+          "Jesus, crying with a loud voice, said,\n"
+          "'Father, into thy hands I commit my spirit!'\n"
+          "And having said this he breathed his last.\"\n"
+          "(Lk 23:33, 46)\n\n\n",
       contentAm:
       "ጌታችን ኢየሱስ ክርስቶስ፡\n"
-          "ቀራንዮ በደረሰ ጊዜ ልብሱን ገፈውት እራቁቱ መሆኑን፡\n"
-          "አለ ምሕረትም በመስቀል ላይ መቸንከሩን፡\n"
-          "የመከራ ጎደኛው እናቱም ይህን ሁሉ መከራውን አይታ መጨነቅዋን ማሰብ ነው፡፡\n"
+          "በቀራንዮ ተራራ በመስቀል ላይ ተቸንክሮ፡\n"
+          "ስለእኛ መሞቱን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
-          "የሱስንና ማርያምን ወደን ኃጢአትን ሁሉ መተው፡፡\n\n\n",
-      imagePath: "assets/img_26.png",
+          "እግዚአብሔርንና ሰዎችን በቅን ልብ መውደድ ነው፡፡\n\n\n",
+      imagePath: "assets/img_22.png",
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    // Tuesday = 2, Friday = 5
     final bool isSorrowfulDay = (dayNumber == 2 || dayNumber == 5);
+    final double screenWidth = MediaQuery.of(context).size.width;
 
     const titleStyle = TextStyle(
-      fontSize: 28.0,
+      fontSize: 30.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
-      fontFamily: 'Georgia',
       shadows: [
-        Shadow(blurRadius: 10.0, color: Colors.black54, offset: Offset(2, 2)),
+        Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
       ],
     );
 
-    final double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         title: SizedBox(
           width: screenWidth * 0.6,
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
             child: Text(
-              isAmharic ? 'የሐዘን ምስጢር' : 'The Sorrowful Mystery',
+              isAmharic ? 'የሕማማት ምሥጢር' : 'The Sorrowful Mystery',
               key: ValueKey<bool>(isAmharic),
               style: const TextStyle(
-                color: Color(0xFFE8B84B),
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Georgia',
               ),
             ),
           ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Color(0xFFE8B84B)),
+        iconTheme: const IconThemeData(color: Colors.white),
         actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 12),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
             child: TextButton(
+              onPressed: () => setState(() => isAmharic = !isAmharic),
               style: TextButton.styleFrom(
-                backgroundColor: Colors.white.withValues(alpha: 0.15),
+                backgroundColor: Colors.white.withAlpha(30),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              onPressed: () => setState(() => isAmharic = !isAmharic),
               child: Text(
                 isAmharic ? 'EN' : 'አማ',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: theme.colorScheme.secondary,
                   fontWeight: FontWeight.bold,
+                  fontSize: 15,
                 ),
               ),
             ),
@@ -288,91 +248,93 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
       body: Stack(
         children: [
           // Background Image
-          SizedBox.expand(
+          Positioned.fill(
             child: Image.asset(
               'assets/wmremove-transformed (6).jpeg',
               fit: BoxFit.cover,
             ),
           ),
 
-          // Theme Tint Overlay
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.black.withValues(alpha: 0.5),
-                  const Color(0xFF120A21).withValues(alpha: 0.75),
-                  const Color(0xFF120A21).withValues(alpha: 0.95),
-                ],
-              ),
-            ),
+          // Standard Semi-Transparent Dark Overlay
+          Positioned.fill(
+            child: Container(color: Colors.black.withAlpha(125)),
           ),
 
           // Content Layer
           SafeArea(
-            child: Column(
-              children: [
-                const Spacer(flex: 4),
-                _buildAnimatedText(
-                  isSorrowfulDay
-                      ? (isAmharic
-                      ? 'ዛሬ ${weekdays[dayNumber]} ነው'
-                      : 'Today is ${weekDay[dayNumber]}')
-                      : '',
-                  titleStyle.copyWith(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xFFE8B84B),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                _buildAnimatedText(
-                  isAmharic
-                      ? 'በሐዘን ምስጢር\nእናሰላስል'
-                      : 'Let\'s Meditate Through\nThe Sorrowful Mystery',
-                  titleStyle,
-                ),
-                const Spacer(flex: 2),
-
-                // Primary Golden Accent Button
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PrayerSession(
-                          prayerSteps: prayerSequence,
-                          isAmharic: isAmharic,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Column(
+                children: [
+                  const Spacer(flex: 3),
+                  if (isSorrowfulDay)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withAlpha(30),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.white.withAlpha(50),
                         ),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFE8B84B),
-                    foregroundColor: const Color(0xFF120A21),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 45,
-                      vertical: 16,
+                      child: _buildAnimatedText(
+                        isAmharic
+                            ? 'ዛሬ ${weekdays[dayNumber]} ነው (የሕማማት ምሥጢር)'
+                            : 'Today is ${weekDay[dayNumber]} (Sorrowful Mystery)',
+                        const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    elevation: 6,
+                  const SizedBox(height: 16),
+                  _buildAnimatedText(
+                    isAmharic
+                        ? 'በሕማማት ምሥጢር\nእናሰላስል'
+                        : 'Let\'s Meditate Through The Sorrowful Mystery',
+                    titleStyle,
                   ),
-                  child: Text(
-                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.1,
+                  const Spacer(flex: 3),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PrayerSession(
+                              prayerSteps: prayerSequence,
+                              isAmharic: isAmharic,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.primary,
+                        foregroundColor: theme.colorScheme.onPrimary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(28),
+                        ),
+                        elevation: 8,
+                      ),
+                      child: Text(
+                        isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                        style: TextStyle(
+                          color: theme.colorScheme.onPrimary,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-
-                const SizedBox(height: 60),
-              ],
+                  const SizedBox(height: 48),
+                ],
+              ),
             ),
           ),
         ],
@@ -381,16 +343,13 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
   }
 
   Widget _buildAnimatedText(String text, TextStyle style) {
-    return SizedBox(
-      width: double.infinity,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: Text(
-          text,
-          key: ValueKey<String>(text),
-          textAlign: TextAlign.center,
-          style: style,
-        ),
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: Text(
+        text,
+        key: ValueKey<String>(text),
+        textAlign: TextAlign.center,
+        style: style,
       ),
     );
   }

@@ -229,20 +229,18 @@ class _JoyfulScreenState extends State<JoyfulScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     // Monday = 1, Saturday = 6
-    bool isJoyfulDay = (dayNumber == 1 || dayNumber == 6);
+    final bool isJoyfulDay = (dayNumber == 1 || dayNumber == 6);
+    final double screenWidth = MediaQuery.of(context).size.width;
 
     const titleStyle = TextStyle(
-      fontSize: 32.0,
+      fontSize: 30.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
       shadows: [
         Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
       ],
     );
-
-    double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -266,14 +264,23 @@ class _JoyfulScreenState extends State<JoyfulScreen> {
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
-          TextButton(
-            onPressed: () => setState(() => isAmharic = !isAmharic),
-            child: Text(
-              isAmharic ? 'አማ' : 'EN',
-              style: TextStyle(
-                color: theme.colorScheme.secondary,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: TextButton(
+              onPressed: () => setState(() => isAmharic = !isAmharic),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.white.withAlpha(30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: Text(
+                isAmharic ? 'EN' : 'አማ',
+                style: TextStyle(
+                  color: theme.colorScheme.secondary,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
               ),
             ),
           ),
@@ -282,74 +289,93 @@ class _JoyfulScreenState extends State<JoyfulScreen> {
       body: Stack(
         children: [
           // Background Image
-          SizedBox.expand(
+          Positioned.fill(
             child: Image.asset(
               'assets/wmremove-transformed (3).jpeg',
               fit: BoxFit.cover,
             ),
           ),
-          Container(color: Colors.black.withValues(alpha: 0.4)),
 
-          // Home UI
+          // Standard Semi-Transparent Dark Overlay
+          Positioned.fill(
+            child: Container(color: Colors.black.withAlpha(125)),
+          ),
+
+          // Content Layer
           SafeArea(
-            child: Column(
-              children: [
-                const Spacer(flex: 4),
-                _buildAnimatedText(
-                  isJoyfulDay
-                      ? (isAmharic
-                      ? 'ዛሬ ${weekdays[dayNumber]} ነው'
-                      : 'Today is ${weekDay[dayNumber]}')
-                      : '',
-                  titleStyle.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                _buildAnimatedText(
-                  isAmharic
-                      ? 'በደስታ ምስጢር\nእናሰላስል'
-                      : 'Let\'s Meditate Through The Joyful Mystery',
-                  titleStyle,
-                ),
-                const Spacer(flex: 2),
-
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PrayerSession(
-                          prayerSteps: prayerSequence,
-                          isAmharic: isAmharic,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Column(
+                children: [
+                  const Spacer(flex: 3),
+                  if (isJoyfulDay)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withAlpha(30),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.white.withAlpha(50),
                         ),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: theme.colorScheme.primary,
-                    foregroundColor: theme.colorScheme.onPrimary,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 18,
+                      child: _buildAnimatedText(
+                        isAmharic
+                            ? 'ዛሬ ${weekdays[dayNumber]} ነው (የደስታ ምሥጢር)'
+                            : 'Today is ${weekDay[dayNumber]} (Joyful Mystery)',
+                        const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    elevation: 8,
+                  const SizedBox(height: 16),
+                  _buildAnimatedText(
+                    isAmharic
+                        ? 'በደስታ ምሥጢር\nእናሰላስል'
+                        : 'Let\'s Meditate Through The Joyful Mystery',
+                    titleStyle,
                   ),
-                  child: Text(
-                    isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                    style: TextStyle(
-                      color: theme.colorScheme.onPrimary,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  const Spacer(flex: 3),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PrayerSession(
+                              prayerSteps: prayerSequence,
+                              isAmharic: isAmharic,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.primary,
+                        foregroundColor: theme.colorScheme.onPrimary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(28),
+                        ),
+                        elevation: 8,
+                      ),
+                      child: Text(
+                        isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                        style: TextStyle(
+                          color: theme.colorScheme.onPrimary,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 80),
-              ],
+                  const SizedBox(height: 48),
+                ],
+              ),
             ),
           ),
         ],
@@ -358,16 +384,13 @@ class _JoyfulScreenState extends State<JoyfulScreen> {
   }
 
   Widget _buildAnimatedText(String text, TextStyle style) {
-    return SizedBox(
-      width: double.infinity,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: Text(
-          text,
-          key: ValueKey<String>(text),
-          textAlign: TextAlign.center,
-          style: style,
-        ),
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: Text(
+        text,
+        key: ValueKey<String>(text),
+        textAlign: TextAlign.center,
+        style: style,
       ),
     );
   }

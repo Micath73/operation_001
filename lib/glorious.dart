@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
@@ -266,10 +265,7 @@ class _GloriousScreenState extends State<GloriousScreen> {
             ),
           ),
           Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: Container(color: Colors.black.withAlpha(125)),
-            ),
+            child: Container(color: Colors.black.withAlpha(125)),
           ),
           SafeArea(
             child: Padding(

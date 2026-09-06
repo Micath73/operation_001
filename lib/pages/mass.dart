@@ -1341,11 +1341,17 @@ class _UserMassState extends State<UserMass> {
             indicatorColor: colorScheme.secondary,
             indicatorWeight: 3,
             labelColor: colorScheme.onPrimary,
-            unselectedLabelColor: colorScheme.onPrimary.withOpacity(0.6),
+            unselectedLabelColor: colorScheme.onPrimary.withAlpha(153),
             labelStyle: const TextStyle(fontWeight: FontWeight.bold),
             tabs: const [
-              Tab(icon: Icon(Icons.calendar_today_rounded), text: 'Daily Readings'),
-              Tab(icon: Icon(Icons.auto_stories_rounded), text: 'Order of Mass'),
+              Tab(
+                icon: Icon(Icons.calendar_today_rounded),
+                text: 'Daily Readings',
+              ),
+              Tab(
+                icon: Icon(Icons.auto_stories_rounded),
+                text: 'Order of Mass',
+              ),
             ],
           ),
         ),
@@ -1367,10 +1373,10 @@ class _UserMassState extends State<UserMass> {
       children: [
         Card(
           elevation: 0,
-          color: theme.colorScheme.primaryContainer.withOpacity(0.4),
+          color: theme.colorScheme.primaryContainer.withAlpha(102),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: theme.colorScheme.primary.withOpacity(0.2)),
+            side: BorderSide(color: theme.colorScheme.primary.withAlpha(51)),
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(16),
@@ -1410,7 +1416,8 @@ class _UserMassState extends State<UserMass> {
                             Text(
                               "Liturgical Readings & Psalms",
                               style: theme.textTheme.bodyMedium?.copyWith(
-                                color: theme.colorScheme.onSurface.withOpacity(0.7),
+                                color:
+                                theme.colorScheme.onSurface.withAlpha(179),
                               ),
                             ),
                           ],
@@ -1423,7 +1430,10 @@ class _UserMassState extends State<UserMass> {
                       ),
                     ],
                   ),
-                  const Divider(height: 24),
+                  Divider(
+                    height: 24,
+                    color: theme.colorScheme.outlineVariant,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -1462,12 +1472,12 @@ class _UserMassState extends State<UserMass> {
       margin: const EdgeInsets.only(bottom: 12.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
+        color: theme.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.primary.withOpacity(0.12)),
+        border: Border.all(color: theme.colorScheme.primary.withAlpha(31)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withAlpha(5),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -1495,12 +1505,15 @@ class _UserMassState extends State<UserMass> {
               ),
             ],
           ),
-          const Divider(height: 20),
+          Divider(
+            height: 20,
+            color: theme.colorScheme.outlineVariant,
+          ),
           Text(
             passage,
             style: theme.textTheme.bodyMedium?.copyWith(
               height: 1.5,
-              color: theme.colorScheme.onSurface.withOpacity(0.85),
+              color: theme.colorScheme.onSurface.withAlpha(217),
             ),
           ),
         ],
@@ -1518,13 +1531,17 @@ class _UserMassState extends State<UserMass> {
         final item = massSections[index];
         return Card(
           elevation: 0,
+          color: theme.colorScheme.surfaceContainerHigh,
           margin: const EdgeInsets.only(bottom: 12.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: BorderSide(color: theme.colorScheme.primary.withOpacity(0.15)),
+            side: BorderSide(color: theme.colorScheme.primary.withAlpha(38)),
           ),
           child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
             leading: CircleAvatar(
               backgroundColor: theme.colorScheme.primary,
               foregroundColor: theme.colorScheme.onPrimary,
@@ -1535,7 +1552,10 @@ class _UserMassState extends State<UserMass> {
             ),
             title: Text(
               item["en"] as String,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSurface,
+              ),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1550,7 +1570,9 @@ class _UserMassState extends State<UserMass> {
                 const SizedBox(height: 4),
                 Text(
                   item["desc"] as String,
-                  style: theme.textTheme.bodySmall,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ),
@@ -1600,7 +1622,7 @@ class OrderDetailScreen extends StatelessWidget {
           ),
           Positioned.fill(
             child: Container(
-              color: Colors.black.withOpacity(0.82),
+              color: Colors.black.withAlpha(209),
             ),
           ),
           SafeArea(
@@ -1640,10 +1662,10 @@ class OrderDetailScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 16.0),
                           padding: const EdgeInsets.all(16.0),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.08),
+                            color: Colors.white.withAlpha(20),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
-                              color: Colors.white.withOpacity(0.15),
+                              color: Colors.white.withAlpha(38),
                             ),
                           ),
                           child: Column(
@@ -1681,7 +1703,8 @@ class OrderDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFormattedDialogue(BuildContext context, List<dynamic> rawLines) {
+  Widget _buildFormattedDialogue(
+      BuildContext context, List<dynamic> rawLines) {
     final theme = Theme.of(context);
     final goldColor = theme.colorScheme.secondary;
     final lines = List<Map<String, dynamic>>.from(rawLines);

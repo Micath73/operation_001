@@ -58,9 +58,9 @@ class _UserBibleState extends State<UserBible> {
       id: 'african_bible',
       name: 'The African Bible (NAB)',
       description:
-          'Modern Catholic edition with contextual African commentaries',
+      'Modern Catholic edition with contextual African commentaries',
       downloadUrl:
-          'https://github.com/Micath73/operation_001/releases/download/v1.0.0/african_bible.db',
+      'https://github.com/Micath73/operation_001/releases/download/v1.0.0/african_bible.db',
       size: '5.2 MB',
       isModern: true,
     ),
@@ -69,7 +69,7 @@ class _UserBibleState extends State<UserBible> {
       name: 'NABRE (New American Bible)',
       description: 'Modern Catholic standard translation for mass and readings',
       downloadUrl:
-          'https://github.com/Micath73/operation_001/releases/download/v1.0.0/nabre.db',
+      'https://github.com/Micath73/operation_001/releases/download/v1.0.0/nabre.db',
       size: '5.1 MB',
       isModern: true,
     ),
@@ -78,7 +78,7 @@ class _UserBibleState extends State<UserBible> {
       name: 'RSV-CE (Revised Standard)',
       description: 'Classic modern formal equivalence Catholic edition',
       downloadUrl:
-          'https://github.com/Micath73/operation_001/releases/download/v1.0.0/rsvce.db',
+      'https://github.com/Micath73/operation_001/releases/download/v1.0.0/rsvce.db',
       size: '4.8 MB',
       isModern: true,
     ),
@@ -86,9 +86,9 @@ class _UserBibleState extends State<UserBible> {
       id: 'njb',
       name: 'New Jerusalem Bible (NJB)',
       description:
-          'Modern dynamic Catholic translation with rich literary quality',
+      'Modern dynamic Catholic translation with rich literary quality',
       downloadUrl:
-          'https://github.com/Micath73/operation_001/releases/download/v1.0.0/njb.db',
+      'https://github.com/Micath73/operation_001/releases/download/v1.0.0/njb.db',
       size: '5.4 MB',
       isModern: true,
     ),
@@ -171,9 +171,9 @@ class _UserBibleState extends State<UserBible> {
   }
 
   Future<void> _downloadAndSwitchBible(
-    BibleVersion version,
-    StateSetter setModalState,
-  ) async {
+      BibleVersion version,
+      StateSetter setModalState,
+      ) async {
     try {
       final dir = await getApplicationDocumentsDirectory();
       final savePath = p.join(dir.path, '${version.id}.db');
@@ -217,9 +217,11 @@ class _UserBibleState extends State<UserBible> {
   }
 
   void _showVersionDownloadPicker() {
+    final theme = Theme.of(context);
+
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -235,27 +237,29 @@ class _UserBibleState extends State<UserBible> {
                 children: [
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         'Catholic Bible Versions',
-                        style: TextStyle(
-                          fontSize: 18,
+                        style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1D1B20),
+                          color: theme.colorScheme.onSurface,
                         ),
                       ),
                       const Spacer(),
                       IconButton(
-                        icon: const Icon(Icons.close),
+                        icon: Icon(
+                          Icons.close,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
                         onPressed: () => Navigator.pop(context),
                       ),
                     ],
                   ),
-                  const Divider(),
+                  Divider(color: theme.colorScheme.outlineVariant),
                   Expanded(
                     child: ListView.separated(
                       itemCount: _availableVersions.length,
                       separatorBuilder: (context, index) =>
-                          const Divider(height: 1),
+                          Divider(height: 1, color: theme.colorScheme.outlineVariant),
                       itemBuilder: (context, index) {
                         final ver = _availableVersions[index];
                         final isDownloading = _downloadProgress.containsKey(
@@ -276,8 +280,8 @@ class _UserBibleState extends State<UserBible> {
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: isSelected
-                                        ? const Color(0xFF6750A4)
-                                        : Colors.black87,
+                                        ? theme.colorScheme.primary
+                                        : theme.colorScheme.onSurface,
                                   ),
                                 ),
                               ),
@@ -289,17 +293,18 @@ class _UserBibleState extends State<UserBible> {
                                     vertical: 2,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.green.shade50,
+                                    color: theme.colorScheme.tertiaryContainer,
                                     borderRadius: BorderRadius.circular(4),
                                     border: Border.all(
-                                      color: Colors.green.shade200,
+                                      color: theme.colorScheme.tertiary
+                                          .withAlpha(76),
                                     ),
                                   ),
-                                  child: const Text(
+                                  child: Text(
                                     'Modern',
                                     style: TextStyle(
                                       fontSize: 10,
-                                      color: Colors.green,
+                                      color: theme.colorScheme.onTertiaryContainer,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -312,7 +317,10 @@ class _UserBibleState extends State<UserBible> {
                             children: [
                               Text(
                                 ver.description,
-                                style: const TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
                               ),
                               const SizedBox(height: 4),
                               Text(
@@ -322,8 +330,8 @@ class _UserBibleState extends State<UserBible> {
                                 style: TextStyle(
                                   fontSize: 11,
                                   color: ver.isDownloaded
-                                      ? const Color(0xFF6750A4)
-                                      : Colors.grey,
+                                      ? theme.colorScheme.primary
+                                      : theme.colorScheme.outline,
                                   fontWeight: ver.isDownloaded
                                       ? FontWeight.bold
                                       : FontWeight.normal,
@@ -333,31 +341,31 @@ class _UserBibleState extends State<UserBible> {
                           ),
                           trailing: isDownloading
                               ? SizedBox(
-                                  width: 24,
-                                  height: 24,
-                                  child: CircularProgressIndicator(
-                                    value: progress,
-                                    strokeWidth: 3,
-                                    color: const Color(0xFF6750A4),
-                                  ),
-                                )
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              value: progress,
+                              strokeWidth: 3,
+                              color: theme.colorScheme.primary,
+                            ),
+                          )
                               : ver.isDownloaded
                               ? Icon(
-                                  isSelected
-                                      ? Icons.check_circle_rounded
-                                      : Icons.radio_button_unchecked,
-                                  color: const Color(0xFF6750A4),
-                                )
+                            isSelected
+                                ? Icons.check_circle_rounded
+                                : Icons.radio_button_unchecked,
+                            color: theme.colorScheme.primary,
+                          )
                               : IconButton(
-                                  icon: const Icon(
-                                    Icons.download_for_offline_outlined,
-                                    color: Colors.grey,
-                                  ),
-                                  onPressed: () => _downloadAndSwitchBible(
-                                    ver,
-                                    setModalState,
-                                  ),
-                                ),
+                            icon: Icon(
+                              Icons.download_for_offline_outlined,
+                              color: theme.colorScheme.outline,
+                            ),
+                            onPressed: () => _downloadAndSwitchBible(
+                              ver,
+                              setModalState,
+                            ),
+                          ),
                           onTap: () async {
                             if (ver.isDownloaded) {
                               Navigator.pop(context);
@@ -381,12 +389,13 @@ class _UserBibleState extends State<UserBible> {
   }
 
   void _showBookAndChapterPicker() {
+    final theme = Theme.of(context);
     final otBooks = _allBooks.where((b) => b['id'] <= 46).toList();
     final ntBooks = _allBooks.where((b) => b['id'] >= 47).toList();
 
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -404,14 +413,14 @@ class _UserBibleState extends State<UserBible> {
                   height: 4,
                   margin: const EdgeInsets.only(bottom: 12),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
+                    color: theme.colorScheme.outlineVariant,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
                 TabBar(
-                  indicatorColor: const Color(0xFF6750A4),
-                  labelColor: const Color(0xFF6750A4),
-                  unselectedLabelColor: Colors.black54,
+                  indicatorColor: theme.colorScheme.primary,
+                  labelColor: theme.colorScheme.primary,
+                  unselectedLabelColor: theme.colorScheme.onSurfaceVariant,
                   tabs: [
                     Tab(text: widget.isAmharic ? 'ብሉይ ኪዳን' : 'Old Testament'),
                     Tab(text: widget.isAmharic ? 'ሐዲስ ኪዳን' : 'New Testament'),
@@ -434,6 +443,8 @@ class _UserBibleState extends State<UserBible> {
   }
 
   Widget _buildBookList(List<Map<String, dynamic>> books) {
+    final theme = Theme.of(context);
+
     return ListView.builder(
       itemCount: books.length,
       itemBuilder: (context, index) {
@@ -444,11 +455,16 @@ class _UserBibleState extends State<UserBible> {
           title: Text(
             book['name'] ?? book['en'] ?? 'Book ${book['id']}',
             style: TextStyle(
-              color: isSelected ? const Color(0xFF6750A4) : Colors.black87,
+              color: isSelected
+                  ? theme.colorScheme.primary
+                  : theme.colorScheme.onSurface,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
-          trailing: Icon(Icons.chevron_right, color: Colors.grey.shade400),
+          trailing: Icon(
+            Icons.chevron_right,
+            color: theme.colorScheme.outline,
+          ),
           onTap: () async {
             final chapters = await BibleDatabaseHelper.instance
                 .getChaptersForBook(book['id']);
@@ -462,9 +478,11 @@ class _UserBibleState extends State<UserBible> {
   }
 
   void _showChapterGrid(Map<String, dynamic> book, List<int> chapters) {
+    final theme = Theme.of(context);
+
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -477,8 +495,8 @@ class _UserBibleState extends State<UserBible> {
             children: [
               Text(
                 '${book['name']} - Select Chapter',
-                style: const TextStyle(
-                  color: Color(0xFF6750A4),
+                style: TextStyle(
+                  color: theme.colorScheme.primary,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -496,9 +514,10 @@ class _UserBibleState extends State<UserBible> {
                     final ch = chapters[index];
                     final isCurrent =
                         _selectedBook?['id'] == book['id'] &&
-                        _selectedChapter == ch;
+                            _selectedChapter == ch;
 
                     return InkWell(
+                      borderRadius: BorderRadius.circular(8),
                       onTap: () {
                         Navigator.pop(context);
                         setState(() {
@@ -510,15 +529,17 @@ class _UserBibleState extends State<UserBible> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrent
-                              ? const Color(0xFF6750A4)
-                              : Colors.grey.shade100,
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.surfaceContainerHighest,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Center(
                           child: Text(
                             '$ch',
                             style: TextStyle(
-                              color: isCurrent ? Colors.white : Colors.black87,
+                              color: isCurrent
+                                  ? theme.colorScheme.onPrimary
+                                  : theme.colorScheme.onSurface,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -537,8 +558,10 @@ class _UserBibleState extends State<UserBible> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: theme.colorScheme.surface,
       body: SafeArea(
         child: Column(
           children: [
@@ -550,19 +573,19 @@ class _UserBibleState extends State<UserBible> {
               ),
               child: Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.menu_book_rounded,
-                    color: Color(0xFF6750A4),
+                    color: theme.colorScheme.primary,
                     size: 28,
                   ),
                   const SizedBox(width: 12),
                   Text(
                     widget.isAmharic ? 'መጽሐፍ ቅዱስ' : 'HOLY BIBLE',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Georgia',
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF1D1B20),
+                      color: theme.colorScheme.onSurface,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -576,40 +599,39 @@ class _UserBibleState extends State<UserBible> {
                       ),
                       constraints: const BoxConstraints(
                         maxWidth: 160,
-                      ), // Prevents header overflow
+                      ),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF6750A4).withOpacity(0.08),
+                        color: theme.colorScheme.primary.withAlpha(20),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: const Color(0xFF6750A4).withOpacity(0.2),
+                          color: theme.colorScheme.primary.withAlpha(51),
                         ),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.auto_awesome,
-                            color: Color(0xFF6750A4),
+                            color: theme.colorScheme.primary,
                             size: 14,
                           ),
                           const SizedBox(width: 6),
                           Flexible(
                             child: Text(
                               _currentTranslation,
-                              overflow: TextOverflow
-                                  .ellipsis, // Truncates long names neatly with "..."
+                              overflow: TextOverflow.ellipsis,
                               maxLines: 1,
-                              style: const TextStyle(
-                                color: Color(0xFF6750A4),
+                              style: TextStyle(
+                                color: theme.colorScheme.primary,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           const SizedBox(width: 2),
-                          const Icon(
+                          Icon(
                             Icons.arrow_drop_down,
-                            color: Color(0xFF6750A4),
+                            color: theme.colorScheme.primary,
                             size: 16,
                           ),
                         ],
@@ -637,12 +659,14 @@ class _UserBibleState extends State<UserBible> {
                           vertical: 12,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: theme.colorScheme.surfaceContainerHigh,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.grey.shade300),
+                          border: Border.all(
+                            color: theme.colorScheme.outlineVariant,
+                          ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.03),
+                              color: Colors.black.withAlpha(8),
                               blurRadius: 6,
                               offset: const Offset(0, 2),
                             ),
@@ -654,16 +678,16 @@ class _UserBibleState extends State<UserBible> {
                               _selectedBook?['name'] ??
                                   _selectedBook?['en'] ??
                                   'Select Book',
-                              style: const TextStyle(
-                                color: Color(0xFF1D1B20),
+                              style: TextStyle(
+                                color: theme.colorScheme.onSurface,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             const Spacer(),
-                            const Icon(
+                            Icon(
                               Icons.arrow_drop_down,
-                              color: Color(0xFF6750A4),
+                              color: theme.colorScheme.primary,
                             ),
                           ],
                         ),
@@ -678,8 +702,8 @@ class _UserBibleState extends State<UserBible> {
                             .getChaptersForBook(_selectedBook!['id'])
                             .then(
                               (chapters) =>
-                                  _showChapterGrid(_selectedBook!, chapters),
-                            );
+                              _showChapterGrid(_selectedBook!, chapters),
+                        );
                       }
                     },
                     child: Container(
@@ -688,12 +712,14 @@ class _UserBibleState extends State<UserBible> {
                         vertical: 12,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: theme.colorScheme.surfaceContainerHigh,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.grey.shade300),
+                        border: Border.all(
+                          color: theme.colorScheme.outlineVariant,
+                        ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.03),
+                            color: Colors.black.withAlpha(8),
                             blurRadius: 6,
                             offset: const Offset(0, 2),
                           ),
@@ -701,8 +727,8 @@ class _UserBibleState extends State<UserBible> {
                       ),
                       child: Text(
                         'Ch. $_selectedChapter',
-                        style: const TextStyle(
-                          color: Color(0xFF6750A4),
+                        style: TextStyle(
+                          color: theme.colorScheme.primary,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -721,66 +747,72 @@ class _UserBibleState extends State<UserBible> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: theme.colorScheme.surfaceContainerHigh,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.grey.shade200),
+                    border: Border.all(
+                      color: theme.colorScheme.outlineVariant,
+                    ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.03),
+                        color: Colors.black.withAlpha(8),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
                     ],
                   ),
                   child: _isLoading
-                      ? const Center(
-                          child: CircularProgressIndicator(
-                            color: Color(0xFF6750A4),
-                          ),
-                        )
+                      ? Center(
+                    child: CircularProgressIndicator(
+                      color: theme.colorScheme.primary,
+                    ),
+                  )
                       : _verses.isEmpty
                       ? Center(
-                          child: Text(
-                            widget.isAmharic
-                                ? 'ምንም ጥቅስ አልተገኘም።'
-                                : 'No verses found in database.',
-                            style: const TextStyle(color: Colors.grey),
-                          ),
-                        )
+                    child: Text(
+                      widget.isAmharic
+                          ? 'ምንም ጥቅስ አልተገኘም።'
+                          : 'No verses found in database.',
+                      style: TextStyle(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  )
                       : ListView.separated(
-                          padding: const EdgeInsets.all(20),
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: _verses.length,
-                          separatorBuilder: (context, index) =>
-                              Divider(color: Colors.grey.shade100, height: 24),
-                          itemBuilder: (context, index) {
-                            final verse = _verses[index];
-                            return SelectableText.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: '${verse.verse}  ',
-                                    style: const TextStyle(
-                                      fontFamily: 'Georgia',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFFB58300),
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: verse.getText(widget.isAmharic),
-                                    style: const TextStyle(
-                                      fontFamily: 'Georgia',
-                                      fontSize: 17,
-                                      height: 1.6,
-                                      color: Color(0xFF2B2B2B),
-                                    ),
-                                  ),
-                                ],
+                    padding: const EdgeInsets.all(20),
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: _verses.length,
+                    separatorBuilder: (context, index) => Divider(
+                      color: theme.colorScheme.outlineVariant.withAlpha(128),
+                      height: 24,
+                    ),
+                    itemBuilder: (context, index) {
+                      final verse = _verses[index];
+                      return SelectableText.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '${verse.verse}  ',
+                              style: TextStyle(
+                                fontFamily: 'Georgia',
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.secondary,
                               ),
-                            );
-                          },
+                            ),
+                            TextSpan(
+                              text: verse.getText(widget.isAmharic),
+                              style: TextStyle(
+                                fontFamily: 'Georgia',
+                                fontSize: 17,
+                                height: 1.6,
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                          ],
                         ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),

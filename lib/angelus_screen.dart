@@ -5,7 +5,6 @@ import 'package:operation_001/angelus_prayer_session.dart';
 class AngelusScreen extends StatefulWidget {
   final bool isAmharic;
 
-  // Constructor name updated to match AngelusScreen
   const AngelusScreen({super.key, this.isAmharic = false});
 
   @override
@@ -16,7 +15,6 @@ class AngelusScreen extends StatefulWidget {
 typedef Angelus = AngelusScreen;
 typedef angelus = AngelusScreen;
 
-// State class generic updated to AngelusScreen
 class _AngelusScreenState extends State<AngelusScreen> {
   @override
   Widget build(BuildContext context) {
@@ -25,28 +23,38 @@ class _AngelusScreenState extends State<AngelusScreen> {
     final double fullWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.surface,
+      backgroundColor: Colors.black, // Hardcoded dark base
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onSurface),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Stack(
         children: [
-          // Background Image
+          // 1. Background Image Asset
           SizedBox.expand(
             child: Image.asset('assets/img_19.png', fit: BoxFit.cover),
           ),
 
-          // Central Frosted Glass Card
+          // 2. Fixed Dark Blur Scrim (Immune to Light/Dark Mode switches)
+          Positioned.fill(
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
+                child: Container(color: Colors.black.withAlpha(140)),
+              ),
+            ),
+          ),
+
+          // 3. Central Glassmorphic Card
           Center(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(20),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaY: 8, sigmaX: 8),
+                  filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
                   child: Container(
                     width: fullWidth * 0.86,
                     constraints: BoxConstraints(
@@ -58,10 +66,10 @@ class _AngelusScreenState extends State<AngelusScreen> {
                       vertical: 24,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: theme.colorScheme.surface.withAlpha(216),
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black.withAlpha(160), // Dark glass fill
                       border: Border.all(
-                        color: theme.colorScheme.secondary.withAlpha(128),
+                        color: Colors.white.withAlpha(40), // Glass border
                         width: 1.2,
                       ),
                     ),
@@ -80,7 +88,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
                             shadows: [
                               Shadow(
                                 blurRadius: 10.0,
-                                color: theme.colorScheme.secondary.withAlpha(102),
+                                color: theme.colorScheme.secondary.withAlpha(128),
                                 offset: const Offset(0, 0),
                               ),
                             ],
@@ -92,7 +100,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
                         Container(
                           width: 40,
                           height: 1.5,
-                          color: theme.colorScheme.secondary.withAlpha(153),
+                          color: theme.colorScheme.secondary.withAlpha(180),
                         ),
                         const SizedBox(height: 20),
 
@@ -107,9 +115,17 @@ class _AngelusScreenState extends State<AngelusScreen> {
                                     : '"The Angel of the Lord declared unto Mary, and she conceived of the Holy Spirit."',
                                 textAlign: TextAlign.center,
                                 style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.onSurface,
+                                  color: Colors.white.withAlpha(230), // Explicit crisp white
                                   fontStyle: FontStyle.italic,
+                                  fontSize: 16,
                                   height: 1.5,
+                                  shadows: [
+                                    Shadow(
+                                      blurRadius: 6,
+                                      color: Colors.black.withAlpha(180),
+                                      offset: const Offset(1, 1),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -133,10 +149,10 @@ class _AngelusScreenState extends State<AngelusScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: theme.colorScheme.primary,
                               foregroundColor: theme.colorScheme.onPrimary,
-                              elevation: 4,
+                              elevation: 6,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(30),
                               ),
                             ),
                             onPressed: () {

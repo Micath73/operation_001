@@ -85,17 +85,22 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
     isPraying ? fullHeight * 0.45 : fullHeight;
     final double manuscriptTop = isPraying ? fullHeight * 0.38 : fullHeight;
 
-    // Liturgical theme colors dynamically sourced with AppTheme fallbacks
+    // Liturgical theme colors dynamically sourced with dark-mode safe accents
     final goldAccent = theme.colorScheme.secondary;
-    final deepGold = theme.colorScheme.primary;
+    final deepGold = isDark ? const Color(0xFFE5C158) : theme.colorScheme.primary;
 
+    // Fixed non-glare backgrounds for both light & dark modes
     final vellumSheetBg = isDark
-        ? theme.colorScheme.surface
-        : const Color(0xFFF8F4E8); // Classic warm vellum tint in light mode
-    final textBodyColor = theme.colorScheme.onSurface;
-    final cardBgColor = isDark
-        ? theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.75)
-        : theme.colorScheme.surface.withValues(alpha: 0.85);
+        ? const Color(0xFF1C1A18) // Rich dark espresso/slate in dark mode
+        : const Color(0xFFF3EFE0); // Soft warm parchment in light mode
+
+    final textBodyColor = isDark
+        ? const Color(0xFFECE6DA) // Soft off-white for crisp readability
+        : const Color(0xFF2C2523); // Deep charcoal instead of harsh black
+
+    final welcomeCardBg = isDark
+        ? Colors.black.withValues(alpha: 0.75)
+        : const Color(0xFF2A2421).withValues(alpha: 0.88); // Elegant dark glass in light mode
 
     return PopScope(
       canPop: !isPraying,
@@ -112,7 +117,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
         }
       },
       child: Scaffold(
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: isDark ? const Color(0xFF121212) : const Color(0xFF2A2421),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -171,14 +176,15 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                       ),
                     ),
                   ),
+                  // Dark vignette gradient overlay to prevent stark image highlights
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          theme.colorScheme.surface.withValues(alpha: 0.3),
-                          theme.colorScheme.surface.withValues(alpha: 0.9),
+                          Colors.black.withValues(alpha: 0.4),
+                          Colors.black.withValues(alpha: 0.75),
                         ],
                       ),
                     ),
@@ -187,32 +193,41 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
               ),
             ),
 
-            // ── 2. Welcome State Backdrop Blur ───────────────────────────────
+            // ── 2. Welcome State Heavy Backdrop Blur & Dimming Scrim ─────────
             if (!isPraying)
               Positioned.fill(
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                  child: Container(color: Colors.transparent),
+                  filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
+                  child: Container(
+                    color: Colors.black.withValues(alpha: 0.45),
+                  ),
                 ),
               ),
 
-            // ── 3. Intro Dashboard Card ──────────────────────────────────────
+            // ── 3. Intro Dashboard Glass Card ────────────────────────────────
             if (!isPraying)
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(24),
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                    filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.86,
                       height: fullHeight * 0.54,
                       padding: const EdgeInsets.all(28),
                       decoration: BoxDecoration(
-                        color: cardBgColor,
+                        color: welcomeCardBg,
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(
-                          color: deepGold.withValues(alpha: 0.35),
+                          color: deepGold.withValues(alpha: 0.45),
                         ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.5),
+                            blurRadius: 25,
+                            spreadRadius: 2,
+                          ),
+                        ],
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -231,9 +246,9 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                           Text(
                             widget.prayerTitle,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: 'Georgia',
-                              color: theme.colorScheme.onSurface,
+                              color: Color(0xFFF5F0E6),
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
@@ -246,8 +261,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontFamily: 'Georgia',
-                                  color: theme.colorScheme.onSurface
-                                      .withValues(alpha: 0.85),
+                                  color: const Color(0xFFE2DCD0).withValues(alpha: 0.9),
                                   fontSize: 16,
                                   height: 1.6,
                                   fontStyle: FontStyle.italic,
@@ -268,17 +282,16 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                           const Spacer(),
                           FloatingActionButton.extended(
                             backgroundColor: goldAccent,
-                            foregroundColor: theme.colorScheme.onSecondary,
+                            foregroundColor: Colors.black,
                             elevation: 4,
                             onPressed: () => setState(() => isPraying = true),
-                            label: Padding(
-                              padding:
-                              const EdgeInsets.symmetric(horizontal: 16),
+                            label: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
                                 'LET US PRAY',
                                 style: TextStyle(
                                   fontFamily: 'Georgia',
-                                  color: theme.colorScheme.onSecondary,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 2.0,
                                 ),
@@ -314,9 +327,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: isDark
-                              ? Colors.black.withValues(alpha: 0.6)
-                              : Colors.black.withValues(alpha: 0.15),
+                          color: Colors.black.withValues(alpha: 0.5),
                           blurRadius: 30,
                           offset: const Offset(0, -10),
                         ),
@@ -330,7 +341,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                             width: 42,
                             height: 4,
                             decoration: BoxDecoration(
-                              color: deepGold.withValues(alpha: 0.4),
+                              color: deepGold.withValues(alpha: 0.5),
                               borderRadius: BorderRadius.circular(2),
                             ),
                           ),
@@ -435,7 +446,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                                             decoration:
                                                             BoxDecoration(
                                                               color: isDark
-                                                                  ? theme.colorScheme.primary.withValues(alpha: 0.2)
+                                                                  ? deepGold.withValues(alpha: 0.15)
                                                                   : deepGold.withValues(alpha: 0.12),
                                                               borderRadius:
                                                               BorderRadius.circular(10),
@@ -468,7 +479,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                                                 Container(
                                                                   width: 16,
                                                                   height: 1,
-                                                                  color: theme.colorScheme.primary.withValues(alpha: 0.6),
+                                                                  color: deepGold.withValues(alpha: 0.8),
                                                                 ),
                                                                 const SizedBox(width: 8),
                                                                 Text(
@@ -477,7 +488,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                                                     fontFamily: 'Georgia',
                                                                     fontSize: 11,
                                                                     fontWeight: FontWeight.bold,
-                                                                    color: theme.colorScheme.primary,
+                                                                    color: deepGold,
                                                                     letterSpacing: 2.2,
                                                                   ),
                                                                 ),
@@ -558,31 +569,34 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
     );
   }
 
+  // FIXED: Text.rich with WidgetSpan eliminates block indentation for remaining lines
   Widget _buildDropCapBody(String text, Color textBodyColor, Color dropColor) {
     if (text.isEmpty) return const SizedBox.shrink();
     final dropLetter = text[0];
     final remainder = text.substring(1);
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 8, bottom: 2),
-          child: Text(
-            dropLetter,
-            style: TextStyle(
-              fontFamily: 'Georgia',
-              fontSize: 68,
-              fontWeight: FontWeight.bold,
-              color: dropColor,
-              height: 0.85,
-              letterSpacing: -2,
+    return Text.rich(
+      TextSpan(
+        children: [
+          WidgetSpan(
+            alignment: PlaceholderAlignment.middle,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 6.0),
+              child: Text(
+                dropLetter,
+                style: TextStyle(
+                  fontFamily: 'Georgia',
+                  fontSize: 58,
+                  fontWeight: FontWeight.bold,
+                  color: dropColor,
+                  height: 0.85,
+                  letterSpacing: -2,
+                ),
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: Text(
-            remainder,
+          TextSpan(
+            text: remainder,
             style: TextStyle(
               fontFamily: 'Georgia',
               fontSize: 16.5,
@@ -591,8 +605,9 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
               letterSpacing: 0.15,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
+      textAlign: TextAlign.left,
     );
   }
 
