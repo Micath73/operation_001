@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/daily_prayer.dart';
 import 'package:operation_001/quote.dart';
+import 'package:operation_001/quote_service.dart';
 import 'package:operation_001/dashboard_section.dart';
 import 'package:operation_001/novena_section.dart';
 import 'package:operation_001/novena_progress_card.dart';
 import 'package:operation_001/novena_detail_screen.dart' hide NovenaData;
 import 'package:operation_001/db_helper.dart';
 import 'package:operation_001/novena_data.dart';
+import 'package:operation_001/SavedQuotesScreen.dart';
 
 class ActiveNovena {
   final String title;
@@ -26,13 +28,8 @@ class UserHome extends StatefulWidget {
 }
 
 class _UserHomeState extends State<UserHome> {
-  List<Quote> quotes = [
-    Quote(
-      text:
-      'O lord for your mercy never abandons me, for your immaculate mercy embraces me. I shall not fear my fear, i shall not falter. For you are by my side my Lord, I shall not Fall! My heart rejoices in your love, trembles in your presence. When all looks dim and dark, your name illuminates my path. I take pride in being your son, for nothing else makes me happy in this world.Amen',
-      author: 'Bible',
-    ),
-  ];
+  Quote? todayQuote;
+  bool isBookmarked = false;
 
   final List<ActiveNovena> novenaLibrary = [
     ActiveNovena(title: "Sacred Heart", imagePath: "assets/SacredHeart.jpg"),
@@ -50,7 +47,29 @@ class _UserHomeState extends State<UserHome> {
   @override
   void initState() {
     super.initState();
-    _fetchAllNovenas();
+    _loadInitialData();
+  }
+
+  Future<void> _loadInitialData() async {
+    final loadedQuote = await QuoteService.getTodayQuote();
+    bool bookmarkedStatus = false;
+
+    if (loadedQuote != null) {
+      bookmarkedStatus =
+      await DatabaseHelper.instance.isQuoteFavorite(loadedQuote.text);
+    }
+
+    if (mounted) {
+      setState(() {
+        todayQuote = loadedQuote;
+        isBookmarked = bookmarkedStatus;
+      });
+    }
+    await _fetchAllNovenas();
+  }
+
+  Future<void> _handleRefresh() async {
+    await _loadInitialData();
   }
 
   Future<void> _fetchAllNovenas() async {
@@ -61,14 +80,14 @@ class _UserHomeState extends State<UserHome> {
 
     if (mounted) {
       setState(() {
-        // Map in-progress novenas (1-8 days done)
         inProgressNovenas = novenaLibrary.where((item) {
-          return activeOverview.any((map) => _isTitleMatch(item.title, map['title'] as String));
+          return activeOverview
+              .any((map) => _isTitleMatch(item.title, map['title'] as String));
         }).toList();
 
-        // Map fully completed novenas (9 days done)
         completedNovenas = novenaLibrary.where((item) {
-          return completedOverview.any((map) => _isTitleMatch(item.title, map['title'] as String));
+          return completedOverview
+              .any((map) => _isTitleMatch(item.title, map['title'] as String));
         }).toList();
 
         isLoading = false;
@@ -84,13 +103,82 @@ class _UserHomeState extends State<UserHome> {
         cleanDb.contains(cleanLib);
   }
 
+  // Pick background image dynamically based on quote hash code or day of year
+  String _getQuoteBackgroundImagePath() {
+    int imageIndex = 1;
+
+    if (todayQuote != null && todayQuote!.text.isNotEmpty) {
+      final int charCodeSum = todayQuote!.text.codeUnits.reduce((a, b) => a + b);
+      imageIndex = (charCodeSum % 20) + 1;
+    } else {
+      final now = DateTime.now();
+      final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
+      imageIndex = (dayOfYear % 20) + 1;
+    }
+
+    // Matching "assets/nature 1.jpg" up to "assets/nature 20.jpg"
+    return 'assets/nature/nature $imageIndex.jpg';
+  }
+
+  // Dynamic header title matching both Gospel readings and Saint quotes
+  String _getHeaderTitle() {
+    if (todayQuote == null) return 'Daily Reflection';
+
+    final authorLower = todayQuote!.author.toLowerCase();
+
+    if (authorLower.contains('gospel') ||
+        authorLower.contains('matthew') ||
+        authorLower.contains('mark') ||
+        authorLower.contains('luke') ||
+        authorLower.contains('john')) {
+      return 'The Holy Gospel';
+    } else if (authorLower.contains('saint') ||
+        authorLower.contains('st.') ||
+        authorLower.contains('pope')) {
+      return 'Words of the Saints';
+    }
+
+    return 'Daily Reflection';
+  }
+
+  Future<void> _toggleBookmark() async {
+    if (todayQuote == null) return;
+
+    final newBookmarkState = !isBookmarked;
+
+    if (newBookmarkState) {
+      await DatabaseHelper.instance.insertFavoriteQuote(
+        todayQuote!.text,
+        todayQuote!.author,
+      );
+    } else {
+      await DatabaseHelper.instance.removeFavoriteQuote(todayQuote!.text);
+    }
+
+    if (mounted) {
+      setState(() {
+        isBookmarked = newBookmarkState;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            isBookmarked
+                ? 'Saved quote to favorites!'
+                : 'Removed quote from favorites.',
+          ),
+          duration: const Duration(seconds: 2),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
   Future<void> _openNovenaDetail(ActiveNovena novena, {int? targetDay}) async {
-    // Check if this novena is marked completed (9/9 days)
     final bool isCompleted = completedNovenas.any(
           (item) => _isTitleMatch(novena.title, item.title),
     );
 
-    // Prompt to restart when tapping a completed novena from the catalog
     if (isCompleted && targetDay == null) {
       final bool? shouldRestart = await showDialog<bool>(
         context: context,
@@ -156,7 +244,6 @@ class _UserHomeState extends State<UserHome> {
   }) {
     final theme = Theme.of(context);
 
-    // Completely hides accordion wrapper if zero items exist
     if (items.isEmpty) return const SizedBox.shrink();
 
     return Padding(
@@ -174,7 +261,7 @@ class _UserHomeState extends State<UserHome> {
         child: Theme(
           data: theme.copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
-            key: ValueKey('${title}_${items.length}'), // Key forces rebuild on count change
+            key: ValueKey('${title}_${items.length}'),
             initiallyExpanded: isInitiallyExpanded,
             leading: Icon(icon, color: headerColor),
             title: Text(
@@ -191,7 +278,7 @@ class _UserHomeState extends State<UserHome> {
                 child: NovenaProgressCard(
                   novenaTitle: novena.title,
                   imagePath: novena.imagePath,
-                  onCleared: _fetchAllNovenas, // Linked callback to purge & rebuild
+                  onCleared: _fetchAllNovenas,
                   onTap: () async {
                     await _openNovenaDetail(novena);
                   },
@@ -210,6 +297,7 @@ class _UserHomeState extends State<UserHome> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final String imagePath = _getQuoteBackgroundImagePath();
 
     return DefaultTabController(
       length: 2,
@@ -217,146 +305,241 @@ class _UserHomeState extends State<UserHome> {
         builder: (context) {
           final tabController = DefaultTabController.of(context);
 
-          return CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverAppBar(
-                leading: Icon(
-                  Icons.menu,
-                  color: theme.colorScheme.onPrimary,
-                ),
-                expandedHeight: MediaQuery.of(context).size.height * 0.4,
-                backgroundColor: theme.colorScheme.primary,
-                pinned: true,
-                stretch: true,
-                bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(60),
-                  child: TabBar(
-                    labelColor: theme.colorScheme.onPrimary,
-                    unselectedLabelColor:
-                    theme.colorScheme.onPrimary.withOpacity(0.7),
-                    indicatorColor: theme.colorScheme.secondary,
-                    indicatorWeight: 3,
-                    tabs: const [
-                      Tab(icon: Icon(Icons.church)),
-                      Tab(icon: Icon(Icons.wb_sunny)),
-                    ],
+          return RefreshIndicator(
+            onRefresh: _handleRefresh,
+            edgeOffset: 100,
+            color: theme.colorScheme.primary,
+            child: CustomScrollView(
+              physics: const AlwaysScrollableScrollPhysics(
+                parent: BouncingScrollPhysics(),
+              ),
+              slivers: [
+                SliverAppBar(
+                  leading: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
                   ),
-                ),
-                flexibleSpace: FlexibleSpaceBar(
-                  titlePadding: const EdgeInsets.only(bottom: 70),
-                  centerTitle: true,
-                  title: Text(
-                    'The Word of God',
-                    style: TextStyle(
-                      color: theme.colorScheme.onPrimary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  actions: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.bookmarks_rounded,
+                        color: Colors.white,
+                      ),
+                      tooltip: 'View Saved Quotes',
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SavedQuotesScreen(),
+                          ),
+                        );
+                        _loadInitialData();
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                        color: Colors.white,
+                      ),
+                      tooltip: 'Bookmark Quote',
+                      onPressed: _toggleBookmark,
+                    ),
+                  ],
+                  expandedHeight: MediaQuery.of(context).size.height * 0.4,
+                  backgroundColor: theme.colorScheme.primary,
+                  pinned: true,
+                  stretch: true,
+                  bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(60),
+                    child: TabBar(
+                      labelColor: Colors.white,
+                      unselectedLabelColor: Colors.white.withOpacity(0.7),
+                      indicatorColor: theme.colorScheme.secondary,
+                      indicatorWeight: 3,
+                      tabs: const [
+                        Tab(icon: Icon(Icons.church)),
+                        Tab(icon: Icon(Icons.wb_sunny)),
+                      ],
                     ),
                   ),
-                  background: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          theme.colorScheme.primary,
-                          theme.colorScheme.primaryContainer,
+                  flexibleSpace: FlexibleSpaceBar(
+                    titlePadding: const EdgeInsets.only(bottom: 70),
+                    centerTitle: true,
+                    title: Text(
+                      _getHeaderTitle(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 19,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 6.0,
+                            color: Colors.black.withOpacity(0.8),
+                            offset: const Offset(0, 2),
+                          ),
                         ],
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(25, 40, 25, 100),
-                      child: Center(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: quotes
-                                .map(
-                                  (quote) => Text(
-                                '"${quote.text}"',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  height: 1.5,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0,
-                                  color: theme.colorScheme.onPrimary
-                                      .withOpacity(0.8),
-                                  fontStyle: FontStyle.italic,
+                    background: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        // Smooth Cross-Fade Animation for Background Image
+                        AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 800),
+                          switchInCurve: Curves.easeIn,
+                          switchOutCurve: Curves.easeOut,
+                          child: Image.asset(
+                            imagePath,
+                            key: ValueKey<String>(imagePath),
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                            errorBuilder: (context, error, stackTrace) {
+                              // Fallback Gradient if asset image is missing
+                              return Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      theme.colorScheme.primary,
+                                      theme.colorScheme.primaryContainer,
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            )
-                                .toList(),
+                              );
+                            },
                           ),
                         ),
-                      ),
+                        // Dark Overlay to Dim Background for Maximum Text Readability
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.black.withOpacity(0.40),
+                                Colors.black.withOpacity(0.55),
+                                Colors.black.withOpacity(0.75),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Quote Display Section
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(25, 40, 25, 100),
+                          child: Center(
+                            child: todayQuote == null
+                                ? const CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                                : SingleChildScrollView(
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '"${todayQuote!.text}"',
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      height: 1.5,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17.0,
+                                      color: Colors.white,
+                                      fontStyle: FontStyle.italic,
+                                      shadows: [
+                                        Shadow(
+                                          blurRadius: 6.0,
+                                          color: Colors.black,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    '— ${todayQuote!.author}',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14.0,
+                                      color: theme
+                                          .colorScheme.secondaryContainer,
+                                      shadows: [
+                                        Shadow(
+                                          blurRadius: 4.0,
+                                          color: Colors.black
+                                              .withOpacity(0.8),
+                                          offset: const Offset(0, 1),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              SliverToBoxAdapter(
-                child: AnimatedBuilder(
-                  animation: tabController.animation!,
-                  builder: (context, child) {
-                    final double animationValue = tabController.animation!.value;
-                    final bool isFirstTab = animationValue < 0.5;
+                SliverToBoxAdapter(
+                  child: AnimatedBuilder(
+                    animation: tabController.animation!,
+                    builder: (context, child) {
+                      final double animationValue =
+                          tabController.animation!.value;
+                      final bool isFirstTab = animationValue < 0.5;
 
-                    return Column(
-                      children: [
-                        const SizedBox(height: 20),
-
-                        if (isFirstTab) ...[
-                          if (!isLoading) ...[
-                            // 1. In-Progress Accordion
-                            _buildNovenaAccordion(
-                              context: context,
-                              title: "In Progress Novenas",
-                              icon: Icons.hourglass_top_rounded,
-                              items: inProgressNovenas,
-                              headerColor: theme.colorScheme.primary,
-                              isInitiallyExpanded: true,
+                      return Column(
+                        children: [
+                          const SizedBox(height: 20),
+                          if (isFirstTab) ...[
+                            if (!isLoading) ...[
+                              _buildNovenaAccordion(
+                                context: context,
+                                title: "In Progress Novenas",
+                                icon: Icons.hourglass_top_rounded,
+                                items: inProgressNovenas,
+                                headerColor: theme.colorScheme.primary,
+                                isInitiallyExpanded: true,
+                              ),
+                              _buildNovenaAccordion(
+                                context: context,
+                                title: "Completed Novenas",
+                                icon: Icons.check_circle_rounded,
+                                items: completedNovenas,
+                                headerColor: Colors.green,
+                                isInitiallyExpanded: false,
+                              ),
+                            ],
+                            const SizedBox(height: 12),
+                            NovenaSection(
+                              onNovenaChanged: _fetchAllNovenas,
                             ),
-
-                            // 2. Completed Accordion
-                            _buildNovenaAccordion(
-                              context: context,
-                              title: "Completed Novenas",
-                              icon: Icons.check_circle_rounded,
-                              items: completedNovenas,
-                              headerColor: Colors.green,
-                              isInitiallyExpanded: false,
+                            const SizedBox(height: 25),
+                            MyUniversalCard(
+                              title: "Gospel Of The Day",
+                              description:
+                              "Reflect your day with this Gospel verse",
+                              buttonColor: theme.colorScheme.primary,
+                              onPressed: () {},
                             ),
+                          ] else ...[
+                            const SizedBox(height: 50),
+                            Dailyprayer(),
+                            const SizedBox(height: 50),
                           ],
-
-                          const SizedBox(height: 12),
-
-                          // All Available Novenas Catalog
-                          NovenaSection(
-                            onNovenaChanged: _fetchAllNovenas,
-                          ),
-                          const SizedBox(height: 25),
-                          MyUniversalCard(
-                            title: "Gospel Of The Day",
-                            description:
-                            "Reflect your day with this Gospel verse",
-                            buttonColor: theme.colorScheme.primary,
-                            onPressed: () {},
-                          ),
-                        ] else ...[
-                          const SizedBox(height: 50),
-                          Dailyprayer(),
-                          const SizedBox(height: 50),
+                          const SizedBox(height: 20),
+                          const DashboardSection(),
+                          const SizedBox(height: 100),
                         ],
-
-                        const SizedBox(height: 20),
-                        const DashboardSection(),
-                        const SizedBox(height: 100),
-                      ],
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),

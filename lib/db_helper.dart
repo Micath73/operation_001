@@ -19,7 +19,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 5, // Bumped to 5 for Index Optimizations
+      version: 6, // Bumped to 6 for favorite_quotes table
       onCreate: _createDB,
       onUpgrade: _onUpgrade,
     );
@@ -47,6 +47,7 @@ class DatabaseHelper {
 
     await _createReadingsTable(db);
     await _createNovenaProgressTable(db);
+    await _createFavoriteQuotesTable(db);
     await _createIndexes(db);
   }
 
@@ -64,6 +65,9 @@ class DatabaseHelper {
     }
     if (oldVersion < 5) {
       await _createIndexes(db);
+    }
+    if (oldVersion < 6) {
+      await _createFavoriteQuotesTable(db);
     }
   }
 
@@ -112,6 +116,54 @@ class DatabaseHelper {
         UNIQUE(novena_title, day_number) ON CONFLICT REPLACE
       )
     ''');
+  }
+
+  Future<void> _createFavoriteQuotesTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE favorite_quotes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        text TEXT NOT NULL UNIQUE,
+        author TEXT NOT NULL
+      )
+    ''');
+  }
+
+  // --- FAVORITE QUOTES METHODS ---
+
+  Future<int> insertFavoriteQuote(String text, String author) async {
+    final db = await instance.database;
+    return await db.insert(
+      'favorite_quotes',
+      {
+        'text': text,
+        'author': author,
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<int> removeFavoriteQuote(String text) async {
+    final db = await instance.database;
+    return await db.delete(
+      'favorite_quotes',
+      where: 'text = ?',
+      whereArgs: [text],
+    );
+  }
+
+  Future<bool> isQuoteFavorite(String text) async {
+    final db = await instance.database;
+    final result = await db.query(
+      'favorite_quotes',
+      where: 'text = ?',
+      whereArgs: [text],
+    );
+    return result.isNotEmpty;
+  }
+
+  Future<List<Map<String, dynamic>>> getFavoriteQuotes() async {
+    final db = await instance.database;
+    return await db.query('favorite_quotes', orderBy: 'id DESC');
   }
 
   // --- OPTIMIZED NOVENA PROGRESS METHODS ---
