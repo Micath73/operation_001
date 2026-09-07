@@ -19,7 +19,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 6, // Bumped to 6 for favorite_quotes table
+      version: 6, // Current DB version
       onCreate: _createDB,
       onUpgrade: _onUpgrade,
     );
@@ -243,7 +243,7 @@ class DatabaseHelper {
     return result.map((row) => row['novena_title'] as String).toList();
   }
 
-  /// OPTIMIZED: Fetches all IN-PROGRESS novenas in 1 single database query
+  /// Fetches all IN-PROGRESS novenas in 1 single database query
   Future<List<Map<String, dynamic>>> getActiveNovenasOverview() async {
     final db = await instance.database;
 
@@ -265,7 +265,7 @@ class DatabaseHelper {
     }).toList();
   }
 
-  /// OPTIMIZED: Fetches all FULLY COMPLETED novenas in 1 single database query
+  /// Fetches all FULLY COMPLETED novenas in 1 single database query
   Future<List<Map<String, dynamic>>> getCompletedNovenasOverview() async {
     final db = await instance.database;
 
@@ -310,7 +310,7 @@ class DatabaseHelper {
     return await resetNovenaProgress(novenaTitle);
   }
 
-  /// OPTIMIZED: Clears ALL in-progress novenas inside a single Transaction
+  /// Clears ALL in-progress novenas inside a single Transaction
   Future<void> clearAllInProgressNovenas() async {
     final db = await instance.database;
     final activeList = await getActiveNovenasOverview();
@@ -332,7 +332,7 @@ class DatabaseHelper {
     });
   }
 
-  /// OPTIMIZED: Clears ALL completed novenas inside a single Transaction
+  /// Clears ALL completed novenas inside a single Transaction
   Future<void> clearAllCompletedNovenas() async {
     final db = await instance.database;
     final completedList = await getCompletedNovenasOverview();
@@ -413,18 +413,18 @@ class DatabaseHelper {
     if (maps.isEmpty) return 0;
 
     int streak = 0;
-    DateTime now = DateTime.now();
-    DateTime today = DateTime(now.year, now.month, now.day);
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
     DateTime expectedDate = today;
 
-    final firstLoggedDate = DateTime.parse(maps.first['date']);
+    final firstLoggedDate = DateTime.parse(maps.first['date'] as String);
     if (firstLoggedDate.isBefore(today)) {
       expectedDate = today.subtract(const Duration(days: 1));
       if (firstLoggedDate.isBefore(expectedDate)) return 0;
     }
 
     for (var map in maps) {
-      final logDate = DateTime.parse(map['date']);
+      final logDate = DateTime.parse(map['date'] as String);
       if (logDate.year == expectedDate.year &&
           logDate.month == expectedDate.month &&
           logDate.day == expectedDate.day) {
@@ -441,8 +441,8 @@ class DatabaseHelper {
       String filter,
       ) async {
     final db = await instance.database;
-    DateTime now = DateTime.now();
-    DateTime todayStart = DateTime(now.year, now.month, now.day);
+    final now = DateTime.now();
+    final todayStart = DateTime(now.year, now.month, now.day);
     String whereClause = '';
     List<dynamic> whereArgs = [];
 

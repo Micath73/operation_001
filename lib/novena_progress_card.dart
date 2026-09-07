@@ -54,31 +54,22 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
 
   Future<void> _handleActionPressed(bool isCompleted, int currentDay) async {
     if (isCompleted) {
-      // Purge from DB when restarting completed novena
       await DatabaseHelper.instance.resetNovenaProgress(widget.novenaTitle);
       if (!mounted) return;
       await refreshProgress();
       widget.onCleared?.call();
 
-      // Launch day 1 upon restart if prayer handler is bound
       if (widget.onPrayPressed != null) {
         await widget.onPrayPressed!(1);
       } else if (widget.onTap != null) {
         await widget.onTap!();
       }
-
-      if (mounted) {
-        await refreshProgress();
-        widget.onCleared?.call();
+    } else {
+      if (widget.onPrayPressed != null) {
+        await widget.onPrayPressed!(currentDay);
+      } else if (widget.onTap != null) {
+        await widget.onTap!();
       }
-      return;
-    }
-
-    // Standard continuation flow (Day 1 to 9)
-    if (widget.onPrayPressed != null) {
-      await widget.onPrayPressed!(currentDay);
-    } else if (widget.onTap != null) {
-      await widget.onTap!();
     }
 
     if (mounted) {
@@ -126,7 +117,8 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
     final isDark = theme.brightness == Brightness.dark;
 
     final deepGold = isDark ? const Color(0xFFE5C158) : const Color(0xFFC9A959);
-    final marianBlue = isDark ? const Color(0xFF6B9AC4) : const Color(0xFF1E3A5F);
+    final marianBlue =
+    isDark ? const Color(0xFF6B9AC4) : const Color(0xFF1E3A5F);
     final cardBg = isDark ? const Color(0xFF1E1C1A) : const Color(0xFFFAF8F5);
 
     final bool isCompleted = completedCount >= 9;
@@ -137,7 +129,7 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
       elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: deepGold.withOpacity(0.35), width: 1),
+        side: BorderSide(color: deepGold.withValues(alpha: 0.35), width: 1),
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -161,8 +153,9 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                         widget.imagePath,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) => Container(
-                          color: deepGold.withOpacity(0.15),
-                          child: Icon(Icons.church_rounded, color: deepGold, size: 24),
+                          color: deepGold.withValues(alpha: 0.15),
+                          child: Icon(Icons.church_rounded,
+                              color: deepGold, size: 24),
                         ),
                       ),
                     ),
@@ -180,33 +173,40 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                             fontFamily: 'Georgia',
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
-                            color: isDark ? Colors.white : const Color(0xFF2C2C2C),
+                            color:
+                            isDark ? Colors.white : const Color(0xFF2C2C2C),
                           ),
                         ),
                         const SizedBox(height: 4),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
                             color: isCompleted
-                                ? Colors.green.withOpacity(0.12)
-                                : marianBlue.withOpacity(0.1),
+                                ? Colors.green.withValues(alpha: 0.12)
+                                : marianBlue.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(
-                                isCompleted ? Icons.check_circle_rounded : Icons.auto_awesome,
+                                isCompleted
+                                    ? Icons.check_circle_rounded
+                                    : Icons.auto_awesome,
                                 size: 12,
                                 color: isCompleted ? Colors.green : marianBlue,
                               ),
                               const SizedBox(width: 4),
                               Text(
-                                isCompleted ? 'Completed ✓' : 'Day $currentDay of 9',
+                                isCompleted
+                                    ? 'Completed ✓'
+                                    : 'Day $currentDay of 9',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w600,
-                                  color: isCompleted ? Colors.green : marianBlue,
+                                  color:
+                                  isCompleted ? Colors.green : marianBlue,
                                 ),
                               ),
                             ],
@@ -220,7 +220,7 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                       icon: Icon(
                         Icons.more_vert_rounded,
                         size: 18,
-                        color: deepGold.withOpacity(0.8),
+                        color: deepGold.withValues(alpha: 0.8),
                       ),
                       onSelected: (value) {
                         if (value == 'clear') {
@@ -232,9 +232,11 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                           value: 'clear',
                           child: Row(
                             children: [
-                              Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 18),
+                              Icon(Icons.delete_outline_rounded,
+                                  color: Colors.redAccent, size: 18),
                               SizedBox(width: 8),
-                              Text('Clear Progress', style: TextStyle(color: Colors.redAccent)),
+                              Text('Clear Progress',
+                                  style: TextStyle(color: Colors.redAccent)),
                             ],
                           ),
                         ),
@@ -244,7 +246,7 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                     Icon(
                       Icons.arrow_forward_ios_rounded,
                       size: 14,
-                      color: deepGold.withOpacity(0.8),
+                      color: deepGold.withValues(alpha: 0.8),
                     ),
                 ],
               ),
@@ -261,7 +263,8 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                 Row(
                   children: List.generate(9, (index) {
                     final bool isFilled = index < completedCount;
-                    final bool isCurrent = index == completedCount && !isCompleted;
+                    final bool isCurrent =
+                        index == completedCount && !isCompleted;
 
                     return Expanded(
                       child: Container(
@@ -271,8 +274,8 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                           color: isFilled
                               ? deepGold
                               : isCurrent
-                              ? deepGold.withOpacity(0.5)
-                              : deepGold.withOpacity(0.15),
+                              ? deepGold.withValues(alpha: 0.5)
+                              : deepGold.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(3),
                         ),
                       ),
@@ -296,10 +299,13 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                   SizedBox(
                     height: 30,
                     child: ElevatedButton.icon(
-                      onPressed: () => _handleActionPressed(isCompleted, currentDay),
+                      onPressed: () =>
+                          _handleActionPressed(isCompleted, currentDay),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: isCompleted
-                            ? (isDark ? Colors.grey.shade700 : Colors.grey.shade400)
+                            ? (isDark
+                            ? Colors.grey.shade700
+                            : Colors.grey.shade400)
                             : deepGold,
                         foregroundColor: Colors.white,
                         elevation: 0,
@@ -309,7 +315,9 @@ class NovenaProgressCardState extends State<NovenaProgressCard> {
                         ),
                       ),
                       icon: Icon(
-                        isCompleted ? Icons.replay_rounded : Icons.play_arrow_rounded,
+                        isCompleted
+                            ? Icons.replay_rounded
+                            : Icons.play_arrow_rounded,
                         size: 14,
                       ),
                       label: Text(

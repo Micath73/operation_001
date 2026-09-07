@@ -23,7 +23,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
     final double fullWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.black, // Hardcoded dark base
+      backgroundColor: theme.colorScheme.surface,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -37,12 +37,12 @@ class _AngelusScreenState extends State<AngelusScreen> {
             child: Image.asset('assets/img_19.png', fit: BoxFit.cover),
           ),
 
-          // 2. Fixed Dark Blur Scrim (Immune to Light/Dark Mode switches)
+          // 2. Fixed Dark Blur Scrim
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
-                child: Container(color: Colors.black.withAlpha(140)),
+                child: Container(color: Colors.black.withValues(alpha: 0.55)),
               ),
             ),
           ),
@@ -67,9 +67,9 @@ class _AngelusScreenState extends State<AngelusScreen> {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.black.withAlpha(160), // Dark glass fill
+                      color: Colors.black.withValues(alpha: 0.63),
                       border: Border.all(
-                        color: Colors.white.withAlpha(40), // Glass border
+                        color: Colors.white.withValues(alpha: 0.16),
                         width: 1.2,
                       ),
                     ),
@@ -88,7 +88,9 @@ class _AngelusScreenState extends State<AngelusScreen> {
                             shadows: [
                               Shadow(
                                 blurRadius: 10.0,
-                                color: theme.colorScheme.secondary.withAlpha(128),
+                                color: theme.colorScheme.secondary.withValues(
+                                  alpha: 0.5,
+                                ),
                                 offset: const Offset(0, 0),
                               ),
                             ],
@@ -100,7 +102,9 @@ class _AngelusScreenState extends State<AngelusScreen> {
                         Container(
                           width: 40,
                           height: 1.5,
-                          color: theme.colorScheme.secondary.withAlpha(180),
+                          color: theme.colorScheme.secondary.withValues(
+                            alpha: 0.7,
+                          ),
                         ),
                         const SizedBox(height: 20),
 
@@ -115,14 +119,16 @@ class _AngelusScreenState extends State<AngelusScreen> {
                                     : '"The Angel of the Lord declared unto Mary, and she conceived of the Holy Spirit."',
                                 textAlign: TextAlign.center,
                                 style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: Colors.white.withAlpha(230), // Explicit crisp white
+                                  color: Colors.white.withValues(alpha: 0.9),
                                   fontStyle: FontStyle.italic,
                                   fontSize: 16,
                                   height: 1.5,
                                   shadows: [
                                     Shadow(
                                       blurRadius: 6,
-                                      color: Colors.black.withAlpha(180),
+                                      color: Colors.black.withValues(
+                                        alpha: 0.7,
+                                      ),
                                       offset: const Offset(1, 1),
                                     ),
                                   ],
@@ -150,7 +156,9 @@ class _AngelusScreenState extends State<AngelusScreen> {
                               backgroundColor: theme.colorScheme.primary,
                               foregroundColor: theme.colorScheme.onPrimary,
                               elevation: 6,
-                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 14,
+                              ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
@@ -165,11 +173,13 @@ class _AngelusScreenState extends State<AngelusScreen> {
                                   reverseTransitionDuration: const Duration(
                                     milliseconds: 400,
                                   ),
-                                  pageBuilder:
-                                      (context, animation, secondaryAnimation) =>
-                                      AngelusPrayerSession(
-                                        isAmharic: widget.isAmharic,
-                                      ),
+                                  pageBuilder: (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      ) => AngelusPrayerSession(
+                                    isAmharic: widget.isAmharic,
+                                  ),
                                   transitionsBuilder: (
                                       context,
                                       animation,

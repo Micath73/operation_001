@@ -61,7 +61,9 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                child: Container(color: Colors.black.withAlpha(140)),
+                child: Container(
+                  color: Colors.black.withValues(alpha: 0.55),
+                ),
               ),
             ),
           ),
@@ -85,7 +87,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: Colors.white.withAlpha(46),
+                          color: Colors.white.withValues(alpha: 0.18),
                           width: 1.2,
                         ),
                       ),
@@ -94,7 +96,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                           child: Container(
-                            color: Colors.black.withAlpha(64), // Dark translucent fill
+                            color: Colors.black.withValues(alpha: 0.25),
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -159,8 +161,8 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                             _formatDuration(_currentPosition),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withAlpha(
-                                                153,
+                                              color: Colors.white.withValues(
+                                                alpha: 0.6,
                                               ),
                                             ),
                                           ),
@@ -173,7 +175,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                                 activeTrackColor:
                                                 theme.colorScheme.secondary,
                                                 inactiveTrackColor: Colors.white
-                                                    .withAlpha(51),
+                                                    .withValues(alpha: 0.2),
                                                 thumbColor:
                                                 theme.colorScheme.secondary,
                                                 thumbShape:
@@ -201,8 +203,8 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                             _formatDuration(_totalDuration),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withAlpha(
-                                                153,
+                                              color: Colors.white.withValues(
+                                                alpha: 0.6,
                                               ),
                                             ),
                                           ),
@@ -406,10 +408,10 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
         radius: 20,
         gradient: LinearGradient(
           colors: [
-            theme.colorScheme.secondary.withAlpha(166),
-            Colors.white.withAlpha(26),
-            theme.colorScheme.primary.withAlpha(89),
-            Colors.white.withAlpha(128),
+            theme.colorScheme.secondary.withValues(alpha: 0.65),
+            Colors.white.withValues(alpha: 0.1),
+            theme.colorScheme.primary.withValues(alpha: 0.35),
+            Colors.white.withValues(alpha: 0.5),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -419,7 +421,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
         width: double.infinity,
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Colors.black.withAlpha(64),
+          color: Colors.black.withValues(alpha: 0.25),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -434,26 +436,26 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                 shadows: [
                   Shadow(
                     blurRadius: 8,
-                    color: Colors.black.withAlpha(153),
+                    color: Colors.black.withValues(alpha: 0.6),
                     offset: const Offset(0, 2),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 8),
-            Divider(color: Colors.white.withAlpha(64), thickness: 1),
+            Divider(color: Colors.white.withValues(alpha: 0.25), thickness: 1),
             const SizedBox(height: 10),
             Text(
               content,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: Colors.white.withAlpha(242),
+                color: Colors.white.withValues(alpha: 0.95),
                 height: 1.55,
                 shadows: [
                   Shadow(
                     blurRadius: 6,
-                    color: Colors.black.withAlpha(204),
+                    color: Colors.black.withValues(alpha: 0.8),
                     offset: const Offset(1, 1),
                   ),
                 ],
@@ -491,5 +493,9 @@ class GradientBorderPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant GradientBorderPainter oldDelegate) {
+    return oldDelegate.strokeWidth != strokeWidth ||
+        oldDelegate.radius != radius ||
+        oldDelegate.gradient != gradient;
+  }
 }

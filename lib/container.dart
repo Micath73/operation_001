@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:operation_001/new_prayer_template_page.dart';
 import 'package:operation_001/angelus_screen.dart';
 import 'package:operation_001/chapel_screen.dart';
 import 'package:operation_001/expansion_tile.dart';
+import 'package:operation_001/new_prayer_template_page.dart';
 import 'package:operation_001/novena_combo.dart';
 import 'package:operation_001/rosary_screen.dart';
 
-class Contain extends StatefulWidget {
+class Contain extends StatelessWidget {
   final String title;
   final List<NovenaCombo> prayers;
 
@@ -16,11 +16,6 @@ class Contain extends StatefulWidget {
     required this.prayers,
   });
 
-  @override
-  State<Contain> createState() => _ContainState();
-}
-
-class _ContainState extends State<Contain> {
   void _navigateToPrayer(BuildContext context, NovenaCombo prayer) {
     Widget destinationPage;
 
@@ -29,10 +24,10 @@ class _ContainState extends State<Contain> {
         destinationPage = const MorningPsalmPage();
         break;
       case 'Angelus':
-        destinationPage = AngelusScreen();
+        destinationPage = const AngelusScreen();
         break;
       case 'Divine Mercy Chaplet':
-        destinationPage = ChapletScreen();
+        destinationPage = const ChapletScreen();
         break;
       case 'Rosary':
         destinationPage = RosaryDetailScreen(
@@ -63,15 +58,15 @@ class _ContainState extends State<Contain> {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: theme.colorScheme.surfaceContainerHighest,
+          color: theme.colorScheme.surfaceContainerLow,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: theme.colorScheme.primary.withAlpha(38),
+            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.4),
             width: 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withAlpha(25),
+              color: theme.colorScheme.shadow.withValues(alpha: 0.05),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -81,14 +76,14 @@ class _ContainState extends State<Contain> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.title,
+              title,
               style: theme.textTheme.titleLarge?.copyWith(
-                color: theme.colorScheme.secondary,
+                color: theme.colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 16),
-            ...widget.prayers.map((prayer) {
+            ...prayers.map((prayer) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Material(
@@ -113,7 +108,7 @@ class _ContainState extends State<Contain> {
                               fit: BoxFit.cover,
                               errorBuilder: (context, error, stackTrace) => Icon(
                                 Icons.image_not_supported,
-                                color: theme.colorScheme.onSurface.withAlpha(153),
+                                color: theme.colorScheme.onSurfaceVariant,
                               ),
                             ),
                           ),
@@ -129,7 +124,8 @@ class _ContainState extends State<Contain> {
                           ),
                           Icon(
                             Icons.chevron_right,
-                            color: theme.colorScheme.onSurface.withAlpha(102),
+                            color: theme.colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.6),
                             size: 20,
                           ),
                         ],

@@ -13,26 +13,26 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
   bool isAmharic = false;
 
   final int dayNumber = DateTime.now().weekday;
-  final List<String> weekDay = [
-    '',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
-  final List<String> weekdays = [
-    '',
-    'ሰኞ',
-    'ማክሰኞ',
-    'ረቡዕ',
-    'ሐሙስ',
-    'አርብ',
-    'ቅዳሜ',
-    'እሁድ',
-  ];
+
+  static const Map<int, String> _weekDaysEn = {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+    7: 'Sunday',
+  };
+
+  static const Map<int, String> _weekDaysAm = {
+    1: 'ሰኞ',
+    2: 'ማክሰኞ',
+    3: 'ረቡዕ',
+    4: 'ሐሙስ',
+    5: 'አርብ',
+    6: 'ቅዳሜ',
+    7: 'እሁድ',
+  };
 
   final List<PrayerStep> prayerSequence = [
     PrayerStep(
@@ -192,12 +192,15 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
     final bool isSorrowfulDay = (dayNumber == 2 || dayNumber == 5);
     final double screenWidth = MediaQuery.of(context).size.width;
 
-    const titleStyle = TextStyle(
-      fontSize: 30.0,
+    final titleStyle = theme.textTheme.headlineMedium?.copyWith(
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: theme.colorScheme.onPrimary,
       shadows: [
-        Shadow(blurRadius: 12.0, color: Colors.black, offset: Offset(2, 2)),
+        Shadow(
+          blurRadius: 12.0,
+          color: theme.colorScheme.scrim,
+          offset: const Offset(2, 2),
+        ),
       ],
     );
 
@@ -212,8 +215,8 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
             child: Text(
               isAmharic ? 'የሕማማት ምሥጢር' : 'The Sorrowful Mystery',
               key: ValueKey<bool>(isAmharic),
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: theme.colorScheme.onPrimary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -221,14 +224,14 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: TextButton(
               onPressed: () => setState(() => isAmharic = !isAmharic),
               style: TextButton.styleFrom(
-                backgroundColor: Colors.white.withAlpha(30),
+                backgroundColor: theme.colorScheme.surface.withValues(alpha: 0.2),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -236,7 +239,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
               child: Text(
                 isAmharic ? 'EN' : 'አማ',
                 style: TextStyle(
-                  color: theme.colorScheme.secondary,
+                  color: theme.colorScheme.onPrimary,
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 ),
@@ -255,9 +258,11 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
             ),
           ),
 
-          // Standard Semi-Transparent Dark Overlay
+          // M3 Compliant Scrim Overlay
           Positioned.fill(
-            child: Container(color: Colors.black.withAlpha(125)),
+            child: Container(
+              color: theme.colorScheme.scrim.withValues(alpha: 0.5),
+            ),
           ),
 
           // Content Layer
@@ -274,18 +279,19 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withAlpha(30),
+                        color: theme.colorScheme.surface.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: Colors.white.withAlpha(50),
+                          color: theme.colorScheme.outlineVariant
+                              .withValues(alpha: 0.3),
                         ),
                       ),
                       child: _buildAnimatedText(
                         isAmharic
-                            ? 'ዛሬ ${weekdays[dayNumber]} ነው (የሕማማት ምሥጢር)'
-                            : 'Today is ${weekDay[dayNumber]} (Sorrowful Mystery)',
-                        const TextStyle(
-                          color: Colors.white,
+                            ? 'ዛሬ ${_weekDaysAm[dayNumber] ?? ''} ነው (የሕማማት ምሥጢር)'
+                            : 'Today is ${_weekDaysEn[dayNumber] ?? ''} (Sorrowful Mystery)',
+                        TextStyle(
+                          color: theme.colorScheme.onPrimary,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -296,7 +302,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
                     isAmharic
                         ? 'በሕማማት ምሥጢር\nእናሰላስል'
                         : 'Let\'s Meditate Through The Sorrowful Mystery',
-                    titleStyle,
+                    titleStyle ?? const TextStyle(),
                   ),
                   const Spacer(flex: 3),
                   SizedBox(
@@ -320,7 +326,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(28),
                         ),
-                        elevation: 8,
+                        elevation: 4,
                       ),
                       child: Text(
                         isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',

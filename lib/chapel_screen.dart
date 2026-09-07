@@ -21,7 +21,7 @@ class _ChapletScreenState extends State<ChapletScreen> {
     final double fullWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.black, // Hardcoded dark base
+      backgroundColor: theme.colorScheme.surface,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -35,12 +35,12 @@ class _ChapletScreenState extends State<ChapletScreen> {
             child: Image.asset('assets/img_3.png', fit: BoxFit.cover),
           ),
 
-          // 2. Fixed Dark Blur Scrim (Immune to Light/Dark Mode switches)
+          // 2. Fixed Dark Blur Scrim
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
-                child: Container(color: Colors.black.withAlpha(140)),
+                child: Container(color: Colors.black.withValues(alpha: 0.55)),
               ),
             ),
           ),
@@ -65,9 +65,9 @@ class _ChapletScreenState extends State<ChapletScreen> {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.black.withAlpha(160), // Dark glass fill
+                      color: Colors.black.withValues(alpha: 0.63),
                       border: Border.all(
-                        color: Colors.white.withAlpha(40), // Glass border
+                        color: Colors.white.withValues(alpha: 0.16),
                         width: 1.2,
                       ),
                     ),
@@ -86,7 +86,9 @@ class _ChapletScreenState extends State<ChapletScreen> {
                             shadows: [
                               Shadow(
                                 blurRadius: 10.0,
-                                color: theme.colorScheme.secondary.withAlpha(128),
+                                color: theme.colorScheme.secondary.withValues(
+                                  alpha: 0.5,
+                                ),
                                 offset: const Offset(0, 0),
                               ),
                             ],
@@ -98,7 +100,9 @@ class _ChapletScreenState extends State<ChapletScreen> {
                         Container(
                           width: 40,
                           height: 1.5,
-                          color: theme.colorScheme.secondary.withAlpha(180),
+                          color: theme.colorScheme.secondary.withValues(
+                            alpha: 0.7,
+                          ),
                         ),
                         const SizedBox(height: 20),
 
@@ -111,14 +115,16 @@ class _ChapletScreenState extends State<ChapletScreen> {
                                 '"My daughter, encourage souls to say the chaplet which I have given you. It pleases Me to grant everything they ask of Me by saying the chaplet."',
                                 textAlign: TextAlign.center,
                                 style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: Colors.white.withAlpha(230), // Explicit crisp white
+                                  color: Colors.white.withValues(alpha: 0.9),
                                   fontStyle: FontStyle.italic,
                                   fontSize: 16,
                                   height: 1.5,
                                   shadows: [
                                     Shadow(
                                       blurRadius: 6,
-                                      color: Colors.black.withAlpha(180),
+                                      color: Colors.black.withValues(
+                                        alpha: 0.7,
+                                      ),
                                       offset: const Offset(1, 1),
                                     ),
                                   ],
@@ -161,9 +167,11 @@ class _ChapletScreenState extends State<ChapletScreen> {
                                   reverseTransitionDuration: const Duration(
                                     milliseconds: 400,
                                   ),
-                                  pageBuilder:
-                                      (context, animation, secondaryAnimation) =>
-                                  const DivineMercyChaplet(),
+                                  pageBuilder: (
+                                      context,
+                                      animation,
+                                      secondaryAnimation,
+                                      ) => const DivineMercyChaplet(),
                                   transitionsBuilder: (
                                       context,
                                       animation,

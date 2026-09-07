@@ -100,7 +100,7 @@ class Dailyprayer extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: theme.colorScheme.primary,
+                color: theme.colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -114,7 +114,7 @@ class Dailyprayer extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AngelusScreen(),
+                            builder: (context) => const AngelusScreen(),
                           ),
                         );
                       },
@@ -149,7 +149,7 @@ class Dailyprayer extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ChapletScreen(),
+                            builder: (context) => const ChapletScreen(),
                           ),
                         );
                       },
@@ -160,15 +160,19 @@ class Dailyprayer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          const Contain(title: 'Morning Prayers', prayers: morningPrayers),
+          Contain(title: 'Morning Prayers', prayers: morningPrayers),
           const SizedBox(height: 24),
-          const Contain(title: 'Mid-Day Prayers', prayers: midDayPrayers),
+          Contain(title: 'Mid-Day Prayers', prayers: midDayPrayers),
           const SizedBox(height: 24),
-          const Contain(title: 'Evening Prayers', prayers: eveningPrayers),
+          Contain(title: 'Evening Prayers', prayers: eveningPrayers),
           const SizedBox(height: 24),
-          const Contain(title: 'Intercession Prayers', prayers: intercessionPrayers),
+          Contain(
+            title: 'Intercession Prayers',
+            prayers: intercessionPrayers,
+          ),
           const SizedBox(height: 24),
-          const Contain(title: 'Other Prayers', prayers: otherPrayers),
+          Contain(title: 'Other Prayers', prayers: otherPrayers),
+          const SizedBox(height: 24),
         ],
       ),
     );
@@ -198,6 +202,10 @@ class Dailyprayer extends StatelessWidget {
                 child: SvgPicture.asset(
                   svgAsset,
                   fit: BoxFit.contain,
+                  colorFilter: ColorFilter.mode(
+                    theme.colorScheme.primary,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
               const SizedBox(height: 4),

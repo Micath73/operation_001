@@ -17,13 +17,13 @@ class DashboardSection extends StatefulWidget {
 
 class _DashboardSectionState extends State<DashboardSection> {
   String selectedDay = 'Mon';
-  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   @override
   void initState() {
     super.initState();
     int todayWeekday = DateTime.now().weekday; // 1 = Mon, 7 = Sun
-    List<String> dayMap = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+    List<String> dayMap = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     selectedDay = dayMap[todayWeekday - 1];
   }
 
@@ -38,6 +38,7 @@ class _DashboardSectionState extends State<DashboardSection> {
       case 'Wed':
       case 'Sun':
         return const GloriousScreen();
+      case 'Thu':
       case 'Thur':
         return const LuminousScreen();
       default:
@@ -63,7 +64,7 @@ class _DashboardSectionState extends State<DashboardSection> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
               side: BorderSide(
-                color: theme.colorScheme.secondary.withAlpha(76),
+                color: theme.colorScheme.secondary.withValues(alpha: 0.3),
                 width: 1,
               ),
             ),
@@ -96,7 +97,7 @@ class _DashboardSectionState extends State<DashboardSection> {
               color: theme.colorScheme.surfaceContainerHigh,
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: theme.colorScheme.primary.withAlpha(38),
+                color: theme.colorScheme.primary.withValues(alpha: 0.15),
                 width: 1,
               ),
             ),
@@ -146,7 +147,9 @@ class _DashboardSectionState extends State<DashboardSection> {
                                 border: Border.all(
                                   color: isSelected
                                       ? theme.colorScheme.secondary
-                                      : theme.colorScheme.outline.withAlpha(38),
+                                      : theme.colorScheme.outline.withValues(
+                                    alpha: 0.15,
+                                  ),
                                   width: isSelected ? 1.5 : 1,
                                 ),
                               ),

@@ -5,17 +5,18 @@ import 'package:operation_001/quote.dart';
 class QuoteService {
   static Future<Quote> getTodayQuote() async {
     try {
-      final String response = await rootBundle.loadString('assets/json/quotes.json');
+      final String response =
+      await rootBundle.loadString('assets/json/quotes.json');
       final List<dynamic> data = jsonDecode(response);
 
       if (data.isEmpty) {
         return _fallbackQuote();
       }
 
-      // Calculate current day number of the year (1..365)
+      // Calculate current day number of the year (1..365/366)
       final now = DateTime.now();
       final startOfYear = DateTime(now.year, 1, 1);
-      final dayOfYear = now.difference(startOfYear).inDays;
+      final dayOfYear = now.difference(startOfYear).inDays + 1;
 
       // Wrap around using modulo arithmetic
       final index = dayOfYear % data.length;

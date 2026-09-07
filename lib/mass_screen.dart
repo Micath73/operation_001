@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MassScreen extends StatefulWidget {
+class MassScreen extends StatelessWidget {
   const MassScreen({super.key});
 
-  @override
-  State<MassScreen> createState() => _MassScreenState();
-}
+  static const List<String> _massParts = [
+    "Introductory Rites",
+    "Liturgy of the Word",
+    "Liturgy of the Eucharist",
+    "Concluding Rites",
+  ];
 
-class _MassScreenState extends State<MassScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -54,10 +56,13 @@ class _MassScreenState extends State<MassScreen> {
       padding: const EdgeInsets.all(16.0),
       children: [
         Card(
-          elevation: 2,
-          color: theme.colorScheme.surface,
+          elevation: 0,
+          color: theme.colorScheme.surfaceContainerLow,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+            side: BorderSide(
+              color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -116,7 +121,7 @@ class _MassScreenState extends State<MassScreen> {
         color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: theme.colorScheme.primary.withValues(alpha: 0.1),
+          color: theme.colorScheme.primary.withValues(alpha: 0.12),
         ),
       ),
       child: Column(
@@ -138,22 +143,20 @@ class _MassScreenState extends State<MassScreen> {
 
   Widget _buildOrderOfMassTab(BuildContext context) {
     final theme = Theme.of(context);
-    final List<String> parts = [
-      "Introductory Rites",
-      "Liturgy of the Word",
-      "Liturgy of the Eucharist",
-      "Concluding Rites",
-    ];
 
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
-      itemCount: parts.length,
+      itemCount: _massParts.length,
       itemBuilder: (context, index) {
         return Card(
-          elevation: 1,
+          elevation: 0,
+          color: theme.colorScheme.surfaceContainerLow,
           margin: const EdgeInsets.only(bottom: 12.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+            side: BorderSide(
+              color: theme.colorScheme.outlineVariant.withValues(alpha: 0.4),
+            ),
           ),
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(
@@ -169,10 +172,15 @@ class _MassScreenState extends State<MassScreen> {
               ),
             ),
             title: Text(
-              parts[index],
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              _massParts[index],
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+            trailing: Icon(
+              Icons.chevron_right_rounded,
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
             onTap: () {
               // Navigation to specific Mass section detail
             },

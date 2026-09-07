@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'daily_reading_model.dart';
-import 'readings_database_helper.dart';
+import 'package:operation_001/daily_reading_model.dart';
+import 'package:operation_001/readings_database_helper.dart';
 
 class ReadingsService {
   final ReadingsDatabaseHelper _dbHelper = ReadingsDatabaseHelper.instance;
@@ -19,14 +19,18 @@ class ReadingsService {
     final cachedData = await _dbHelper.getReadingByDate(dateKey);
     if (cachedData != null) {
       if (kDebugMode) {
-        print("⚡ [CACHE HIT] Loaded reading from local SQLite for $dateKey");
+        debugPrint(
+          "⚡ [CACHE HIT] Loaded reading from local SQLite for $dateKey",
+        );
       }
       return cachedData;
     }
 
     // 2. Fetch live data from API
     if (kDebugMode) {
-      print("🌐 [CACHE MISS] Fetching live readings from API for $dateKey...");
+      debugPrint(
+        "🌐 [CACHE MISS] Fetching live readings from API for $dateKey...",
+      );
     }
 
     try {
@@ -35,13 +39,13 @@ class ReadingsService {
       if (liveReading != null) {
         await _dbHelper.insertReading(liveReading);
         if (kDebugMode) {
-          print("💾 [DATABASE] Cached reading for $dateKey locally.");
+          debugPrint("💾 [DATABASE] Cached reading for $dateKey locally.");
         }
         return liveReading;
       }
     } catch (e) {
       if (kDebugMode) {
-        print("⚠️ Network or parse error for $dateKey: $e");
+        debugPrint("⚠️ Network or parse error for $dateKey: $e");
       }
     }
 
@@ -81,7 +85,7 @@ class ReadingsService {
     if (fetchedReadings.isNotEmpty) {
       await _dbHelper.insertBatchReadings(fetchedReadings);
       if (kDebugMode) {
-        print(
+        debugPrint(
           "📦 [PREFETCH] Successfully batch-cached ${fetchedReadings.length} readings.",
         );
       }
@@ -107,7 +111,7 @@ class ReadingsService {
       // Guard against HTML error pages returned with 200 status
       if (rawBody.startsWith('<!DOCTYPE') || rawBody.startsWith('<html')) {
         if (kDebugMode) {
-          print("ℹ️ Readings not yet available on API for date: $dateKey");
+          debugPrint("ℹ️ Readings not yet available on API for date: $dateKey");
         }
         return null;
       }

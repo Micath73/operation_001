@@ -13,7 +13,8 @@ class _LuminousScreenState extends State<LuminousScreen> {
   bool isAmharic = false;
 
   final int dayNumber = DateTime.now().weekday;
-  final List<String> weekDay = [
+
+  static const List<String> weekDay = [
     '',
     'Monday',
     'Tuesday',
@@ -23,7 +24,8 @@ class _LuminousScreenState extends State<LuminousScreen> {
     'Saturday',
     'Sunday',
   ];
-  final List<String> weekdays = [
+
+  static const List<String> weekdays = [
     '',
     'ሰኞ',
     'ማክሰኞ',
@@ -226,7 +228,7 @@ class _LuminousScreenState extends State<LuminousScreen> {
             child: TextButton(
               onPressed: () => setState(() => isAmharic = !isAmharic),
               style: TextButton.styleFrom(
-                backgroundColor: Colors.white.withAlpha(30),
+                backgroundColor: Colors.white.withValues(alpha: 0.12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -255,7 +257,7 @@ class _LuminousScreenState extends State<LuminousScreen> {
 
           // Standard Overlay
           Positioned.fill(
-            child: Container(color: Colors.black.withAlpha(125)),
+            child: Container(color: Colors.black.withValues(alpha: 0.49)),
           ),
 
           // Content Layer
@@ -272,10 +274,10 @@ class _LuminousScreenState extends State<LuminousScreen> {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withAlpha(30),
+                        color: Colors.white.withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: Colors.white.withAlpha(50),
+                          color: Colors.white.withValues(alpha: 0.2),
                         ),
                       ),
                       child: _buildAnimatedText(

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:operation_001/theme.dart'; // Adjust path if needed
 import 'package:operation_001/db_helper.dart';
 
 class PrePrayerIntentionScreen extends StatefulWidget {
@@ -94,29 +95,28 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
   }
 
   Future<bool?> _confirmDeleteDialog(int id) {
+    final theme = Theme.of(context);
     return showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF160D29).withValues(alpha: 0.95),
+        backgroundColor: AppTheme.darkSurface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
         ),
         title: Text(
           widget.isAmharic ? 'የጸሎት ጥያቄውን ይሰርዙ?' : 'Delete Intention?',
-          style: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Georgia',
-            fontSize: 18,
+          style: theme.textTheme.titleLarge?.copyWith(
+            color: AppTheme.textLight,
+            fontWeight: FontWeight.bold,
           ),
         ),
         content: Text(
           widget.isAmharic
               ? 'ይህንን የጸሎት ሃሳብ እርግጠኛ ሆነው ማጥፋት ይፈልጋሉ?'
               : 'Are you sure you want to delete this prayer intention?',
-          style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.8),
-            fontSize: 14,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            color: AppTheme.textLight.withValues(alpha: 0.8),
           ),
         ),
         actions: [
@@ -124,14 +124,16 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
             onPressed: () => Navigator.pop(ctx, false),
             child: Text(
               widget.isAmharic ? 'ተመለስ' : 'Cancel',
-              style: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: AppTheme.textMutedDark,
+              ),
             ),
           ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
             child: Text(
               widget.isAmharic ? 'አጥፋ' : 'Delete',
-              style: const TextStyle(
+              style: theme.textTheme.labelSmall?.copyWith(
                 color: Colors.redAccent,
                 fontWeight: FontWeight.bold,
               ),
@@ -171,7 +173,11 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
+      backgroundColor: AppTheme.darkBackground,
       resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
@@ -190,7 +196,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
           SafeArea(
             child: Column(
               children: [
-                // Header section optimized to eliminate overflow risk
+                // App Theme Header Bar
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16.0,
@@ -208,11 +214,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                                   : 'PRAYER INTENTIONS',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontFamily: 'Georgia',
-                                fontSize: 18,
+                              style: theme.textTheme.titleLarge?.copyWith(
+                                color: AppTheme.softGoldDark,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFE8B84B),
                                 letterSpacing: 1.0,
                               ),
                             ),
@@ -221,29 +225,28 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                               widget.prayerCategory,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: Colors.white.withValues(alpha: 0.7),
-                                fontSize: 12,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                color: AppTheme.textLight.withValues(alpha: 0.7),
                               ),
                             ),
                           ],
                         ),
                       ),
                       const SizedBox(width: 8),
-                      // Compact Skip Button preventing overflows
+                      // Skip Button Bound to Soft Gold Accent
                       InkWell(
                         onTap: _proceedToPrayer,
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
+                            horizontal: 12,
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFE8B84B).withValues(alpha: 0.15),
+                            color: AppTheme.softGoldDark.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: const Color(0xFFE8B84B).withValues(alpha: 0.4),
+                              color: AppTheme.softGoldDark.withValues(alpha: 0.4),
                             ),
                           ),
                           child: Row(
@@ -251,17 +254,16 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                             children: [
                               Text(
                                 widget.isAmharic ? 'ይለፉ' : 'Skip',
-                                style: const TextStyle(
-                                  color: Color(0xFFE8B84B),
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  color: AppTheme.softGoldDark,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12,
                                 ),
                               ),
                               const SizedBox(width: 4),
                               const Icon(
                                 Icons.arrow_forward_ios_rounded,
                                 size: 11,
-                                color: Color(0xFFE8B84B),
+                                color: AppTheme.softGoldDark,
                               ),
                             ],
                           ),
@@ -278,7 +280,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildIntentionInputCard(),
+                        _buildIntentionInputCard(context),
                         const SizedBox(height: 24),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -287,19 +289,15 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                               widget.isAmharic
                                   ? 'የተመዘገቡ የጸሎት ጥያቄዎች'
                                   : 'Petitions & Intentions',
-                              style: const TextStyle(
-                                fontFamily: 'Georgia',
-                                color: Colors.white,
-                                fontSize: 16,
+                              style: theme.textTheme.titleLarge?.copyWith(
+                                color: AppTheme.textLight,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             Text(
                               _formatDate(null),
-                              style: TextStyle(
-                                color: const Color(0xFFE8B84B)
-                                    .withValues(alpha: 0.9),
-                                fontSize: 12,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                color: AppTheme.softGoldDark,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -311,12 +309,12 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 30),
                             child: CircularProgressIndicator(
-                              color: Color(0xFFE8B84B),
+                              color: AppTheme.softGoldDark,
                             ),
                           ),
                         )
                             : _intentions.isEmpty
-                            ? _buildEmptyState()
+                            ? _buildEmptyState(context)
                             : ListView.builder(
                           shrinkWrap: true,
                           physics:
@@ -324,6 +322,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                           itemCount: _intentions.length,
                           itemBuilder: (context, index) {
                             return _buildIntentionTile(
+                              context,
                               _intentions[index],
                             );
                           },
@@ -332,13 +331,14 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     ),
                   ),
                 ),
+                // Bottom Button using Marian Blue Primary Theme Color
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 14,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.4),
+                    color: AppTheme.darkSurface.withValues(alpha: 0.9),
                     border: const Border(
                       top: BorderSide(color: Colors.white12),
                     ),
@@ -347,8 +347,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFE8B84B),
-                        foregroundColor: const Color(0xFF120A21),
+                        backgroundColor: colorScheme.primary,
+                        foregroundColor: colorScheme.onPrimary,
                         padding: const EdgeInsets.symmetric(vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
@@ -358,9 +358,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                       onPressed: _proceedToPrayer,
                       child: Text(
                         widget.isAmharic ? 'ጸሎቱን ጀምር' : 'BEGIN PRAYER NOW',
-                        style: const TextStyle(
-                          fontFamily: 'Georgia',
-                          fontSize: 15,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: colorScheme.onPrimary,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.2,
                         ),
@@ -376,11 +375,13 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
     );
   }
 
-  Widget _buildIntentionInputCard() {
+  Widget _buildIntentionInputCard(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.35),
+        color: AppTheme.darkCard.withValues(alpha: 0.65),
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
       ),
@@ -392,10 +393,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
             children: [
               Text(
                 widget.isAmharic ? 'አዲስ የጸሎት ሃሳብ አክል' : 'Add Prayer Intention',
-                style: const TextStyle(
-                  color: Color(0xFFE8B84B),
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: AppTheme.softGoldDark,
                   fontWeight: FontWeight.w600,
-                  fontSize: 14,
                 ),
               ),
               IconButton(
@@ -403,7 +403,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                   _isAddingNew
                       ? Icons.keyboard_arrow_up
                       : Icons.add_circle_outline,
-                  color: const Color(0xFFE8B84B),
+                  color: AppTheme.softGoldDark,
                 ),
                 onPressed: () => setState(() => _isAddingNew = !_isAddingNew),
               ),
@@ -416,8 +416,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                 widget.isAmharic
                     ? 'በዚህ ጸሎት ምን መጠየቅ ይፈልጋሉ? ለማከል እዚህ ይጫኑ...'
                     : 'Tap here to speak your mind & add a petition...',
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.5),
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: AppTheme.textLight.withValues(alpha: 0.5),
                   fontSize: 13,
                 ),
               ),
@@ -426,17 +426,20 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
             const SizedBox(height: 10),
             TextField(
               controller: _titleController,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: AppTheme.textLight,
+                fontSize: 14,
+              ),
               decoration: InputDecoration(
                 hintText: widget.isAmharic
                     ? 'ርዕስ (ለምሳሌ፦ ስለ ቤተሰብ ሰላም)'
                     : 'Title (e.g. For Family Health)',
-                hintStyle: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.4),
+                hintStyle: theme.textTheme.bodyLarge?.copyWith(
+                  color: AppTheme.textLight.withValues(alpha: 0.4),
                   fontSize: 13,
                 ),
                 filled: true,
-                fillColor: Colors.black.withValues(alpha: 0.4),
+                fillColor: AppTheme.darkBackground.withValues(alpha: 0.5),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 14,
                   vertical: 12,
@@ -451,17 +454,20 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
             TextField(
               controller: _detailsController,
               maxLines: 3,
-              style: const TextStyle(color: Colors.white, fontSize: 13),
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: AppTheme.textLight,
+                fontSize: 13,
+              ),
               decoration: InputDecoration(
                 hintText: widget.isAmharic
                     ? 'ዝርዝር መግለጫ ወይም የልብዎን ሀሳብ ይጻፉ (አማራጭ)...'
                     : 'Write out your detailed prayer intention or thoughts (optional)...',
-                hintStyle: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.4),
+                hintStyle: theme.textTheme.bodyLarge?.copyWith(
+                  color: AppTheme.textLight.withValues(alpha: 0.4),
                   fontSize: 12,
                 ),
                 filled: true,
-                fillColor: Colors.black.withValues(alpha: 0.4),
+                fillColor: AppTheme.darkBackground.withValues(alpha: 0.5),
                 contentPadding: const EdgeInsets.all(14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -474,8 +480,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
               alignment: Alignment.centerRight,
               child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFE8B84B),
-                  foregroundColor: const Color(0xFF120A21),
+                  backgroundColor: AppTheme.softGoldDark,
+                  foregroundColor: AppTheme.textDark,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -487,11 +493,17 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                   height: 18,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    color: Color(0xFF120A21),
+                    color: AppTheme.textDark,
                   ),
                 )
                     : const Icon(Icons.check_rounded, size: 18),
-                label: Text(widget.isAmharic ? 'መዝግብ' : 'Save Petition'),
+                label: Text(
+                  widget.isAmharic ? 'መዝግብ' : 'Save Petition',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: AppTheme.textDark,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ],
@@ -500,7 +512,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
     );
   }
 
-  Widget _buildIntentionTile(Map<String, dynamic> item) {
+  Widget _buildIntentionTile(BuildContext context, Map<String, dynamic> item) {
+    final theme = Theme.of(context);
     final isAnswered = item['is_answered'] == 1;
     final int id = item['id'];
 
@@ -534,7 +547,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
         decoration: BoxDecoration(
           color: isAnswered
               ? const Color(0xFF1E3A2B).withValues(alpha: 0.55)
-              : Colors.black.withValues(alpha: 0.3),
+              : AppTheme.darkCard.withValues(alpha: 0.4),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: isAnswered
@@ -559,7 +572,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     Checkbox(
                       value: isAnswered,
                       activeColor: const Color(0xFF4CAF50),
-                      checkColor: Colors.black,
+                      checkColor: AppTheme.textDark,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
@@ -573,21 +586,21 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                         children: [
                           Text(
                             title,
-                            style: TextStyle(
-                              color: isAnswered ? Colors.white60 : Colors.white,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: isAnswered
+                                  ? AppTheme.textLight.withValues(alpha: 0.6)
+                                  : AppTheme.textLight,
                               decoration: isAnswered
                                   ? TextDecoration.lineThrough
                                   : null,
-                              fontSize: 15,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                           const SizedBox(height: 2),
                           Text(
                             dateString,
-                            style: TextStyle(
-                              color: Colors.white.withValues(alpha: 0.5),
-                              fontSize: 11,
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              color: AppTheme.textLight.withValues(alpha: 0.5),
                             ),
                           ),
                         ],
@@ -606,9 +619,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                         ),
                         child: Text(
                           widget.isAmharic ? 'ተመልሷል ✨' : 'Answered ✨',
-                          style: const TextStyle(
-                            color: Color(0xFF4CAF50),
-                            fontSize: 11,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: const Color(0xFF4CAF50),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -616,7 +628,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     IconButton(
                       icon: Icon(
                         Icons.delete_outline,
-                        color: Colors.white.withValues(alpha: 0.4),
+                        color: AppTheme.textLight.withValues(alpha: 0.4),
                         size: 20,
                       ),
                       onPressed: () async {
@@ -629,7 +641,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     if (details != null)
                       Icon(
                         isExpanded ? Icons.expand_less : Icons.expand_more,
-                        color: Colors.white54,
+                        color: AppTheme.textLight.withValues(alpha: 0.54),
                       ),
                   ],
                 ),
@@ -643,9 +655,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                     ),
                     child: Text(
                       details,
-                      style: TextStyle(
-                        color: Colors.white.withValues(alpha: 0.85),
-                        fontSize: 13,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: AppTheme.textLight.withValues(alpha: 0.85),
                         height: 1.4,
                       ),
                     ),
@@ -659,7 +670,9 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
     );
   }
 
-  Widget _buildEmptyState() {
+  Widget _buildEmptyState(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 40),
@@ -668,7 +681,7 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
             Icon(
               Icons.volunteer_activism_outlined,
               size: 40,
-              color: Colors.white.withValues(alpha: 0.3),
+              color: AppTheme.textLight.withValues(alpha: 0.3),
             ),
             const SizedBox(height: 12),
             Text(
@@ -676,9 +689,8 @@ class _PrePrayerIntentionScreenState extends State<PrePrayerIntentionScreen> {
                   ? 'ምንም የተመዘገበ የጸሎት ዓላማ የለም።'
                   : 'No prayer intentions saved for this session.',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.6),
-                fontSize: 13,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: AppTheme.textLight.withValues(alpha: 0.6),
               ),
             ),
           ],

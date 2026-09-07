@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:operation_001/db_helper.dart'; // Adjust path based on project structure
 
 class SavedQuotesScreen extends StatefulWidget {
-  const SavedQuotesScreen({Key? key}) : super(key: key);
+  const SavedQuotesScreen({super.key});
 
   @override
   State<SavedQuotesScreen> createState() => _SavedQuotesScreenState();
@@ -91,7 +91,7 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
         actions: [
           if (_savedQuotes.isNotEmpty)
             IconButton(
-              icon: const Icon(Icons.delete_sweep),
+              icon: const Icon(Icons.delete_sweep_rounded),
               tooltip: 'Clear All',
               onPressed: _clearAllQuotes,
             ),
@@ -107,20 +107,20 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
             Icon(
               Icons.bookmark_outline_rounded,
               size: 72,
-              color: theme.colorScheme.onSurface.withOpacity(0.4),
+              color: theme.colorScheme.onSurfaceVariant,
             ),
             const SizedBox(height: 16),
             Text(
               'No saved quotes yet',
               style: theme.textTheme.titleMedium?.copyWith(
-                color: theme.colorScheme.onSurface.withOpacity(0.6),
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
             const SizedBox(height: 8),
             Text(
               'Bookmarked quotes will show up here.',
               style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurface.withOpacity(0.4),
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],
@@ -148,18 +148,23 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
                 color: theme.colorScheme.error,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: const Icon(
-                Icons.delete_outline,
-                color: Colors.white,
+              child: Icon(
+                Icons.delete_outline_rounded,
+                color: theme.colorScheme.onError,
                 size: 28,
               ),
             ),
             onDismissed: (_) => _deleteQuote(text),
             child: Card(
-              elevation: 1,
+              elevation: 0,
+              color: theme.colorScheme.surfaceContainerLow,
               margin: const EdgeInsets.only(bottom: 12.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  color: theme.colorScheme.outlineVariant
+                      .withValues(alpha: 0.5),
+                ),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -181,7 +186,8 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
                         Expanded(
                           child: Text(
                             '— $author',
-                            style: theme.textTheme.bodyMedium?.copyWith(
+                            style:
+                            theme.textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.bold,
                               color: theme.colorScheme.primary,
                             ),

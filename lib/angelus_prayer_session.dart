@@ -69,7 +69,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
         : _angelusEnglish;
 
     return Scaffold(
-      backgroundColor: Colors.black, // Hardcoded dark base
+      backgroundColor: theme.colorScheme.surface,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -94,12 +94,12 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
             child: Image.asset('assets/img_19.png', fit: BoxFit.cover),
           ),
 
-          // 2. Fixed Dark Blur Scrim (Immune to Light/Dark Mode switch)
+          // 2. Fixed Dark Blur Scrim
           Positioned.fill(
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                child: Container(color: Colors.black.withAlpha(140)),
+                child: Container(color: Colors.black.withValues(alpha: 0.55)),
               ),
             ),
           ),
@@ -123,7 +123,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: Colors.white.withAlpha(46),
+                          color: Colors.white.withValues(alpha: 0.18),
                           width: 1.2,
                         ),
                       ),
@@ -132,7 +132,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                           child: Container(
-                            color: Colors.black.withAlpha(64), // Dark translucent fill
+                            color: Colors.black.withValues(alpha: 0.25),
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,8 +183,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                               _isPlaying
                                                   ? Icons.pause_circle_filled
                                                   : Icons.play_circle_fill,
-                                              color:
-                                              theme.colorScheme.secondary,
+                                              color: theme.colorScheme.secondary,
                                               size: 32,
                                             ),
                                           ),
@@ -197,8 +196,8 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                             _formatDuration(_currentPosition),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withAlpha(
-                                                153,
+                                              color: Colors.white.withValues(
+                                                alpha: 0.6,
                                               ),
                                             ),
                                           ),
@@ -211,7 +210,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                                 activeTrackColor:
                                                 theme.colorScheme.secondary,
                                                 inactiveTrackColor: Colors.white
-                                                    .withAlpha(51),
+                                                    .withValues(alpha: 0.2),
                                                 thumbColor:
                                                 theme.colorScheme.secondary,
                                                 thumbShape:
@@ -239,8 +238,8 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                             _formatDuration(_totalDuration),
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.white.withAlpha(
-                                                153,
+                                              color: Colors.white.withValues(
+                                                alpha: 0.6,
                                               ),
                                             ),
                                           ),
@@ -263,10 +262,10 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         radius: 20,
                         gradient: LinearGradient(
                           colors: [
-                            theme.colorScheme.secondary.withAlpha(166),
-                            Colors.white.withAlpha(26),
-                            theme.colorScheme.primary.withAlpha(89),
-                            Colors.white.withAlpha(128),
+                            theme.colorScheme.secondary.withValues(alpha: 0.65),
+                            Colors.white.withValues(alpha: 0.1),
+                            theme.colorScheme.primary.withValues(alpha: 0.35),
+                            Colors.white.withValues(alpha: 0.5),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -276,7 +275,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(20.0),
                         decoration: BoxDecoration(
-                          color: Colors.black.withAlpha(64),
+                          color: Colors.black.withValues(alpha: 0.25),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -293,7 +292,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                 shadows: [
                                   Shadow(
                                     blurRadius: 8,
-                                    color: Colors.black.withAlpha(153),
+                                    color: Colors.black.withValues(alpha: 0.6),
                                     offset: const Offset(0, 2),
                                   ),
                                 ],
@@ -301,7 +300,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                             ),
                             const SizedBox(height: 8),
                             Divider(
-                              color: Colors.white.withAlpha(64),
+                              color: Colors.white.withValues(alpha: 0.25),
                               thickness: 1,
                             ),
                             const SizedBox(height: 10),
@@ -310,12 +309,12 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
-                                color: Colors.white.withAlpha(242),
+                                color: Colors.white.withValues(alpha: 0.95),
                                 height: 1.55,
                                 shadows: [
                                   Shadow(
                                     blurRadius: 6,
-                                    color: Colors.black.withAlpha(204),
+                                    color: Colors.black.withValues(alpha: 0.8),
                                     offset: const Offset(1, 1),
                                   ),
                                 ],
@@ -354,8 +353,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                 reverseTransitionDuration: const Duration(
                                   milliseconds: 400,
                                 ),
-                                pageBuilder:
-                                    (
+                                pageBuilder: (
                                     context,
                                     animation,
                                     secondaryAnimation,
@@ -450,8 +448,7 @@ class GradientBorderPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final Rect rect = Offset.zero & size;
     final RRect rrect = RRect.fromRectAndRadius(rect, Radius.circular(radius));
-    final Paint paint =
-    Paint()
+    final Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..shader = gradient.createShader(rect);

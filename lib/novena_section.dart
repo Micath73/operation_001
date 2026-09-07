@@ -13,52 +13,45 @@ class NovenaSection extends StatefulWidget {
 }
 
 class _NovenaSectionState extends State<NovenaSection> {
-  static const List<NovenaCombo> prayers = [
-    NovenaCombo(text: 'Adoration', imagePath: 'assets/Adoration.jpg'),
-    NovenaCombo(
-      text: 'Arch Angel Rafael',
-      imagePath: 'assets/Arch Angel Rafael.jpg',
-    ),
-    NovenaCombo(text: 'Ash Wednesday', imagePath: 'assets/Ash Wednesday.jpg'),
-    NovenaCombo(text: 'Baptism', imagePath: 'assets/Baptism.jpg'),
-    NovenaCombo(text: 'Christ iS Born', imagePath: 'assets/Christ Is Born.jpg'),
-    NovenaCombo(
-      text: 'Good Deed Thursday',
-      imagePath: 'assets/Good Deed Thursday.jpg',
-    ),
-    NovenaCombo(text: 'Good Friday', imagePath: 'assets/Good Friday (2).jpg'),
-    NovenaCombo(text: 'He Is Risen', imagePath: 'assets/He is Risen.jpg'),
-    NovenaCombo(text: 'Holy Mass', imagePath: 'assets/Holy Mass.jpg'),
-    NovenaCombo(text: 'Holy Trinity', imagePath: 'assets/Holy Trinity.jpg'),
-    NovenaCombo(text: 'Jesus And Mary', imagePath: 'assets/Jesus And Mary.jpg'),
-    NovenaCombo(text: 'Lent', imagePath: 'assets/Lent.jpg'),
-    NovenaCombo(
-      text: 'My Daily Journal',
-      imagePath: 'assets/My Daily Journal.jpg',
-    ),
-    NovenaCombo(
-      text: 'My Day Is Blessed',
-      imagePath: 'assets/My Day I blessed.jpg',
-    ),
-    NovenaCombo(text: 'Palm Sunday', imagePath: 'assets/Pakm Sunday 2.jpg'),
-    NovenaCombo(text: 'Priesthood', imagePath: 'assets/Priestlyhood.jpg'),
-    NovenaCombo(text: 'Saint Dominic', imagePath: 'assets/Saint Dominic.jpg'),
-    NovenaCombo(
-      text: 'The Ascension Of Mary',
-      imagePath: 'assets/The Ascencion Of Mary.jpg',
-    ),
-    NovenaCombo(
-      text: 'The End Is Near',
-      imagePath: 'assets/The End Is Near.jpg',
-    ),
-    NovenaCombo(
-      text: 'The Sacrament Of Marriage',
-      imagePath: 'assets/The Sacrament Of Marriage.jpg',
-    ),
-    NovenaCombo(
-      text: 'The Sorrows Of Mary',
-      imagePath: 'assets/The Sorrows Of Mary.jpg',
-    ),
+  String selectedCategory = 'All';
+
+  static const List<String> categories = [
+    'All',
+    'Catechism',
+    'Dogma',
+    'Saints',
+    'Liturgical',
+    'Devotions',
+  ];
+
+  static const List<NovenaCombo> spiritualLessons = [
+    // Module 1: Basic Catechism
+    NovenaCombo(text: 'The Trinity: One God in Three Persons', imagePath: 'assets/Holy Trinity.jpg', category: 'Catechism'),
+    NovenaCombo(text: 'The Incarnation and Redemption', imagePath: 'assets/Jesus And Mary.jpg', category: 'Catechism'),
+    NovenaCombo(text: 'The Four Last Things', imagePath: 'assets/The End Is Near.jpg', category: 'Catechism'),
+    NovenaCombo(text: 'The Ten Commandments', imagePath: 'assets/My Daily Journal.jpg', category: 'Catechism'),
+
+    // Module 2: Essential Dogmas
+    NovenaCombo(text: 'The Divinity of Christ', imagePath: 'assets/Adoration.jpg', category: 'Dogma'),
+    NovenaCombo(text: 'The Real Presence in the Eucharist', imagePath: 'assets/Holy Mass.jpg', category: 'Dogma'),
+    NovenaCombo(text: 'The Immaculate Conception', imagePath: 'assets/The Ascencion Of Mary.jpg', category: 'Dogma'),
+    NovenaCombo(text: 'The Sorrows of Mary', imagePath: 'assets/The Sorrows Of Mary.jpg', category: 'Dogma'),
+
+    // Module 3: Saint Writings
+    NovenaCombo(text: 'St. Augustine: Restless Hearts', imagePath: 'assets/Saint Dominic.jpg', category: 'Saints'),
+    NovenaCombo(text: 'St. Thomas Aquinas: Faith & Reason', imagePath: 'assets/Priestlyhood.jpg', category: 'Saints'),
+
+    // Module 4: Liturgical Year
+    NovenaCombo(text: 'Lent: Conversion & Fasting', imagePath: 'assets/Lent.jpg', category: 'Liturgical'),
+    NovenaCombo(text: 'Ash Wednesday', imagePath: 'assets/Ash Wednesday.jpg', category: 'Liturgical'),
+    NovenaCombo(text: 'Palm Sunday', imagePath: 'assets/Pakm Sunday 2.jpg', category: 'Liturgical'),
+    NovenaCombo(text: 'Good Friday', imagePath: 'assets/Good Friday (2).jpg', category: 'Liturgical'),
+    NovenaCombo(text: 'He Is Risen', imagePath: 'assets/He is Risen.jpg', category: 'Liturgical'),
+
+    // Module 5: Practicing Devotions
+    NovenaCombo(text: 'The Holy Mass', imagePath: 'assets/Holy Mass.jpg', category: 'Devotions'),
+    NovenaCombo(text: 'Sacrament of Reconciliation', imagePath: 'assets/My Day I blessed.jpg', category: 'Devotions'),
+    NovenaCombo(text: 'Sacrament of Marriage', imagePath: 'assets/The Sacrament Of Marriage.jpg', category: 'Devotions'),
   ];
 
   static const List<NovenaCombo> novenaTitles = [
@@ -70,9 +63,14 @@ class _NovenaSectionState extends State<NovenaSection> {
     NovenaCombo(text: 'Pope Leo', imagePath: 'assets/Leo.jpg'),
   ];
 
+  List<NovenaCombo> get filteredLessons {
+    if (selectedCategory == 'All') return spiritualLessons;
+    return spiritualLessons.where((item) => item.category == selectedCategory).toList();
+  }
+
   Future<void> _openNovenaDetail(BuildContext context, String title) async {
     final novenaMatch = novenaTitles.where((n) => n.text == title);
-    final lessonMatch = prayers.where((p) => p.text == title);
+    final lessonMatch = spiritualLessons.where((p) => p.text == title);
 
     String imagePath = 'assets/img_3.png';
 
@@ -94,14 +92,13 @@ class _NovenaSectionState extends State<NovenaSection> {
       ),
     );
 
-    // Notify Home screen to pull updated SQLite records when returning
     widget.onNovenaChanged?.call();
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final previewLessons = prayers.take(4).toList();
+    final displayedLessons = filteredLessons;
     final previewNovenas = novenaTitles.take(4).toList();
 
     return Column(
@@ -135,10 +132,9 @@ class _NovenaSectionState extends State<NovenaSection> {
                           MaterialPageRoute(
                             builder: (context) => SeeAllGridPage(
                               title: 'Spiritual Lessons',
-                              items: prayers,
+                              items: filteredLessons,
                               cardHeight: 220,
-                              onItemTap: (item) =>
-                                  _openNovenaDetail(context, item.text),
+                              onItemTap: (item) => _openNovenaDetail(context, item.text),
                             ),
                           ),
                         );
@@ -159,15 +155,68 @@ class _NovenaSectionState extends State<NovenaSection> {
                   ],
                 ),
               ),
-              const SizedBox(height: 15),
+
+              const SizedBox(height: 10),
+
+              // CATEGORY FILTER CHIPS
               SizedBox(
-                height: 280,
+                height: 40,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 15),
-                  itemCount: previewLessons.length,
+                  itemCount: categories.length,
                   itemBuilder: (context, index) {
-                    final pray = previewLessons[index];
+                    final cat = categories[index];
+                    final isSelected = selectedCategory == cat;
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: ChoiceChip(
+                        label: Text(cat),
+                        selected: isSelected,
+                        selectedColor: theme.colorScheme.primaryContainer,
+                        backgroundColor: theme.colorScheme.surfaceContainerLow,
+                        side: BorderSide(
+                          color: isSelected
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.outlineVariant,
+                        ),
+                        labelStyle: TextStyle(
+                          color: isSelected
+                              ? theme.colorScheme.onPrimaryContainer
+                              : theme.colorScheme.onSurfaceVariant,
+                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                        ),
+                        onSelected: (selected) {
+                          if (selected) {
+                            setState(() {
+                              selectedCategory = cat;
+                            });
+                          }
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              // LESSONS HORIZONTAL LIST
+              SizedBox(
+                height: 280,
+                child: displayedLessons.isEmpty
+                    ? Center(
+                  child: Text(
+                    'No lessons in this category yet.',
+                    style: TextStyle(color: theme.colorScheme.outline),
+                  ),
+                )
+                    : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  itemCount: displayedLessons.length,
+                  itemBuilder: (context, index) {
+                    final pray = displayedLessons[index];
                     return Padding(
                       padding: const EdgeInsets.only(right: 15),
                       child: InkWell(
@@ -182,7 +231,7 @@ class _NovenaSectionState extends State<NovenaSection> {
                                 borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withValues(alpha: 0.08),
+                                    color: theme.colorScheme.shadow.withValues(alpha: 0.12),
                                     blurRadius: 10,
                                     offset: const Offset(0, 5),
                                   ),
@@ -193,16 +242,13 @@ class _NovenaSectionState extends State<NovenaSection> {
                                 child: Image.asset(
                                   pray.imagePath,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) =>
-                                      Container(
-                                        color: theme
-                                            .colorScheme.surfaceContainerHighest,
-                                        child: Icon(
-                                          Icons.image_not_supported_rounded,
-                                          color: theme.colorScheme.onSurface
-                                              .withValues(alpha: 0.4),
-                                        ),
-                                      ),
+                                  errorBuilder: (context, error, stackTrace) => Container(
+                                    color: theme.colorScheme.surfaceContainerHighest,
+                                    child: Icon(
+                                      Icons.image_not_supported_rounded,
+                                      color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -257,8 +303,7 @@ class _NovenaSectionState extends State<NovenaSection> {
                         title: 'Catholic Novenas',
                         items: novenaTitles,
                         cardHeight: 140,
-                        onItemTap: (item) =>
-                            _openNovenaDetail(context, item.text),
+                        onItemTap: (item) => _openNovenaDetail(context, item.text),
                       ),
                     ),
                   );
@@ -306,15 +351,13 @@ class _NovenaSectionState extends State<NovenaSection> {
                           child: Image.asset(
                             item.imagePath,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) =>
-                                Container(
-                                  color: theme.colorScheme.surfaceContainerHighest,
-                                  child: Icon(
-                                    Icons.image_not_supported_rounded,
-                                    color: theme.colorScheme.onSurface
-                                        .withValues(alpha: 0.4),
-                                  ),
-                                ),
+                            errorBuilder: (context, error, stackTrace) => Container(
+                              color: theme.colorScheme.surfaceContainerHighest,
+                              child: Icon(
+                                Icons.image_not_supported_rounded,
+                                color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -368,8 +411,10 @@ class SeeAllGridPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: theme.colorScheme.primary,
-        foregroundColor: theme.colorScheme.onPrimary,
+        backgroundColor: theme.colorScheme.surface,
+        foregroundColor: theme.colorScheme.onSurface,
+        elevation: 0,
+        scrolledUnderElevation: 2,
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(16),
@@ -394,7 +439,7 @@ class SeeAllGridPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.08),
+                          color: theme.colorScheme.shadow.withValues(alpha: 0.1),
                           blurRadius: 6,
                           offset: const Offset(0, 3),
                         ),
@@ -410,8 +455,7 @@ class SeeAllGridPage extends StatelessWidget {
                           color: theme.colorScheme.surfaceContainerHighest,
                           child: Icon(
                             Icons.image_not_supported_rounded,
-                            color: theme.colorScheme.onSurface
-                                .withValues(alpha: 0.4),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
                           ),
                         ),
                       ),

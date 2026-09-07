@@ -18,59 +18,26 @@ class NewPrayerTemplatePage extends StatefulWidget {
   State<NewPrayerTemplatePage> createState() => _NewPrayerTemplatePageState();
 }
 
-class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
-    with TickerProviderStateMixin {
+class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage> {
   bool isPraying = false;
   int? _focusedStepIndex;
 
-  // Track dynamic animation states per paragraph section
-  final Map<int, AnimationController> _glowControllers = {};
-  final Map<int, Animation<double>> _glowAnimations = {};
-
-  AnimationController _getGlowController(int index) {
-    if (!_glowControllers.containsKey(index)) {
-      final controller = AnimationController(
-        duration: const Duration(milliseconds: 350),
-        vsync: this,
-      );
-      _glowControllers[index] = controller;
-      _glowAnimations[index] = CurvedAnimation(
-        parent: controller,
-        curve: Curves.easeOutCubic,
-      );
-    }
-    return _glowControllers[index]!;
-  }
-
-  Animation<double> _getGlowAnimation(int index) {
-    _getGlowController(index);
-    return _glowAnimations[index]!;
-  }
-
   void _onTapParagraph(int index) {
     HapticFeedback.selectionClick();
-
-    if (_focusedStepIndex != null && _focusedStepIndex != index) {
-      _glowControllers[_focusedStepIndex!]?.reverse();
-    }
-
     setState(() {
       if (_focusedStepIndex == index) {
         _focusedStepIndex = null;
-        _glowControllers[index]?.reverse();
       } else {
         _focusedStepIndex = index;
-        _getGlowController(index).forward();
       }
     });
   }
 
-  @override
-  void dispose() {
-    for (final c in _glowControllers.values) {
-      c.dispose();
-    }
-    super.dispose();
+  void _resetPrayerState() {
+    setState(() {
+      isPraying = false;
+      _focusedStepIndex = null;
+    });
   }
 
   @override
@@ -85,39 +52,27 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
     isPraying ? fullHeight * 0.45 : fullHeight;
     final double manuscriptTop = isPraying ? fullHeight * 0.38 : fullHeight;
 
-    // Liturgical theme colors dynamically sourced with dark-mode safe accents
     final goldAccent = theme.colorScheme.secondary;
-    final deepGold = isDark ? const Color(0xFFE5C158) : theme.colorScheme.primary;
+    final deepGold =
+    isDark ? const Color(0xFFE5C158) : theme.colorScheme.primary;
 
-    // Fixed non-glare backgrounds for both light & dark modes
-    final vellumSheetBg = isDark
-        ? const Color(0xFF1C1A18) // Rich dark espresso/slate in dark mode
-        : const Color(0xFFF3EFE0); // Soft warm parchment in light mode
+    final vellumSheetBg =
+    isDark ? const Color(0xFF1C1A18) : const Color(0xFFF3EFE0);
 
-    final textBodyColor = isDark
-        ? const Color(0xFFECE6DA) // Soft off-white for crisp readability
-        : const Color(0xFF2C2523); // Deep charcoal instead of harsh black
-
-    final welcomeCardBg = isDark
-        ? Colors.black.withValues(alpha: 0.75)
-        : const Color(0xFF2A2421).withValues(alpha: 0.88); // Elegant dark glass in light mode
+    final textBodyColor =
+    isDark ? const Color(0xFFECE6DA) : const Color(0xFF2C2523);
 
     return PopScope(
       canPop: !isPraying,
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) return;
         if (isPraying) {
-          if (_focusedStepIndex != null) {
-            _glowControllers[_focusedStepIndex!]?.reverse();
-          }
-          setState(() {
-            isPraying = false;
-            _focusedStepIndex = null;
-          });
+          _resetPrayerState();
         }
       },
       child: Scaffold(
-        backgroundColor: isDark ? const Color(0xFF121212) : const Color(0xFF2A2421),
+        backgroundColor:
+        isDark ? const Color(0xFF121212) : const Color(0xFF2A2421),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -130,13 +85,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
             ),
             onPressed: () {
               if (isPraying) {
-                if (_focusedStepIndex != null) {
-                  _glowControllers[_focusedStepIndex!]?.reverse();
-                }
-                setState(() {
-                  isPraying = false;
-                  _focusedStepIndex = null;
-                });
+                _resetPrayerState();
               } else {
                 Navigator.pop(context);
               }
@@ -176,7 +125,6 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                       ),
                     ),
                   ),
-                  // Dark vignette gradient overlay to prevent stark image highlights
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -193,7 +141,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
               ),
             ),
 
-            // ── 2. Welcome State Heavy Backdrop Blur & Dimming Scrim ─────────
+            // ── 2. Welcome State Heavy Backdrop Blur ─────────────────────────
             if (!isPraying)
               Positioned.fill(
                 child: BackdropFilter(
@@ -207,101 +155,12 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
             // ── 3. Intro Dashboard Glass Card ────────────────────────────────
             if (!isPraying)
               Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.86,
-                      height: fullHeight * 0.54,
-                      padding: const EdgeInsets.all(28),
-                      decoration: BoxDecoration(
-                        color: welcomeCardBg,
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(
-                          color: deepGold.withValues(alpha: 0.45),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.5),
-                            blurRadius: 25,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'MOMENT OF PEACE',
-                            style: TextStyle(
-                              fontFamily: 'Georgia',
-                              color: goldAccent,
-                              fontSize: 11,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 3.0,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            widget.prayerTitle,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontFamily: 'Georgia',
-                              color: Color(0xFFF5F0E6),
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              child: Text(
-                                '"At dawn let me hear of your mercy,\nfor in you I trust.\nShow me the path I should walk,\nfor I lift up my soul to you."',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: 'Georgia',
-                                  color: const Color(0xFFE2DCD0).withValues(alpha: 0.9),
-                                  fontSize: 16,
-                                  height: 1.6,
-                                  fontStyle: FontStyle.italic,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '— Psalm 143:8',
-                            style: TextStyle(
-                              fontFamily: 'Georgia',
-                              fontSize: 13,
-                              color: deepGold,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const Spacer(),
-                          FloatingActionButton.extended(
-                            backgroundColor: goldAccent,
-                            foregroundColor: Colors.black,
-                            elevation: 4,
-                            onPressed: () => setState(() => isPraying = true),
-                            label: const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              child: Text(
-                                'LET US PRAY',
-                                style: TextStyle(
-                                  fontFamily: 'Georgia',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 2.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                child: _IntroDashboardCard(
+                  prayerTitle: widget.prayerTitle,
+                  goldAccent: goldAccent,
+                  deepGold: deepGold,
+                  isDark: isDark,
+                  onStartPrayer: () => setState(() => isPraying = true),
                 ),
               ),
 
@@ -414,101 +273,17 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                                 const SizedBox(height: 24),
                                 if (steps != null)
                                   for (int i = 0; i < steps.length; i++) ...[
-                                    Builder(
-                                      builder: (context) {
-                                        final bool isFocused =
-                                        (_focusedStepIndex == i);
-                                        final bool isDimmed =
-                                        (_focusedStepIndex != null &&
-                                            _focusedStepIndex != i);
-                                        final animation = _getGlowAnimation(i);
-                                        final stepData = steps[i];
-
-                                        return GestureDetector(
-                                          onTap: () => _onTapParagraph(i),
-                                          behavior: HitTestBehavior.opaque,
-                                          child: AnimatedBuilder(
-                                            animation: animation,
-                                            builder: (context, child) {
-                                              return AnimatedOpacity(
-                                                duration: const Duration(
-                                                    milliseconds: 300),
-                                                opacity: isDimmed ? 0.38 : 1.0,
-                                                child: Stack(
-                                                  children: [
-                                                    if (isFocused ||
-                                                        animation.value > 0.0)
-                                                      Positioned.fill(
-                                                        child: Opacity(
-                                                          opacity:
-                                                          animation.value,
-                                                          child: Container(
-                                                            decoration:
-                                                            BoxDecoration(
-                                                              color: isDark
-                                                                  ? deepGold.withValues(alpha: 0.15)
-                                                                  : deepGold.withValues(alpha: 0.12),
-                                                              borderRadius:
-                                                              BorderRadius.circular(10),
-                                                              border: Border.all(
-                                                                color: goldAccent.withValues(alpha: 0.35 * animation.value),
-                                                              ),
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  color: deepGold.withValues(alpha: 0.15 * animation.value),
-                                                                  blurRadius: 16,
-                                                                  spreadRadius: 1,
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.symmetric(
-                                                        horizontal: 12,
-                                                        vertical: 12,
-                                                      ),
-                                                      child: Column(
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        children: [
-                                                          if (stepData.sectionHeader != null &&
-                                                              stepData.sectionHeader != 'reading focus') ...[
-                                                            Row(
-                                                              children: [
-                                                                Container(
-                                                                  width: 16,
-                                                                  height: 1,
-                                                                  color: deepGold.withValues(alpha: 0.8),
-                                                                ),
-                                                                const SizedBox(width: 8),
-                                                                Text(
-                                                                  stepData.sectionHeader!.toUpperCase(),
-                                                                  style: TextStyle(
-                                                                    fontFamily: 'Georgia',
-                                                                    fontSize: 11,
-                                                                    fontWeight: FontWeight.bold,
-                                                                    color: deepGold,
-                                                                    letterSpacing: 2.2,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            const SizedBox(height: 10),
-                                                          ],
-                                                          (i == 0)
-                                                              ? _buildDropCapBody(stepData.contentEn, textBodyColor, deepGold)
-                                                              : _buildStandardBody(stepData.contentEn, textBodyColor),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        );
-                                      },
+                                    _PrayerStepItem(
+                                      index: i,
+                                      stepData: steps[i],
+                                      isFocused: _focusedStepIndex == i,
+                                      isDimmed: _focusedStepIndex != null &&
+                                          _focusedStepIndex != i,
+                                      isDark: isDark,
+                                      deepGold: deepGold,
+                                      goldAccent: goldAccent,
+                                      textBodyColor: textBodyColor,
+                                      onTap: () => _onTapParagraph(i),
                                     ),
                                     if (i < steps.length - 1)
                                       const SizedBox(height: 16),
@@ -568,9 +343,165 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
       ),
     );
   }
+}
 
-  // FIXED: Text.rich with WidgetSpan eliminates block indentation for remaining lines
-  Widget _buildDropCapBody(String text, Color textBodyColor, Color dropColor) {
+class _PrayerStepItem extends StatefulWidget {
+  final int index;
+  final PrayerStep stepData;
+  final bool isFocused;
+  final bool isDimmed;
+  final bool isDark;
+  final Color deepGold;
+  final Color goldAccent;
+  final Color textBodyColor;
+  final VoidCallback onTap;
+
+  const _PrayerStepItem({
+    required this.index,
+    required this.stepData,
+    required this.isFocused,
+    required this.isDimmed,
+    required this.isDark,
+    required this.deepGold,
+    required this.goldAccent,
+    required this.textBodyColor,
+    required this.onTap,
+  });
+
+  @override
+  State<_PrayerStepItem> createState() => _PrayerStepItemState();
+}
+
+class _PrayerStepItemState extends State<_PrayerStepItem>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 350),
+      vsync: this,
+    );
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOutCubic,
+    );
+  }
+
+  @override
+  void didUpdateWidget(covariant _PrayerStepItem oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isFocused != oldWidget.isFocused) {
+      if (widget.isFocused) {
+        _controller.forward();
+      } else {
+        _controller.reverse();
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: widget.onTap,
+      behavior: HitTestBehavior.opaque,
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (context, child) {
+          return AnimatedOpacity(
+            duration: const Duration(milliseconds: 300),
+            opacity: widget.isDimmed ? 0.38 : 1.0,
+            child: Stack(
+              children: [
+                if (widget.isFocused || _animation.value > 0.0)
+                  Positioned.fill(
+                    child: Opacity(
+                      opacity: _animation.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: widget.isDark
+                              ? widget.deepGold.withValues(alpha: 0.15)
+                              : widget.deepGold.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: widget.goldAccent.withValues(
+                                alpha: 0.35 * _animation.value),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: widget.deepGold.withValues(
+                                  alpha: 0.15 * _animation.value),
+                              blurRadius: 16,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 12,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (widget.stepData.sectionHeader != null &&
+                          widget.stepData.sectionHeader != 'reading focus') ...[
+                        Row(
+                          children: [
+                            Container(
+                              width: 16,
+                              height: 1,
+                              color: widget.deepGold.withValues(alpha: 0.8),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              widget.stepData.sectionHeader!.toUpperCase(),
+                              style: TextStyle(
+                                fontFamily: 'Georgia',
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                                color: widget.deepGold,
+                                letterSpacing: 2.2,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                      (widget.index == 0)
+                          ? _buildDropCapBody(
+                        widget.stepData.contentEn,
+                        widget.textBodyColor,
+                        widget.deepGold,
+                      )
+                          : _buildStandardBody(
+                        widget.stepData.contentEn,
+                        widget.textBodyColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildDropCapBody(
+      String text, Color textBodyColor, Color dropColor) {
     if (text.isEmpty) return const SizedBox.shrink();
     final dropLetter = text[0];
     final remainder = text.substring(1);
@@ -586,11 +517,10 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
                 dropLetter,
                 style: TextStyle(
                   fontFamily: 'Georgia',
-                  fontSize: 58,
+                  fontSize: 54,
                   fontWeight: FontWeight.bold,
                   color: dropColor,
                   height: 0.85,
-                  letterSpacing: -2,
                 ),
               ),
             ),
@@ -620,6 +550,126 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage>
         color: textBodyColor,
         height: 1.6,
         letterSpacing: 0.15,
+      ),
+    );
+  }
+}
+
+class _IntroDashboardCard extends StatelessWidget {
+  final String prayerTitle;
+  final Color goldAccent;
+  final Color deepGold;
+  final bool isDark;
+  final VoidCallback onStartPrayer;
+
+  const _IntroDashboardCard({
+    required this.prayerTitle,
+    required this.goldAccent,
+    required this.deepGold,
+    required this.isDark,
+    required this.onStartPrayer,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final welcomeCardBg = isDark
+        ? Colors.black.withValues(alpha: 0.75)
+        : const Color(0xFF2A2421).withValues(alpha: 0.88);
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.86,
+          height: MediaQuery.of(context).size.height * 0.54,
+          padding: const EdgeInsets.all(28),
+          decoration: BoxDecoration(
+            color: welcomeCardBg,
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(
+              color: deepGold.withValues(alpha: 0.45),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.5),
+                blurRadius: 25,
+                spreadRadius: 2,
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'MOMENT OF PEACE',
+                style: TextStyle(
+                  fontFamily: 'Georgia',
+                  color: goldAccent,
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 3.0,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                prayerTitle,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: 'Georgia',
+                  color: Color(0xFFF5F0E6),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Text(
+                    '"At dawn let me hear of your mercy,\nfor in you I trust.\nShow me the path I should walk,\nfor I lift up my soul to you."',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Georgia',
+                      color: const Color(0xFFE2DCD0).withValues(alpha: 0.9),
+                      fontSize: 16,
+                      height: 1.6,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '— Psalm 143:8',
+                style: TextStyle(
+                  fontFamily: 'Georgia',
+                  fontSize: 13,
+                  color: deepGold,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Spacer(),
+              FloatingActionButton.extended(
+                backgroundColor: goldAccent,
+                foregroundColor: Colors.black,
+                elevation: 4,
+                onPressed: onStartPrayer,
+                label: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    'LET US PRAY',
+                    style: TextStyle(
+                      fontFamily: 'Georgia',
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

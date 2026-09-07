@@ -37,7 +37,8 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
   void _scrollToDateIndex(int index) {
     if (!_scrollController.hasClients) return;
     final screenWidth = MediaQuery.of(context).size.width;
-    final targetOffset = (index * _itemWidth) - (screenWidth / 2) + (_itemWidth / 2);
+    final targetOffset =
+        (index * _itemWidth) - (screenWidth / 2) + (_itemWidth / 2);
 
     _scrollController.animateTo(
       targetOffset.clamp(0.0, _scrollController.position.maxScrollExtent),
@@ -59,10 +60,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
       firstDate: DateTime(2020),
       lastDate: DateTime(2030),
       builder: (context, child) {
-        return Theme(
-          data: Theme.of(context),
-          child: child!,
-        );
+        return Theme(data: Theme.of(context), child: child!);
       },
     );
 
@@ -74,22 +72,24 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
     }
   }
 
-  Color _getLiturgicalColor(String colorName) {
+  Color _getLiturgicalColor(String colorName, bool isDark) {
     switch (colorName.toLowerCase()) {
       case 'purple':
       case 'violet':
-        return Colors.deepPurple;
+        return isDark ? Colors.purpleAccent.shade200 : Colors.deepPurple;
       case 'red':
-        return Colors.red.shade800;
+        return isDark ? Colors.redAccent.shade200 : Colors.red.shade800;
       case 'white':
       case 'gold':
-        return Colors.amber.shade800;
+        return isDark ? Colors.amberAccent.shade200 : Colors.amber.shade800;
       case 'rose':
       case 'pink':
-        return Colors.pink.shade400;
+        return isDark ? Colors.pinkAccent.shade100 : Colors.pink.shade400;
       case 'green':
       default:
-        return const Color(0xFF1B5E20);
+        return isDark
+            ? Colors.lightGreenAccent.shade400
+            : const Color(0xFF1B5E20);
     }
   }
 
@@ -97,6 +97,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final isDark = theme.brightness == Brightness.dark;
 
     return Scaffold(
       backgroundColor: colorScheme.surface,
@@ -119,7 +120,9 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
-                    child: CircularProgressIndicator(color: colorScheme.primary),
+                    child: CircularProgressIndicator(
+                      color: colorScheme.primary,
+                    ),
                   );
                 }
 
@@ -128,7 +131,10 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                 }
 
                 final reading = snapshot.data!;
-                final accentColor = _getLiturgicalColor(reading.liturgicalColor);
+                final accentColor = _getLiturgicalColor(
+                  reading.liturgicalColor,
+                  isDark,
+                );
 
                 return SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -177,9 +183,10 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
         itemCount: 15,
         itemBuilder: (context, index) {
           final date = DateTime.now().add(Duration(days: index - 7));
-          final isSelected = date.day == _selectedDate.day &&
-              date.month == _selectedDate.month &&
-              date.year == _selectedDate.year;
+          final isSelected =
+              date.day == _selectedDate.day &&
+                  date.month == _selectedDate.month &&
+                  date.year == _selectedDate.year;
 
           return SizedBox(
             width: _itemWidth,
@@ -197,14 +204,18 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
                     decoration: BoxDecoration(
-                      color: isSelected
+                      color:
+                      isSelected
                           ? colorScheme.primary
-                          : colorScheme.surfaceContainerHighest.withAlpha(76),
+                          : colorScheme.surfaceContainerHighest.withValues(
+                        alpha: 0.3,
+                      ),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: isSelected
+                        color:
+                        isSelected
                             ? colorScheme.primary
-                            : colorScheme.outline.withAlpha(51),
+                            : colorScheme.outline.withValues(alpha: 0.2),
                         width: isSelected ? 2 : 1,
                       ),
                     ),
@@ -214,7 +225,8 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                         Text(
                           _getDayAbbreviation(date.weekday),
                           style: TextStyle(
-                            color: isSelected
+                            color:
+                            isSelected
                                 ? colorScheme.onPrimary
                                 : colorScheme.onSurfaceVariant,
                             fontSize: 12,
@@ -225,7 +237,8 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                         Text(
                           "${date.day}",
                           style: TextStyle(
-                            color: isSelected
+                            color:
+                            isSelected
                                 ? colorScheme.onPrimary
                                 : colorScheme.onSurface,
                             fontSize: 16,
@@ -244,14 +257,18 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
     );
   }
 
-  Widget _buildLiturgicalHeader(DailyReading reading, Color accentColor, ThemeData theme) {
+  Widget _buildLiturgicalHeader(
+      DailyReading reading,
+      Color accentColor,
+      ThemeData theme,
+      ) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: accentColor.withAlpha(31),
+        color: accentColor.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: accentColor.withAlpha(102)),
+        border: Border.all(color: accentColor.withValues(alpha: 0.4)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -292,10 +309,12 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
       margin: const EdgeInsets.only(bottom: 16.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest.withAlpha(128),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.5,
+        ),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: theme.colorScheme.outline.withAlpha(51),
+          color: theme.colorScheme.outline.withValues(alpha: 0.2),
           width: 1,
         ),
       ),
@@ -313,23 +332,29 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           const Divider(height: 20),
           Text(
             text,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              height: 1.6,
-            ),
+            style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildPsalmCard(DailyReading reading, Color accentColor, ThemeData theme) {
+  Widget _buildPsalmCard(
+      DailyReading reading,
+      Color accentColor,
+      ThemeData theme,
+      ) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest.withAlpha(128),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.5,
+        ),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.outline.withAlpha(51)),
+        border: Border.all(
+          color: theme.colorScheme.outline.withValues(alpha: 0.2),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -355,31 +380,33 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           const Divider(height: 20),
           Text(
             reading.psalmText,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              height: 1.6,
-            ),
+            style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildGospelCard(DailyReading reading, Color accentColor, ThemeData theme) {
+  Widget _buildGospelCard(
+      DailyReading reading,
+      Color accentColor,
+      ThemeData theme,
+      ) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest.withAlpha(128),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: theme.colorScheme.secondary,
-          width: 1.5,
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.5,
         ),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: theme.colorScheme.secondary, width: 1.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (reading.gospelAcclamation != null && reading.gospelAcclamation!.isNotEmpty) ...[
+          if (reading.gospelAcclamation != null &&
+              reading.gospelAcclamation!.isNotEmpty) ...[
             Text(
               "Gospel Acclamation",
               style: TextStyle(
@@ -409,9 +436,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           const Divider(height: 20),
           Text(
             reading.gospelText,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              height: 1.6,
-            ),
+            style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
           ),
         ],
       ),
@@ -425,11 +450,17 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.wifi_off_rounded, size: 60, color: theme.colorScheme.outline),
+            Icon(
+              Icons.wifi_off_rounded,
+              size: 60,
+              color: theme.colorScheme.outline,
+            ),
             const SizedBox(height: 16),
             Text(
               "No Readings Available Offline",
-              style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 8),
             Text(

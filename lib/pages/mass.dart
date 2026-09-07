@@ -1333,26 +1333,50 @@ class _UserMassState extends State<UserMass> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
+          toolbarHeight: 68,
+          titleSpacing: 20,
+          title: Text(
             'Holy Mass',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontFamily: 'Georgia',
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              letterSpacing: 1.2,
+            ),
           ),
-          bottom: TabBar(
-            indicatorColor: colorScheme.secondary,
-            indicatorWeight: 3,
-            labelColor: colorScheme.onPrimary,
-            unselectedLabelColor: colorScheme.onPrimary.withAlpha(153),
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-            tabs: const [
-              Tab(
-                icon: Icon(Icons.calendar_today_rounded),
-                text: 'Daily Readings',
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(52),
+            child: Container(
+              color: colorScheme.surface,
+              child: TabBar(
+                // Gold color strictly applied to the indicator dash
+                indicatorColor: colorScheme.secondary,
+                indicatorWeight: 3.5,
+                indicatorSize: TabBarIndicatorSize.tab,
+                // Tab labels retain primary theme colors
+                labelColor: colorScheme.primary,
+                unselectedLabelColor: colorScheme.onSurfaceVariant,
+                labelStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+                unselectedLabelStyle: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
+                tabs: const [
+                  Tab(
+                    icon: Icon(Icons.calendar_today_rounded, size: 20),
+                    text: 'Daily Readings',
+                  ),
+                  Tab(
+                    icon: Icon(Icons.auto_stories_rounded, size: 20),
+                    text: 'Order of Mass',
+                  ),
+                ],
               ),
-              Tab(
-                icon: Icon(Icons.auto_stories_rounded),
-                text: 'Order of Mass',
-              ),
-            ],
+            ),
           ),
         ),
         body: TabBarView(
@@ -1409,15 +1433,15 @@ class _UserMassState extends State<UserMass> {
                               "Today's Mass Readings",
                               style: theme.textTheme.titleLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
+                                color: theme.colorScheme.onPrimaryContainer,
                               ),
                             ),
                             const SizedBox(height: 4),
                             Text(
                               "Liturgical Readings & Psalms",
                               style: theme.textTheme.bodyMedium?.copyWith(
-                                color:
-                                theme.colorScheme.onSurface.withAlpha(179),
+                                color: theme.colorScheme.onPrimaryContainer
+                                    .withAlpha(204),
                               ),
                             ),
                           ],
@@ -1457,67 +1481,6 @@ class _UserMassState extends State<UserMass> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildReadingSection(
-      BuildContext context, {
-        required String titleEn,
-        required String titleAm,
-        required String passage,
-      }) {
-    final theme = Theme.of(context);
-
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12.0),
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.primary.withAlpha(31)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(5),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                titleEn,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary,
-                ),
-              ),
-              Text(
-                titleAm,
-                style: theme.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.secondary,
-                ),
-              ),
-            ],
-          ),
-          Divider(
-            height: 20,
-            color: theme.colorScheme.outlineVariant,
-          ),
-          Text(
-            passage,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              height: 1.5,
-              color: theme.colorScheme.onSurface.withAlpha(217),
-            ),
-          ),
-        ],
-      ),
     );
   }
 

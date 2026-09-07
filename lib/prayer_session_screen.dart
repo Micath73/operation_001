@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:operation_001/theme.dart'; // Adjust path as needed
 import 'package:operation_001/prayer_completion_screen.dart';
 import 'package:operation_001/prayer_model.dart';
 
@@ -112,7 +113,6 @@ class _PrayerSessionState extends State<PrayerSession> {
         ),
         '',
       )
-          .replaceAll(RegExp(r'\bMystery\b', caseSensitive: false), 'Mystery')
           .trim();
     }
   }
@@ -128,6 +128,9 @@ class _PrayerSessionState extends State<PrayerSession> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     if (widget.prayerSteps.isEmpty) {
       return Scaffold(
         backgroundColor: Colors.black,
@@ -136,10 +139,10 @@ class _PrayerSessionState extends State<PrayerSession> {
           elevation: 0,
           iconTheme: const IconThemeData(color: Colors.white),
         ),
-        body: const Center(
+        body: Center(
           child: Text(
             'No prayer steps available.',
-            style: TextStyle(color: Colors.white70, fontSize: 16),
+            style: theme.textTheme.bodyMedium?.copyWith(color: Colors.white70),
           ),
         ),
       );
@@ -163,7 +166,7 @@ class _PrayerSessionState extends State<PrayerSession> {
         title: Text(
           currentStep.sectionHeader ??
               (widget.isAmharic ? 'የጸሎት ጊዜ' : 'Prayer Session'),
-          style: const TextStyle(
+          style: theme.textTheme.titleLarge?.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
@@ -183,7 +186,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                 width: double.infinity,
                 height: double.infinity,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  color: Colors.black87,
+                  color: AppTheme.darkBackground,
                   child: const Center(
                     child: Icon(
                       Icons.image_not_supported_rounded,
@@ -277,8 +280,9 @@ class _PrayerSessionState extends State<PrayerSession> {
                                                 Expanded(
                                                   child: Text(
                                                     currentTitle,
-                                                    style: const TextStyle(
-                                                      fontSize: 16,
+                                                    style: theme
+                                                        .textTheme.bodyMedium
+                                                        ?.copyWith(
                                                       fontWeight:
                                                       FontWeight.bold,
                                                       color: Colors.white,
@@ -300,7 +304,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                                                     _isPlaying
                                                         ? Icons.pause_rounded
                                                         : Icons.play_arrow_rounded,
-                                                    color: Colors.white,
+                                                    color: AppTheme.softGoldDark,
                                                   ),
                                                 ),
                                               ],
@@ -312,10 +316,11 @@ class _PrayerSessionState extends State<PrayerSession> {
                                                   _formatDuration(
                                                     _currentPosition,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontSize: 12,
+                                                  style: theme
+                                                      .textTheme.labelSmall
+                                                      ?.copyWith(
                                                     color: Colors.white
-                                                        .withValues(alpha: 0.6),
+                                                        .withValues(alpha: 0.7),
                                                   ),
                                                 ),
                                                 Expanded(
@@ -324,21 +329,23 @@ class _PrayerSessionState extends State<PrayerSession> {
                                                       context,
                                                     ).copyWith(
                                                       trackHeight: 3,
+                                                      padding: EdgeInsets.zero,
                                                       activeTrackColor:
-                                                      Colors.white,
+                                                      AppTheme.softGoldDark,
                                                       inactiveTrackColor: Colors
                                                           .white
                                                           .withValues(
                                                         alpha: 0.2,
                                                       ),
-                                                      thumbColor: Colors.white,
+                                                      thumbColor: AppTheme
+                                                          .softGoldDark,
                                                       thumbShape:
                                                       const RoundSliderThumbShape(
                                                         enabledThumbRadius: 6,
                                                       ),
                                                       overlayShape:
                                                       const RoundSliderOverlayShape(
-                                                        overlayRadius: 14,
+                                                        overlayRadius: 12,
                                                       ),
                                                     ),
                                                     child: Slider(
@@ -358,10 +365,11 @@ class _PrayerSessionState extends State<PrayerSession> {
                                                   _formatDuration(
                                                     _totalDuration,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontSize: 12,
+                                                  style: theme
+                                                      .textTheme.labelSmall
+                                                      ?.copyWith(
                                                     color: Colors.white
-                                                        .withValues(alpha: 0.6),
+                                                        .withValues(alpha: 0.7),
                                                   ),
                                                 ),
                                               ],
@@ -377,7 +385,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Scripture / Prayer Glass Card
+                          // Scripture / Prayer Glass Card with Marian & Gold Accents
                           Padding(
                             padding:
                             const EdgeInsets.symmetric(horizontal: 16.0),
@@ -388,9 +396,9 @@ class _PrayerSessionState extends State<PrayerSession> {
                                 gradient: LinearGradient(
                                   colors: [
                                     Colors.white.withValues(alpha: 0.65),
-                                    Colors.white.withValues(alpha: 0.10),
-                                    Colors.purpleAccent.withValues(alpha: 0.35),
-                                    Colors.white.withValues(alpha: 0.50),
+                                    AppTheme.softGoldDark.withValues(alpha: 0.45),
+                                    AppTheme.marianBlueDark.withValues(alpha: 0.50),
+                                    Colors.white.withValues(alpha: 0.30),
                                   ],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -400,7 +408,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(22.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withValues(alpha: 0.22),
+                                  color: AppTheme.darkCard.withValues(alpha: 0.45),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Column(
@@ -408,9 +416,9 @@ class _PrayerSessionState extends State<PrayerSession> {
                                   children: [
                                     Text(
                                       currentTitle,
-                                      style: TextStyle(
+                                      style: theme.textTheme.headlineLarge
+                                          ?.copyWith(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 24,
                                         color: Colors.white,
                                         shadows: [
                                           Shadow(
@@ -431,12 +439,10 @@ class _PrayerSessionState extends State<PrayerSession> {
                                     const SizedBox(height: 12),
                                     Text(
                                       currentContent,
-                                      style: TextStyle(
-                                        fontSize: 17,
+                                      style: theme.textTheme.bodyLarge?.copyWith(
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white
                                             .withValues(alpha: 0.95),
-                                        height: 1.6,
                                         shadows: [
                                           Shadow(
                                             blurRadius: 6,
@@ -453,7 +459,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                             ),
                           ),
 
-                          // Interactive Badges
+                          // Interactive Badges with Liturgical Gold Accent
                           if (isMysteryStep) ...[
                             const SizedBox(height: 18),
                             Padding(
@@ -471,10 +477,9 @@ class _PrayerSessionState extends State<PrayerSession> {
                                       widget.isAmharic
                                           ? 'የምስጢሩ ጸሎቶች sequence:'
                                           : 'PRAYER SEQUENCE',
-                                      style: TextStyle(
-                                        fontSize: 12,
+                                      style: theme.textTheme.labelSmall?.copyWith(
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.amber.shade200,
+                                        color: AppTheme.softGoldDark,
                                         letterSpacing: 1.1,
                                       ),
                                     ),
@@ -484,21 +489,25 @@ class _PrayerSessionState extends State<PrayerSession> {
                                     runSpacing: 8.0,
                                     children: [
                                       _buildPrayerBadge(
+                                        context,
                                         widget.isAmharic
                                             ? 'አባታችን ሆይ'
                                             : 'Our Father',
                                       ),
                                       _buildPrayerBadge(
+                                        context,
                                         widget.isAmharic
                                             ? '10x ጸጋ የሞለሽ'
                                             : '10x Hail Mary',
                                       ),
                                       _buildPrayerBadge(
+                                        context,
                                         widget.isAmharic
                                             ? 'ስብሐት ለአብ'
                                             : 'Glory Be',
                                       ),
                                       _buildPrayerBadge(
+                                        context,
                                         widget.isAmharic
                                             ? 'የፋጢማ ጸሎት'
                                             : 'Fatima Prayer',
@@ -516,7 +525,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                     ),
                   ),
 
-                  // Bottom Navigation Buttons
+                  // Bottom Navigation Buttons using Marian Blue Primary
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20.0,
@@ -547,7 +556,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                             ),
                             label: Text(
                               widget.isAmharic ? 'ወደ ኋላ' : 'BACK',
-                              style: const TextStyle(
+                              style: theme.textTheme.labelSmall?.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -557,7 +566,8 @@ class _PrayerSessionState extends State<PrayerSession> {
                           const SizedBox.shrink(),
                         ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurpleAccent,
+                            backgroundColor: colorScheme.primary,
+                            foregroundColor: colorScheme.onPrimary,
                             padding: const EdgeInsets.symmetric(
                               horizontal: 24,
                               vertical: 12,
@@ -574,17 +584,16 @@ class _PrayerSessionState extends State<PrayerSession> {
                                 : (widget.isAmharic
                                 ? 'ቀጣይ ጸሎት'
                                 : 'NEXT PRAYER'),
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
                             ),
                           ),
                           icon: Icon(
                             _currentIndex == widget.prayerSteps.length - 1
                                 ? Icons.check_circle_rounded
                                 : Icons.arrow_forward_rounded,
-                            color: Colors.white,
+                            color: colorScheme.onPrimary,
                             size: 18,
                           ),
                         ),
@@ -600,19 +609,21 @@ class _PrayerSessionState extends State<PrayerSession> {
     );
   }
 
-  Widget _buildPrayerBadge(String label) {
+  Widget _buildPrayerBadge(BuildContext context, String label) {
+    final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+        border: Border.all(
+          color: AppTheme.softGoldDark.withValues(alpha: 0.35),
+        ),
       ),
       child: Text(
         label,
-        style: const TextStyle(
+        style: theme.textTheme.labelSmall?.copyWith(
           color: Colors.white,
-          fontSize: 13,
           fontWeight: FontWeight.w600,
         ),
       ),

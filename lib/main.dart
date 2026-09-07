@@ -6,6 +6,9 @@ import 'package:operation_001/pages/mass.dart';
 import 'package:operation_001/pages/more.dart';
 import 'package:operation_001/theme.dart';
 
+// Global notifier for dynamic theme switching across all screens
+final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.system);
+
 void main() => runApp(const CatholicApp());
 
 class CatholicApp extends StatelessWidget {
@@ -13,13 +16,18 @@ class CatholicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Catholic Prayer App',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
-      home: const Home(),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, currentMode, _) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Catholic Prayer App',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: currentMode,
+          home: const Home(),
+        );
+      },
     );
   }
 }
@@ -34,7 +42,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
+  static const List<Widget> _pages = [
     UserHome(),
     UserBible(),
     UserMass(),

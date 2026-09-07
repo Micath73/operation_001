@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:operation_001/daily_reading_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'daily_reading_model.dart';
 
 class ReadingsDatabaseHelper {
   static final ReadingsDatabaseHelper instance =
@@ -91,7 +91,9 @@ class ReadingsDatabaseHelper {
       await batch.commit(noResult: true);
     } catch (e) {
       if (kDebugMode) {
-        print("⚠️ [SEED FAILED] Could not pre-load initial JSON readings: $e");
+        debugPrint(
+          "⚠️ [SEED FAILED] Could not pre-load initial JSON readings: $e",
+        );
       }
     }
   }

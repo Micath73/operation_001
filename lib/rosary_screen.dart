@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
 
-// Import your screen widgets (adjust paths matching your project structure)
-import 'package:operation_001/joyful.dart';
-import 'package:operation_001/sorrowful.dart';
+// Package imports with consistent naming
 import 'package:operation_001/glorious.dart';
+import 'package:operation_001/joyful.dart';
 import 'package:operation_001/luminous.dart';
+import 'package:operation_001/sorrowful.dart';
 
 class RosaryItem {
   final String title;
   final String days;
   final String quote;
   final String image;
+  final WidgetBuilder targetBuilder;
 
   const RosaryItem({
     required this.title,
     required this.days,
     required this.quote,
     required this.image,
+    required this.targetBuilder,
   });
 }
 
-const List<RosaryItem> defaultRosaryList = [
+final List<RosaryItem> defaultRosaryList = [
   RosaryItem(
     title: 'The Joyful Mysteries',
     days: 'Mondays & Saturdays',
     quote:
     '"The Rosary is the most beautiful and the most rich in graces of all prayers." — Pope St. Pius X',
     image: 'assets/wmremove-transformed (3).jpeg',
+    targetBuilder: (context) => const JoyfulScreen(),
   ),
   RosaryItem(
     title: 'The Sorrowful Mysteries',
@@ -34,6 +37,7 @@ const List<RosaryItem> defaultRosaryList = [
     quote:
     '"Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did." — St. Maximilian Kolbe',
     image: 'assets/wmremove-transformed (6).jpeg',
+    targetBuilder: (context) => const SorrowfulScreen(),
   ),
   RosaryItem(
     title: 'The Glorious Mysteries',
@@ -41,6 +45,7 @@ const List<RosaryItem> defaultRosaryList = [
     quote:
     '"Give me an army saying the Rosary and I will conquer the world." — Blessed Pope Pius IX',
     image: 'assets/wmremove-transformed (9).jpeg',
+    targetBuilder: (context) => const GloriousScreen(),
   ),
   RosaryItem(
     title: 'The Luminous Mysteries',
@@ -48,6 +53,7 @@ const List<RosaryItem> defaultRosaryList = [
     quote:
     '"The Rosary is a powerful weapon to put the demons to flight and to keep oneself from sin." — Pope Pius XI',
     image: 'assets/wmremove-transformed (10).png',
+    targetBuilder: (context) => const LuminousScreen(),
   ),
 ];
 
@@ -61,21 +67,6 @@ class RosaryDetailScreen extends StatelessWidget {
     required this.steps,
   });
 
-  Widget _getMysteryTargetScreen(String title) {
-    switch (title) {
-      case 'The Joyful Mysteries':
-        return const JoyfulScreen();
-      case 'The Sorrowful Mysteries':
-        return const SorrowfulScreen();
-      case 'The Glorious Mysteries':
-        return const GloriousScreen();
-      case 'The Luminous Mysteries':
-        return const LuminousScreen();
-      default:
-        return const JoyfulScreen();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -84,8 +75,6 @@ class RosaryDetailScreen extends StatelessWidget {
       backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: theme.colorScheme.primaryContainer,
-        foregroundColor: theme.colorScheme.onPrimaryContainer,
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
@@ -93,19 +82,21 @@ class RosaryDetailScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = steps[index];
           return Card(
-            color: theme.colorScheme.surfaceContainerHighest,
+            elevation: 0,
+            color: theme.colorScheme.surfaceContainerLow,
             margin: const EdgeInsets.only(bottom: 16),
             clipBehavior: Clip.antiAlias,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(16),
+              side: BorderSide(
+                color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
+              ),
             ),
             child: InkWell(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => _getMysteryTargetScreen(item.title),
-                  ),
+                  MaterialPageRoute(builder: item.targetBuilder),
                 );
               },
               child: Padding(
@@ -133,13 +124,12 @@ class RosaryDetailScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: 14),
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column( crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             item.title,
                             style: theme.textTheme.titleMedium?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant,
+                              color: theme.colorScheme.onSurface,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -157,8 +147,7 @@ class RosaryDetailScreen extends StatelessWidget {
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant
-                                  .withValues(alpha: 0.8),
+                              color: theme.colorScheme.onSurfaceVariant,
                               fontStyle: FontStyle.italic,
                             ),
                           ),
