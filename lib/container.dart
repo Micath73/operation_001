@@ -36,6 +36,7 @@ class Contain extends StatelessWidget {
         );
         break;
       default:
+      // Open the illuminated manuscript template with prayer title & image
         destinationPage = NewPrayerTemplatePage(
           prayerTitle: prayer.text,
           prayerImage: prayer.imagePath,
@@ -43,8 +44,8 @@ class Contain extends StatelessWidget {
         break;
     }
 
-    Navigator.push(
-      context,
+    // Push over the root navigator to cover bottom tabs smoothly
+    Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute(builder: (context) => destinationPage),
     );
   }

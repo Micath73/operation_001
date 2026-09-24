@@ -1,0 +1,957 @@
+[
+  {
+    "feastDate": "05-01",
+    "saints": [
+      {
+        "id": "joseph_the_worker",
+        "name": "Saint Joseph the Worker",
+        "feastDate": "05-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st_joseph_worker.jpg",
+        "shortBio": "Saint Joseph the Worker honors Joseph of Nazareth as a model of dignified labor, family responsibility, and faithful service.",
+        "fullStory": "The feast of Saint Joseph the Worker was established to highlight the Christian meaning of human labor and to present Joseph as a patron of workers. The Gospels describe him as a carpenter who provided for Jesus and Mary through quiet, responsible work. His life teaches that ordinary labor can become an offering of love and participation in God's creative care.",
+        "patronage": [
+          "workers",
+          "carpenters",
+          "fathers",
+          "craftspeople"
+        ],
+        "quote": "Work is a good thing for man—a good thing for his humanity—because through work man not only transforms nature, adapting it to his own needs, but he also achieves fulfillment as a human being.",
+        "birthYear": null,
+        "deathYear": 1,
+        "canonizationYear": null,
+        "tags": [
+          "worker",
+          "carpenter",
+          "holy-family"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-02",
+    "saints": [
+      {
+        "id": "athanasius_of_alexandria",
+        "name": "Saint Athanasius of Alexandria",
+        "feastDate": "05-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/athanasius_of_alexandria.jpg",
+        "shortBio": "Saint Athanasius was a bishop and Doctor of the Church who defended the full divinity of Christ against Arianism.",
+        "fullStory": "Athanasius served as bishop of Alexandria and became one of the principal defenders of the Nicene faith. Because of his opposition to Arian theology, he endured repeated exile and political persecution. His writings, pastoral courage, and fidelity to the doctrine that the Son is truly God profoundly shaped Christian orthodoxy.",
+        "patronage": [
+          "theologians",
+          "defenders of orthodoxy",
+          "Alexandria"
+        ],
+        "quote": "God became man so that we might become god.",
+        "birthYear": 296,
+        "deathYear": 373,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-03",
+    "saints": [
+      {
+        "id": "philip_and_james_apostles",
+        "name": "Saints Philip and James, Apostles",
+        "feastDate": "05-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/philip_and_james_apostles.jpg",
+        "shortBio": "Saints Philip and James were among the Apostles who witnessed Christ and helped establish the early Church.",
+        "fullStory": "Philip appears in the Gospel of John as a disciple who brought others to Jesus and asked questions that opened deeper reflection on Christ's identity. James, traditionally identified as the son of Alphaeus, is remembered among the Twelve and is associated by tradition with apostolic leadership and martyrdom. Together they represent the varied witnesses through whom the Gospel was carried to the nations.",
+        "patronage": [
+          "hatters",
+          "pastry chefs",
+          "riders",
+          "pharmacists"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "apostles",
+          "missionaries",
+          "martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-04",
+    "saints": [
+      {
+        "id": "florian_of_lorch",
+        "name": "Saint Florian of Lorch",
+        "feastDate": "05-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/florian_of_lorch.jpg",
+        "shortBio": "Saint Florian was a Roman officer and martyr who became widely honored as a protector against fire.",
+        "fullStory": "Florian served in the Roman military and is traditionally remembered for assisting persecuted Christians. He refused to renounce his faith and was killed by drowning after enduring interrogation. Later generations invoked him as a patron of firefighters because of his courageous witness and a tradition linking him with the saving of a burning town.",
+        "patronage": [
+          "firefighters",
+          "chimney sweeps",
+          "Upper Austria",
+          "flood victims"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "martyr",
+          "soldier",
+          "firefighter"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-05",
+    "saints": [
+      {
+        "id": "hillary_of_ardennes",
+        "name": "Saint Hilary of Arles",
+        "feastDate": "05-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/hilary_of_arles.jpg",
+        "shortBio": "Saint Hilary of Arles was a bishop and preacher remembered for pastoral leadership and service to the Church in Gaul.",
+        "fullStory": "Hilary became bishop of Arles while still relatively young and devoted himself to preaching, administration, and the care of the poor. He participated in important ecclesial disputes and worked to preserve the authority and responsibilities of bishops. His energy, learning, and pastoral zeal influenced the development of the Western Church in late antiquity.",
+        "patronage": [
+          "Arles",
+          "bishops",
+          "preachers"
+        ],
+        "quote": null,
+        "birthYear": 401,
+        "deathYear": 449,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "preacher",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-06",
+    "saints": [
+      {
+        "id": "francis_de_laval",
+        "name": "Saint Francis de Laval",
+        "feastDate": "05-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/francis_de_laval.jpg",
+        "shortBio": "Saint Francis de Laval was the first bishop of Quebec and a major organizer of the Catholic Church in New France.",
+        "fullStory": "Francis de Laval was sent to serve the growing Catholic communities of North America and became the first bishop of Quebec. He established parishes, seminaries, charitable institutions, and structures for the formation of clergy. His dedication to missionary work and pastoral organization helped establish a durable Catholic presence in Canada.",
+        "patronage": [
+          "Quebec",
+          "missionaries",
+          "Canada",
+          "seminarians"
+        ],
+        "quote": null,
+        "birthYear": 1623,
+        "deathYear": 1708,
+        "canonizationYear": 2014,
+        "tags": [
+          "bishop",
+          "missionary",
+          "founder"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-07",
+    "saints": [
+      {
+        "id": "rose_venerini",
+        "name": "Saint Rose Venerini",
+        "feastDate": "05-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/rose_venerini.jpg",
+        "shortBio": "Saint Rose Venerini was an Italian educator and foundress who opened schools for girls and promoted Christian formation.",
+        "fullStory": "Rose Venerini began by gathering women for prayer and spiritual discussion, eventually recognizing the urgent need for education among girls. She founded schools that offered religious instruction, literacy, and practical formation, especially to those who had few opportunities. Her work created a model of organized Christian education that spread through the Venerini Sisters.",
+        "patronage": [
+          "teachers",
+          "educators",
+          "Christian schools",
+          "girls"
+        ],
+        "quote": "Educate the mind, but do not neglect the heart.",
+        "birthYear": 1656,
+        "deathYear": 1728,
+        "canonizationYear": 2006,
+        "tags": [
+          "educator",
+          "foundress",
+          "religious"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-08",
+    "saints": [
+      {
+        "id": "victor_the_moor",
+        "name": "Saint Victor the Moor",
+        "feastDate": "05-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/victor_the_moor.jpg",
+        "shortBio": "Saint Victor the Moor was a Christian soldier and martyr remembered for remaining faithful despite persecution.",
+        "fullStory": "Victor is traditionally described as a soldier serving in the Roman army who refused to sacrifice to pagan gods. He endured imprisonment and torture before being executed for his Christian confession. His memory has been especially honored in Milan, where he became a symbol of steadfast faith and courage.",
+        "patronage": [
+          "soldiers",
+          "Milan",
+          "prisoners"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 303,
+        "canonizationYear": null,
+        "tags": [
+          "martyr",
+          "soldier",
+          "milan"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-09",
+    "saints": [
+      {
+        "id": "isaac_of_stella",
+        "name": "Saint Isaac of Stella",
+        "feastDate": "05-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/isaac_of_stella.jpg",
+        "shortBio": "Saint Isaac of Stella was a Cistercian abbot and theologian known for his sermons on spiritual growth and the mystery of the Church.",
+        "fullStory": "Isaac entered the Cistercian Order and became abbot of Stella in England. His sermons combine biblical interpretation, theological reflection, and practical guidance for the spiritual life. He taught that Christian growth involves both purification and a deeper participation in the life of Christ and the Church.",
+        "patronage": [
+          "Cistercians",
+          "abbots",
+          "theologians"
+        ],
+        "quote": "What is not assumed is not healed.",
+        "birthYear": 1100,
+        "deathYear": 1178,
+        "canonizationYear": null,
+        "tags": [
+          "cistercian",
+          "abbot",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-10",
+    "saints": [
+      {
+        "id": "john_of_avila",
+        "name": "Saint John of Ávila",
+        "feastDate": "05-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_of_avila.jpg",
+        "shortBio": "Saint John of Ávila was a Spanish priest, preacher, and Doctor of the Church who promoted clerical renewal and deep Christian formation.",
+        "fullStory": "John renounced a promising legal career and became a priest devoted to preaching and spiritual direction. He founded schools and seminaries, advised reformers, and influenced figures such as Teresa of Ávila and John of God. His writings emphasize conversion, the priesthood, the Eucharist, and the transforming love of Christ.",
+        "patronage": [
+          "Spanish diocesan clergy",
+          "priests",
+          "seminarians",
+          "preachers"
+        ],
+        "quote": "The love of God is not a feeling; it is a decision to give oneself.",
+        "birthYear": 1499,
+        "deathYear": 1569,
+        "canonizationYear": 1970,
+        "tags": [
+          "priest",
+          "doctor-of-the-church",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-11",
+    "saints": [
+      {
+        "id": "ignatius_of_laconi",
+        "name": "Saint Ignatius of Laconi",
+        "feastDate": "05-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/ignatius_of_laconi.jpg",
+        "shortBio": "Saint Ignatius of Laconi was a Capuchin friar known for humility, charity, and service to the poor in Sardinia.",
+        "fullStory": "Ignatius entered the Capuchin Order after recovering from a serious illness and spent his life in humble religious service. He traveled through towns collecting assistance for the poor and was known for patience, gentleness, and prayer. His simple ministry made him beloved among ordinary people and demonstrated the spiritual power of hidden charity.",
+        "patronage": [
+          "beggars",
+          "the poor",
+          "Sardinia",
+          "Capuchins"
+        ],
+        "quote": null,
+        "birthYear": 1701,
+        "deathYear": 1781,
+        "canonizationYear": 1951,
+        "tags": [
+          "capuchin",
+          "charity",
+          "religious-brother"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-12",
+    "saints": [
+      {
+        "id": "nereus_and_achilleus",
+        "name": "Saints Nereus and Achilleus",
+        "feastDate": "05-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/nereus_and_achilleus.jpg",
+        "shortBio": "Saints Nereus and Achilleus were Roman soldiers who became Christian witnesses and martyrs.",
+        "fullStory": "Nereus and Achilleus are traditionally remembered as soldiers who abandoned military service after embracing Christianity. They were exiled and eventually executed for refusing to deny their faith. Their ancient Roman memorial reflects the courage of converts who placed discipleship above status and security.",
+        "patronage": [
+          "soldiers",
+          "converts",
+          "Rome"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "soldiers",
+          "roman-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-13",
+    "saints": [
+      {
+        "id": "our_lady_of_fatima",
+        "name": "Our Lady of Fátima",
+        "feastDate": "05-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/our_lady_of_fatima.jpg",
+        "shortBio": "Our Lady of Fátima commemorates the Marian apparitions reported by three shepherd children in Portugal in 1917.",
+        "fullStory": "According to the testimony of Lucia dos Santos and Saints Francisco and Jacinta Marto, Mary appeared at Fátima from May through October 1917. The message emphasized prayer, conversion, penance, and devotion to the Immaculate Heart. Fátima became an international center of pilgrimage and a reminder of the Church's call to pray for peace and the conversion of hearts.",
+        "patronage": [
+          "Portugal",
+          "peace",
+          "pilgrims",
+          "the sick"
+        ],
+        "quote": "Pray, pray, pray.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "apparition",
+          "peace"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-14",
+    "saints": [
+      {
+        "id": "matthias_apostle",
+        "name": "Saint Matthias, Apostle",
+        "feastDate": "05-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_matthias_apostle.jpg",
+        "shortBio": "Saint Matthias was chosen to take the place of Judas Iscariot among the Twelve Apostles after the Resurrection.",
+        "fullStory": "The Acts of the Apostles describes Matthias as a disciple who had accompanied Jesus from the beginning of his ministry. After Judas's death, the apostles prayed and selected Matthias to share in their apostolic mission. Later traditions associate him with missionary work and martyrdom, though the details of his ministry remain uncertain.",
+        "patronage": [
+          "carpenters",
+          "tailors",
+          "alcoholics",
+          "hopeful situations"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-15",
+    "saints": [
+      {
+        "id": "isidore_the_farmer",
+        "name": "Saint Isidore the Farmer",
+        "feastDate": "05-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/isidore_the_farmer.jpg",
+        "shortBio": "Saint Isidore the Farmer was a Spanish layman whose prayerful life and care for the poor made him a model of holiness in ordinary work.",
+        "fullStory": "Isidore worked as a farm laborer near Madrid and began each day with prayer before tending the land. Stories about angelic assistance express the tradition that his devotion never prevented him from fulfilling his responsibilities. He and his wife, Saint Maria de la Cabeza, are remembered for generosity, family faith, and trust in God's providence.",
+        "patronage": [
+          "farmers",
+          "agricultural workers",
+          "Madrid",
+          "rural communities"
+        ],
+        "quote": null,
+        "birthYear": 1070,
+        "deathYear": 1130,
+        "canonizationYear": 1622,
+        "tags": [
+          "layman",
+          "farmer",
+          "family"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-16",
+    "saints": [
+      {
+        "id": "andrew_bobola",
+        "name": "Saint Andrew Bobola",
+        "feastDate": "05-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/andrew_bobola.jpg",
+        "shortBio": "Saint Andrew Bobola was a Jesuit missionary and martyr who worked for Christian unity in eastern Europe.",
+        "fullStory": "Andrew entered the Society of Jesus and served as a preacher, confessor, and missionary in regions divided by religious and political conflict. He traveled through villages offering pastoral care and sought reconciliation among Christians. He was captured and killed because of his faith, becoming a national patron and symbol of steadfast missionary courage in Poland.",
+        "patronage": [
+          "Poland",
+          "Jesuits",
+          "Christian unity",
+          "missionaries"
+        ],
+        "quote": null,
+        "birthYear": 1591,
+        "deathYear": 1657,
+        "canonizationYear": 1938,
+        "tags": [
+          "jesuit",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-17",
+    "saints": [
+      {
+        "id": "paschal_baylon",
+        "name": "Saint Paschal Baylon",
+        "feastDate": "05-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/paschal_baylon.jpg",
+        "shortBio": "Saint Paschal Baylon was a Franciscan lay brother known for Eucharistic devotion, humility, and care for the poor.",
+        "fullStory": "Paschal grew up as a shepherd and entered the Friars Minor Observants as a lay brother. He served in humble tasks, welcomed the poor, and spent long periods in prayer before the Eucharist. His deep Eucharistic faith and gentle charity made him a beloved Franciscan saint and a model of holiness in ordinary service.",
+        "patronage": [
+          "Eucharistic congresses",
+          "cooks",
+          "shepherds",
+          "the poor"
+        ],
+        "quote": "I was born for the Eucharist.",
+        "birthYear": 1540,
+        "deathYear": 1592,
+        "canonizationYear": 1690,
+        "tags": [
+          "franciscan",
+          "eucharist",
+          "religious-brother"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-18",
+    "saints": [
+      {
+        "id": "john_i",
+        "name": "Saint John I",
+        "feastDate": "05-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_i.jpg",
+        "shortBio": "Saint John I was a pope and martyr who died after being imprisoned by the Ostrogothic king Theodoric.",
+        "fullStory": "John became pope during a period of tension between the Roman Church and the Arian ruler Theodoric. He was sent to Constantinople on a diplomatic mission but was imprisoned on his return because of the king's suspicions. John died in captivity at Ravenna, and the Church honors him as a martyr for faithful service amid political pressure.",
+        "patronage": [
+          "popes",
+          "prisoners",
+          "diplomats"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 526,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "martyr",
+          "diplomat"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-19",
+    "saints": [
+      {
+        "id": "celestine_v",
+        "name": "Saint Celestine V",
+        "feastDate": "05-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/celestine_v.jpg",
+        "shortBio": "Saint Celestine V was a hermit who became pope and later resigned, returning to a life of prayer and solitude.",
+        "fullStory": "Peter of Morrone lived for many years as a hermit in the mountains and founded a community that became the Celestine branch of the Benedictines. Elected pope late in life, he soon recognized the difficulty of governing the Church and resigned the office. He spent his remaining years under close supervision, remembered for humility, prayer, and his unusual renunciation of power.",
+        "patronage": [
+          "hermits",
+          "monks",
+          "Abruzzo",
+          "those seeking humility"
+        ],
+        "quote": null,
+        "birthYear": 1215,
+        "deathYear": 1296,
+        "canonizationYear": 1313,
+        "tags": [
+          "pope",
+          "hermit",
+          "monk"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-20",
+    "saints": [
+      {
+        "id": "bernardine_of_siena",
+        "name": "Saint Bernardine of Siena",
+        "feastDate": "05-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/bernardine_of_siena.jpg",
+        "shortBio": "Saint Bernardine of Siena was a Franciscan preacher who promoted devotion to the Holy Name of Jesus and worked for social and religious renewal.",
+        "fullStory": "Bernardine entered the Franciscan Order and became one of the most influential preachers of fifteenth-century Italy. He traveled from city to city preaching repentance, reconciliation, and devotion to the Holy Name of Jesus. He also addressed economic injustice, violence, and corruption, seeking to apply Christian ethics to public life.",
+        "patronage": [
+          "advertisers",
+          "chest problems",
+          "Siena",
+          "public relations"
+        ],
+        "quote": "The Name of Jesus is the glory of preachers.",
+        "birthYear": 1380,
+        "deathYear": 1444,
+        "canonizationYear": 1450,
+        "tags": [
+          "franciscan",
+          "preacher",
+          "holy-name"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-21",
+    "saints": [
+      {
+        "id": "christopher_magallanes",
+        "name": "Saint Christopher Magallanes",
+        "feastDate": "05-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/christopher_magallanes.jpg",
+        "shortBio": "Saint Christopher Magallanes was a Mexican priest and martyr who served rural communities and defended the Church during persecution.",
+        "fullStory": "Christopher ministered among poor farming communities and promoted prayer, education, and priestly vocations. During the persecution of the Church in Mexico, he continued to celebrate the sacraments and support believers despite grave danger. He was executed without a formal trial and died proclaiming his faith and forgiving his persecutors.",
+        "patronage": [
+          "Mexico",
+          "rural communities",
+          "priests",
+          "persecuted Christians"
+        ],
+        "quote": "I am innocent and I die innocent, but I forgive you.",
+        "birthYear": 1869,
+        "deathYear": 1927,
+        "canonizationYear": 2000,
+        "tags": [
+          "priest",
+          "martyr",
+          "mexican-martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-22",
+    "saints": [
+      {
+        "id": "rita_of_cascia",
+        "name": "Saint Rita of Cascia",
+        "feastDate": "05-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st_rita.jpg",
+        "shortBio": "Saint Rita of Cascia was an Augustinian religious whose life included marriage, widowhood, forgiveness, and devoted prayer.",
+        "fullStory": "Rita married and endured a difficult family life while seeking peace and reconciliation. After her husband and sons died, she entered the Augustinian convent at Cascia and devoted herself to prayer, service, and contemplation of Christ's Passion. Her perseverance through apparently impossible circumstances has made her one of the Church's most beloved intercessors.",
+        "patronage": [
+          "impossible causes",
+          "marital difficulties",
+          "widows",
+          "abuse victims"
+        ],
+        "quote": "Love cannot remain by itself—it has no meaning. Love has to be put into action and that action is service.",
+        "birthYear": 1381,
+        "deathYear": 1457,
+        "canonizationYear": 1900,
+        "tags": [
+          "augustinian",
+          "widow",
+          "religious"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-23",
+    "saints": [
+      {
+        "id": "john_baptist_de_rossi",
+        "name": "Saint John Baptist de Rossi",
+        "feastDate": "05-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_baptist_de_rossi.jpg",
+        "shortBio": "Saint John Baptist de Rossi was an Italian priest who dedicated himself to the poor, the sick, and people living on the margins of society.",
+        "fullStory": "John became a priest in Rome and served for many years as a confessor and spiritual director. He ministered especially to the homeless, prisoners, and neglected people who gathered in the city. His compassionate pastoral work showed how patient attention and practical charity can restore dignity and hope.",
+        "patronage": [
+          "the homeless",
+          "prisoners",
+          "the sick",
+          "social outcasts"
+        ],
+        "quote": null,
+        "birthYear": 1698,
+        "deathYear": 1764,
+        "canonizationYear": 1881,
+        "tags": [
+          "priest",
+          "confessor",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-24",
+    "saints": [
+      {
+        "id": "mary_help_of_christians",
+        "name": "Mary, Help of Christians",
+        "feastDate": "05-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/mary_help_of_christians.jpg",
+        "shortBio": "Mary, Help of Christians is a Marian title that celebrates the Virgin Mary's maternal protection and assistance to the Church.",
+        "fullStory": "Devotion to Mary as Help of Christians has ancient roots and grew especially during periods when the Church faced persecution and external threats. Pope Pius VII established the feast after his release from imprisonment under Napoleon. Saint John Bosco later spread the devotion widely through the Salesian family and dedicated works of education and evangelization to Mary under this title.",
+        "patronage": [
+          "the Church",
+          "Christian unity",
+          "educators",
+          "the Salesian family"
+        ],
+        "quote": "Trust in Mary Help of Christians and you will see what miracles are.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "protection",
+          "salesian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-25",
+    "saints": [
+      {
+        "id": "bede_the_venerable",
+        "name": "Saint Bede the Venerable",
+        "feastDate": "05-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/bede_the_venerable.jpg",
+        "shortBio": "Saint Bede the Venerable was an English monk, historian, biblical scholar, and Doctor of the Church.",
+        "fullStory": "Bede spent nearly his entire life in the monasteries of Wearmouth and Jarrow, where he studied, taught, wrote, and prayed. His Ecclesiastical History of the English People remains a foundational source for the history of early Christianity in England. His biblical commentaries and scholarly method helped transmit classical and Christian learning throughout medieval Europe.",
+        "patronage": [
+          "scholars",
+          "historians",
+          "writers",
+          "teachers"
+        ],
+        "quote": "Unfurl the sails, and let God steer us where He will.",
+        "birthYear": 672,
+        "deathYear": 735,
+        "canonizationYear": 1899,
+        "tags": [
+          "monk",
+          "doctor-of-the-church",
+          "historian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-26",
+    "saints": [
+      {
+        "id": "philip_neri",
+        "name": "Saint Philip Neri",
+        "feastDate": "05-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/philip_neri.jpg",
+        "shortBio": "Saint Philip Neri was an Italian priest known for joyful holiness, spiritual direction, and the foundation of the Congregation of the Oratory.",
+        "fullStory": "Philip served the people of Rome through prayer, confession, spiritual conversation, and care for the sick and poor. He gathered priests and laypeople for informal meetings of prayer, Scripture, music, and discussion, giving rise to the Oratorian tradition. His humor, humility, and joyful charity showed that deep holiness can be both serious and warmly human.",
+        "patronage": [
+          "joy",
+          "Rome",
+          "comedians",
+          "the Oratorian Congregation"
+        ],
+        "quote": "Cheerfulness strengthens the heart and makes us persevere in a good life.",
+        "birthYear": 1515,
+        "deathYear": 1595,
+        "canonizationYear": 1622,
+        "tags": [
+          "priest",
+          "oratorian",
+          "joy"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-27",
+    "saints": [
+      {
+        "id": "augustine_of_canterbury",
+        "name": "Saint Augustine of Canterbury",
+        "feastDate": "05-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/augustine_of_canterbury.jpg",
+        "shortBio": "Saint Augustine of Canterbury was a Benedictine missionary and the first archbishop of Canterbury.",
+        "fullStory": "Augustine was sent by Pope Gregory the Great to evangelize the Anglo-Saxons in England. He arrived in Kent and established a Christian community with the support of King Æthelberht and Queen Bertha. His mission laid the foundations for the organized Church in England and connected English Christianity with the wider Catholic Church.",
+        "patronage": [
+          "England",
+          "missionaries",
+          "Canterbury",
+          "Benedictines"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 604,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "benedictine"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-28",
+    "saints": [
+      {
+        "id": "germanus_of_paris",
+        "name": "Saint Germanus of Paris",
+        "feastDate": "05-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/germanus_of_paris.jpg",
+        "shortBio": "Saint Germanus of Paris was a bishop known for defending the poor, encouraging monastic life, and guiding the Church in Merovingian Gaul.",
+        "fullStory": "Germanus became bishop of Paris and served as a trusted spiritual and political adviser during a turbulent period. He founded and supported monasteries, preached moral reform, and used his influence to protect the vulnerable. His pastoral leadership helped strengthen Christian institutions in the early medieval kingdom of the Franks.",
+        "patronage": [
+          "Paris",
+          "prisoners",
+          "monks",
+          "the poor"
+        ],
+        "quote": null,
+        "birthYear": 496,
+        "deathYear": 576,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "monasticism",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-29",
+    "saints": [
+      {
+        "id": "paul_vi",
+        "name": "Saint Paul VI",
+        "feastDate": "05-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/paul_vi.jpg",
+        "shortBio": "Saint Paul VI was a pope who guided the Church through the final years and implementation of the Second Vatican Council.",
+        "fullStory": "Giovanni Battista Montini served as a priest, archbishop of Milan, and pope from 1963 to 1978. He brought the Second Vatican Council to completion and worked to translate its teachings into pastoral renewal, liturgical reform, ecumenical dialogue, and evangelization. His pontificate also emphasized responsible human love, missionary witness, and the Church's dialogue with the modern world.",
+        "patronage": [
+          "evangelization",
+          "the Second Vatican Council",
+          "Catholic Action",
+          "families"
+        ],
+        "quote": "The world will not be converted by a multitude of preachers, but by a small number of saints.",
+        "birthYear": 1897,
+        "deathYear": 1978,
+        "canonizationYear": 2019,
+        "tags": [
+          "pope",
+          "council",
+          "evangelization"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-30",
+    "saints": [
+      {
+        "id": "joan_of_arc",
+        "name": "Saint Joan of Arc",
+        "feastDate": "05-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/joan_of_arc.jpg",
+        "shortBio": "Saint Joan of Arc was a young French military leader and martyr who acted from a profound conviction of divine mission.",
+        "fullStory": "Joan came from a rural village and believed that God called her to support the French king during the Hundred Years' War. She inspired troops, helped lift the siege of Orléans, and became a symbol of French unity before being captured and condemned in a politically manipulated trial. Decades later her conviction was overturned, and the Church came to honor her courage, purity of intention, and fidelity to conscience.",
+        "patronage": [
+          "France",
+          "soldiers",
+          "the military",
+          "prisoners"
+        ],
+        "quote": "I am not afraid; I was born to do this.",
+        "birthYear": 1412,
+        "deathYear": 1431,
+        "canonizationYear": 1920,
+        "tags": [
+          "virgin",
+          "martyr",
+          "france"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "05-31",
+    "saints": [
+      {
+        "id": "visitation_of_the_blessed_virgin_mary",
+        "name": "Visitation of the Blessed Virgin Mary",
+        "feastDate": "05-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/visitation_bvm.jpg",
+        "shortBio": "The Visitation celebrates Mary's visit to Elizabeth, when the unborn John the Baptist leaped for joy and Mary proclaimed the Magnificat.",
+        "fullStory": "After receiving the angel's message, Mary traveled to the hill country to serve her relative Elizabeth, who was expecting John the Baptist. Elizabeth recognized Mary's faith, and Mary responded with the Magnificat, praising God's mercy and faithfulness to the humble. The feast reveals Christian discipleship as a movement of joyful service, shared faith, and attentiveness to God's action.",
+        "patronage": [
+          "expectant mothers",
+          "pregnant women",
+          "charitable service",
+          "the unborn"
+        ],
+        "quote": "My soul proclaims the greatness of the Lord; my spirit rejoices in God my Savior.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "gospel",
+          "magnificat"
+        ]
+      }
+    ]
+  }
+]

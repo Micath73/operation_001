@@ -1,0 +1,255 @@
+{
+  "id": "virtues_theological_and_cardinal",
+  "title": "The Virtues: Theological and Cardinal",
+  "category": "Catechism",
+  "summary": "The virtues are stable dispositions of intellect and will that perfect our powers and guide us to do good; the three theological virtues (faith, hope, charity) unite us to God, while the four cardinal virtues (prudence, justice, fortitude, temperance) govern our moral life.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Nature of Virtue"
+    },
+    {
+      "type": "paragraph",
+      "text": "A virtue is a habitual and firm disposition to do the good. It allows the person not only to perform good acts, but to give the best of himself. The virtuous person tends toward the good with all his sensory and spiritual powers, pursuing the good and choosing it in concrete actions. [CCC 1803]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Human virtues are firm attitudes, stable dispositions, habitual perfections of intellect and will that govern our actions, order our passions, and guide our conduct according to reason and faith. They make possible ease, self-mastery, and joy in leading a morally good life. The virtuous man is he who freely practices the good. [CCC 1804]"
+    },
+    {
+      "type": "scripture",
+      "reference": "2 Peter 1:5-7 (RSV-CE)",
+      "text": "For this very reason, make every effort to supplement your faith with virtue, and virtue with knowledge, and knowledge with self-control, and self-control with steadfastness, and steadfastness with godliness, and godliness with brotherly affection, and brotherly affection with love."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1803-1804: Habitual Disposition",
+      "text": "A virtue is a habitual and firm disposition to do good, perfecting intellect and will to govern actions, order passions, and guide conduct according to reason and faith."
+    },
+    {
+      "type": "heading",
+      "text": "I. The Theological Virtues"
+    },
+    {
+      "type": "paragraph",
+      "text": "The theological virtues are the foundation of Christian moral activity. They inform and give life to all the moral virtues. There are three theological virtues: faith, hope, and charity. They are infused by God into the souls of the faithful to make them capable of acting as his children and meriting eternal life. [CCC 1812-1813]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The theological virtues are the pledge of the presence and action of the Holy Spirit in the faculties of the human being. They have God for their origin, motive, and object—God known by faith, God hoped in, and God loved for his own sake. Through these virtues, we are united directly to God. [CCC 1813]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 13:13 (RSV-CE)",
+      "text": "So faith, hope, love abide, these three; but the greatest of these is love."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1812-1813: Foundation of Christian Life",
+      "text": "The theological virtues—faith, hope, and charity—are the foundation of Christian moral activity, infused by God to make us capable of acting as his children and meriting eternal life."
+    },
+    {
+      "type": "heading",
+      "text": "II. Faith: Believing in God"
+    },
+    {
+      "type": "paragraph",
+      "text": "Faith is the theological virtue by which we believe in God and believe all that he has said and revealed to us, and that Holy Church proposes for our belief. Through faith, man freely commits his entire self to God, making the full submission of intellect and will to God who reveals. [CCC 1814]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Faith is a gift of God, a supernatural virtue infused by him. To live, grow, and persevere in faith, we must nourish it with prayer, meditation on Scripture, and participation in the sacraments. Faith works through love and produces good works as its fruits. [CCC 1814, 162]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Hebrews 11:1 (RSV-CE)",
+      "text": "Now faith is the assurance of things hoped for, the conviction of things not seen."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1814: Commitment to God",
+      "text": "Faith is the theological virtue by which we believe in God and all he has revealed, freely committing our entire self to him with full submission of intellect and will."
+    },
+    {
+      "type": "heading",
+      "text": "III. Hope: Trusting in God's Promises"
+    },
+    {
+      "type": "paragraph",
+      "text": "Hope is the theological virtue by which we desire the kingdom of heaven and eternal life as our happiness, placing our trust in Christ's promises and relying not on our own strength, but on the help of the grace of the Holy Spirit. Hope responds to the aspiration for happiness which God has placed in every human heart. [CCC 1817]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The virtue of hope preserves us from discouragement, sustains us during times of abandonment, and opens up our hearts in expectation of eternal beatitude. Hope protects us from selfishness and leads to the happiness that flows from charity. It is expressed in the Our Father, the prayer Jesus taught us. [CCC 1818, 1820]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 15:13 (RSV-CE)",
+      "text": "May the God of hope fill you with all joy and peace in believing, so that by the power of the Holy Spirit you may abound in hope."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1817: Desire for Heaven",
+      "text": "Hope is the theological virtue by which we desire heaven and eternal life, trusting in Christ's promises and relying on the grace of the Holy Spirit, not our own strength."
+    },
+    {
+      "type": "heading",
+      "text": "IV. Charity: Loving God Above All"
+    },
+    {
+      "type": "paragraph",
+      "text": "Charity is the theological virtue by which we love God above all things for his own sake, and our neighbor as ourselves for the love of God. Jesus makes charity the new commandment, and it is the fullness of the law. Charity is the bond of perfection and the form of all virtues. [CCC 1822, 1827]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Charity is a participation in the very life of God, poured into our hearts by the Holy Spirit. It enables us to love God and neighbor with a supernatural love that seeks the true good of the other. Without charity, all other virtues are lifeless; with charity, all our actions become meritorious for eternal life. [CCC 1823-1824, 1827]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 John 4:16 (RSV-CE)",
+      "text": "So we know and believe the love God has for us. God is love, and he who abides in love abides in God, and God abides in him."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1822: New Commandment",
+      "text": "Charity is the theological virtue by which we love God above all things and our neighbor as ourselves for love of God; it is the fullness of the law and the bond of perfection."
+    },
+    {
+      "type": "heading",
+      "text": "V. The Cardinal Virtues"
+    },
+    {
+      "type": "paragraph",
+      "text": "Four virtues play a pivotal role and are called cardinal virtues; all the others are grouped around them. They are prudence, justice, fortitude, and temperance. These virtues are acquired by human effort and perfected by grace; they are the stable dispositions that govern our moral life. [CCC 1805]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The cardinal virtues are called hinge virtues because all other moral virtues hinge upon them. They are accessible to all people, Christian or not, but in Christians they are purified and elevated by grace. Together with the theological virtues, they form the framework of a holy life. [CCC 1805, 1834]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Wisdom 8:7 (RSV-CE)",
+      "text": "She teaches temperance and prudence, justice and courage; nothing in life is more profitable for men than these."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1805: Hinge Virtues",
+      "text": "The four cardinal virtues—prudence, justice, fortitude, and temperance—are the hinge virtues around which all other moral virtues are grouped, governing our moral life."
+    },
+    {
+      "type": "heading",
+      "text": "VI. Prudence: Right Reason in Action"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prudence is the virtue that disposes practical reason to discern our true good in every circumstance and to choose the right means of achieving it. It is right reason in action. Prudence guides the judgment of conscience and directs the other virtues by setting rule and measure. [CCC 1806]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The prudent person considers the circumstances and consequences of his actions before acting. Prudence requires humility, docility, and experience. It is strengthened by prayer and the gifts of the Holy Spirit, especially counsel, and it enables us to apply moral principles to concrete situations. [CCC 1788, 1806]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Proverbs 14:15 (RSV-CE)",
+      "text": "The simple believes everything, but the prudent man looks where he is going."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1806: Right Reason",
+      "text": "Prudence is the virtue that disposes practical reason to discern our true good and choose the right means; it guides conscience and directs the other virtues."
+    },
+    {
+      "type": "heading",
+      "text": "VII. Justice: Giving God and Neighbor Their Due"
+    },
+    {
+      "type": "paragraph",
+      "text": "Justice is the moral virtue that consists in the constant and firm will to give their due to God and neighbor. Justice toward God is called the virtue of religion. Justice toward men disposes one to respect the rights of each and to establish in human relationships the harmony that promotes equity with regard to persons and to the common good. [CCC 1807]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The just person seeks to render to each what is owed, whether to God in worship and obedience, or to neighbor in fairness and charity. Justice is the foundation of social life and is necessary for peace. It is perfected by charity, which goes beyond strict justice to give generously. [CCC 1807, 1889]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Micah 6:8 (RSV-CE)",
+      "text": "He has showed you, O man, what is good; and what does the LORD require of you but to do justice, and to love kindness, and to walk humbly with your God?"
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1807: Giving Their Due",
+      "text": "Justice is the constant and firm will to give their due to God and neighbor; it establishes harmony in human relationships and promotes equity and the common good."
+    },
+    {
+      "type": "heading",
+      "text": "VIII. Fortitude: Courage in Difficulty"
+    },
+    {
+      "type": "paragraph",
+      "text": "Fortitude is the moral virtue that ensures firmness in difficulties and constancy in the pursuit of the good. It strengthens the resolve to resist temptations and to overcome obstacles in the moral life. Fortitude enables one to conquer fear, even fear of death, and to face trials and persecutions. [CCC 1808]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Fortitude is not recklessness or the absence of fear, but the strength to do what is right despite fear. It empowers us to endure hardship for the sake of virtue and to make sacrifices for the good. Fortitude is necessary for martyrdom and for daily fidelity to Christ. [CCC 1808, 2473]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Joshua 1:9 (RSV-CE)",
+      "text": "Have I not commanded you? Be strong and of good courage; be not frightened, neither be dismayed; for the LORD your God is with you wherever you go."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1808: Firmness in Difficulties",
+      "text": "Fortitude ensures firmness in difficulties and constancy in pursuing the good; it strengthens resolve to resist temptations and overcome obstacles, enabling us to conquer fear."
+    },
+    {
+      "type": "heading",
+      "text": "IX. Temperance: Moderation and Self-Mastery"
+    },
+    {
+      "type": "paragraph",
+      "text": "Temperance is the moral virtue that moderates the attraction of pleasures and provides balance in the use of created goods. It ensures the will's mastery over instincts and keeps desires within the limits of what is honorable. Temperance leads to self-control and sobriety in all areas of life. [CCC 1809]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Temperance is not the suppression of desire but its proper ordering. The temperate person enjoys created goods without becoming enslaved to them. This virtue is especially important in matters of food, drink, and sexuality, where disordered desires can easily lead to sin. [CCC 1809, 2341]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Titus 2:11-12 (RSV-CE)",
+      "text": "For the grace of God has appeared for the salvation of all men, training us to renounce irreligion and worldly passions, and to live sober, upright, and godly lives in this world."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1809: Moderation of Pleasures",
+      "text": "Temperance moderates the attraction of pleasures and provides balance in the use of created goods; it ensures the will's mastery over instincts and keeps desires within honorable limits."
+    },
+    {
+      "type": "heading",
+      "text": "X. Growing in Virtue Through Grace"
+    },
+    {
+      "type": "paragraph",
+      "text": "The virtues are grown and strengthened through repeated good acts, prayer, and the sacraments. Human effort is necessary, but grace is essential. The Holy Spirit heals and elevates our nature, enabling us to practice the virtues with greater ease and joy. [CCC 1810, 1834]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The saints are models of virtue, showing us that holiness is possible through cooperation with grace. By examining our conscience, seeking spiritual direction, and practicing specific virtues, we grow in holiness. The ultimate goal is charity, the perfection of all virtues, which unites us perfectly to God. [CCC 1827, 2014]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Philippians 4:13 (RSV-CE)",
+      "text": "I can do all things in him who strengthens me."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1810: Growth in Virtue",
+      "text": "Virtues grow through repeated good acts, prayer, and sacraments; human effort is necessary, but grace is essential for the Holy Spirit to heal and elevate our nature."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: Prayer for the Virtues",
+      "text": "O Lord God, source of all goodness and perfection, pour into our hearts the theological virtues of faith, hope, and charity. Strengthen us with the cardinal virtues of prudence, justice, fortitude, and temperance. Grant that we may grow in virtue each day, cooperating with your grace, until we attain the perfection of charity and eternal life with you. Through Christ our Lord. Amen."
+    }
+  ]
+}

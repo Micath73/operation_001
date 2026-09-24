@@ -1,0 +1,37 @@
+{
+  "id": "p1_our_father",
+  "title": "The Our Father",
+  "subtitle": "Line-by-Line Breakdown of the Lord's Prayer",
+  "category": "Spiritual Lessons",
+  "estimatedMinutes": 5,
+  "sections": [
+    {
+      "type": "header",
+      "content": "The Model of All Prayer"
+    },
+    {
+      "type": "paragraph",
+      "content": "When asked by His disciples how to pray, Jesus taught them the Our Father (Matthew 6:9-13). Saint Augustine called it the perfect prayer because it contains every valid petition human beings can offer to God."
+    },
+    {
+      "type": "header",
+      "content": "Line-by-Line Breakdown"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "**'Our Father, who art in heaven'** — Establishes our relationship as adopted sons and daughters of God.",
+        "**'Hallowed be Thy name'** — A prayer that God's holiness be recognized and revered across the earth.",
+        "**'Thy kingdom come, Thy will be done on earth as it is in heaven'** — Submitting our desires to the holy, sovereign will of God.",
+        "**'Give us this day our daily bread'** — Asking for both temporal nourishment and the Spiritual Bread of the Eucharist.",
+        "**'And forgive us our trespasses, as we forgive those who trespass against us'** — Conditioning our reception of God's mercy on our willingness to forgive others.",
+        "**'And lead us not into temptation, but deliver us from evil'** — Seeking divine protection from Satan and spiritual ruin."
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "Key Takeaway",
+      "content": "The first three petitions focus on God's glory; the final four address our human needs and vulnerabilities."
+    }
+  ]
+}

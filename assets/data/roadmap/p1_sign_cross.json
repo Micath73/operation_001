@@ -1,0 +1,39 @@
+{
+  "id": "p1_sign_cross",
+  "title": "The Sign of the Cross",
+  "subtitle": "Gesture, Trinitarian Formula & Opening Prayer",
+  "category": "Essential Prayers",
+  "estimatedMinutes": 3,
+  "sections": [
+    {
+      "type": "header",
+      "content": "Why We Begin With the Sign of the Cross"
+    },
+    {
+      "type": "paragraph",
+      "content": "The Sign of the Cross is the simplest yet deepest prayer in Catholic tradition. It is not merely a prelude to prayer—it is a prayer in itself that marks your body as consecrated to God and recalls your baptism."
+    },
+    {
+      "type": "callout",
+      "title": "Trinitarian Foundation",
+      "content": "By invoking the Father, the Son, and the Holy Spirit, you declare your faith in one God in three Divine Persons."
+    },
+    {
+      "type": "header",
+      "content": "How to Perform the Gesture"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "**Touch your forehead:** 'In the name of the Father...'",
+        "**Touch your chest:** '...and of the Son...'",
+        "**Touch your left shoulder:** '...and of the Holy...'",
+        "**Touch your right shoulder:** '...Spirit. Amen.'"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "Use your right hand with open fingers together or with your thumb and first two fingers joined, representing the Trinity and the dual nature of Christ."
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "id": "trinity_one_god_three_persons",
+  "title": "The Trinity: One God in Three Persons",
+  "category": "Catechism",
+  "summary": "The Most Holy Trinity is the central mystery of Christian faith and life: one God existing eternally as three distinct divine Persons—Father, Son, and Holy Spirit—consubstantial and inseparable in being and operation.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Central Mystery of Faith"
+    },
+    {
+      "type": "paragraph",
+      "text": "The mystery of the Most Holy Trinity stands at the heart of Christian belief and practice. It is the mystery of God in himself—the source from which all other mysteries of faith flow and the light that illuminates them. The entire history of salvation is the story of how the one true God, Father, Son, and Holy Spirit, reveals himself to humanity and draws us into communion with his divine life. [CCC 234]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 28:19 (RSV-CE)",
+      "text": "Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 234: Central Mystery",
+      "text": "The Trinity is the central mystery of Christian faith and life, the mystery of God in himself, and the source of all other mysteries of faith."
+    },
+    {
+      "type": "heading",
+      "text": "I. The Revelation of the Trinity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Trinity is a mystery of faith in the strict sense—a truth hidden in God that could never be known unless God himself revealed it. While traces of God's Trinitarian being appear in creation and throughout the Old Testament, the full mystery of God's inner life as Father, Son, and Holy Spirit remained inaccessible until the Incarnation of the Son and the sending of the Holy Spirit. [CCC 237]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church distinguishes between theology (the mystery of God's inmost Trinitarian life) and economy (all the works by which God reveals himself). Through God's saving works in history, the mystery of his inner life is disclosed to us; and conversely, the mystery of the Trinity illuminates our understanding of all God's works. [CCC 236]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 1:1, 14 (RSV-CE)",
+      "text": "In the beginning was the Word, and the Word was with God, and the Word was God. And the Word became flesh and dwelt among us."
+    },
+    {
+      "type": "heading",
+      "text": "II. The Father Revealed by the Son"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesus Christ revealed God as Father in an entirely new way. He is not Father merely as Creator, but eternally Father in relation to his only Son, who is eternally Son only in relation to the Father. Jesus alone fully knows the Father and reveals him to those to whom the Son chooses to make him known. [CCC 240]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 14:9-10 (RSV-CE)",
+      "text": "He who has seen me has seen the Father; how can you say, 'Show us the Father'? Do you not believe that I am in the Father and the Father in me?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Following apostolic tradition, the Church confessed at the Council of Nicaea (325) that the Son is consubstantial with the Father—one God with him. The Council of Constantinople (381) further proclaimed the Son as eternally begotten of the Father, true God from true God, begotten not made, of one being with the Father. [CCC 242]"
+    },
+    {
+      "type": "callout",
+      "title": "CCC 242: Consubstantial Son",
+      "text": "The Church confesses the Son as consubstantial with the Father—eternally begotten, true God from true God, one in being with the Father."
+    },
+    {
+      "type": "heading",
+      "text": "III. The Holy Spirit: Lord and Giver of Life"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before his Passion, Jesus promised to send another Advocate, the Holy Spirit, who had been at work since creation and spoken through the prophets. The Spirit would remain with the disciples, teaching them and guiding them into all truth, thus revealing himself as another divine Person alongside the Father and the Son. [CCC 243]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The eternal origin of the Holy Spirit is made known through his mission in time. The Spirit is sent by the Father in the name of the Son and by the Son from the Father, revealing the full mystery of the Trinity after Jesus' glorification. [CCC 244]"
+    },
+    {
+      "type": "scripture",
+      "reference": "2 Corinthians 13:14 (RSV-CE)",
+      "text": "The grace of the Lord Jesus Christ and the love of God and the fellowship of the Holy Spirit be with you all."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 245: The Spirit's Origin",
+      "text": "The Church confesses the Holy Spirit as proceeding from the Father, the source of the whole divinity, while also being sent by the Son, revealing his eternal relation to both Father and Son."
+    },
+    {
+      "type": "heading",
+      "text": "IV. The Dogma of the Trinity"
+    },
+    {
+      "type": "paragraph",
+      "text": "To articulate the dogma of the Trinity, the Church developed precise terminology using philosophical notions such as substance, person, and relation. In doing so, the Church did not subject faith to human wisdom but gave these terms new meaning to express an ineffable mystery beyond all human understanding. [CCC 251]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church uses the term substance (or essence or nature) to designate the one divine being; the term person (or hypostasis) to designate the Father, Son, and Holy Spirit as really distinct from one another; and the term relation to designate that their distinction lies in their relationships to one another. [CCC 252]"
+    },
+    {
+      "type": "callout",
+      "title": "CCC 253: The Trinity Is One",
+      "text": "We confess not three gods but one God in three persons, the consubstantial Trinity. Each divine Person is God whole and entire, sharing fully in the one divine nature."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 254: Real Distinction of Persons",
+      "text": "The divine persons are really distinct from one another—not merely names or modes—but distinct in their relations of origin: the Father generates, the Son is begotten, the Spirit proceeds."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 255: Relations of Origin",
+      "text": "The real distinction among the persons resides solely in their relationships: the Father is related to the Son, the Son to the Father, and the Spirit to both, while remaining one in nature."
+    },
+    {
+      "type": "heading",
+      "text": "V. The Divine Works and Missions"
+    },
+    {
+      "type": "paragraph",
+      "text": "God is love—Father, Son, and Holy Spirit—who freely wills to communicate the glory of his blessed life. This plan of love was conceived by the Father before the foundation of the world in his beloved Son, destined that we might be adopted as sons and conformed to the image of Christ through the Spirit. [CCC 257]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The entire divine economy is the common work of the three divine persons. Since the Trinity has one nature, it has one operation: the Father, Son, and Holy Spirit are not three principles of creation but one. Yet each Person performs this common work according to his unique personal property. [CCC 258]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 John 4:8-9 (RSV-CE)",
+      "text": "He who does not love does not know God; for God is love. In this the love of God was made manifest among us, that God sent his only Son into the world, so that we might live through him."
+    },
+    {
+      "type": "paragraph",
+      "text": "Because the divine economy is both common and personal, it reveals both the unity of the divine nature and what is proper to each Person. The whole Christian life is thus a communion with each of the divine persons without separating them—glorifying the Father through the Son in the Holy Spirit. [CCC 259]"
+    },
+    {
+      "type": "heading",
+      "text": "VI. Communion with the Blessed Trinity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The ultimate goal of the entire divine economy is the entry of God's creatures into the perfect unity of the Blessed Trinity. Even now we are called to become a dwelling place for the Most Holy Trinity, for Jesus promised that those who love him and keep his word will find their home with the Father and the Son. [CCC 260]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 14:23 (RSV-CE)",
+      "text": "If a man loves me, he will keep my word, and my Father will love him, and we will come to him and make our home with him."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 261-263: What Faith Confesses",
+      "text": "God alone reveals himself as Father, Son, and Holy Spirit. The Son's Incarnation reveals his eternal relation to the Father; the Spirit's mission reveals his unity with Father and Son, worshipped and glorified with them."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 265: Baptismal Grace",
+      "text": "Through Baptism in the name of the Father, Son, and Holy Spirit, we are called to share in the life of the Blessed Trinity—here in faith, and after death in eternal light."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 267: Inseparable Operation",
+      "text": "The divine persons are inseparable in what they are and in what they do, yet within their single divine operation each shows forth what is proper to him in the Trinity."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: Glory Be",
+      "text": "Glory be to the Father, and to the Son, and to the Holy Spirit, as it was in the beginning, is now, and ever shall be, world without end. Amen."
+    },
+    {
+      "type": "prayer",
+      "title": "Trinitarian Doxology",
+      "text": "O blessed light, O Trinity and first Unity! God is eternal blessedness, undying life, unfading light. To you be all glory, honor, and worship, now and forever. Amen."
+    }
+  ]
+}

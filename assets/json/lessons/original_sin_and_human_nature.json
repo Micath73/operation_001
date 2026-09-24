@@ -1,0 +1,299 @@
+{
+  "id": "original_sin_and_human_nature",
+  "title": "Original Sin and Human Nature",
+  "category": "Dogma",
+  "summary": "Original sin is the privation of sanctifying grace inherited from Adam by all his descendants, wounding human nature but not destroying it, a dogma defined by the Councils of Carthage, Orange II, and Trent, revealing both the universality of sin and the necessity of Christ's redemption.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Doctrine of Original Sin"
+    },
+    {
+      "type": "paragraph",
+      "text": "Original sin is the state of deprivation of sanctifying grace into which all humans are born as a consequence of Adam's first sin. It is not a personal fault committed by the individual but a condition inherited from the first man. This doctrine explains the universal presence of sin and suffering while affirming the fundamental goodness of creation. [CCC 404-405, 416]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church teaches that original sin is transmitted by propagation, not by imitation. All descendants of Adam inherit a human nature deprived of original holiness and justice, subject to ignorance, suffering, death, and inclined to sin (concupiscence). Yet human nature is not totally corrupted but wounded, requiring healing grace. [CCC 405, 407, 417]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 5:12 (RSV-CE)",
+      "text": "Therefore as sin came into the world through one man and death through sin, and so death spread to all men because all men sinned."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 404-405: Privation of Grace",
+      "text": "Original sin is the privation of sanctifying grace inherited from Adam by propagation, not imitation; human nature is wounded but not totally corrupted, requiring healing grace."
+    },
+    {
+      "type": "heading",
+      "text": "I. Biblical Foundations"
+    },
+    {
+      "type": "paragraph",
+      "text": "The doctrine of original sin is rooted in Genesis 3, which narrates the fall of Adam and Eve. Their disobedience introduced sin and death into the world, affecting all their descendants. The narrative reveals that sin is not merely individual but has a communal dimension, affecting the whole human race. [CCC 388, 390]"
+    },
+    {
+      "type": "paragraph",
+      "text": "St. Paul develops this teaching in Romans 5, contrasting Adam and Christ. As by one man's disobedience many were made sinners, so by one man's obedience many will be made righteous. This parallel presupposes that Adam's sin affected all humanity, just as Christ's redemption is available to all. [CCC 402, 411]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 5:19 (RSV-CE)",
+      "text": "For as by one man's disobedience many were made sinners, so by one man's obedience many will be made righteous."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 388, 402: Adam and Christ",
+      "text": "Genesis 3 and Romans 5 reveal original sin: Adam's disobedience affected all humanity, just as Christ's obedience redeems all; sin has communal dimension affecting the whole race."
+    },
+    {
+      "type": "heading",
+      "text": "II. The Council of Carthage (418): Condemnation of Pelagianism"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Pelagian heresy denied original sin, claiming that Adam's sin affected only himself and that humans can achieve salvation by their natural powers without grace. The Council of Carthage (418), confirmed by Pope Zosimus, condemned Pelagianism and defined that Adam's sin is transmitted to all his descendants. [Council of Carthage 418]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Council taught that infants are baptized for the remission of sins, proving they contract original sin from Adam. It anathematized anyone who denies that newborn children need baptism or claims that baptism does not remit true and proper sins. This definition safeguards the necessity of grace for salvation. [CCC 403, 1250]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 3:5 (RSV-CE)",
+      "text": "Jesus answered, Truly, truly, I say to you, unless one is born of water and the Spirit, he cannot enter the kingdom of God."
+    },
+    {
+      "type": "callout",
+      "title": "Carthage (418): Condemnation of Pelagianism",
+      "text": "Carthage condemned Pelagianism, defining that Adam's sin is transmitted to all descendants and infants need baptism for remission of sins, safeguarding the necessity of grace for salvation."
+    },
+    {
+      "type": "heading",
+      "text": "III. The Second Council of Orange (529): Nature and Grace"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Second Council of Orange (529) further clarified the effects of original sin on human nature and the necessity of grace. The Council condemned Semi-Pelagianism, which claimed that the beginning of faith is from human nature while grace completes it. Orange defined that even the beginning of faith and every good movement is from grace. [Council of Orange II]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Council taught that human nature is wounded by original sin, unable to save itself or even to turn to God without prevenient grace. Grace is not merely an aid but the initiator of salvation. This definition affirms both human freedom and the priority of divine grace. [CCC 405, 1993]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Philippians 2:13 (RSV-CE)",
+      "text": "For God is at work in you, both to will and to work for his good pleasure."
+    },
+    {
+      "type": "callout",
+      "title": "Orange II (529): Wounded Nature",
+      "text": "Orange II condemned Semi-Pelagianism, defining that human nature is wounded and unable to turn to God without prevenient grace; even the beginning of faith is from grace, not nature."
+    },
+    {
+      "type": "heading",
+      "text": "IV. The Council of Trent (1545-1563): Dogmatic Definition"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Council of Trent gave the most comprehensive dogmatic definition of original sin in response to Protestant errors. Trent defined that Adam's sin is transmitted to all by propagation, not imitation, and is truly sin, not merely a weakness or punishment. Original sin is remitted by the grace of Christ in baptism. [Trent Session V]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Trent anathematized anyone who denies that Adam's sin injured himself and his posterity, or who claims that original sin is taken away by human powers. The Council taught that concupiscence remains after baptism but is not properly sin in the baptized. This definition safeguards both the reality of original sin and the efficacy of baptism. [CCC 405, 1264]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Acts 2:38 (RSV-CE)",
+      "text": "And Peter said to them, Repent, and be baptized every one of you in the name of Jesus Christ for the forgiveness of your sins; and you shall receive the gift of the Holy Spirit."
+    },
+    {
+      "type": "callout",
+      "title": "Trent Session V: Propagation, Not Imitation",
+      "text": "Trent defined that original sin is transmitted by propagation, not imitation, and is truly sin remitted by baptism; concupiscence remains but is not properly sin in the baptized."
+    },
+    {
+      "type": "heading",
+      "text": "V. The Effects of Original Sin on Human Nature"
+    },
+    {
+      "type": "paragraph",
+      "text": "Original sin wounded human nature in four principal ways, traditionally called the wounds of sin: ignorance (wounding the intellect), malice (wounding the will), weakness (wounding the irascible appetite), and concupiscence (wounding the concupiscible appetite). These wounds make it difficult to know truth, choose good, persevere in virtue, and control desires. [CCC 405, 417]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Despite these wounds, human nature is not totally corrupted. The image of God in man is obscured but not destroyed. Humans retain free will, reason, and the capacity for natural virtue, but they cannot merit salvation or overcome sin without grace. Grace heals and elevates nature, restoring what was lost. [CCC 405, 1993]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Genesis 1:27 (RSV-CE)",
+      "text": "So God created man in his own image, in the image of God he created him; male and female he created them."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 405, 417: Four Wounds",
+      "text": "Original sin wounds nature with ignorance, malice, weakness, and concupiscence; the image of God is obscured but not destroyed, and grace heals and elevates wounded nature."
+    },
+    {
+      "type": "heading",
+      "text": "VI. Concupiscence and the Inclination to Sin"
+    },
+    {
+      "type": "paragraph",
+      "text": "Concupiscence is the disordered inclination to sin that remains after baptism. It is not sin itself in the baptized but a consequence of original sin that leads to temptation. St. Paul describes this struggle: \"I do not do the good I want, but the evil I do not want is what I do.\" [CCC 405, 1264, 2515]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Concupiscence is a trial and an opportunity for spiritual combat. Through prayer, sacraments, and ascetical effort, the faithful can overcome disordered desires and grow in virtue. The grace of Christ enables us to resist concupiscence and live according to the Spirit, not the flesh. [CCC 2515-2517]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 7:19 (RSV-CE)",
+      "text": "For I do not do the good I want, but the evil I do not want is what I do."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2515: Concupiscence",
+      "text": "Concupiscence is the disordered inclination to sin remaining after baptism; it is not sin itself in the baptized but a trial overcome through grace, prayer, sacraments, and ascetical effort."
+    },
+    {
+      "type": "heading",
+      "text": "VII. Original Sin and the Universality of Sin"
+    },
+    {
+      "type": "paragraph",
+      "text": "Original sin explains the universal presence of sin and suffering in the world. Despite advances in knowledge and technology, every person experiences moral failure and death. The Church teaches that the whole of human history is marked by the original fault freely committed by our first parents. [CCC 389-390]"
+    },
+    {
+      "type": "paragraph",
+      "text": "This doctrine does not deny personal responsibility for actual sins but provides the context for understanding them. Each person ratifies and personalizes original sin through their own sins. The universality of sin points to the universality of the need for redemption in Christ. [CCC 401, 408]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 John 1:8 (RSV-CE)",
+      "text": "If we say we have no sin, we deceive ourselves, and the truth is not in us."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 389-390: Universal Sin",
+      "text": "Original sin explains universal sin and suffering; each person ratifies original sin through actual sins, and the universality of sin points to the universality of the need for Christ's redemption."
+    },
+    {
+      "type": "heading",
+      "text": "VIII. The Immaculate Conception: Exception that Proves the Rule"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Blessed Virgin Mary was preserved from original sin from the first moment of her conception by a unique grace, in view of the merits of Christ. This exception proves the rule that all other descendants of Adam inherit original sin. Mary's preservation demonstrates the power of Christ's redemption to prevent sin, not merely heal it. [CCC 490-492]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Immaculate Conception does not deny the universality of original sin but shows that God can exempt by special privilege. Mary needed redemption like all humans, but she was redeemed in a more perfect way—by preservation. This dogma highlights both the reality of original sin and the superabundance of grace in Christ. [CCC 491-492]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 1:28 (RSV-CE)",
+      "text": "And he came to her and said, Hail, full of grace, the Lord is with you!"
+    },
+    {
+      "type": "callout",
+      "title": "CCC 490-492: Mary's Unique Privilege",
+      "text": "Mary was preserved from original sin by unique grace in view of Christ's merits; this exception proves the rule of universal original sin and demonstrates the power of redemption to prevent sin."
+    },
+    {
+      "type": "heading",
+      "text": "IX. Original Sin and Infant Baptism"
+    },
+    {
+      "type": "paragraph",
+      "text": "The practice of infant baptism is rooted in the doctrine of original sin. Infants are baptized not for actual sins but for the remission of original sin, to restore sanctifying grace and make them children of God. The Church has always baptized infants, following apostolic tradition. [CCC 1250, 1263]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Trent defined that infants, even though they have committed no actual sins, are truly baptized for the remission of sins, that what they contracted by generation may be washed away by regeneration. Baptism does not remove concupiscence but restores grace and incorporates the child into Christ. [CCC 1263-1264]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Acts 16:15 (RSV-CE)",
+      "text": "And she was baptized, with her household."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1250: Infant Baptism",
+      "text": "Infants are baptized for remission of original sin, not actual sins; Trent defined that even infants without actual sins are baptized to wash away what they contracted by generation."
+    },
+    {
+      "type": "heading",
+      "text": "X. Vatican II: Original Sin in the Modern World"
+    },
+    {
+      "type": "paragraph",
+      "text": "Vatican Council II (1962-1965) reaffirmed the doctrine of original sin in the context of the modern world. The Council taught that man is divided within himself, experiencing the tension between good and evil, light and darkness. This division is explained by original sin, which wounded human nature. [Gaudium et Spes 13]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Vatican II emphasized that only the mystery of the Incarnate Word throws light on the mystery of man. Original sin explains why humans are capable of great good and great evil, why they long for God yet turn away from Him. Christ alone heals the wound of original sin and restores man to his true dignity. [Gaudium et Spes 22, CCC 389]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 7:24-25 (RSV-CE)",
+      "text": "Wretched man that I am! Who will deliver me from this body of death? Thanks be to God through Jesus Christ our Lord!"
+    },
+    {
+      "type": "callout",
+      "title": "Vatican II: Gaudium et Spes 13",
+      "text": "Vatican II reaffirmed original sin, teaching that man's inner division between good and evil is explained by original sin; Christ alone heals the wound and restores man's true dignity."
+    },
+    {
+      "type": "heading",
+      "text": "XI. Heresies and Errors Condemned"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church has condemned numerous errors regarding original sin. Pelagianism denied original sin and claimed humans can save themselves by natural powers. Semi-Pelagianism claimed the beginning of faith is from nature. Protestant errors claimed original sin totally corrupts nature and destroys free will. [CCC 405-406, Trent]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Modern errors include denying the historicity of Adam and Eve, claiming original sin is merely a myth or symbol. The Church teaches that Adam was a real person whose sin affected all humanity. Evolutionary theories must be reconciled with the dogma of original sin transmitted from one man. [CCC 390, Humani Generis]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 15:22 (RSV-CE)",
+      "text": "For as in Adam all die, so also in Christ shall all be made alive."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 405-406: Heresies Condemned",
+      "text": "The Church condemned Pelagianism, Semi-Pelagianism, and Protestant total corruption errors; Adam was a real person whose sin affected all, and evolutionary theories must respect this dogma."
+    },
+    {
+      "type": "heading",
+      "text": "XII. Living the Faith: Redemption and Hope"
+    },
+    {
+      "type": "paragraph",
+      "text": "The doctrine of original sin is not a message of despair but of hope. It reveals the depth of our need for Christ and the superabundance of His grace. Where sin increased, grace abounded all the more. The wound of original sin is healed by baptism and the ongoing grace of the sacraments. [CCC 412, 420]"
+    },
+    {
+      "type": "paragraph",
+      "text": "We are called to cooperate with grace in healing the wounds of sin through prayer, sacraments, and virtue. The struggle against concupiscence is a path to holiness, not a cause for discouragement. Christ's victory over sin is greater than Adam's defeat, and we share in that victory through faith and the sacraments. [CCC 411, 1993]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 5:20-21 (RSV-CE)",
+      "text": "Law came in, to increase the trespass; but where sin increased, grace abounded all the more, so that, as sin reigned in death, grace also might reign through righteousness to eternal life through Jesus Christ our Lord."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 412, 420: Grace Abounds",
+      "text": "Original sin reveals our need for Christ and the superabundance of His grace; where sin increased, grace abounded more, and we cooperate with grace through prayer, sacraments, and virtue."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: Prayer for Healing from Original Sin",
+      "text": "O Lord Jesus Christ, Redeemer of mankind, You came to heal the wound of original sin and restore us to Your friendship. Grant us the grace to recognize our need for You, to cooperate with Your healing love, and to overcome the effects of sin in our lives. May Your grace abound in us more than sin, leading us to eternal life. Amen."
+    }
+  ]
+}

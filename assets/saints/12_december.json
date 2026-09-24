@@ -1,0 +1,963 @@
+[
+  {
+    "feastDate": "12-01",
+    "saints": [
+      {
+        "id": "charles_de_foucauld",
+        "name": "Saint Charles de Foucauld",
+        "feastDate": "12-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/charles_de_foucauld.jpg",
+        "shortBio": "Saint Charles de Foucauld was a French hermit and missionary who lived among the poor in the Sahara and emphasized hidden prayerful presence.",
+        "fullStory": "Charles served as a soldier and explorer before undergoing a profound conversion that led him to seek a life modeled on the hidden years of Jesus at Nazareth. He became a Trappist, later lived as a hermit, and finally settled among the Tuareg people in Algeria. Although he founded no community during his lifetime, his spirituality of Eucharistic adoration, simplicity, and friendship with the poor inspired several religious families after his death.",
+        "patronage": [
+          "hermits",
+          "Sahara communities",
+          "hidden ministry",
+          "missionaries"
+        ],
+        "quote": "I want all the inhabitants of this place to look on me as their brother, the universal brother.",
+        "birthYear": 1858,
+        "deathYear": 1916,
+        "canonizationYear": 2022,
+        "tags": [
+          "hermit",
+          "missionary",
+          "eucharist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-02",
+    "saints": [
+      {
+        "id": "bibiana",
+        "name": "Saint Bibiana",
+        "feastDate": "12-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/bibiana.jpg",
+        "shortBio": "Saint Bibiana was a Roman virgin and martyr remembered for remaining faithful to Christ despite persecution.",
+        "fullStory": "Bibiana is traditionally described as a young Christian woman whose family suffered during the persecution of Emperor Julian the Apostate. After her parents and sister were killed, she endured imprisonment and torture before being martyred herself. A church dedicated to her in Rome preserves her memory as a witness to courage, purity, and steadfast faith.",
+        "patronage": [
+          "epilepsy sufferers",
+          "mental illness",
+          "single women",
+          "Rome"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 363,
+        "canonizationYear": null,
+        "tags": [
+          "virgin",
+          "martyr",
+          "roman-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-03",
+    "saints": [
+      {
+        "id": "francis_xavier",
+        "name": "Saint Francis Xavier",
+        "feastDate": "12-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/francis_xavier.jpg",
+        "shortBio": "Saint Francis Xavier was a Jesuit priest and missionary who evangelized extensively in Asia and helped establish the Society of Jesus as a global missionary force.",
+        "fullStory": "Francis studied in Paris and became one of the first companions of Saint Ignatius of Loyola. Sent to India, he preached, baptized, taught catechism, and served communities along the coasts of India, Southeast Asia, and Japan. He died while preparing to enter China, leaving a legacy of extraordinary missionary zeal and cultural encounter.",
+        "patronage": [
+          "missionaries",
+          "foreign missions",
+          "India",
+          "Japan"
+        ],
+        "quote": "It is not enough to be satisfied with giving money; we must also give ourselves.",
+        "birthYear": 1506,
+        "deathYear": 1552,
+        "canonizationYear": 1622,
+        "tags": [
+          "jesuit",
+          "missionary",
+          "evangelization"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-04",
+    "saints": [
+      {
+        "id": "john_damascene",
+        "name": "Saint John Damascene",
+        "feastDate": "12-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_damascene.jpg",
+        "shortBio": "Saint John Damascene was a monk, theologian, and Doctor of the Church who defended the use of sacred images.",
+        "fullStory": "John served in the administration of the Muslim rulers of Damascus before withdrawing to the monastery of Saint Sabas near Jerusalem. He wrote theological works, hymns, and defenses of the veneration of icons during the Byzantine iconoclast controversy. His synthesis of Scripture, patristic teaching, and worship profoundly influenced both Eastern and Western Christianity.",
+        "patronage": [
+          "painters",
+          "iconographers",
+          "theologians",
+          "monks"
+        ],
+        "quote": "I do not worship matter; I worship the Creator of matter.",
+        "birthYear": 676,
+        "deathYear": 749,
+        "canonizationYear": null,
+        "tags": [
+          "monk",
+          "doctor-of-the-church",
+          "iconography"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-05",
+    "saints": [
+      {
+        "id": "sabas_the_sanctified",
+        "name": "Saint Sabas",
+        "feastDate": "12-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sabas_the_sanctified.jpg",
+        "shortBio": "Saint Sabas was a monk and abbot who organized the monastic life of the Judean desert and founded the Mar Saba monastery.",
+        "fullStory": "Sabas left his home as a young man to pursue a life of prayer and asceticism in the monasteries of Palestine. He founded communities that combined solitary contemplation with shared worship and service. His monastery near Jerusalem became an important center of Eastern Christian monasticism and continues to preserve his spiritual tradition.",
+        "patronage": [
+          "monks",
+          "hermits",
+          "monastic communities",
+          "Jerusalem"
+        ],
+        "quote": null,
+        "birthYear": 439,
+        "deathYear": 532,
+        "canonizationYear": null,
+        "tags": [
+          "monk",
+          "abbot",
+          "desert-spirituality"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-06",
+    "saints": [
+      {
+        "id": "nicholas_of_myra",
+        "name": "Saint Nicholas",
+        "feastDate": "12-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st_nicholas.jpg",
+        "shortBio": "Saint Nicholas was a bishop of Myra remembered for generosity, pastoral care, and defense of the Christian faith.",
+        "fullStory": "Nicholas served as bishop of Myra in Lycia and became known for charitable acts and concern for people in poverty. Stories of secretly providing dowries for young women helped shape his later association with gift-giving. He is also traditionally linked with the Council of Nicaea and became one of the most beloved saints in Christian devotion across Europe.",
+        "patronage": [
+          "children",
+          "sailors",
+          "merchants",
+          "prisoners"
+        ],
+        "quote": null,
+        "birthYear": 270,
+        "deathYear": 343,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "charity",
+          "myra"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-07",
+    "saints": [
+      {
+        "id": "ambrose_of_milan",
+        "name": "Saint Ambrose",
+        "feastDate": "12-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/ambrose_of_milan.jpg",
+        "shortBio": "Saint Ambrose was a bishop, theologian, hymn writer, and Doctor of the Church who helped guide Saint Augustine to conversion.",
+        "fullStory": "Ambrose was serving as a Roman official when the people of Milan unexpectedly acclaimed him bishop, even though he had not yet been baptized. He quickly received Christian formation and became a strong defender of Nicene faith, Church freedom, and care for the poor. His preaching, hymns, and pastoral wisdom profoundly influenced Augustine and Western Christianity.",
+        "patronage": [
+          "beekeepers",
+          "Milan",
+          "candlemakers",
+          "students"
+        ],
+        "quote": "No one heals himself by wounding another.",
+        "birthYear": 340,
+        "deathYear": 397,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "hymn-writer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-08",
+    "saints": [
+      {
+        "id": "immaculate_conception_of_the_blessed_virgin_mary",
+        "name": "The Immaculate Conception of the Blessed Virgin Mary",
+        "feastDate": "12-08",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/immaculately_conceived_mary.jpg",
+        "shortBio": "The Immaculate Conception celebrates the belief that Mary was preserved from original sin from the first moment of her conception.",
+        "fullStory": "The solemnity teaches that Mary received a unique grace in anticipation of Christ's saving work. Her preservation from original sin prepared her to respond freely and wholly to God's call to become the Mother of the Savior. The doctrine, formally defined by Pope Pius IX in 1854, points not to Mary's independence from Christ but to the fullness of Christ's redeeming grace.",
+        "patronage": [
+          "the United States",
+          "the Philippines",
+          "the unborn",
+          "conception"
+        ],
+        "quote": "Hail, full of grace, the Lord is with you.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "solemnity",
+          "original-sin"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-09",
+    "saints": [
+      {
+        "id": "juan_diego_cuauhtlatoatzin",
+        "name": "Saint Juan Diego Cuauhtlatoatzin",
+        "feastDate": "12-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/juan_diego_cuauhtlatoatzin.jpg",
+        "shortBio": "Saint Juan Diego Cuauhtlatoatzin was an Indigenous Christian from Mexico associated with the apparitions of Our Lady of Guadalupe.",
+        "fullStory": "Juan Diego was a convert to Christianity who lived a humble life of prayer and service near present-day Mexico City. According to tradition, Mary appeared to him at Tepeyac and asked that a church be built there for the people. The tilma bearing her image became a sign of evangelization, cultural encounter, and the dignity of Indigenous peoples.",
+        "patronage": [
+          "Indigenous peoples",
+          "Mexico",
+          "converts",
+          "the poor"
+        ],
+        "quote": "Am I not here, I who am your mother?",
+        "birthYear": 1474,
+        "deathYear": 1548,
+        "canonizationYear": 2002,
+        "tags": [
+          "indigenous",
+          "convert",
+          "guadalupe"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-10",
+    "saints": [
+      {
+        "id": "our_lady_of_loreto",
+        "name": "Our Lady of Loreto",
+        "feastDate": "12-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/our_lady_of_loreto.jpg",
+        "shortBio": "Our Lady of Loreto honors the Holy House tradition and Mary's role in the mystery of the Incarnation and family life.",
+        "fullStory": "The shrine of Loreto preserves a house venerated by tradition as the home of the Holy Family in Nazareth. Whether considered through history, devotion, or pilgrimage, the shrine directs prayer toward the hidden life of Jesus, Mary, and Joseph. The memorial highlights the sanctity of family life, the mystery of the Word made flesh, and the Church's love for sacred places.",
+        "patronage": [
+          "aviators",
+          "pilots",
+          "travelers",
+          "families"
+        ],
+        "quote": "The Word became flesh and dwelt among us.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "holy-family",
+          "pilgrimage"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-11",
+    "saints": [
+      {
+        "id": "damasus_i",
+        "name": "Saint Damasus I",
+        "feastDate": "12-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/damasus_i.jpg",
+        "shortBio": "Saint Damasus I was a pope who promoted the veneration of martyrs and supported Saint Jerome's biblical translation.",
+        "fullStory": "Damasus became pope during a period of theological and political conflict in the Roman Church. He defended Nicene Christianity, restored Roman churches, and commissioned inscriptions honoring the martyrs buried in the catacombs. His support for Jerome's Latin translation of Scripture helped shape the biblical text used throughout the Western Church for centuries.",
+        "patronage": [
+          "archaeologists",
+          "epigraphers",
+          "popes",
+          "biblical scholars"
+        ],
+        "quote": null,
+        "birthYear": 305,
+        "deathYear": 384,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "martyrs",
+          "scripture"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-12",
+    "saints": [
+      {
+        "id": "our_lady_of_guadalupe",
+        "name": "Our Lady of Guadalupe",
+        "feastDate": "12-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/our_lady_of_guadalupe.jpg",
+        "shortBio": "Our Lady of Guadalupe commemorates the Marian apparitions to Saint Juan Diego and is a major sign of Christian faith throughout the Americas.",
+        "fullStory": "According to tradition, Mary appeared to Juan Diego at Tepeyac in 1531 and requested that a church be built there. The image on his tilma became a powerful sign of hope and evangelization, drawing together Indigenous and European cultures in the developing Church of Mexico. The feast is especially important throughout the Americas and is associated with dignity, protection, and maternal care.",
+        "patronage": [
+          "the Americas",
+          "Mexico",
+          "the unborn",
+          "families"
+        ],
+        "quote": "Am I not here, I who am your mother?",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "guadalupe",
+          "americas"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-13",
+    "saints": [
+      {
+        "id": "lucy_of_syracuse",
+        "name": "Saint Lucy",
+        "feastDate": "12-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/lucy_of_syracuse.jpg",
+        "shortBio": "Saint Lucy was a young Christian martyr of Syracuse whose name and witness became associated with light, sight, and consecrated virginity.",
+        "fullStory": "Lucy was a Christian from Syracuse who dedicated herself to Christ and refused a marriage arranged by her family. During persecution, she was arrested and killed for her faith. Stories about her eyes and her name, which means light, shaped later devotion, while her martyrdom remains the central reason for her place in the Church's calendar.",
+        "patronage": [
+          "eyesight",
+          "the blind",
+          "electricians",
+          "virgins"
+        ],
+        "quote": "Those whose hearts are pure are the temples of the Holy Spirit.",
+        "birthYear": 283,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "virgin",
+          "martyr",
+          "light"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-14",
+    "saints": [
+      {
+        "id": "john_of_the_cross",
+        "name": "Saint John of the Cross",
+        "feastDate": "12-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_of_the_cross.jpg",
+        "shortBio": "Saint John of the Cross was a Carmelite priest, mystic, poet, and Doctor of the Church who described the soul's journey to union with God.",
+        "fullStory": "John joined the Carmelite Order and worked with Saint Teresa of Ávila to reform Carmelite life. His commitment to reform led to imprisonment and suffering, which became part of the experience expressed in his poetry and spiritual writings. The Ascent of Mount Carmel and The Dark Night teach that purification, faith, and love lead the soul beyond attachment to deep union with God.",
+        "patronage": [
+          "mystics",
+          "poets",
+          "Carmelites",
+          "contemplatives"
+        ],
+        "quote": "In the evening of life, we will be judged on love alone.",
+        "birthYear": 1542,
+        "deathYear": 1591,
+        "canonizationYear": 1726,
+        "tags": [
+          "carmelite",
+          "doctor-of-the-church",
+          "mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-15",
+    "saints": [
+      {
+        "id": "mary_di_rosa",
+        "name": "Saint Mary Di Rosa",
+        "feastDate": "12-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/mary_di_rosa.jpg",
+        "shortBio": "Saint Mary Di Rosa was an Italian foundress who served the sick, the poor, and women affected by social hardship.",
+        "fullStory": "Paola Di Rosa organized retreats, charitable projects, and care for the sick in Brescia during a period of political and social upheaval. She founded the Handmaids of Charity, whose members served in hospitals and among people affected by poverty and war. Her ministry joined contemplative devotion with disciplined, practical compassion.",
+        "patronage": [
+          "nurses",
+          "healthcare workers",
+          "the sick",
+          "women religious"
+        ],
+        "quote": null,
+        "birthYear": 1813,
+        "deathYear": 1855,
+        "canonizationYear": 1954,
+        "tags": [
+          "foundress",
+          "charity",
+          "healthcare"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-16",
+    "saints": [
+      {
+        "id": "adele_of_pfalsel",
+        "name": "Saint Adelaide",
+        "feastDate": "12-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/adele_of_pfalsel.jpg",
+        "shortBio": "Saint Adelaide was an empress known for charity, support of monasteries, and service to the Church amid political upheaval.",
+        "fullStory": "Adelaide became empress through marriage to Otto the Great and played an important role in the political and religious life of the Holy Roman Empire. After periods of imprisonment and conflict, she used her influence to support monasteries, churches, and the poor. Her later years were devoted increasingly to prayer and charitable works, especially at the monastery of Selz.",
+        "patronage": [
+          "empresses",
+          "widows",
+          "brides",
+          "prisoners"
+        ],
+        "quote": null,
+        "birthYear": 931,
+        "deathYear": 999,
+        "canonizationYear": 1097,
+        "tags": [
+          "empress",
+          "widow",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-17",
+    "saints": [
+      {
+        "id": "lazarus_of_bethany",
+        "name": "Saint Lazarus of Bethany",
+        "feastDate": "12-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/lazarus_of_bethany.jpg",
+        "shortBio": "Saint Lazarus of Bethany was a friend of Jesus whose raising from the dead became a sign of Christ's power over death.",
+        "fullStory": "The Gospel of John presents Lazarus as the brother of Martha and Mary and a beloved friend of Jesus. His death and restoration to life became a sign pointing toward Christ's own Resurrection and the hope of eternal life. Later traditions connect Lazarus with missionary work, but the Gospel witness remains the foundation of his spiritual importance.",
+        "patronage": [
+          "the sick",
+          "gravediggers",
+          "lepers",
+          "the dying"
+        ],
+        "quote": "I am the resurrection and the life.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "bethany",
+          "resurrection",
+          "disciple"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-18",
+    "saints": [
+      {
+        "id": "flannan_of_killaloe",
+        "name": "Saint Flannan of Killaloe",
+        "feastDate": "12-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/flannan_of_killaloe.jpg",
+        "shortBio": "Saint Flannan was an Irish bishop associated with the early evangelization and monastic development of Killaloe.",
+        "fullStory": "Flannan is traditionally remembered as the son of an Irish king who embraced Christian service and became a bishop. He supported monastic communities, preached the faith, and helped organize Christian life in the region of Killaloe. His memory reflects the missionary and monastic character of the early Irish Church.",
+        "patronage": [
+          "Killaloe",
+          "Ireland",
+          "bishops",
+          "monks"
+        ],
+        "quote": null,
+        "birthYear": 600,
+        "deathYear": 680,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "irish-church",
+          "monasticism"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-19",
+    "saints": [
+      {
+        "id": "urban_v",
+        "name": "Saint Urban V",
+        "feastDate": "12-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/urban_v.jpg",
+        "shortBio": "Saint Urban V was a Benedictine pope who promoted Church reform, education, and missionary work during the Avignon papacy.",
+        "fullStory": "Guillaume de Grimoard was a Benedictine abbot and diplomat before becoming pope. He supported the reform of religious life, founded universities, encouraged missions, and worked to restore the papacy to Rome. Although political circumstances led to a return to Avignon, his pontificate reflected a strong desire for ecclesial renewal and pastoral responsibility.",
+        "patronage": [
+          "Benedictines",
+          "universities",
+          "missionaries",
+          "Church reform"
+        ],
+        "quote": null,
+        "birthYear": 1310,
+        "deathYear": 1370,
+        "canonizationYear": 1870,
+        "tags": [
+          "pope",
+          "benedictine",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-20",
+    "saints": [
+      {
+        "id": "philip_nofsinger",
+        "name": "Saint Dominic of Silos",
+        "feastDate": "12-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/philip_nofsinger.jpg",
+        "shortBio": "Saint Dominic of Silos was a Benedictine abbot who renewed monastic life and became associated with healing and liberation.",
+        "fullStory": "Dominic was a monk and abbot in Spain who faced political pressure before withdrawing to the monastery of San Sebastián at Silos. He restored its spiritual and material life, developed its library and liturgy, and attracted many disciples. After his death, the monastery became a major pilgrimage center and his intercession was associated especially with the freedom of captives.",
+        "patronage": [
+          "prisoners",
+          "captives",
+          "Benedictines",
+          "Silos"
+        ],
+        "quote": null,
+        "birthYear": 1000,
+        "deathYear": 1073,
+        "canonizationYear": 1076,
+        "tags": [
+          "abbot",
+          "benedictine",
+          "monastic-reform"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-21",
+    "saints": [
+      {
+        "id": "peter_canisius",
+        "name": "Saint Peter Canisius",
+        "feastDate": "12-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/peter_canisius.jpg",
+        "shortBio": "Saint Peter Canisius was a Jesuit priest, theologian, and Doctor of the Church who defended and taught the Catholic faith during the Reformation.",
+        "fullStory": "Peter entered the Society of Jesus and became one of the most influential Catholic teachers in German-speaking Europe. He preached, founded schools and colleges, wrote catechisms, and participated in the Council of Trent. His patient pastoral approach and dedication to education helped renew Catholic life and preserve Christian unity in regions divided by religious conflict.",
+        "patronage": [
+          "Germany",
+          "Catholic press",
+          "catechists",
+          "Jesuits"
+        ],
+        "quote": "If you have too much to do, with God's help you will find time to do it all.",
+        "birthYear": 1521,
+        "deathYear": 1597,
+        "canonizationYear": 1925,
+        "tags": [
+          "jesuit",
+          "doctor-of-the-church",
+          "catechist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-22",
+    "saints": [
+      {
+        "id": "frances_xavier_cabrini",
+        "name": "Saint Frances Xavier Cabrini",
+        "feastDate": "12-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/frances_xavier_cabrini.jpg",
+        "shortBio": "Saint Frances Xavier Cabrini was a missionary foundress who served immigrants, orphans, and the poor across Europe and the Americas.",
+        "fullStory": "Frances founded the Missionary Sisters of the Sacred Heart of Jesus and originally hoped to serve in China, but Pope Leo XIII sent her to the United States. She established schools, hospitals, orphanages, and communities for Italian immigrants and other neglected people. Her energetic leadership made her the first United States citizen to be canonized by the Catholic Church.",
+        "patronage": [
+          "immigrants",
+          "hospital administrators",
+          "orphans",
+          "migrants"
+        ],
+        "quote": "I can do all things in him who strengthens me.",
+        "birthYear": 1850,
+        "deathYear": 1917,
+        "canonizationYear": 1946,
+        "tags": [
+          "foundress",
+          "missionary",
+          "immigrants"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-23",
+    "saints": [
+      {
+        "id": "john_of_kanty",
+        "name": "Saint John of Kanty",
+        "feastDate": "12-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_of_kanty.jpg",
+        "shortBio": "Saint John of Kanty was a Polish priest, professor, and theologian known for learning, humility, and generosity toward the poor.",
+        "fullStory": "John taught theology at the University of Krakow and served the Church as a priest and scholar. He made pilgrimages to the Holy Land and Rome and lived with remarkable simplicity despite his academic position. His reputation for kindness, honesty, and practical charity made him a beloved model for teachers and students.",
+        "patronage": [
+          "Poland",
+          "teachers",
+          "students",
+          "university professors"
+        ],
+        "quote": "Fight all error, but do it with good humor, patience, kindness, and love.",
+        "birthYear": 1390,
+        "deathYear": 1473,
+        "canonizationYear": 1767,
+        "tags": [
+          "priest",
+          "professor",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-24",
+    "saints": [
+      {
+        "id": "sharbel_of_edin",
+        "name": "Saint Eve of the Lord's Nativity",
+        "feastDate": "12-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sharbel_of_edin.jpg",
+        "shortBio": "The Eve of the Lord's Nativity is a day of expectant prayer as the Church awaits the celebration of Christ's birth.",
+        "fullStory": "The final day of Advent turns the Church's attention toward the mystery of the Incarnation. Christians remember the hope of Israel, the faith of Mary and Joseph, and the humble circumstances in which the Savior entered the world. The evening celebration begins the solemnity of Christmas and invites the faithful to receive Christ with watchfulness and joy.",
+        "patronage": [
+          "expectant families",
+          "children",
+          "travelers",
+          "Christmas worship"
+        ],
+        "quote": "The people who walked in darkness have seen a great light.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "advent",
+          "nativity",
+          "expectation"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-25",
+    "saints": [
+      {
+        "id": "nativity_of_the_lord",
+        "name": "The Nativity of the Lord",
+        "feastDate": "12-25",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/nativity_of_the_lord.jpg",
+        "shortBio": "The Nativity of the Lord, or Christmas, celebrates the birth of Jesus Christ, the Son of God made human for the salvation of the world.",
+        "fullStory": "Christmas proclaims that the eternal Word became flesh and entered human history in the humility of Bethlehem. The Gospel presents Jesus as the promised Savior, born of Mary and welcomed by shepherds and the poor. The solemnity reveals God's closeness to humanity and invites the Church to receive Christ through faith, worship, mercy, and peace.",
+        "patronage": [
+          "children",
+          "families",
+          "the poor",
+          "peace"
+        ],
+        "quote": "The Word became flesh and dwelt among us.",
+        "birthYear": 1,
+        "deathYear": 33,
+        "canonizationYear": null,
+        "tags": [
+          "christmas",
+          "incarnation",
+          "solemnity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-26",
+    "saints": [
+      {
+        "id": "stephen_first_martyr",
+        "name": "Saint Stephen, First Martyr",
+        "feastDate": "12-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_stephen.jpg",
+        "shortBio": "Saint Stephen was one of the first deacons of the Church and the first Christian martyr recorded in the Acts of the Apostles.",
+        "fullStory": "Stephen was chosen to assist the apostles in serving the community, especially in the distribution of aid to widows and the poor. Filled with the Holy Spirit, he preached that Jesus fulfills God's promises and was condemned after a hostile confrontation. As he died, he prayed for the forgiveness of his persecutors, echoing Christ's own mercy.",
+        "patronage": [
+          "deacons",
+          "stonemasons",
+          "bricklayers",
+          "coffin makers"
+        ],
+        "quote": "Lord Jesus, receive my spirit.",
+        "birthYear": null,
+        "deathYear": 36,
+        "canonizationYear": null,
+        "tags": [
+          "deacon",
+          "first-martyr",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-27",
+    "saints": [
+      {
+        "id": "john_apostle_and_evangelist",
+        "name": "Saint John, Apostle and Evangelist",
+        "feastDate": "12-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/john_apostle_and_evangelist.jpg",
+        "shortBio": "Saint John was an Apostle, evangelist, and beloved disciple whose writings proclaim the eternal Word and the commandment of love.",
+        "fullStory": "John was the son of Zebedee and one of the disciples closest to Jesus. He witnessed the Transfiguration, remained near the Cross, and became a witness to the Resurrection. Christian tradition associates him with the Fourth Gospel, three letters, and the Book of Revelation, writings that unite profound Christology with an insistence on love and communion.",
+        "patronage": [
+          "theologians",
+          "writers",
+          "publishers",
+          "friendship"
+        ],
+        "quote": "God is love, and whoever remains in love remains in God.",
+        "birthYear": null,
+        "deathYear": 100,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "evangelist",
+          "beloved-disciple"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-28",
+    "saints": [
+      {
+        "id": "holy_innocents_martyrs",
+        "name": "The Holy Innocents, Martyrs",
+        "feastDate": "12-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/holy_innocents_martyrs.jpg",
+        "shortBio": "The Holy Innocents are the children killed by King Herod in his attempt to destroy the infant Jesus, honored by the Church as martyrs.",
+        "fullStory": "The Gospel of Matthew recounts that Herod ordered the killing of boys in Bethlehem after hearing of the birth of a rival king. The children died without consciously professing faith, yet the Church honors them as the first victims of violence directed against Christ. Their feast calls Christians to protect children, resist oppression, and recognize the dignity of innocent life.",
+        "patronage": [
+          "children",
+          "infants",
+          "choirs",
+          "the unborn"
+        ],
+        "quote": "A voice was heard in Ramah, weeping and great mourning.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "children",
+          "gospel"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-29",
+    "saints": [
+      {
+        "id": "thomas_becket",
+        "name": "Saint Thomas Becket",
+        "feastDate": "12-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/thomas_becket.jpg",
+        "shortBio": "Saint Thomas Becket was the archbishop of Canterbury and a martyr who defended the freedom of the Church against royal interference.",
+        "fullStory": "Thomas served as chancellor to King Henry II before becoming archbishop of Canterbury. Their friendship turned into conflict when Thomas defended the Church's rights and resisted royal attempts to control ecclesial courts and appointments. He was murdered in Canterbury Cathedral, and his martyrdom became an enduring symbol of conscience and the Church's spiritual independence.",
+        "patronage": [
+          "clergy",
+          "archbishops",
+          "printers",
+          "Church freedom"
+        ],
+        "quote": "I am ready to die for my Lord, that in my blood the Church may obtain liberty and peace.",
+        "birthYear": 1118,
+        "deathYear": 1170,
+        "canonizationYear": 1173,
+        "tags": [
+          "archbishop",
+          "martyr",
+          "church-freedom"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-30",
+    "saints": [
+      {
+        "id": "holy_family",
+        "name": "The Holy Family of Jesus, Mary, and Joseph",
+        "feastDate": "12-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/holy_family.jpg",
+        "shortBio": "The Holy Family celebrates Jesus, Mary, and Joseph as a model of faith, love, service, and trust in God's providence.",
+        "fullStory": "The Holy Family lived the ordinary realities of work, migration, prayer, and care for one another while participating in God's plan of salvation. The Gospels show Mary and Joseph receiving Jesus with faith and protecting him amid danger and uncertainty. The celebration invites families to grow in mutual love, forgiveness, prayer, and service, while remembering that every family is called to dignity and support.",
+        "patronage": [
+          "families",
+          "marriages",
+          "fathers",
+          "mothers"
+        ],
+        "quote": "As for me and my household, we will serve the Lord.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "holy-family",
+          "family-life",
+          "gospel"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "12-31",
+    "saints": [
+      {
+        "id": "sylvester_i",
+        "name": "Saint Sylvester I",
+        "feastDate": "12-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sylvester_i.jpg",
+        "shortBio": "Saint Sylvester I was a pope who led the Roman Church during the transition from persecution to public Christian worship.",
+        "fullStory": "Sylvester served as bishop of Rome during the reign of Constantine, when Christianity moved from persecution toward legal recognition and public growth. His pontificate was associated with the development of Roman churches and the Church's response to the theological controversies of the time. Although he did not attend the Council of Nicaea personally, his leadership helped the Roman Church enter a new era of public Christian life.",
+        "patronage": [
+          "popes",
+          "New Year's Eve",
+          "stonecutters",
+          "Rome"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 335,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "early-church",
+          "rome"
+        ]
+      }
+    ]
+  }
+]

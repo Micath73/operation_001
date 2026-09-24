@@ -1,0 +1,902 @@
+[
+  {
+    "feastDate": "02-01",
+    "saints": [
+      {
+        "id": "brigid_ireland",
+        "name": "Saint Brigid of Ireland",
+        "feastDate": "02-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/brigid_ireland.jpg",
+        "shortBio": "One of Ireland's three patron saints, abbess of Kildare, celebrated for her generosity to the poor and a monastery of monks and nuns she founded together.",
+        "fullStory": "Traditions surrounding Brigid blend history and legend, but she is consistently remembered as the founder of a great monastic settlement at Kildare that housed both a community of nuns and, unusually, a community of monks under one roof, with an accompanying school of art known for illuminated manuscripts. Countless stories describe her boundless, almost reckless generosity to the poor, and her feast day, close to the ancient Celtic festival of Imbolc, remains one of the most beloved observances in Irish tradition, marked by the weaving of Brigid's crosses from rushes.",
+        "patronage": [
+          "Ireland",
+          "Dairy workers",
+          "Newborns",
+          "The poor"
+        ],
+        "quote": "I would like the angels of Heaven to be among us.",
+        "birthYear": 451,
+        "deathYear": 525,
+        "canonizationYear": null,
+        "tags": [
+          "Abbess",
+          "Founder",
+          "Irish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-02",
+    "saints": [
+      {
+        "id": "presentation_of_the_lord",
+        "name": "The Presentation of the Lord",
+        "feastDate": "02-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/presentation_of_the_lord.jpg",
+        "shortBio": "Commemorates Mary and Joseph presenting the infant Jesus in the Temple forty days after his birth, fulfilling Jewish law, where the elderly Simeon recognized him as the Messiah.",
+        "fullStory": "Following the prescriptions of the Law of Moses, Mary and Joseph brought the forty-day-old Jesus to the Temple in Jerusalem for the rite of purification and the offering of a pair of turtledoves. There the elderly Simeon, who had been promised he would not die before seeing the Messiah, took the child in his arms and proclaimed him 'a light for revelation to the Gentiles,' a moment that gives the feast its popular name, Candlemas, for the blessing of candles that accompanies it.",
+        "patronage": [
+          "Candle makers",
+          "Families"
+        ],
+        "quote": "Now, Master, you may let your servant go in peace, according to your word.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Feast",
+          "Candlemas",
+          "Christmas Cycle"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-03",
+    "saints": [
+      {
+        "id": "blaise",
+        "name": "Saint Blaise, Bishop and Martyr",
+        "feastDate": "02-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/blaise.jpg",
+        "shortBio": "An Armenian bishop and physician martyred under Roman persecution, remembered for the blessing of throats performed in his honor.",
+        "fullStory": "Tradition holds that Blaise was a physician before becoming bishop of Sebaste in Armenia, and that he lived for a time as a hermit in a cave where wild animals came to him for healing. He is said to have miraculously saved a boy choking on a fishbone, giving rise to the enduring custom of the blessing of throats with crossed candles on his feast, before his own martyrdom during a Roman persecution.",
+        "patronage": [
+          "Throat ailments",
+          "Physicians",
+          "Wool workers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 316,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Martyr",
+          "Healing"
+        ]
+      },
+      {
+        "id": "ansgar",
+        "name": "Saint Ansgar",
+        "feastDate": "02-03",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/ansgar.jpg",
+        "shortBio": "A Frankish Benedictine monk known as the 'Apostle of the North' for his missionary journeys into Denmark and Sweden.",
+        "fullStory": "Ansgar left his monastery to answer a request from a Danish king for missionaries, later extending his preaching into Sweden despite the enormous difficulty of the journey and the unstable reception he received. Appointed the first Archbishop of Hamburg-Bremen, he spent decades laboring to plant a lasting Christian presence in Scandinavia, seeing much of his early work undone by pagan resurgence yet persisting to the end of his life.",
+        "patronage": [
+          "Scandinavia",
+          "Missionaries"
+        ],
+        "quote": null,
+        "birthYear": 801,
+        "deathYear": 865,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Missionary",
+          "Apostle of the North"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-04",
+    "saints": [
+      {
+        "id": "joseph_leonissa",
+        "name": "Saint Joseph of Leonissa",
+        "feastDate": "02-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/joseph_leonissa.jpg",
+        "shortBio": "An Italian Capuchin missionary who ministered to galley slaves in the Ottoman Empire and endured torture for preaching to Christian captives.",
+        "fullStory": "Joseph of Leonissa joined the Capuchin Franciscans and volunteered for the harsh mission of ministering to Christian slaves rowing in the galleys of Constantinople, bringing them the sacraments at great personal risk. Discovered preaching to the enslaved, he was arrested, tortured, and left suspended by hooks, surviving only to return to Italy where he spent his remaining years as a peacemaker reconciling feuding families and cities.",
+        "patronage": [
+          "Prisoners",
+          "Reconciliation"
+        ],
+        "quote": null,
+        "birthYear": 1556,
+        "deathYear": 1612,
+        "canonizationYear": 1746,
+        "tags": [
+          "Capuchin",
+          "Missionary",
+          "Italian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-05",
+    "saints": [
+      {
+        "id": "agatha",
+        "name": "Saint Agatha, Virgin and Martyr",
+        "feastDate": "02-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/agatha.jpg",
+        "shortBio": "A young Sicilian noblewoman martyred for refusing marriage to a Roman official and for her steadfast Christian faith.",
+        "fullStory": "According to ancient tradition, Agatha consecrated her virginity to God and rejected the advances of a Roman prefect in Sicily, who denounced her as a Christian during a period of persecution and subjected her to severe torture. Devotion to her spread rapidly through the early Church, and she is invoked especially against fire, given a legend that her veil once halted an eruption of Mount Etna.",
+        "patronage": [
+          "Sicily",
+          "Breast cancer patients",
+          "Bell founders",
+          "Against fire"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 251,
+        "canonizationYear": null,
+        "tags": [
+          "Virgin",
+          "Martyr",
+          "Sicilian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-06",
+    "saints": [
+      {
+        "id": "paul_miki_companions",
+        "name": "Saint Paul Miki and Companions",
+        "feastDate": "02-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/paul_miki_companions.jpg",
+        "shortBio": "A young Japanese Jesuit and twenty-five companions, including children, crucified in Nagasaki for practicing the Christian faith.",
+        "fullStory": "Paul Miki, a Japanese-born Jesuit seminarian and gifted preacher, was arrested with twenty-five companions, including Franciscan friars, laypeople, and boys as young as twelve, during a wave of persecution ordered by the ruling shogunate. Marched to Nagasaki, the group was crucified together on a hillside, with Paul Miki reportedly continuing to preach forgiveness from his cross, and the group is honored as the protomartyrs of Japan.",
+        "patronage": [
+          "Japan",
+          "Youth",
+          "Catechists"
+        ],
+        "quote": null,
+        "birthYear": 1565,
+        "deathYear": 1597,
+        "canonizationYear": 1862,
+        "tags": [
+          "Martyr",
+          "Jesuit",
+          "Japanese Martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-07",
+    "saints": [
+      {
+        "id": "richard_the_pilgrim",
+        "name": "Saint Richard the Pilgrim",
+        "feastDate": "02-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/richard_the_pilgrim.jpg",
+        "shortBio": "An Anglo-Saxon nobleman remembered in medieval hagiography as the father of Saints Willibald, Winibald, and Walburga, who died while on pilgrimage to Rome.",
+        "fullStory": "According to medieval accounts, Richard set out from England on pilgrimage to Rome with two of his sons, intending to continue on to the Holy Land, but fell ill and died at Lucca in Italy partway through the journey. His children went on to become notable missionaries and abbots in Germany, and though details of Richard's own life are preserved mainly through later hagiography of his more famous offspring, his devotion to pilgrimage left a lasting family legacy of missionary service.",
+        "patronage": [
+          "Pilgrims",
+          "Travelers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Pilgrim",
+          "Anglo-Saxon Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-08",
+    "saints": [
+      {
+        "id": "jerome_emiliani",
+        "name": "Saint Jerome Emiliani",
+        "feastDate": "02-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/jerome_emiliani.jpg",
+        "shortBio": "A former soldier who, after a dramatic escape from imprisonment he attributed to Mary's intercession, devoted his life and fortune to orphaned children.",
+        "fullStory": "Jerome Emiliani served as a mercenary soldier and was once captured and chained in a dungeon, an ordeal he survived and credited to the intervention of the Blessed Virgin Mary, after which he took up a life of penance and charity. He founded orphanages, hospitals, and a religious congregation dedicated to the education of abandoned children, pioneering methods of instruction and vocational training well ahead of his time.",
+        "patronage": [
+          "Orphans",
+          "Abandoned children"
+        ],
+        "quote": null,
+        "birthYear": 1486,
+        "deathYear": 1537,
+        "canonizationYear": 1767,
+        "tags": [
+          "Founder",
+          "Orphan care",
+          "Italian Saint"
+        ]
+      },
+      {
+        "id": "josephine_bakhita",
+        "name": "Saint Josephine Bakhita",
+        "feastDate": "02-08",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/josephine_bakhita.jpg",
+        "shortBio": "A Sudanese woman kidnapped and enslaved as a child who later gained freedom in Italy, became a Canossian sister, and forgave her captors.",
+        "fullStory": "Kidnapped from her Darfur village as a young girl, Bakhita endured years of brutal slavery, including scarring rituals, before being sold to an Italian family who brought her to Venice, where Canossian sisters helped her win recognition of her freedom under Italian law. She entered the Canossian order, spending decades in humble service to the community, and became known for her serene forgiveness of those who had enslaved her, later becoming a symbol against human trafficking.",
+        "patronage": [
+          "Sudan",
+          "Human trafficking survivors",
+          "Enslaved people"
+        ],
+        "quote": "If I were to meet those who kidnapped me, I would kneel and kiss their hands.",
+        "birthYear": 1869,
+        "deathYear": 1947,
+        "canonizationYear": 2000,
+        "tags": [
+          "Canossian",
+          "Former Slave",
+          "African Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-09",
+    "saints": [
+      {
+        "id": "apollonia",
+        "name": "Saint Apollonia, Virgin and Martyr",
+        "feastDate": "02-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/apollonia.jpg",
+        "shortBio": "An elderly deaconess of Alexandria whose teeth were violently broken during anti-Christian mob violence before her martyrdom.",
+        "fullStory": "During a violent uprising against Christians in Alexandria that preceded formal Roman persecution, Apollonia, an aged and respected deaconess, was seized by a mob who broke or knocked out all her teeth in an attempt to force her to renounce her faith. Threatened with burning unless she blasphemed, she is said to have leapt willingly into the fire, and her ordeal made her a popular patron invoked against dental and facial pain.",
+        "patronage": [
+          "Dentists",
+          "Toothache sufferers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 249,
+        "canonizationYear": null,
+        "tags": [
+          "Virgin",
+          "Martyr",
+          "Alexandrian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-10",
+    "saints": [
+      {
+        "id": "scholastica",
+        "name": "Saint Scholastica, Virgin",
+        "feastDate": "02-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/scholastica.jpg",
+        "shortBio": "Twin sister of Saint Benedict and founder of a community of nuns, remembered for a final visit in which her prayer overruled her brother's plans.",
+        "fullStory": "Little is recorded of Scholastica beyond Pope Gregory the Great's account of her final meeting with her brother Benedict near Monte Cassino, when she begged him to stay through the night in conversation and, when he refused, prayed so fervently that a sudden storm made his departure impossible. Gregory concludes that her love for God was greater than her brother's in that moment, and she is honored as a founder of women's monastic life in the Benedictine tradition.",
+        "patronage": [
+          "Nuns",
+          "Convulsive children",
+          "Storms"
+        ],
+        "quote": null,
+        "birthYear": 480,
+        "deathYear": 543,
+        "canonizationYear": null,
+        "tags": [
+          "Abbess",
+          "Benedictine",
+          "Founder"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-11",
+    "saints": [
+      {
+        "id": "our_lady_of_lourdes",
+        "name": "Our Lady of Lourdes",
+        "feastDate": "02-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/our_lady_of_lourdes.jpg",
+        "shortBio": "Commemorates the Marian apparitions reported by Bernadette Soubirous in a grotto at Lourdes, France, in 1858, and the healing spring that followed.",
+        "fullStory": "Beginning on February 11, 1858, a fourteen-year-old peasant girl named Bernadette Soubirous reported a series of eighteen apparitions of a lady in white at a grotto outside Lourdes, who identified herself as 'the Immaculate Conception.' A spring that emerged at the site became associated with numerous reported healings, and Lourdes grew into one of the world's most visited Catholic pilgrimage sites; the feast also marks the World Day of the Sick.",
+        "patronage": [
+          "The sick",
+          "Pilgrims"
+        ],
+        "quote": "I am the Immaculate Conception.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Marian Apparition",
+          "Healing",
+          "Pilgrimage"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-12",
+    "saints": [
+      {
+        "id": "julian_the_hospitaller",
+        "name": "Saint Julian the Hospitaller",
+        "feastDate": "02-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/julian_the_hospitaller.jpg",
+        "shortBio": "A legendary medieval saint venerated for founding a hospice and ferry for travelers as penance after unknowingly killing his own parents.",
+        "fullStory": "According to widely circulated medieval legend, Julian accidentally killed his parents after mistaking them for his wife and a lover in his own bed, and undertook a severe penance of building a hospice and ferrying travelers across a dangerous river to atone. The story, whatever its historical basis, made him a popular patron of hospitality and travel in the Middle Ages, and his legend was retold across medieval Europe, including by Gustave Flaubert centuries later.",
+        "patronage": [
+          "Innkeepers",
+          "Ferrymen",
+          "Travelers",
+          "Hospitality"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Legendary Saint",
+          "Penitent",
+          "Hospitality"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-13",
+    "saints": [
+      {
+        "id": "giles_mary_st_joseph",
+        "name": "Saint Giles Mary of Saint Joseph",
+        "feastDate": "02-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/giles_mary_st_joseph.jpg",
+        "shortBio": "A humble Neapolitan Franciscan lay brother known for his charity to the poor and prophetic gifts during decades as a convent porter.",
+        "fullStory": "Born Francesco Postillo, Giles Mary joined the Alcantarine Franciscans as a lay brother and served for most of his religious life as the porter of his community's convent in Naples, a role that placed him in constant contact with the city's poor. He became known for extraordinary charity, distributing whatever he could gather for those in need, along with reported gifts of prophecy and spiritual counsel sought by people of every social class.",
+        "patronage": [
+          "The poor",
+          "Naples",
+          "Porters"
+        ],
+        "quote": null,
+        "birthYear": 1729,
+        "deathYear": 1812,
+        "canonizationYear": 1999,
+        "tags": [
+          "Franciscan",
+          "Lay Brother",
+          "Italian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-14",
+    "saints": [
+      {
+        "id": "cyril_methodius",
+        "name": "Saints Cyril and Methodius",
+        "feastDate": "02-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/cyril_methodius.jpg",
+        "shortBio": "Brother missionaries from Thessalonica known as the 'Apostles to the Slavs,' who devised the Glagolitic alphabet and translated Scripture into Old Church Slavonic.",
+        "fullStory": "Cyril, a scholar, and his brother Methodius, a monk and former provincial governor, were sent from Constantinople to evangelize the Slavic peoples of Great Moravia, where they insisted on celebrating the liturgy and preaching in the local Slavic tongue rather than Latin or Greek alone. To accomplish this they devised a new alphabet, ancestor of the modern Cyrillic script, and translated liturgical and scriptural texts, laying the foundation for Slavic literary culture despite fierce opposition from Frankish clergy who favored Latin.",
+        "patronage": [
+          "Europe",
+          "Slavic peoples",
+          "Ecumenism"
+        ],
+        "quote": null,
+        "birthYear": 826,
+        "deathYear": 885,
+        "canonizationYear": null,
+        "tags": [
+          "Missionary",
+          "Patron of Europe",
+          "Apostles to the Slavs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-15",
+    "saints": [
+      {
+        "id": "claude_la_colombiere",
+        "name": "Saint Claude La Colombière",
+        "feastDate": "02-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/claude_la_colombiere.jpg",
+        "shortBio": "A French Jesuit spiritual director who served as confessor to Saint Margaret Mary Alacoque and helped spread devotion to the Sacred Heart of Jesus.",
+        "fullStory": "Assigned as chaplain to the convent at Paray-le-Monial, Claude La Colombière became the spiritual director and confessor of Sister Margaret Mary Alacoque, whom he supported and defended when her visions of Christ's Sacred Heart met with skepticism from other clergy. He later served the English royal court during a period of intense anti-Catholic suspicion, enduring imprisonment before returning to France, where his writings helped establish the devotion to the Sacred Heart as a lasting feature of Catholic spirituality.",
+        "patronage": [
+          "Spiritual directors",
+          "The Sacred Heart devotion"
+        ],
+        "quote": null,
+        "birthYear": 1641,
+        "deathYear": 1682,
+        "canonizationYear": 1992,
+        "tags": [
+          "Jesuit",
+          "Spiritual Director",
+          "Sacred Heart"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-16",
+    "saints": [
+      {
+        "id": "juliana_nicomedia",
+        "name": "Saint Juliana of Nicomedia",
+        "feastDate": "02-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/juliana_nicomedia.jpg",
+        "shortBio": "An early virgin martyr said to have been tortured and executed after refusing an arranged marriage to a pagan Roman official.",
+        "fullStory": "According to ancient tradition, Juliana was betrothed to a Roman official but refused to marry him unless he converted to Christianity, a condition that led to her being denounced to her own father during a period of persecution. Subjected to imprisonment and torture, she remained steadfast in her faith until her execution, and her cult spread widely through medieval Europe, particularly in Italy and England.",
+        "patronage": [
+          "Illness",
+          "Against temptation"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "Virgin",
+          "Martyr",
+          "Early Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-17",
+    "saints": [
+      {
+        "id": "seven_holy_founders",
+        "name": "The Seven Holy Founders of the Servite Order",
+        "feastDate": "02-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/seven_holy_founders.jpg",
+        "shortBio": "Seven Florentine noblemen who abandoned wealth and business to live in penitential community, founding the Servite Order in devotion to Mary.",
+        "fullStory": "Members of a Florentine confraternity devoted to the Blessed Virgin, the seven companions withdrew together from the city's commercial and civic life to live in poverty and contemplation on Monte Senario, adopting a black habit in memory of Mary's sorrows. Their community grew into the Order of Servants of Mary, known for its distinctive devotion to the Seven Sorrows of Mary, and all seven founders were canonized together as a group.",
+        "patronage": [
+          "Florence",
+          "Servite Order"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": 1888,
+        "tags": [
+          "Founder",
+          "Servite",
+          "Marian Devotion"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-18",
+    "saints": [
+      {
+        "id": "colman_lindisfarne",
+        "name": "Saint Colman of Lindisfarne",
+        "feastDate": "02-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/colman_lindisfarne.jpg",
+        "shortBio": "An Irish-born bishop of Lindisfarne who withdrew to Ireland with his monks after the Synod of Whitby ruled against Celtic liturgical customs.",
+        "fullStory": "Colman served as Bishop of Lindisfarne in Northumbria and represented the Celtic tradition's calculation of the date of Easter at the Synod of Whitby in 664, a dispute he lost to Roman practice advocated by Wilfrid. Rather than conform, Colman departed with a group of Irish and English monks, first to Iona and then to found a new monastery on Inishbofin off the Irish coast, preserving Celtic monastic customs in a new home.",
+        "patronage": [
+          "Lindisfarne",
+          "Monastics"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 676,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Celtic Christianity",
+          "Irish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-19",
+    "saints": [
+      {
+        "id": "conrad_of_piacenza",
+        "name": "Saint Conrad of Piacenza",
+        "feastDate": "02-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/conrad_of_piacenza.jpg",
+        "shortBio": "An Italian nobleman who, after accidentally causing a fire while hunting, gave away his wealth and lived as a hermit for decades in Sicily.",
+        "fullStory": "While hunting, Conrad ordered a fire set to flush out game, but it spread out of control and destroyed nearby fields and homes; when an innocent man was wrongly condemned for the blaze, Conrad confessed responsibility and used his fortune to make restitution. Left impoverished by the settlement, he and his wife separated to enter religious life, and Conrad spent the following decades as a hermit near Noto in Sicily, revered for his penance and gift of healing.",
+        "patronage": [
+          "Hernia sufferers",
+          "Sicily"
+        ],
+        "quote": null,
+        "birthYear": 1290,
+        "deathYear": 1351,
+        "canonizationYear": 1515,
+        "tags": [
+          "Hermit",
+          "Penitent",
+          "Italian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-20",
+    "saints": [
+      {
+        "id": "eucherius_of_orleans",
+        "name": "Saint Eucherius of Orléans",
+        "feastDate": "02-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/eucherius_of_orleans.jpg",
+        "shortBio": "A Benedictine monk who reluctantly accepted the bishopric of Orléans and boldly opposed a Frankish ruler's seizure of Church property.",
+        "fullStory": "Eucherius entered monastic life at Jumièges before being called, against his own preference for solitude, to serve as Bishop of Orléans. He is remembered for confronting Charles Martel over the confiscation of Church lands to fund his military campaigns, a stand that led to Eucherius's exile, though he continued to be venerated for his integrity and pastoral care.",
+        "patronage": [
+          "Orléans",
+          "Church property"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 743,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Benedictine",
+          "Frankish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-21",
+    "saints": [
+      {
+        "id": "peter_damian",
+        "name": "Saint Peter Damian, Bishop and Doctor",
+        "feastDate": "02-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/peter_damian.jpg",
+        "shortBio": "An eleventh-century monk and cardinal reformer who wrote forcefully against clerical corruption and helped drive the movement for Church reform.",
+        "fullStory": "Orphaned and mistreated as a child, Peter Damian rose through education to become a renowned teacher before withdrawing to the austere hermitage of Fonte Avellana, which he later led and reformed. As a cardinal bishop, he wrote sharp, often scathing treatises against simony and clerical immorality, serving as a key reforming voice in the eleventh-century Church and as a papal legate sent to resolve disputes across Italy and France.",
+        "patronage": [
+          "Reformers",
+          "Hermits"
+        ],
+        "quote": null,
+        "birthYear": 1007,
+        "deathYear": 1072,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Reformer",
+          "Hermit"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-22",
+    "saints": [
+      {
+        "id": "chair_of_peter",
+        "name": "The Chair of Saint Peter the Apostle",
+        "feastDate": "02-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/chair_of_peter.jpg",
+        "shortBio": "A feast honoring the teaching authority Christ entrusted to Peter and, through him, to his successors as bishops of Rome.",
+        "fullStory": "Rather than commemorating a physical relic, this ancient feast celebrates Peter's role as the rock on which Christ built his Church and the ongoing pastoral and teaching authority passed down through his successors. Originating from an early Roman custom of honoring the founding of local churches on the anniversary of a bishop's installation, the feast came to symbolize the unity of the universal Church around the See of Peter.",
+        "patronage": [
+          "The Papacy",
+          "Church Unity"
+        ],
+        "quote": "You are Peter, and on this rock I will build my church.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Feast",
+          "Apostle",
+          "Papacy"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-23",
+    "saints": [
+      {
+        "id": "polycarp",
+        "name": "Saint Polycarp, Bishop and Martyr",
+        "feastDate": "02-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/polycarp.jpg",
+        "shortBio": "A disciple of the Apostle John and bishop of Smyrna, martyred by burning and stabbing in old age for refusing to renounce Christ.",
+        "fullStory": "Polycarp was said to have been instructed directly by the Apostle John and became a revered bishop of Smyrna, a bridge figure linking the apostolic generation to the developing early Church. Arrested in old age during a local persecution, he calmly refused the demand to curse Christ, reportedly saying he had served him for eighty-six years and would not now betray him, and was burned and then stabbed to death, his martyrdom recorded in one of the earliest surviving accounts of Christian witness.",
+        "patronage": [
+          "Earache sufferers",
+          "Against dysentery"
+        ],
+        "quote": "Eighty-six years I have served him, and he has done me no wrong. How can I blaspheme my King who saved me?",
+        "birthYear": 69,
+        "deathYear": 155,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Martyr",
+          "Apostolic Father"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-24",
+    "saints": [
+      {
+        "id": "montanus_companions",
+        "name": "Saint Montanus and Companions, Martyrs",
+        "feastDate": "02-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/montanus_companions.jpg",
+        "shortBio": "A group of North African martyrs from Carthage, imprisoned and executed alongside companions of Saints Perpetua and Felicity's community.",
+        "fullStory": "Montanus and his companions belonged to the same persecuted Christian community in Carthage associated with the famous martyrs Perpetua and Felicity, arrested during renewed anti-Christian measures in the region. Their imprisonment and deaths, preserved in an early martyrdom account, reflect the vibrant and costly faith of the North African Church in the third century, a region that produced an extraordinary concentration of early Christian witnesses.",
+        "patronage": [
+          "Carthage",
+          "Prisoners"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 259,
+        "canonizationYear": null,
+        "tags": [
+          "Martyr",
+          "North African Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-25",
+    "saints": [
+      {
+        "id": "walburga",
+        "name": "Saint Walburga",
+        "feastDate": "02-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/walburga.jpg",
+        "shortBio": "An English Benedictine nun who joined her brothers' missionary work in Germany and became abbess of a double monastery at Heidenheim.",
+        "fullStory": "Daughter of the pilgrim Richard and sister of Saints Willibald and Winibald, Walburga was educated in an English convent before being sent to Germany at the request of Saint Boniface to assist in the missionary effort among the Germanic peoples. She became abbess of the double monastery at Heidenheim founded by her brother Winibald, governing both its monks and nuns, and was later associated with healing oil said to flow from her relics.",
+        "patronage": [
+          "Germany",
+          "Against pest and famine"
+        ],
+        "quote": null,
+        "birthYear": 710,
+        "deathYear": 779,
+        "canonizationYear": null,
+        "tags": [
+          "Abbess",
+          "Missionary",
+          "English Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-26",
+    "saints": [
+      {
+        "id": "porphyry_of_gaza",
+        "name": "Saint Porphyry of Gaza",
+        "feastDate": "02-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/porphyry_of_gaza.jpg",
+        "shortBio": "A bishop who confronted paganism in Gaza and secured the demolition of a major temple to the god Marnas with imperial support.",
+        "fullStory": "After years as a monk in Egypt and the Judean desert, Porphyry became Bishop of Gaza, a city still deeply attached to pagan worship, and traveled personally to Constantinople to petition Emperor Arcadius for authority to close its temples. With imperial backing he oversaw the destruction of the great temple of Marnas and the construction of a church on the site, an episode recorded in detail by his disciple Mark the Deacon.",
+        "patronage": [
+          "Gaza",
+          "Converts"
+        ],
+        "quote": null,
+        "birthYear": 347,
+        "deathYear": 420,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Monk",
+          "Missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-27",
+    "saints": [
+      {
+        "id": "gregory_of_narek",
+        "name": "Saint Gregory of Narek",
+        "feastDate": "02-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/gregory_of_narek.jpg",
+        "shortBio": "An Armenian monk, mystical poet, and Doctor of the Church whose 'Book of Lamentations' remains a masterpiece of Christian spiritual literature.",
+        "fullStory": "A monk at the monastery of Narek in historic Armenia, Gregory composed the Book of Lamentations, or Narek, a long sequence of prayers of profound spiritual depth and poetic beauty that remains central to Armenian Christian devotion to this day. Largely unknown in the Latin Church for centuries, he was declared a Doctor of the Church by Pope Francis in 2015, becoming the first Armenian and one of very few Eastern saints to hold that title.",
+        "patronage": [
+          "Armenia",
+          "Poets",
+          "Mystics"
+        ],
+        "quote": null,
+        "birthYear": 951,
+        "deathYear": 1003,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Mystic",
+          "Armenian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-28",
+    "saints": [
+      {
+        "id": "hilarus_pope",
+        "name": "Saint Hilarus, Pope",
+        "feastDate": "02-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/hilarus_pope.jpg",
+        "shortBio": "A fifth-century pope who defended Church councils' decisions and worked to strengthen ecclesiastical discipline in a fracturing Western Roman Empire.",
+        "fullStory": "Before his election as pope, Hilarus had served as a papal legate at the turbulent Council of Ephesus in 449, narrowly escaping violence at what became known as the 'Robber Council.' As pope, he convened Roman synods to reinforce the authority of earlier councils and worked to maintain unity and discipline among Western bishops during the final chaotic decades of the Western Roman Empire.",
+        "patronage": [
+          "Church councils",
+          "Rome"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 468,
+        "canonizationYear": null,
+        "tags": [
+          "Pope",
+          "Early Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "02-29",
+    "saints": [
+      {
+        "id": "oswald_of_worcester",
+        "name": "Saint Oswald of Worcester",
+        "feastDate": "02-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/oswald_of_worcester.jpg",
+        "shortBio": "A tenth-century bishop of Danish descent who, alongside Dunstan and Ethelwold, led the great Benedictine monastic revival in England, dying on the leap day that traditionally marks his feast.",
+        "fullStory": "Of Danish extraction and trained in France, Oswald became Bishop of Worcester and later also Archbishop of York, working alongside Saints Dunstan and Ethelwold to restore strict Benedictine observance to English monasteries that had fallen into decline. He founded and refounded numerous religious houses, most notably Ramsey Abbey, and died on February 29, 992, a leap day, after which his feast was traditionally kept on that date in leap years and transferred to February 28 in common years.",
+        "patronage": [
+          "Monastic reform",
+          "Worcester",
+          "York"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 992,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Monastic Reformer",
+          "English Saint"
+        ]
+      }
+    ]
+  }
+]

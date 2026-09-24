@@ -1,0 +1,212 @@
+{
+  "id": "beatitudes_path_to_true_happiness",
+  "title": "The Beatitudes: Path to True Happiness",
+  "category": "Catechism",
+  "summary": "The Beatitudes are Jesus' proclamation of the blessedness of those who follow him, revealing the ultimate goal of human life—eternal happiness with God—and describing the paradoxical path of humility, mercy, and love that leads to the Kingdom of Heaven.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Call to Beatitude"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Beatitudes are at the heart of Jesus' preaching, especially in the Sermon on the Mount. They fulfill the promises God made to Abraham and his descendants, yet they go beyond these promises by ordering them no longer merely to the possession of a earthly land, but to the Kingdom of Heaven. [CCC 1716]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Beatitudes depict the countenance of Jesus Christ and portray his charity. They express the vocation of the faithful associated with the glory of his Passion and Resurrection, and they shed light on the actions and attitudes characteristic of the Christian life. They are paradoxical promises that sustain hope in tribulations and proclaim blessings and rewards already begun in the lives of the saints. [CCC 1717]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 5:3 (RSV-CE)",
+      "text": "Blessed are the poor in spirit, for theirs is the kingdom of heaven."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1716-1717: Heart of Jesus' Preaching",
+      "text": "The Beatitudes are at the heart of Jesus' preaching, depicting his countenance and charity, and expressing the vocation of the faithful to eternal happiness."
+    },
+    {
+      "type": "heading",
+      "text": "I. The Desire for Happiness"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Beatitudes respond to the natural desire for happiness that God has placed in every human heart. This desire is of divine origin, and God alone can satisfy it. All men long for true and lasting happiness, which is found only in communion with God. [CCC 1718-1719]"
+    },
+    {
+      "type": "paragraph",
+      "text": "God created man for happiness, which consists in the beatific vision of God in eternity. Even in this life, the Beatitudes begin to be fulfilled as we grow in holiness and union with God. The New Law, summarized in the Beatitudes, leads us to the perfection of charity and eternal life. [CCC 1720, 1726]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Psalm 16:11 (RSV-CE)",
+      "text": "You show me the path of life. In your presence there is fullness of joy, in your right hand are pleasures for evermore."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1718-1719: Divine Desire",
+      "text": "The Beatitudes respond to the natural desire for happiness that God has placed in every human heart; God alone can satisfy this desire for true and lasting happiness."
+    },
+    {
+      "type": "heading",
+      "text": "II. The Eight Beatitudes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesus proclaimed eight Beatitudes in the Sermon on the Mount. Each begins with Blessed are, declaring the happiness of those who embody a particular Gospel virtue. Together, they form a comprehensive portrait of Christian discipleship and the path to the Kingdom. [CCC 1716]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 5:3-10 (RSV-CE)",
+      "text": "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they shall be comforted. Blessed are the meek, for they shall inherit the earth. Blessed are those who hunger and thirst for righteousness, for they shall be satisfied. Blessed are the merciful, for they shall obtain mercy. Blessed are the pure in heart, for they shall see God. Blessed are the peacemakers, for they shall be called sons of God. Blessed are those who are persecuted for righteousness' sake, for theirs is the kingdom of heaven."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1716: Portrait of Discipleship",
+      "text": "The eight Beatitudes form a comprehensive portrait of Christian discipleship, declaring the happiness of those who embody Gospel virtues and follow Christ."
+    },
+    {
+      "type": "heading",
+      "text": "III. Poverty in Spirit and Mourning"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Poverty in spirit means recognizing our total dependence on God, detaching ourselves from worldly riches, and seeking first the Kingdom. It is the virtue of humility that acknowledges we have nothing apart from God's grace. [CCC 2544-2546]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are those who mourn, for they shall be comforted. This Beatitude refers to those who weep over sin—both their own and the world's—and who long for God's justice and mercy. God promises to comfort them with the consolation of the Holy Spirit and the joy of salvation. [CCC 1718]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 6:20-21 (RSV-CE)",
+      "text": "Blessed are you poor, for yours is the kingdom of God. Blessed are you that hunger now, for you shall be satisfied. Blessed are you that weep now, for you shall laugh."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2544-2546: Poverty in Spirit",
+      "text": "Poverty in spirit means recognizing our total dependence on God, detaching from worldly riches, and seeking first the Kingdom through the virtue of humility."
+    },
+    {
+      "type": "heading",
+      "text": "IV. Meekness and Hunger for Righteousness"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are the meek, for they shall inherit the earth. Meekness is strength under control—the virtue of those who trust in God rather than their own power. The meek do not assert themselves aggressively but leave room for God to act, and they will inherit the true Promised Land, the Kingdom of Heaven. [CCC 1718]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are those who hunger and thirst for righteousness, for they shall be satisfied. This Beatitude describes those who passionately desire God's justice and holiness. God promises to fill them with his grace and to satisfy their deepest longings in the Kingdom. [CCC 1718]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Psalm 37:11 (RSV-CE)",
+      "text": "But the meek shall possess the land, and delight themselves in abundant prosperity."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1718: Meekness and Justice",
+      "text": "Meekness is strength under control, trusting in God; hunger for righteousness is a passionate desire for God's justice, which he promises to satisfy."
+    },
+    {
+      "type": "heading",
+      "text": "V. Mercy and Purity of Heart"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are the merciful, for they shall obtain mercy. Mercy is love that responds to suffering and need. Those who show mercy to others—through corporal and spiritual works of mercy—will receive God's mercy, especially in the hour of judgment. [CCC 2447, 2449]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are the pure in heart, for they shall see God. Purity of heart requires chastity, honesty, and single-minded devotion to God. It enables us to see God already in this life through faith, and face to face in eternity. The pure in heart see all things as God sees them. [CCC 2517-2519]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 5:7-8 (RSV-CE)",
+      "text": "Blessed are the merciful, for they shall obtain mercy. Blessed are the pure in heart, for they shall see God."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2447: Works of Mercy",
+      "text": "Mercy is love responding to suffering; those who show mercy through works of mercy will receive God's mercy, especially at the hour of judgment."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2517-2519: Purity of Heart",
+      "text": "Purity of heart requires chastity and single-minded devotion to God, enabling us to see God through faith now and face to face in eternity."
+    },
+    {
+      "type": "heading",
+      "text": "VI. Peacemakers and the Persecuted"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are the peacemakers, for they shall be called sons of God. Peacemakers work to reconcile divided hearts and nations, reflecting the peace of Christ. They are called children of God because they imitate the Father, who is the author of peace. [CCC 1718, 2302-2303]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Blessed are those who are persecuted for righteousness' sake, for theirs is the kingdom of heaven. This Beatitude consoles those who suffer for the sake of Christ and the Gospel. Persecution is a sign of union with Christ, who was persecuted, and the reward is the Kingdom itself. [CCC 1718]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 5:9-10 (RSV-CE)",
+      "text": "Blessed are the peacemakers, for they shall be called sons of God. Blessed are those who are persecuted for righteousness' sake, for theirs is the kingdom of heaven."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2302-2303: Peacemakers",
+      "text": "Peacemakers work to reconcile divided hearts and nations, reflecting Christ's peace, and are called children of God, the author of peace."
+    },
+    {
+      "type": "heading",
+      "text": "VII. The Beatitudes and the Christian Life"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Beatitudes are a paradoxical proclamation: they turn worldly wisdom upside down. The world says blessed are the rich, powerful, and self-sufficient; Jesus says blessed are the poor, meek, and merciful. The Beatitudes challenge us to examine our deepest desires and to reorder our lives according to the values of the Kingdom. [CCC 1716, 1726]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Beatitudes are not merely ideals but a concrete path to holiness. They are fulfilled in the lives of the saints, who show us that true happiness is possible even in this life through union with Christ. By grace, we too can grow in the virtues of the Beatitudes and taste the joy of the Kingdom. [CCC 1717, 1727]"
+    },
+    {
+      "type": "scripture",
+      "reference": "James 1:12 (RSV-CE)",
+      "text": "Blessed is the man who endures trial, for when he has stood the test he will receive the crown of life which God has promised to those who love him."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1726-1727: Path to Holiness",
+      "text": "The Beatitudes are a concrete path to holiness, fulfilled in the lives of the saints, showing that true happiness is possible through union with Christ."
+    },
+    {
+      "type": "heading",
+      "text": "VIII. Eternal Happiness: The Beatific Vision"
+    },
+    {
+      "type": "paragraph",
+      "text": "The ultimate fulfillment of the Beatitudes is the beatific vision—the direct, face-to-face contemplation of God in heaven. This is the supreme happiness for which God created us. In heaven, we shall see God as he is, and this vision will fill us with unending joy and peace. [CCC 1720-1721]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Beatitudes already begin to be fulfilled in this life through grace, but they find their complete fulfillment only in eternal life. The saints in heaven now enjoy the fullness of the Beatitudes, and we journey toward that same destiny, sustained by hope and the gifts of the Holy Spirit. [CCC 1722, 1726]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 John 3:2 (RSV-CE)",
+      "text": "Beloved, we are God's children now; it does not yet appear what we shall be, but we know that when he appears we shall be like him, for we shall see him as he is."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1720-1721: Beatific Vision",
+      "text": "The ultimate fulfillment of the Beatitudes is the beatific vision—the direct contemplation of God in heaven, which is the supreme happiness for which we were created."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: Prayer for the Beatitudes",
+      "text": "Lord Jesus, you proclaimed the Beatitudes as the path to true happiness. Grant us the grace to be poor in spirit, meek, merciful, and pure in heart. Help us to hunger for righteousness, to make peace, and to rejoice even in persecution for your sake. Lead us to the eternal joy of seeing you face to face in your Kingdom. Amen."
+    }
+  ]
+}

@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:operation_001/daily_readings_screen.dart';
 
 class UserMass extends StatefulWidget {
-  const UserMass({super.key});
+  final int initialTabIndex; // <-- ADD THIS
+
+  const UserMass({
+    super.key,
+    this.initialTabIndex = 0, // Default to 0 (Daily Readings)
+  });
 
   @override
   State<UserMass> createState() => _UserMassState();
@@ -1331,9 +1336,11 @@ class _UserMassState extends State<UserMass> {
 
     return DefaultTabController(
       length: 2,
+      initialIndex: widget.initialTabIndex, // <-- UPDATE THIS LINE
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 68,
+          // ... rest of your code remains untouched ...
           titleSpacing: 20,
           title: Text(
             'Holy Mass',

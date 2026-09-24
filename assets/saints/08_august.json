@@ -1,0 +1,962 @@
+[
+  {
+    "feastDate": "08-01",
+    "saints": [
+      {
+        "id": "alphonsus_liguori",
+        "name": "Saint Alphonsus Liguori",
+        "feastDate": "08-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/alphonsus_liguori.jpg",
+        "shortBio": "Saint Alphonsus Liguori was a bishop, moral theologian, and founder of the Redemptorists who devoted himself to preaching and the poor.",
+        "fullStory": "Alphonsus was a gifted lawyer before becoming a priest and dedicating his life to people who lacked adequate pastoral care. He founded the Congregation of the Most Holy Redeemer to evangelize rural and neglected communities. His writings on moral theology, prayer, and the love of Christ influenced generations of priests and laypeople.",
+        "patronage": [
+          "moral theologians",
+          "confessors",
+          "Redemptorists",
+          "arthritis sufferers"
+        ],
+        "quote": "The greatest saints, those richest in grace and virtue, are always the most willing to help the holy souls in Purgatory.",
+        "birthYear": 1696,
+        "deathYear": 1787,
+        "canonizationYear": 1839,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "redemptorist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-02",
+    "saints": [
+      {
+        "id": "eusebius_of_vercelli",
+        "name": "Saint Eusebius of Vercelli",
+        "feastDate": "08-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/eusebius_of_vercelli.jpg",
+        "shortBio": "Saint Eusebius of Vercelli was a bishop who defended Nicene Christianity and promoted communal life among the clergy.",
+        "fullStory": "Eusebius became the first bishop of Vercelli and encouraged his clergy to live together according to a disciplined spiritual rule. During the Arian controversy, he defended the full divinity of Christ and supported Saint Athanasius. His fidelity led to exile and hardship, but he returned to strengthen the Church in northern Italy.",
+        "patronage": [
+          "Vercelli",
+          "bishops",
+          "defenders of orthodoxy",
+          "clergy"
+        ],
+        "quote": null,
+        "birthYear": 283,
+        "deathYear": 371,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "confessor",
+          "nicene-faith"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-03",
+    "saints": [
+      {
+        "id": "lydia_of_thyatira",
+        "name": "Saint Lydia of Thyatira",
+        "feastDate": "08-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/lydia_of_thyatira.jpg",
+        "shortBio": "Saint Lydia of Thyatira was a businesswoman and the first recorded convert to Christianity in Europe through Saint Paul's preaching.",
+        "fullStory": "Lydia was a dealer in purple cloth who encountered Paul at Philippi and accepted the Gospel. After her baptism, she welcomed Paul and his companions into her home, which became an important base for the Christian community. Her story highlights the significant role of women, households, and lay leaders in the earliest missionary Church.",
+        "patronage": [
+          "dyers",
+          "merchants",
+          "businesswomen",
+          "Philippi"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "disciple",
+          "businesswoman",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-04",
+    "saints": [
+      {
+        "id": "john_vianney",
+        "name": "Saint John Vianney",
+        "feastDate": "08-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_john_vianney.jpg",
+        "shortBio": "Saint John Vianney was a French parish priest renowned for his pastoral charity, preaching, and ministry in the sacrament of reconciliation.",
+        "fullStory": "John Vianney overcame academic difficulties and political upheaval to become a priest during a period of religious recovery in France. Assigned to the village of Ars, he transformed the parish through prayer, preaching, catechesis, and long hours in the confessional. His spiritual wisdom attracted people from across Europe and made him a model for parish priests.",
+        "patronage": [
+          "parish priests",
+          "confessors",
+          "Ars",
+          "priests"
+        ],
+        "quote": "The priesthood is the love of the heart of Jesus.",
+        "birthYear": 1786,
+        "deathYear": 1859,
+        "canonizationYear": 1925,
+        "tags": [
+          "priest",
+          "confessor",
+          "pastor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-05",
+    "saints": [
+      {
+        "id": "emidius_of_ascoli",
+        "name": "Saint Emidius of Ascoli",
+        "feastDate": "08-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/emidius_of_ascoli.jpg",
+        "shortBio": "Saint Emidius was a bishop and martyr who evangelized in Italy and became known as a protector against earthquakes.",
+        "fullStory": "Emidius is traditionally described as a convert who became a bishop and missionary in central Italy. He preached the Gospel and was eventually killed during a period of persecution. After an earthquake in Ascoli, devotion to him as a protector against seismic disasters became especially strong.",
+        "patronage": [
+          "earthquakes",
+          "Ascoli Piceno",
+          "bishops",
+          "missionaries"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 303,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "martyr",
+          "protector"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-06",
+    "saints": [
+      {
+        "id": "transfiguration_of_the_lord",
+        "name": "The Transfiguration of the Lord",
+        "feastDate": "08-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/transfiguration.jpg",
+        "shortBio": "The Transfiguration of the Lord celebrates the revelation of Christ's divine glory before Peter, James, and John on the mountain.",
+        "fullStory": "The Gospel accounts describe Jesus taking Peter, James, and John to a high mountain, where his appearance was transformed and Moses and Elijah appeared with him. The voice of the Father identified Jesus as the beloved Son and instructed the disciples to listen to him. The feast points toward the Resurrection and encourages Christians to recognize divine glory even on the path toward suffering.",
+        "patronage": [
+          "mountain communities",
+          "theologians",
+          "spiritual transformation",
+          "contemplatives"
+        ],
+        "quote": "This is my beloved Son, with whom I am well pleased; listen to him.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "gospel",
+          "christology",
+          "transfiguration"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-07",
+    "saints": [
+      {
+        "id": "cajetan",
+        "name": "Saint Cajetan",
+        "feastDate": "08-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/cajetan.jpg",
+        "shortBio": "Saint Cajetan was an Italian priest and reformer who founded the Theatines and promoted renewal through prayer and pastoral service.",
+        "fullStory": "Cajetan studied law and served in the Roman Curia before becoming a priest. He helped found the Theatine Order, whose members emphasized apostolic poverty, priestly formation, and trust in divine providence. During periods of social and ecclesial crisis, he established charitable works and encouraged Christians to renew their lives through the sacraments.",
+        "patronage": [
+          "job seekers",
+          "the unemployed",
+          "bankers",
+          "theatre workers"
+        ],
+        "quote": "Do not receive Christ in the Eucharist as if you were going to receive a friend whom you scarcely know.",
+        "birthYear": 1480,
+        "deathYear": 1547,
+        "canonizationYear": 1671,
+        "tags": [
+          "priest",
+          "founder",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-08",
+    "saints": [
+      {
+        "id": "dominic",
+        "name": "Saint Dominic",
+        "feastDate": "08-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/dominic.jpg",
+        "shortBio": "Saint Dominic was a Spanish priest and founder of the Order of Preachers, dedicated to proclaiming the Gospel through study and preaching.",
+        "fullStory": "Dominic responded to the religious and social challenges of his time by combining a life of poverty with serious theological formation and preaching. He founded the Order of Preachers, later known as the Dominicans, to spread the truth of the Gospel and serve the Church's teaching mission. His legacy includes universities, missions, theological scholarship, and devotion to the Rosary.",
+        "patronage": [
+          "astronomers",
+          "scientists",
+          "preachers",
+          "Dominicans"
+        ],
+        "quote": "Arm yourself with prayer rather than a sword; wear humility rather than fine clothes.",
+        "birthYear": 1170,
+        "deathYear": 1221,
+        "canonizationYear": 1234,
+        "tags": [
+          "priest",
+          "founder",
+          "dominican"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-09",
+    "saints": [
+      {
+        "id": "teresa_benedicta_of_the_cross",
+        "name": "Saint Teresa Benedicta of the Cross",
+        "feastDate": "08-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/teresa_benedicta_of_the_cross.jpg",
+        "shortBio": "Saint Teresa Benedicta of the Cross, Edith Stein, was a philosopher, Carmelite nun, and martyr who united intellectual work with contemplative faith.",
+        "fullStory": "Edith Stein was a Jewish-born philosopher whose search for truth led her to Catholicism and eventually to the Carmelite Order. She wrote on empathy, the dignity of the human person, womanhood, and the meaning of the Cross. Arrested by the Nazis because of her Jewish origin, she was killed at Auschwitz with her sister Rosa and became a symbol of truth, reconciliation, and solidarity with victims of persecution.",
+        "patronage": [
+          "Europe",
+          "philosophers",
+          "converts",
+          "martyrs"
+        ],
+        "quote": "Do not accept anything as truth that lacks love, and do not accept anything as love that lacks truth.",
+        "birthYear": 1891,
+        "deathYear": 1942,
+        "canonizationYear": 1998,
+        "tags": [
+          "carmelite",
+          "philosopher",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-10",
+    "saints": [
+      {
+        "id": "lawrence_deacon_martyr",
+        "name": "Saint Lawrence, Deacon and Martyr",
+        "feastDate": "08-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_lawrence.jpg",
+        "shortBio": "Saint Lawrence was a deacon of Rome who served the poor and was martyred during the persecution under Emperor Valerian.",
+        "fullStory": "Lawrence served as one of the deacons of Rome and was responsible for distributing Church resources to the poor. When authorities demanded the Church's treasures, he presented the poor and needy as the true treasure of the Church. He was executed after refusing to abandon his faith, and his courageous humor and charity made him one of Rome's most beloved martyrs.",
+        "patronage": [
+          "deacons",
+          "cooks",
+          "comedians",
+          "librarians"
+        ],
+        "quote": "The poor are the true treasures of the Church.",
+        "birthYear": null,
+        "deathYear": 258,
+        "canonizationYear": null,
+        "tags": [
+          "deacon",
+          "martyr",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-11",
+    "saints": [
+      {
+        "id": "clare_of_assisi",
+        "name": "Saint Clare of Assisi",
+        "feastDate": "08-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_clare_assisi.jpg",
+        "shortBio": "Saint Clare of Assisi was the founder of the Poor Clares and a pioneer of contemplative religious life centered on poverty and the Eucharist.",
+        "fullStory": "Clare left her wealthy family to follow Saint Francis and embraced a life of radical poverty at San Damiano. She founded the Poor Clare community and spent decades defending its right to live without property. Her contemplative vision, Eucharistic faith, and courageous leadership shaped one of the world's largest communities of women religious.",
+        "patronage": [
+          "television",
+          "goldsmiths",
+          "laundresses",
+          "Poor Clares"
+        ],
+        "quote": "Love God, serve God; everything is in that.",
+        "birthYear": 1194,
+        "deathYear": 1253,
+        "canonizationYear": 1255,
+        "tags": [
+          "foundress",
+          "franciscan",
+          "contemplative"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-12",
+    "saints": [
+      {
+        "id": "jane_frances_de_chantal",
+        "name": "Saint Jane Frances de Chantal",
+        "feastDate": "08-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/jane_frances_de_chantal.jpg",
+        "shortBio": "Saint Jane Frances de Chantal was a widow, mother, and religious foundress who established the Visitation of Holy Mary with Saint Francis de Sales.",
+        "fullStory": "Jane Frances was widowed while still young and devoted herself to raising her children and serving the poor. Under the guidance of Francis de Sales, she founded the Visitation Order, which welcomed women who could not endure the strictest forms of monastic austerity. Her life united family responsibility, friendship, spiritual direction, and compassionate religious service.",
+        "patronage": [
+          "widows",
+          "parents separated from children",
+          "Visitation Sisters",
+          "mothers"
+        ],
+        "quote": "The measure of love is to love without measure.",
+        "birthYear": 1572,
+        "deathYear": 1641,
+        "canonizationYear": 1767,
+        "tags": [
+          "widow",
+          "foundress",
+          "visitation"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-13",
+    "saints": [
+      {
+        "id": "pontian_and_hippolytus",
+        "name": "Saints Pontian and Hippolytus",
+        "feastDate": "08-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/pontian_and_hippolytus.jpg",
+        "shortBio": "Saints Pontian and Hippolytus were leaders of the Roman Church who died in exile and are remembered as reconciled martyrs.",
+        "fullStory": "Pontian was pope while Hippolytus was a respected theologian who had separated from the Roman Church during a controversy. Both were exiled to the mines of Sardinia during persecution under Emperor Maximinus. Their shared suffering led to reconciliation, and both died as witnesses to Christ, offering an important example of unity restored through humility.",
+        "patronage": [
+          "Rome",
+          "theologians",
+          "reconciliation",
+          "exiles"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 235,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "martyr",
+          "reconciliation"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-14",
+    "saints": [
+      {
+        "id": "maximilian_kolbe",
+        "name": "Saint Maximilian Kolbe",
+        "feastDate": "08-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_maximilian_kolbe.jpg",
+        "shortBio": "Saint Maximilian Kolbe was a Conventual Franciscan priest and martyr who gave his life for another prisoner at Auschwitz.",
+        "fullStory": "Maximilian founded a major center of evangelization in Poland and promoted Catholic publishing and devotion to Mary. During the Nazi occupation he sheltered refugees and continued pastoral service despite the danger. At Auschwitz, he volunteered to die in place of a condemned prisoner, demonstrating the self-giving love that became the defining witness of his life.",
+        "patronage": [
+          "prisoners",
+          "journalists",
+          "families",
+          "addiction recovery"
+        ],
+        "quote": "No one in the world can change Truth. What we can do is seek it and serve it where we have found it.",
+        "birthYear": 1894,
+        "deathYear": 1941,
+        "canonizationYear": 1982,
+        "tags": [
+          "franciscan",
+          "martyr",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-15",
+    "saints": [
+      {
+        "id": "assumption_of_the_blessed_virgin_mary",
+        "name": "The Assumption of the Blessed Virgin Mary",
+        "feastDate": "08-15",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/assumption_bvm.jpg",
+        "shortBio": "The Assumption celebrates the belief that Mary was taken body and soul into heavenly glory at the end of her earthly life.",
+        "fullStory": "The solemnity proclaims Mary's participation in the victory of her Son over sin and death. As the Mother of Christ and a sign of the Church's future destiny, she is honored as already sharing fully in the resurrection promised to all the faithful. The feast offers hope that the whole human person is destined for redemption and glorification in God.",
+        "patronage": [
+          "France",
+          "Poland",
+          "women",
+          "the dying"
+        ],
+        "quote": "My soul proclaims the greatness of the Lord.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "solemnity",
+          "resurrection"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-16",
+    "saints": [
+      {
+        "id": "stephen_of_hungary",
+        "name": "Saint Stephen of Hungary",
+        "feastDate": "08-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/stephen_of_hungary.jpg",
+        "shortBio": "Saint Stephen of Hungary was the first Christian king of Hungary and helped establish the Church and Christian society in his kingdom.",
+        "fullStory": "Stephen received Christian formation and became king during a period when Hungary was transitioning from pagan traditions to Christianity. He organized dioceses, built churches, supported monasteries, and invited missionaries to serve his people. His laws combined political organization with Christian moral principles, helping establish a lasting Catholic identity in Hungary.",
+        "patronage": [
+          "Hungary",
+          "kings",
+          "families",
+          "masons"
+        ],
+        "quote": "Be merciful to all who suffer violence, keeping in your heart the example of the Lord.",
+        "birthYear": 975,
+        "deathYear": 1038,
+        "canonizationYear": 1083,
+        "tags": [
+          "king",
+          "missionary",
+          "hungary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-17",
+    "saints": [
+      {
+        "id": "hyacinth_of_poland",
+        "name": "Saint Hyacinth of Poland",
+        "feastDate": "08-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/hyacinth_of_poland.jpg",
+        "shortBio": "Saint Hyacinth was a Polish Dominican missionary who established communities and preached across eastern Europe.",
+        "fullStory": "Hyacinth joined the Dominican Order after meeting Saint Dominic in Rome and returned to Poland as one of the order's first missionaries there. He traveled widely, founded friaries, and preached the Gospel in regions where the Church was still developing. His missionary zeal and reported devotion to the Eucharist and Mary made him one of Poland's best-known medieval saints.",
+        "patronage": [
+          "Poland",
+          "Dominicans",
+          "Lithuania",
+          "Ukraine"
+        ],
+        "quote": null,
+        "birthYear": 1185,
+        "deathYear": 1257,
+        "canonizationYear": 1594,
+        "tags": [
+          "dominican",
+          "missionary",
+          "poland"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-18",
+    "saints": [
+      {
+        "id": "helen",
+        "name": "Saint Helena",
+        "feastDate": "08-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/helen.jpg",
+        "shortBio": "Saint Helena was the mother of Emperor Constantine and is traditionally associated with the discovery of the True Cross in Jerusalem.",
+        "fullStory": "Helena became a Christian and used her imperial influence to support the Church after the legalization of Christianity. She undertook a pilgrimage to the Holy Land, where tradition connects her with the identification of sites associated with Christ's Passion and the finding of the Cross. Her generosity helped establish churches and charitable works in Jerusalem and other places.",
+        "patronage": [
+          "archaeologists",
+          "converts",
+          "difficult marriages",
+          "pilgrims"
+        ],
+        "quote": null,
+        "birthYear": 248,
+        "deathYear": 330,
+        "canonizationYear": null,
+        "tags": [
+          "empress",
+          "pilgrim",
+          "holy-land"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-19",
+    "saints": [
+      {
+        "id": "john_eudes",
+        "name": "Saint John Eudes",
+        "feastDate": "08-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_eudes.jpg",
+        "shortBio": "Saint John Eudes was a French priest and founder who promoted devotion to the Hearts of Jesus and Mary and the formation of clergy.",
+        "fullStory": "John first served in the Oratory of Jesus before founding the Congregation of Jesus and Mary for seminaries and priestly formation. He also established the Sisters of Our Lady of Charity to serve women in difficult circumstances. Through preaching and liturgical devotion, he helped spread the spiritual focus on the Sacred Heart of Jesus and the Immaculate Heart of Mary.",
+        "patronage": [
+          "clergy",
+          "seminarians",
+          "the Sacred Heart",
+          "the Immaculate Heart"
+        ],
+        "quote": "The heart of Jesus is the center of the Christian religion.",
+        "birthYear": 1601,
+        "deathYear": 1680,
+        "canonizationYear": 1925,
+        "tags": [
+          "priest",
+          "founder",
+          "sacred-heart"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-20",
+    "saints": [
+      {
+        "id": "bernard_of_clairvaux",
+        "name": "Saint Bernard of Clairvaux",
+        "feastDate": "08-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/bernard_of_clairvaux.jpg",
+        "shortBio": "Saint Bernard of Clairvaux was a Cistercian abbot, mystic, preacher, and Doctor of the Church whose writings shaped medieval spirituality.",
+        "fullStory": "Bernard entered the Cistercian monastery at Cîteaux with several companions and later founded Clairvaux, where he became abbot. His preaching attracted many vocations and influenced major religious and political events, including the preaching of the Second Crusade. His writings on the love of God, the humanity of Christ, and devotion to Mary remain central works of Christian spirituality.",
+        "patronage": [
+          "Cistercians",
+          "beekeepers",
+          "chess players",
+          "preachers"
+        ],
+        "quote": "The measure of love is to love without measure.",
+        "birthYear": 1090,
+        "deathYear": 1153,
+        "canonizationYear": 1174,
+        "tags": [
+          "abbot",
+          "doctor-of-the-church",
+          "mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-21",
+    "saints": [
+      {
+        "id": "pius_x",
+        "name": "Saint Pius X",
+        "feastDate": "08-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/pius_x.jpg",
+        "shortBio": "Saint Pius X was a pope who promoted catechesis, frequent Communion, liturgical renewal, and the defense of Catholic doctrine.",
+        "fullStory": "Giuseppe Sarto served as a parish priest and bishop before becoming pope in 1903. He encouraged children to receive Communion, supported Gregorian chant, reformed seminaries, and worked to make Christian teaching accessible to ordinary Catholics. His pontificate responded firmly to theological modernism while emphasizing that the Church's renewal must begin with holiness and sound formation.",
+        "patronage": [
+          "catechists",
+          "first communicants",
+          "church musicians",
+          "priests"
+        ],
+        "quote": "Holy Communion is the shortest and safest way to heaven.",
+        "birthYear": 1835,
+        "deathYear": 1914,
+        "canonizationYear": 1954,
+        "tags": [
+          "pope",
+          "eucharist",
+          "catechesis"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-22",
+    "saints": [
+      {
+        "id": "queenship_of_mary",
+        "name": "The Queenship of the Blessed Virgin Mary",
+        "feastDate": "08-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/queenship_of_mary.jpg",
+        "shortBio": "The Queenship of the Blessed Virgin Mary celebrates Mary's participation in the reign of her risen Son and her maternal service to the Church.",
+        "fullStory": "The memorial follows the celebration of Mary's Assumption and reflects the biblical image of the mother of the king as a figure of honor and intercession. Mary's queenship is understood not as worldly domination but as participation in Christ's servant rule and loving care for humanity. The feast invites Christians to entrust themselves to Mary while recognizing that all her dignity points to Christ.",
+        "patronage": [
+          "queens",
+          "mothers",
+          "families",
+          "the Church"
+        ],
+        "quote": "My spirit rejoices in God my Savior.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "queenship",
+          "intercession"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-23",
+    "saints": [
+      {
+        "id": "rose_of_lima",
+        "name": "Saint Rose of Lima",
+        "feastDate": "08-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/rose_of_lima.jpg",
+        "shortBio": "Saint Rose of Lima was a Dominican tertiary and the first canonized saint of the Americas, known for prayer, penance, and care for the poor.",
+        "fullStory": "Rose lived in Lima, Peru, and resisted family pressure to marry so that she could dedicate herself to Christ. She joined the Dominican Third Order and lived a life of prayer and penance while caring for the sick and poor in her own home. Her holiness became a source of hope for the people of the Americas and helped establish a distinctly American Catholic spirituality.",
+        "patronage": [
+          "Latin America",
+          "Peru",
+          "florists",
+          "gardeners"
+        ],
+        "quote": "Apart from the cross there is no other ladder by which we may get to heaven.",
+        "birthYear": 1586,
+        "deathYear": 1617,
+        "canonizationYear": 1671,
+        "tags": [
+          "virgin",
+          "dominican",
+          "americas"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-24",
+    "saints": [
+      {
+        "id": "bartholomew_apostle",
+        "name": "Saint Bartholomew, Apostle",
+        "feastDate": "08-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_bartholomew_apostle.jpg",
+        "shortBio": "Saint Bartholomew was one of the Twelve Apostles and is traditionally identified with Nathanael in the Gospel of John.",
+        "fullStory": "Bartholomew appears in the Gospel tradition as Nathanael, a sincere seeker who recognized Jesus as the Son of God and King of Israel. He belonged to the apostolic community that witnessed the Resurrection and received the mission to evangelize the nations. Later traditions associate him with missionary work in Armenia, India, and other regions, where he is said to have suffered martyrdom.",
+        "patronage": [
+          "Armenia",
+          "leatherworkers",
+          "tanners",
+          "bookbinders"
+        ],
+        "quote": "Rabbi, you are the Son of God; you are the King of Israel.",
+        "birthYear": null,
+        "deathYear": 51,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-25",
+    "saints": [
+      {
+        "id": "louis_ix",
+        "name": "Saint Louis",
+        "feastDate": "08-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/louis_ix.jpg",
+        "shortBio": "Saint Louis IX was king of France, known for justice, personal devotion, charitable works, and support for the Church.",
+        "fullStory": "Louis became king as a child and was formed by a strong Christian education under the guidance of his mother, Blanche of Castile. He established courts and laws intended to protect justice, personally served the poor, and supported churches and religious communities. Although his participation in the Crusades belongs to a complex historical context, his life remains associated with the ideal of public authority ordered toward justice and service.",
+        "patronage": [
+          "France",
+          "royalty",
+          "barbers",
+          "tertiary Franciscans"
+        ],
+        "quote": "To love God is a great grace, but to be loved by God is the greatest grace.",
+        "birthYear": 1214,
+        "deathYear": 1270,
+        "canonizationYear": 1297,
+        "tags": [
+          "king",
+          "franciscan",
+          "justice"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-26",
+    "saints": [
+      {
+        "id": "zephyrinus",
+        "name": "Saint Zephyrinus",
+        "feastDate": "08-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/zephyrinus.jpg",
+        "shortBio": "Saint Zephyrinus was a pope who guided the Roman Church during theological controversy and periods of persecution.",
+        "fullStory": "Zephyrinus served as bishop of Rome during the early third century, when the Church faced both external persecution and internal debates about the Trinity and the person of Christ. He supported the development of Christian worship and entrusted important theological work to his adviser Hippolytus. His pontificate helped preserve unity in Rome during a challenging period of doctrinal and political tension.",
+        "patronage": [
+          "popes",
+          "Church unity",
+          "Roman Christians"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 217,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "bishop",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-27",
+    "saints": [
+      {
+        "id": "monica",
+        "name": "Saint Monica",
+        "feastDate": "08-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_monica.jpg",
+        "shortBio": "Saint Monica was the mother of Saint Augustine and is remembered for persevering prayer, patience, and concern for her family.",
+        "fullStory": "Monica lived in North Africa and remained faithful through a difficult marriage and the spiritual struggles of her son Augustine. She prayed for his conversion for many years and eventually followed him to Italy, where she rejoiced at his baptism. Her life became a lasting example of maternal love, patient intercession, and trust in God's providence.",
+        "patronage": [
+          "mothers",
+          "married women",
+          "alcoholics",
+          "difficult marriages"
+        ],
+        "quote": "Nothing is far from God.",
+        "birthYear": 331,
+        "deathYear": 387,
+        "canonizationYear": null,
+        "tags": [
+          "mother",
+          "widow",
+          "prayer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-28",
+    "saints": [
+      {
+        "id": "augustine_of_hippo",
+        "name": "Saint Augustine",
+        "feastDate": "08-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_augustine.jpg",
+        "shortBio": "Saint Augustine was a bishop, theologian, philosopher, and Doctor of the Church whose conversion and writings profoundly shaped Western Christianity.",
+        "fullStory": "Augustine pursued education, rhetoric, and philosophical answers before converting to Christianity through the witness of his mother Monica and the preaching of Saint Ambrose. He became a priest and bishop of Hippo, defending the faith, caring for his people, and writing works such as Confessions and The City of God. His theology of grace, sin, freedom, the Church, and the restless human heart remains foundational for Christian thought.",
+        "patronage": [
+          "theologians",
+          "philosophers",
+          "printers",
+          "brewers"
+        ],
+        "quote": "Our hearts are restless until they rest in you.",
+        "birthYear": 354,
+        "deathYear": 430,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "convert"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-29",
+    "saints": [
+      {
+        "id": "beheading_of_john_the_baptist",
+        "name": "The Beheading of Saint John the Baptist",
+        "feastDate": "08-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/beheading_of_john_the_baptist.jpg",
+        "shortBio": "The Beheading of Saint John the Baptist commemorates the martyrdom of the prophet who defended God's law and prepared the way for Christ.",
+        "fullStory": "John the Baptist openly condemned Herod Antipas for violating God's law by taking Herodias as his wife. Imprisoned and pressured by a rash promise made during a banquet, Herod ordered John's execution at the request of Herodias's daughter. The memorial honors John's courage, integrity, and willingness to bear witness to truth even when it brought suffering.",
+        "patronage": [
+          "prisoners",
+          "tailors",
+          "baptism",
+          "martyrs"
+        ],
+        "quote": "He must increase; I must decrease.",
+        "birthYear": null,
+        "deathYear": 29,
+        "canonizationYear": null,
+        "tags": [
+          "prophet",
+          "martyr",
+          "baptist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-30",
+    "saints": [
+      {
+        "id": "jeanne_jugan",
+        "name": "Saint Jeanne Jugan",
+        "feastDate": "08-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/jeanne_jugan.jpg",
+        "shortBio": "Saint Jeanne Jugan was a French religious foundress who dedicated her life to caring for elderly people living in poverty.",
+        "fullStory": "Jeanne began serving an elderly blind woman and gradually gathered companions to care for abandoned and poor older people. This work developed into the Little Sisters of the Poor, which established homes in many countries. Although she was later marginalized within the organization she founded, Jeanne continued to live humbly and trusted that God would preserve the mission.",
+        "patronage": [
+          "the elderly",
+          "the poor",
+          "caregivers",
+          "Little Sisters of the Poor"
+        ],
+        "quote": "Be little, very little, and let the good God do what he wants with you.",
+        "birthYear": 1792,
+        "deathYear": 1879,
+        "canonizationYear": 2009,
+        "tags": [
+          "foundress",
+          "charity",
+          "elderly-care"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "08-31",
+    "saints": [
+      {
+        "id": "joseph_of_arimathea",
+        "name": "Saint Joseph of Arimathea",
+        "feastDate": "08-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/joseph_of_arimathea.jpg",
+        "shortBio": "Saint Joseph of Arimathea was a respected disciple who provided a tomb for Jesus and helped care for his body after the Crucifixion.",
+        "fullStory": "The Gospels describe Joseph as a member of the council who did not consent to the condemnation of Jesus. After the Crucifixion, he courageously approached Pilate, received Jesus' body, and placed it in a new tomb. His actions show that discipleship sometimes requires public courage, reverence for the dead, and faithful service during moments of apparent defeat.",
+        "patronage": [
+          "funeral directors",
+          "undertakers",
+          "gravediggers",
+          "burial societies"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "disciple",
+          "gospel",
+          "burial"
+        ]
+      }
+    ]
+  }
+]

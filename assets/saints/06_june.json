@@ -1,0 +1,927 @@
+[
+  {
+    "feastDate": "06-01",
+    "saints": [
+      {
+        "id": "justin_martyr",
+        "name": "Saint Justin Martyr",
+        "feastDate": "06-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/justin_martyr.jpg",
+        "shortBio": "Saint Justin Martyr was an early Christian philosopher and apologist who defended the faith before pagan intellectuals and Roman authorities.",
+        "fullStory": "Justin searched through the philosophical schools of his time before discovering in Christianity the fulfillment of his longing for truth. He taught in Rome and wrote important defenses of Christian belief, including descriptions of early Christian worship and the Eucharist. He was condemned and executed after refusing to renounce his faith, becoming one of the Church's most influential second-century witnesses.",
+        "patronage": [
+          "philosophers",
+          "apologists",
+          "lecturers",
+          "rationalists"
+        ],
+        "quote": "Whatever things were rightly said among all men are the property of us Christians.",
+        "birthYear": 100,
+        "deathYear": 165,
+        "canonizationYear": null,
+        "tags": [
+          "martyr",
+          "apologist",
+          "philosopher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-02",
+    "saints": [
+      {
+        "id": "marcellinus_and_peter",
+        "name": "Saints Marcellinus and Peter",
+        "feastDate": "06-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/marcellinus_and_peter.jpg",
+        "shortBio": "Saints Marcellinus and Peter were a priest and an exorcist who were martyred during the persecution of Emperor Diocletian.",
+        "fullStory": "Marcellinus served as a priest and Peter assisted the Christian community through the ministry of exorcism. During the persecution under Diocletian, they were arrested and executed for their faith. Their memory was preserved in the Roman Church, and their names were included in the Roman Canon of the Eucharistic Prayer.",
+        "patronage": [
+          "exorcists",
+          "prisoners",
+          "Rome"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "priest",
+          "roman-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-03",
+    "saints": [
+      {
+        "id": "charles_lwanga_and_companions",
+        "name": "Saint Charles Lwanga and Companions",
+        "feastDate": "06-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/charles_lwanga_and_companions.jpg",
+        "shortBio": "Saint Charles Lwanga and his companions were Ugandan martyrs who remained faithful to Christ despite persecution and execution.",
+        "fullStory": "Charles Lwanga served as a page in the court of the king of Buganda and became a leader among the young Christian converts. When the king demanded that they abandon their faith, Charles and many companions refused. They were killed between 1885 and 1887, and their witness helped inspire the rapid growth of Christianity in Uganda and throughout Africa.",
+        "patronage": [
+          "African youth",
+          "converts",
+          "Catholic Action",
+          "Uganda"
+        ],
+        "quote": "A Christian can never abandon his faith.",
+        "birthYear": 1860,
+        "deathYear": 1886,
+        "canonizationYear": 1964,
+        "tags": [
+          "martyrs",
+          "uganda",
+          "youth"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-04",
+    "saints": [
+      {
+        "id": "francis_caracciolo",
+        "name": "Saint Francis Caracciolo",
+        "feastDate": "06-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/francis_caracciolo.jpg",
+        "shortBio": "Saint Francis Caracciolo was a priest and co-founder of the Minor Clerks Regular, devoted to Eucharistic adoration and service to the poor.",
+        "fullStory": "Francis was born into an Italian noble family but dedicated his life to priestly ministry and religious service. He helped establish the Congregation of the Minor Clerks Regular, whose members combined contemplation, preaching, and care for the sick and poor. His devotion to the Eucharist and his love for the marginalized shaped the spirituality of the order.",
+        "patronage": [
+          "cooks",
+          "Italian chefs",
+          "the sick",
+          "the Minor Clerks Regular"
+        ],
+        "quote": null,
+        "birthYear": 1563,
+        "deathYear": 1608,
+        "canonizationYear": 1807,
+        "tags": [
+          "priest",
+          "founder",
+          "eucharist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-05",
+    "saints": [
+      {
+        "id": "boniface_of_mainz",
+        "name": "Saint Boniface",
+        "feastDate": "06-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/boniface_of_mainz.jpg",
+        "shortBio": "Saint Boniface was an English missionary and bishop who helped evangelize and organize the Church in central Europe.",
+        "fullStory": "Boniface left England to serve as a missionary among the Germanic peoples. He preached, founded monasteries, organized dioceses, and worked closely with Rome to establish a stable ecclesial structure. Traditionally remembered for cutting down a pagan sacred oak, he was eventually martyred with companions while serving a missionary community in Frisia.",
+        "patronage": [
+          "Germany",
+          "brewers",
+          "tailors",
+          "missionaries"
+        ],
+        "quote": "Let us stand fast in what is right and prepare our souls for trial.",
+        "birthYear": 675,
+        "deathYear": 754,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-06",
+    "saints": [
+      {
+        "id": "norbert_of_xanten",
+        "name": "Saint Norbert of Xanten",
+        "feastDate": "06-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/norbert_of_xanten.jpg",
+        "shortBio": "Saint Norbert was an archbishop, reformer, and founder of the Premonstratensian Order who promoted Eucharistic faith and ecclesial renewal.",
+        "fullStory": "Norbert experienced a profound conversion after a near-fatal accident and abandoned a comfortable clerical career for a life of preaching and penance. He founded the Premonstratensian, or Norbertine, community at Prémontré and later became archbishop of Magdeburg. He worked for Church reform, defended the Eucharistic faith, and sought reconciliation amid ecclesial and political conflict.",
+        "patronage": [
+          "Premonstratensians",
+          "Magdeburg",
+          "ecclesial reform",
+          "peace"
+        ],
+        "quote": null,
+        "birthYear": 1080,
+        "deathYear": 1134,
+        "canonizationYear": 1582,
+        "tags": [
+          "archbishop",
+          "founder",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-07",
+    "saints": [
+      {
+        "id": "robert_of_newminster",
+        "name": "Saint Robert of Newminster",
+        "feastDate": "06-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/robert_of_newminster.jpg",
+        "shortBio": "Saint Robert of Newminster was an English Cistercian abbot known for prayer, pastoral wisdom, and monastic expansion.",
+        "fullStory": "Robert became a priest and later entered the Cistercian monastery at Fountains Abbey. He was chosen as abbot of Newminster, where he guided the community through prayer, discipline, and care for the poor. Several daughter monasteries were founded during his leadership, extending the Cistercian tradition in northern England.",
+        "patronage": [
+          "Cistercians",
+          "abbots",
+          "monastic communities"
+        ],
+        "quote": null,
+        "birthYear": 1100,
+        "deathYear": 1159,
+        "canonizationYear": 1190,
+        "tags": [
+          "cistercian",
+          "abbot",
+          "monk"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-08",
+    "saints": [
+      {
+        "id": "medard_of_noyon",
+        "name": "Saint Medard of Noyon",
+        "feastDate": "06-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/medard_of_noyon.jpg",
+        "shortBio": "Saint Medard of Noyon was a bishop remembered for evangelization, generosity, and pastoral care among the people of northern Gaul.",
+        "fullStory": "Medard served as bishop first in Vermand and later in Noyon during the sixth century. He preached the Gospel, cared for the poor, and helped strengthen Christian life in a region undergoing political and cultural change. Later traditions portray him as a compassionate shepherd whose ministry brought hope to ordinary people.",
+        "patronage": [
+          "farmers",
+          "brewers",
+          "weather",
+          "Noyon"
+        ],
+        "quote": null,
+        "birthYear": 456,
+        "deathYear": 545,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-09",
+    "saints": [
+      {
+        "id": "ephrem_the_syrian",
+        "name": "Saint Ephrem the Syrian",
+        "feastDate": "06-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/ephrem_the_syrian.jpg",
+        "shortBio": "Saint Ephrem the Syrian was a deacon, theologian, poet, and Doctor of the Church whose hymns taught the Christian faith.",
+        "fullStory": "Ephrem served the Church of Nisibis and later Edessa, teaching through sermons, biblical commentary, and poetry. He composed hymns that defended orthodox belief and made theology accessible to ordinary worshippers. His literary and spiritual legacy remains central to Syriac Christianity and demonstrates the power of beauty in communicating faith.",
+        "patronage": [
+          "poets",
+          "musicians",
+          "deacons",
+          "spiritual writers"
+        ],
+        "quote": "Lord, do not let me be a burden to anyone.",
+        "birthYear": 306,
+        "deathYear": 373,
+        "canonizationYear": 1920,
+        "tags": [
+          "deacon",
+          "doctor-of-the-church",
+          "poet"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-10",
+    "saints": [
+      {
+        "id": "blessed_joachim_of_fiore",
+        "name": "Blessed Joachim of Fiore",
+        "feastDate": "06-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/blessed_joachim_of_fiore.jpg",
+        "shortBio": "Blessed Joachim of Fiore was a Cistercian abbot and biblical theologian known for his reflections on salvation history and spiritual renewal.",
+        "fullStory": "Joachim entered the Cistercian Order after a pilgrimage to the Holy Land and eventually founded the monastery of San Giovanni in Fiore. His writings explored the meaning of Scripture and the unfolding of God's providence in history. Although some later interpretations of his ideas became controversial, his call to conversion and renewal influenced medieval spirituality.",
+        "patronage": [
+          "Cistercians",
+          "biblical scholars",
+          "spiritual renewal"
+        ],
+        "quote": null,
+        "birthYear": 1135,
+        "deathYear": 1202,
+        "canonizationYear": null,
+        "tags": [
+          "abbot",
+          "cistercian",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-11",
+    "saints": [
+      {
+        "id": "barnabas_apostle",
+        "name": "Saint Barnabas, Apostle",
+        "feastDate": "06-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/barnabas_apostle.jpg",
+        "shortBio": "Saint Barnabas was an early Christian leader and missionary who encouraged the Church and worked closely with Saint Paul.",
+        "fullStory": "Barnabas was a Levite from Cyprus who sold property and shared the proceeds with the apostolic community. He introduced Paul to the apostles and later served with him in missionary work, especially in Antioch and Asia Minor. Known as a generous encourager, Barnabas helped welcome new believers and strengthen the Church's mission to the Gentiles.",
+        "patronage": [
+          "Cyprus",
+          "Antioch",
+          "peacekeepers",
+          "weavers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 61,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "missionary",
+          "encourager"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-12",
+    "saints": [
+      {
+        "id": "john_of_sahagun",
+        "name": "Saint John of Sahagún",
+        "feastDate": "06-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_of_sahagun.jpg",
+        "shortBio": "Saint John of Sahagún was an Augustinian friar, preacher, and peacemaker known for defending the poor and reconciling rival families.",
+        "fullStory": "John served as a priest before entering the Augustinian Order, where he became known for preaching and spiritual direction. In Salamanca he worked to end violent feuds between powerful families and repeatedly defended people who were mistreated. His Eucharistic devotion, courage, and commitment to reconciliation made him a respected reformer and peacemaker.",
+        "patronage": [
+          "peacemakers",
+          "Salamanca",
+          "Augustinians",
+          "the poor"
+        ],
+        "quote": null,
+        "birthYear": 1430,
+        "deathYear": 1479,
+        "canonizationYear": 1690,
+        "tags": [
+          "augustinian",
+          "preacher",
+          "peacemaker"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-13",
+    "saints": [
+      {
+        "id": "anthony_of_padua",
+        "name": "Saint Anthony of Padua",
+        "feastDate": "06-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_anthony_padua.jpg",
+        "shortBio": "Saint Anthony of Padua was a Franciscan friar and Doctor of the Church renowned for preaching, biblical teaching, and care for the poor.",
+        "fullStory": "Anthony was born in Lisbon and first joined the Augustinian Canons before entering the Franciscan Order. He became a powerful preacher who traveled through Italy and southern France, confronting heresy and calling Christians to conversion. His sermons and writings combine profound biblical insight with tenderness toward the poor, while popular devotion remembers him as a trusted intercessor for lost things.",
+        "patronage": [
+          "lost items",
+          "the poor",
+          "travelers",
+          "mail carriers"
+        ],
+        "quote": "Actions speak louder than words; let your actions speak like your words.",
+        "birthYear": 1195,
+        "deathYear": 1231,
+        "canonizationYear": 1232,
+        "tags": [
+          "franciscan",
+          "doctor-of-the-church",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-14",
+    "saints": [
+      {
+        "id": "eliseus_prophet",
+        "name": "Saint Elisha the Prophet",
+        "feastDate": "06-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/eliseus_prophet.jpg",
+        "shortBio": "Saint Elisha was an Old Testament prophet who continued the mission of Elijah and served God's people through signs, teaching, and courageous witness.",
+        "fullStory": "Elisha was called by the prophet Elijah and became his successor in the prophetic ministry. The biblical narratives portray him defending the poor, guiding kings, healing the sick, and reminding Israel of God's faithfulness. His life illustrates prophetic service as both spiritual discernment and practical compassion.",
+        "patronage": [
+          "prophets",
+          "biblical scholars",
+          "healing ministries"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "prophet",
+          "old-testament",
+          "healing"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-15",
+    "saints": [
+      {
+        "id": "germaine_cousin",
+        "name": "Saint Germaine Cousin",
+        "feastDate": "06-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/germaine_cousin.jpg",
+        "shortBio": "Saint Germaine Cousin was a young French shepherdess who endured hardship and became known for prayer, patience, and charity.",
+        "fullStory": "Germaine lived with a disability and suffered neglect within her own household while working as a shepherdess. She remained devoted to prayer and secretly shared food with people who were poorer than herself. Her life became a lasting witness that holiness can flourish amid poverty, suffering, and social invisibility.",
+        "patronage": [
+          "shepherdesses",
+          "abused children",
+          "the disabled",
+          "rural workers"
+        ],
+        "quote": null,
+        "birthYear": 1579,
+        "deathYear": 1601,
+        "canonizationYear": 1867,
+        "tags": [
+          "virgin",
+          "shepherdess",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-16",
+    "saints": [
+      {
+        "id": "john_francis_regis",
+        "name": "Saint John Francis Regis",
+        "feastDate": "06-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_francis_regis.jpg",
+        "shortBio": "Saint John Francis Regis was a French Jesuit missionary who served rural communities through preaching, reconciliation, and practical charity.",
+        "fullStory": "John Francis entered the Society of Jesus and was sent to preach in the remote villages of southern France. He walked long distances, heard confessions, taught catechism, and helped people trapped in poverty or exploitation. His tireless ministry among ordinary people made him a model of missionary availability and compassionate pastoral care.",
+        "patronage": [
+          "lace makers",
+          "illegitimate children",
+          "social workers",
+          "Jesuits"
+        ],
+        "quote": null,
+        "birthYear": 1597,
+        "deathYear": 1640,
+        "canonizationYear": 1737,
+        "tags": [
+          "jesuit",
+          "missionary",
+          "confessor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-17",
+    "saints": [
+      {
+        "id": "teresa_of_portugal",
+        "name": "Saint Teresa of Portugal",
+        "feastDate": "06-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/teresa_of_portugal.jpg",
+        "shortBio": "Saint Teresa of Portugal was a queen and Cistercian religious who pursued peace, charity, and reconciliation.",
+        "fullStory": "Teresa was born into the Portuguese royal family and married King Alfonso IX of León. After political conflict led to the annulment of the marriage, she withdrew from court life and founded a Cistercian monastery at Lorvão. She devoted her later years to prayer, works of mercy, and reconciliation within her family and among rival rulers.",
+        "patronage": [
+          "Portugal",
+          "queens",
+          "Cistercians",
+          "peacemakers"
+        ],
+        "quote": null,
+        "birthYear": 1175,
+        "deathYear": 1250,
+        "canonizationYear": 1705,
+        "tags": [
+          "queen",
+          "cistercian",
+          "peacemaker"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-18",
+    "saints": [
+      {
+        "id": "mark_and_marcellian",
+        "name": "Saints Mark and Marcellian",
+        "feastDate": "06-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/mark_and_marcellian.jpg",
+        "shortBio": "Saints Mark and Marcellian were twin brothers and Roman martyrs who remained faithful despite pressure to abandon Christianity.",
+        "fullStory": "Mark and Marcellian were traditionally described as deacons and sons of a Christian family in Rome. Arrested during persecution, they were given time to reconsider their faith but used the opportunity to encourage others instead. Their eventual martyrdom became a testimony to fraternal courage and the strength of Christian community.",
+        "patronage": [
+          "twins",
+          "brothers",
+          "Rome",
+          "martyrs"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 286,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "twins",
+          "roman-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-19",
+    "saints": [
+      {
+        "id": "romuald_of_ravenna",
+        "name": "Saint Romuald of Ravenna",
+        "feastDate": "06-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/romuald_of_ravenna.jpg",
+        "shortBio": "Saint Romuald was a Benedictine reformer and founder of the Camaldolese tradition, combining solitude with communal monastic life.",
+        "fullStory": "After a profound conversion, Romuald embraced the monastic life and traveled widely to renew monasteries and establish new communities. He developed a form of Benedictine spirituality that united hermit solitude with shared monastic discipline. His passion for prayer, reform, and missionary renewal influenced Western monasticism for centuries.",
+        "patronage": [
+          "Camaldolese",
+          "hermits",
+          "monks",
+          "monastic reform"
+        ],
+        "quote": "Empty yourself completely and sit waiting.",
+        "birthYear": 951,
+        "deathYear": 1027,
+        "canonizationYear": 1595,
+        "tags": [
+          "abbot",
+          "hermit",
+          "benedictine"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-20",
+    "saints": [
+      {
+        "id": "silverius",
+        "name": "Saint Silverius",
+        "feastDate": "06-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/silverius.jpg",
+        "shortBio": "Saint Silverius was a pope who suffered exile and death amid political conflict during the Byzantine reconquest of Italy.",
+        "fullStory": "Silverius became pope during a turbulent period when Rome was caught between Gothic and Byzantine powers. He was accused of political betrayal, deposed, and sent into exile on the island of Palmaria. He died there under harsh conditions, and the Church remembers him as a pope who suffered because of the political struggles surrounding the Roman See.",
+        "patronage": [
+          "popes",
+          "exiles",
+          "persecuted Christians"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 537,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "exile",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-21",
+    "saints": [
+      {
+        "id": "aloysius_gonzaga",
+        "name": "Saint Aloysius Gonzaga",
+        "feastDate": "06-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/aloysius_gonzaga.jpg",
+        "shortBio": "Saint Aloysius Gonzaga was a Jesuit religious who renounced privilege and died while serving victims of an epidemic in Rome.",
+        "fullStory": "Aloysius was born into a noble Italian family but chose religious life and entered the Society of Jesus. He pursued rigorous prayer, study, and service despite poor health and family opposition. While still a student, he contracted a disease while caring for the sick and died at a young age, becoming a model of youthful holiness and self-giving charity.",
+        "patronage": [
+          "youth",
+          "students",
+          "young people with AIDS",
+          "Jesuits"
+        ],
+        "quote": "I am a piece of twisted iron. I entered religious life in order to get twisted straight.",
+        "birthYear": 1568,
+        "deathYear": 1591,
+        "canonizationYear": 1726,
+        "tags": [
+          "jesuit",
+          "youth",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-22",
+    "saints": [
+      {
+        "id": "paulinus_of_nola",
+        "name": "Saint Paulinus of Nola",
+        "feastDate": "06-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/paulinus_of_nola.jpg",
+        "shortBio": "Saint Paulinus of Nola was a bishop, poet, and former Roman official who gave up wealth to serve Christ and the poor.",
+        "fullStory": "Paulinus was a wealthy Roman senator and poet who underwent a profound conversion after the death of his son. He renounced much of his property, became a priest, and settled in Nola, where he served as bishop. He welcomed pilgrims, redeemed captives, cared for the poor, and used poetry to express Christian faith and devotion to Saint Felix.",
+        "patronage": [
+          "bell makers",
+          "poets",
+          "Nola",
+          "hostages"
+        ],
+        "quote": "Let us live with the poor, if we wish to be rich with Christ.",
+        "birthYear": 354,
+        "deathYear": 431,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "poet",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-23",
+    "saints": [
+      {
+        "id": "joseph_cafasso",
+        "name": "Saint Joseph Cafasso",
+        "feastDate": "06-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/joseph_cafasso.jpg",
+        "shortBio": "Saint Joseph Cafasso was an Italian priest and spiritual director who supported clergy, prisoners, and people facing death.",
+        "fullStory": "Joseph served as a professor and rector at a priestly formation institute in Turin, where he guided many priests and future saints. He devoted particular attention to prisoners and accompanied condemned people with compassion and faith. His quiet ministry of confession, spiritual direction, and mercy influenced Saint John Bosco and many other priests.",
+        "patronage": [
+          "prisoners",
+          "prison chaplains",
+          "spiritual directors",
+          "those condemned to death"
+        ],
+        "quote": "It is not enough to do good; we must do it well.",
+        "birthYear": 1811,
+        "deathYear": 1860,
+        "canonizationYear": 1947,
+        "tags": [
+          "priest",
+          "confessor",
+          "spiritual-director"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-24",
+    "saints": [
+      {
+        "id": "nativity_of_saint_john_the_baptist",
+        "name": "The Nativity of Saint John the Baptist",
+        "feastDate": "06-24",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/nativity_st_john_baptist.jpg",
+        "shortBio": "The Nativity of Saint John the Baptist celebrates the birth of the prophet who prepared Israel for the coming of Christ.",
+        "fullStory": "John's birth was announced to Zechariah and Elizabeth as a sign of God's faithfulness, and his mission was foretold as one of preparation for the Messiah. He lived a life of asceticism in the wilderness, calling people to repentance and baptizing them in the Jordan. John identified Jesus as the Lamb of God and accepted that his own role must decrease as Christ's mission increased.",
+        "patronage": [
+          "baptism",
+          "converts",
+          "Jordan",
+          "lambs"
+        ],
+        "quote": "He must increase; I must decrease.",
+        "birthYear": null,
+        "deathYear": 29,
+        "canonizationYear": null,
+        "tags": [
+          "prophet",
+          "forerunner",
+          "baptist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-25",
+    "saints": [
+      {
+        "id": "william_of_montevergine",
+        "name": "Saint William of Montevergine",
+        "feastDate": "06-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/william_of_montevergine.jpg",
+        "shortBio": "Saint William of Montevergine was an Italian hermit and founder of the Congregation of Montevergine, devoted to prayer and service.",
+        "fullStory": "William traveled as a pilgrim and eventually embraced a solitary life on Montevergine in southern Italy. Disciples gathered around him, leading to the foundation of a monastic congregation inspired by Benedictine values. His communities combined solitude, liturgical prayer, hospitality, and practical care for the poor.",
+        "patronage": [
+          "Montevergine",
+          "hermits",
+          "monks",
+          "pilgrims"
+        ],
+        "quote": null,
+        "birthYear": 1085,
+        "deathYear": 1142,
+        "canonizationYear": null,
+        "tags": [
+          "hermit",
+          "founder",
+          "monk"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-26",
+    "saints": [
+      {
+        "id": "josemaria_escriva",
+        "name": "Saint Josemaría Escrivá",
+        "feastDate": "06-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/josemaria_escriva.jpg",
+        "shortBio": "Saint Josemaría Escrivá was a Spanish priest who promoted the universal call to holiness, especially through ordinary work and daily life.",
+        "fullStory": "Josemaría founded Opus Dei in 1928 with a mission to remind Christians that holiness is possible in every honest occupation and state of life. He encouraged laypeople to sanctify work, family responsibilities, and ordinary duties through prayer and love. His preaching and writings influenced modern Catholic spirituality by emphasizing that everyday life can become a path to union with God.",
+        "patronage": [
+          "ordinary work",
+          "lay people",
+          "personal holiness",
+          "Opus Dei"
+        ],
+        "quote": "Sanctify your work. Sanctify yourself in your work. Sanctify others through your work.",
+        "birthYear": 1902,
+        "deathYear": 1975,
+        "canonizationYear": 2002,
+        "tags": [
+          "priest",
+          "founder",
+          "lay-spirituality"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-27",
+    "saints": [
+      {
+        "id": "cyril_of_alexandria",
+        "name": "Saint Cyril of Alexandria",
+        "feastDate": "06-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/cyril_of_alexandria.jpg",
+        "shortBio": "Saint Cyril of Alexandria was a bishop and Doctor of the Church who defended the unity of Christ and Mary's title as Theotokos.",
+        "fullStory": "Cyril served as patriarch of Alexandria during a major Christological controversy concerning the identity of Jesus Christ. At the Council of Ephesus in 431, his teaching helped affirm that Mary is truly the Mother of God because the one born from her is the divine Son made human. His writings profoundly shaped Christian doctrine, though his forceful leadership also reflected the intense conflicts of the ancient Church.",
+        "patronage": [
+          "theologians",
+          "Alexandria",
+          "Christological doctrine",
+          "defenders of orthodoxy"
+        ],
+        "quote": "We do not divide the one Lord Jesus Christ into two sons.",
+        "birthYear": 376,
+        "deathYear": 444,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-28",
+    "saints": [
+      {
+        "id": "irenaeus_of_lyon",
+        "name": "Saint Irenaeus",
+        "feastDate": "06-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/irenaeus_of_lyon.jpg",
+        "shortBio": "Saint Irenaeus was a bishop and Doctor of the Church who defended apostolic tradition and the unity of Christian faith.",
+        "fullStory": "Irenaeus was formed in the tradition of Saint Polycarp and later became bishop of Lyon in Gaul. His major work, Against Heresies, responded to Gnostic teachings by defending the goodness of creation, the reality of Christ's Incarnation, and the continuity of apostolic teaching. He emphasized that the Church's faith is one, universal, and handed down through the succession of bishops.",
+        "patronage": [
+          "theologians",
+          "Christian unity",
+          "catechists",
+          "defenders of tradition"
+        ],
+        "quote": "The glory of God is man fully alive.",
+        "birthYear": 130,
+        "deathYear": 202,
+        "canonizationYear": 2022,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "apostolic-tradition"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-29",
+    "saints": [
+      {
+        "id": "peter_and_paul_apostles",
+        "name": "Saints Peter and Paul, Apostles",
+        "feastDate": "06-29",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/sts_peter_and_paul.jpg",
+        "shortBio": "Saints Peter and Paul were the principal apostles of Rome whose witness shaped the universal Church.",
+        "fullStory": "Peter was one of the Twelve, a leading witness to the Resurrection, and the first among the apostles according to Catholic tradition. Paul, once a persecutor of Christians, became the great missionary to the Gentiles and a prolific teacher of the faith. Both were martyred in Rome, and their shared solemnity celebrates the unity of the Church's apostolic foundation.",
+        "patronage": [
+          "Rome",
+          "the papacy",
+          "missionaries",
+          "fishermen"
+        ],
+        "quote": "Lord, you know everything; you know that I love you.",
+        "birthYear": null,
+        "deathYear": 67,
+        "canonizationYear": null,
+        "tags": [
+          "apostles",
+          "martyrs",
+          "rome"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "06-30",
+    "saints": [
+      {
+        "id": "first_martyrs_of_the_holy_roman_church",
+        "name": "First Martyrs of the Holy Roman Church",
+        "feastDate": "06-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/first_martyrs_of_the_holy_roman_church.jpg",
+        "shortBio": "The First Martyrs of the Holy Roman Church were Christians in Rome who were killed during the persecution under Emperor Nero.",
+        "fullStory": "After the fire of Rome in 64, Emperor Nero blamed the city's Christians and subjected them to brutal public executions. Many were imprisoned, tortured, and killed in spectacles that included crucifixion and exposure to wild animals. Their collective witness became an early sign of the Church's faithfulness under persecution and a lasting reminder of the cost of discipleship.",
+        "patronage": [
+          "Rome",
+          "persecuted Christians",
+          "martyrs",
+          "Christian communities"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 64,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "early-church",
+          "rome"
+        ]
+      }
+    ]
+  }
+]

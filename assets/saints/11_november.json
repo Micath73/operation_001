@@ -1,0 +1,932 @@
+[
+  {
+    "feastDate": "11-01",
+    "saints": [
+      {
+        "id": "all_saints_day",
+        "name": "All Saints Day",
+        "feastDate": "11-01",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/all_saints.jpg)",
+        "shortBio": "All Saints Day celebrates all the saints in heaven, both those known by name and the countless holy people whose lives are known fully only to God.",
+        "fullStory": "The solemnity gathers the Church in praise of the men and women who share in God's glory. It recognizes the universal call to holiness and reminds Christians that sanctity is lived through many different vocations, cultures, and forms of service. The celebration also encourages the faithful on earth to seek communion with the saints and to persevere toward the fullness of life with God.",
+        "patronage": [
+          "all Christians",
+          "the Church",
+          "holy people",
+          "heavenly intercession"
+        ],
+        "quote": "Rejoice and be glad, for your reward will be great in heaven.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "solemnity",
+          "saints",
+          "heaven"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-02",
+    "saints": [
+      {
+        "id": "all_souls_day",
+        "name": "The Commemoration of All the Faithful Departed",
+        "feastDate": "11-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/all_souls.jpg",
+        "shortBio": "The Commemoration of All the Faithful Departed is a day of prayer for those who have died and await the fullness of communion with God.",
+        "fullStory": "The Church remembers all the faithful departed and entrusts them to God's mercy through the Eucharist, prayer, and works of charity. The commemoration expresses the communion of saints, in which the living pray for the dead and hope to receive the prayers of the entire Church. It also invites Christians to reflect on mortality, resurrection, and the promise of eternal life.",
+        "patronage": [
+          "the dead",
+          "mourning families",
+          "souls in purgatory",
+          "cemeteries"
+        ],
+        "quote": "Eternal rest grant unto them, O Lord, and let perpetual light shine upon them.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "commemoration",
+          "departed",
+          "prayer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-03",
+    "saints": [
+      {
+        "id": "martin_de_porres",
+        "name": "Saint Martin de Porres",
+        "feastDate": "11-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/martin_de_porres.jpg",
+        "shortBio": "Saint Martin de Porres was a Dominican lay brother in Peru known for humility, healing ministry, and care for people of every social class.",
+        "fullStory": "Martin was born in Lima and faced racial and social discrimination because of his mixed heritage. He entered the Dominican Order as a lay brother and served as a barber, nurse, pharmacist, and caretaker while living a deeply prayerful life. His compassion extended to the poor, the sick, abandoned children, and animals, making him a powerful witness to human dignity and reconciliation.",
+        "patronage": [
+          "public health workers",
+          "mixed-race people",
+          "barbers",
+          "animal shelters"
+        ],
+        "quote": "Everything, even sweeping, can be a prayer if it is offered to God.",
+        "birthYear": 1579,
+        "deathYear": 1639,
+        "canonizationYear": 1962,
+        "tags": [
+          "dominican",
+          "charity",
+          "healing"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-04",
+    "saints": [
+      {
+        "id": "charles_borromeo",
+        "name": "Saint Charles Borromeo",
+        "feastDate": "11-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/charles_borromeo.jpg",
+        "shortBio": "Saint Charles Borromeo was an archbishop and leading figure of the Catholic Reformation who strengthened clergy formation and pastoral care.",
+        "fullStory": "Charles came from a noble family and became a cardinal while still young, serving as a close adviser to Pope Pius IV. He helped bring the Council of Trent to completion and then implemented its reforms through diocesan synods, seminaries, catechism, and parish visitation. During the plague in Milan, he personally organized relief and ministered to the sick, embodying the pastoral renewal he promoted.",
+        "patronage": [
+          "seminarians",
+          "bishops",
+          "catechists",
+          "Milan"
+        ],
+        "quote": "The souls of the faithful are entrusted to us, and we must give an account of them.",
+        "birthYear": 1538,
+        "deathYear": 1584,
+        "canonizationYear": 1610,
+        "tags": [
+          "archbishop",
+          "reformer",
+          "pastor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-05",
+    "saints": [
+      {
+        "id": "zachary_and_elizabeth",
+        "name": "Saints Zechariah and Elizabeth",
+        "feastDate": "11-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/zachary_and_elizabeth.jpg",
+        "shortBio": "Saints Zechariah and Elizabeth were the parents of Saint John the Baptist and models of faithful perseverance and trust in God's promise.",
+        "fullStory": "The Gospel of Luke presents Zechariah and Elizabeth as righteous people who remained faithful despite years of childlessness. God answered their prayer with the birth of John, whose mission was to prepare Israel for the Messiah. Their story celebrates patient hope, the sanctity of family life, and the way God works through people who remain faithful in hidden circumstances.",
+        "patronage": [
+          "parents",
+          "expectant parents",
+          "families",
+          "childless couples"
+        ],
+        "quote": "Blessed be the Lord, the God of Israel, for he has visited and brought redemption to his people.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "parents",
+          "gospel",
+          "family"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-06",
+    "saints": [
+      {
+        "id": "leonard_of_noblat",
+        "name": "Saint Leonard of Noblat",
+        "feastDate": "11-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/leonard_of_noblat.jpg",
+        "shortBio": "Saint Leonard of Noblat was a hermit and evangelist who became especially honored as a protector of prisoners.",
+        "fullStory": "Leonard is traditionally described as a Frankish nobleman who rejected military privilege and embraced Christian service. He became a hermit and later founded a monastery at Noblat, where he welcomed travelers and people in need. Stories of his intercession for captives led to widespread devotion among prisoners and those seeking freedom.",
+        "patronage": [
+          "prisoners",
+          "captives",
+          "blacksmiths",
+          "pregnant women"
+        ],
+        "quote": null,
+        "birthYear": 496,
+        "deathYear": 559,
+        "canonizationYear": null,
+        "tags": [
+          "hermit",
+          "monk",
+          "prisoners"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-07",
+    "saints": [
+      {
+        "id": "willibrord_of_efter",
+        "name": "Saint Willibrord",
+        "feastDate": "11-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/willibrord_of_efter.jpg",
+        "shortBio": "Saint Willibrord was an English Benedictine missionary and the first bishop of Utrecht, known as the Apostle of the Frisians.",
+        "fullStory": "Willibrord was educated in the monasteries of Northumbria and Ireland before being sent to evangelize the Frisians. With the support of Christian rulers, he established churches, monasteries, and schools across the Low Countries. His missionary work helped build a lasting Christian infrastructure in regions where the Church was still taking root.",
+        "patronage": [
+          "Netherlands",
+          "Luxembourg",
+          "missionaries",
+          "travelers"
+        ],
+        "quote": null,
+        "birthYear": 658,
+        "deathYear": 739,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "benedictine"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-08",
+    "saints": [
+      {
+        "id": "four_crowned_martyrs",
+        "name": "The Four Crowned Martyrs",
+        "feastDate": "11-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/four_crowned_martyrs.jpg",
+        "shortBio": "The Four Crowned Martyrs were Christian soldiers or artisans who were killed for refusing to participate in pagan worship.",
+        "fullStory": "The tradition of the Four Crowned Martyrs preserves the memory of Christians who refused an imperial command connected with pagan religious practice. Their names and historical details developed through several ancient accounts, but their collective witness was honored in Rome from an early period. They represent the conscience of believers who choose fidelity to God over coercive demands.",
+        "patronage": [
+          "sculptors",
+          "stonecutters",
+          "marble workers",
+          "builders"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 305,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "artisans",
+          "roman-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-09",
+    "saints": [
+      {
+        "id": "dedication_of_lateran_basilica",
+        "name": "The Dedication of the Lateran Basilica",
+        "feastDate": "11-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/dedication_of_lateran_basilica.jpg",
+        "shortBio": "The Dedication of the Lateran Basilica celebrates the cathedral church of Rome and its sign of unity with the bishop of Rome.",
+        "fullStory": "The Basilica of Saint John Lateran is the cathedral of the Diocese of Rome and is traditionally regarded as the mother church of all churches of the city and the world. Its dedication recalls the public establishment of Christian worship after the persecutions and the Church's visible unity around its shepherds. The feast also teaches that every baptized person is a living temple of the Holy Spirit.",
+        "patronage": [
+          "Rome",
+          "church buildings",
+          "cathedrals",
+          "Christian unity"
+        ],
+        "quote": "You are God's building.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "basilica",
+          "rome",
+          "church-unity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-10",
+    "saints": [
+      {
+        "id": "leo_the_great",
+        "name": "Saint Leo the Great",
+        "feastDate": "11-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/leo_the_great.jpg",
+        "shortBio": "Saint Leo the Great was a pope and Doctor of the Church who defended orthodox teaching and strengthened the unity of the Church.",
+        "fullStory": "Leo served as pope during political instability, theological controversy, and invasions that threatened Rome. His Tome to Flavian helped clarify the Church's teaching about Christ's full divinity and humanity at the Council of Chalcedon. He also negotiated with invading rulers and cared for the people of Rome, combining doctrinal leadership with courageous pastoral responsibility.",
+        "patronage": [
+          "popes",
+          "theologians",
+          "preachers",
+          "Rome"
+        ],
+        "quote": "The dignity of the Christian is the dignity of Christ.",
+        "birthYear": 400,
+        "deathYear": 461,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "doctor-of-the-church",
+          "christology"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-11",
+    "saints": [
+      {
+        "id": "martin_of_tours",
+        "name": "Saint Martin of Tours",
+        "feastDate": "11-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/martin_of_tours.jpg",
+        "shortBio": "Saint Martin of Tours was a Roman soldier who became a bishop and was renowned for compassion, evangelization, and monastic leadership.",
+        "fullStory": "Martin served in the Roman army before embracing Christian discipleship and eventually becoming a monk and bishop. The story of him sharing his cloak with a poor beggar expresses his lifelong commitment to mercy. As bishop of Tours, he evangelized rural communities, founded monasteries, and became one of the most beloved saints of Western Europe.",
+        "patronage": [
+          "soldiers",
+          "France",
+          "beggars",
+          "winemakers"
+        ],
+        "quote": "Lord, if your people still need me, I do not refuse the work.",
+        "birthYear": 316,
+        "deathYear": 397,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "soldier",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-12",
+    "saints": [
+      {
+        "id": "josaphat_kuntsevych",
+        "name": "Saint Josaphat",
+        "feastDate": "11-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/josaphat_kuntsevych.jpg",
+        "shortBio": "Saint Josaphat was a Ukrainian bishop and martyr who worked for Christian unity between Eastern and Western Christians.",
+        "fullStory": "Josaphat entered the Basilian Order and became a leading advocate for communion between the Ruthenian Church and Rome. As bishop of Polotsk, he promoted liturgical renewal, education, and pastoral reform while defending the rights of his people. He was killed by opponents of union, and his martyrdom made him a symbol of the suffering and hope of divided Christians.",
+        "patronage": [
+          "Ukraine",
+          "Christian unity",
+          "Basilian monks",
+          "bishops"
+        ],
+        "quote": "I am ready to die for the holy unity of the Church.",
+        "birthYear": 1580,
+        "deathYear": 1623,
+        "canonizationYear": 1867,
+        "tags": [
+          "bishop",
+          "martyr",
+          "church-unity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-13",
+    "saints": [
+      {
+        "id": "frances_xavier_cabrini",
+        "name": "Saint Frances Xavier Cabrini",
+        "feastDate": "11-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/frances_xavier_cabrini.jpg",
+        "shortBio": "Saint Frances Xavier Cabrini was a missionary foundress who served immigrants, orphans, and the poor across Europe and the Americas.",
+        "fullStory": "Frances founded the Missionary Sisters of the Sacred Heart of Jesus and originally hoped to serve in China, but Pope Leo XIII sent her to the United States. She established schools, hospitals, orphanages, and communities for Italian immigrants and other neglected people. Her energetic leadership made her the first United States citizen to be canonized by the Catholic Church.",
+        "patronage": [
+          "immigrants",
+          "hospital administrators",
+          "orphans",
+          "migrants"
+        ],
+        "quote": "I can do all things in him who strengthens me.",
+        "birthYear": 1850,
+        "deathYear": 1917,
+        "canonizationYear": 1946,
+        "tags": [
+          "foundress",
+          "missionary",
+          "immigrants"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-14",
+    "saints": [
+      {
+        "id": "lawrence_oconnor_and_companions",
+        "name": "Saint Lawrence O'Toole and Companions",
+        "feastDate": "11-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/lawrence_oconnor_and_companions.jpg",
+        "shortBio": "Saint Lawrence O'Toole was an archbishop of Dublin who promoted reform, peacemaking, and pastoral care during political turmoil.",
+        "fullStory": "Lawrence entered religious life at Glendalough and became its abbot before being appointed archbishop of Dublin. He worked to reform clergy, strengthen discipline, and reconcile opposing rulers during a period of conflict in Ireland. He died while attending a council in France, remembered for his prayer, diplomacy, and service to the Church.",
+        "patronage": [
+          "Dublin",
+          "Ireland",
+          "peacemakers",
+          "archbishops"
+        ],
+        "quote": null,
+        "birthYear": 1128,
+        "deathYear": 1180,
+        "canonizationYear": 1225,
+        "tags": [
+          "archbishop",
+          "reformer",
+          "peacemaker"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-15",
+    "saints": [
+      {
+        "id": "albert_the_great",
+        "name": "Saint Albert the Great",
+        "feastDate": "11-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/albert_the_great.jpg",
+        "shortBio": "Saint Albert the Great was a Dominican bishop, philosopher, scientist, and Doctor of the Church who integrated faith with the study of creation.",
+        "fullStory": "Albert entered the Dominican Order and became one of the most learned teachers of medieval Europe. He wrote on theology, philosophy, natural science, and ethics, and helped introduce Aristotelian thought into Christian scholarship. As bishop of Regensburg and teacher of Saint Thomas Aquinas, he showed that careful study of the natural world can serve wonder and wisdom.",
+        "patronage": [
+          "scientists",
+          "philosophers",
+          "students",
+          "Dominicans"
+        ],
+        "quote": "The aim of natural science is not simply to accept the statements of others, but to investigate the causes at work in nature.",
+        "birthYear": 1200,
+        "deathYear": 1280,
+        "canonizationYear": 1931,
+        "tags": [
+          "dominican",
+          "doctor-of-the-church",
+          "scientist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-16",
+    "saints": [
+      {
+        "id": "margaret_of_scotland",
+        "name": "Saint Margaret of Scotland",
+        "feastDate": "11-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/margaret_of_scotland.jpg",
+        "shortBio": "Saint Margaret of Scotland was a queen known for Christian education, care for the poor, and renewal of religious life.",
+        "fullStory": "Margaret was born into an exiled royal family and became queen of Scotland through her marriage to Malcolm III. She used her influence to reform worship, support monasteries, provide food for the poor, and establish schools. Her family life, charity, and commitment to the Church made her a model of Christian leadership.",
+        "patronage": [
+          "Scotland",
+          "queens",
+          "large families",
+          "widows"
+        ],
+        "quote": null,
+        "birthYear": 1045,
+        "deathYear": 1093,
+        "canonizationYear": 1250,
+        "tags": [
+          "queen",
+          "charity",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-17",
+    "saints": [
+      {
+        "id": "elizabeth_of_hungary",
+        "name": "Saint Elizabeth of Hungary",
+        "feastDate": "11-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/elizabeth_of_hungary.jpg",
+        "shortBio": "Saint Elizabeth of Hungary was a princess, wife, widow, and Franciscan tertiary who devoted her wealth and status to the poor.",
+        "fullStory": "Elizabeth married Louis of Thuringia and used her position to support hospitals and people experiencing poverty. After his death, she embraced a simpler life, joined the Third Order of Saint Francis, and served in a hospital she founded. Her generosity and compassion made her a powerful medieval example of charity rooted in the Gospel.",
+        "patronage": [
+          "charitable organizations",
+          "bakers",
+          "nurses",
+          "widows"
+        ],
+        "quote": "We must make people happy.",
+        "birthYear": 1207,
+        "deathYear": 1231,
+        "canonizationYear": 1235,
+        "tags": [
+          "franciscan",
+          "princess",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-18",
+    "saints": [
+      {
+        "id": "dedication_of_basilicas_of_peter_and_paul",
+        "name": "The Dedication of the Basilicas of Saints Peter and Paul",
+        "feastDate": "11-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/dedication_of_basilicas_of_peter_and_paul.jpg",
+        "shortBio": "This celebration commemorates the dedication of the Roman basilicas built over the tombs of Saints Peter and Paul.",
+        "fullStory": "The basilicas of Saint Peter in the Vatican and Saint Paul Outside the Walls are among the principal churches of Rome and the Christian world. Their dedication recalls the apostolic foundation of the Church and the witness of the two great apostles who were martyred in Rome. The celebration points beyond architecture to the living community built on apostolic faith and sacrificial witness.",
+        "patronage": [
+          "Rome",
+          "church buildings",
+          "apostles",
+          "Christian unity"
+        ],
+        "quote": "You are Peter, and upon this rock I will build my Church.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "basilica",
+          "apostles",
+          "rome"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-19",
+    "saints": [
+      {
+        "id": "roque_gonzalez_and_companions",
+        "name": "Saint Roque González and Companions",
+        "feastDate": "11-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/roque_gonzalez_and_companions.jpg",
+        "shortBio": "Saint Roque González and his companions were Jesuit missionaries and martyrs who served Indigenous communities in South America.",
+        "fullStory": "Roque González was a priest from Asunción who entered the Society of Jesus and dedicated himself to the Guaraní peoples. He founded mission communities that combined evangelization, education, music, agriculture, and protection from exploitation. He and companions were killed during opposition to the missions, and their witness remains connected with the dignity and resilience of Indigenous Christian communities.",
+        "patronage": [
+          "Paraguay",
+          "missionaries",
+          "Indigenous peoples",
+          "Jesuits"
+        ],
+        "quote": null,
+        "birthYear": 1576,
+        "deathYear": 1628,
+        "canonizationYear": 1988,
+        "tags": [
+          "jesuit",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-20",
+    "saints": [
+      {
+        "id": "edmund_of_abingdon",
+        "name": "Saint Edmund of Abingdon",
+        "feastDate": "11-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/edmund_of_abingdon.jpg",
+        "shortBio": "Saint Edmund of Abingdon was an archbishop, teacher, and reformer who defended Church freedom and promoted pastoral renewal.",
+        "fullStory": "Edmund taught at Oxford before becoming treasurer of Salisbury and later archbishop of Canterbury. He worked to improve clerical discipline, defend the Church from political interference, and care for the poor. Conflict with King Henry III led him into exile, where he died, remembered for integrity and courage in public service.",
+        "patronage": [
+          "Oxford",
+          "teachers",
+          "archbishops",
+          "Church freedom"
+        ],
+        "quote": "I have sought nothing but the peace of the Church and the salvation of souls.",
+        "birthYear": 1175,
+        "deathYear": 1240,
+        "canonizationYear": 1246,
+        "tags": [
+          "archbishop",
+          "teacher",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-21",
+    "saints": [
+      {
+        "id": "presentation_of_the_blessed_virgin_mary",
+        "name": "The Presentation of the Blessed Virgin Mary",
+        "feastDate": "11-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/presentation_of_the_blessed_virgin_mary.jpg",
+        "shortBio": "The Presentation of the Blessed Virgin Mary celebrates Mary's dedication to God and her preparation for the vocation of becoming Christ's mother.",
+        "fullStory": "The feast comes from early Christian tradition, especially the account of Mary's presentation in the Temple found in the Protoevangelium of James. Although the event is not recorded in the canonical Gospels, the celebration expresses the Church's reflection on Mary's lifelong openness to God's will. It also highlights the value of consecration, prayer, and preparation for service.",
+        "patronage": [
+          "consecrated life",
+          "children",
+          "girls",
+          "the Temple"
+        ],
+        "quote": "Behold, I am the handmaid of the Lord.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "consecration",
+          "temple"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-22",
+    "saints": [
+      {
+        "id": "cecilia",
+        "name": "Saint Cecilia",
+        "feastDate": "11-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/cecilia.jpg",
+        "shortBio": "Saint Cecilia was an early Christian martyr and the patron saint of music and musicians.",
+        "fullStory": "Cecilia is traditionally described as a Roman Christian who remained faithful to her vow of virginity and converted her husband and his brother. She was martyred during a period of persecution, and a church dedicated to her has stood in Rome for centuries. Her association with music comes from the tradition that she sang to God in her heart during her wedding and suffering.",
+        "patronage": [
+          "music",
+          "musicians",
+          "singers",
+          "poets"
+        ],
+        "quote": "While the instruments were playing, Cecilia sang in her heart to the Lord.",
+        "birthYear": null,
+        "deathYear": 230,
+        "canonizationYear": null,
+        "tags": [
+          "virgin",
+          "martyr",
+          "music"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-23",
+    "saints": [
+      {
+        "id": "clement_i",
+        "name": "Saint Clement I",
+        "feastDate": "11-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/clement_i.jpg",
+        "shortBio": "Saint Clement I was an early pope whose letter to the Corinthians is one of the oldest surviving Christian writings outside the New Testament.",
+        "fullStory": "Clement served as bishop of Rome near the end of the first century and wrote to the Church of Corinth during a dispute among its members. His letter appeals to humility, order, and reconciliation while offering an important witness to apostolic succession and Roman pastoral concern. Later tradition remembers him as a martyr who died in exile.",
+        "patronage": [
+          "metalworkers",
+          "blacksmiths",
+          "mariners",
+          "shipbuilders"
+        ],
+        "quote": "Let us be humble-minded, putting aside all arrogance and pride.",
+        "birthYear": 35,
+        "deathYear": 99,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "martyr",
+          "apostolic-father"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-24",
+    "saints": [
+      {
+        "id": "andrew_dung_lac_and_companions",
+        "name": "Saint Andrew Dũng-Lạc and Companions",
+        "feastDate": "11-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/andrew_dung_lac_and_companions.jpg",
+        "shortBio": "Saint Andrew Dũng-Lạc and his companions were Vietnamese martyrs who gave their lives for the Christian faith during periods of persecution.",
+        "fullStory": "Andrew Dũng-Lạc was a Vietnamese priest who changed his surname after receiving baptism and dedicated himself to evangelization. The memorial includes bishops, priests, religious, and laypeople from several periods of persecution in Vietnam. Their diverse backgrounds and shared courage reflect the deep roots of the Vietnamese Church and the cost of Christian witness.",
+        "patronage": [
+          "Vietnam",
+          "missionaries",
+          "persecuted Christians",
+          "priests"
+        ],
+        "quote": "Let us praise God, who has chosen us to suffer for his name.",
+        "birthYear": 1795,
+        "deathYear": 1839,
+        "canonizationYear": 1988,
+        "tags": [
+          "martyrs",
+          "vietnam",
+          "missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-25",
+    "saints": [
+      {
+        "id": "catherine_of_alexandria",
+        "name": "Saint Catherine of Alexandria",
+        "feastDate": "11-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/catherine_of_alexandria.jpg",
+        "shortBio": "Saint Catherine of Alexandria is traditionally honored as a learned virgin and martyr who defended the Christian faith before rulers and scholars.",
+        "fullStory": "Christian tradition presents Catherine as a young woman of intelligence and courage who refused to renounce Christ. She is said to have debated pagan philosophers and endured imprisonment and torture before her martyrdom. Although historical details are limited, her devotion became widespread among students, philosophers, and communities seeking the courage to witness to truth.",
+        "patronage": [
+          "students",
+          "philosophers",
+          "librarians",
+          "wheelwrights"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 305,
+        "canonizationYear": null,
+        "tags": [
+          "virgin",
+          "martyr",
+          "scholar"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-26",
+    "saints": [
+      {
+        "id": "john_berchmans",
+        "name": "Saint John Berchmans",
+        "feastDate": "11-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_berchmans.jpg",
+        "shortBio": "Saint John Berchmans was a Belgian Jesuit seminarian remembered for joyful fidelity in ordinary duties and community life.",
+        "fullStory": "John entered the Society of Jesus as a young man and studied in Rome while preparing for the priesthood. He served his companions through humility, cheerfulness, and careful attention to daily responsibilities. His early death made him a model of youthful holiness, showing that sanctity can be expressed through ordinary obedience and generous friendship.",
+        "patronage": [
+          "altar servers",
+          "students",
+          "young people",
+          "Jesuits"
+        ],
+        "quote": "Vita mea, regula mea: My life is my rule.",
+        "birthYear": 1599,
+        "deathYear": 1621,
+        "canonizationYear": 1888,
+        "tags": [
+          "jesuit",
+          "seminarian",
+          "youth"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-27",
+    "saints": [
+      {
+        "id": "our_lady_of_the_miraculous_medal",
+        "name": "Our Lady of the Miraculous Medal",
+        "feastDate": "11-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/our_lady_of_the_miraculous_medal.jpg",
+        "shortBio": "Our Lady of the Miraculous Medal commemorates the Marian apparitions to Saint Catherine Labouré and the devotion associated with the medal.",
+        "fullStory": "In 1830, Catherine Labouré, a novice of the Daughters of Charity in Paris, reported visions of Mary and received the request that a medal be struck. The medal's symbols emphasize Mary's maternal intercession, God's grace, and the Cross of Christ. Devotion spread rapidly and has encouraged prayer, charity, and trust in Mary's care.",
+        "patronage": [
+          "Daughters of Charity",
+          "the sick",
+          "children",
+          "conversion"
+        ],
+        "quote": "O Mary, conceived without sin, pray for us who have recourse to you.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "apparition",
+          "miraculous-medal"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-28",
+    "saints": [
+      {
+        "id": "james_of_the_marche",
+        "name": "Saint James of the Marches",
+        "feastDate": "11-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/james_of_the_marche.jpg",
+        "shortBio": "Saint James of the Marches was a Franciscan preacher, reformer, and missionary who served the Church in fifteenth-century Italy.",
+        "fullStory": "James entered the Observant branch of the Franciscan Order and became a tireless preacher throughout Italy and central Europe. He promoted reform among religious communities, preached against exploitation and violence, and helped establish charitable institutions. His long ministry combined theological learning, missionary travel, and practical concern for people affected by poverty and conflict.",
+        "patronage": [
+          "Franciscans",
+          "preachers",
+          "Monteprandone",
+          "pawn brokers"
+        ],
+        "quote": null,
+        "birthYear": 1394,
+        "deathYear": 1476,
+        "canonizationYear": 1726,
+        "tags": [
+          "franciscan",
+          "preacher",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-29",
+    "saints": [
+      {
+        "id": "saturnin_of_toulouse",
+        "name": "Saint Saturnin of Toulouse",
+        "feastDate": "11-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/saturnin_of_toulouse.jpg",
+        "shortBio": "Saint Saturnin of Toulouse was an early bishop and martyr who evangelized southern Gaul.",
+        "fullStory": "Saturnin is traditionally regarded as the first bishop of Toulouse and one of the missionaries who brought Christianity to the region. He was killed after refusing to participate in a pagan sacrifice, reportedly being dragged by a bull through the city. His martyrdom became a foundational memory for the Church of Toulouse and for the evangelization of Gaul.",
+        "patronage": [
+          "Toulouse",
+          "bulls",
+          "bullfighters",
+          "missionaries"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 257,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "11-30",
+    "saints": [
+      {
+        "id": "andrew_apostle",
+        "name": "Saint Andrew, Apostle",
+        "feastDate": "11-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_andrew_apostle.jpg",
+        "shortBio": "Saint Andrew was one of the first disciples called by Jesus and the brother of Saint Peter, remembered for bringing others to Christ.",
+        "fullStory": "Andrew was a fisherman who followed John the Baptist before becoming one of Jesus' first disciples. In the Gospel tradition, he brought his brother Simon Peter to meet Jesus and later helped connect others with the Lord. Ancient traditions associate Andrew with missionary work around the Black Sea and martyrdom on a cross shaped like an X, which became his symbol.",
+        "patronage": [
+          "Scotland",
+          "Greece",
+          "Russia",
+          "fishermen"
+        ],
+        "quote": "We have found the Messiah.",
+        "birthYear": null,
+        "deathYear": 60,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  }
+]

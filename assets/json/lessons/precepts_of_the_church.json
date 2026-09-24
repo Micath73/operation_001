@@ -1,0 +1,211 @@
+{
+  "id": "precepts_of_the_church",
+  "title": "The Precepts of the Church",
+  "category": "Catechism",
+  "summary": "The Precepts of the Church are the minimum requirements for Catholic life, binding the faithful to participate in the Eucharist, observe holy days, fast and abstain, confess sins, support the Church, and live morally, ensuring growth in grace and communion with the Body of Christ.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Church's Precepts"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Precepts of the Church are positive laws given by ecclesiastical authority to guarantee for the faithful the indispensable minimum in prayer and moral effort, in the growth in love of God and neighbor. They are meant to ensure that Catholics fulfill their basic obligations as members of the Church and grow in holiness. [CCC 2041]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The precepts are few in number, precise, and simple to observe. They are binding under pain of mortal sin when the matter is grave and the person acts with full knowledge and deliberate consent. The precepts are not ends in themselves but means to foster communion with God and the Church. [CCC 2041, 2048]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 10:16 (RSV-CE)",
+      "text": "He who hears you hears me, and he who rejects you rejects me, and he who rejects me rejects him who sent me."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2041: Minimum Requirements",
+      "text": "The Precepts of the Church guarantee the faithful the indispensable minimum in prayer and moral effort, ensuring growth in love of God and neighbor through basic obligations."
+    },
+    {
+      "type": "heading",
+      "text": "I. The First Precept: Sunday Mass"
+    },
+    {
+      "type": "paragraph",
+      "text": "The first precept requires the faithful to participate in the Eucharist on Sundays and holy days of obligation. This precept flows from the Third Commandment to keep holy the Lord's Day. The Eucharist is the source and summit of Christian life, and Sunday is the day of Christ's Resurrection. [CCC 2042, 2180]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The faithful are obliged to participate in Mass on Sundays and holy days of obligation, refraining from work or activities that hinder the worship due to God. Serious reasons such as illness or care of infants excuse from this obligation. Deliberately missing Mass on a Sunday or holy day without a serious reason is a mortal sin. [CCC 2042, 2181]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Exodus 20:8 (RSV-CE)",
+      "text": "Remember the sabbath day, to keep it holy."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2042: Sunday Obligation",
+      "text": "The first precept requires participation in the Eucharist on Sundays and holy days of obligation, flowing from the Third Commandment; deliberate absence without serious reason is mortal sin."
+    },
+    {
+      "type": "heading",
+      "text": "II. The Second Precept: Confession of Sins"
+    },
+    {
+      "type": "paragraph",
+      "text": "The second precept obliges the faithful to confess their grave sins at least once a year. This precept prepares us to receive the Eucharist worthily and to grow in holiness through the healing grace of the sacrament. It ensures that we examine our conscience and seek reconciliation with God and the Church. [CCC 2042, 1457]"
+    },
+    {
+      "type": "paragraph",
+      "text": "While the minimum is annual confession, the Church encourages frequent confession, even of venial sins. Regular confession helps us grow in self-knowledge, humility, and conversion. The sacrament of Penance is the ordinary means by which grave sins committed after Baptism are forgiven. [CCC 1458, 1493]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 20:22-23 (RSV-CE)",
+      "text": "And when he had said this, he breathed on them, and said to them, Receive the Holy Spirit. If you forgive the sins of any, they are forgiven; if you retain the sins of any, they are retained."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2042: Annual Confession",
+      "text": "The second precept obliges confession of grave sins at least once a year, preparing us to receive the Eucharist worthily; frequent confession is encouraged for growth in holiness."
+    },
+    {
+      "type": "heading",
+      "text": "III. The Third Precept: Reception of Holy Communion"
+    },
+    {
+      "type": "paragraph",
+      "text": "The third precept requires the faithful to receive the sacrament of the Eucharist at least during the Easter season. This precept ensures that we are nourished by the Body and Blood of Christ, the source of eternal life. The Easter duty is a minimum; frequent or daily Communion is encouraged. [CCC 2042, 1389]"
+    },
+    {
+      "type": "paragraph",
+      "text": "To receive Holy Communion worthily, one must be in the state of grace, having confessed any mortal sins. We must also observe the Eucharistic fast and approach the sacrament with reverence and devotion. The Eucharist is not a reward for the perfect but medicine for the weak and nourishment for the journey. [CCC 1385, 1415]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 6:53-54 (RSV-CE)",
+      "text": "Jesus said to them, Truly, truly, I say to you, unless you eat the flesh of the Son of man and drink his blood, you have no life in you; he who eats my flesh and drinks my blood has eternal life."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2042: Easter Duty",
+      "text": "The third precept requires reception of the Eucharist at least during the Easter season; to receive worthily, one must be in the state of grace and observe the Eucharistic fast."
+    },
+    {
+      "type": "heading",
+      "text": "IV. The Fourth Precept: Fasting and Abstinence"
+    },
+    {
+      "type": "paragraph",
+      "text": "The fourth precept obliges the faithful to observe the days of fasting and abstinence established by the Church. In the Latin Church, the days of penance are every Friday of the year and the season of Lent. Abstinence from meat is obligatory on Fridays during Lent, and fasting is obligatory on Ash Wednesday and Good Friday. [CCC 2043, 1438]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Fasting means taking only one full meal and two smaller meals that together do not equal a full meal. Abstinence means refraining from meat or other foods as determined by the local bishops' conference. These practices express conversion, penance, and solidarity with the poor, and they prepare us for the great feasts of the Church. [CCC 1438, 2043]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Joel 2:12-13 (RSV-CE)",
+      "text": "Yet even now, says the LORD, return to me with all your heart, with fasting, with weeping, and with mourning; and rend your hearts and not your garments."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2043: Days of Penance",
+      "text": "The fourth precept requires observance of fasting and abstinence on days established by the Church; in the Latin Church, Fridays and Lent are days of penance, with fasting on Ash Wednesday and Good Friday."
+    },
+    {
+      "type": "heading",
+      "text": "V. The Fifth Precept: Supporting the Church"
+    },
+    {
+      "type": "paragraph",
+      "text": "The fifth precept obliges the faithful to provide for the material needs of the Church according to their own abilities. This includes financial support of the parish, diocese, and universal Church. The faithful share in the responsibility for the Church's mission by their generous contributions. [CCC 2043]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Supporting the Church is an act of justice and charity, recognizing that the Church depends on the offerings of the faithful to carry out her mission of evangelization, worship, and service to the poor. Tithing or regular giving is a traditional practice that expresses gratitude to God and commitment to his Church. [CCC 1351, 2043]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 9:13-14 (RSV-CE)",
+      "text": "Do you not know that those who are employed in the temple service get their food from the temple, and those who serve at the altar share in the sacrificial offerings? In the same way, the Lord commanded that those who proclaim the gospel should get their living by the gospel."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2043: Material Support",
+      "text": "The fifth precept obliges the faithful to provide for the material needs of the Church according to their abilities, sharing in the responsibility for the Church's mission through generous contributions."
+    },
+    {
+      "type": "heading",
+      "text": "VI. Additional Duties of the Faithful"
+    },
+    {
+      "type": "paragraph",
+      "text": "Beyond the five precepts, the faithful have other important obligations. These include observing the holy days of obligation, following the Church's laws on marriage, contributing to evangelization and the apostolate, and fostering Christian education of children. These duties flow from our baptismal calling to holiness and mission. [CCC 2043, 900]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The faithful are also bound to observe the Church's laws on marriage, including the form of marriage (celebrated before a priest and witnesses) and the impediments established for the good of the spouses and children. Parents have the grave obligation to provide for the Catholic education of their children. [CCC 1631, 2221-2223]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 7:39 (RSV-CE)",
+      "text": "A wife is bound to her husband as long as he lives. But if the husband dies, she is free to be married to whom she will, only in the Lord."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2043: Other Obligations",
+      "text": "Beyond the five precepts, the faithful must observe holy days, follow Church laws on marriage, contribute to evangelization, and provide Catholic education for their children."
+    },
+    {
+      "type": "heading",
+      "text": "VII. The Purpose of the Precepts"
+    },
+    {
+      "type": "paragraph",
+      "text": "The precepts are not burdens but helps to Christian living. They mark out the minimum necessary for growth in love of God and neighbor. By observing them, we ensure that we remain in communion with the Church and open to the grace of the sacraments. [CCC 2041, 2048]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The precepts are meant to foster a life of prayer, moral effort, and missionary witness. They are not ends in themselves but means to holiness. The saints exceeded the minimum, but they faithfully observed the precepts as the foundation of their spiritual lives. [CCC 2041, 2014]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 11:29-30 (RSV-CE)",
+      "text": "Take my yoke upon you, and learn from me; for I am gentle and lowly in heart, and you will find rest for your souls. For my yoke is easy, and my burden is light."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2048: Helps to Christian Living",
+      "text": "The precepts are not burdens but helps to Christian living, marking the minimum necessary for growth in love of God and neighbor, fostering prayer, moral effort, and missionary witness."
+    },
+    {
+      "type": "heading",
+      "text": "VIII. Living the Precepts with Love"
+    },
+    {
+      "type": "paragraph",
+      "text": "The precepts must be observed not merely out of obligation but out of love for God and the Church. When we keep the precepts with a loving heart, they become expressions of our filial devotion and gratitude. Love transforms duty into joy and obligation into freedom. [CCC 2041, 1827]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The precepts are the foundation upon which we build a life of virtue and holiness. They ensure that we remain rooted in the Church's life of grace while we strive for greater perfection. By faithfully observing the precepts, we cooperate with God's grace and grow in friendship with him. [CCC 2041, 2014]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 14:15 (RSV-CE)",
+      "text": "If you love me, you will keep my commandments."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 1827: Love Transforms Duty",
+      "text": "The precepts must be observed out of love for God and the Church; love transforms duty into joy and obligation into freedom, making them expressions of filial devotion."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: Prayer for Fidelity to the Precepts",
+      "text": "O Lord Jesus, you have given us the Precepts of the Church as a path to holiness and communion with you. Grant us the grace to observe them faithfully, not merely out of obligation but out of love for you and your Church. Help us to grow in prayer, moral effort, and missionary witness, until we attain the perfection of charity and eternal life with you. Amen."
+    }
+  ]
+}

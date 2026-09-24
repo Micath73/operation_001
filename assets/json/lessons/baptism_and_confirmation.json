@@ -1,0 +1,81 @@
+{
+  "id": "baptism_and_confirmation",
+  "title": "Sacraments of Baptism & Confirmation",
+  "category": "Devotions",
+  "summary": "Baptism is the gateway to the Christian life, washing away sin and making one a child of God; Confirmation completes baptismal grace by sealing the Christian with the gift of the Holy Spirit.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "The Gateway of the Sacraments"
+    },
+    {
+      "type": "paragraph",
+      "text": "Baptism is the first and foundational sacrament, the doorway through which all the others become accessible. It frees a person from sin, incorporates them into the Body of Christ, and makes them a sharer in the divine life. Because it configures the soul to Christ with an indelible spiritual mark, it can be received only once."
+    },
+    {
+      "type": "heading",
+      "text": "Biblical Institution of Baptism"
+    },
+    {
+      "type": "paragraph",
+      "text": "Christ himself submitted to John's baptism in the Jordan, not because he needed cleansing but to sanctify the waters and manifest himself as the beloved Son. After his Resurrection he gave the Church its mandate, and the apostles baptized from the very first Christian Pentecost."
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 28:19",
+      "text": "Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit."
+    },
+    {
+      "type": "scripture",
+      "reference": "John 3:5",
+      "text": "Unless one is born of water and the Spirit, he cannot enter the kingdom of God."
+    },
+    {
+      "type": "heading",
+      "text": "Baptism: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "The matter is natural water, poured over the head or used for immersion. The form is the Trinitarian formula spoken while the water is applied. The ordinary minister is a bishop, priest, or deacon — but in case of genuine necessity any person, even one who is not baptized, may validly baptize provided they use water, say the words, and intend to do what the Church does (cf. CCC 1284)."
+    },
+    {
+      "type": "heading",
+      "text": "Confirmation: Completing Initiation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Confirmation is not a Catholic coming-of-age ceremony or a personal ratification of one's Baptism, though it is often misunderstood that way. It is a distinct sacrament that completes baptismal grace and roots the Christian more deeply as a child of God, binding them more firmly to the Church and strengthening them to spread and defend the faith by word and deed (cf. CCC 1285, 1303). Like Baptism, it imprints an indelible character and is received only once."
+    },
+    {
+      "type": "scripture",
+      "reference": "Acts 8:17",
+      "text": "Then they laid their hands on them and they received the Holy Spirit."
+    },
+    {
+      "type": "heading",
+      "text": "Confirmation: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "The essential rite is the anointing with sacred chrism — perfumed oil consecrated by the bishop — on the forehead, accompanied by the laying on of hands and the words declaring the candidate sealed with the Gift of the Holy Spirit. In the Latin Church the ordinary minister is the bishop, signifying the bond with the apostolic Church; in the Eastern Churches the priest confirms immediately after Baptism, a practice preserving the original unity of initiation."
+    },
+    {
+      "type": "callout",
+      "title": "Sacramental Doctrine / CCC Reference",
+      "text": "The Council of Trent (Session VII, 1547) defined both Baptism and Confirmation as true sacraments instituted by Christ, and affirmed that each imprints an indelible character. Because of that permanent seal, neither can ever be repeated."
+    },
+    {
+      "type": "heading",
+      "text": "The Grace Conferred"
+    },
+    {
+      "type": "paragraph",
+      "text": "Baptism forgives original sin and all personal sin together with its punishment, infuses sanctifying grace and the theological virtues, and incorporates the person into the Church. Confirmation increases and deepens that same grace, brings a fuller outpouring of the sevenfold gifts of the Holy Spirit, and equips the Christian for mature witness."
+    },
+    {
+      "type": "prayer",
+      "title": "Come, Holy Spirit",
+      "text": "Come, Holy Spirit, fill the hearts of your faithful and kindle in them the fire of your love. Send forth your Spirit and they shall be created, and you shall renew the face of the earth. Amen."
+    }
+  ]
+}

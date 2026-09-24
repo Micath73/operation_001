@@ -1,0 +1,42 @@
+{
+  "id": "p1_mass_etiquette",
+  "title": "Mass Etiquette & Reverence",
+  "subtitle": "Postures, Quiet, and Preparing Your Mind for Liturgy",
+  "category": "Liturgy & Worship",
+  "estimatedMinutes": 4,
+  "sections": [
+    {
+      "type": "header",
+      "content": "Entering the Sanctuary"
+    },
+    {
+      "type": "paragraph",
+      "content": "Entering a Catholic church means entering the presence of the Real Body and Blood of Jesus Christ reserved in the Tabernacle."
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "**Holy Water:** Dip your right hand in the holy water font upon entering and make the Sign of the Cross to recall your baptism.",
+        "**Genuflection:** Bend your right knee until it touches the floor towards the Tabernacle before entering your pew.",
+        "**Sacred Silence:** Maintain quiet in the nave to allow yourself and others time for mental preparation before Mass begins."
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Liturgical Postures during Mass"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "**Standing:** A posture of reverence, resurrection, and active readiness (during opening rites, the Gospel, and Creed).",
+        "**Sitting:** A posture of listening, meditation, and instruction (during the First and Second Readings and Homily).",
+        "**Kneeling:** A posture of adoration, repentance, and humility before God (during the Eucharistic Prayer and Consecration)."
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "Fast Before Mass",
+      "content": "Catholics abstain from food and drink (except water and medicine) for at least 1 hour prior to receiving Holy Communion."
+    }
+  ]
+}

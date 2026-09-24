@@ -1,0 +1,68 @@
+{
+  "id": "sacrament_of_marriage",
+  "title": "Sacrament of Marriage",
+  "category": "Devotions",
+  "summary": "Christian marriage is a covenant by which a baptized man and woman establish a lifelong partnership ordered to the good of the spouses and the procreation and education of children, raised by Christ to the dignity of a sacrament.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "A Covenant Written Into Creation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marriage is not a human invention that the Church later blessed. Scripture presents it as willed by God from the beginning: the Creator established the marriage covenant at the origin of humanity, and the vocation to marriage is written into the very nature of man and woman (cf. CCC 1601, 1603). Christ did not create marriage — he restored it to its original integrity and raised it, between the baptized, to the dignity of a sacrament."
+    },
+    {
+      "type": "heading",
+      "text": "Biblical Institution"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesus confirmed the indissolubility of marriage by appealing past the Mosaic permission of divorce to God's original design in Genesis. St. Paul then reveals its deepest meaning: the union of husband and wife images the union of Christ with his Church, which is why Christian marriage is not merely a contract but a sacred sign."
+    },
+    {
+      "type": "scripture",
+      "reference": "Mark 10:9",
+      "text": "What therefore God has joined together, let no man put asunder."
+    },
+    {
+      "type": "scripture",
+      "reference": "Ephesians 5:31-32",
+      "text": "The two shall become one flesh. This is a great mystery, and I mean in reference to Christ and the Church."
+    },
+    {
+      "type": "heading",
+      "text": "Outward Sign: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the Latin Church, the spouses themselves are the ministers of this sacrament: their free exchange of consent before the Church is what confers it. The priest or deacon who assists receives that consent in the name of the Church and gives the Church's blessing, but he does not confer the sacrament. The consent must be a free act of the will, given without coercion and without any impediment of natural or ecclesiastical law."
+    },
+    {
+      "type": "callout",
+      "title": "Sacramental Doctrine / CCC Reference",
+      "text": "The Council of Trent (Session XXIV, 1563) defined marriage as one of the seven sacraments instituted by Christ and affirmed its indissolubility. The Second Vatican Council's Gaudium et Spes (1965) described the spouses as consecrated for the duties and dignity of their state by a special sacrament — a formulation the Catechism carries forward (cf. CCC 1535)."
+    },
+    {
+      "type": "heading",
+      "text": "The Essential Properties"
+    },
+    {
+      "type": "paragraph",
+      "text": "Catholic teaching identifies two essential properties of marriage: unity (one man and one woman, excluding polygamy) and indissolubility (the bond endures until death). A ratified and consummated sacramental marriage cannot be dissolved by any human power. An annulment is not a Catholic divorce; it is a finding that a valid marriage bond never came into existence in the first place, usually because consent was defective."
+    },
+    {
+      "type": "heading",
+      "text": "The Grace Conferred"
+    },
+    {
+      "type": "paragraph",
+      "text": "The sacrament gives the spouses the grace to love one another with the love with which Christ loves his Church — to perfect their human love, strengthen their indissoluble unity, and sanctify one another on the way to eternal life. Christ dwells with them, helps them bear one another's burdens, and remains present in the ordinary labor of family life. The home formed by this sacrament is rightly called the domestic church."
+    },
+    {
+      "type": "prayer",
+      "title": "Prayer of Married Couples",
+      "text": "Lord Jesus, grant that we may love one another as you have loved us. Strengthen the bond you have blessed, deepen our patience with one another's weakness, and make our home a place of peace, forgiveness, and faith. Holy Family of Nazareth, pray for us. Amen."
+    }
+  ]
+}

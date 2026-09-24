@@ -1,0 +1,51 @@
+{
+  "id": "stations_of_the_cross",
+  "title": "Stations of the Cross",
+  "category": "Devotions",
+  "summary": "The Stations of the Cross are a devotion of fourteen meditations on Christ's Passion, allowing the faithful to make a spiritual pilgrimage along the way to Calvary wherever they are.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "A Pilgrimage for Those Who Cannot Travel"
+    },
+    {
+      "type": "paragraph",
+      "text": "This devotion began with the desire of Christians to walk the route Christ walked in Jerusalem. Pilgrims who could reach the Holy Land traced the Via Dolorosa in person; those who could not — the vast majority — wanted some way to make the same journey in spirit. The Stations were the answer: a series of images or crosses erected in churches and along roadsides, before which the faithful could stop, pray, and meditate."
+    },
+    {
+      "type": "heading",
+      "text": "Historical Development"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Franciscans, entrusted with custody of the Holy Land in the fourteenth century, did more than anyone to spread the devotion through Europe. The number and selection of stations varied considerably for centuries — some versions had as few as seven, others more than thirty — before settling at fourteen. Pope Clement XII fixed that number in 1731 and granted indulgences to those who make the Stations, and the devotion has kept that form ever since."
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 9:23",
+      "text": "If any man would come after me, let him deny himself and take up his cross daily and follow me."
+    },
+    {
+      "type": "paragraph",
+      "text": "The fourteen stations run from Christ's condemnation by Pilate through his falls, his meeting with his Mother, Simon of Cyrene's help, Veronica's act of compassion, the crucifixion itself, and finally his burial in the tomb. Some stations are drawn directly from the Gospel accounts; others — Veronica, and the three falls — come from ancient tradition rather than Scripture, which the Church has always acknowledged openly. Many parishes now add a fifteenth station commemorating the Resurrection, so that the devotion does not end at the sealed tomb."
+    },
+    {
+      "type": "callout",
+      "title": "Devotional Doctrine / CCC Reference",
+      "text": "The Stations are a sacramental-style devotion, not a sacrament: they do not confer grace by the rite itself but dispose the one praying to receive grace through devotion and cooperation. The Catechism situates such popular devotions as genuine expressions of the Christian life that should harmonize with the liturgy, draw people toward it, and never replace it (cf. CCC 1674-1675)."
+    },
+    {
+      "type": "heading",
+      "text": "Spiritual Benefit"
+    },
+    {
+      "type": "paragraph",
+      "text": "The devotion's power lies in its slowness. By pausing fourteen times, the one praying is kept from rushing past the Passion as a familiar story. It cultivates contrition by confronting the cost of sin, compassion by dwelling on Christ's suffering, and endurance by placing one's own trials alongside his. It is prayed with special solemnity during Lent, particularly on the Fridays of Lent and on Good Friday."
+    },
+    {
+      "type": "prayer",
+      "title": "Traditional Station Response",
+      "text": "We adore you, O Christ, and we bless you, because by your holy Cross you have redeemed the world. Amen."
+    }
+  ]
+}

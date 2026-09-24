@@ -1,0 +1,962 @@
+[
+  {
+    "feastDate": "10-01",
+    "saints": [
+      {
+        "id": "therese_of_lisieux",
+        "name": "Saint Thérèse of the Child Jesus",
+        "feastDate": "10-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_therese_lisieux.jpg",
+        "shortBio": "Saint Thérèse of the Child Jesus, the Little Flower, was a Carmelite nun who taught the spiritual way of confidence, simplicity, and love.",
+        "fullStory": "Thérèse entered the Carmelite monastery at Lisieux while still very young and lived an apparently hidden life of prayer, community service, and sacrifice. She developed the 'little way,' a spirituality of trusting God through small acts of love rather than extraordinary achievements. Her autobiography, Story of a Soul, made her one of the most influential spiritual writers of modern times.",
+        "patronage": [
+          "missions",
+          "florists",
+          "pilots",
+          "Carmelite nuns"
+        ],
+        "quote": "I will spend my heaven doing good on earth.",
+        "birthYear": 1873,
+        "deathYear": 1897,
+        "canonizationYear": 1925,
+        "tags": [
+          "carmelite",
+          "doctor-of-the-church",
+          "little-way"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-02",
+    "saints": [
+      {
+        "id": "holy_guardian_angels",
+        "name": "The Holy Guardian Angels",
+        "feastDate": "10-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/holy_guardian_angels.jpg",
+        "shortBio": "The memorial of the Holy Guardian Angels celebrates God's providential care through the angelic guardians assigned to guide and protect human beings.",
+        "fullStory": "Christian Scripture and tradition witness to the ministry of angels as messengers, protectors, and servants of God's purposes. The memorial invites believers to recognize divine care in the midst of daily life and to respond with trust and moral vigilance. Devotion to guardian angels also encourages prayer for children, families, travelers, and all people facing danger.",
+        "patronage": [
+          "children",
+          "travelers",
+          "protective ministry",
+          "families"
+        ],
+        "quote": "See that you do not despise one of these little ones, for I say to you that their angels in heaven always look upon the face of my heavenly Father.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "angels",
+          "protection",
+          "providence"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-03",
+    "saints": [
+      {
+        "id": "francis_borgia",
+        "name": "Saint Francis Borgia",
+        "feastDate": "10-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/francis_borgia.jpg",
+        "shortBio": "Saint Francis Borgia was a Spanish nobleman, widower, and Jesuit superior general who renounced worldly privilege for religious service.",
+        "fullStory": "Francis served as a duke and court official before the death of Empress Isabella led him to reflect deeply on the brevity of earthly glory. After caring for his family, he entered the Society of Jesus and became a priest. As superior general, he strengthened Jesuit formation and missionary work, combining administrative skill with profound humility and prayer.",
+        "patronage": [
+          "nobility",
+          "Jesuits",
+          "administrators",
+          "people grieving"
+        ],
+        "quote": "I must die to the world if I am to live for God.",
+        "birthYear": 1510,
+        "deathYear": 1572,
+        "canonizationYear": 1670,
+        "tags": [
+          "jesuit",
+          "duke",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-04",
+    "saints": [
+      {
+        "id": "francis_of_assisi",
+        "name": "Saint Francis of Assisi",
+        "feastDate": "10-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_francis_assisi.jpg",
+        "shortBio": "Saint Francis of Assisi was a friar and founder who embraced poverty, preached peace, and inspired Christian care for creation.",
+        "fullStory": "Francis renounced a comfortable life in Assisi after a profound conversion and embraced the Gospel through poverty, fraternity, and service. He founded the Friars Minor and inspired Clare of Assisi and the Poor Clares. His love for Christ, the poor, peace, and all creation continues to influence Catholic spirituality and environmental responsibility.",
+        "patronage": [
+          "animals",
+          "ecology",
+          "Italy",
+          "peace"
+        ],
+        "quote": "Lord, make me an instrument of your peace.",
+        "birthYear": 1181,
+        "deathYear": 1226,
+        "canonizationYear": 1228,
+        "tags": [
+          "franciscan",
+          "founder",
+          "ecology"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-05",
+    "saints": [
+      {
+        "id": "faustina_kowalska",
+        "name": "Saint Faustina Kowalska",
+        "feastDate": "10-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/faustina_kowalska.jpg",
+        "shortBio": "Saint Faustina Kowalska was a Polish religious sister whose writings helped spread devotion to the Divine Mercy of Christ.",
+        "fullStory": "Faustina entered the Congregation of the Sisters of Our Lady of Mercy and served in humble domestic tasks. Through prayer and mystical experiences, she received an intense call to proclaim God's mercy and trust in Jesus. Her Diary, the Divine Mercy image, and the Chaplet of Divine Mercy have influenced Catholic prayer across the world.",
+        "patronage": [
+          "Divine Mercy",
+          "the dying",
+          "the sick",
+          "penitents"
+        ],
+        "quote": "Jesus, I trust in you.",
+        "birthYear": 1905,
+        "deathYear": 1938,
+        "canonizationYear": 2000,
+        "tags": [
+          "religious",
+          "mystic",
+          "divine-mercy"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-06",
+    "saints": [
+      {
+        "id": "bruno_of_cologne",
+        "name": "Saint Bruno",
+        "feastDate": "10-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/bruno_of_cologne.jpg",
+        "shortBio": "Saint Bruno was a priest and theologian who founded the Carthusian Order, one of the Church's most contemplative communities.",
+        "fullStory": "Bruno taught theology in Reims before seeking a more solitary life devoted to prayer. With companions, he settled in the Chartreuse valley and established the pattern of solitude, silence, and shared worship that became the Carthusian tradition. Though he briefly served Pope Urban II, Bruno returned to a life centered on contemplation and simplicity.",
+        "patronage": [
+          "Carthusians",
+          "contemplatives",
+          "theologians",
+          "possessed people"
+        ],
+        "quote": "The cross stands while the world turns.",
+        "birthYear": 1030,
+        "deathYear": 1101,
+        "canonizationYear": null,
+        "tags": [
+          "priest",
+          "founder",
+          "contemplative"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-07",
+    "saints": [
+      {
+        "id": "our_lady_of_the_rosary",
+        "name": "Our Lady of the Rosary",
+        "feastDate": "10-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/our_lady_of_the_rosary.jpg",
+        "shortBio": "Our Lady of the Rosary celebrates the prayer that meditates on the mysteries of Christ's life with Mary.",
+        "fullStory": "The memorial developed from the Church's long tradition of praying the Psalter and meditating on the Gospel with Mary. It became especially associated with the Dominican tradition and with the Battle of Lepanto in 1571, when Christians attributed victory to prayer of the Rosary. The feast encourages contemplation, conversion, peace, and confidence in Mary's intercession.",
+        "patronage": [
+          "the Rosary",
+          "families",
+          "peace",
+          "Dominicans"
+        ],
+        "quote": "The Rosary is a powerful weapon against evil.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "rosary",
+          "prayer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-08",
+    "saints": [
+      {
+        "id": "pelagia_of_antioch",
+        "name": "Saint Pelagia of Antioch",
+        "feastDate": "10-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/pelagia_of_antioch.jpg",
+        "shortBio": "Saint Pelagia of Antioch is remembered as a convert and penitent who renounced a worldly life for prayer and Christian service.",
+        "fullStory": "Christian tradition presents Pelagia as a dancer or actress in Antioch who experienced a profound conversion after hearing a sermon. She gave away her possessions, adopted a life of repentance, and lived in solitude under a hidden identity. Her story became an enduring example of God's mercy and the possibility of radical transformation.",
+        "patronage": [
+          "converts",
+          "penitents",
+          "performers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 457,
+        "canonizationYear": null,
+        "tags": [
+          "penitent",
+          "convert",
+          "hermit"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-09",
+    "saints": [
+      {
+        "id": "denis_and_companions",
+        "name": "Saint Denis and Companions",
+        "feastDate": "10-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/denis_and_companions.jpg",
+        "shortBio": "Saint Denis and his companions were missionaries and martyrs associated with the foundation of the Church in Paris.",
+        "fullStory": "Denis is traditionally regarded as the first bishop of Paris and a missionary sent to evangelize Gaul. He and his companions were executed for preaching Christ, and the site of their burial became the Basilica of Saint-Denis. Their witness helped establish Christian communities in what would become one of Europe's most important centers.",
+        "patronage": [
+          "Paris",
+          "France",
+          "headaches",
+          "possessed people"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 258,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-10",
+    "saints": [
+      {
+        "id": "daniel_comboni",
+        "name": "Saint Daniel Comboni",
+        "feastDate": "10-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/daniel_comboni.jpg",
+        "shortBio": "Saint Daniel Comboni was a missionary bishop who dedicated his life to evangelization and human development in Africa.",
+        "fullStory": "Daniel Comboni joined the missionary work of the Institute of Verona and became convinced that Africa needed both evangelization and the formation of local leaders. He founded missionary congregations for men and women and developed a plan centered on Africans as agents of their own Christian future. Despite disease, opposition, and hardship, he served as bishop in Sudan and remained committed to the continent's peoples.",
+        "patronage": [
+          "Africa",
+          "missionaries",
+          "Sudan",
+          "human development"
+        ],
+        "quote": "I will die with Africa on my lips.",
+        "birthYear": 1831,
+        "deathYear": 1881,
+        "canonizationYear": 2003,
+        "tags": [
+          "bishop",
+          "missionary",
+          "africa"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-11",
+    "saints": [
+      {
+        "id": "john_xxiii",
+        "name": "Saint John XXIII",
+        "feastDate": "10-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_xxiii.jpg",
+        "shortBio": "Saint John XXIII was a pope remembered for pastoral warmth, peacemaking, and convoking the Second Vatican Council.",
+        "fullStory": "Angelo Giuseppe Roncalli served as a priest, diplomat, and bishop before becoming pope in 1958. He called the Second Vatican Council to renew the Church's life and its dialogue with the modern world. His encyclical Pacem in Terris and his personal kindness made him a widely loved advocate for peace, human dignity, and Christian unity.",
+        "patronage": [
+          "peace",
+          "Christian unity",
+          "diplomats",
+          "the Second Vatican Council"
+        ],
+        "quote": "See everything, overlook a great deal, correct a little.",
+        "birthYear": 1881,
+        "deathYear": 1963,
+        "canonizationYear": 2014,
+        "tags": [
+          "pope",
+          "council",
+          "peacemaker"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-12",
+    "saints": [
+      {
+        "id": "seraphin_of_montegranaro",
+        "name": "Saint Seraphin of Montegranaro",
+        "feastDate": "10-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/seraphin_of_montegranaro.jpg",
+        "shortBio": "Saint Seraphin of Montegranaro was a Capuchin lay brother known for humility, prayer, and generous service to the poor.",
+        "fullStory": "Seraphin came from a humble family and entered the Capuchin Order as a lay brother. He performed ordinary tasks with great devotion, welcomed visitors, and shared whatever he received with people in need. His simplicity and cheerful charity made him a respected spiritual guide despite his lack of formal education.",
+        "patronage": [
+          "Capuchins",
+          "the poor",
+          "lay brothers",
+          "charitable workers"
+        ],
+        "quote": null,
+        "birthYear": 1540,
+        "deathYear": 1604,
+        "canonizationYear": 1767,
+        "tags": [
+          "capuchin",
+          "charity",
+          "religious-brother"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-13",
+    "saints": [
+      {
+        "id": "edward_the_confessor",
+        "name": "Saint Edward the Confessor",
+        "feastDate": "10-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/edward_the_confessor.jpg",
+        "shortBio": "Saint Edward the Confessor was an English king remembered for personal devotion, justice, generosity, and support for the Church.",
+        "fullStory": "Edward became king of England after years of exile and ruled during a period of political consolidation. Tradition remembers him as a just and pious ruler who supported monasteries, cared for the poor, and promoted peace. He founded Westminster Abbey, which became one of England's most important churches and royal institutions.",
+        "patronage": [
+          "England",
+          "kings",
+          "difficult marriages",
+          "royalty"
+        ],
+        "quote": null,
+        "birthYear": 1003,
+        "deathYear": 1066,
+        "canonizationYear": 1161,
+        "tags": [
+          "king",
+          "confessor",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-14",
+    "saints": [
+      {
+        "id": "callistus_i",
+        "name": "Saint Callistus I",
+        "feastDate": "10-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/callistus_i.jpg",
+        "shortBio": "Saint Callistus I was a pope and martyr who defended the Church's ministry of mercy and reconciliation.",
+        "fullStory": "Callistus experienced hardship and imprisonment before becoming a trusted leader in the Roman Church. As pope, he supported the reconciliation of Christians who had fallen into serious sin and defended the Church's authority to offer forgiveness. He died during a period of persecution, and his ministry remains associated with the balance of truth, discipline, and mercy.",
+        "patronage": [
+          "cemetery workers",
+          "gravediggers",
+          "Rome",
+          "confessors"
+        ],
+        "quote": "The Church is a house of mercy for all who seek healing.",
+        "birthYear": null,
+        "deathYear": 222,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "martyr",
+          "reconciliation"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-15",
+    "saints": [
+      {
+        "id": "teresa_of_avila",
+        "name": "Saint Teresa of Jesus",
+        "feastDate": "10-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_teresa_avila.jpg",
+        "shortBio": "Saint Teresa of Ávila was a Carmelite reformer, mystic, and Doctor of the Church whose writings transformed Christian prayer.",
+        "fullStory": "Teresa entered the Carmelite Order and gradually recognized the need for deeper prayer and stricter religious renewal. She founded reformed communities of Discalced Carmelites and traveled extensively despite opposition and poor health. Her works, including The Interior Castle and The Way of Perfection, offer a profound map of the soul's journey toward friendship with God.",
+        "patronage": [
+          "headache sufferers",
+          "writers",
+          "Carmelite reform",
+          "mystics"
+        ],
+        "quote": "Let nothing disturb you; let nothing frighten you; all things pass; God never changes.",
+        "birthYear": 1515,
+        "deathYear": 1582,
+        "canonizationYear": 1622,
+        "tags": [
+          "carmelite",
+          "doctor-of-the-church",
+          "mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-16",
+    "saints": [
+      {
+        "id": "margaret_mary_alacoque",
+        "name": "Saint Margaret Mary Alacoque",
+        "feastDate": "10-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/margaret_mary_alacoque.jpg",
+        "shortBio": "Saint Margaret Mary Alacoque was a Visitation nun whose mystical experiences helped spread devotion to the Sacred Heart of Jesus.",
+        "fullStory": "Margaret Mary entered the Visitation monastery at Paray-le-Monial and experienced a strong call to contemplate Christ's love. Her reported visions emphasized reparation, Eucharistic devotion, and trust in the Sacred Heart. With the support of Saint Claude de la Colombière, she helped establish a devotion that became central to Catholic spirituality.",
+        "patronage": [
+          "the Sacred Heart",
+          "polio sufferers",
+          "devotees of the Eucharist",
+          "Visitation Sisters"
+        ],
+        "quote": "The divine Heart is an inexhaustible source of all good.",
+        "birthYear": 1647,
+        "deathYear": 1690,
+        "canonizationYear": 1920,
+        "tags": [
+          "visitation",
+          "mystic",
+          "sacred-heart"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-17",
+    "saints": [
+      {
+        "id": "ignatius_of_antioch",
+        "name": "Saint Ignatius of Antioch",
+        "feastDate": "10-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/ignatius_of_antioch.jpg",
+        "shortBio": "Saint Ignatius of Antioch was a bishop and martyr whose letters provide an important witness to early Christian unity and Eucharistic faith.",
+        "fullStory": "Ignatius served as bishop of Antioch and was arrested during the persecution of Emperor Trajan. On his journey to execution in Rome, he wrote letters to Christian communities, urging them to remain united with their bishop and faithful to the Eucharist. His longing to imitate Christ in martyrdom became one of the most powerful early Christian testimonies.",
+        "patronage": [
+          "Church unity",
+          "bishops",
+          "martyrs",
+          "Smyrna"
+        ],
+        "quote": "It is better for me to die in Christ Jesus than to reign over the ends of the earth.",
+        "birthYear": 35,
+        "deathYear": 107,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "martyr",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-18",
+    "saints": [
+      {
+        "id": "luke_evangelist",
+        "name": "Saint Luke, Evangelist",
+        "feastDate": "10-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_luke_evangelist.jpg",
+        "shortBio": "Saint Luke was a physician, companion of Saint Paul, and traditional author of the Gospel according to Luke and the Acts of the Apostles.",
+        "fullStory": "Luke accompanied Paul during missionary journeys and preserved the story of the early Church in Acts. His Gospel gives special attention to the poor, women, sinners, prayer, the Holy Spirit, and God's mercy. Christian tradition also identifies him as an artist, though his most enduring portrait is that of a careful evangelist who proclaimed salvation for all peoples.",
+        "patronage": [
+          "physicians",
+          "surgeons",
+          "artists",
+          "painters"
+        ],
+        "quote": "The Son of Man has come to seek and to save what was lost.",
+        "birthYear": null,
+        "deathYear": 84,
+        "canonizationYear": null,
+        "tags": [
+          "evangelist",
+          "physician",
+          "missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-19",
+    "saints": [
+      {
+        "id": "isaac_jogues_and_companions",
+        "name": "Saints Isaac Jogues and Companions",
+        "feastDate": "10-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/isaac_jogues_and_companions.jpg",
+        "shortBio": "Saints Isaac Jogues and his companions were Jesuit missionaries and martyrs who served Indigenous communities in North America.",
+        "fullStory": "Isaac Jogues and his companions traveled from France to minister among Indigenous peoples in the regions surrounding the Great Lakes. They learned local languages, endured captivity and torture, and continued their missionary vocation despite severe danger. Their witness is honored alongside the Indigenous Christians who suffered in the conflicts surrounding the missions, and their history should be remembered with honesty and respect.",
+        "patronage": [
+          "North America",
+          "missionaries",
+          "Canada",
+          "captives"
+        ],
+        "quote": "My God, I am firmly resolved to sacrifice my life for you.",
+        "birthYear": 1607,
+        "deathYear": 1646,
+        "canonizationYear": 1930,
+        "tags": [
+          "jesuit",
+          "missionary",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-20",
+    "saints": [
+      {
+        "id": "wendelin_of_trier",
+        "name": "Saint Wendelin",
+        "feastDate": "10-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/wendelin_of_trier.jpg",
+        "shortBio": "Saint Wendelin was a hermit and abbot whose memory became associated with pastoral care for rural workers and animals.",
+        "fullStory": "Wendelin is traditionally described as a nobleman who renounced his status to live as a pilgrim and hermit. He later served as abbot of a monastic community in the region of Trier, combining prayer with practical work. His devotion became especially strong among farmers and shepherds who looked to him as a model of care for creation and rural life.",
+        "patronage": [
+          "farmers",
+          "shepherds",
+          "herds",
+          "rural communities"
+        ],
+        "quote": null,
+        "birthYear": 554,
+        "deathYear": 617,
+        "canonizationYear": null,
+        "tags": [
+          "hermit",
+          "abbot",
+          "rural-life"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-21",
+    "saints": [
+      {
+        "id": "ursula_and_companions",
+        "name": "Saint Ursula and Companions",
+        "feastDate": "10-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/ursula_and_companions.jpg",
+        "shortBio": "Saint Ursula and her companions are honored in Christian tradition as consecrated women who suffered martyrdom for their faith.",
+        "fullStory": "The tradition of Saint Ursula tells of a group of consecrated women who traveled on pilgrimage and were killed near Cologne. Although details of the story developed over time and are difficult to verify historically, devotion to the martyrs inspired hospitals, schools, and religious communities across Europe. Their memory highlights courage, consecration, and solidarity among women disciples.",
+        "patronage": [
+          "students",
+          "young women",
+          "educators",
+          "Cologne"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "virgins",
+          "martyrs",
+          "pilgrims"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-22",
+    "saints": [
+      {
+        "id": "john_paul_ii",
+        "name": "Saint John Paul II",
+        "feastDate": "10-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st_john_paul_ii.jpg",
+        "shortBio": "Saint John Paul II was a pope, philosopher, and pastor who defended human dignity, promoted evangelization, and encouraged young people.",
+        "fullStory": "Karol Wojtyła served as a priest and bishop in Poland under Nazi occupation and communist rule before becoming pope in 1978. He traveled widely, promoted the new evangelization, supported the fall of communist regimes, and emphasized the dignity of the human person and the theology of the body. His long pontificate shaped Catholic life through World Youth Day, ecumenical dialogue, and an appeal to open the doors to Christ.",
+        "patronage": [
+          "young people",
+          "families",
+          "World Youth Day",
+          "Poland"
+        ],
+        "quote": "Do not be afraid. Open wide the doors to Christ.",
+        "birthYear": 1920,
+        "deathYear": 2005,
+        "canonizationYear": 2014,
+        "tags": [
+          "pope",
+          "evangelization",
+          "youth"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-23",
+    "saints": [
+      {
+        "id": "john_of_capistrano",
+        "name": "Saint John of Capistrano",
+        "feastDate": "10-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_of_capistrano.jpg",
+        "shortBio": "Saint John of Capistrano was a Franciscan preacher and reformer who promoted Christian renewal and defended Europe during a military crisis.",
+        "fullStory": "John studied law and served as a civil official before entering the Franciscan Order after a profound conversion. He traveled widely as a preacher, promoted reform among religious communities, and worked to strengthen Christian life. He also encouraged resistance to the Ottoman advance, a role that reflects the complex political and religious world of fifteenth-century Europe.",
+        "patronage": [
+          "jurists",
+          "judges",
+          "chaplains",
+          "Franciscans"
+        ],
+        "quote": "Those who are called to the table of the Lord must shine with the brightness of their life.",
+        "birthYear": 1386,
+        "deathYear": 1456,
+        "canonizationYear": 1690,
+        "tags": [
+          "franciscan",
+          "preacher",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-24",
+    "saints": [
+      {
+        "id": "anthony_mary_claret",
+        "name": "Saint Anthony Mary Claret",
+        "feastDate": "10-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/anthony_mary_claret.jpg",
+        "shortBio": "Saint Anthony Mary Claret was a missionary archbishop, preacher, publisher, and founder of the Claretian Missionaries.",
+        "fullStory": "Anthony began as a weaver before becoming a priest and traveling through Catalonia as an itinerant preacher. He founded the Sons of the Immaculate Heart of Mary and later served as archbishop of Santiago de Cuba, where he defended the poor and promoted clergy reform. His extensive publishing apostolate used books and pamphlets to make Christian teaching available to ordinary people.",
+        "patronage": [
+          "weavers",
+          "publishers",
+          "Claretians",
+          "missionaries"
+        ],
+        "quote": "A son of the Immaculate Heart of Mary is a man of fire.",
+        "birthYear": 1807,
+        "deathYear": 1870,
+        "canonizationYear": 1950,
+        "tags": [
+          "archbishop",
+          "founder",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-25",
+    "saints": [
+      {
+        "id": "crispiin_of_viterbo",
+        "name": "Saint Crispin of Viterbo",
+        "feastDate": "10-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/crispin_of_viterbo.jpg",
+        "shortBio": "Saint Crispin of Viterbo was a Capuchin lay brother known for humility, joyful service, and care for the poor.",
+        "fullStory": "Crispin entered the Capuchin Order after working as a shoemaker and served communities through gardening, begging for food, and caring for the sick. His cheerful temperament and practical wisdom made him a beloved companion and spiritual counselor. He accepted hardship with gratitude and saw every person, especially the poor, as an opportunity to serve Christ.",
+        "patronage": [
+          "shoemakers",
+          "gardeners",
+          "Capuchins",
+          "the poor"
+        ],
+        "quote": "Let us love God with a cheerful heart.",
+        "birthYear": 1668,
+        "deathYear": 1750,
+        "canonizationYear": 1982,
+        "tags": [
+          "capuchin",
+          "charity",
+          "religious-brother"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-26",
+    "saints": [
+      {
+        "id": "alfred_the_great",
+        "name": "Saint Alfred the Great",
+        "feastDate": "10-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/alfred_the_great.jpg",
+        "shortBio": "Saint Alfred the Great was an English king who defended his people, promoted education, and supported Christian culture.",
+        "fullStory": "Alfred became king during invasions that threatened the survival of Christian kingdoms in England. After military victories, he promoted justice, reorganized defense, invited scholars, translated important works, and encouraged the education of clergy and laity. His leadership connected political responsibility with the preservation of learning and Christian identity.",
+        "patronage": [
+          "England",
+          "rulers",
+          "education",
+          "scholars"
+        ],
+        "quote": "The desire for wisdom is the beginning of wisdom.",
+        "birthYear": 849,
+        "deathYear": 899,
+        "canonizationYear": null,
+        "tags": [
+          "king",
+          "education",
+          "christian-culture"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-27",
+    "saints": [
+      {
+        "id": "frumentius_of_aksum",
+        "name": "Saint Frumentius",
+        "feastDate": "10-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/frumentius_of_aksum.jpg",
+        "shortBio": "Saint Frumentius was a missionary bishop credited with establishing Christianity in the ancient kingdom of Aksum.",
+        "fullStory": "Frumentius was taken to Aksum as a young man and later gained the opportunity to teach the Christian faith at the royal court. He traveled to Alexandria, received episcopal ordination, and returned to serve the growing Christian community. His preaching and formation of clergy laid the foundations for the Ethiopian Christian tradition.",
+        "patronage": [
+          "Ethiopia",
+          "Eritrea",
+          "missionaries",
+          "Africa"
+        ],
+        "quote": null,
+        "birthYear": 300,
+        "deathYear": 383,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "ethiopia"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-28",
+    "saints": [
+      {
+        "id": "simon_and_jude_apostles",
+        "name": "Saints Simon and Jude, Apostles",
+        "feastDate": "10-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/simon_and_jude_apostles.jpg",
+        "shortBio": "Saints Simon and Jude were members of the Twelve Apostles who carried the Gospel beyond the first Christian communities.",
+        "fullStory": "Simon the Zealot and Jude, also called Thaddeus, were chosen by Jesus as members of the Twelve. The New Testament preserves Jude's brief letter, which encourages Christians to remain faithful amid false teaching and moral confusion. Later traditions associate both apostles with missionary work and martyrdom in regions beyond Palestine.",
+        "patronage": [
+          "desperate situations",
+          "lost causes",
+          "tanners",
+          "woodcutters"
+        ],
+        "quote": "Build yourselves up in your most holy faith; pray in the Holy Spirit.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "apostles",
+          "missionaries",
+          "martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-29",
+    "saints": [
+      {
+        "id": "narcissus_of_jerusalem",
+        "name": "Saint Narcissus of Jerusalem",
+        "feastDate": "10-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/narcissus_of_jerusalem.jpg",
+        "shortBio": "Saint Narcissus was an early bishop of Jerusalem remembered for holiness, perseverance, and service to the Christian community.",
+        "fullStory": "Narcissus served as bishop of Jerusalem at a time when the Christian community faced internal tensions and external pressure. Despite false accusations and opposition, he remained patient and eventually returned to pastoral leadership. His long ministry reflects the endurance required to preserve unity and faith across generations.",
+        "patronage": [
+          "Jerusalem",
+          "bishops",
+          "perseverance",
+          "Church unity"
+        ],
+        "quote": null,
+        "birthYear": 99,
+        "deathYear": 216,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "early-church",
+          "perseverance"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-30",
+    "saints": [
+      {
+        "id": "alfons_rodriguez",
+        "name": "Saint Alphonsus Rodríguez",
+        "feastDate": "10-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/alfons_rodriguez.jpg",
+        "shortBio": "Saint Alphonsus Rodríguez was a Jesuit lay brother whose humble service as a porter became a path of profound holiness.",
+        "fullStory": "Alphonsus experienced the loss of his wife and children before entering the Society of Jesus as a lay brother. For many years he served as porter at the Jesuit college in Majorca, welcoming students, visitors, and the poor with patience and prayer. His life shows how ordinary duties, performed with love and fidelity, can become a powerful Christian vocation.",
+        "patronage": [
+          "lay brothers",
+          "porters",
+          "servants",
+          "students"
+        ],
+        "quote": "I am happy to be where obedience has placed me.",
+        "birthYear": 1532,
+        "deathYear": 1617,
+        "canonizationYear": 1888,
+        "tags": [
+          "jesuit",
+          "religious-brother",
+          "humility"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "10-31",
+    "saints": [
+      {
+        "id": "wolfgang_of_regensburg",
+        "name": "Saint Wolfgang of Regensburg",
+        "feastDate": "10-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/wolfgang_of_regensburg.jpg",
+        "shortBio": "Saint Wolfgang of Regensburg was a Benedictine monk, missionary, and bishop who promoted reform and evangelization in central Europe.",
+        "fullStory": "Wolfgang entered the monastery of Einsiedeln and later served as a missionary and teacher in the region of Hungary. As bishop of Regensburg, he reformed clerical life, supported monasteries, and cared for the poor. His leadership combined intellectual formation, missionary outreach, and pastoral concern for the people entrusted to him.",
+        "patronage": [
+          "Regensburg",
+          "carpenters",
+          "woodworkers",
+          "paralysis sufferers"
+        ],
+        "quote": null,
+        "birthYear": 934,
+        "deathYear": 994,
+        "canonizationYear": 1052,
+        "tags": [
+          "bishop",
+          "benedictine",
+          "missionary"
+        ]
+      }
+    ]
+  }
+]

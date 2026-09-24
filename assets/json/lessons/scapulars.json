@@ -1,0 +1,55 @@
+{
+  "id": "scapulars",
+  "title": "Scapulars",
+  "category": "Devotions",
+  "summary": "The scapular is a sacramental worn as a sign of consecration and of a committed way of life — most famously the Brown Scapular of Our Lady of Mount Carmel, associated with the Carmelite order.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "From Monastic Garment to Sacramental"
+    },
+    {
+      "type": "paragraph",
+      "text": "The scapular began as a practical piece of clothing: a long panel of cloth worn over the shoulders by monks while they worked, part of the religious habit. Over time it took on symbolic weight as the mark of the monk's consecration — the yoke of Christ worn visibly. When lay people wished to associate themselves with religious orders without entering them, a small version of two cloth squares joined by cords was given to them, carrying the same meaning in miniature."
+    },
+    {
+      "type": "heading",
+      "text": "The Brown Scapular of Our Lady of Mount Carmel"
+    },
+    {
+      "type": "paragraph",
+      "text": "The best-known form is the Brown Scapular, linked to the Carmelite order and to the feast of Our Lady of Mount Carmel on 16 July. Carmelite tradition holds that the Blessed Virgin appeared to St. Simon Stock in the thirteenth century and gave him the scapular with a promise of her protection. It is worth being precise here: this belongs to private tradition rather than defined doctrine, and the historical evidence for the event is debated among scholars. The Church permits and encourages the devotion without requiring belief in the apparition account."
+    },
+    {
+      "type": "callout",
+      "title": "Devotional Doctrine / CCC Reference",
+      "text": "Sacramentals are sacred signs instituted by the Church which signify spiritual effects obtained through her intercession. Unlike the sacraments, they do not confer grace by the performance of the rite itself; they prepare the person to receive grace and dispose them to cooperate with it (cf. CCC 1667, 1670)."
+    },
+    {
+      "type": "heading",
+      "text": "A Serious Caution Against Superstition"
+    },
+    {
+      "type": "paragraph",
+      "text": "This point matters more than any other in this lesson. A scapular is not a charm, a talisman, or a guarantee of salvation regardless of how one lives. Wearing it while persisting unrepentantly in grave sin saves no one. The Church has repeatedly warned against treating sacramentals superstitiously, and the Carmelite order itself has taught plainly that the scapular's promise presupposes a life of genuine conversion, prayer, and fidelity. Rightly understood, the scapular is a sign of a commitment already being lived — not a substitute for living it."
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 11:29-30",
+      "text": "Take my yoke upon you, and learn from me; for I am gentle and lowly in heart, and you will find rest for your souls."
+    },
+    {
+      "type": "heading",
+      "text": "How It Is Received and Worn"
+    },
+    {
+      "type": "paragraph",
+      "text": "The scapular is properly received through a brief investiture by a priest, which enrolls the person in the associated confraternity. It is worn over the shoulders with one panel on the chest and one on the back, under clothing. Those enrolled are encouraged to pray daily — commonly a Marian prayer or part of the Liturgy of the Hours — and to live chastity according to their state in life. A blessed scapular medal may be substituted for the cloth scapular, a permission granted by Pope St. Pius X in 1910."
+    },
+    {
+      "type": "prayer",
+      "title": "Prayer of Our Lady of Mount Carmel",
+      "text": "O most beautiful flower of Mount Carmel, fruitful vine, splendor of heaven, blessed Mother of the Son of God, assist me in my necessity. O Star of the Sea, help me and show me here you are my Mother. Amen."
+    }
+  ]
+}

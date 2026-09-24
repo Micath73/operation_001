@@ -1,0 +1,68 @@
+{
+  "id": "sacrament_of_reconciliation",
+  "title": "Sacrament of Reconciliation",
+  "category": "Devotions",
+  "summary": "In Confession the risen Christ, through the ministry of the priest, forgives sins committed after Baptism and restores the penitent both to friendship with God and to full communion with the Church.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "A Sacrament With Many Names"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church calls this sacrament by several names, each revealing a different facet of it: conversion, because it makes present Christ's call to turn back; penance, because it consecrates a personal process of change; confession, because disclosing one's sins is essential to it; forgiveness, because God grants pardon through the priest's absolution; and reconciliation, because it restores the love of God who reconciles. The Catechism notes that those who approach this sacrament obtain pardon from God's mercy and are at the same time reconciled with the Church they have wounded by sin (cf. CCC 1422)."
+    },
+    {
+      "type": "heading",
+      "text": "Biblical Institution"
+    },
+    {
+      "type": "paragraph",
+      "text": "Christ entrusted the power to forgive sins to his apostles on the evening of Easter itself — the very first thing the risen Lord gave his Church after his Resurrection. He breathed on them, an act deliberately echoing God breathing life into Adam, and conferred the Holy Spirit precisely for this purpose."
+    },
+    {
+      "type": "scripture",
+      "reference": "John 20:22-23",
+      "text": "Receive the Holy Spirit. If you forgive the sins of any, they are forgiven; if you retain the sins of any, they are retained."
+    },
+    {
+      "type": "scripture",
+      "reference": "James 5:16",
+      "text": "Therefore confess your sins to one another, and pray for one another, that you may be healed."
+    },
+    {
+      "type": "heading",
+      "text": "Outward Sign: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "The matter of this sacrament consists in the acts of the penitent: contrition (genuine sorrow for sin and the resolve not to sin again), confession of sins to the priest, and the satisfaction or penance accepted afterward. The form is the priest's words of absolution, which conclude by absolving the penitent in the name of the Father, and of the Son, and of the Holy Spirit."
+    },
+    {
+      "type": "callout",
+      "title": "Sacramental Doctrine / CCC Reference",
+      "text": "The Council of Trent (Session XIV, 1551) defined that Penance is a true sacrament instituted by Christ, that individual confession of grave sins by kind and number is necessary, and that priestly absolution is a genuine judicial act — not merely a declaration that God has already forgiven. Contrition holds first place among the penitent's acts (cf. CCC 1451)."
+    },
+    {
+      "type": "heading",
+      "text": "The Seal of Confession"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church surrounds this sacrament with the absolute and inviolable seal: a confessor may never, for any reason whatsoever, disclose anything a penitent has confessed. Canon law admits no exception. This is not institutional secrecy but a protection of the penitent, ensuring that no one need fear approaching God's mercy."
+    },
+    {
+      "type": "heading",
+      "text": "The Grace Conferred"
+    },
+    {
+      "type": "paragraph",
+      "text": "The sacrament forgives sins committed after Baptism, restores sanctifying grace to the soul that has lost it through mortal sin, reconciles the penitent with the Church, remits at least part of the temporal punishment due to sin, and grants strength against future temptation. It also brings a peace and serenity of conscience that is itself a spiritual consolation."
+    },
+    {
+      "type": "prayer",
+      "title": "Act of Contrition",
+      "text": "O my God, I am heartily sorry for having offended you, and I detest all my sins because of your just punishments, but most of all because they offend you, my God, who are all-good and deserving of all my love. I firmly resolve, with the help of your grace, to sin no more and to avoid the near occasions of sin. Amen."
+    }
+  ]
+}

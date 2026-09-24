@@ -1,0 +1,929 @@
+[
+  {
+    "feastDate": "09-01",
+    "saints": [
+      {
+        "id": "egidius",
+        "name": "Saint Giles",
+        "feastDate": "09-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/egidius.jpg",
+        "shortBio": "Saint Giles was a hermit whose life of prayer and compassion made him one of the medieval Church's widely invoked saints.",
+        "fullStory": "Giles is traditionally described as a Greek or eastern Christian who sought solitude in the forests of southern France. According to legend, he lived in prayer while caring for a wounded hind and later founded a monastery that became a center of Christian life. His reputation for mercy toward the vulnerable led to widespread devotion throughout Europe.",
+        "patronage": [
+          "people with disabilities",
+          "epilepsy sufferers",
+          "forest workers",
+          "the poor"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 724,
+        "canonizationYear": null,
+        "tags": [
+          "hermit",
+          "monk",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-02",
+    "saints": [
+      {
+        "id": "margaret_the_naked",
+        "name": "Saint Margaret the Naked",
+        "feastDate": "09-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/margaret_the_naked.jpg",
+        "shortBio": "Saint Margaret the Naked was a medieval penitent remembered for radical conversion, humility, and a life devoted to prayer.",
+        "fullStory": "Margaret is honored in Christian tradition as a woman who turned away from a sinful and disordered life after a profound conversion. She embraced severe penance, poverty, and service to the poor, seeking to make her entire life an offering of repentance. Her story emphasizes the possibility of transformation through grace and perseverance.",
+        "patronage": [
+          "penitents",
+          "converts",
+          "women seeking conversion"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "penitent",
+          "convert",
+          "medieval-saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-03",
+    "saints": [
+      {
+        "id": "gregory_the_great",
+        "name": "Saint Gregory the Great",
+        "feastDate": "09-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/gregory_the_great.jpg",
+        "shortBio": "Saint Gregory the Great was a pope, missionary organizer, theologian, and Doctor of the Church who helped shape medieval Christianity.",
+        "fullStory": "Gregory came from a wealthy Roman family but gave up public office to establish monasteries and pursue a life of prayer. As pope, he organized relief for the poor, strengthened Church administration, encouraged missionary work in England, and wrote influential works on pastoral care and spirituality. His leadership, humility, and commitment to service earned him the title Great.",
+        "patronage": [
+          "musicians",
+          "singers",
+          "teachers",
+          "popes"
+        ],
+        "quote": "The proof of love is in the works.",
+        "birthYear": 540,
+        "deathYear": 604,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "doctor-of-the-church",
+          "missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-04",
+    "saints": [
+      {
+        "id": "rosalia_of_palermo",
+        "name": "Saint Rosalia of Palermo",
+        "feastDate": "09-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/rosalia_of_palermo.jpg",
+        "shortBio": "Saint Rosalia of Palermo was a hermit who lived in solitude and became the principal patron saint of Palermo.",
+        "fullStory": "Rosalia is traditionally said to have been born into a noble family but abandoned wealth to live as a hermit in a cave near Palermo. Her hidden life of prayer became widely known after her relics were reportedly discovered during a plague. The people of Palermo credited her intercession with ending the epidemic, and devotion to her spread throughout Sicily.",
+        "patronage": [
+          "Palermo",
+          "plague victims",
+          "hermits",
+          "Sicily"
+        ],
+        "quote": null,
+        "birthYear": 1130,
+        "deathYear": 1166,
+        "canonizationYear": null,
+        "tags": [
+          "hermit",
+          "virgin",
+          "palermo"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-05",
+    "saints": [
+      {
+        "id": "teresa_of_calcutta",
+        "name": "Saint Teresa of Calcutta",
+        "feastDate": "09-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/teresa_of_calcutta.jpg",
+        "shortBio": "Saint Teresa of Calcutta was a religious sister and founder of the Missionaries of Charity who served people living in extreme poverty.",
+        "fullStory": "Born Anjezë Gonxhe Bojaxhiu, Teresa entered religious life and later received a call to serve the poorest of the poor in the streets of Calcutta. She founded the Missionaries of Charity, whose communities care for abandoned people, the sick, and the dying in many countries. Her spirituality centered on seeing Christ in every person and expressing love through concrete, humble service.",
+        "patronage": [
+          "the poor",
+          "homeless people",
+          "the sick",
+          "Missionaries of Charity"
+        ],
+        "quote": "Not all of us can do great things. But we can do small things with great love.",
+        "birthYear": 1910,
+        "deathYear": 1997,
+        "canonizationYear": 2016,
+        "tags": [
+          "foundress",
+          "charity",
+          "missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-06",
+    "saints": [
+      {
+        "id": "eleutherius_of_spain",
+        "name": "Saint Eleutherius of Spain",
+        "feastDate": "09-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/eleutherius_of_spain.jpg",
+        "shortBio": "Saint Eleutherius of Spain was an early Christian martyr remembered for remaining faithful during persecution.",
+        "fullStory": "Historical details about Eleutherius are limited, but Christian tradition preserves his name among the early martyrs of Spain. His witness represents the many local Christians whose faithful endurance helped establish the Church in the Iberian Peninsula. The memory of such martyrs encouraged later generations to remain steadfast in the Gospel.",
+        "patronage": [
+          "Spain",
+          "martyrs",
+          "persecuted Christians"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "martyr",
+          "early-church",
+          "spain"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-07",
+    "saints": [
+      {
+        "id": "cloud_of_paris",
+        "name": "Saint Cloud",
+        "feastDate": "09-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/cloud_of_paris.jpg",
+        "shortBio": "Saint Cloud was a Merovingian prince who renounced royal power to become a priest and monk.",
+        "fullStory": "Cloud was a grandson of King Clovis and belonged to a royal family marked by violence and political rivalry. He rejected the privileges of court life, entered religious life, and eventually became a priest devoted to prayer and pastoral service. The town of Saint-Cloud near Paris preserves his memory and reflects the enduring influence of his monastic witness.",
+        "patronage": [
+          "nail makers",
+          "boil sufferers",
+          "Paris",
+          "monks"
+        ],
+        "quote": null,
+        "birthYear": 522,
+        "deathYear": 560,
+        "canonizationYear": null,
+        "tags": [
+          "priest",
+          "monk",
+          "royalty"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-08",
+    "saints": [
+      {
+        "id": "nativity_of_the_blessed_virgin_mary",
+        "name": "The Nativity of the Blessed Virgin Mary",
+        "feastDate": "09-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/nativity_bvm.jpg",
+        "shortBio": "The Nativity of the Blessed Virgin Mary celebrates the birth of Mary, chosen to become the Mother of the Savior.",
+        "fullStory": "The canonical Gospels do not give an account of Mary's birth, but early Christian tradition preserved the names of her parents as Joachim and Anne. The feast celebrates the beginning of Mary's earthly life and the way God's providence prepared her for the Incarnation. It invites Christians to rejoice in the person through whom the Son of God took human nature.",
+        "patronage": [
+          "children",
+          "families",
+          "mothers",
+          "birth"
+        ],
+        "quote": "Let it be done to me according to your word.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "nativity",
+          "incarnation"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-09",
+    "saints": [
+      {
+        "id": "peter_claver",
+        "name": "Saint Peter Claver",
+        "feastDate": "09-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/peter_claver.jpg",
+        "shortBio": "Saint Peter Claver was a Jesuit missionary who served enslaved Africans arriving in Cartagena and defended their dignity.",
+        "fullStory": "Peter Claver traveled from Spain to Colombia and became a Jesuit priest in Cartagena, a major port of the transatlantic slave trade. He met newly arrived Africans on the ships, bringing food, medicine, catechesis, and human compassion despite the injustice of the system around him. He described himself as the slave of those who were treated as slaves and spent his life advocating through direct service and sacramental ministry.",
+        "patronage": [
+          "enslaved people",
+          "human rights",
+          "missionaries",
+          "Colombia"
+        ],
+        "quote": "We must speak to them with our hands before we try to speak to them with our lips.",
+        "birthYear": 1580,
+        "deathYear": 1654,
+        "canonizationYear": 1888,
+        "tags": [
+          "jesuit",
+          "missionary",
+          "human-dignity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-10",
+    "saints": [
+      {
+        "id": "nicholas_of_tolentino",
+        "name": "Saint Nicholas of Tolentino",
+        "feastDate": "09-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/nicholas_of_tolentino.jpg",
+        "shortBio": "Saint Nicholas of Tolentino was an Augustinian friar and preacher known for prayer, care for the poor, and ministry to the souls of the departed.",
+        "fullStory": "Nicholas entered the Augustinian Order and served as a priest in several communities before settling in Tolentino. He preached, heard confessions, distributed food to the poor, and maintained a deep devotion to the Eucharist. His compassion for the suffering and the dead became a central part of the devotion that grew around him.",
+        "patronage": [
+          "holy souls",
+          "the sick",
+          "prisoners",
+          "bakers"
+        ],
+        "quote": null,
+        "birthYear": 1245,
+        "deathYear": 1305,
+        "canonizationYear": 1446,
+        "tags": [
+          "augustinian",
+          "preacher",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-11",
+    "saints": [
+      {
+        "id": "protus_and_hyacinth",
+        "name": "Saints Protus and Hyacinth",
+        "feastDate": "09-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/protus_and_hyacinth.jpg",
+        "shortBio": "Saints Protus and Hyacinth were Roman martyrs whose memory was preserved in the ancient Christian community of Rome.",
+        "fullStory": "Protus and Hyacinth are traditionally remembered as Christian brothers or companions who served the Church before being executed for their faith. Their names appear in early Roman martyrological traditions, and devotion to them was strengthened by the discovery of an ancient tomb associated with Hyacinth. Their witness reflects the quiet courage of Christians who endured persecution without abandoning Christ.",
+        "patronage": [
+          "Rome",
+          "brothers",
+          "martyrs"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 258,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "roman-church",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-12",
+    "saints": [
+      {
+        "id": "most_holy_name_of_mary",
+        "name": "The Most Holy Name of Mary",
+        "feastDate": "09-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/most_holy_name_of_mary.jpg",
+        "shortBio": "The Most Holy Name of Mary honors the name of the Mother of Jesus as a sign of grace, protection, and loving intercession.",
+        "fullStory": "Devotion to Mary's name developed through Christian prayer and grew especially in the Middle Ages. The memorial encourages believers to invoke Mary as the humble servant of God and the mother who points always toward Christ. Her name has become associated with consolation, refuge, and the Church's confidence in maternal intercession.",
+        "patronage": [
+          "families",
+          "mothers",
+          "mariners",
+          "the sick"
+        ],
+        "quote": "The name of Mary is the key of heaven.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "intercession",
+          "devotion"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-13",
+    "saints": [
+      {
+        "id": "john_chrysostom",
+        "name": "Saint John Chrysostom",
+        "feastDate": "09-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_chrysostom.jpg",
+        "shortBio": "Saint John Chrysostom was a bishop, preacher, and Doctor of the Church renowned for his eloquence and defense of the poor.",
+        "fullStory": "John trained in rhetoric before embracing ascetic life and becoming a priest in Antioch. His sermons addressed Scripture, Christian morality, wealth, and responsibility toward the poor, earning him the title Chrysostom, or Golden-Mouthed. As archbishop of Constantinople, he challenged corruption and endured exile, where he died after continued hardship.",
+        "patronage": [
+          "preachers",
+          "orators",
+          " Constantinople",
+          "rhetoricians"
+        ],
+        "quote": "The rich exist for the sake of the poor, and the poor for the salvation of the rich.",
+        "birthYear": 349,
+        "deathYear": 407,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-14",
+    "saints": [
+      {
+        "id": "exaltation_of_the_holy_cross",
+        "name": "The Exaltation of the Holy Cross",
+        "feastDate": "09-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/exaltation_holy_cross.jpg",
+        "shortBio": "The Exaltation of the Holy Cross celebrates the Cross as the instrument through which Christ revealed divine love and conquered sin and death.",
+        "fullStory": "The feast is associated with the dedication of the Basilica of the Holy Sepulchre in Jerusalem and the recovery of the Cross after its loss during war. Christians venerate the Cross not as a symbol of defeat but as the place where Christ's self-giving love reaches its fullness. The celebration calls believers to embrace the Cross through faithful discipleship and hope in the Resurrection.",
+        "patronage": [
+          "Jerusalem",
+          "woodworkers",
+          "carpenters",
+          "those seeking hope"
+        ],
+        "quote": "We preach Christ crucified.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "cross",
+          "christology",
+          "redemption"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-15",
+    "saints": [
+      {
+        "id": "our_lady_of_sorrows",
+        "name": "Our Lady of Sorrows",
+        "feastDate": "09-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/our_lady_of_sorrows.jpg",
+        "shortBio": "Our Lady of Sorrows honors Mary's faithful sharing in the suffering and death of her Son.",
+        "fullStory": "The memorial reflects the Gospel image of Mary standing near the Cross and sharing in the sorrow of Christ's Passion. Christian tradition often meditates on seven sorrows in Mary's life, from Simeon's prophecy to the burial of Jesus. Her sorrow is not despair but compassionate fidelity, making her a model for those who remain present with suffering people.",
+        "patronage": [
+          "sorrowful people",
+          "bereaved families",
+          "mothers",
+          "the suffering"
+        ],
+        "quote": "A sword will pierce through your own soul also.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "passion",
+          "compassion"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-16",
+    "saints": [
+      {
+        "id": "cornelius_and_cyprian",
+        "name": "Saints Cornelius and Cyprian",
+        "feastDate": "09-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/cornelius_and_cyprian.jpg",
+        "shortBio": "Saints Cornelius and Cyprian were third-century bishops and martyrs who defended Church unity and cared for Christians during persecution.",
+        "fullStory": "Cornelius served as bishop of Rome during debates about how to receive Christians who had lapsed during persecution. Cyprian, bishop of Carthage, supported a merciful but disciplined approach and wrote extensively about the unity of the Church and the ministry of bishops. Both suffered exile and martyrdom, and their shared memorial highlights communion between the Churches of Rome and North Africa.",
+        "patronage": [
+          "popes",
+          "bishops",
+          "epilepsy sufferers",
+          "Church unity"
+        ],
+        "quote": "You cannot have God for your Father if you do not have the Church for your mother.",
+        "birthYear": 210,
+        "deathYear": 258,
+        "canonizationYear": null,
+        "tags": [
+          "bishops",
+          "martyrs",
+          "church-unity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-17",
+    "saints": [
+      {
+        "id": "hildegard_of_bingen",
+        "name": "Saint Hildegard of Bingen",
+        "feastDate": "09-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/hildegard_of_bingen.jpg",
+        "shortBio": "Saint Hildegard of Bingen was a Benedictine abbess, mystic, theologian, composer, and Doctor of the Church.",
+        "fullStory": "Hildegard led communities of women religious and recorded visions that inspired theological, biblical, and spiritual writings. She composed liturgical music, corresponded with popes and rulers, and preached reform to clergy and laity. Her works on creation, medicine, music, and the human person express a vision of the world as alive with God's harmony.",
+        "patronage": [
+          "ecologists",
+          "musicians",
+          "composers",
+          "natural scientists"
+        ],
+        "quote": "The soul is symphonic.",
+        "birthYear": 1098,
+        "deathYear": 1179,
+        "canonizationYear": 2012,
+        "tags": [
+          "abbess",
+          "doctor-of-the-church",
+          "mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-18",
+    "saints": [
+      {
+        "id": "joseph_of_cupertino",
+        "name": "Saint Joseph of Cupertino",
+        "feastDate": "09-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/joseph_of_cupertino.jpg",
+        "shortBio": "Saint Joseph of Cupertino was a Franciscan Conventual friar known for humility, mystical prayer, and perseverance despite learning difficulties.",
+        "fullStory": "Joseph grew up with limited education and struggled through the requirements for ordination, but his deep faith and perseverance carried him forward. As a friar and priest, he became known for prayer and mystical experiences while remaining simple and obedient. His life encourages people who face intellectual, physical, or social obstacles to trust God's grace.",
+        "patronage": [
+          "students",
+          "examinations",
+          "aviators",
+          "people with learning difficulties"
+        ],
+        "quote": "I will not leave you; I will help you.",
+        "birthYear": 1603,
+        "deathYear": 1663,
+        "canonizationYear": 1767,
+        "tags": [
+          "franciscan",
+          "mystic",
+          "students"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-19",
+    "saints": [
+      {
+        "id": "januarius_of_benevento",
+        "name": "Saint Januarius",
+        "feastDate": "09-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/januarius_of_benevento.jpg",
+        "shortBio": "Saint Januarius was a bishop and martyr whose relics are especially honored in Naples.",
+        "fullStory": "Januarius served as bishop of Benevento during the persecution of Emperor Diocletian. He visited imprisoned Christians and was eventually arrested and killed with companions for refusing to renounce the faith. Devotion to him became especially strong in Naples, where his relics and annual liturgical remembrance have played an important role in the city's religious identity.",
+        "patronage": [
+          "Naples",
+          "blood banks",
+          "volcanic eruptions",
+          "blood disorders"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 305,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "martyr",
+          "naples"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-20",
+    "saints": [
+      {
+        "id": "andrew_kim_taegon_and_companions",
+        "name": "Saint Andrew Kim Taegon and Companions",
+        "feastDate": "09-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/andrew_kim_taegon_and_companions.jpg",
+        "shortBio": "Saint Andrew Kim Taegon and his companions were Korean martyrs who helped establish and sustain the Catholic Church in Korea.",
+        "fullStory": "Andrew Kim Taegon was the first Korean-born Catholic priest and served a community that had initially received the faith through lay initiative. He secretly entered Korea to minister to Christians and was eventually arrested and executed. The memorial includes bishops, priests, missionaries, and laypeople whose collective witness helped the Korean Church endure persecution and grow.",
+        "patronage": [
+          "Korea",
+          "missionaries",
+          "persecuted Christians",
+          "priests"
+        ],
+        "quote": "We have received baptism, entered the Church, and bear the name of Christians.",
+        "birthYear": 1821,
+        "deathYear": 1846,
+        "canonizationYear": 1984,
+        "tags": [
+          "martyrs",
+          "korea",
+          "missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-21",
+    "saints": [
+      {
+        "id": "matthew_apostle_and_evangelist",
+        "name": "Saint Matthew, Apostle and Evangelist",
+        "feastDate": "09-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_matthew_evangelist.jpg",
+        "shortBio": "Saint Matthew was an Apostle and evangelist traditionally identified with the tax collector called by Jesus to follow him.",
+        "fullStory": "Matthew was a tax collector when Jesus called him, and his response showed that God's mercy can transform a person's entire direction in life. He became one of the Twelve and is traditionally associated with the Gospel according to Matthew, which presents Jesus as the fulfillment of Israel's Scriptures. His witness emphasizes conversion, discipleship, and the universal reach of the Gospel.",
+        "patronage": [
+          "accountants",
+          "bankers",
+          "tax collectors",
+          "customs officers"
+        ],
+        "quote": "Follow me.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "evangelist",
+          "convert"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-22",
+    "saints": [
+      {
+        "id": "maurice_and_companions",
+        "name": "Saint Maurice and Companions",
+        "feastDate": "09-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/maurice_and_companions.jpg",
+        "shortBio": "Saint Maurice and his companions were soldiers and martyrs traditionally associated with the Theban Legion.",
+        "fullStory": "According to ancient Christian tradition, Maurice commanded a legion of soldiers from Thebes who refused to participate in persecution or pagan sacrifice. The soldiers were executed for their Christian faith at Agaunum in the Swiss Alps. Their story became an enduring symbol of conscientious resistance and the conviction that military obedience cannot justify injustice.",
+        "patronage": [
+          "soldiers",
+          "infantry",
+          "Switzerland",
+          "cavalry"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 287,
+        "canonizationYear": null,
+        "tags": [
+          "soldiers",
+          "martyrs",
+          "conscience"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-23",
+    "saints": [
+      {
+        "id": "pio_of_pietrelcina",
+        "name": "Saint Pio of Pietrelcina",
+        "feastDate": "09-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_padre_pio.jpg",
+        "shortBio": "Saint Pio of Pietrelcina, widely known as Padre Pio, was a Capuchin priest renowned for prayer, sacramental ministry, and care for the sick.",
+        "fullStory": "Francesco Forgione entered the Capuchin Order and became known as Padre Pio after ordination. For decades he heard confessions, celebrated the Eucharist, offered spiritual direction, and endured physical and spiritual suffering, including the stigmata. He founded the Casa Sollievo della Sofferenza, a major hospital and work of mercy in San Giovanni Rotondo.",
+        "patronage": [
+          "civil defense volunteers",
+          "stress relief",
+          "the sick",
+          "Capuchins"
+        ],
+        "quote": "Pray, hope, and don't worry.",
+        "birthYear": 1887,
+        "deathYear": 1968,
+        "canonizationYear": 2002,
+        "tags": [
+          "capuchin",
+          "priest",
+          "confessor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-24",
+    "saints": [
+      {
+        "id": "our_lady_of_mercy",
+        "name": "Our Lady of Mercy",
+        "feastDate": "09-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/our_lady_of_mercy.jpg",
+        "shortBio": "Our Lady of Mercy is a Marian title associated with liberation, compassion, and the redemption of captives.",
+        "fullStory": "Devotion to Our Lady of Mercy is closely connected with the Order of the Blessed Virgin Mary of Mercy, founded to ransom Christians held captive. The title presents Mary as a compassionate mother who accompanies people imprisoned by violence, sin, poverty, or fear. It continues to inspire works of freedom, reconciliation, and care for the vulnerable.",
+        "patronage": [
+          "captives",
+          "prisoners",
+          "the enslaved",
+          "Merc Mercedarians"
+        ],
+        "quote": "They have no wine.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "mercy",
+          "liberation"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-25",
+    "saints": [
+      {
+        "id": "sergius_of_radonezh",
+        "name": "Saint Sergius of Radonezh",
+        "feastDate": "09-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sergius_of_radonezh.jpg",
+        "shortBio": "Saint Sergius of Radonezh was a Russian monk and spiritual father who renewed monastic life and encouraged Christian unity.",
+        "fullStory": "Sergius withdrew to the forest and founded the monastery that became the renowned Trinity-Sergius Lavra. Disciples gathered around him, and his example of humility, prayer, work, and hospitality helped renew Russian monasticism. He also served as a trusted spiritual adviser during political conflict and encouraged the defense and unity of the Russian people.",
+        "patronage": [
+          "Russia",
+          "monks",
+          "students",
+          "spiritual directors"
+        ],
+        "quote": "Acquire the spirit of peace and thousands around you will be saved.",
+        "birthYear": 1314,
+        "deathYear": 1392,
+        "canonizationYear": null,
+        "tags": [
+          "monk",
+          "abbot",
+          "russia"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-26",
+    "saints": [
+      {
+        "id": "cosmas_and_damian",
+        "name": "Saints Cosmas and Damian",
+        "feastDate": "09-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/cosmas_and_damian.jpg",
+        "shortBio": "Saints Cosmas and Damian were physician brothers and martyrs who cared for the sick without accepting payment.",
+        "fullStory": "Cosmas and Damian are traditionally described as Christian physicians who practiced medicine freely and used their skills as a form of evangelization and charity. During persecution, they were arrested and killed because they would not renounce Christ. Their example inspired Christian healthcare ministry and made them among the most widely venerated medical saints.",
+        "patronage": [
+          "physicians",
+          "surgeons",
+          "pharmacists",
+          "hospitals"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 303,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "physicians",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-27",
+    "saints": [
+      {
+        "id": "vincent_de_paul",
+        "name": "Saint Vincent de Paul",
+        "feastDate": "09-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/vincent_de_paul.jpg",
+        "shortBio": "Saint Vincent de Paul was a French priest and founder who organized enduring works of charity for the poor, sick, and abandoned.",
+        "fullStory": "Vincent began as a parish priest and gradually recognized the immense spiritual and material needs of rural France. He founded the Congregation of the Mission to form priests and evangelize the poor, and supported Saint Louise de Marillac in establishing the Daughters of Charity. His organized approach to service helped create a lasting Catholic tradition of practical, personal care for people in poverty.",
+        "patronage": [
+          "charitable societies",
+          "volunteers",
+          "hospitals",
+          "prisoners"
+        ],
+        "quote": "The poor have much to teach us. We have much to learn from them.",
+        "birthYear": 1581,
+        "deathYear": 1660,
+        "canonizationYear": 1737,
+        "tags": [
+          "priest",
+          "founder",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-28",
+    "saints": [
+      {
+        "id": "wenceslaus_of_bohemia",
+        "name": "Saint Wenceslaus",
+        "feastDate": "09-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/wenceslaus_of_bohemia.jpg",
+        "shortBio": "Saint Wenceslaus was a Christian duke of Bohemia remembered for justice, charity, and fidelity to the faith.",
+        "fullStory": "Wenceslaus was raised in a Christian household and became duke during a period of political and religious tension. He supported the Church, cared for the poor, and sought to strengthen Christian life in Bohemia. He was murdered by political rivals, and his memory became a powerful symbol of Christian leadership and national identity.",
+        "patronage": [
+          "Bohemia",
+          "Czech Republic",
+          "brewers",
+          "prisoners"
+        ],
+        "quote": null,
+        "birthYear": 907,
+        "deathYear": 935,
+        "canonizationYear": null,
+        "tags": [
+          "duke",
+          "martyr",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-29",
+    "saints": [
+      {
+        "id": "michael_gabriel_and_raphael_archangels",
+        "name": "Saints Michael, Gabriel, and Raphael, Archangels",
+        "feastDate": "09-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/archangels_michael_gabriel_raphael.jpg",
+        "shortBio": "Saints Michael, Gabriel, and Raphael are the three archangels named in Scripture and honored as servants of God's protection, revelation, and healing.",
+        "fullStory": "Michael appears in Scripture as a defender of God's people and a leader in the struggle against evil. Gabriel is God's messenger in the annunciations to Zechariah and Mary, while Raphael accompanies Tobias and brings healing and protection. Their shared feast celebrates the many ways God communicates, guards, and guides creation through heavenly ministers.",
+        "patronage": [
+          "police officers",
+          "messengers",
+          "travelers",
+          "healing ministries"
+        ],
+        "quote": "Who is like God?",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "archangels",
+          "protection",
+          "healing"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "09-30",
+    "saints": [
+      {
+        "id": "jerome",
+        "name": "Saint Jerome",
+        "feastDate": "09-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_jerome..jpg",
+        "shortBio": "Saint Jerome was a priest, biblical scholar, translator, and Doctor of the Church whose Latin Bible shaped Western Christianity.",
+        "fullStory": "Jerome studied classical languages and theology before devoting himself to Scripture and ascetic life. He translated the Bible into Latin, producing the Vulgate, and wrote commentaries that influenced Christian interpretation for centuries. His scholarship, intense temperament, and commitment to living according to the Word of God made him one of the Church's most important biblical teachers.",
+        "patronage": [
+          "translators",
+          "librarians",
+          "archaeologists",
+          "biblical scholars"
+        ],
+        "quote": "Ignorance of Scripture is ignorance of Christ.",
+        "birthYear": 347,
+        "deathYear": 420,
+        "canonizationYear": null,
+        "tags": [
+          "priest",
+          "doctor-of-the-church",
+          "biblical-scholar"
+        ]
+      }
+    ]
+  }
+]

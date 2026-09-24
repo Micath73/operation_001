@@ -1,0 +1,948 @@
+[
+  {
+    "feastDate": "03-01",
+    "saints": [
+      {
+        "id": "david_of_wales",
+        "name": "Saint David of Wales",
+        "feastDate": "03-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/david_of_wales.jpg",
+        "shortBio": "The patron saint of Wales, a monk-bishop known for an austere monastic rule and the founding of numerous churches and monasteries.",
+        "fullStory": "David founded a monastery at what is now St Davids, governing it under a famously strict rule that required monks to pull the plow themselves without draft animals, subsist on bread, vegetables, and water, and devote long hours to prayer and study. He is credited with founding roughly a dozen monasteries across Wales and southwest England, and his final recorded words to his monks, urging them to 'do the little things,' remain a beloved part of Welsh spiritual memory.",
+        "patronage": [
+          "Wales",
+          "Poets",
+          "Doves"
+        ],
+        "quote": "Be joyful, keep the faith, and do the little things that you have heard and seen me do.",
+        "birthYear": 500,
+        "deathYear": 589,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Founder",
+          "Welsh Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-02",
+    "saints": [
+      {
+        "id": "chad_of_mercia",
+        "name": "Saint Chad of Mercia",
+        "feastDate": "03-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/chad_of_mercia.jpg",
+        "shortBio": "An Anglo-Saxon bishop renowned for his humility, who traveled his diocese on foot until ordered by Archbishop Theodore to ride a horse.",
+        "fullStory": "Chad studied under Saint Aidan at Lindisfarne before becoming Bishop of the Mercians at Lichfield, where his simplicity of life became legendary; the Venerable Bede recounts that Archbishop Theodore of Canterbury personally lifted him onto a horse and insisted he ride rather than continue wearing himself out walking to distant parts of his diocese. He governed for only a few years before dying of plague, but left a lasting reputation for gentleness and pastoral devotion.",
+        "patronage": [
+          "Lichfield",
+          "Mercia",
+          "Medicinal springs"
+        ],
+        "quote": null,
+        "birthYear": 634,
+        "deathYear": 672,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Anglo-Saxon Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-03",
+    "saints": [
+      {
+        "id": "katharine_drexel",
+        "name": "Saint Katharine Drexel",
+        "feastDate": "03-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/katharine_drexel.jpg",
+        "shortBio": "An American heiress who gave away her fortune to found a religious congregation dedicated to the education of Native American and African American children.",
+        "fullStory": "Heir to a substantial Philadelphia banking fortune, Katharine Drexel used her inheritance to fund missions and schools for Native American and African American communities across the United States, eventually founding the Sisters of the Blessed Sacrament to continue the work permanently. Among her achievements was the founding of Xavier University of Louisiana, the first Catholic university in the country established for African American students, at a time of entrenched segregation.",
+        "patronage": [
+          "Racial justice",
+          "Philanthropists",
+          "United States"
+        ],
+        "quote": null,
+        "birthYear": 1858,
+        "deathYear": 1955,
+        "canonizationYear": 2000,
+        "tags": [
+          "Founder",
+          "American Saint",
+          "Educator"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-04",
+    "saints": [
+      {
+        "id": "casimir",
+        "name": "Saint Casimir",
+        "feastDate": "03-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/casimir.jpg",
+        "shortBio": "A Polish-Lithuanian prince who refused an arranged military invasion and a royal marriage in favor of a life of prayer, chastity, and care for the poor.",
+        "fullStory": "Second son of King Casimir IV of Poland, the young prince Casimir refused to lead an invasion of Hungary ordered by his father, judging the war unjust, and later declined a politically advantageous marriage in order to remain celibate. Despite his royal station, he was known for personal austerity, generosity to the poor, and deep devotion to the Blessed Virgin, dying of tuberculosis still in his twenties.",
+        "patronage": [
+          "Poland",
+          "Lithuania",
+          "Bachelors"
+        ],
+        "quote": null,
+        "birthYear": 1458,
+        "deathYear": 1484,
+        "canonizationYear": null,
+        "tags": [
+          "Prince",
+          "Confessor",
+          "Polish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-05",
+    "saints": [
+      {
+        "id": "john_joseph_of_the_cross",
+        "name": "Saint John Joseph of the Cross",
+        "feastDate": "03-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_joseph_of_the_cross.jpg",
+        "shortBio": "An Italian Franciscan friar known for rigorous asceticism, who declined episcopal appointment to remain in humble religious life.",
+        "fullStory": "Born on the island of Ischia, John Joseph entered the Alcantarine Franciscans as a teenager and became known for extreme personal austerity alongside deep humility, twice declining appointment as bishop in order to remain a simple friar. He served as novice master and provincial superior, guiding the reform and expansion of his order in southern Italy while maintaining the strict poverty that marked his own vocation.",
+        "patronage": [
+          "Naples",
+          "Franciscans"
+        ],
+        "quote": null,
+        "birthYear": 1654,
+        "deathYear": 1734,
+        "canonizationYear": 1839,
+        "tags": [
+          "Franciscan",
+          "Hermit",
+          "Italian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-06",
+    "saints": [
+      {
+        "id": "colette",
+        "name": "Saint Colette",
+        "feastDate": "03-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/colette.jpg",
+        "shortBio": "A French visionary and reformer who, after visions of Saint Francis and Saint Clare, restored strict poverty to the Poor Clare order across Europe.",
+        "fullStory": "After a period as a solitary anchoress, Colette experienced visions urging her to reform the Poor Clares back toward the primitive austerity of their founder, and though initially resisted, eventually received papal authorization to found and reform convents throughout France, Burgundy, and Flanders. She personally established or reformed some seventeen monasteries, insisting on strict poverty, enclosure, and simplicity, and the reformed branch of Poor Clares that follows her rule still bears her name today.",
+        "patronage": [
+          "Expectant mothers",
+          "Poor Clares"
+        ],
+        "quote": null,
+        "birthYear": 1381,
+        "deathYear": 1447,
+        "canonizationYear": 1807,
+        "tags": [
+          "Reformer",
+          "Founder",
+          "Poor Clares"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-07",
+    "saints": [
+      {
+        "id": "perpetua_felicity",
+        "name": "Saints Perpetua and Felicity",
+        "feastDate": "03-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/perpetua_felicity.jpg",
+        "shortBio": "A young noblewoman and her pregnant slave martyred together in the arena at Carthage, whose vivid prison diary survives as one of the earliest Christian texts by a woman.",
+        "fullStory": "Perpetua, a well-born catechumen and new mother, and Felicity, an enslaved woman who gave birth in prison shortly before her execution, were martyred together in the amphitheater at Carthage during a persecution under Emperor Septimius Severus. Perpetua's own prison journal, describing her visions and her father's anguished pleas for her to recant, survives as one of the most moving and historically significant documents of the early Church, read publicly in North African liturgies for centuries.",
+        "patronage": [
+          "Mothers",
+          "Expectant mothers",
+          "Ranchers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 203,
+        "canonizationYear": null,
+        "tags": [
+          "Martyr",
+          "Early Church",
+          "Carthage"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-08",
+    "saints": [
+      {
+        "id": "john_of_god",
+        "name": "Saint John of God",
+        "feastDate": "03-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_of_god.jpg",
+        "shortBio": "A former soldier and bookseller whose dramatic public breakdown led him to found a hospital order dedicated to the sick and mentally ill.",
+        "fullStory": "After a restless early life as a soldier and later a bookseller in Granada, John underwent an intense public conversion experience after hearing a sermon by John of Ávila, an episode so extreme that he was briefly confined among the mentally ill himself. That experience gave him deep empathy for the suffering, and he founded a hospital in Granada that grew into the Brothers Hospitallers of Saint John of God, an order still dedicated worldwide to nursing and psychiatric care.",
+        "patronage": [
+          "Hospitals",
+          "Nurses",
+          "The sick",
+          "Booksellers"
+        ],
+        "quote": null,
+        "birthYear": 1495,
+        "deathYear": 1550,
+        "canonizationYear": 1690,
+        "tags": [
+          "Founder",
+          "Hospitaller",
+          "Spanish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-09",
+    "saints": [
+      {
+        "id": "frances_of_rome",
+        "name": "Saint Frances of Rome",
+        "feastDate": "03-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/frances_of_rome.jpg",
+        "shortBio": "A Roman noblewoman who balanced decades of devoted family life with founding a community of women dedicated to serving the poor.",
+        "fullStory": "Married at a young age into Roman nobility, Frances combined an exemplary married and family life with deep prayer and organized care for plague victims and the poor during periods of war and famine in Rome. After her husband's death she formally entered the community of oblate women she had founded years earlier, and is remembered for reported visions and for a guardian angel devotion long associated with her life.",
+        "patronage": [
+          "Motorists",
+          "Widows",
+          "Rome"
+        ],
+        "quote": null,
+        "birthYear": 1384,
+        "deathYear": 1440,
+        "canonizationYear": 1608,
+        "tags": [
+          "Founder",
+          "Widow",
+          "Roman Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-10",
+    "saints": [
+      {
+        "id": "john_ogilvie",
+        "name": "Saint John Ogilvie",
+        "feastDate": "03-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_ogilvie.jpg",
+        "shortBio": "A Scottish Jesuit who returned to his homeland in secret to minister to Catholics under Reformation-era penal laws, and was executed for refusing to acknowledge royal supremacy over the Church.",
+        "fullStory": "Raised Calvinist, Ogilvie converted to Catholicism as a teenager while studying on the continent and later joined the Jesuits, eventually requesting a dangerous assignment as an underground missionary priest in his native Scotland, where Catholic worship was outlawed. Captured after only a few months of secret ministry, he was tortured and repeatedly pressed to acknowledge the king's supremacy over the Church, refusing to the end, and was hanged in Glasgow.",
+        "patronage": [
+          "Scotland",
+          "Converts"
+        ],
+        "quote": null,
+        "birthYear": 1579,
+        "deathYear": 1615,
+        "canonizationYear": 1976,
+        "tags": [
+          "Jesuit",
+          "Martyr",
+          "Scottish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-11",
+    "saints": [
+      {
+        "id": "eulogius_of_cordoba",
+        "name": "Saint Eulogius of Córdoba",
+        "feastDate": "03-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/eulogius_of_cordoba.jpg",
+        "shortBio": "A priest and scholar who chronicled and encouraged the Christian martyrs of Córdoba under Muslim rule, before himself being executed.",
+        "fullStory": "A learned priest in Córdoba during a period of Umayyad Muslim rule in Spain, Eulogius documented and defended a wave of Christians who publicly professed their faith and were executed as a result, writing the Memoriale Sanctorum to preserve their memory against local clergy who judged the martyrdoms imprudent. He was ultimately arrested himself for sheltering a Christian convert and was beheaded, becoming one of the very martyrs whose stories he had worked to preserve.",
+        "patronage": [
+          "Córdoba",
+          "Writers",
+          "Historians"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 859,
+        "canonizationYear": null,
+        "tags": [
+          "Priest",
+          "Martyr",
+          "Chronicler"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-12",
+    "saints": [
+      {
+        "id": "maximilian_of_theveste",
+        "name": "Saint Maximilian of Theveste",
+        "feastDate": "03-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/maximilian_of_theveste.jpg",
+        "shortBio": "A twenty-one-year-old North African conscript executed for refusing, on grounds of Christian conscience, to serve in the Roman army.",
+        "fullStory": "Brought before a Roman proconsul in North Africa for compulsory military enrollment, the young Maximilian declared that his Christian faith forbade him to bear arms and serve as a soldier, refusing repeated attempts by the court to persuade or coerce him into accepting the military mark. The detailed court record of his trial and execution survives as one of history's earliest documented cases of conscientious objection on religious grounds.",
+        "patronage": [
+          "Conscientious objectors"
+        ],
+        "quote": null,
+        "birthYear": 274,
+        "deathYear": 295,
+        "canonizationYear": null,
+        "tags": [
+          "Martyr",
+          "Conscientious Objector",
+          "North African Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-13",
+    "saints": [
+      {
+        "id": "rodrigo_of_cordoba",
+        "name": "Saint Rodrigo of Córdoba",
+        "feastDate": "03-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/rodrigo_of_cordoba.jpg",
+        "shortBio": "A Christian priest of Córdoba, betrayed by his own brother, who was executed alongside a fellow convert during the Córdoban martyrdoms.",
+        "fullStory": "Rodrigo, a priest injured and left for dead by his own Muslim-convert brother during a family dispute, was falsely reported to have converted to Islam while unconscious, and upon recovering he publicly reaffirmed his Christian priesthood, a declaration that under the law of the time carried a death sentence. Imprisoned alongside a former Muslim convert to Christianity named Salomon, the two were executed together, their story preserved by their contemporary Saint Eulogius.",
+        "patronage": [
+          "Córdoba",
+          "Falsely accused"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 857,
+        "canonizationYear": null,
+        "tags": [
+          "Priest",
+          "Martyr",
+          "Córdoban Martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-14",
+    "saints": [
+      {
+        "id": "matilda_of_germany",
+        "name": "Saint Matilda of Germany",
+        "feastDate": "03-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/matilda_of_germany.jpg",
+        "shortBio": "A Saxon queen and mother of Emperor Otto I, remembered for founding monasteries and for her extensive charity to the poor.",
+        "fullStory": "Matilda married the Saxon duke Henry, who became King of Germany, and after his death used her position and resources to found or endow numerous convents and monasteries, most notably Quedlinburg Abbey. Though her sons later quarreled bitterly over the succession and at times moved against her, she continued her charitable and monastic patronage until her death, remembered by chroniclers for combining royal authority with genuine humility and generosity to the poor.",
+        "patronage": [
+          "Queens",
+          "Widows",
+          "Large families"
+        ],
+        "quote": null,
+        "birthYear": 895,
+        "deathYear": 968,
+        "canonizationYear": null,
+        "tags": [
+          "Queen",
+          "Founder",
+          "German Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-15",
+    "saints": [
+      {
+        "id": "louise_de_marillac",
+        "name": "Saint Louise de Marillac",
+        "feastDate": "03-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/louise_de_marillac.jpg",
+        "shortBio": "Co-founder with Saint Vincent de Paul of the Daughters of Charity, a pioneering community of women religious who served the poor directly in the world rather than behind convent walls.",
+        "fullStory": "Widowed and searching for a clear sense of vocation, Louise de Marillac found a spiritual director and collaborator in Vincent de Paul, with whom she organized and trained groups of laywomen to visit and serve the sick poor in their homes. Together they formalized this work into the Daughters of Charity, an unusually mobile and uncloistered community for its era, whose members Vincent famously described as having 'no monastery but the streets.'",
+        "patronage": [
+          "Social workers",
+          "Widows",
+          "Orphans"
+        ],
+        "quote": "The love of Jesus Christ crucified is so great that he finds means to associate us with his sufferings.",
+        "birthYear": 1591,
+        "deathYear": 1660,
+        "canonizationYear": 1934,
+        "tags": [
+          "Founder",
+          "Daughters of Charity",
+          "French Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-16",
+    "saints": [
+      {
+        "id": "heribert_of_cologne",
+        "name": "Saint Heribert of Cologne",
+        "feastDate": "03-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/heribert_of_cologne.jpg",
+        "shortBio": "Archbishop of Cologne and chancellor to Emperor Otto III, known for his humility, peacemaking, and generosity during a severe famine.",
+        "fullStory": "Before his elevation to the archbishopric of Cologne, Heribert served as chancellor to the young Emperor Otto III, guiding imperial policy with a reputation for fairness. As archbishop, he became known for personal simplicity despite his high office, for mediating conflicts among German nobles, and for distributing grain from his own stores during a devastating famine that struck the region.",
+        "patronage": [
+          "Cologne",
+          "Against drought and rain"
+        ],
+        "quote": null,
+        "birthYear": 970,
+        "deathYear": 1021,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "German Saint",
+          "Peacemaker"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-17",
+    "saints": [
+      {
+        "id": "patrick",
+        "name": "Saint Patrick, Bishop",
+        "feastDate": "03-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st_patrick.jpg",
+        "shortBio": "A Romano-British youth enslaved in Ireland who later returned as a missionary bishop, credited with establishing Christianity across the island.",
+        "fullStory": "Captured by Irish raiders as a teenager and enslaved for six years tending sheep, Patrick escaped back to Britain but felt called in a dream to return to Ireland as a missionary. His own writings, the Confessio and Letter to Coroticus, are among the earliest surviving texts from Ireland, describing decades of missionary travel, the founding of churches, and confrontation with local kings and druidic culture; he remains Ireland's principal patron and the feast is a major civic and religious celebration for the Irish diaspora worldwide.",
+        "patronage": [
+          "Ireland",
+          "Engineers",
+          "Against snakes"
+        ],
+        "quote": "I arise today through a mighty strength, the invocation of the Trinity.",
+        "birthYear": 385,
+        "deathYear": 461,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Missionary",
+          "Patron of Ireland"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-18",
+    "saints": [
+      {
+        "id": "cyril_of_jerusalem",
+        "name": "Saint Cyril of Jerusalem, Bishop and Doctor",
+        "feastDate": "03-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/cyril_of_jerusalem.jpg",
+        "shortBio": "A fourth-century bishop whose catechetical lectures to new converts remain a vital source for understanding early Christian sacramental teaching.",
+        "fullStory": "Cyril served as Bishop of Jerusalem during a turbulent period marked by Arian controversy, and was exiled from his see three separate times over doctrinal and political disputes before being finally restored. His Catechetical Lectures, delivered to candidates preparing for baptism, offer an extraordinarily detailed window into fourth-century liturgy, sacramental theology, and the holy sites of Jerusalem as experienced by early Christian pilgrims.",
+        "patronage": [
+          "Catechists",
+          "Jerusalem"
+        ],
+        "quote": null,
+        "birthYear": 313,
+        "deathYear": 386,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Bishop",
+          "Catechist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-19",
+    "saints": [
+      {
+        "id": "st-joseph",
+        "name": "Saint Joseph, Spouse of the Blessed Virgin Mary",
+        "feastDate": "03-19",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/st_joseph.jpg",
+        "shortBio": "The foster father of Jesus and spouse of Mary, honored as patron of the Universal Church for his silent, faithful obedience to God's will.",
+        "fullStory": "A humble carpenter of Nazareth, Joseph was chosen by God to be the guardian of Mary and the earthly father of Jesus. Scripture records not a single word he spoke, yet calls him a 'just man' who obeyed the angel's instructions without hesitation, taking Mary as his wife, naming the child Jesus, and leading the Holy Family to safety in Egypt and back. His quiet, steadfast fidelity in the face of confusing and difficult circumstances has made him a model of trust in God for every generation since.",
+        "patronage": [
+          "Universal Church",
+          "Workers",
+          "Fathers",
+          "Immigrants",
+          "A Happy Death"
+        ],
+        "quote": "Joseph did as the angel of the Lord commanded him.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Patriarch",
+          "Solemnity",
+          "Holy Family"
+        ]
+      },
+      {
+        "id": "st-landoald",
+        "name": "Saint Landoald",
+        "feastDate": "03-19",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st-landoald.jpg",
+        "shortBio": "A seventh-century missionary priest venerated in the Low Countries for evangelizing regions of present-day Belgium and the Netherlands.",
+        "fullStory": "Landoald was a priest who, alongside a small group of companions, undertook missionary work along the Scheldt river in the territory that is now Belgium and the southern Netherlands, founding communities of faith in a still largely pagan countryside. His relics were later enshrined at Ghent, and his memory was preserved through local veneration in the dioceses his mission helped establish.",
+        "patronage": [
+          "Missionaries",
+          "Low Countries"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 668,
+        "canonizationYear": null,
+        "tags": [
+          "Priest",
+          "Missionary",
+          "Founder"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-20",
+    "saints": [
+      {
+        "id": "cuthbert_of_lindisfarne",
+        "name": "Saint Cuthbert of Lindisfarne",
+        "feastDate": "03-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/cuthbert_of_lindisfarne.jpg",
+        "shortBio": "A beloved Anglo-Saxon monk-bishop of Lindisfarne, renowned for his austere hermitage on the Farne Islands and his gift for reconciling rival factions in the early English Church.",
+        "fullStory": "Cuthbert entered monastic life after a vision on the night Saint Aidan died, and rose to become prior of Lindisfarne before withdrawing to a solitary hermitage on the remote Farne Islands, living close to seabirds and seals he is said to have protected. Reluctantly persuaded to accept the bishopric of Lindisfarne, he worked to heal the divisions left by the Synod of Whitby's ruling on the date of Easter, and his tomb became one of medieval England's most important pilgrimage sites.",
+        "patronage": [
+          "Northumbria",
+          "Shepherds",
+          "Sailors"
+        ],
+        "quote": null,
+        "birthYear": 634,
+        "deathYear": 687,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Hermit",
+          "Anglo-Saxon Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-21",
+    "saints": [
+      {
+        "id": "nicholas_of_flue",
+        "name": "Saint Nicholas of Flüe",
+        "feastDate": "03-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/nicholas_of_flue.jpg",
+        "shortBio": "A Swiss farmer, soldier, and father of ten who became a hermit late in life and whose counsel is credited with preventing a civil war among the Swiss cantons.",
+        "fullStory": "After a successful life as a farmer, magistrate, and soldier, and with his wife's consent, Nicholas left his family at nearly fifty years old to live as a hermit in a nearby ravine, surviving, tradition holds, on the Eucharist alone for the last decades of his life. His reputation for wisdom drew a stream of visitors seeking counsel, and in 1481 his advice, delivered through intermediaries, is credited with resolving a dispute that threatened to fracture the Swiss Confederation into civil war, earning him lasting honor as father of his country.",
+        "patronage": [
+          "Switzerland",
+          "Peacemakers",
+          "Large families"
+        ],
+        "quote": null,
+        "birthYear": 1417,
+        "deathYear": 1487,
+        "canonizationYear": 1947,
+        "tags": [
+          "Hermit",
+          "Peacemaker",
+          "Swiss Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-22",
+    "saints": [
+      {
+        "id": "nicholas_owen",
+        "name": "Saint Nicholas Owen",
+        "feastDate": "03-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/nicholas_owen.jpg",
+        "shortBio": "A Jesuit lay brother and master carpenter who spent decades secretly building hiding places for priests in English manor houses during the penal era.",
+        "fullStory": "A skilled carpenter and mason, Nicholas Owen used his trade as cover to travel the country constructing ingenious hidden chambers, or 'priest holes,' within the walls, staircases, and chimneys of Catholic manor houses, sheltering hunted priests from government search parties during England's anti-Catholic penal laws. Arrested and tortured on the rack multiple times over his long clandestine career, he died from his injuries in the Tower of London without ever betraying the location of a single hiding place he had built.",
+        "patronage": [
+          "Escapologists",
+          "Builders",
+          "Hidden things"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 1606,
+        "canonizationYear": 1970,
+        "tags": [
+          "Jesuit",
+          "Martyr",
+          "English Martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-23",
+    "saints": [
+      {
+        "id": "turibius_of_mogrovejo",
+        "name": "Saint Turibius of Mogrovejo, Bishop",
+        "feastDate": "03-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/turibius_of_mogrovejo.jpg",
+        "shortBio": "A Spanish lawyer sent to Peru as archbishop, who traveled tirelessly across the rugged colonial diocese defending the rights of indigenous peoples.",
+        "fullStory": "A layman and legal scholar in Spain, Turibius was unexpectedly appointed Archbishop of Lima despite not yet being ordained, and upon arrival in Peru undertook enormous overland journeys across mountains and jungle to visit every corner of his vast diocese, often on foot. He organized councils that established seminaries and standardized pastoral practice across Spanish America, while consistently and often controversially defending indigenous peoples against the abuses of colonial administrators and encomenderos.",
+        "patronage": [
+          "Peru",
+          "Bishops",
+          "Indigenous rights"
+        ],
+        "quote": null,
+        "birthYear": 1538,
+        "deathYear": 1606,
+        "canonizationYear": 1726,
+        "tags": [
+          "Bishop",
+          "Missionary",
+          "South American Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-24",
+    "saints": [
+      {
+        "id": "oscar_romero",
+        "name": "Saint Oscar Romero",
+        "feastDate": "03-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/oscar_romero.jpg",
+        "shortBio": "Archbishop of San Salvador, assassinated while celebrating Mass for speaking out against violence and injustice during El Salvador's civil conflict.",
+        "fullStory": "Initially seen as a cautious, bookish choice for archbishop, Romero was transformed by the murder of a close friend, a Jesuit priest who worked among the rural poor, into an outspoken defender of human rights amid escalating political violence in El Salvador. His weekly radio homilies, broadcasting accounts of disappearances and killings to a terrified population, made him a target, and he was shot dead at the altar the day after publicly calling on soldiers to stop obeying orders to kill civilians.",
+        "patronage": [
+          "El Salvador",
+          "Human rights",
+          "Journalists"
+        ],
+        "quote": "A church that doesn't provoke any crises, a gospel that doesn't unsettle, is not the gospel.",
+        "birthYear": 1917,
+        "deathYear": 1980,
+        "canonizationYear": 2018,
+        "tags": [
+          "Bishop",
+          "Martyr",
+          "Modern Martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-25",
+    "saints": [
+      {
+        "id": "annunciation_of_the_lord",
+        "name": "The Annunciation of the Lord",
+        "feastDate": "03-25",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/annunciation_of_the_lord.jpg",
+        "shortBio": "Commemorates the angel Gabriel's announcement to Mary that she would conceive and bear the Son of God, and her consent that made the Incarnation possible.",
+        "fullStory": "The Gospel of Luke recounts that the angel Gabriel appeared to Mary in Nazareth, greeting her as 'full of grace' and announcing that she would conceive by the Holy Spirit and bear a son to be called Jesus, Son of the Most High. Despite her initial trouble at the greeting, Mary responded with her free and total consent, 'Let it be done to me according to your word,' a moment the Church regards as the pivotal instant of the Incarnation, set nine months before Christmas.",
+        "patronage": [
+          "Mankind",
+          "Unborn children",
+          "Missionaries"
+        ],
+        "quote": "Let it be done to me according to your word.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Solemnity",
+          "Incarnation",
+          "Marian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-26",
+    "saints": [
+      {
+        "id": "ludger",
+        "name": "Saint Ludger",
+        "feastDate": "03-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/ludger.jpg",
+        "shortBio": "A Frisian-born missionary bishop who evangelized the Saxons and Frisians and became the first Bishop of Münster.",
+        "fullStory": "Trained partly in England under the influence of Alcuin, Ludger returned to the continent to continue the missionary work of destroying pagan shrines and founding churches among the Frisians, later extending his mission into Saxon territory following its forced conversion under Charlemagne. He founded the monastery of Werden and became the first bishop of the newly established see of Münster, remembered for a gentler missionary style than some of his contemporaries.",
+        "patronage": [
+          "Münster",
+          "Frisia",
+          "The blind"
+        ],
+        "quote": null,
+        "birthYear": 742,
+        "deathYear": 809,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Missionary",
+          "Founder"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-27",
+    "saints": [
+      {
+        "id": "rupert_of_salzburg",
+        "name": "Saint Rupert of Salzburg",
+        "feastDate": "03-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/rupert_of_salzburg.jpg",
+        "shortBio": "A Frankish bishop who traveled down the Danube to reestablish Christianity in Bavaria and founded the great abbey and see of Salzburg.",
+        "fullStory": "Invited by a Bavarian duke to reintroduce Christianity into a region where it had lapsed, Rupert traveled from Worms down the Danube, preaching and founding churches along the way, before settling at the ruins of the old Roman town of Juvavum, which he refounded as Salzburg, establishing both a monastery and the diocesan see that continues there today. He is remembered as a key figure in reconnecting Bavaria and Austria to the wider Frankish Christian world.",
+        "patronage": [
+          "Salzburg",
+          "Salt workers",
+          "Bavaria"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 710,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Founder",
+          "Missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-28",
+    "saints": [
+      {
+        "id": "tutilo",
+        "name": "Saint Tutilo",
+        "feastDate": "03-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/tutilo.jpg",
+        "shortBio": "A remarkably versatile monk of the Abbey of Saint Gall, celebrated as a gifted sculptor, painter, architect, and composer of liturgical music.",
+        "fullStory": "A monk of the renowned Swiss Abbey of Saint Gall, Tutilo was famed among his contemporaries for an unusual range of artistic gifts, working as a carver of ivory and metalwork, a painter, an architect, and a composer whose liturgical tropes were sung well beyond his own monastery. Chronicles describe him also as a skilled debater and public speaker, sent to represent his abbey in negotiations with civil authorities, making him one of the great creative polymaths of the early medieval monastic world.",
+        "patronage": [
+          "Artists",
+          "Musicians",
+          "Saint Gall"
+        ],
+        "quote": null,
+        "birthYear": 850,
+        "deathYear": 915,
+        "canonizationYear": null,
+        "tags": [
+          "Monk",
+          "Artist",
+          "Composer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-29",
+    "saints": [
+      {
+        "id": "jonas_barachisius",
+        "name": "Saints Jonas and Barachisius",
+        "feastDate": "03-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/jonas_barachisius.jpg",
+        "shortBio": "Persian brothers martyred under Shah Shapur II after traveling to encourage Christians condemned to death for refusing to worship the sun.",
+        "fullStory": "During a severe persecution of Christians in the Persian Empire under Shah Shapur II, the brothers Jonas and Barachisius traveled to visit and strengthen a group of believers sentenced to death for refusing sun worship. Their open show of support led to their own arrest, and accounts describe prolonged and severe tortures inflicted on each brother in an effort to force recantation, torments they endured together until their deaths.",
+        "patronage": [
+          "Persia",
+          "Persecuted Christians"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 327,
+        "canonizationYear": null,
+        "tags": [
+          "Martyr",
+          "Persian Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-30",
+    "saints": [
+      {
+        "id": "john_climacus",
+        "name": "Saint John Climacus",
+        "feastDate": "03-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_climacus.jpg",
+        "shortBio": "A monk of Mount Sinai whose spiritual classic, 'The Ladder of Divine Ascent,' has shaped Eastern and Western monastic formation for over a thousand years.",
+        "fullStory": "John spent decades as a hermit and later abbot at the monastery of Saint Catherine on Mount Sinai, where he composed the Ladder of Divine Ascent at the request of a neighboring abbot, structuring the spiritual life as thirty rungs of a ladder rising from renunciation of the world to the summit of divine love. The work became one of the most widely read texts of Eastern Christian spirituality, read in its entirety in many monasteries every Lent, and remains foundational to both Byzantine and Western ascetic theology.",
+        "patronage": [
+          "Monastics",
+          "Mount Sinai",
+          "Spiritual writers"
+        ],
+        "quote": "Angels are a light for monks, and the monastic life is a light for all men.",
+        "birthYear": 579,
+        "deathYear": 649,
+        "canonizationYear": null,
+        "tags": [
+          "Monk",
+          "Spiritual Writer",
+          "Desert Father"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "03-31",
+    "saints": [
+      {
+        "id": "benjamin_deacon",
+        "name": "Saint Benjamin",
+        "feastDate": "03-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/benjamin_deacon.jpg",
+        "shortBio": "A Persian deacon imprisoned for a year and finally martyred under gruesome torture rather than cease preaching the Gospel.",
+        "fullStory": "According to the Church historian Theodoret, the deacon Benjamin was imprisoned during a persecution of Christians in Persia and, after a year of confinement, was offered release on the sole condition that he stop preaching Christianity, an offer he refused. Released briefly and continuing to preach regardless, he was seized again and subjected to brutal torture involving sharpened reeds before his execution, his steadfastness recorded as an example of endurance under the Persian persecutions.",
+        "patronage": [
+          "Deacons",
+          "Persecuted Christians",
+          "Persia"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 421,
+        "canonizationYear": null,
+        "tags": [
+          "Deacon",
+          "Martyr",
+          "Persian Church"
+        ]
+      }
+    ]
+  }
+]

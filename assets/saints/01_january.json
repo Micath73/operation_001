@@ -1,0 +1,1019 @@
+[
+  {
+    "feastDate": "01-01",
+    "saints": [
+      {
+        "id": "mary_mother_of_god",
+        "name": "Solemnity of Mary, Mother of God",
+        "feastDate": "01-01",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/st_mary_mother_of_God.jpg",
+        "shortBio": "The oldest Marian feast in the Roman liturgy, honoring Mary's divine motherhood on the octave day of Christmas.",
+        "fullStory": "Celebrated on the eighth day of the Christmas octave, this solemnity proclaims the ancient title Theotokos, 'God-bearer,' affirmed at the Council of Ephesus in 431. The feast places Mary's fiat, her total yes to God at the Annunciation, at the threshold of the new year, inviting the faithful to begin the calendar by contemplating the mystery of the Incarnation through her motherhood. It is also World Day of Peace in the modern Roman calendar.",
+        "patronage": [
+          "Mankind",
+          "Mothers",
+          "World Peace"
+        ],
+        "quote": "Behold the handmaid of the Lord; be it done unto me according to thy word.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Mary",
+          "Marian",
+          "Solemnity",
+          "Christmas Octave"
+        ]
+      },
+      {
+        "id": "telemachus",
+        "name": "Saint Telemachus",
+        "feastDate": "01-01",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/telemachus.jpg",
+        "shortBio": "An Eastern monk traditionally remembered for entering the Roman arena to stop a gladiatorial contest, dying in the attempt.",
+        "fullStory": "According to the historian Theodoret, Telemachus was a monk who traveled to Rome and, horrified by the bloodshed of the games, leapt into the arena to separate combatants. He was killed by the enraged crowd or by a gladiator's blade, but his death is said to have shocked Emperor Honorius into finally ending gladiatorial combat in the city. Details of his life come down through a single ancient account, and modern historians debate specifics, but he remains a potent symbol of individual conscience confronting institutionalized violence.",
+        "patronage": [
+          "Peacemakers",
+          "Opponents of violence"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 404,
+        "canonizationYear": null,
+        "tags": [
+          "Martyr",
+          "Monk",
+          "Peace"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-02",
+    "saints": [
+      {
+        "id": "basil_gregory",
+        "name": "Saints Basil the Great and Gregory Nazianzen",
+        "feastDate": "01-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/basil_gregory.jpg",
+        "shortBio": "Two towering fourth-century bishops and Doctors of the Church, close friends who shaped Christian theology and monastic life in Cappadocia.",
+        "fullStory": "Basil of Caesarea and Gregory of Nazianzus studied together in Athens before Basil became a monastic legislator and bishop, and Gregory a reluctant bishop and gifted orator later called 'the Theologian.' Together with Basil's brother Gregory of Nyssa, they are known as the Cappadocian Fathers, whose writings defended the divinity of Christ and the Holy Spirit against Arianism and shaped the Nicene Creed's final form. Basil's Rule remains foundational to Eastern monasticism, while Gregory's orations on the Trinity remain classics of theological literature.",
+        "patronage": [
+          "Theologians",
+          "Cappadocia",
+          "Monastics"
+        ],
+        "quote": "Let us become like Christ, since Christ became like us.",
+        "birthYear": 329,
+        "deathYear": 379,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Cappadocian Fathers",
+          "Bishop"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-03",
+    "saints": [
+      {
+        "id": "holy_name_jesus",
+        "name": "The Most Holy Name of Jesus",
+        "feastDate": "01-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/holy_name_jesus.jpg",
+        "shortBio": "A devotional feast honoring the name given to the Christ Child at his circumcision, 'Jesus,' meaning 'God saves.'",
+        "fullStory": "Rooted in Luke's Gospel account of the naming of Jesus eight days after his birth, this observance grew from medieval devotion promoted especially by Saint Bernardine of Siena and the Franciscans, who preached the power and sweetness of the Holy Name. The feast reminds the faithful that in Scripture a name reveals identity and mission: Jesus, 'Yeshua,' proclaims from infancy that this child's purpose is salvation.",
+        "patronage": [
+          "Preachers",
+          "Evangelization"
+        ],
+        "quote": "At the name of Jesus every knee should bend.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Devotional Feast",
+          "Christology"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-04",
+    "saints": [
+      {
+        "id": "elizabeth_ann_seton",
+        "name": "Saint Elizabeth Ann Seton",
+        "feastDate": "01-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/elizabeth_ann_seton.jpg",
+        "shortBio": "The first native-born United States citizen to be canonized; widowed mother, convert, and founder of the American Sisters of Charity.",
+        "fullStory": "Born into a prominent New York Episcopalian family, Elizabeth Bayley Seton was widowed at 29 with five children and, after encountering Catholicism in Italy, converted in 1805 despite losing much of her social standing. She moved to Emmitsburg, Maryland, where she founded the Sisters of Charity of St. Joseph, established a free Catholic school considered the seed of the American parochial school system, and wrote extensively on spirituality amid grief and hardship.",
+        "patronage": [
+          "Catholic schools",
+          "Widows",
+          "Converts",
+          "United States"
+        ],
+        "quote": "Live simply, so that others may simply live.",
+        "birthYear": 1774,
+        "deathYear": 1821,
+        "canonizationYear": 1975,
+        "tags": [
+          "Founder",
+          "American Saint",
+          "Educator"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-05",
+    "saints": [
+      {
+        "id": "john_neumann",
+        "name": "Saint John Neumann",
+        "feastDate": "01-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_neumann.jpg",
+        "shortBio": "Bohemian-born bishop of Philadelphia who organized the first American diocesan Catholic school system.",
+        "fullStory": "John Nepomucene Neumann emigrated from Bohemia to the United States in 1836 and was ordained a priest for the New York frontier before joining the Redemptorists. As Bishop of Philadelphia from 1852, he built dozens of new schools and parishes to serve waves of immigrants, wrote catechisms, and was known for tireless pastoral visits on foot. He remains the first American bishop to be canonized.",
+        "patronage": [
+          "Catholic educators",
+          "Immigrants",
+          "Sick people"
+        ],
+        "quote": null,
+        "birthYear": 1811,
+        "deathYear": 1860,
+        "canonizationYear": 1977,
+        "tags": [
+          "Bishop",
+          "American Saint",
+          "Redemptorist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-06",
+    "saints": [
+      {
+        "id": "epiphany",
+        "name": "The Epiphany of the Lord",
+        "feastDate": "01-06",
+        "isPrimary": true,
+        "isSolemnity": true,
+        "liturgicalRank": "Solemnity",
+        "imagePath": "assets/saints/epiphany_of_the_lord.jpg",
+        "shortBio": "The solemnity commemorating the manifestation of Christ to the Gentiles, represented by the visit of the Magi.",
+        "fullStory": "Epiphany, from the Greek for 'manifestation,' celebrates the revelation of Christ's identity to the wider world, traditionally through the Magi who followed a star from the East bearing gold, frankincense, and myrrh. In many countries the date is fixed to January 6, while in others the celebration is transferred to the nearest Sunday. Eastern Christian traditions closely associate the feast with Christ's baptism in the Jordan.",
+        "patronage": [
+          "Travelers",
+          "Astronomers",
+          "Missionaries"
+        ],
+        "quote": "We have seen his star in the East, and are come to worship him.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Solemnity",
+          "Christmas Season",
+          "Magi"
+        ]
+      },
+      {
+        "id": "andre_bessette",
+        "name": "Saint André Bessette",
+        "feastDate": "01-06",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/andre_bessette.jpg",
+        "shortBio": "A frail, largely uneducated Holy Cross brother who became a renowned healer and built Saint Joseph's Oratory in Montreal.",
+        "fullStory": "Alfred Bessette joined the Congregation of Holy Cross despite chronic ill health and was assigned as a porter at a Montreal college, a post he held for decades. Devoted to Saint Joseph, he attributed thousands of reported healings among visitors to his intercession rather than his own hand, and used donations to build the great Oratory of Saint Joseph, now a major pilgrimage site.",
+        "patronage": [
+          "The sick",
+          "Saint Joseph devotion",
+          "Doorkeepers"
+        ],
+        "quote": "Love the Blessed Virgin and she will obtain the love of Jesus for you.",
+        "birthYear": 1845,
+        "deathYear": 1937,
+        "canonizationYear": 2010,
+        "tags": [
+          "Religious Brother",
+          "Holy Cross",
+          "Canadian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-07",
+    "saints": [
+      {
+        "id": "raymond_penyafort",
+        "name": "Saint Raymond of Penyafort",
+        "feastDate": "01-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/raymond_penyafort.jpg",
+        "shortBio": "Catalan Dominican canon lawyer who compiled the definitive medieval collection of Church law for Pope Gregory IX.",
+        "fullStory": "A professor of law before joining the Dominicans, Raymond was commissioned by Pope Gregory IX to organize the vast and scattered body of papal decretals into a single authoritative code, the Decretales, which governed Church law for centuries. He later served as Master General of the Dominican Order, reformed its constitutions, and promoted the study of Arabic and Hebrew to aid the conversion of Muslims and Jews in Spain.",
+        "patronage": [
+          "Canon lawyers",
+          "Moroccan traders"
+        ],
+        "quote": null,
+        "birthYear": 1175,
+        "deathYear": 1275,
+        "canonizationYear": null,
+        "tags": [
+          "Dominican",
+          "Canon Law",
+          "Confessor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-08",
+    "saints": [
+      {
+        "id": "severinus_noricum",
+        "name": "Saint Severinus of Noricum",
+        "feastDate": "01-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/severinus_noricum.jpg",
+        "shortBio": "A monk of mysterious origin who ministered to Roman refugees along the Danube as the empire's frontier collapsed.",
+        "fullStory": "Little is known of Severinus's birthplace, but he appeared in the Roman province of Noricum, along the Danube, during the chaotic final decades of Roman rule in the West. He organized relief for famine-stricken towns, ransomed captives from Germanic raiders, and founded monasteries, becoming a stabilizing spiritual presence as imperial authority disintegrated around him. His disciple Eugippius wrote a vivid biography preserving these events.",
+        "patronage": [
+          "Refugees",
+          "Danube region"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 482,
+        "canonizationYear": null,
+        "tags": [
+          "Monk",
+          "Missionary",
+          "Late Antiquity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-09",
+    "saints": [
+      {
+        "id": "adrian_canterbury",
+        "name": "Saint Adrian of Canterbury",
+        "feastDate": "01-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/adrian_canterbury.jpg",
+        "shortBio": "North African-born abbot who transformed Canterbury into a center of learning in Anglo-Saxon England.",
+        "fullStory": "Adrian, an abbot from North Africa, was sent by Pope Vitalian to accompany Archbishop Theodore of Tarsus to England. At the abbey of Saints Peter and Paul in Canterbury, he taught Greek, Latin, Scripture, and the sciences, drawing students from across England and helping to seed the flowering of Anglo-Saxon scholarship associated with figures like the Venerable Bede.",
+        "patronage": [
+          "Teachers",
+          "Students",
+          "Canterbury"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 710,
+        "canonizationYear": null,
+        "tags": [
+          "Abbot",
+          "Educator",
+          "Anglo-Saxon England"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-10",
+    "saints": [
+      {
+        "id": "gregory_nyssa",
+        "name": "Saint Gregory of Nyssa",
+        "feastDate": "01-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/gregory_nyssa.jpg",
+        "shortBio": "Cappadocian bishop, philosopher-theologian, and younger brother of Saint Basil, celebrated for his mystical writings.",
+        "fullStory": "Gregory of Nyssa, brother of Basil the Great and friend of Gregory Nazianzen, brought a philosophical depth to Trinitarian theology and is remembered for his mystical theology of unending spiritual progress, or epektasis, in the soul's pursuit of the infinite God. He played a key role at the Council of Constantinople in 381, which affirmed the divinity of the Holy Spirit.",
+        "patronage": [
+          "Philosophers",
+          "Theologians"
+        ],
+        "quote": null,
+        "birthYear": 335,
+        "deathYear": 395,
+        "canonizationYear": null,
+        "tags": [
+          "Cappadocian Fathers",
+          "Bishop",
+          "Mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-11",
+    "saints": [
+      {
+        "id": "theodosius_cenobiarch",
+        "name": "Saint Theodosius the Cenobiarch",
+        "feastDate": "01-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/theodosius_cenobiarch.jpg",
+        "shortBio": "Founder of communal monasticism in the Judean desert, leading a monastery that housed hundreds of monks of many languages.",
+        "fullStory": "Theodosius left Cappadocia for the Holy Land, eventually founding a great monastery near Bethlehem organized around communal, or 'cenobitic,' life rather than solitary asceticism, earning him the title Cenobiarch. His monastery grew to house separate choirs praying in Greek, Armenian, and other languages simultaneously, and he became a respected defender of orthodoxy against the Monophysite controversy in his old age.",
+        "patronage": [
+          "Monastics",
+          "Hospitality"
+        ],
+        "quote": null,
+        "birthYear": 423,
+        "deathYear": 529,
+        "canonizationYear": null,
+        "tags": [
+          "Monk",
+          "Founder",
+          "Judean Desert"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-12",
+    "saints": [
+      {
+        "id": "marguerite_bourgeoys",
+        "name": "Saint Marguerite Bourgeoys",
+        "feastDate": "01-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/marguerite_bourgeoys.jpg",
+        "shortBio": "French missionary teacher who founded Montreal's first school and the Congregation of Notre-Dame.",
+        "fullStory": "Marguerite Bourgeoys crossed the Atlantic to the fledgling colony of Ville-Marie, later Montreal, where she opened a school in a stable and eventually established the Congregation of Notre-Dame, one of the first uncloistered religious communities of women dedicated to active teaching. She insisted her sisters live and travel among the people rather than remain behind convent walls, an unusual model for her era.",
+        "patronage": [
+          "Teachers",
+          "Colonial Canada"
+        ],
+        "quote": null,
+        "birthYear": 1620,
+        "deathYear": 1700,
+        "canonizationYear": 1982,
+        "tags": [
+          "Founder",
+          "Educator",
+          "Canadian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-13",
+    "saints": [
+      {
+        "id": "hilary_poitiers",
+        "name": "Saint Hilary of Poitiers",
+        "feastDate": "01-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/hilary_poitiers.jpg",
+        "shortBio": "Fourth-century bishop and Doctor of the Church known as the 'Hammer of the Arians' for defending Christ's divinity.",
+        "fullStory": "Hilary, a married convert to Christianity who became Bishop of Poitiers, was exiled to the East for several years by an Arian-sympathizing emperor for his uncompromising defense of the Council of Nicaea's teaching on Christ's full divinity. During his exile he encountered Eastern theology, which he brought back to enrich Western thought in his treatise On the Trinity, one of the first great Latin works of systematic theology.",
+        "patronage": [
+          "Backward children",
+          "Lawyers"
+        ],
+        "quote": null,
+        "birthYear": 315,
+        "deathYear": 368,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Bishop",
+          "Anti-Arian"
+        ]
+      },
+      {
+        "id": "kentigern_mungo",
+        "name": "Saint Kentigern (Mungo)",
+        "feastDate": "01-13",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/kentigern_mungo.jpg",
+        "shortBio": "Missionary bishop and founder of Glasgow, remembered in legend for miracles involving a bird, a bell, a tree, and a fish.",
+        "fullStory": "Known affectionately as Mungo, 'dear one,' Kentigern evangelized the Britons of the Strathclyde region, founding a monastic community on the site that became Glasgow Cathedral. Medieval legends credit him with four miracles now emblazoned on the city's coat of arms, and he is remembered as a tireless missionary bishop across a wide and often hostile territory.",
+        "patronage": [
+          "Glasgow",
+          "Fishermen"
+        ],
+        "quote": null,
+        "birthYear": 518,
+        "deathYear": 603,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Missionary",
+          "Scottish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-14",
+    "saints": [
+      {
+        "id": "sava_serbia",
+        "name": "Saint Sava of Serbia",
+        "feastDate": "01-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sava_serbia.jpg",
+        "shortBio": "Serbian prince who renounced his throne for monastic life and became the founding archbishop of the autocephalous Serbian Church.",
+        "fullStory": "Born Rastko, a son of the Serbian grand prince, Sava secretly left court life for Mount Athos, later returning to help his father found the monastery of Hilandar. He negotiated ecclesiastical independence for the Serbian Church from Constantinople, became its first archbishop, and is remembered as the father of Serbian law, literacy, and national identity.",
+        "patronage": [
+          "Serbia",
+          "Students",
+          "Physicians"
+        ],
+        "quote": null,
+        "birthYear": 1174,
+        "deathYear": 1236,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "Founder",
+          "Serbian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-15",
+    "saints": [
+      {
+        "id": "paul_hermit",
+        "name": "Saint Paul the Hermit",
+        "feastDate": "01-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/paul_hermit.jpg",
+        "shortBio": "Traditionally honored as the first Christian hermit, said to have lived in solitary prayer in the Egyptian desert for decades.",
+        "fullStory": "According to Saint Jerome's account, Paul fled to the Egyptian desert during a persecution as a young man and remained there in solitude for the rest of his long life, sustained, tradition holds, by bread brought daily by a raven. Near the end of Paul's life, Saint Anthony the Great is said to have visited him, and together their meeting became one of the foundational stories of Christian monasticism.",
+        "patronage": [
+          "Hermits",
+          "Weavers"
+        ],
+        "quote": null,
+        "birthYear": 227,
+        "deathYear": 341,
+        "canonizationYear": null,
+        "tags": [
+          "Hermit",
+          "Desert Father",
+          "Egypt"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-16",
+    "saints": [
+      {
+        "id": "marcellus_i",
+        "name": "Saint Marcellus I, Pope",
+        "feastDate": "01-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/marcellus_i.jpg",
+        "shortBio": "A short-reigned pope who worked to reorganize the Roman Church after the Diocletian persecution, and died in harsh exile for it.",
+        "fullStory": "Elected after a lengthy vacancy following the brutal persecution under Diocletian, Marcellus I faced the difficult task of restoring church order and discipline among Christians who had lapsed under pressure. His firmness provoked civil unrest in Rome, and Emperor Maxentius reportedly condemned him to labor in the imperial stables, where he died from the harsh conditions.",
+        "patronage": [
+          "Stable workers",
+          "Roman clergy"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 309,
+        "canonizationYear": null,
+        "tags": [
+          "Pope",
+          "Martyr",
+          "Early Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-17",
+    "saints": [
+      {
+        "id": "anthony_abbot",
+        "name": "Saint Anthony, Abbot",
+        "feastDate": "01-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/anthony_abbot.jpg",
+        "shortBio": "The father of Christian monasticism, who withdrew into the Egyptian desert to seek God in radical poverty and solitude.",
+        "fullStory": "After hearing the Gospel call to sell all he had and follow Christ, the young Anthony gave away his inheritance and moved progressively deeper into the Egyptian desert, battling temptation and building a life of prayer, fasting, and manual labor. Disciples gathered around him despite his desire for solitude, and Athanasius's biography of his life spread the ideal of monasticism across the Christian world, inspiring countless imitators in both East and West.",
+        "patronage": [
+          "Monastics",
+          "Gravediggers",
+          "Domestic animals"
+        ],
+        "quote": "I no longer fear God, I love him.",
+        "birthYear": 251,
+        "deathYear": 356,
+        "canonizationYear": null,
+        "tags": [
+          "Desert Father",
+          "Monk",
+          "Abbot"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-18",
+    "saints": [
+      {
+        "id": "margaret_hungary",
+        "name": "Saint Margaret of Hungary",
+        "feastDate": "01-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/margaret_hungary.jpg",
+        "shortBio": "A Hungarian princess who chose a hidden life of prayer and penance in a Dominican convent rather than a political marriage.",
+        "fullStory": "Offered by her parents to God in thanksgiving for a military victory, Margaret was raised in a Dominican convent on an island in the Danube near Budapest, which today bears her name. She repeatedly refused proposed royal marriages, embracing instead a life of severe penance, care for the sick, and deep contemplative prayer within the convent walls.",
+        "patronage": [
+          "Hungary",
+          "Against temptation"
+        ],
+        "quote": null,
+        "birthYear": 1242,
+        "deathYear": 1270,
+        "canonizationYear": 1943,
+        "tags": [
+          "Religious",
+          "Dominican",
+          "Hungarian Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-19",
+    "saints": [
+      {
+        "id": "wulfstan_worcester",
+        "name": "Saint Wulfstan of Worcester",
+        "feastDate": "01-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/wulfstan_worcester.jpg",
+        "shortBio": "The only English bishop to retain his see after the Norman Conquest, esteemed for his humility and campaign against the slave trade.",
+        "fullStory": "Wulfstan served as Bishop of Worcester through the upheaval of the Norman Conquest of 1066, surviving efforts to remove English-born bishops because of his evident holiness and pastoral care. He preached vigorously against the ongoing trade of English slaves through the port of Bristol, contributing to its eventual decline, and was known for personally instructing children in the faith.",
+        "patronage": [
+          "Worcester",
+          "Against slavery"
+        ],
+        "quote": null,
+        "birthYear": 1008,
+        "deathYear": 1095,
+        "canonizationYear": null,
+        "tags": [
+          "Bishop",
+          "English Saint",
+          "Social Reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-20",
+    "saints": [
+      {
+        "id": "fabian",
+        "name": "Saint Fabian, Pope and Martyr",
+        "feastDate": "01-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/fabian.jpg",
+        "shortBio": "A layman unexpectedly elected pope when, tradition says, a dove settled on his head during the papal election.",
+        "fullStory": "According to Eusebius, Fabian arrived in Rome as an unknown layman just as clergy gathered to choose a new bishop, and a dove was said to alight on his head, taken as a sign of the Holy Spirit's choice. He organized the administration of the Roman Church into regions overseen by deacons and died a martyr at the outset of the Decian persecution.",
+        "patronage": [
+          "Papal elections"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 250,
+        "canonizationYear": null,
+        "tags": [
+          "Pope",
+          "Martyr",
+          "Early Church"
+        ]
+      },
+      {
+        "id": "sebastian",
+        "name": "Saint Sebastian, Martyr",
+        "feastDate": "01-20",
+        "isPrimary": false,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sebastian.jpg",
+        "shortBio": "A Roman soldier martyred for his Christian faith, famously depicted pierced with arrows yet miraculously surviving a first execution attempt.",
+        "fullStory": "Tradition holds that Sebastian served as an officer in the Roman imperial guard while secretly a Christian, using his position to encourage persecuted believers. Discovered, he was shot with arrows and left for dead, but survived and was nursed back to health, only to confront Emperor Diocletian directly and be clubbed to death on his order. His athletic endurance made him a popular patron of soldiers and athletes.",
+        "patronage": [
+          "Soldiers",
+          "Athletes",
+          "Archers"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 288,
+        "canonizationYear": null,
+        "tags": [
+          "Martyr",
+          "Roman Soldier"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-21",
+    "saints": [
+      {
+        "id": "agnes",
+        "name": "Saint Agnes, Virgin and Martyr",
+        "feastDate": "01-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/agnes.jpg",
+        "shortBio": "A young Roman girl martyred for her faith and her vow of consecrated virginity, one of the most venerated virgin martyrs of the early Church.",
+        "fullStory": "According to early tradition, Agnes was barely a teenager when she refused marriage proposals, declaring herself consecrated to Christ, and was denounced as a Christian during a period of persecution. Accounts describe her calm courage in the face of threats and execution, and her memory was honored from the earliest centuries, with two lambs traditionally blessed on her feast, from which the pallium wool for archbishops is woven.",
+        "patronage": [
+          "Young girls",
+          "Chastity",
+          "Engaged couples"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "Virgin",
+          "Martyr",
+          "Early Church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-22",
+    "saints": [
+      {
+        "id": "vincent_deacon",
+        "name": "Saint Vincent, Deacon and Martyr",
+        "feastDate": "01-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/vincent_deacon.jpg",
+        "shortBio": "A Spanish deacon tortured for refusing to hand over sacred Scriptures and renounce his faith during the Diocletian persecution.",
+        "fullStory": "Vincent served as a deacon in Zaragoza under Bishop Valerius and was arrested alongside him during the empire-wide persecution under Diocletian. When the bishop's speech impediment left him unable to answer accusers, Vincent spoke boldly in his place, provoking especially severe torture, which he endured without recanting before dying of his wounds.",
+        "patronage": [
+          "Winemakers",
+          "Deacons",
+          "Spain"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "Deacon",
+          "Martyr",
+          "Spanish Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-23",
+    "saints": [
+      {
+        "id": "marianne_cope",
+        "name": "Saint Marianne Cope",
+        "feastDate": "01-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/marianne_cope.jpg",
+        "shortBio": "German-born Franciscan sister who led her community to care for patients with leprosy exiled to the Hawaiian island of Molokai.",
+        "fullStory": "Mother Marianne Cope was already an experienced hospital administrator in New York when she answered an urgent call for help nursing patients with Hansen's disease in the Hawaiian Islands, a request many other religious communities had declined. She spent the rest of her life on Molokai, improving living conditions dramatically and working alongside Saint Damien de Veuster before his death, then continuing the mission for decades afterward.",
+        "patronage": [
+          "Lepers",
+          "Hawaii",
+          "Nurses",
+          "Outcasts"
+        ],
+        "quote": null,
+        "birthYear": 1838,
+        "deathYear": 1918,
+        "canonizationYear": 2012,
+        "tags": [
+          "Franciscan",
+          "Nurse",
+          "American Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-24",
+    "saints": [
+      {
+        "id": "francis_de_sales",
+        "name": "Saint Francis de Sales",
+        "feastDate": "01-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/francis_de_sales.jpg",
+        "shortBio": "Bishop of Geneva and Doctor of the Church renowned for his gentle spiritual direction and his classic 'Introduction to the Devout Life.'",
+        "fullStory": "Francis de Sales set aside a promising legal career to become a priest and later Bishop of Geneva, ministering in a region deeply divided by the Reformation. Rejecting fear-based preaching, he wrote pamphlets and letters emphasizing that holiness was attainable by ordinary lay people in everyday life, gathered into his enduring bestseller Introduction to the Devout Life, and co-founded the Order of the Visitation with Jane Frances de Chantal.",
+        "patronage": [
+          "Writers",
+          "Journalists",
+          "Educators"
+        ],
+        "quote": "Nothing is so strong as gentleness, nothing so gentle as real strength.",
+        "birthYear": 1567,
+        "deathYear": 1622,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Bishop",
+          "Spiritual Writer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-25",
+    "saints": [
+      {
+        "id": "conversion_of_paul",
+        "name": "The Conversion of Saint Paul, Apostle",
+        "feastDate": "01-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/conversion_of_st_paul.jpeg",
+        "shortBio": "Commemorates the dramatic encounter on the road to Damascus that turned Saul the persecutor into Paul the Apostle to the Gentiles.",
+        "fullStory": "As recounted three times in the Acts of the Apostles, Saul was traveling to Damascus to arrest followers of Jesus when a blinding light and the voice of the risen Christ knocked him to the ground, asking, 'Saul, Saul, why do you persecute me?' Blinded for three days and then healed and baptized by Ananias, Saul became Paul, the tireless missionary whose letters shaped Christian theology and whose journeys carried the Gospel across the Mediterranean world.",
+        "patronage": [
+          "Missionaries",
+          "Converts",
+          "Writers"
+        ],
+        "quote": "I know whom I have believed.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Feast",
+          "Apostle",
+          "Conversion"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-26",
+    "saints": [
+      {
+        "id": "timothy_titus",
+        "name": "Saints Timothy and Titus",
+        "feastDate": "01-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/timothy_titus.jpg",
+        "shortBio": "Close companions and co-workers of Saint Paul, entrusted as the first bishops of Ephesus and Crete.",
+        "fullStory": "Timothy, the son of a Jewish mother and Greek father, joined Paul as a young disciple and became a trusted delegate to troubled communities, later serving as bishop of Ephesus and receiving two of Paul's pastoral letters. Titus, a Gentile convert, was sent by Paul to organize the Church in Crete and to mediate the difficult situation in Corinth, and likewise received a New Testament letter bearing his name.",
+        "patronage": [
+          "Bishops",
+          "Pastors",
+          "Stomach ailments"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Apostolic Era",
+          "Bishop",
+          "Companions of Paul"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-27",
+    "saints": [
+      {
+        "id": "angela_merici",
+        "name": "Saint Angela Merici",
+        "feastDate": "01-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/angela_merici.jpg",
+        "shortBio": "Founder of the Ursulines, pioneering an approach to religious life for women dedicated to the education of girls while living among their families.",
+        "fullStory": "After a vision she interpreted as a call to found a new religious institute, Angela Merici gathered a group of unmarried women in Brescia dedicated to the Christian education of girls, an urgent need in an era offering them little formal instruction. Unlike traditional cloistered orders, her Company of Saint Ursula initially allowed members to live at home, a flexible model that would influence the development of active religious life for women in the centuries that followed.",
+        "patronage": [
+          "Educators",
+          "Girls",
+          "Disabled people"
+        ],
+        "quote": null,
+        "birthYear": 1474,
+        "deathYear": 1540,
+        "canonizationYear": null,
+        "tags": [
+          "Founder",
+          "Educator",
+          "Ursulines"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-28",
+    "saints": [
+      {
+        "id": "thomas_aquinas",
+        "name": "Saint Thomas Aquinas",
+        "feastDate": "01-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_thomas_aquinas.jpg",
+        "shortBio": "Dominican friar and Doctor of the Church whose Summa Theologiae remains the towering synthesis of Catholic theology and philosophy.",
+        "fullStory": "Born to Italian nobility, Thomas defied his family's wishes to join the new and controversial Dominican order, studying under Albert the Great and eventually teaching in Paris and Rome. His Summa Theologiae systematically integrated Aristotelian philosophy with Christian revelation, addressing questions from the nature of God to the moral life with rigorous clarity, and his eucharistic hymns remain in liturgical use today. He is honored as the Church's foremost theologian and patron of Catholic schools and universities.",
+        "patronage": [
+          "Students",
+          "Theologians",
+          "Universities",
+          "Booksellers"
+        ],
+        "quote": "To one who has faith, no explanation is necessary. To one without faith, no explanation is possible.",
+        "birthYear": 1225,
+        "deathYear": 1274,
+        "canonizationYear": null,
+        "tags": [
+          "Doctor of the Church",
+          "Dominican",
+          "Theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-29",
+    "saints": [
+      {
+        "id": "gildas_wise",
+        "name": "Saint Gildas the Wise",
+        "feastDate": "01-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/gildas_wise.jpg",
+        "shortBio": "A sixth-century British monk whose fiery history 'On the Ruin of Britain' is among the earliest surviving accounts of post-Roman Britain.",
+        "fullStory": "Gildas is remembered chiefly for his work De Excidio et Conquestu Britanniae, a scathing sermon-history condemning the moral failings of British rulers and clergy that he blamed for inviting Anglo-Saxon invasions. Beyond his writing, tradition holds he founded monasteries in Wales and Brittany, and later medieval biographers credited him with a long and wandering monastic career across the British Isles.",
+        "patronage": [
+          "Wales",
+          "Brittany",
+          "Historians"
+        ],
+        "quote": null,
+        "birthYear": 500,
+        "deathYear": 570,
+        "canonizationYear": null,
+        "tags": [
+          "Monk",
+          "Historian",
+          "British Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-30",
+    "saints": [
+      {
+        "id": "martina_rome",
+        "name": "Saint Martina of Rome",
+        "feastDate": "01-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/martina_rome.jpg",
+        "shortBio": "A virgin martyr of the early Roman Church, honored since antiquity with a church built over her traditional burial site near the Forum.",
+        "fullStory": "Details of Martina's life are preserved mainly through later legendary accounts describing her as a Roman noblewoman who refused to sacrifice to pagan gods and endured torture before her martyrdom. Devotion to her is very ancient, marked by the restoration of the Church of Saints Luca and Martina near the Roman Forum in the seventeenth century, and she has long been counted among Rome's most venerated early martyrs.",
+        "patronage": [
+          "Rome",
+          "Virgin martyrs"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "Virgin",
+          "Martyr",
+          "Roman Saint"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "01-31",
+    "saints": [
+      {
+        "id": "john_bosco",
+        "name": "Saint John Bosco",
+        "feastDate": "01-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_bosco.jpg",
+        "shortBio": "Founder of the Salesians, who devoted his life to the education and care of poor and at-risk boys in industrializing Turin.",
+        "fullStory": "Raised in poverty himself, John Bosco was ordained in Turin at the height of the city's chaotic industrial growth, when thousands of boys arrived from the countryside seeking work and found only exploitation and homelessness. He opened workshops, schools, and a boarding house that grew into the Salesian Society, pioneering an educational method built on kindness, reason, and faith rather than harsh discipline, known as the 'Preventive System.'",
+        "patronage": [
+          "Youth",
+          "Editors",
+          "Apprentices",
+          "Catholic educators"
+        ],
+        "quote": "It is not enough to love children, they must know that they are loved.",
+        "birthYear": 1815,
+        "deathYear": 1888,
+        "canonizationYear": null,
+        "tags": [
+          "Founder",
+          "Educator",
+          "Salesian"
+        ]
+      }
+    ]
+  }
+]

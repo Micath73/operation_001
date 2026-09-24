@@ -1,0 +1,72 @@
+{
+  "id": "anointing_and_holy_orders",
+  "title": "Anointing of the Sick & Holy Orders",
+  "category": "Devotions",
+  "summary": "Anointing of the Sick unites the gravely ill to Christ's Passion and grants strength, peace, and forgiveness; Holy Orders continues the apostolic mission through the ordained ministry of bishops, priests, and deacons.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Anointing of the Sick: A Sacrament of Healing"
+    },
+    {
+      "type": "paragraph",
+      "text": "This sacrament is intended for the faithful whose health is seriously impaired by sickness or old age. It is not reserved only for those at the point of death — the older name 'Extreme Unction' contributed to a widespread misunderstanding that the Second Vatican Council deliberately corrected in Sacrosanctum Concilium. The Catechism situates it among the sacraments of healing alongside Penance (cf. CCC 1499, 1514). It may be received more than once, whenever a serious illness returns or worsens."
+    },
+    {
+      "type": "scripture",
+      "reference": "James 5:14-15",
+      "text": "Is any among you sick? Let him call for the elders of the church, and let them pray over him, anointing him with oil in the name of the Lord."
+    },
+    {
+      "type": "heading",
+      "text": "Anointing: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "The matter is blessed oil of the sick, applied to the forehead and hands of the one who is ill. The form is the prayer asking that the Lord in his love and mercy help the person with the grace of the Holy Spirit and free them from sin. Only a bishop or priest may administer it."
+    },
+    {
+      "type": "paragraph",
+      "text": "The grace conferred is fourfold: union with Christ's Passion, giving suffering a redemptive meaning; strength, peace, and courage to endure illness; forgiveness of sins if the person is unable to confess; and, if it is conducive to their salvation, restoration of bodily health. When death is near, it is completed by Viaticum — the Eucharist received as food for the journey home."
+    },
+    {
+      "type": "heading",
+      "text": "Holy Orders: The Apostolic Mission Continued"
+    },
+    {
+      "type": "paragraph",
+      "text": "Holy Orders is the sacrament through which the mission Christ entrusted to his apostles continues to be exercised in the Church until the end of time (cf. CCC 1536). It comprises three degrees: the episcopate, the presbyterate, and the diaconate. Bishops receive the fullness of the sacrament and stand in unbroken succession from the apostles; priests share in that ministry as co-workers of the bishop; deacons are ordained not to priesthood but to service — of the liturgy, of the word, and of charity."
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 22:19",
+      "text": "Do this in remembrance of me."
+    },
+    {
+      "type": "heading",
+      "text": "Holy Orders: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "The matter is the laying on of hands by the ordaining bishop — a gesture the New Testament already attests. The form is the prayer of consecration proper to each degree, asking God for the outpouring of the Holy Spirit and his gifts appropriate to the ministry. Only a validly ordained bishop can confer Holy Orders."
+    },
+    {
+      "type": "callout",
+      "title": "Sacramental Doctrine / CCC Reference",
+      "text": "The Council of Trent (Session XXIII, 1563) defined that Holy Orders is a true sacrament instituted by Christ, that a visible priesthood exists in the Church, and that it imprints an indelible character. Pope Pius XII, in the Apostolic Constitution Sacramentum Ordinis (1947), definitively settled that the imposition of hands is the matter and the consecratory preface the form."
+    },
+    {
+      "type": "heading",
+      "text": "In Persona Christi Capitis"
+    },
+    {
+      "type": "paragraph",
+      "text": "The ordained priest does not act merely as a delegate of the community. Configured to Christ by the sacramental character, he acts in the person of Christ the Head — which is why the validity of the sacraments he celebrates does not depend on his personal holiness. This is a mercy: the faithful can trust the sacraments they receive even when the minister is a sinner, because it is Christ who acts."
+    },
+    {
+      "type": "prayer",
+      "title": "Prayer for the Sick and for Priests",
+      "text": "Lord Jesus Christ, healer of body and soul, look with compassion on all who suffer illness; grant them patience, comfort, and healing according to your will. Bless also the priests you have called to serve; keep them faithful, humble, and close to your Sacred Heart. Amen."
+    }
+  ]
+}

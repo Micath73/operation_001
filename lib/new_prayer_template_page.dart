@@ -22,6 +22,16 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage> {
   bool isPraying = false;
   int? _focusedStepIndex;
 
+  /// Dynamic image getter to resolve correct prayer art if incoming image path is default/generic
+  String get activeImage {
+    if (widget.prayerImage.isNotEmpty &&
+        !widget.prayerImage.contains('sunrise') &&
+        !widget.prayerImage.contains('rosary')) {
+      return widget.prayerImage;
+    }
+    return PrayerData.getImagePath(widget.prayerTitle);
+  }
+
   void _onTapParagraph(int index) {
     HapticFeedback.selectionClick();
     setState(() {
@@ -45,7 +55,13 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage> {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final steps = PrayerData.masterPrayerDB[widget.prayerTitle];
+    // ── Case-Insensitive Lookup for Prayer Steps ─────────────────────────────
+    final mapEntry = PrayerData.masterPrayerDB.entries.firstWhere(
+          (entry) =>
+      entry.key.trim().toLowerCase() == widget.prayerTitle.trim().toLowerCase(),
+      orElse: () => MapEntry(widget.prayerTitle, []),
+    );
+    final List<PrayerStep>? steps = mapEntry.value;
 
     final double fullHeight = MediaQuery.of(context).size.height;
     final double dynamicImageHeight =
@@ -104,7 +120,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage> {
                 fit: StackFit.expand,
                 children: [
                   Image.asset(
-                    widget.prayerImage,
+                    activeImage,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) => Container(
                       decoration: BoxDecoration(
@@ -271,7 +287,7 @@ class _NewPrayerTemplatePageState extends State<NewPrayerTemplatePage> {
                                   ],
                                 ),
                                 const SizedBox(height: 24),
-                                if (steps != null)
+                                if (steps != null && steps.isNotEmpty)
                                   for (int i = 0; i < steps.length; i++) ...[
                                     _PrayerStepItem(
                                       index: i,
@@ -510,17 +526,18 @@ class _PrayerStepItemState extends State<_PrayerStepItem>
       TextSpan(
         children: [
           WidgetSpan(
-            alignment: PlaceholderAlignment.middle,
+            alignment: PlaceholderAlignment.baseline,
+            baseline: TextBaseline.alphabetic,
             child: Padding(
               padding: const EdgeInsets.only(right: 6.0),
               child: Text(
                 dropLetter,
                 style: TextStyle(
                   fontFamily: 'Georgia',
-                  fontSize: 54,
+                  fontSize: 48,
                   fontWeight: FontWeight.bold,
                   color: dropColor,
-                  height: 0.85,
+                  height: 1.0,
                 ),
               ),
             ),

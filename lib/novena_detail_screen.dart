@@ -644,14 +644,16 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
       ),
     );
 
-    final goldAccent = theme.colorScheme.secondary;
-    final deepGold =
-    isDark ? const Color(0xFFE5C158) : theme.colorScheme.primary;
+    // Dynamic Theme Integration
+    final primaryAccent = theme.colorScheme.primary;
+    final scaffoldBg = theme.scaffoldBackgroundColor;
 
-    final vellumSheetBg =
-    isDark ? const Color(0xFF1C1A18) : const Color(0xFFF3EFE0);
-    final textBodyColor =
-    isDark ? const Color(0xFFECE6DA) : const Color(0xFF2C2523);
+    // Paper / Sheet background reflecting active dark/light mode surface theme
+    final sheetSurfaceBg = isDark
+        ? (theme.colorScheme.surfaceContainerHigh)
+        : const Color(0xFFFFFDF9);
+
+    final textBodyColor = theme.colorScheme.onSurface;
 
     return PopScope(
       canPop: false,
@@ -660,8 +662,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
         _handlePop();
       },
       child: Scaffold(
-        backgroundColor:
-        isDark ? const Color(0xFF121212) : const Color(0xFF2A2421),
+        backgroundColor: scaffoldBg,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -669,7 +670,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: goldAccent,
+              color: isPraying ? primaryAccent : Colors.white,
               size: 20,
             ),
             onPressed: _handlePop,
@@ -710,13 +711,13 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
               ),
             if (isPraying) ...[
               IconButton(
-                icon: Icon(Icons.text_decrease_rounded, color: goldAccent),
+                icon: Icon(Icons.text_decrease_rounded, color: primaryAccent),
                 onPressed: () {
                   if (fontSize > 12) setState(() => fontSize -= 2);
                 },
               ),
               IconButton(
-                icon: Icon(Icons.text_increase_rounded, color: goldAccent),
+                icon: Icon(Icons.text_increase_rounded, color: primaryAccent),
                 onPressed: () {
                   if (fontSize < 26) setState(() => fontSize += 2);
                 },
@@ -741,9 +742,9 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                     widget.novenaImage,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) => Container(
-                      color: theme.colorScheme.surfaceContainerHighest,
-                      child:
-                      Icon(Icons.church_rounded, size: 64, color: deepGold),
+                      color: theme.colorScheme.primaryContainer,
+                      child: Icon(Icons.church_rounded,
+                          size: 64, color: primaryAccent),
                     ),
                   ),
                   Container(
@@ -753,7 +754,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.black.withValues(alpha: 0.4),
-                          Colors.black.withValues(alpha: 0.85),
+                          Colors.black.withValues(alpha: isPraying ? 0.75 : 0.85),
                         ],
                       ),
                     ),
@@ -769,8 +770,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                   title: widget.title,
                   storyText: widget.storyText,
                   completedCount: completedDays.length,
-                  goldAccent: goldAccent,
-                  deepGold: deepGold,
+                  primaryAccent: primaryAccent,
                   isDark: isDark,
                   onStartPressed: _startNovena,
                 ),
@@ -791,11 +791,18 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                   opacity: isPraying ? 1.0 : 0.0,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: vellumSheetBg,
+                      color: sheetSurfaceBg,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(28),
                         topRight: Radius.circular(28),
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: isDark ? 0.4 : 0.08),
+                          blurRadius: 18,
+                          offset: const Offset(0, -4),
+                        ),
+                      ],
                     ),
                     child: SafeArea(
                       top: false,
@@ -807,7 +814,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                               width: 42,
                               height: 4,
                               decoration: BoxDecoration(
-                                color: deepGold.withValues(alpha: 0.5),
+                                color: theme.colorScheme.outline.withValues(alpha: 0.3),
                                 borderRadius: BorderRadius.circular(2),
                               ),
                             ),
@@ -816,9 +823,8 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                             scrollController: dayScrollController,
                             currentDay: currentDay,
                             completedDays: completedDays,
-                            deepGold: deepGold,
+                            primaryAccent: primaryAccent,
                             textBodyColor: textBodyColor,
-                            isDark: isDark,
                             onDaySelected: (dayNum) {
                               HapticFeedback.selectionClick();
                               setState(() => currentDay = dayNum);
@@ -830,7 +836,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                             height: 1,
                             indent: 20,
                             endIndent: 20,
-                            color: deepGold.withValues(alpha: 0.25),
+                            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.3),
                           ),
                           Expanded(
                             child: SingleChildScrollView(
@@ -842,9 +848,8 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                                 children: [
                                   _PersonalIntentionCard(
                                     controller: intentionController,
-                                    deepGold: deepGold,
+                                    primaryAccent: primaryAccent,
                                     textBodyColor: textBodyColor,
-                                    isDark: isDark,
                                   ),
                                   const SizedBox(height: 16),
                                   Row(
@@ -852,16 +857,16 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                                       Container(
                                         width: 3,
                                         height: 14,
-                                        color: deepGold,
+                                        color: primaryAccent,
                                       ),
                                       const SizedBox(width: 8),
                                       Text(
                                         'DAY $currentDay INTENTION',
                                         style: TextStyle(
-                                          fontFamily: 'Georgia',
+                                          fontFamily: 'Serif',
                                           fontSize: 11,
                                           fontWeight: FontWeight.bold,
-                                          color: deepGold,
+                                          color: primaryAccent,
                                           letterSpacing: 2.2,
                                         ),
                                       ),
@@ -871,7 +876,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                                   Text(
                                     activeDayData.theme,
                                     style: TextStyle(
-                                      fontFamily: 'Georgia',
+                                      fontFamily: 'Serif',
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
                                       color: textBodyColor,
@@ -882,7 +887,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                                   _buildDropCapBody(
                                     activeDayData.prayer,
                                     textBodyColor,
-                                    deepGold,
+                                    primaryAccent,
                                     fontSize,
                                   ),
                                   const SizedBox(height: 24),
@@ -890,10 +895,10 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                                     child: Text(
                                       '✦  Amen  ✦',
                                       style: TextStyle(
-                                        fontFamily: 'Georgia',
+                                        fontFamily: 'Serif',
                                         fontSize: 13,
                                         fontStyle: FontStyle.italic,
-                                        color: deepGold.withValues(alpha: 0.8),
+                                        color: primaryAccent.withValues(alpha: 0.8),
                                       ),
                                     ),
                                   ),
@@ -908,9 +913,8 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                               height: 48,
                               child: ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: deepGold,
-                                  foregroundColor:
-                                  isDark ? Colors.black : Colors.white,
+                                  backgroundColor: primaryAccent,
+                                  foregroundColor: theme.colorScheme.onPrimary,
                                   elevation: 2,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16),
@@ -923,7 +927,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                                       ? "Finish Novena & Complete"
                                       : "Complete Day $currentDay & Continue",
                                   style: const TextStyle(
-                                    fontFamily: 'Georgia',
+                                    fontFamily: 'Serif',
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
                                   ),
@@ -966,7 +970,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
               child: Text(
                 dropLetter,
                 style: TextStyle(
-                  fontFamily: 'Georgia',
+                  fontFamily: 'Serif',
                   fontSize: bodyFontSize * 3.2,
                   fontWeight: FontWeight.bold,
                   color: dropColor,
@@ -979,7 +983,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
           TextSpan(
             text: remainder,
             style: TextStyle(
-              fontFamily: 'Georgia',
+              fontFamily: 'Serif',
               fontSize: bodyFontSize,
               color: textBodyColor,
               height: 1.6,
@@ -997,8 +1001,7 @@ class _NovenaWelcomeCard extends StatelessWidget {
   final String title;
   final String? storyText;
   final int completedCount;
-  final Color goldAccent;
-  final Color deepGold;
+  final Color primaryAccent;
   final bool isDark;
   final VoidCallback onStartPressed;
 
@@ -1006,17 +1009,18 @@ class _NovenaWelcomeCard extends StatelessWidget {
     required this.title,
     this.storyText,
     required this.completedCount,
-    required this.goldAccent,
-    required this.deepGold,
+    required this.primaryAccent,
     required this.isDark,
     required this.onStartPressed,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final fullHeight = MediaQuery.of(context).size.height;
+
     final welcomeCardBg = isDark
-        ? Colors.black.withValues(alpha: 0.75)
+        ? theme.colorScheme.surface.withValues(alpha: 0.85)
         : const Color(0xFF2A2421).withValues(alpha: 0.88);
 
     return ClipRRect(
@@ -1031,7 +1035,7 @@ class _NovenaWelcomeCard extends StatelessWidget {
             color: welcomeCardBg,
             borderRadius: BorderRadius.circular(24),
             border: Border.all(
-              color: deepGold.withValues(alpha: 0.45),
+              color: primaryAccent.withValues(alpha: 0.35),
             ),
           ),
           child: Column(
@@ -1040,8 +1044,8 @@ class _NovenaWelcomeCard extends StatelessWidget {
               Text(
                 'HOLY NOVENA',
                 style: TextStyle(
-                  fontFamily: 'Georgia',
-                  color: goldAccent,
+                  fontFamily: 'Serif',
+                  color: primaryAccent,
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 3.0,
@@ -1051,9 +1055,9 @@ class _NovenaWelcomeCard extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: 'Georgia',
-                  color: Color(0xFFF5F0E6),
+                style: TextStyle(
+                  fontFamily: 'Serif',
+                  color: isDark ? theme.colorScheme.onSurface : const Color(0xFFF5F0E6),
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -1067,8 +1071,10 @@ class _NovenaWelcomeCard extends StatelessWidget {
                         "A novena is a traditional Catholic devotion consisting of private or public prayers repeated for nine successive days.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: 'Georgia',
-                      color: const Color(0xFFE2DCD0).withValues(alpha: 0.9),
+                      fontFamily: 'Serif',
+                      color: isDark
+                          ? theme.colorScheme.onSurfaceVariant
+                          : const Color(0xFFE2DCD0).withValues(alpha: 0.9),
                       fontSize: 15,
                       height: 1.55,
                     ),
@@ -1077,17 +1083,17 @@ class _NovenaWelcomeCard extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               FloatingActionButton.extended(
-                backgroundColor: goldAccent,
-                foregroundColor: Colors.black,
+                backgroundColor: primaryAccent,
+                foregroundColor: theme.colorScheme.onPrimary,
                 elevation: 4,
                 onPressed: onStartPressed,
                 label: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     completedCount == 9 ? 'RESTART NOVENA' : 'START NOVENA',
-                    style: const TextStyle(
-                      fontFamily: 'Georgia',
-                      color: Colors.black,
+                    style: TextStyle(
+                      fontFamily: 'Serif',
+                      color: theme.colorScheme.onPrimary,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2.0,
                     ),
@@ -1106,18 +1112,16 @@ class _DaySelectorHeader extends StatelessWidget {
   final ScrollController scrollController;
   final int currentDay;
   final Set<int> completedDays;
-  final Color deepGold;
+  final Color primaryAccent;
   final Color textBodyColor;
-  final bool isDark;
   final ValueChanged<int> onDaySelected;
 
   const _DaySelectorHeader({
     required this.scrollController,
     required this.currentDay,
     required this.completedDays,
-    required this.deepGold,
+    required this.primaryAccent,
     required this.textBodyColor,
-    required this.isDark,
     required this.onDaySelected,
   });
 
@@ -1150,14 +1154,14 @@ class _DaySelectorHeader extends StatelessWidget {
                       size: 14,
                       color: isSelected
                           ? theme.colorScheme.onPrimary
-                          : deepGold,
+                          : primaryAccent,
                     ),
                     const SizedBox(width: 4),
                   ],
                   Text(
                     'Day $dayNum',
                     style: TextStyle(
-                      fontFamily: 'Georgia',
+                      fontFamily: 'Serif',
                       fontSize: 13,
                       fontWeight:
                       isSelected ? FontWeight.bold : FontWeight.w500,
@@ -1169,16 +1173,14 @@ class _DaySelectorHeader extends StatelessWidget {
                 ],
               ),
               selected: isSelected,
-              selectedColor: deepGold,
-              backgroundColor: isDark
-                  ? Colors.black.withValues(alpha: 0.3)
-                  : Colors.white.withValues(alpha: 0.6),
+              selectedColor: primaryAccent,
+              backgroundColor: theme.colorScheme.surfaceContainer,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
                 side: BorderSide(
                   color: isSelected
-                      ? deepGold
-                      : deepGold.withValues(alpha: 0.25),
+                      ? primaryAccent
+                      : primaryAccent.withValues(alpha: 0.25),
                 ),
               ),
               onSelected: (_) => onDaySelected(dayNum),
@@ -1192,28 +1194,26 @@ class _DaySelectorHeader extends StatelessWidget {
 
 class _PersonalIntentionCard extends StatelessWidget {
   final TextEditingController controller;
-  final Color deepGold;
+  final Color primaryAccent;
   final Color textBodyColor;
-  final bool isDark;
 
   const _PersonalIntentionCard({
     required this.controller,
-    required this.deepGold,
+    required this.primaryAccent,
     required this.textBodyColor,
-    required this.isDark,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Card(
       elevation: 0,
-      color: isDark
-          ? Colors.black.withValues(alpha: 0.35)
-          : Colors.white.withValues(alpha: 0.6),
+      color: theme.colorScheme.surfaceContainer,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: deepGold.withValues(alpha: 0.3),
+          color: primaryAccent.withValues(alpha: 0.3),
         ),
       ),
       child: Padding(
@@ -1223,15 +1223,15 @@ class _PersonalIntentionCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.edit_note_rounded, color: deepGold, size: 20),
+                Icon(Icons.edit_note_rounded, color: primaryAccent, size: 20),
                 const SizedBox(width: 8),
                 Text(
                   "My Personal Intention",
                   style: TextStyle(
-                    fontFamily: 'Georgia',
+                    fontFamily: 'Serif',
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
-                    color: deepGold,
+                    color: primaryAccent,
                   ),
                 ),
               ],
@@ -1241,14 +1241,14 @@ class _PersonalIntentionCard extends StatelessWidget {
               controller: controller,
               maxLines: 2,
               style: TextStyle(
-                fontFamily: 'Georgia',
+                fontFamily: 'Serif',
                 fontSize: 14,
                 color: textBodyColor,
               ),
               decoration: InputDecoration(
                 hintText: "State your prayer intention...",
                 hintStyle: TextStyle(
-                  fontFamily: 'Georgia',
+                  fontFamily: 'Serif',
                   fontSize: 13,
                   color: textBodyColor.withValues(alpha: 0.45),
                 ),

@@ -1,0 +1,194 @@
+{
+  "id": "apostles_creed_summary_of_faith",
+  "title": "The Apostles' Creed: Summary of Faith",
+  "category": "Catechism",
+  "summary": "The Apostles' Creed is the ancient baptismal symbol of the Church of Rome, expressing the faith of the apostles and the core truths of Christian belief in a concise, structured confession of faith in the Trinity and the economy of salvation.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Creed as Symbol of Faith"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Creed is a symbol of faith—a sign of recognition and a means by which believers recognize one another. It is also a summary of the principal truths of the faith, serving as the first and fundamental point of reference for catechesis. The word Creed comes from the Latin Credo, meaning I believe, which opens the confession of faith. [CCC 187-188]"
+    },
+    {
+      "type": "paragraph",
+      "text": "From the beginning, the apostolic Church expressed and handed on her faith in brief formulae normed for all. The Church soon gathered the essential elements of her faith into organic summaries intended for the whole community, especially for Baptism. These summaries were called professions of faith, since they summarized the faith Christians professed. [CCC 185-186]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Romans 10:9 (RSV-CE)",
+      "text": "Because, if you confess with your lips that Jesus is Lord and believe in your heart that God raised him from the dead, you will be saved."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 185-186: Apostolic Faith Summarized",
+      "text": "The Church gathered the essential elements of her faith into organic summaries, especially for Baptism, called professions of faith since they summarized what Christians professed."
+    },
+    {
+      "type": "heading",
+      "text": "I. The Origin and Authority of the Apostles' Creed"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Apostles' Creed is the ancient baptismal symbol of the Church of Rome, dating from the second century. It is called the Apostles' Creed because it is considered the faithful summary of the apostles' faith. Its authority comes from this apostolic origin and its use in the baptismal liturgy of the Church of Rome. [CCC 194]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Apostles' Creed is structured around faith in God the Father, in Jesus Christ his Son, and in the Holy Spirit, following the Trinitarian order. It then confesses the principal mysteries of salvation: the Incarnation, Passion, death, burial, descent into hell, Resurrection, Ascension, and the coming again in glory to judge the living and the dead. [CCC 190-191]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 28:19 (RSV-CE)",
+      "text": "Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 194: Apostles' Creed",
+      "text": "The Apostles' Creed is the ancient baptismal symbol of the Church of Rome, considered the faithful summary of the apostles' faith."
+    },
+    {
+      "type": "heading",
+      "text": "II. The Structure of the Creed"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Apostles' Creed is organized in three principal articles, corresponding to the three Persons of the Blessed Trinity. The first article speaks of God the Father and his wonderful work of creation. The second speaks of Jesus Christ, the Son of God, and the mystery of our redemption. The third speaks of the Holy Spirit, the source of our sanctification. [CCC 190]"
+    },
+    {
+      "type": "paragraph",
+      "text": "These three articles are like three seals placed upon our faith: faith in God the Father who created us, faith in God the Son who redeemed us, and faith in God the Holy Spirit who sanctifies us. The whole Creed revolves around the central confession of faith in Jesus Christ, the Son of God made man for our salvation. [CCC 191]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 15:3-4 (RSV-CE)",
+      "text": "For I delivered to you as of first importance what I also received, that Christ died for our sins in accordance with the scriptures, and that he was buried, and that he was raised on the third day in accordance with the scriptures."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 190-191: Three Articles",
+      "text": "The Creed has three articles corresponding to the Trinity: faith in God the Father who created us, in God the Son who redeemed us, and in God the Holy Spirit who sanctifies us."
+    },
+    {
+      "type": "heading",
+      "text": "III. The First Article: Faith in God the Father"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Creed begins with faith in God the Father Almighty, Creator of heaven and earth. This first article confesses that there is one God, the Father, from whom all things come. He is Almighty, able to do all things according to his will, and Creator of all that exists, visible and invisible. [CCC 198-199]"
+    },
+    {
+      "type": "paragraph",
+      "text": "To believe in God the Father is to believe in his love, his providence, and his fatherly care for all his creatures. It is to acknowledge him as the source of all being and the goal toward which all creation moves. The Father is the first Person of the Blessed Trinity, eternally Father in relation to his only Son. [CCC 200]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Genesis 1:1 (RSV-CE)",
+      "text": "In the beginning God created the heavens and the earth."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 198-199: Creator of Heaven and Earth",
+      "text": "The first article confesses God the Father Almighty, Creator of heaven and earth, from whom all things come, able to do all things according to his will."
+    },
+    {
+      "type": "heading",
+      "text": "IV. The Second Article: Faith in Jesus Christ"
+    },
+    {
+      "type": "paragraph",
+      "text": "The second and longest article of the Creed confesses faith in Jesus Christ, God's only Son, our Lord. It recounts the principal mysteries of his life: his conception by the Holy Spirit, birth of the Virgin Mary, suffering under Pontius Pilate, crucifixion, death, burial, descent into hell, Resurrection on the third day, Ascension into heaven, and future coming to judge the living and the dead. [CCC 191, 463]"
+    },
+    {
+      "type": "paragraph",
+      "text": "This article is the heart of the Creed because it proclaims the mystery of the Incarnation and Redemption. Jesus Christ is true God and true man, the one mediator between God and men. Through his Passion, death, and Resurrection, he accomplished our salvation and reconciled us with the Father. [CCC 480]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 3:16 (RSV-CE)",
+      "text": "For God so loved the world that he gave his only Son, that whoever believes in him should not perish but have eternal life."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 463: The Central Mystery",
+      "text": "The second article proclaims the mystery of the Incarnation and Redemption: Jesus Christ, true God and true man, accomplished our salvation through his Passion, death, and Resurrection."
+    },
+    {
+      "type": "heading",
+      "text": "V. The Third Article: Faith in the Holy Spirit"
+    },
+    {
+      "type": "paragraph",
+      "text": "The third article of the Creed confesses faith in the Holy Spirit, the Lord and giver of life, who proceeds from the Father and the Son. The Holy Spirit is worshipped and glorified with the Father and the Son, for he is one and the same God with them. The Spirit sanctifies the Church and all believers, dwelling within them as in a temple. [CCC 685, 737]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Creed continues by confessing belief in the holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. These are the fruits of the Holy Spirit's work in the Church and in the hearts of believers, bringing to completion the work of salvation. [CCC 750, 946]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 14:26 (RSV-CE)",
+      "text": "But the Counselor, the Holy Spirit, whom the Father will send in my name, he will teach you all things, and bring to your remembrance all that I have said to you."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 685: The Holy Spirit",
+      "text": "The third article confesses the Holy Spirit, the Lord and giver of life, who sanctifies the Church and believers, dwelling within them as in a temple."
+    },
+    {
+      "type": "heading",
+      "text": "VI. The Church, Communion, and Eternal Life"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Creed confesses belief in the holy Catholic Church, the holy people of God gathered from all nations. The Church is holy because Christ loved her and gave himself up for her, making her holy. She is catholic because Christ is present in her and she has been sent by him on a mission to the whole human race. [CCC 750, 830]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The communion of saints expresses the Church's solidarity with all the faithful, both living and departed. The forgiveness of sins is accomplished through the sacraments, especially Baptism and Penance. The resurrection of the body and life everlasting proclaim our hope in the final resurrection and eternal communion with God. [CCC 946, 976, 988]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 15:20-22 (RSV-CE)",
+      "text": "But in fact Christ has been raised from the dead, the first fruits of those who have fallen asleep. For as by a man came death, by a man has come also the resurrection of the dead. For as in Adam all die, so also in Christ shall all be made alive."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 946: Communion of Saints",
+      "text": "The communion of saints expresses the Church's solidarity with all the faithful, both living and departed, united in Christ as one Body."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 988: Resurrection of the Body",
+      "text": "The Creed proclaims our hope in the resurrection of the body and life everlasting, the final fulfillment of God's saving work in us."
+    },
+    {
+      "type": "heading",
+      "text": "VII. Reciting the Creed in Faith"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Creed is not merely a formula to be memorized but a living confession of faith to be prayed and lived. When we recite the Creed, we unite ourselves with all believers throughout history and around the world who confess the same faith. It is a bond of unity and a sign of our communion with the apostolic faith. [CCC 192-193]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Creed should be committed to memory and recited frequently, especially in prayer and liturgical celebrations. By meditating on its articles, we deepen our understanding of the faith and grow in love for the God who has revealed himself to us as Father, Son, and Holy Spirit. [CCC 197]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Jude 1:3 (RSV-CE)",
+      "text": "Beloved, being very eager to write to you of our common salvation, I found it necessary to write appealing to you to contend for the faith which was once for all delivered to the saints."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 197: Living Confession",
+      "text": "The Creed is a living confession of faith to be prayed, meditated upon, and lived, uniting us with all believers who confess the same apostolic faith."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: The Apostles' Creed",
+      "text": "I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; he descended into hell; on the third day he rose again from the dead; he ascended into heaven, and is seated at the right hand of God the Father almighty; from there he will come to judge the living and the dead. I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "eucharistic_adoration",
+  "title": "Eucharistic Adoration & Holy Hour",
+  "category": "Devotions",
+  "summary": "Eucharistic Adoration is prayer before Christ truly present in the reserved Blessed Sacrament — a devotion that flows directly from the Mass and leads back to it.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Adoration Flows From the Mass"
+    },
+    {
+      "type": "paragraph",
+      "text": "Adoration is not an alternative to the Mass or a devotion standing beside it. It exists because of the Mass: the Eucharist reserved in the tabernacle is the same Eucharist consecrated at the altar. Christ remains truly, really, and substantially present as long as the sacramental species endure — so the worship due to him at Mass continues to be due to him in the tabernacle and the monstrance."
+    },
+    {
+      "type": "heading",
+      "text": "Historical Origins"
+    },
+    {
+      "type": "paragraph",
+      "text": "The practice grew organically. The Eucharist was reserved from earliest Christian times, primarily to bring Communion to the sick and dying. From this reservation came the recognition that Christ present in reserve is Christ to be adored. Devotion flourished in the medieval West, especially after the institution of the feast of Corpus Christi by Pope Urban IV in 1264 — for which St. Thomas Aquinas composed the great Eucharistic hymns still sung today. Public exposition in a monstrance, Benediction, and the Forty Hours devotion developed in the centuries that followed."
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 26:40",
+      "text": "So, could you not watch with me one hour?"
+    },
+    {
+      "type": "paragraph",
+      "text": "The traditional Holy Hour takes its name and shape from this question of Christ in Gethsemane. To keep a Holy Hour is to answer that question — to stay awake with the Lord in the hour when his closest friends could not."
+    },
+    {
+      "type": "callout",
+      "title": "Sacramental Doctrine / CCC Reference",
+      "text": "The Council of Trent (Session XIII, 1551) explicitly affirmed that the worship of latria — adoration due to God alone — is rightly given to Christ present in the Blessed Sacrament, and defended the practice of processions and public veneration. The Catechism affirms that this worship is not diminished but deepened by being extended outside the Mass (cf. CCC 1378)."
+    },
+    {
+      "type": "heading",
+      "text": "Spiritual Benefit"
+    },
+    {
+      "type": "paragraph",
+      "text": "Adoration asks almost nothing in the way of technique. It is simply remaining in the presence of one who loves you. Its fruits are characteristically quiet: deepened faith in the Real Presence, growth in silent contemplative prayer, reparation for indifference toward the Eucharist, and a gradual reordering of the heart. Many saints have testified that time before the Blessed Sacrament shaped their entire apostolic life."
+    },
+    {
+      "type": "prayer",
+      "title": "Divine Praises",
+      "text": "Blessed be God. Blessed be his Holy Name. Blessed be Jesus Christ, true God and true Man. Blessed be the Name of Jesus. Blessed be his Most Sacred Heart. Blessed be his Most Precious Blood. Blessed be Jesus in the Most Holy Sacrament of the Altar. Blessed be the Holy Spirit, the Paraclete. Blessed be the great Mother of God, Mary most holy. Amen."
+    }
+  ]
+}

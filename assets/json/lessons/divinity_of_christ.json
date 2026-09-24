@@ -1,0 +1,299 @@
+{
+  "id": "divinity_of_christ",
+  "title": "The Divinity of Christ",
+  "category": "Dogma",
+  "summary": "Jesus Christ is true God and true man, one divine Person with two natures, divine and human, consubstantial with the Father in his divinity and consubstantial with us in his humanity, as defined by the Ecumenical Councils of Nicaea, Ephesus, and Chalcedon.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Introduction: The Central Dogma of Christianity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The divinity of Christ is the foundational dogma of the Christian faith. Without this truth, the Incarnation, Redemption, and our salvation would be impossible. The Church has always confessed that Jesus of Nazareth is not merely a prophet or teacher, but the eternal Son of God made man for our salvation. [CCC 463-464]"
+    },
+    {
+      "type": "paragraph",
+      "text": "This dogma was contested by various heresies throughout the early centuries, prompting the Church to define with precision the relationship between Christ's divine and human natures. The Ecumenical Councils of Nicaea (325), Constantinople (381), Ephesus (431), and Chalcedon (451) articulated this mystery in language that safeguards both the unity of Christ's Person and the integrity of his two natures. [CCC 465-467]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 1:1, 14 (RSV-CE)",
+      "text": "In the beginning was the Word, and the Word was with God, and the Word was God. And the Word became flesh and dwelt among us, full of grace and truth."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 463-464: True God and True Man",
+      "text": "The Church confesses that Jesus Christ is true God and true man, not part God and part man, nor a confused mixture, but one divine Person with two complete natures."
+    },
+    {
+      "type": "heading",
+      "text": "I. Biblical Foundations of Christ's Divinity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The New Testament clearly affirms the divinity of Jesus Christ. The Prologue of John's Gospel identifies the Word as God and declares that this Word became flesh. Paul calls Christ the image of the invisible God and states that in him the whole fullness of deity dwells bodily. [CCC 441-442]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesus himself claimed divine prerogatives: he forgave sins, claimed authority over the Sabbath, and identified himself with the Father. When he said I and the Father are one, the Jews understood this as a claim to divinity and sought to stone him for blasphemy. Thomas addressed the risen Christ as My Lord and my God, and Jesus accepted this confession. [CCC 443, 446]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Colossians 2:9 (RSV-CE)",
+      "text": "For in him the whole fullness of deity dwells bodily."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 441-443: Son of God",
+      "text": "The New Testament affirms Christ's divinity; Jesus claimed divine prerogatives and accepted worship, revealing himself as the eternal Son of the Father."
+    },
+    {
+      "type": "heading",
+      "text": "II. The Council of Nicaea (325): Consubstantial with the Father"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Arian heresy denied Christ's full divinity, claiming the Son was a creature, not truly God. In response, the First Ecumenical Council of Nicaea defined that the Son is begotten, not made, consubstantial (homoousios) with the Father. This means the Son shares the same divine nature as the Father, not a similar nature. [CCC 465]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Nicene Creed confesses: We believe in one Lord, Jesus Christ, the only Son of God, eternally begotten of the Father, God from God, Light from Light, true God from true God, begotten, not made, one in Being with the Father. This definition safeguards the equality of the Son with the Father in divinity. [CCC 465]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 10:30 (RSV-CE)",
+      "text": "I and the Father are one."
+    },
+    {
+      "type": "callout",
+      "title": "Nicaea I (325): Homoousios",
+      "text": "The Council defined that the Son is consubstantial (homoousios) with the Father, begotten not made, true God from true God, sharing the same divine nature."
+    },
+    {
+      "type": "heading",
+      "text": "III. The Council of Constantinople (381): Divinity of the Holy Spirit"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Second Ecumenical Council confirmed and expanded the Nicene Creed, defining the divinity of the Holy Spirit against the Macedonian heresy. The Council confessed the Holy Spirit as the Lord and giver of life, who proceeds from the Father, who with the Father and the Son is adored and glorified. [CCC 245, 685]"
+    },
+    {
+      "type": "paragraph",
+      "text": "This Council completed the Trinitarian dogma, affirming that the Father, Son, and Holy Spirit are one God in three Persons, equal in divinity and glory. The full divinity of Christ is inseparable from the doctrine of the Trinity. [CCC 245]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 28:19 (RSV-CE)",
+      "text": "Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit."
+    },
+    {
+      "type": "callout",
+      "title": "Constantinople I (381): Trinity Defined",
+      "text": "The Council confirmed the divinity of the Holy Spirit, completing Trinitarian doctrine: Father, Son, and Holy Spirit are one God, equal in divinity and glory."
+    },
+    {
+      "type": "heading",
+      "text": "IV. The Council of Ephesus (431): One Person, Theotokos"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Nestorian heresy claimed that Christ was two persons, one divine and one human, loosely united. The Third Ecumenical Council of Ephesus defined that Christ is one divine Person (hypostasis), the eternal Son, who assumed a human nature. Mary is therefore Theotokos, God-bearer, because she gave birth to the Person who is God. [CCC 466]"
+    },
+    {
+      "type": "paragraph",
+      "text": "This Council safeguarded the unity of Christ's Person: there are not two sons, but one Son, one Lord Jesus Christ. The human nature has no existence apart from the divine Person who assumed it. All that Christ did and suffered is attributed to one subject, the Son of God. [CCC 466-467]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 1:35 (RSV-CE)",
+      "text": "And the angel said to her, The Holy Spirit will come upon you, and the power of the Most High will overshadow you; therefore the child to be born will be called holy, the Son of God."
+    },
+    {
+      "type": "callout",
+      "title": "Ephesus (431): One Person, Theotokos",
+      "text": "The Council defined that Christ is one divine Person who assumed human nature; Mary is Theotokos because she bore the Person who is God, not two persons."
+    },
+    {
+      "type": "heading",
+      "text": "V. The Council of Chalcedon (451): Two Natures in One Person"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Monophysite heresy claimed that Christ's human nature was absorbed into his divine nature, resulting in only one nature. The Fourth Ecumenical Council of Chalcedon defined that Christ is one Person in two natures, divine and human, without confusion, change, division, or separation. [CCC 467]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Chalcedonian Definition confesses one and the same Son, our Lord Jesus Christ, perfect in Godhead and perfect in manhood, truly God and truly man, consisting of rational soul and body, consubstantial with the Father in Godhead and consubstantial with us in manhood. The properties of each nature are preserved and united in one Person. [CCC 467]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Philippians 2:6-7 (RSV-CE)",
+      "text": "Who, though he was in the form of God, did not count equality with God a thing to be grasped, but emptied himself, taking the form of a servant, being born in the likeness of men."
+    },
+    {
+      "type": "callout",
+      "title": "Chalcedon (451): Two Natures",
+      "text": "The Council defined Christ as one Person in two natures, divine and human, without confusion, change, division, or separation; each nature's properties are preserved."
+    },
+    {
+      "type": "heading",
+      "text": "VI. The Hypostatic Union"
+    },
+    {
+      "type": "paragraph",
+      "text": "The hypostatic union is the theological term for the union of Christ's divine and human natures in one divine Person (hypostasis). This union is unique: the human nature is assumed by the divine Person without ceasing to be truly human. Christ is not part God and part man, but fully God and fully man. [CCC 464, 479]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Because of this union, all that Christ did in his humanity is attributed to his divine Person. His suffering, death, and Resurrection have infinite value because they are performed by a divine Person. This is why Christ's sacrifice is sufficient to redeem all humanity. [CCC 478, 616]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Timothy 2:5-6 (RSV-CE)",
+      "text": "For there is one God, and there is one mediator between God and men, the man Christ Jesus, who gave himself as a ransom for all."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 479: Hypostatic Union",
+      "text": "The hypostatic union is the union of Christ's two natures in one divine Person; all his human acts are attributed to his divine Person, giving them infinite redemptive value."
+    },
+    {
+      "type": "heading",
+      "text": "VII. The Communication of Idioms"
+    },
+    {
+      "type": "paragraph",
+      "text": "The communication of idioms is the principle that, because of the unity of Christ's Person, we can attribute properties of either nature to the one Person. We can say God suffered and died (because the divine Person suffered in his human nature), and we can say the man Jesus created the world (because the human nature belongs to the divine Person who created all things). [CCC 466]"
+    },
+    {
+      "type": "paragraph",
+      "text": "This principle does not mean the natures are confused; rather, it expresses the unity of the subject. The Council of Ephesus and Chalcedon affirmed this teaching to safeguard both the unity of Person and the distinction of natures. [CCC 466-467]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Acts 20:28 (RSV-CE)",
+      "text": "Take heed to yourselves and to all the flock, in which the Holy Spirit has made you overseers, to care for the church of God which he obtained with the blood of his own Son."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 466: Communication of Idioms",
+      "text": "Because of the unity of Christ's Person, properties of either nature can be attributed to him; we can say God suffered (in his humanity) and the man Jesus created (as divine Person)."
+    },
+    {
+      "type": "heading",
+      "text": "VIII. The Magisterium: Vatican I and Trent"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Council of Trent (1545-1563) reaffirmed Christ's divinity against the Protestant denial of certain doctrines flowing from this truth, especially regarding the Eucharist and the Mass. Trent defined that in the Eucharist, the same Christ who is true God and true man is truly, really, and substantially present. [CCC 1374]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Vatican Council I (1869-1870) defined the capacity of human reason to know God with certainty, including the divinity of Christ, while affirming the necessity of grace and revelation for salvation. Vatican I taught that faith and reason are harmonious, both coming from God, and that the divinity of Christ can be known with certainty through revelation. [CCC 156-159]"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 20:28 (RSV-CE)",
+      "text": "Thomas answered him, My Lord and my God!"
+    },
+    {
+      "type": "callout",
+      "title": "Trent & Vatican I: Certainty of Faith",
+      "text": "Trent reaffirmed Christ's real presence as true God and true man in the Eucharist; Vatican I taught that human reason, aided by grace, can know Christ's divinity with certainty."
+    },
+    {
+      "type": "heading",
+      "text": "IX. Vatican II: Christ in the Modern World"
+    },
+    {
+      "type": "paragraph",
+      "text": "Vatican Council II (1962-1965) reaffirmed the ancient dogmas of Christ's divinity in the context of the modern world. The Council taught that Christ, the God-man, is the key to understanding humanity: only in the mystery of the Incarnate Word does the mystery of man take on light. [Gaudium et Spes 22]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Vatican II emphasized that Christ's divinity is not a remote truth but the foundation of our dignity and salvation. Through the Incarnation, God united himself in some fashion with every human being, elevating human nature to unprecedented dignity. [Gaudium et Spes 22, CCC 460]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Colossians 1:15-17 (RSV-CE)",
+      "text": "He is the image of the invisible God, the first-born of all creation; for in him all things were created, in heaven and on earth, visible and invisible. He is before all things, and in him all things hold together."
+    },
+    {
+      "type": "callout",
+      "title": "Vatican II: Christ Reveals Man to Man",
+      "text": "Vatican II taught that only in Christ, true God and true man, does the mystery of man become clear; the Incarnation elevates human nature to unprecedented dignity."
+    },
+    {
+      "type": "heading",
+      "text": "X. Heresies Condemned by the Church"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Church has condemned numerous heresies denying Christ's full divinity or full humanity. Arianism denied the Son's consubstantiality with the Father. Nestorianism divided Christ into two persons. Monophysitism claimed only one nature after the Incarnation. Docetism denied Christ's true humanity. [CCC 465-467]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Modern errors include Liberal Protestantism, which reduced Christ to a moral teacher, and certain contemporary theologies that deny the literal truth of the Incarnation. The Church continues to affirm that Jesus Christ is one divine Person with two complete natures, as defined by the Ecumenical Councils. [CCC 464-468]"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 John 4:2-3 (RSV-CE)",
+      "text": "By this you know the Spirit of God: every spirit which confesses that Jesus Christ has come in the flesh is of God, and every spirit which does not confess Jesus is not of God."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 465-467: Heresies Condemned",
+      "text": "The Church condemned Arianism, Nestorianism, Monophysitism, and Docetism; all deny either Christ's full divinity, full humanity, or the unity of his Person."
+    },
+    {
+      "type": "heading",
+      "text": "XI. The Soteriological Necessity of Christ's Divinity"
+    },
+    {
+      "type": "paragraph",
+      "text": "Christ's divinity is necessary for our salvation. Only God can save; if Christ were not true God, his sacrifice would not have infinite value sufficient to redeem all humanity. St. Athanasius famously declared: God became man so that man might become God. [CCC 460, 616]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Redemption is the work of a divine Person acting in his human nature. Christ's obedience, suffering, and death have infinite merit because they are performed by the Son of God. This is why the Church insists on the full divinity of Christ as essential to the Gospel. [CCC 616, 622]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Hebrews 9:14 (RSV-CE)",
+      "text": "How much more shall the blood of Christ, who through the eternal Spirit offered himself without blemish to God, purify your conscience from dead works to serve the living God."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 616: Infinite Merit",
+      "text": "Christ's sacrifice has infinite value because it is performed by a divine Person; only God can save, making Christ's divinity necessary for our Redemption."
+    },
+    {
+      "type": "heading",
+      "text": "XII. Living the Faith in Christ's Divinity"
+    },
+    {
+      "type": "paragraph",
+      "text": "Belief in Christ's divinity is not merely intellectual assent but a call to worship, love, and obedience. We adore Christ as God in the Eucharist, in prayer, and in the liturgy. The saints lived in constant awareness of Christ's divine presence and lordship. [CCC 2096, 2628]"
+    },
+    {
+      "type": "paragraph",
+      "text": "To confess Christ's divinity is to commit our lives to him as Lord and God. It means trusting in his promises, following his commandments, and conforming our lives to his. The divinity of Christ is the foundation of Christian hope and the source of our strength in trials. [CCC 161, 164]"
+    },
+    {
+      "type": "scripture",
+      "reference": "Philippians 2:10-11 (RSV-CE)",
+      "text": "That at the name of Jesus every knee should bow, in heaven and on earth and under the earth, and every tongue confess that Jesus Christ is Lord, to the glory of God the Father."
+    },
+    {
+      "type": "callout",
+      "title": "CCC 2096: Worship Due to God",
+      "text": "Belief in Christ's divinity calls us to worship, love, and obedience; we adore Christ as God in the Eucharist and prayer, committing our lives to him as Lord."
+    },
+    {
+      "type": "prayer",
+      "title": "Closing Prayer: Hymn to Christ the King",
+      "text": "O Jesus Christ, true God and true man, we adore you and bless you. You are the eternal Son of the Father, consubstantial with him in divinity, and consubstantial with us in humanity. Grant that we may never doubt your divinity, but live in constant awareness of your presence and lordship. May every knee bow and every tongue confess that you are Lord, to the glory of God the Father. Amen."
+    }
+  ]
+}

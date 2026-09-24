@@ -1,6 +1,30 @@
 import 'package:operation_001/prayer_model.dart';
 
 class PrayerData {
+  /// Static helper to map prayer titles to their specific artwork background assets
+  static String getImagePath(String title) {
+    switch (title.trim().toLowerCase()) {
+      case 'act of contrition':
+        return 'assets/img_2.png';
+      case 'the morning offering':
+        return 'assets/sunrise.jpeg';
+      case 'prayer of st. francis':
+        return 'assets/francis.jpg';
+      case 'the guardian angel prayer':
+        return 'assets/guardian angel.jpg';
+      case 'angelus':
+        return 'assets/img_1.png';
+      case 'prayer for the hour of mercy':
+        return 'assets/img_5.png';
+      case 'prayer to st. michael the archangel':
+        return 'assets/img_4.png';
+      case 'divine mercy chaplet':
+        return 'assets/img_3.png';
+      default:
+        return 'assets/img_2.png';
+    }
+  }
+
   static final Map<String, List<PrayerStep>> masterPrayerDB = {
     'The Morning Offering': [
       PrayerStep(
@@ -127,7 +151,7 @@ class PrayerData {
         contentEn:
         'He promised to show mercy to our fathers\nand to remember his holy covenant.\nThis was the oath he swore to our father Abraham:\nto set us free from the hands of our enemies,\nfree to worship him without fear,\nholy and righteous in his sight all the days of our life.',
         contentAm:
-        'ለአባቶቻችን ምሕረትን ለማድረግ\nቅዱስ ኪዳኑንም ለማሰብ ቃል ገባ፤\nይህም ለአባታችን ለአብርሃም የformat አሁለት መሐላ ነው፤\nከጠላቶቻችን እጅ ነጻ ወጥተን፣\nበዘመናችን ሁሉ ያለ ፍርሃት በፊቱ በቅድስናና በጽድቅ እንድናመልከው።',
+        'ለአባቶቻችን ምሕረትን ለማድረግ\nቅዱስ ኪዳኑንም ለማሰብ ቃል ገባ፤\nይህም ለአባታችን ለአብርሃም የገባሁለት መሐላ ነው፤\nከጠላቶቻችን እጅ ነጻ ወጥተን፣\nበዘመናችን ሁሉ ያለ ፍርሃት በፊቱ በቅድስናና በጽድቅ እንድናመልከው።',
         imagePath: 'assets/sunrise.jpeg',
       ),
       PrayerStep(
@@ -160,7 +184,7 @@ class PrayerData {
         'My God, I am sorry for my sins with all my heart. In choosing to do wrong and failing to do good, I have sinned against you whom I should love above all things.\nI firmly intend, with your help, to do penance, to sin no more, and to avoid whatever leads me to sin.\nOur Savior Jesus Christ suffered and died for us. In his name, my God, have mercy. Amen.',
         contentAm:
         'አምላኬ ሆይ፣ በፈጸምኩት ኃጢአት ሁሉ በሙሉ ልቤ እጸጸታለሁ። ክፉ በማድረጌና ደግ ነገር ባለማድረጌ፣ ከሁሉ በላይ ልወድህ በሚገባኝ በአንተ ላይ በደልሁ።\nበአንተ እርዳታ ንስሐ ለመግባት፣ ከእንግዲህ ወደ ኃጢአት ላለመመለስና ወደ ኃጢአት የሚመሩኝን ነገሮች ሁሉ ለማስወገድ ቁርጥ ውሳኔ አደርጋለሁ።\nመድኃኒታችን ኢየሱስ ክርስቶስ ስለ እኛ መከራን ተቀብሎ ሞተ። በስሙ አምላኬ ሆይ ምህረት አድርግልኝ። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
+        imagePath: 'assets/img_2.png',
       ),
     ],
     'Prayer for the Hour of Mercy': [
@@ -172,7 +196,7 @@ class PrayerData {
         'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of Mercy for us, I trust in You.\n\nYou Yourself, Jesus, surely out of love for us, underwent such a terrible Passion. Your Father\'s justice would have been propitiated with a single sigh from You, and all Your self abasement is solely the work of Your mercy and Your inconceivable love ... At the end of Your death on the Cross, You bestowed upon us eternal life; allowing Your most holy side to be opened, You opened an inexhaustible spring of mercy for us, giving us Your dearest possession, the Blood and Water from Your Heart. Such is the omnipotence of Your mercy. From it all grace flows to us.',
         contentAm:
         'ለእኛ የምህረት ምንጭ ሆነህ ከኢየሱስ ልብ የፈሰስክ ደምና ውኃ ሆይ፣ በአንተ እተማመናለሁ።\n\nኢየሱስ ሆይ፣ በእርግጥ ስለ እኛ ካለህ ፍቅር የተነሣ እንዲህ ዓይነቱን አስ መከራ ተቀበልክ። የአባትህ ፍትሕ በአንተ አንዲት እፎይታ እንኳን ትረካ ነበር፤ የእንዲህ ዓይነቱ ራስን ዝቅ ማድረግ ሙሉ በሙሉ የምህረትህና የማይመረመር ፍቅርህ ሥራ ነው። በ መስቀል ላይ በሞትህ ፍጻሜ የዘላለም ሕይወትን ሰጠኸን፤ ቅዱስ ጎንህ እንዲከፈት በማድረግ አታልቆ የምህረት ምንጭ ከፈትክልን፤ የልብህን ደምና ውኃ ሰጠኸን። የምህረትህ ኃያልነት እንዲህ ነው። ከእርሱ ጸጋ ሁሉ ይፈስስልናል።',
-        imagePath: 'assets/sunrise.jpeg',
+        imagePath: 'assets/img_5.png',
       ),
       PrayerStep(
         sectionHeader: 'PETITION FOR SINNERS',
@@ -182,7 +206,7 @@ class PrayerData {
         'O Jesus, eternal Truth, our Life, I call upon You and beg Your mercy for poor sinners. O sweetest Heart of my Lord, full of pity and unfathomable mercy, I plead with you for poor sinners. O Most Sacred Heart, Fount of Mercy from which gush forth rays of inconceivable graces upon the entire human race, I beg of You light for poor sinners. O Jesus, be mindful of Your own bitter Passion and do not permit the loss of souls redeemed at so dear a price of Your most precious Blood.\n\nO Jesus, when I consider the great price of Your Blood, I rejoice at its immensity, for one drop alone would have been enough for the salvation of all sinners. (...) Oh, what immense joy burns in my heart when I contemplate Your incomprehensible goodness, O Jesus! I desire to bring all sinners to Your feet that they may glorify Your mercy throughout endless ages.',
         contentAm:
         'ኦ ኢየሱስ፣ የዘላለም እውነት፣ ሕይወታችን፣ ስለ ምስኪን ኃጢአተኞች ምህረትህን እለምናለሁ። ኦ የጌታዬ እጅግ ጣፋጭ ልብ፣ በምህረት የተሞላኸው፣ ስለ ምስኪን ኃጢአተኞች እማልድሃለሁ። ኦ እጅግ ቅዱስ ልብ፣ በሰው ልጅ ሁሉ ላይ የማይመረመር ጸጋን የምታፈስስ የምህረት ምንጭ፣ ስለ ምስኪን ኃጢአተኞች ብርሃንን እለምንሃለሁ። ኢየሱስ ሆይ፣ መራራ መከራህን አስብ፣ በክቡር ደምህ በውድ ዋጋ የተዋጁትን ነፍሳት ጥፋት አትፍቀድ።',
-        imagePath: 'assets/sunrise.jpeg',
+        imagePath: 'assets/img_5.png',
       ),
       PrayerStep(
         sectionHeader: 'SURRENDER & EXPIRE',
@@ -192,7 +216,7 @@ class PrayerData {
         'O Jesus, stretched out upon the cross, I implore You, give me the grace of doing faithfully the most holy will of Your Father, in all things, always and everywhere. And when this will of God will seem to me very harsh and difficult to fulfill, it is then I beg You, Jesus, may power and strength flow upon me from your wounds, and may my lips keep repeating, "Your will be done, O Lord".\n\nO Savior of the world, Lover of man\'s salvation, who in such terrible torment and pain, forgot Yourself to think only of the salvation of souls, O most compassionate Jesus, grant in the grace to forget myself that I may live totally for souls, helping You in the work of salvation, according to the most holy will of Your Father.\n\nYou expired, Jesus, but the source of life gushed forth for souls and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, envelop the whole world and empty Yourself out upon us. Amen.',
         contentAm:
         'በመስቀል ላይ የተዘረጋኸው ኢየሱስ ሆይ፣ የአባትህን ቅዱስ ፈቃድ በነገር ሁሉ፣ ሁልጊዜና በቦታ ሁሉ ታማኝ ሆኜ እንድፈጽም ጸጋህን ስጠኝ።\n\nኢየሱስ ሆይ፣ ተሞትክ፣ ነገር ግን የሕይወት ምንጭ ለነፍሳት ፈሰሰ፤ የምህረት ውቅያኖስም ለመላው ዓለም ተከፈተ። ኦ የሕይወት ምንጭ፣ የማይመረመር አምላካዊ ምህረት፣ መላውን ዓለም ሸፍነህ በላያችን ላይ ራስህን አፍስስ። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
+        imagePath: 'assets/img_5.png',
       ),
     ],
     'Prayer to St. Michael the Archangel': [
@@ -204,7 +228,7 @@ class PrayerData {
         'Saint Michael the Archangel, defend us in battle.\nBe our protection against the wickedness and snares of the devil.\nMay God rebuke him, we humbly pray; and do thou,\nO Prince of the heavenly host, by the power of God,\ncast into hell Satan and all the evil spirits,\nwho prowl about the world seeking the ruin of souls. Amen.',
         contentAm:
         'ቅዱስ ሚካኤል ሊቀ መላእክት ሆይ፣ በውጊያ ላይ ጠብቀን።\nከዲያብሎስ ክፋትና ወጥመድ መከታ ሁነን።\nእግዚአብሔር እንዲገሥጸው በትሕትና እንጸልያለን፤\nአንተም የሰማያዊ ሠራዊት አለቃ ሆይ፣ በእግዚአብሔር ኃይል፣\nየነፍሳትን ጥፋት በመፈለግ በዓለም ላይ የሚዞሩትን\nሰይጣንንና ክፉዎችን መናፍስት ሁሉ ወደ ሲኦል ጣላቸው። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
+        imagePath: 'assets/img_4.png',
       ),
     ],
     'The Magnificat': [
@@ -319,9 +343,11 @@ class PrayerData {
     ],
   };
 
-  /// Safe accessor to retrieve a prayer by key or return a structural default
   static List<PrayerStep> getPrayer(String key) {
-    return masterPrayerDB[key] ??
+    final entry = masterPrayerDB.entries.firstWhere(
+          (e) => e.key.trim().toLowerCase() == key.trim().toLowerCase(),
+      orElse: () => MapEntry(
+        key,
         [
           PrayerStep(
             sectionHeader: 'PRAYER',
@@ -330,8 +356,11 @@ class PrayerData {
             contentEn:
             'Opening prayer for $key...\n\nLord, hear our prayer. Amen.',
             contentAm: 'የቀን ጸሎት ለ $key...\n\nአምላክ ሆይ፣ ጸሎታችንን ስማ። አሜን።',
-            imagePath: 'assets/sunrise.jpeg',
+            imagePath: getImagePath(key),
           ),
-        ];
+        ],
+      ),
+    );
+    return entry.value;
   }
 }

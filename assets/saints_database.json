@@ -1,0 +1,122 @@
+[
+  {
+    "id": "st_joseph",
+    "name": "St. Joseph",
+    "title": "Spouse of the Blessed Virgin Mary",
+    "feastDate": "03-19",
+    "patronage": ["Universal Church", "Workers", "Fathers"],
+    "imagePath": "assets/saints/st_joseph.jpg",
+    "summary": "The quiet guardian of the Holy Family and model of just manhood.",
+    "story": "Chosen by God to protect and raise Jesus alongside Mary. Scripture records zero words spoken by him—only immediate obedience to God's will.",
+    "quote": "He was a just man.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_benedict",
+    "name": "St. Benedict of Nursia",
+    "title": "Father of Western Monasticism",
+    "feastDate": "07-11",
+    "patronage": ["Europe", "Students", "Monks"],
+    "imagePath": "assets/saints/st_benedict.jpg",
+    "summary": "Founded the Benedictine order and established the rule of 'Ora et Labora' (Pray and Work).",
+    "story": "Fleeing the corruption of Rome, Benedict lived in a cave as a hermit before gathering disciples to establish monasteries centered on community prayer and work.",
+    "quote": "Prefer nothing whatever to Christ.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_augustine",
+    "name": "St. Augustine of Hippo",
+    "title": "Doctor of Grace",
+    "feastDate": "08-28",
+    "patronage": ["Theologians", "Printers", "Brewers"],
+    "imagePath": "assets/saints/st_augustine.jpg",
+    "summary": "One of the greatest theologians of the Church whose conversion inspired millions.",
+    "story": "After years of living a sinful life and seeking truth in philosophy, Augustine converted through the prayers of his mother St. Monica and became Bishop of Hippo.",
+    "quote": "Our heart is restless until it rests in You.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_catherine_siena",
+    "name": "St. Catherine of Siena",
+    "title": "Doctor of the Church",
+    "feastDate": "04-29",
+    "patronage": ["Italy", "Europe", "Nurses"],
+    "imagePath": "assets/saints/st_catherine_siena.jpg",
+    "summary": "Dominican tertiary who persuaded the Pope to return to Rome from Avignon.",
+    "story": "A mystic and counselor to popes and princes, Catherine worked tirelessly for Church unity and the care of the sick during the plague.",
+    "quote": "Be who God meant you to be and you will set the world on fire.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_thomas_aquinas",
+    "name": "St. Thomas Aquinas",
+    "title": "The Angelic Doctor",
+    "feastDate": "01-28",
+    "patronage": ["Students", "Schools", "Academics"],
+    "imagePath": "assets/saints/st_thomas_aquinas.jpg",
+    "summary": "Dominican friar and master theologian who wrote the Summa Theologiae.",
+    "story": "Synthesized Aristotelian philosophy with Christian theology, creating one of the intellectual foundations of the Western Church.",
+    "quote": "To one who has faith, no explanation is necessary.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_therese_lisieux",
+    "name": "St. Thérèse of Lisieux",
+    "title": "The Little Flower",
+    "feastDate": "10-01",
+    "patronage": ["Missionaries", "Florists"],
+    "imagePath": "assets/saints/st_therese_lisieux.jpg",
+    "summary": "Taught 'The Little Way' of holiness through small daily acts done with great love.",
+    "story": "Entered the Carmelite convent at 15 and lived a quiet life of interior trust in God, recorded in her autobiography 'Story of a Soul'.",
+    "quote": "Miss no single opportunity of making some small sacrifice.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_teresa_avila",
+    "name": "St. Teresa of Ávila",
+    "title": "Doctor of Prayer",
+    "feastDate": "10-15",
+    "patronage": ["Spain", "Headache Sufferers"],
+    "imagePath": "assets/saints/st_teresa_avila.jpg",
+    "summary": "Carmelite reformer and mystic who wrote masterworks on mental prayer.",
+    "story": "Reformed the Carmelite Order alongside St. John of the Cross and wrote 'The Interior Castle', detailing the soul's journey to God.",
+    "quote": "Let nothing disturb you, let nothing frighten you.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_francis_sales",
+    "name": "St. Francis de Sales",
+    "title": "Doctor of Charity",
+    "feastDate": "01-24",
+    "patronage": ["Writers", "Journalists", "Deaf People"],
+    "imagePath": "assets/saints/st_francis_sales.jpg",
+    "summary": "Gentle bishop who taught that devotion and holiness are meant for everyone in daily life.",
+    "story": "Used written pamphlets and gentle dialogue to win back thousands during the Reformation, authoring 'Introduction to the Devout Life'.",
+    "quote": "A spoonful of honey attracts more flies than a barrel of vinegar.",
+    "fallbackEligible": true
+  },
+  {
+    "id": "st_dominic_savio",
+    "name": "St. Dominic Savio",
+    "title": "Patron of Choirboys & Youth",
+    "feastDate": "05-09",
+    "patronage": ["Youth", "Choirboys", "Falsely Accused"],
+    "imagePath": "assets/saints/st_dominic_savio.jpg",
+    "summary": "Student of St. John Bosco who achieved sanctity at a very young age.",
+    "story": "Died at just 14 years old, leaving behind a profound witness of joy, purity, and dedication to God in everyday student life.",
+    "quote": "Death rather than sin!",
+    "fallbackEligible": true
+  },
+  {
+    "id": "bl_carlo_acutis",
+    "name": "Bl. Carlo Acutis",
+    "title": "Patron of the Internet",
+    "feastDate": "10-12",
+    "patronage": ["Youth", "Computer Programmers", "Gamers"],
+    "imagePath": "assets/saints/st_carlo_acutis.jpg",
+    "summary": "Modern teenager who cataloged Eucharistic miracles online.",
+    "story": "Used his passion for technology to build websites documenting Eucharistic miracles before dying of leukemia in 2006 at age 15.",
+    "quote": "All people are born as originals, but many die as photocopies.",
+    "fallbackEligible": true
+  }
+]

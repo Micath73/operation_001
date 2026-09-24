@@ -1,0 +1,147 @@
+{
+  "id": "holy_thursday_and_good_friday",
+  "title": "Holy Thursday & Good Friday: Lord's Passion",
+  "category": "Liturgical",
+  "summary": "Holy Thursday and Good Friday comprise the first two days of the Paschal Triduum, commemorating the Institution of the Eucharist and Priesthood, and the sacrificial death of Christ on the Cross for our salvation.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "The Theological Significance of the Paschal Triduum"
+    },
+    {
+      "type": "paragraph",
+      "text": "Holy Thursday and Good Friday form the sacred opening of the Paschal Triduum, the three-day celebration that is the summit of the entire Catholic Liturgical Calendar. The Catechism teaches that the liturgy makes present the mystery of Christ, and nowhere is this more profoundly realized than in the Triduum, where the Church enters into the very heart of the paschal mystery—Christ's passage from death to life (CCC 1163–1173). These are not mere commemorations of past events but liturgical actualizations whereby the faithful participate sacramentally in the Lord's Supper, His sacrificial offering on the Cross, and His victory over death. In these sacred days, time itself seems to pause as the Church keeps vigil with her Bridegroom."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Triduum begins with the Evening Mass of the Lord's Supper on Holy Thursday and concludes with Evening Prayer on Easter Sunday. Though chronologically three days, theologically it is one continuous celebration of Christ's paschal mystery. Holy Thursday evening commemorates the Last Supper, where Jesus instituted the Eucharist and the priesthood, giving the Church the gift of His Body and Blood and the ministers to offer them. Good Friday, the only day in the year when Mass is not celebrated, commemorates the crucifixion and death of Christ, the one perfect sacrifice that takes away the sins of the world."
+    },
+    {
+      "type": "heading",
+      "text": "Holy Thursday: The Lord's Supper"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 11:23–26",
+      "text": "For I received from the Lord what I also handed on to you, that the Lord Jesus, on the night he was handed over, took bread, and, after he had given thanks, broke it and said, 'This is my body that is for you. Do this in remembrance of me.' In the same way also the cup, after supper, saying, 'This cup is the new covenant in my blood. Do this, as often as you drink it, in remembrance of me.' For as often as you eat this bread and drink the cup, you proclaim the death of the Lord until he comes."
+    },
+    {
+      "type": "scripture",
+      "reference": "John 13:1, 12–15",
+      "text": "Before the feast of Passover, Jesus knew that his hour had come to pass from this world to the Father. He loved his own in the world and he loved them to the end... So when he had washed their feet, he put on his garments and reclined at table again, and said to them, 'Do you realize what I have done for you? You call me 'teacher' and 'master,' and rightly so, for indeed I am. If I, therefore, the master and teacher, have washed your feet, you ought to wash one another's feet. I have given you a model to follow, so that as I have done for you, you should also do.'"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 13:34–35",
+      "text": "I give you a new commandment: love one another. As I have loved you, so you also should love one another. This is how all will know that you are my disciples, if you have love for one another."
+    },
+    {
+      "type": "paragraph",
+      "text": "Paul's account of the Last Supper in 1 Corinthians is the earliest written record of the Eucharistic institution, emphasizing that Christ's sacrifice is made present in the breaking of bread and sharing of the cup until He comes again. John's Gospel, which does not include the institution narrative, instead highlights Jesus' washing of the disciples' feet and the new commandment of love, revealing that the Eucharist is inseparable from humble service and charity. The mandatum (commandment) to love one another as Christ loved us is the hermeneutic for understanding Holy Thursday: the Eucharist is the sacrament of charity, and the priesthood exists to serve this mystery of love."
+    },
+    {
+      "type": "heading",
+      "text": "Good Friday: The Passion of the Lord"
+    },
+    {
+      "type": "scripture",
+      "reference": "Isaiah 52:13–53:12",
+      "text": "See, my servant shall prosper, he shall be raised high and greatly exalted... Yet it was our pain that he bore, our sufferings that he endured... He was pierced for our offenses, crushed for our sins; upon him was the chastisement that makes us whole, by his stripes we were healed."
+    },
+    {
+      "type": "scripture",
+      "reference": "Hebrews 4:14–16; 5:7–9",
+      "text": "Since we have a great high priest who has passed through the heavens, Jesus, the Son of God... For we do not have a high priest who is unable to sympathize with our weaknesses, but one who has similarly been tested in every way, yet without sin... In the days when he was in the flesh, he offered prayers and supplications with loud cries and tears to the one who was able to save him from death, and he was heard because of his reverence. Son though he was, he learned obedience from what he suffered; and when he was made perfect, he became the source of eternal salvation for all who obey him."
+    },
+    {
+      "type": "scripture",
+      "reference": "John 18:1–19:42",
+      "text": "The Passion of our Lord Jesus Christ according to John... They crucified him, and with him two others, one on either side, with Jesus in the middle... When Jesus had taken the wine, he said, 'It is finished.' And bowing his head, he handed over the spirit."
+    },
+    {
+      "type": "paragraph",
+      "text": "Isaiah's Suffering Servant song, proclaimed on Good Friday, prophesies the redemptive meaning of Christ's passion: He bore our sins and suffered in our place, making His life an offering for sin. Hebrews presents Jesus as the great High Priest who, through His suffering, learned obedience and became the source of eternal salvation. John's Passion narrative, unique among the Gospels for its theological depth, portrays Jesus as sovereign even in death, handing over His spirit freely. These texts reveal that the Cross is not defeat but victory, not tragedy but the supreme manifestation of God's love."
+    },
+    {
+      "type": "heading",
+      "text": "Liturgical Symbols and Rituals"
+    },
+    {
+      "type": "callout",
+      "title": "Liturgical Colors",
+      "text": "Holy Thursday uses white vestments for the Mass of the Lord's Supper, symbolizing joy and the gift of the Eucharist. Good Friday uses red vestments, signifying the blood of Christ's passion and martyrdom."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Holy Thursday liturgy includes several distinctive rites: the washing of feet (mandatum), the procession with the Blessed Sacrament to the altar of repose, and the stripping of the altar. The foot-washing, performed after the homily, reenacts Christ's humble service and is typically done with twelve selected persons representing the disciples. The altar of repose, where the Blessed Sacrament is reserved after Mass, invites the faithful to keep vigil with Christ, echoing His request to the disciples in Gethsemane: 'Could you not keep watch with me for one hour?'"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Good Friday liturgy, celebrated in the afternoon (traditionally at 3 PM, the hour of Christ's death), consists of three parts: the Liturgy of the Word, the Veneration of the Cross, and Holy Communion. No Mass is celebrated; Communion is distributed from hosts consecrated at the Holy Thursday Mass. The solemn reproaches and the ancient hymn 'Crux Fidelis' accompany the veneration, during which the faithful approach barefoot to kiss or reverence a cross, acknowledging it as the instrument of our salvation."
+    },
+    {
+      "type": "paragraph",
+      "text": "The stripping of the altar on Holy Thursday night, after the Blessed Sacrament has been processed to the altar of repose, symbolizes Christ's abandonment and the beginning of His passion. All ornaments, linens, and crosses are removed, leaving the altar bare for Good Friday. This stark emptiness visually communicates the desolation of Christ's suffering and death, preparing the faithful for the silence of Holy Saturday."
+    },
+    {
+      "type": "heading",
+      "text": "Spiritual Themes of Holy Thursday and Good Friday"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Eucharist is the central theme of Holy Thursday. Christ's gift of Himself under the appearances of bread and wine is the supreme act of love, making present His sacrifice throughout time. The priesthood, instituted at the Last Supper, exists to serve this mystery, configuring certain men to Christ the Head so that they may act in persona Christi capitis. Holy Thursday invites us to renew our love for the Eucharist and our gratitude for the priestly ministry."
+    },
+    {
+      "type": "paragraph",
+      "text": "Service and humility are embodied in the foot-washing. Christ, the Master and Teacher, knelt to wash the feet of His disciples, modeling the servant leadership expected of all Christians. This act challenges our pride and calls us to humble service, especially toward the marginalized. The new commandment to love one another as Christ loved us is the standard of Christian discipleship: sacrificial, self-giving love."
+    },
+    {
+      "type": "callout",
+      "title": "The Paschal Mystery",
+      "text": "Holy Thursday and Good Friday together reveal the paschal mystery: Christ's loving self-offering at the Supper and His sacrificial death on the Cross are one redemptive act, making salvation present to all generations."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Cross is the focal point of Good Friday spirituality. Far from being a symbol of shame, the Cross is the tree of life, the instrument of our redemption, and the revelation of God's love. 'By His wounds we are healed'—the suffering of Christ was not in vain but accomplished our salvation. Good Friday invites us to contemplate the Cross with faith, hope, and gratitude, recognizing that our own sufferings, united to Christ's, participate in His redemptive work."
+    },
+    {
+      "type": "paragraph",
+      "text": "Sacrifice is inherent in both days. The Eucharist is the unbloody re-presentation of Christ's one sacrifice on Calvary; Good Friday commemorates that sacrifice in its historical reality. The faithful are called to unite their own sacrifices—fasting, abstinence, penances—to Christ's offering, participating in the work of redemption. This is the heart of Catholic spirituality: offering our lives, with Christ, for the salvation of the world."
+    },
+    {
+      "type": "heading",
+      "text": "Living Holy Thursday and Good Friday Faithfully"
+    },
+    {
+      "type": "paragraph",
+      "text": "Faithful Catholics observe Holy Thursday and Good Friday through active participation in the liturgies and adoption of penitential practices. Attendance at the Evening Mass of the Lord's Supper and the Good Friday Celebration of the Lord's Passion is strongly encouraged, though neither is a holy day of obligation. The faithful should approach these liturgies with reverence, silence, and interior preparation, recognizing them as the most sacred celebrations of the liturgical year."
+    },
+    {
+      "type": "paragraph",
+      "text": "Practical observances include: keeping vigil with Christ at the altar of repose on Holy Thursday night, spending at least an hour in Eucharistic adoration; fasting and abstinence on Good Friday (one full meal, two smaller meals; no meat); praying the Stations of the Cross on Good Friday; meditating on the Seven Last Words of Christ; and refraining from unnecessary activities, entertainment, and shopping throughout the Triduum. Many faithful also make a holy hour on Holy Thursday, accompanying Christ in spirit to Gethsemane."
+    },
+    {
+      "type": "paragraph",
+      "text": "Families may pray together before or after the liturgies, reflecting on the meaning of the Eucharist and the Cross. Parents can explain to children why the church looks different (bare altars, no Mass on Good Friday) and help them understand that these are the most important days of the year. Some communities organize vigils, prayer chains, or continuous adoration from Holy Thursday night through Good Friday afternoon, ensuring that Christ is never left alone."
+    },
+    {
+      "type": "paragraph",
+      "text": "Above all, Holy Thursday and Good Friday call us to love and gratitude. At the Last Supper, Jesus loved His own to the end; on the Cross, He gave His life for us. Our response must be love in return: love for the Eucharist, love for the Cross, love for one another. As we keep vigil with Christ and venerate His Cross, we prepare our hearts for the joy of Easter, knowing that Sunday morning comes only after Friday's sacrifice."
+    },
+    {
+      "type": "prayer",
+      "title": "Holy Thursday Collect",
+      "text": "O God, who have called us to participate in this most sacred Supper, in which your Only Begotten Son, when about to hand himself over to death, entrusted to the Church a sacrifice new for all eternity, the banquet of his love, grant, we pray, that we may draw from so great a mystery, the fullness of charity and of life. Through our Lord Jesus Christ, your Son, who lives and reigns with you in the unity of the Holy Spirit, one God, for ever and ever. Amen."
+    },
+    {
+      "type": "prayer",
+      "title": "Good Friday Solemn Prayers (Excerpt)",
+      "text": "Almighty ever-living God, by whose will your Only Begotten Son was offered as the victim of our salvation, hear our prayers and grant that what we have devoutly celebrated in mystery we may possess with enduring faith. Through Christ our Lord. Amen."
+    },
+    {
+      "type": "prayer",
+      "title": "Prayer Before the Cross",
+      "text": "We adore you, O Christ, and we praise you, because by your holy cross you have redeemed the world. O Lord Jesus Christ, true God and true Man, crucified for my salvation, I thank you for your infinite love and I offer you my life, my sufferings, and my death, that they may be united to yours for the glory of the Father and the salvation of souls. Amen."
+    }
+  ]
+}

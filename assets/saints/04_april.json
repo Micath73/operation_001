@@ -1,0 +1,914 @@
+[
+  {
+    "feastDate": "04-01",
+    "saints": [
+      {
+        "id": "hugh_of_grenoble",
+        "name": "Saint Hugh of Grenoble",
+        "feastDate": "04-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/hugh_of_grenoble.jpg",
+        "shortBio": "Saint Hugh of Grenoble was a bishop known for reforming Church life and supporting Saint Bruno in the foundation of the Carthusian Order.",
+        "fullStory": "Hugh served as bishop of Grenoble during a period of ecclesial reform and worked to restore discipline and pastoral care in his diocese. He welcomed Bruno and his companions to the remote Chartreuse valley, where the Carthusian way of life began. Remembered for humility, generosity, and steadfast leadership, Hugh became a model of episcopal service.",
+        "patronage": [
+          "Grenoble",
+          "Carthusians",
+          "Church reform"
+        ],
+        "quote": null,
+        "birthYear": 1053,
+        "deathYear": 1132,
+        "canonizationYear": 1134,
+        "tags": [
+          "bishop",
+          "reformer",
+          "carthusian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-02",
+    "saints": [
+      {
+        "id": "francis_of_paola",
+        "name": "Saint Francis of Paola",
+        "feastDate": "04-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/francis_of_paola.jpg",
+        "shortBio": "Saint Francis of Paola was a hermit and founder of the Order of Minims, known for humility, penance, and care for the poor.",
+        "fullStory": "Francis withdrew from the world as a young man and lived as a hermit in southern Italy. Disciples gathered around him, leading to the foundation of the Minims, an order dedicated to a life even more humble than that of the least. He was also respected for his wisdom and served as a spiritual adviser to rulers while remaining committed to fasting and simplicity.",
+        "patronage": [
+          "seafarers",
+          "boatmen",
+          "Calabria",
+          "the Order of Minims"
+        ],
+        "quote": "Charity is the perfection of all virtues.",
+        "birthYear": 1416,
+        "deathYear": 1507,
+        "canonizationYear": 1519,
+        "tags": [
+          "hermit",
+          "founder",
+          "penitent"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-03",
+    "saints": [
+      {
+        "id": "richard_of_chichester",
+        "name": "Saint Richard of Chichester",
+        "feastDate": "04-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/richard_of_chichester.jpg",
+        "shortBio": "Saint Richard of Chichester was a bishop who defended Church freedom, promoted reform, and cared deeply for the faithful.",
+        "fullStory": "Richard studied at Oxford and in Paris before becoming a trusted administrator and adviser to Edmund of Abingdon, archbishop of Canterbury. He later became bishop of Chichester and worked to improve clerical discipline, sacramental life, and pastoral care. Despite political opposition and personal hardship, he remained devoted to truth, prayer, and service.",
+        "patronage": [
+          "Sussex",
+          "coachmen",
+          "charioteers"
+        ],
+        "quote": "Thanks be to my Lord Jesus Christ for all things.",
+        "birthYear": 1197,
+        "deathYear": 1253,
+        "canonizationYear": 1262,
+        "tags": [
+          "bishop",
+          "reformer",
+          "pastor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-04",
+    "saints": [
+      {
+        "id": "isidore_of_seville",
+        "name": "Saint Isidore of Seville",
+        "feastDate": "04-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/isidore_of_seville.jpg",
+        "shortBio": "Saint Isidore of Seville was a bishop, teacher, and Doctor of the Church who preserved and organized knowledge during a time of social change.",
+        "fullStory": "Isidore served as bishop of Seville and helped renew Christian life in Visigothic Spain. His writings gathered theological, historical, scientific, and linguistic knowledge from the ancient world and made it accessible to later generations. Through pastoral leadership and scholarship, he strengthened the Church and helped shape medieval education.",
+        "patronage": [
+          "Internet users",
+          "computer users",
+          "computer programmers",
+          "students"
+        ],
+        "quote": "The prayers of the saints are the riches of the Church.",
+        "birthYear": 560,
+        "deathYear": 636,
+        "canonizationYear": 1598,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "scholar"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-05",
+    "saints": [
+      {
+        "id": "vincent_ferrer",
+        "name": "Saint Vincent Ferrer",
+        "feastDate": "04-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/vincent_ferrer.jpg",
+        "shortBio": "Saint Vincent Ferrer was a Dominican preacher who traveled widely, calling people to conversion and renewed Christian faith.",
+        "fullStory": "Vincent entered the Order of Preachers and became known for his powerful preaching across Europe. He ministered during the Western Schism, a period of deep division in the Church, and urged repentance, reconciliation, and fidelity to the Gospel. His preaching, charity, and disciplined life attracted large crowds and inspired lasting devotion.",
+        "patronage": [
+          "builders",
+          "plumbers",
+          "fishermen",
+          "orphanages"
+        ],
+        "quote": "Act as if everything depended on you; trust as if everything depended on God.",
+        "birthYear": 1350,
+        "deathYear": 1419,
+        "canonizationYear": 1455,
+        "tags": [
+          "dominican",
+          "preacher",
+          "missionary"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-06",
+    "saints": [
+      {
+        "id": "peter_of_verona",
+        "name": "Saint Peter of Verona",
+        "feastDate": "04-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/peter_of_verona.jpg",
+        "shortBio": "Saint Peter of Verona was a Dominican friar and martyr who defended the Christian faith through preaching and courageous witness.",
+        "fullStory": "Peter was born into a family influenced by religious dissent but became a devoted Dominican friar. He preached throughout northern Italy and worked to strengthen Christian teaching and unity. He was murdered while traveling to Milan and became one of the most prominent Dominican martyrs of the Middle Ages.",
+        "patronage": [
+          "inquisitors",
+          "midwives",
+          "the Archdiocese of Milan"
+        ],
+        "quote": null,
+        "birthYear": 1205,
+        "deathYear": 1252,
+        "canonizationYear": 1253,
+        "tags": [
+          "dominican",
+          "martyr",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-07",
+    "saints": [
+      {
+        "id": "john_baptist_de_la_salle",
+        "name": "Saint John Baptist de La Salle",
+        "feastDate": "04-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/john_baptist_de_la_salle.jpg",
+        "shortBio": "Saint John Baptist de La Salle was a priest and educator who founded the Brothers of the Christian Schools and transformed Catholic education.",
+        "fullStory": "John Baptist de La Salle came from a prominent family but devoted his life to educating poor children and forming dedicated Christian teachers. He established communities of religious educators and developed practical methods for classroom instruction, teacher formation, and accessible schooling. His work laid foundations for modern Catholic education and continues through the Lasallian educational network.",
+        "patronage": [
+          "teachers",
+          "educators",
+          "school principals",
+          "youth"
+        ],
+        "quote": "The example of a good teacher is the best lesson.",
+        "birthYear": 1651,
+        "deathYear": 1719,
+        "canonizationYear": 1900,
+        "tags": [
+          "priest",
+          "educator",
+          "founder"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-08",
+    "saints": [
+      {
+        "id": "julie_billiart",
+        "name": "Saint Julie Billiart",
+        "feastDate": "04-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/julie_billiart.jpg",
+        "shortBio": "Saint Julie Billiart was a French religious foundress who promoted Christian education and trust in divine providence.",
+        "fullStory": "Julie Billiart suffered serious illness and political persecution during the turmoil of the French Revolution. Despite physical weakness and exile, she gathered companions and founded the Sisters of Notre Dame de Namur. Her life combined practical service to the poor with a profound spirituality of confidence in God.",
+        "patronage": [
+          "Christian education",
+          "teachers",
+          "the Sisters of Notre Dame de Namur"
+        ],
+        "quote": "How good is the good God!",
+        "birthYear": 1751,
+        "deathYear": 1816,
+        "canonizationYear": 1969,
+        "tags": [
+          "foundress",
+          "educator",
+          "religious"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-09",
+    "saints": [
+      {
+        "id": "mary_cleopas",
+        "name": "Saint Mary Cleopas",
+        "feastDate": "04-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/mary_cleopas.jpg",
+        "shortBio": "Saint Mary Cleopas is traditionally remembered among the women who followed Jesus and witnessed the events surrounding his Passion and Resurrection.",
+        "fullStory": "Mary Cleopas is named in the Gospel tradition among the women present near the cross and associated with the community of Jesus' disciples. Early Christian tradition honors her as a faithful witness who remained close to Christ during his suffering. Although details of her life are limited, her Gospel memory represents steadfast discipleship and courageous presence.",
+        "patronage": [
+          "faithful disciples",
+          "women disciples"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "disciple",
+          "gospel",
+          "holy-women"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-10",
+    "saints": [
+      {
+        "id": "michael_de_sanctis",
+        "name": "Saint Michael de Sanctis",
+        "feastDate": "04-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/michael_de_sanctis.jpg",
+        "shortBio": "Saint Michael de Sanctis was a Spanish Trinitarian priest known for contemplative prayer, Eucharistic devotion, and pastoral charity.",
+        "fullStory": "Michael entered religious life while still young and later joined the reform movement of the Trinitarians. He served as a priest and superior while maintaining a deep interior life centered on the Eucharist. His humility, charity, and love of contemplative prayer made him a respected spiritual guide.",
+        "patronage": [
+          "Trinitarians",
+          "Eucharistic devotion",
+          "contemplative prayer"
+        ],
+        "quote": null,
+        "birthYear": 1591,
+        "deathYear": 1625,
+        "canonizationYear": 1862,
+        "tags": [
+          "priest",
+          "trinitarian",
+          "mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-11",
+    "saints": [
+      {
+        "id": "stanislaus_of_krakow",
+        "name": "Saint Stanislaus",
+        "feastDate": "04-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/stanislaus_of_krakow.jpg",
+        "shortBio": "Saint Stanislaus was the bishop and martyr of Krakow who defended the rights of the Church and the moral law.",
+        "fullStory": "Stanislaus became bishop of Krakow and was known for pastoral courage and concern for the poor. He confronted King Boleslaus II over serious misconduct and was eventually murdered while celebrating Mass. His martyrdom made him a lasting symbol of the Church's responsibility to speak truth to political power.",
+        "patronage": [
+          "Poland",
+          "Krakow",
+          "moral courage"
+        ],
+        "quote": null,
+        "birthYear": 1030,
+        "deathYear": 1079,
+        "canonizationYear": 1253,
+        "tags": [
+          "bishop",
+          "martyr",
+          "poland"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-12",
+    "saints": [
+      {
+        "id": "julius_i",
+        "name": "Saint Julius I",
+        "feastDate": "04-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/julius_i.jpg",
+        "shortBio": "Saint Julius I was a pope who defended the faith of Saint Athanasius and strengthened the Church's understanding of episcopal authority.",
+        "fullStory": "Julius became bishop of Rome during the Arian controversy, when disputes about the divinity of Christ divided many Christian communities. He supported Athanasius of Alexandria and insisted that bishops should not be condemned without proper ecclesial examination. His pontificate helped clarify the pastoral and judicial role of the Roman See.",
+        "patronage": [
+          "Church unity",
+          "bishops",
+          "defenders of orthodoxy"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 352,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "bishop",
+          "church-unity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-13",
+    "saints": [
+      {
+        "id": "martin_i",
+        "name": "Saint Martin I",
+        "feastDate": "04-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/martin_i.jpg",
+        "shortBio": "Saint Martin I was a pope and martyr who defended the Church's teaching about the full humanity and divinity of Christ.",
+        "fullStory": "Martin was elected pope during the controversy over Monothelitism, a doctrine that denied Christ's complete human will. He convened a council at Rome and opposed imperial efforts to impose theological compromise. Arrested, humiliated, and exiled, he died in hardship because of his faithful witness to orthodox Christian teaching.",
+        "patronage": [
+          "political prisoners",
+          "exiles",
+          "defenders of doctrine"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 655,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "martyr",
+          "confessor"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-14",
+    "saints": [
+      {
+        "id": "maximus_of_turin",
+        "name": "Saint Maximus of Turin",
+        "feastDate": "04-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/maximus_of_turin.jpg",
+        "shortBio": "Saint Maximus of Turin was an early bishop and preacher whose homilies encouraged Christian faith, charity, and moral renewal.",
+        "fullStory": "Maximus served as bishop of Turin during a period when the Church was consolidating its life after the persecutions of the early centuries. His sermons addressed Scripture, the sacraments, care for the poor, and the duties of Christian citizens. Through clear preaching and pastoral concern, he helped form a resilient Christian community in northern Italy.",
+        "patronage": [
+          "Turin",
+          "preachers",
+          "pastoral ministry"
+        ],
+        "quote": null,
+        "birthYear": 380,
+        "deathYear": 465,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "preacher",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-15",
+    "saints": [
+      {
+        "id": "damian_de_veuster",
+        "name": "Saint Damian de Veuster",
+        "feastDate": "04-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/damian_de_veuster.jpg",
+        "shortBio": "Saint Damian de Veuster was a Belgian missionary priest who served people with Hansen's disease on Molokai, Hawaii.",
+        "fullStory": "Damian volunteered to minister to the isolated community of people with Hansen's disease on the Kalaupapa peninsula. He lived among them, built homes and churches, organized healthcare and education, and treated the residents with dignity and affection. After contracting the disease himself, he continued his ministry until his death, becoming a worldwide example of compassionate solidarity.",
+        "patronage": [
+          "people with HIV/AIDS",
+          "people with Hansen's disease",
+          "outcasts",
+          "Hawaii"
+        ],
+        "quote": "We lepers.",
+        "birthYear": 1840,
+        "deathYear": 1889,
+        "canonizationYear": 2009,
+        "tags": [
+          "missionary",
+          "priest",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-16",
+    "saints": [
+      {
+        "id": "benedict_joseph_labre",
+        "name": "Saint Benedict Joseph Labre",
+        "feastDate": "04-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/benedict_joseph_labre.jpg",
+        "shortBio": "Saint Benedict Joseph Labre was a French pilgrim and mendicant who lived in radical poverty and prayer among the poor of Rome.",
+        "fullStory": "Benedict sought admission to several religious communities but eventually understood his vocation as that of a wandering pilgrim. He traveled to major shrines and finally settled in Rome, where he slept outdoors, shared what he received, and spent long hours in prayer. His hidden life of poverty and devotion attracted people who recognized an extraordinary holiness in him.",
+        "patronage": [
+          "homeless people",
+          "beggars",
+          "pilgrims",
+          "unattached persons"
+        ],
+        "quote": null,
+        "birthYear": 1748,
+        "deathYear": 1783,
+        "canonizationYear": 1881,
+        "tags": [
+          "pilgrim",
+          "mendicant",
+          "penitent"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-17",
+    "saints": [
+      {
+        "id": "kateri_tekwakwitha",
+        "name": "Saint Kateri Tekakwitha",
+        "feastDate": "04-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/kateri_tekwakwitha.jpg",
+        "shortBio": "Saint Kateri Tekakwitha was a Mohawk woman who embraced Christianity and lived a life of prayer, chastity, and service.",
+        "fullStory": "Kateri was born in the Mohawk Valley and survived a smallpox epidemic that left her physically scarred and weakened. After receiving Christian instruction, she was baptized and moved to the mission community at Kahnawake, where she dedicated herself to prayer, penance, and care for others. She became the first Indigenous American saint canonized by the Catholic Church.",
+        "patronage": [
+          "ecology",
+          "the environment",
+          "Indigenous peoples",
+          "exiles"
+        ],
+        "quote": "I have given my soul to Jesus.",
+        "birthYear": 1656,
+        "deathYear": 1680,
+        "canonizationYear": 2012,
+        "tags": [
+          "indigenous",
+          "virgin",
+          "mission"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-18",
+    "saints": [
+      {
+        "id": "apollonius_of_rome",
+        "name": "Saint Apollonius of Rome",
+        "feastDate": "04-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/apollonius_of_rome.jpg",
+        "shortBio": "Saint Apollonius of Rome was a Christian martyr remembered for defending the faith before Roman authorities.",
+        "fullStory": "Apollonius was a Christian nobleman who lived in Rome during a period of persecution. According to early accounts, he gave a thoughtful defense of Christianity before a tribunal and refused to renounce his faith. He was condemned to death and honored by the early Church as a courageous witness.",
+        "patronage": [
+          "martyrs",
+          "Christian apologists",
+          "defenders of faith"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 185,
+        "canonizationYear": null,
+        "tags": [
+          "martyr",
+          "apologist",
+          "roman-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-19",
+    "saints": [
+      {
+        "id": "leo_ix",
+        "name": "Saint Leo IX",
+        "feastDate": "04-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/leo_ix.jpg",
+        "shortBio": "Saint Leo IX was a pope who promoted clerical reform, ecclesial discipline, and renewal in the Church of the eleventh century.",
+        "fullStory": "Leo IX became pope during a period marked by abuses in Church administration and clerical life. He traveled widely, held synods, and called gifted reformers to Rome in an effort to strengthen ecclesial discipline. Although his pontificate ended amid tensions between Rome and Constantinople, his reform efforts significantly shaped the renewal of the medieval Church.",
+        "patronage": [
+          "Church reform",
+          "clergy",
+          "ecclesial renewal"
+        ],
+        "quote": null,
+        "birthYear": 1002,
+        "deathYear": 1054,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "reformer",
+          "bishop"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-20",
+    "saints": [
+      {
+        "id": "agnes_of_montepulciano",
+        "name": "Saint Agnes of Montepulciano",
+        "feastDate": "04-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/agnes_of_montepulciano.jpg",
+        "shortBio": "Saint Agnes of Montepulciano was a Dominican nun and mystic who served as an abbess and spiritual guide.",
+        "fullStory": "Agnes entered religious life at a young age and later helped establish communities of women dedicated to prayer and service. She became prioress of a Dominican convent at Montepulciano and was known for humility, wisdom, and care for the poor. Her contemplative life and reputation for holiness made her an influential spiritual figure in medieval Tuscany.",
+        "patronage": [
+          "Montepulciano",
+          "Dominican nuns",
+          "young women"
+        ],
+        "quote": null,
+        "birthYear": 1268,
+        "deathYear": 1317,
+        "canonizationYear": 1726,
+        "tags": [
+          "dominican",
+          "abbess",
+          "mystic"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-21",
+    "saints": [
+      {
+        "id": "anselm_of_canterbury",
+        "name": "Saint Anselm of Canterbury",
+        "feastDate": "04-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/anselm_of_canterbury.jpg",
+        "shortBio": "Saint Anselm was an archbishop, theologian, and Doctor of the Church known for integrating faith and reason.",
+        "fullStory": "Anselm became a monk at Bec in Normandy and later served as archbishop of Canterbury. He defended the freedom of the Church against royal interference and endured exile because of his convictions. His theological writings, especially his reflections on the nature of God and the meaning of the Incarnation, profoundly influenced Christian thought.",
+        "patronage": [
+          "theologians",
+          "philosophers",
+          "scholastic scholars"
+        ],
+        "quote": "Faith seeking understanding.",
+        "birthYear": 1033,
+        "deathYear": 1109,
+        "canonizationYear": 1494,
+        "tags": [
+          "archbishop",
+          "doctor-of-the-church",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-22",
+    "saints": [
+      {
+        "id": "soter_and_caius",
+        "name": "Saints Soter and Caius",
+        "feastDate": "04-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/soter_and_caius.jpg",
+        "shortBio": "Saints Soter and Caius were early bishops of Rome who served the Christian community during times of persecution.",
+        "fullStory": "Soter and Caius are remembered among the early successors of Saint Peter in Rome. Their ministries helped preserve Christian worship, charitable care, and apostolic teaching during the difficult second and third centuries. Although historical details are limited, the Church honors them as faithful shepherds who strengthened the unity of the Roman Christian community.",
+        "patronage": [
+          "bishops",
+          "the Roman Church",
+          "early Christians"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "pope",
+          "bishop",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-23",
+    "saints": [
+      {
+        "id": "george",
+        "name": "Saint George",
+        "feastDate": "04-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/st_george.jpg",
+        "shortBio": "Saint George was an early Christian martyr whose courage made him one of the Church's most widely honored saints.",
+        "fullStory": "George is traditionally remembered as a soldier who refused to renounce his Christian faith during persecution. Although many later legends surround his life, his martyrdom and steadfast witness were honored by Christians across the ancient world. He became a powerful symbol of courage, especially through the later story of the dragon, which represents the triumph of good over evil.",
+        "patronage": [
+          "soldiers",
+          "cavalry",
+          "scouts",
+          "England",
+          "Georgia"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 303,
+        "canonizationYear": null,
+        "tags": [
+          "martyr",
+          "soldier",
+          "courage"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-24",
+    "saints": [
+      {
+        "id": "fidelis_of_sigmaringen",
+        "name": "Saint Fidelis of Sigmaringen",
+        "feastDate": "04-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/fidelis_of_sigmaringen.jpg",
+        "shortBio": "Saint Fidelis of Sigmaringen was a Capuchin friar and preacher who was martyred while serving the cause of Christian unity.",
+        "fullStory": "Fidelis studied law and worked as an advocate before entering the Capuchin Order. He became known for preaching, simple living, and concern for the poor. While evangelizing in a region marked by religious conflict, he was killed because of his Catholic faith and his commitment to reconciliation.",
+        "patronage": [
+          "lawyers",
+          "law enforcement",
+          "the Diocese of Feldkirch"
+        ],
+        "quote": null,
+        "birthYear": 1578,
+        "deathYear": 1622,
+        "canonizationYear": 1746,
+        "tags": [
+          "capuchin",
+          "martyr",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-25",
+    "saints": [
+      {
+        "id": "mark_the_evangelist",
+        "name": "Saint Mark the Evangelist",
+        "feastDate": "04-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_mark_evangelist.jpg",
+        "shortBio": "Saint Mark the Evangelist was a companion of the apostles and the traditional author of the Gospel according to Mark.",
+        "fullStory": "Mark was associated with Peter and Paul and served the early Christian mission in the Mediterranean world. His Gospel presents Jesus as the suffering and victorious Son of God and preserves many vivid details traditionally connected with Peter's preaching. Mark is also honored as the founder of the Church of Alexandria and as the patron of Venice.",
+        "patronage": [
+          "Venice",
+          "Alexandria",
+          "notaries",
+          "interpreters"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 68,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "evangelist",
+          "gospel"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-26",
+    "saints": [
+      {
+        "id": "rafael_guizar_y_valencia",
+        "name": "Saint Rafael Guízar y Valencia",
+        "feastDate": "04-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/rafael_guizar_y_valencia.jpg",
+        "shortBio": "Saint Rafael Guízar y Valencia was a Mexican bishop who courageously served persecuted Catholics and formed priests during times of religious oppression.",
+        "fullStory": "Rafael served as a missionary and bishop during the religious persecution that affected Mexico in the early twentieth century. He traveled secretly to minister to Catholics and organized priestly formation so that the Church could continue its sacramental life. His courage, pastoral charity, and dedication to the poor made him a revered shepherd.",
+        "patronage": [
+          "seminarians",
+          "persecuted Christians",
+          "Veracruz"
+        ],
+        "quote": null,
+        "birthYear": 1878,
+        "deathYear": 1938,
+        "canonizationYear": 2006,
+        "tags": [
+          "bishop",
+          "missionary",
+          "persecution"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-27",
+    "saints": [
+      {
+        "id": "zita",
+        "name": "Saint Zita",
+        "feastDate": "04-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/zita.jpg",
+        "shortBio": "Saint Zita was an Italian domestic worker remembered for her humility, honesty, prayer, and generosity toward the poor.",
+        "fullStory": "Zita worked for many years in a household in Lucca and treated ordinary duties as a path to holiness. She endured unfair treatment with patience while remaining diligent and compassionate. Her devotion to the poor and faithful performance of daily work made her a beloved example of sanctity in ordinary life.",
+        "patronage": [
+          "domestic workers",
+          "housekeepers",
+          "maids",
+          "Lucca"
+        ],
+        "quote": null,
+        "birthYear": 1218,
+        "deathYear": 1278,
+        "canonizationYear": 1696,
+        "tags": [
+          "laywoman",
+          "domestic-worker",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-28",
+    "saints": [
+      {
+        "id": "peter_chanel",
+        "name": "Saint Peter Chanel",
+        "feastDate": "04-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/peter_chanel.jpg",
+        "shortBio": "Saint Peter Chanel was a French Marist missionary and martyr who evangelized in the Pacific.",
+        "fullStory": "Peter joined the Society of Mary and was sent as a missionary to the islands of the Pacific. He served patiently among the people of Futuna, learning their language and caring for the sick and poor. He was killed because of his missionary work, and his death became a turning point in the acceptance of Christianity on the island.",
+        "patronage": [
+          "Oceania",
+          "missionaries",
+          "Futuna"
+        ],
+        "quote": "A missionary is one who leaves everything to follow Christ.",
+        "birthYear": 1803,
+        "deathYear": 1841,
+        "canonizationYear": 1954,
+        "tags": [
+          "missionary",
+          "marist",
+          "martyr"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-29",
+    "saints": [
+      {
+        "id": "catherine_of_siena",
+        "name": "Saint Catherine of Siena",
+        "feastDate": "04-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_catherine_siena.jpg",
+        "shortBio": "Saint Catherine of Siena was a Dominican tertiary, mystic, peacemaker, and Doctor of the Church who urged renewal in Christian life.",
+        "fullStory": "Catherine dedicated herself to prayer, service of the poor, and care for the sick while still a young woman. She corresponded with popes, rulers, and Church leaders, urging reform and reconciliation during a period of ecclesial division. Her mystical writings, courage, and devotion to Christ made her one of the most influential women in Christian history.",
+        "patronage": [
+          "Europe",
+          "Italy",
+          "nurses",
+          "fire prevention",
+          "illness"
+        ],
+        "quote": "Be who God meant you to be and you will set the world on fire.",
+        "birthYear": 1347,
+        "deathYear": 1380,
+        "canonizationYear": 1461,
+        "tags": [
+          "mystic",
+          "doctor-of-the-church",
+          "dominican"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "04-30",
+    "saints": [
+      {
+        "id": "pius_v",
+        "name": "Saint Pius V",
+        "feastDate": "04-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/pius_v.jpg",
+        "shortBio": "Saint Pius V was a Dominican pope who implemented reforms of the Council of Trent and renewed the spiritual life of the Church.",
+        "fullStory": "Pius V entered the Dominican Order and served as a preacher, inquisitor, and bishop before becoming pope. He promoted the reform of clergy and liturgy, published the Roman Missal associated with the Tridentine reform, and defended Christian Europe during the Ottoman advance. His pontificate combined rigorous personal asceticism with a strong commitment to ecclesial renewal.",
+        "patronage": [
+          "Dominicans",
+          "Church reform",
+          "the Battle of Lepanto"
+        ],
+        "quote": null,
+        "birthYear": 1504,
+        "deathYear": 1572,
+        "canonizationYear": 1712,
+        "tags": [
+          "pope",
+          "dominican",
+          "reformer"
+        ]
+      }
+    ]
+  }
+]

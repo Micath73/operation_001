@@ -1,0 +1,129 @@
+{
+  "id": "easter_season_he_is_risen",
+  "title": "Easter Season: He Is Risen!",
+  "category": "Liturgical",
+  "summary": "The Easter Season is the fifty-day celebration of Christ's Resurrection from Easter Sunday to Pentecost, proclaiming the victory of life over death and the fulfillment of the paschal mystery.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "The Theological Significance of the Easter Season"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Easter Season stands as the crown and culmination of the Catholic Liturgical Calendar, the great fifty days during which the Church exults in the Resurrection of her Lord. The Catechism teaches that the liturgy makes present the mystery of Christ, and Easter is the preeminent actualization of the paschal mystery—Christ's passage from death to life, which is made sacramentally present to every generation (CCC 1163–1173). This is not merely a commemoration of an event from the first century but a liturgical participation in the living reality of the Risen Christ, who conquers death and opens the gates of heaven. In the words of St. Paul, 'If Christ has not been raised, your faith is futile'; but Christ is risen, and our faith is victorious."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Easter Season extends from Easter Sunday to Pentecost, encompassing seven weeks that the early Church called 'the great Sunday.' Each Sunday is a celebration of the Resurrection, and the entire season is treated as one continuous feast day. The fifty days echo the Jewish Pentecost (fifty days after Passover) and the Jubilee year, symbolizing fullness, completion, and the outpouring of the Holy Spirit. This season is the antithesis of Lent: where Lent was marked by fasting and penance, Easter is characterized by joy and feasting; where Lent prepared us, Easter fulfills that preparation with the glory of the Risen Lord."
+    },
+    {
+      "type": "heading",
+      "text": "Biblical Foundations"
+    },
+    {
+      "type": "scripture",
+      "reference": "Matthew 28:5–6",
+      "text": "Then the angel said to the women in reply, 'Do not be afraid! I know that you are seeking Jesus the crucified. He is not here, for he has been raised just as he said. Come and see the place where he lay.'"
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 24:5–6",
+      "text": "Then the angel said to them, 'Why do you seek the living one among the dead? He is not here, but he has been raised. Remember what he said to you while he was still in Galilee.'"
+    },
+    {
+      "type": "scripture",
+      "reference": "John 20:19, 21–22",
+      "text": "On the evening of that first day of the week, when the doors were locked, where the disciples were, for fear of the Jews, Jesus came and stood in their midst and said to them, 'Peace be with you.' ... Jesus said to them again, 'Peace be with you. As the Father has sent me, so I send you.' And when he had said this, he breathed on them and said to them, 'Receive the holy Spirit.'"
+    },
+    {
+      "type": "scripture",
+      "reference": "1 Corinthians 15:20–22",
+      "text": "But now Christ has been raised from the dead, the firstfruits of those who have fallen asleep. For since death came through man, the resurrection of the dead came also through man. For just as in Adam all die, so too in Christ shall all be brought to life."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Gospel accounts of the empty tomb and the Resurrection appearances form the core of Easter proclamation. Matthew and Luke record the angelic announcement to the women: 'He is not here, for he has been raised.' John's Gospel describes the Risen Lord appearing to the disciples, breathing on them and imparting the Holy Spirit, prefiguring Pentecost. Paul's First Letter to the Corinthians articulates the theological significance: Christ is the firstfruits of the resurrection, the new Adam who reverses the death brought by the first Adam. These texts together affirm that the Resurrection is historical reality, theological truth, and source of our hope."
+    },
+    {
+      "type": "heading",
+      "text": "Liturgical Symbols and Colors"
+    },
+    {
+      "type": "callout",
+      "title": "Liturgical Colors",
+      "text": "The liturgical color of the Easter Season is white (or gold), symbolizing purity, joy, glory, and the resurrection light of Christ. White vestments are worn throughout the fifty days, except for red on Pentecost Sunday, signifying the fire of the Holy Spirit."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Paschal Candle, blessed and lit at the Easter Vigil, is the central symbol of the Easter Season. It stands near the ambo and is lit at all Masses throughout the fifty days, signifying the enduring presence of the Risen Christ among His people. The candle is inscribed with a cross, the Alpha and Omega (Christ is the beginning and the end), and the current year, marking Christ's lordship over time. After Pentecost, the Paschal Candle remains lit only for baptisms and funerals, reminding us that through these sacraments we participate in Christ's death and resurrection."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Easter greeting 'Alleluia,' silenced during Lent, bursts forth with unrestrained joy throughout the season. This Hebrew word meaning 'Praise the Lord' is sung repeatedly in the Mass, the Liturgy of the Hours, and popular devotions. Its return at Easter is like the breaking of dawn after a long night, expressing the Church's exultation at the victory of life over death."
+    },
+    {
+      "type": "paragraph",
+      "text": "Flowers, decorations, and festive music adorn churches throughout the Easter Season, reflecting the joy of the Resurrection. The Gloria, omitted during Advent and Lent, is sung at every Mass, and the Creed may be replaced by the renewal of baptismal promises, especially on Sundays. The Easter Season is the Church's wedding feast, and all signs point to celebration."
+    },
+    {
+      "type": "heading",
+      "text": "Spiritual Themes of the Easter Season"
+    },
+    {
+      "type": "paragraph",
+      "text": "Joy is the defining characteristic of Easter spirituality. This is not mere emotional happiness but the deep, abiding gladness that flows from knowing Christ has conquered sin and death. The angel's proclamation 'Do not be afraid' echoes throughout the season, dispelling fear and filling hearts with confidence. Easter joy is rooted in the truth that our redemption is accomplished, that death is not the end, and that we are destined for eternal life with God."
+    },
+    {
+      "type": "paragraph",
+      "text": "New life is the transformative theme of Easter. Through baptism, we died with Christ and rose with Him to newness of life. The Easter Season invites us to live out this baptismal identity, putting off the old self and putting on Christ. This is not merely moral improvement but ontological transformation: we are new creations, temples of the Holy Spirit, adopted children of the Father. The Risen Christ lives in us, and we live in Him."
+    },
+    {
+      "type": "callout",
+      "title": "Baptismal Identity",
+      "text": "The Easter Season is traditionally the time when the newly baptized (neophytes) complete their mystagogy, deepening their understanding of the sacraments. All the faithful are called to renew their baptismal promises and live as children of the light."
+    },
+    {
+      "type": "paragraph",
+      "text": "Mission flows from the Resurrection. The Risen Lord commissions His disciples: 'As the Father has sent me, so I send you.' Easter is not passive celebration but active proclamation: we are sent to bear witness to the Resurrection in word and deed. The Acts of the Apostles, read during the season, shows the early Church emboldened by the Spirit, preaching Christ crucified and risen. We too are sent, as apostles of the Resurrection, to bring hope to a world still in the shadow of death."
+    },
+    {
+      "type": "paragraph",
+      "text": "Communion with the Risen Christ is nurtured especially through the Eucharist, the sacrament of the Resurrection. Each Mass is an encounter with the living Lord, who gives Himself as food for our journey. The Easter Season invites us to receive Communion with renewed fervor, recognizing in the broken bread the Body that was crucified and is now glorified. Frequent Communion, spiritual communion, and Eucharistic adoration deepen our union with the Risen Christ."
+    },
+    {
+      "type": "heading",
+      "text": "Living the Easter Season Faithfully"
+    },
+    {
+      "type": "paragraph",
+      "text": "Faithful Catholics live out the Easter Season through active participation in the liturgy, especially the Sunday Masses of Easter, and the great feasts that unfold the mystery: Divine Mercy Sunday (Second Sunday of Easter), Ascension Thursday (or the following Sunday), and Pentecost Sunday. The fifty days are to be kept as one continuous celebration, avoiding unnecessary fasting or penitential practices that would diminish the festive character."
+    },
+    {
+      "type": "paragraph",
+      "text": "Practical devotions include: praying the Regina Caeli instead of the Angelus throughout the season, proclaiming the joy of the Resurrection; meditating on the Resurrection appearances of Christ (the Gospel readings for each Sunday); making frequent confession and Communion, especially during the Easter duty period; supporting the newly baptized through prayer and example; and sharing Easter joy with others through acts of kindness, hospitality, and evangelization."
+    },
+    {
+      "type": "paragraph",
+      "text": "Families may celebrate with special meals, Easter decorations, and traditions that extend beyond Easter Sunday throughout the fifty days. Many keep an Easter candle at home, lit during family prayers, and display symbols of the Resurrection (empty tomb, white lilies, images of the Risen Lord). The season is also appropriate for pilgrimages, retreats, and spiritual reading focused on the Resurrection and the Holy Spirit."
+    },
+    {
+      "type": "paragraph",
+      "text": "Above all, the Easter Season calls us to live as people of the Resurrection. We are not defined by our struggles, failures, or sufferings but by the victory of Christ. In every trial, we proclaim: 'Christ is risen!' In every darkness, we bear witness to the light. In every death, we trust in life. The fifty days pass quickly, but the Resurrection life they celebrate is eternal. Let us go forth from this season transformed, sent, and aflame with Easter joy."
+    },
+    {
+      "type": "prayer",
+      "title": "Easter Sunday Collect",
+      "text": "O God, who on this day, through your Only Begotten Son, have conquered death and unlocked for us the path to eternity, grant, we pray, that we who keep the solemnity of the Lord's Resurrection may, through the renewal brought by your Spirit, rise up in the light of life. Through our Lord Jesus Christ, your Son, who lives and reigns with you in the unity of the Holy Spirit, one God, for ever and ever. Amen."
+    },
+    {
+      "type": "prayer",
+      "title": "Regina Caeli (Queen of Heaven)",
+      "text": "Queen of Heaven, rejoice! Alleluia. For He whom you did merit to bear, Alleluia. Has risen as He said, Alleluia. Pray for us to God, Alleluia. Rejoice and be glad, O Virgin Mary, Alleluia. For the Lord has truly risen, Alleluia. Let us pray: O God, who gave joy to the world through the resurrection of Your Son, our Lord Jesus Christ, grant, we beseech You, that through the intercession of the Virgin Mary, His Mother, we may obtain the joys of everlasting life. Through the same Christ our Lord. Amen."
+    },
+    {
+      "type": "prayer",
+      "title": "Prayer to the Risen Christ",
+      "text": "O Risen Lord Jesus, You who conquered death and opened the gates of heaven, I adore You in the glory of Your Resurrection. Fill my heart with Easter joy and the certainty that You live in me. Grant that I may walk in newness of life, bearing witness to Your victory over sin and death. May Your Resurrection be the hope of my life and the promise of my own rising to eternal glory. You who live and reign for ever and ever. Amen."
+    }
+  ]
+}

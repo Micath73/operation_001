@@ -110,7 +110,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
           "ስለእኛ ኃጢአት እያሰበ ደም መላቡን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "የኃጢአታችንን ታላቅነት አውቀን መጸጸት ነው፡፡\n\n\n",
-      imagePath: "assets/img_18.png",
+      imagePath: "assets/img_22.png",
     ),
     PrayerStep(
       titleEn: "Second Sorrowful Mystery",
@@ -127,7 +127,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
           "በሰንሰለት ታስሮ መገረፉን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "የስጋችንን ፈቃድና ፍላጎት መግታት ነው፡፡\n\n\n",
-      imagePath: "assets/img_19.png",
+      imagePath: "assets/img_23.png",
     ),
     PrayerStep(
       titleEn: "Third Sorrowful Mystery",
@@ -145,7 +145,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
           "የደረሰበትን የራስ ምታትና ስቃይ ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "የትዕቢትንና የክፉ አሳቦችን ፈተና ማሸነፍ ነው፡፡\n\n\n",
-      imagePath: "assets/img_20.png",
+      imagePath: "assets/img_24.png",
     ),
     PrayerStep(
       titleEn: "Fourth Sorrowful Mystery",
@@ -162,7 +162,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
           "ወደ ቀራንዮ ተራራ መጓዙን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "የሚደርስብንን ችግርና መከራ በትዕግሥት መቀበል ነው፡፡\n\n\n",
-      imagePath: "assets/img_21.png",
+      imagePath: "assets/img_25.png",
     ),
     PrayerStep(
       titleEn: "Fifth Sorrowful Mystery",
@@ -181,7 +181,7 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
           "ስለእኛ መሞቱን ማሰብ ነው፡፡\n"
           "የምስጢሩ ፍሬ ሐሳብ፡\n"
           "እግዚአብሔርንና ሰዎችን በቅን ልብ መውደድ ነው፡፡\n\n\n",
-      imagePath: "assets/img_22.png",
+      imagePath: "assets/img_26.png",
     ),
   ];
 

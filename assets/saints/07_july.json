@@ -1,0 +1,963 @@
+[
+  {
+    "feastDate": "07-01",
+    "saints": [
+      {
+        "id": "junipero_serra",
+        "name": "Saint Junípero Serra",
+        "feastDate": "07-01",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/junipero_serra.jpg",
+        "shortBio": "Saint Junípero Serra was a Franciscan missionary who founded missions in California and preached the Gospel among Indigenous communities.",
+        "fullStory": "Junípero Serra left his native Mallorca to serve as a missionary in New Spain. He traveled north to establish and strengthen missions in California, where he organized communities, taught the faith, and advocated for the sacramental life. His legacy is also examined in light of the severe hardships and injustices experienced by Indigenous peoples within the mission system.",
+        "patronage": [
+          "California",
+          "missionaries",
+          "Franciscans",
+          "vocations"
+        ],
+        "quote": "Always forward, never back.",
+        "birthYear": 1713,
+        "deathYear": 1784,
+        "canonizationYear": 2015,
+        "tags": [
+          "franciscan",
+          "missionary",
+          "california"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-02",
+    "saints": [
+      {
+        "id": "otto_of_bamberg",
+        "name": "Saint Otto of Bamberg",
+        "feastDate": "07-02",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/otto_of_bamberg.jpg",
+        "shortBio": "Saint Otto of Bamberg was a bishop and missionary who evangelized Pomerania and helped reform the Church in Germany.",
+        "fullStory": "Otto served as bishop of Bamberg and was respected as an administrator, diplomat, and promoter of ecclesial reform. He undertook missionary journeys to Pomerania, where his preaching and pastoral organization helped establish Christian communities. His patient approach and concern for the people entrusted to him earned him the title Apostle of Pomerania.",
+        "patronage": [
+          "Bamberg",
+          "Pomerania",
+          "missionaries",
+          "builders"
+        ],
+        "quote": null,
+        "birthYear": 1060,
+        "deathYear": 1139,
+        "canonizationYear": 1189,
+        "tags": [
+          "bishop",
+          "missionary",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-03",
+    "saints": [
+      {
+        "id": "thomas_apostle",
+        "name": "Saint Thomas, Apostle",
+        "feastDate": "07-03",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_thomas_apostle.jpg",
+        "shortBio": "Saint Thomas was one of the Twelve Apostles, remembered for his honest questions and his profound confession of faith in the risen Christ.",
+        "fullStory": "Thomas appears in the Gospel of John as a disciple who sought clarity and struggled to believe the testimony of the other apostles until encountering the risen Jesus. His response, 'My Lord and my God,' became one of the clearest confessions of Christ's divinity in the New Testament. Ancient Christian tradition associates Thomas with missionary work in the East, especially the origins of Christianity in India.",
+        "patronage": [
+          "architects",
+          "builders",
+          "India",
+          "people who doubt"
+        ],
+        "quote": "My Lord and my God!",
+        "birthYear": null,
+        "deathYear": 72,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "missionary",
+          "doubting-thomas"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-04",
+    "saints": [
+      {
+        "id": "elizabeth_of_portugal",
+        "name": "Saint Elizabeth of Portugal",
+        "feastDate": "07-04",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/elizabeth_of_portugal.jpg",
+        "shortBio": "Saint Elizabeth of Portugal was a queen known for peacemaking, charity, and care for the poor.",
+        "fullStory": "Elizabeth married King Denis of Portugal and used her position to protect the vulnerable and support hospitals, orphanages, and religious communities. She repeatedly intervened to reconcile members of her family and opposing political factions. After her husband's death, she entered the Poor Clare monastery at Coimbra and continued a life of prayer and service.",
+        "patronage": [
+          "Portugal",
+          "peacemakers",
+          "charitable works",
+          "victims of abuse"
+        ],
+        "quote": null,
+        "birthYear": 1271,
+        "deathYear": 1336,
+        "canonizationYear": 1625,
+        "tags": [
+          "queen",
+          "peacemaker",
+          "charity"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-05",
+    "saints": [
+      {
+        "id": "anthony_mary_zaccaria",
+        "name": "Saint Anthony Mary Zaccaria",
+        "feastDate": "07-05",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/anthony_mary_zaccaria.jpg",
+        "shortBio": "Saint Anthony Mary Zaccaria was an Italian physician-priest and reformer who founded the Barnabites and promoted Eucharistic devotion.",
+        "fullStory": "Anthony first studied medicine and served the sick before becoming a priest. In Milan he founded the Clerics Regular of Saint Paul, commonly called the Barnabites, and supported communities of women devoted to reform and prayer. He encouraged frequent Communion, public preaching, and renewal of Christian life during the Catholic reform of the sixteenth century.",
+        "patronage": [
+          "physicians",
+          "Barnabites",
+          "Eucharistic devotion",
+          "religious reform"
+        ],
+        "quote": "The foolishness of the cross is wiser than all human wisdom.",
+        "birthYear": 1502,
+        "deathYear": 1539,
+        "canonizationYear": 1897,
+        "tags": [
+          "priest",
+          "founder",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-06",
+    "saints": [
+      {
+        "id": "maria_goretti",
+        "name": "Saint Maria Goretti",
+        "feastDate": "07-06",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/maria_goretti.jpg",
+        "shortBio": "Saint Maria Goretti was a young Italian martyr remembered for her purity, courage, and forgiveness.",
+        "fullStory": "Maria grew up in a poor farming family and helped care for her younger siblings after her father's death. At the age of eleven, she resisted an attempted assault and was fatally wounded when she refused to consent to sin. Before dying, she forgave her attacker, and her witness of mercy became central to her spiritual legacy.",
+        "patronage": [
+          "youth",
+          "girls",
+          "victims of sexual assault",
+          "forgiveness"
+        ],
+        "quote": "I forgive Alessandro and I want him with me in heaven forever.",
+        "birthYear": 1890,
+        "deathYear": 1902,
+        "canonizationYear": 1950,
+        "tags": [
+          "virgin",
+          "martyr",
+          "forgiveness"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-07",
+    "saints": [
+      {
+        "id": "willibald_of_eichstatt",
+        "name": "Saint Willibald of Eichstätt",
+        "feastDate": "07-07",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/willibald_of_eichstatt.jpg",
+        "shortBio": "Saint Willibald was an English Benedictine missionary and the first bishop of Eichstätt.",
+        "fullStory": "Willibald undertook a long pilgrimage to the Holy Land and Rome before joining the missionary work of Saint Boniface in Germany. He became bishop of Eichstätt and helped establish Christian communities, monasteries, and pastoral structures. His life reflects the missionary energy of the Anglo-Saxon Church and its contribution to the evangelization of central Europe.",
+        "patronage": [
+          "Eichstätt",
+          "pilgrims",
+          "missionaries",
+          "Benedictines"
+        ],
+        "quote": null,
+        "birthYear": 700,
+        "deathYear": 787,
+        "canonizationYear": null,
+        "tags": [
+          "bishop",
+          "missionary",
+          "benedictine"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-08",
+    "saints": [
+      {
+        "id": "aquila_and_priscilla",
+        "name": "Saints Aquila and Priscilla",
+        "feastDate": "07-08",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/aquila_and_priscilla.jpg",
+        "shortBio": "Saints Aquila and Priscilla were a married missionary couple who hosted Christian communities and worked alongside Saint Paul.",
+        "fullStory": "Aquila and Priscilla were Jewish Christians who met Paul in Corinth after being expelled from Rome. They shared his trade as tentmakers and opened their home to Christian worship and instruction. Their partnership illustrates the important role of married couples and lay households in the growth of the early Church.",
+        "patronage": [
+          "married couples",
+          "tentmakers",
+          "lay missionaries",
+          "Christian households"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "married-couple",
+          "missionaries",
+          "early-church"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-09",
+    "saints": [
+      {
+        "id": "augustine_zhao_rong_and_companions",
+        "name": "Saint Augustine Zhao Rong and Companions",
+        "feastDate": "07-09",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/augustine_zhao_rong_and_companions.jpg",
+        "shortBio": "Saint Augustine Zhao Rong and his companions were Chinese martyrs from several periods who witnessed to Christ through persecution and death.",
+        "fullStory": "Augustine Zhao Rong was a Chinese soldier who encountered Christianity while escorting a bishop and later became a priest. He and the other martyrs represented bishops, priests, religious, laypeople, and children who suffered during different waves of persecution in China. Their collective witness reflects the cultural diversity and resilience of the Chinese Catholic community.",
+        "patronage": [
+          "China",
+          "missionaries",
+          "persecuted Christians",
+          "martyrs"
+        ],
+        "quote": null,
+        "birthYear": 1746,
+        "deathYear": 1815,
+        "canonizationYear": 2000,
+        "tags": [
+          "martyrs",
+          "china",
+          "mission"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-10",
+    "saints": [
+      {
+        "id": "veronica_giuliani",
+        "name": "Saint Veronica Giuliani",
+        "feastDate": "07-10",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/veronica_giuliani.jpg",
+        "shortBio": "Saint Veronica Giuliani was a Capuchin Poor Clare and mystic known for contemplative prayer, penance, and service within her community.",
+        "fullStory": "Veronica entered the Capuchin Poor Clare monastery as a young woman and lived a life of intense prayer and asceticism. She served as novice director and abbess, combining mystical experience with practical leadership and care for the sisters. Her extensive spiritual diary records a lifelong desire to share in Christ's suffering and to pray for the Church.",
+        "patronage": [
+          "Capuchin Poor Clares",
+          "mystics",
+          "religious women",
+          "contemplative life"
+        ],
+        "quote": "The cross is the ladder by which we climb to heaven.",
+        "birthYear": 1660,
+        "deathYear": 1727,
+        "canonizationYear": 1839,
+        "tags": [
+          "mystic",
+          "abbess",
+          "contemplative"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-11",
+    "saints": [
+      {
+        "id": "benedict_of_nursia",
+        "name": "Saint Benedict",
+        "feastDate": "07-11",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/st_benedict.jpg",
+        "shortBio": "Saint Benedict was a monk and founder of Western monasticism whose Rule shaped Christian community life across Europe.",
+        "fullStory": "Benedict withdrew from the world to seek God in solitude and later founded monasteries, including Monte Cassino. His Rule organized monastic life around prayer, work, study, obedience, hospitality, and communal discernment. The Benedictine tradition preserved learning, evangelized Europe, and continues to influence Christian spirituality and culture.",
+        "patronage": [
+          "Europe",
+          "monks",
+          "students",
+          "cavers"
+        ],
+        "quote": "Prefer nothing to the love of Christ.",
+        "birthYear": 480,
+        "deathYear": 547,
+        "canonizationYear": null,
+        "tags": [
+          "monk",
+          "founder",
+          "benedictine"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-12",
+    "saints": [
+      {
+        "id": "john_jones_and_john_wall",
+        "name": "Saints John Jones and John Wall",
+        "feastDate": "07-12",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/john_jones_and_john_wall.jpg",
+        "shortBio": "Saints John Jones and John Wall were Franciscan priests and martyrs who secretly served Catholics in England.",
+        "fullStory": "John Jones and John Wall belonged to different branches of the Franciscan tradition and entered England to minister to Catholics during periods of persecution. They celebrated the sacraments, encouraged recusant communities, and accepted imprisonment rather than abandon their mission. Both were executed for priestly ministry and are remembered for fidelity under hostile political conditions.",
+        "patronage": [
+          "England",
+          "Franciscans",
+          "priests",
+          "persecuted Catholics"
+        ],
+        "quote": null,
+        "birthYear": 1538,
+        "deathYear": 1679,
+        "canonizationYear": 1970,
+        "tags": [
+          "franciscan",
+          "priests",
+          "martyrs"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-13",
+    "saints": [
+      {
+        "id": "henry_ii",
+        "name": "Saint Henry II",
+        "feastDate": "07-13",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/henry_ii.jpg",
+        "shortBio": "Saint Henry II was a Holy Roman Emperor who supported Church reform, founded monasteries, and sought to govern according to Christian principles.",
+        "fullStory": "Henry became king of Germany and later Holy Roman Emperor, using his authority to support the reform and organization of the Church. He founded and endowed monasteries, promoted missionary work, and worked closely with bishops and religious communities. His marriage to Saint Cunigunde and his public responsibilities were integrated with a life of prayer and commitment to the common good.",
+        "patronage": [
+          "childless couples",
+          "the disabled",
+          "Benedictines",
+          "politicians"
+        ],
+        "quote": null,
+        "birthYear": 973,
+        "deathYear": 1024,
+        "canonizationYear": 1146,
+        "tags": [
+          "emperor",
+          "monasticism",
+          "reformer"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-14",
+    "saints": [
+      {
+        "id": "kateri_tekwakwitha",
+        "name": "Saint Kateri Tekakwitha",
+        "feastDate": "07-14",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/kateri_tekwakwitha.jpg",
+        "shortBio": "Saint Kateri Tekakwitha was a Mohawk woman who embraced Christianity and lived a life of prayer, chastity, and service.",
+        "fullStory": "Kateri was born in the Mohawk Valley and survived a smallpox epidemic that left her physically scarred and weakened. After receiving Christian instruction, she was baptized and moved to the mission community at Kahnawake, where she dedicated herself to prayer, penance, and care for others. She became the first Indigenous American saint canonized by the Catholic Church.",
+        "patronage": [
+          "ecology",
+          "the environment",
+          "Indigenous peoples",
+          "exiles"
+        ],
+        "quote": "I have given my soul to Jesus.",
+        "birthYear": 1656,
+        "deathYear": 1680,
+        "canonizationYear": 2012,
+        "tags": [
+          "indigenous",
+          "virgin",
+          "mission"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-15",
+    "saints": [
+      {
+        "id": "bonaventure",
+        "name": "Saint Bonaventure",
+        "feastDate": "07-15",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/bonaventure.jpg",
+        "shortBio": "Saint Bonaventure was a Franciscan friar, theologian, bishop, and Doctor of the Church who united scholarship with contemplative spirituality.",
+        "fullStory": "Bonaventure entered the Franciscan Order and became one of its leading theologians and ministers. He wrote influential works on the spiritual journey to God, served as minister general, and helped guide the order through internal tensions. Later appointed cardinal and bishop of Albano, he participated in the Second Council of Lyon while remaining devoted to Franciscan humility and prayer.",
+        "patronage": [
+          "Franciscans",
+          "theologians",
+          "contemplatives",
+          "children with intestinal illness"
+        ],
+        "quote": "The soul is created to be united with God.",
+        "birthYear": 1221,
+        "deathYear": 1274,
+        "canonizationYear": 1482,
+        "tags": [
+          "franciscan",
+          "doctor-of-the-church",
+          "theologian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-16",
+    "saints": [
+      {
+        "id": "our_lady_of_mount_carmel",
+        "name": "Our Lady of Mount Carmel",
+        "feastDate": "07-16",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/our_lady_mount_carmel.jpg",
+        "shortBio": "Our Lady of Mount Carmel is a Marian title associated with the Carmelite tradition, contemplative prayer, and the protection of those who seek Mary’s intercession.",
+        "fullStory": "The devotion developed among hermits who lived on Mount Carmel and placed themselves under Mary's protection. When the Carmelites later spread through Europe, the title became connected with their vocation to prayer, contemplation, and apostolic service. The brown scapular is a widely known sign of this devotion, though its spiritual meaning is best understood as a call to discipleship and trust in God.",
+        "patronage": [
+          "Carmelites",
+          "sailors",
+          "maritime communities",
+          "Chile"
+        ],
+        "quote": "Let nothing disturb you; let nothing frighten you.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "marian",
+          "carmelite",
+          "scapular"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-17",
+    "saints": [
+      {
+        "id": "alexius_of_rome",
+        "name": "Saint Alexius of Rome",
+        "feastDate": "07-17",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/alexius_of_rome.jpg",
+        "shortBio": "Saint Alexius of Rome is traditionally remembered as a wealthy man who renounced privilege and lived in hidden poverty and prayer.",
+        "fullStory": "According to an ancient tradition, Alexius left his wedding celebration to seek God as a pilgrim and mendicant. He eventually returned anonymously to his family home and lived beneath a staircase, serving God in obscurity while his relatives did not recognize him. The story emphasizes radical humility, hidden holiness, and the freedom found in surrendering social status.",
+        "patronage": [
+          "beggars",
+          "pilgrims",
+          "the homeless",
+          "hospitals"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 412,
+        "canonizationYear": null,
+        "tags": [
+          "pilgrim",
+          "mendicant",
+          "hidden-holiness"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-18",
+    "saints": [
+      {
+        "id": "camillus_de_lellis",
+        "name": "Saint Camillus de Lellis",
+        "feastDate": "07-18",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/camillus_de_lellis.jpg",
+        "shortBio": "Saint Camillus de Lellis was a priest who founded a religious order dedicated to caring for the sick and dying.",
+        "fullStory": "Camillus experienced a dramatic conversion after a troubled youth and military career. He became a priest and organized companions who served patients with exceptional compassion, especially those abandoned in hospitals. The Ministers of the Sick, or Camillians, helped establish professional and spiritual standards for Christian healthcare ministry.",
+        "patronage": [
+          "hospitals",
+          "nurses",
+          "the sick",
+          "healthcare workers"
+        ],
+        "quote": "More heart in those hands, my dear brothers.",
+        "birthYear": 1550,
+        "deathYear": 1614,
+        "canonizationYear": 1746,
+        "tags": [
+          "priest",
+          "founder",
+          "healthcare"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-19",
+    "saints": [
+      {
+        "id": "macrina_the_younger",
+        "name": "Saint Macrina the Younger",
+        "feastDate": "07-19",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/macrina_the_younger.jpg",
+        "shortBio": "Saint Macrina the Younger was a consecrated woman and spiritual leader whose influence shaped the lives of Saints Basil the Great and Gregory of Nyssa.",
+        "fullStory": "Macrina belonged to a remarkable Christian family in Cappadocia and helped guide her siblings toward a life of faith and ascetic service. After the death of her fiancé, she embraced a life of consecrated virginity and established a community with her mother. Her wisdom, prayer, and theological insight are preserved especially in the writings of her brother Gregory of Nyssa.",
+        "patronage": [
+          "consecrated women",
+          "spiritual directors",
+          "families",
+          "monastic communities"
+        ],
+        "quote": "Human life is a school for souls.",
+        "birthYear": 327,
+        "deathYear": 379,
+        "canonizationYear": null,
+        "tags": [
+          "virgin",
+          "ascetic",
+          "cappadocian"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-20",
+    "saints": [
+      {
+        "id": "elijah_prophet",
+        "name": "Saint Elijah the Prophet",
+        "feastDate": "07-20",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/elijah_prophet.jpg",
+        "shortBio": "Saint Elijah was a prophet of Israel who defended worship of the living God and called the people to conversion.",
+        "fullStory": "Elijah confronted the idolatry promoted by King Ahab and Queen Jezebel and boldly proclaimed the sovereignty of the God of Israel. His prophetic ministry included the contest on Mount Carmel, care for the poor widow of Zarephath, and a profound encounter with God in the quiet voice on Horeb. Christian tradition sees him as a model of prayer, courage, and zeal for God's covenant.",
+        "patronage": [
+          "Carmelites",
+          "prophets",
+          "aviators",
+          "weather"
+        ],
+        "quote": "How long will you straddle the issue? If the Lord is God, follow him.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "prophet",
+          "old-testament",
+          "carmelite"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-21",
+    "saints": [
+      {
+        "id": "lawrence_of_brindisi",
+        "name": "Saint Lawrence of Brindisi",
+        "feastDate": "07-21",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/lawrence_of_brindisi.jpg",
+        "shortBio": "Saint Lawrence of Brindisi was a Capuchin friar, preacher, diplomat, and Doctor of the Church known for his biblical scholarship.",
+        "fullStory": "Lawrence entered the Capuchin Order and mastered several languages so that he could preach and teach across Europe. He served as a diplomat and peacemaker while also writing extensive commentaries on Scripture and theology. His ability to unite intellectual depth, missionary preaching, and humble religious life made him a major figure of Catholic reform.",
+        "patronage": [
+          "Capuchins",
+          "preachers",
+          "linguists",
+          "diplomats"
+        ],
+        "quote": "The word of God is a light to the mind and a fire to the heart.",
+        "birthYear": 1559,
+        "deathYear": 1619,
+        "canonizationYear": 1881,
+        "tags": [
+          "capuchin",
+          "doctor-of-the-church",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-22",
+    "saints": [
+      {
+        "id": "mary_magdalene",
+        "name": "Saint Mary Magdalene",
+        "feastDate": "07-22",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_mary_magdalene.jpg",
+        "shortBio": "Saint Mary Magdalene was a disciple of Jesus, witness of his death and Resurrection, and the first person sent to announce the risen Christ to the apostles.",
+        "fullStory": "Mary Magdalene followed Jesus during his public ministry and supported the apostolic community. She remained near the cross when many others had fled and came to the tomb on Easter morning. After encountering the risen Lord, she announced the Resurrection to the apostles, earning her the traditional title Apostle of the Apostles.",
+        "patronage": [
+          "converts",
+          "penitents",
+          "pharmacists",
+          "women"
+        ],
+        "quote": "I have seen the Lord.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "disciple",
+          "resurrection",
+          "apostle-of-apostles"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-23",
+    "saints": [
+      {
+        "id": "birgitta_of_sweden",
+        "name": "Saint Birgitta of Sweden",
+        "feastDate": "07-23",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/birgitta_of_sweden.jpg",
+        "shortBio": "Saint Birgitta of Sweden was a mystic, mother, reformer, and founder of the Order of the Most Holy Savior.",
+        "fullStory": "Birgitta was married and raised a large family before becoming a widow and dedicating herself more fully to prayer and pilgrimage. Her spiritual visions led her to challenge rulers and Church leaders to pursue justice and reform. She founded the Brigittine Order and spent her final years in Rome, where she advocated for the return of the papacy from Avignon.",
+        "patronage": [
+          "Europe",
+          "widows",
+          "pilgrims",
+          "Brigittines"
+        ],
+        "quote": "Lord, show me the way and make me willing to walk it.",
+        "birthYear": 1303,
+        "deathYear": 1373,
+        "canonizationYear": 1391,
+        "tags": [
+          "mystic",
+          "foundress",
+          "widow"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-24",
+    "saints": [
+      {
+        "id": "sharbel_makhlouf",
+        "name": "Saint Sharbel Makhlouf",
+        "feastDate": "07-24",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/sharbel_makhlouf.jpg",
+        "shortBio": "Saint Sharbel Makhlouf was a Lebanese Maronite monk and hermit known for Eucharistic devotion, silence, and contemplative prayer.",
+        "fullStory": "Youssef Makhlouf entered the Lebanese Maronite Order and took the religious name Sharbel. After years of community life, he received permission to live as a hermit, dedicating himself to prayer, fasting, and Eucharistic adoration. His hidden life drew widespread devotion after his death, and he became one of Lebanon's most renowned saints.",
+        "patronage": [
+          "Lebanon",
+          "monks",
+          "hermits",
+          "the sick"
+        ],
+        "quote": "God speaks in the silence of the heart.",
+        "birthYear": 1828,
+        "deathYear": 1898,
+        "canonizationYear": 1977,
+        "tags": [
+          "maronite",
+          "hermit",
+          "eucharist"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-25",
+    "saints": [
+      {
+        "id": "james_apostle",
+        "name": "Saint James, Apostle",
+        "feastDate": "07-25",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Feast",
+        "imagePath": "assets/saints/st_james_apostle.jpg",
+        "shortBio": "Saint James was one of the Twelve Apostles and the first apostle to suffer martyrdom, according to the Acts of the Apostles.",
+        "fullStory": "James, the son of Zebedee and brother of John, belonged to the inner circle of Jesus' disciples and witnessed key events such as the Transfiguration. He preached the Gospel in the early Church and was executed by order of King Herod Agrippa I. Later tradition connected him with the evangelization of Spain and the great pilgrimage shrine of Santiago de Compostela.",
+        "patronage": [
+          "Spain",
+          "pilgrims",
+          "travelers",
+          "veterans"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 44,
+        "canonizationYear": null,
+        "tags": [
+          "apostle",
+          "martyr",
+          "pilgrim"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-26",
+    "saints": [
+      {
+        "id": "joachim_and_anne",
+        "name": "Saints Joachim and Anne, Parents of the Blessed Virgin Mary",
+        "feastDate": "07-26",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/joachim_and_anne.jpg",
+        "shortBio": "Saints Joachim and Anne are honored by Christian tradition as the parents of the Blessed Virgin Mary and grandparents of Jesus.",
+        "fullStory": "The names of Joachim and Anne come from early Christian tradition rather than the canonical Gospels. They have been honored as faithful parents whose family life prepared the way for Mary's vocation and the Incarnation of Christ. Their memorial highlights the dignity of family life, the transmission of faith across generations, and the importance of grandparents.",
+        "patronage": [
+          "grandparents",
+          "parents",
+          "families",
+          "marriage"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "parents",
+          "grandparents",
+          "holy-family"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-27",
+    "saints": [
+      {
+        "id": "natalia_and_aurelius_of_cordoba",
+        "name": "Saints Natalia and Aurelius of Córdoba",
+        "feastDate": "07-27",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/natalia_and_aurelius_of_cordoba.jpg",
+        "shortBio": "Saints Natalia and Aurelius were a married Christian couple who were martyred in Córdoba for publicly remaining faithful to Christ.",
+        "fullStory": "Aurelius and Natalia lived as Christians in ninth-century Córdoba, where public confession of the faith could bring severe punishment. After witnessing the martyrdom of another Christian, they openly professed their own faith and were arrested with their companions. Their shared martyrdom is remembered as a witness to marriage, courage, and fidelity amid religious pressure.",
+        "patronage": [
+          "married couples",
+          "Córdoba",
+          "persecuted Christians",
+          "families"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 852,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "married-couple",
+          "cordoba"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-28",
+    "saints": [
+      {
+        "id": "nazarius_and_celsus",
+        "name": "Saints Nazarius and Celsus",
+        "feastDate": "07-28",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/nazarius_and_celsus.jpg",
+        "shortBio": "Saints Nazarius and Celsus were early Christian martyrs whose witness was honored in Milan and throughout the Western Church.",
+        "fullStory": "Nazarius is traditionally described as a missionary who preached the Gospel in Gaul and Italy, while Celsus was a young companion who shared his mission. They were arrested and killed during a period of persecution. Their relics were reportedly discovered by Saint Ambrose, strengthening devotion to them in the ancient Church of Milan.",
+        "patronage": [
+          "Milan",
+          "children",
+          "missionaries",
+          "martyrs"
+        ],
+        "quote": null,
+        "birthYear": null,
+        "deathYear": 304,
+        "canonizationYear": null,
+        "tags": [
+          "martyrs",
+          "missionaries",
+          "milan"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-29",
+    "saints": [
+      {
+        "id": "martha_mary_and_lazarus",
+        "name": "Saints Martha, Mary, and Lazarus",
+        "feastDate": "07-29",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/martha_mary_and_lazarus.jpg",
+        "shortBio": "Saints Martha, Mary, and Lazarus were siblings and friends of Jesus whose home in Bethany became a place of hospitality, faith, and encounter.",
+        "fullStory": "The Gospels present Martha, Mary, and Lazarus as a family loved by Jesus and associated with important moments in his ministry. Martha is remembered for active hospitality and her confession of faith, Mary for attentive listening and anointing Jesus, and Lazarus as a sign of Christ's power over death. Their shared memorial celebrates friendship with Christ, faithful service, and hope in the Resurrection.",
+        "patronage": [
+          "hospitality",
+          "cooks",
+          "caregivers",
+          "the sick"
+        ],
+        "quote": "I am the resurrection and the life.",
+        "birthYear": null,
+        "deathYear": null,
+        "canonizationYear": null,
+        "tags": [
+          "siblings",
+          "hospitality",
+          "bethany"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-30",
+    "saints": [
+      {
+        "id": "peter_chrysologus",
+        "name": "Saint Peter Chrysologus",
+        "feastDate": "07-30",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Optional Memorial",
+        "imagePath": "assets/saints/peter_chrysologus.jpg",
+        "shortBio": "Saint Peter Chrysologus was a bishop and Doctor of the Church renowned for concise and eloquent preaching.",
+        "fullStory": "Peter served as bishop of Ravenna during a period of significant ecclesial and political change. His homilies addressed Scripture, the Incarnation, Christian morality, and care for the poor in language that ordinary people could understand. His title Chrysologus, or Golden-Worded, reflects the enduring influence of his clear and compelling preaching.",
+        "patronage": [
+          "preachers",
+          "Ravenna",
+          "homilists",
+          "theologians"
+        ],
+        "quote": "Let the word of God enter your ears and descend into your heart.",
+        "birthYear": 380,
+        "deathYear": 450,
+        "canonizationYear": 1729,
+        "tags": [
+          "bishop",
+          "doctor-of-the-church",
+          "preacher"
+        ]
+      }
+    ]
+  },
+  {
+    "feastDate": "07-31",
+    "saints": [
+      {
+        "id": "ignatius_of_loyola",
+        "name": "Saint Ignatius of Loyola",
+        "feastDate": "07-31",
+        "isPrimary": true,
+        "isSolemnity": false,
+        "liturgicalRank": "Memorial",
+        "imagePath": "assets/saints/St. Ignatius of Loyola.jpg",
+        "shortBio": "Saint Ignatius of Loyola was a Spanish priest and founder of the Society of Jesus who developed influential methods of spiritual discernment.",
+        "fullStory": "Ignatius was a soldier whose life changed after a serious battle wound led him to read the lives of Christ and the saints. His conversion inspired the Spiritual Exercises, a practical guide for prayer and discernment. With companions, he founded the Society of Jesus, which became a major force in education, missionary work, theological renewal, and service to the Church.",
+        "patronage": [
+          "Jesuits",
+          "retreats",
+          "soldiers",
+          "spiritual exercises"
+        ],
+        "quote": "Go forth and set the world on fire.",
+        "birthYear": 1491,
+        "deathYear": 1556,
+        "canonizationYear": 1622,
+        "tags": [
+          "jesuit",
+          "founder",
+          "discernment"
+        ]
+      }
+    ]
+  }
+]

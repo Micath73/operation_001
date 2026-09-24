@@ -1,0 +1,68 @@
+{
+  "id": "holy_mass_explained",
+  "title": "The Holy Mass Explained",
+  "category": "Devotions",
+  "summary": "The Mass is the Church's re-presentation of Christ's one sacrifice on Calvary, in which bread and wine truly become his Body and Blood — the source and summit of the whole Christian life.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Source and Summit"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Second Vatican Council, in its Constitution on the Sacred Liturgy (Sacrosanctum Concilium, 1963), taught that the liturgy is the summit toward which all the Church's activity is directed and the fountain from which her power flows. The Catechism gathers this into a single phrase: the Eucharist is the source and summit of Christian life (cf. CCC 1324). Every other sacrament, every ministry and apostolic work, is bound up with the Eucharist and ordered toward it, because the Eucharist does not merely give grace — it contains Christ himself."
+    },
+    {
+      "type": "heading",
+      "text": "Biblical Institution"
+    },
+    {
+      "type": "paragraph",
+      "text": "Christ instituted the Eucharist at the Last Supper, on the night before he died, when he took bread and wine, declared them to be his Body and Blood, and commanded the apostles to repeat what he had done. The institution is recorded four times in the New Testament — in the Synoptic Gospels and in St. Paul's letter to the Corinthians, the earliest written account."
+    },
+    {
+      "type": "scripture",
+      "reference": "Luke 22:19-20",
+      "text": "This is my body which is given for you. Do this in remembrance of me."
+    },
+    {
+      "type": "scripture",
+      "reference": "John 6:54",
+      "text": "He who eats my flesh and drinks my blood has eternal life, and I will raise him up at the last day."
+    },
+    {
+      "type": "heading",
+      "text": "Outward Sign: Matter and Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "The matter of the Eucharist is wheat bread and grape wine — the elements Christ himself used. The form is the priest's pronouncement of Christ's own words of institution during the Eucharistic Prayer. Only a validly ordained priest or bishop can consecrate, acting in persona Christi: it is Christ who offers, through the hands of his minister."
+    },
+    {
+      "type": "callout",
+      "title": "Sacramental Doctrine / CCC Reference",
+      "text": "The Council of Trent (Session XIII, 1551) defined transubstantiation: at the consecration the whole substance of the bread becomes Christ's Body and the whole substance of the wine his Blood, while the appearances of bread and wine remain. Trent also affirmed that Christ is present whole and entire — body, blood, soul, and divinity — under each species."
+    },
+    {
+      "type": "heading",
+      "text": "The Two Great Movements of the Rite"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Mass unfolds in two principal parts that form a single act of worship. In the Liturgy of the Word, God speaks to his people through Scripture, culminating in the Gospel and the homily that breaks it open. In the Liturgy of the Eucharist, the gifts are presented, the Eucharistic Prayer is offered, and the faithful receive Holy Communion. The early Church's pattern is already visible in the Acts of the Apostles, where the disciples devote themselves to the apostles' teaching and to the breaking of bread."
+    },
+    {
+      "type": "heading",
+      "text": "One Sacrifice, Made Present"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Mass does not repeat Calvary, nor does it add anything to it. Christ died once for all. What the Mass does is make that single, unrepeatable sacrifice sacramentally present so that every generation can be united to it. This is why the Church calls the Mass a memorial in the biblical sense — not a mere recollection of a past event, but the making-present of a saving act."
+    },
+    {
+      "type": "prayer",
+      "title": "Anima Christi",
+      "text": "Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me. Water from the side of Christ, wash me. Passion of Christ, strengthen me. O good Jesus, hear me. Within your wounds hide me. Suffer me not to be separated from you. From the malicious enemy defend me. In the hour of my death call me, and bid me come unto you, that with your saints I may praise you forever and ever. Amen."
+    }
+  ]
+}
