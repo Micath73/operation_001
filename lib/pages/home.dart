@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/daily_prayer.dart';
+import 'package:operation_001/daily_readings_screen.dart';
+import 'package:operation_001/l10n/app_localizations.dart';
 import 'package:operation_001/models/roadmap_models.dart';
 import 'package:operation_001/quote.dart';
 import 'package:operation_001/quote_service.dart';
@@ -13,6 +15,7 @@ import 'package:operation_001/SavedQuotesScreen.dart';
 import 'package:operation_001/novena_combo.dart';
 import 'package:operation_001/screens/lesson_detail_screen.dart';
 import 'package:operation_001/widgets/roadmap_lesson_viewer_sheet.dart';
+import 'package:operation_001/widgets/app_drawer.dart';
 
 class ActiveNovena {
   final String title;
@@ -26,8 +29,15 @@ class ActiveNovena {
 
 class UserHome extends StatefulWidget {
   final String? targetPrayerTitle;
+  final bool isDarkMode;
+  final ValueChanged<bool> onThemeChanged;
 
-  const UserHome({super.key, this.targetPrayerTitle});
+  const UserHome({
+    super.key,
+    this.targetPrayerTitle,
+    required this.isDarkMode,
+    required this.onThemeChanged,
+  });
 
   @override
   UserHomeState createState() => UserHomeState();
@@ -66,8 +76,6 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
     super.dispose();
   }
 
-  /// Programmatically animates local TabController to the Daily Prayers tab (index 1)
-  /// and sets a target prayer to auto-open if provided.
   void switchToDailyPrayers({String? targetPrayerTitle}) {
     if (targetPrayerTitle != null) {
       setState(() {
@@ -77,7 +85,6 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
     _tabController.animateTo(1);
   }
 
-  /// Opens the Catechism Spiritual Lesson directly in full-screen mode
   void openCatechismLesson({
     required String title,
     required String jsonAssetPath,
@@ -169,15 +176,16 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
       imageIndex = (charCodeSum % 20) + 1;
     } else {
       final now = DateTime.now();
-      final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
+      final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays + 1;
       imageIndex = (dayOfYear % 20) + 1;
     }
 
     return 'assets/nature/nature $imageIndex.jpg';
   }
 
-  String _getHeaderTitle() {
-    if (todayQuote == null) return 'Daily Reflection';
+  String _getHeaderTitle(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    if (todayQuote == null) return l10n.dailyReflection;
 
     final authorLower = todayQuote!.author.toLowerCase();
 
@@ -186,18 +194,19 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
         authorLower.contains('mark') ||
         authorLower.contains('luke') ||
         authorLower.contains('john')) {
-      return 'The Holy Gospel';
+      return l10n.theHolyGospel;
     } else if (authorLower.contains('saint') ||
         authorLower.contains('st.') ||
         authorLower.contains('pope')) {
-      return 'Words of the Saints';
+      return l10n.wordsOfSaints;
     }
 
-    return 'Daily Reflection';
+    return l10n.dailyReflection;
   }
 
   Future<void> _toggleBookmark() async {
     if (todayQuote == null) return;
+    final l10n = AppLocalizations.of(context)!;
 
     final newBookmarkState = !isBookmarked;
 
@@ -218,9 +227,7 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            isBookmarked
-                ? 'Saved quote to favorites!'
-                : 'Removed quote from favorites.',
+            isBookmarked ? l10n.savedQuoteSuccess : l10n.removedQuoteSuccess,
           ),
           duration: const Duration(seconds: 2),
           behavior: SnackBarBehavior.floating,
@@ -230,6 +237,7 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
   }
 
   Future<void> _openNovenaDetail(ActiveNovena novena, {int? targetDay}) async {
+    final l10n = AppLocalizations.of(context)!;
     final bool isCompleted = completedNovenas.any(
           (item) => _isTitleMatch(novena.title, item.title),
     );
@@ -239,18 +247,16 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Novena Completed!'),
-            content: Text(
-              'You have already completed the ${novena.title}. Would you like to clear your previous progress and start a fresh cycle?',
-            ),
+            title: Text(l10n.novenaCompletedTitle),
+            content: Text(l10n.novenaCompletedBody(novena.title)),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('View Progress'),
+                child: Text(l10n.viewProgress),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Restart Fresh'),
+                child: Text(l10n.restartFresh),
               ),
             ],
           );
@@ -352,238 +358,263 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final String imagePath = _getQuoteBackgroundImagePath();
+    final l10n = AppLocalizations.of(context)!;
 
-    return RefreshIndicator(
-      onRefresh: _handleRefresh,
-      edgeOffset: 100,
-      color: theme.colorScheme.primary,
-      child: CustomScrollView(
-        physics: const AlwaysScrollableScrollPhysics(
-          parent: BouncingScrollPhysics(),
-        ),
-        slivers: [
-          SliverAppBar(
-            leading: const Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
-            actions: [
-              IconButton(
-                icon: const Icon(
-                  Icons.bookmarks_rounded,
-                  color: Colors.white,
+    return Scaffold(
+      drawer: AppNavigationDrawer(
+        isDarkMode: widget.isDarkMode,
+        onThemeChanged: widget.onThemeChanged,
+      ),
+      body: RefreshIndicator(
+        onRefresh: _handleRefresh,
+        edgeOffset: 100,
+        color: theme.colorScheme.primary,
+        child: CustomScrollView(
+          physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics(),
+          ),
+          slivers: [
+            SliverAppBar(
+              leading: Builder(
+                builder: (context) => IconButton(
+                  icon: const Icon(
+                    Icons.menu_rounded,
+                    color: Colors.white,
+                  ),
+                  tooltip: 'Open Drawer',
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
                 ),
-                tooltip: 'View Saved Quotes',
-                onPressed: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SavedQuotesScreen(),
-                    ),
-                  );
-                  _loadInitialData();
-                },
               ),
-              IconButton(
-                icon: Icon(
-                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                  color: Colors.white,
+              actions: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.bookmarks_rounded,
+                    color: Colors.white,
+                  ),
+                  tooltip: 'View Saved Quotes',
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SavedQuotesScreen(),
+                      ),
+                    );
+                    _loadInitialData();
+                  },
                 ),
-                tooltip: 'Bookmark Quote',
-                onPressed: _toggleBookmark,
-              ),
-            ],
-            expandedHeight: MediaQuery.of(context).size.height * 0.4,
-            backgroundColor: theme.colorScheme.primary,
-            pinned: true,
-            stretch: true,
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(60),
-              child: TabBar(
-                controller: _tabController,
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.white.withOpacity(0.7),
-                indicatorColor: theme.colorScheme.secondary,
-                indicatorWeight: 3,
-                tabs: const [
-                  Tab(icon: Icon(Icons.church)),
-                  Tab(icon: Icon(Icons.wb_sunny)),
-                ],
-              ),
-            ),
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: const EdgeInsets.only(bottom: 70),
-              centerTitle: true,
-              title: Text(
-                _getHeaderTitle(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 19,
-                  shadows: [
-                    Shadow(
-                      blurRadius: 6.0,
-                      color: Colors.black.withOpacity(0.8),
-                      offset: const Offset(0, 2),
-                    ),
+                IconButton(
+                  icon: Icon(
+                    isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                    color: Colors.white,
+                  ),
+                  tooltip: 'Bookmark Quote',
+                  onPressed: _toggleBookmark,
+                ),
+              ],
+              expandedHeight: MediaQuery.of(context).size.height * 0.4,
+              backgroundColor: theme.colorScheme.primary,
+              pinned: true,
+              stretch: true,
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(60),
+                child: TabBar(
+                  controller: _tabController,
+                  labelColor: Colors.white,
+                  unselectedLabelColor: Colors.white.withValues(alpha: 0.7),
+                  indicatorColor: theme.colorScheme.secondary,
+                  indicatorWeight: 3,
+                  tabs: const [
+                    Tab(icon: Icon(Icons.church)),
+                    Tab(icon: Icon(Icons.wb_sunny)),
                   ],
                 ),
               ),
-              background: Stack(
-                fit: StackFit.expand,
-                children: [
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 800),
-                    switchInCurve: Curves.easeIn,
-                    switchOutCurve: Curves.easeOut,
-                    child: Image.asset(
-                      imagePath,
-                      key: ValueKey<String>(imagePath),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                theme.colorScheme.primary,
-                                theme.colorScheme.primaryContainer,
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: const EdgeInsets.only(bottom: 70),
+                centerTitle: true,
+                title: Text(
+                  _getHeaderTitle(context),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 6.0,
+                        color: Colors.black.withValues(alpha: 0.8),
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.black.withOpacity(0.40),
-                          Colors.black.withOpacity(0.55),
-                          Colors.black.withOpacity(0.75),
-                        ],
+                ),
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 800),
+                      switchInCurve: Curves.easeIn,
+                      switchOutCurve: Curves.easeOut,
+                      child: Image.asset(
+                        _getQuoteBackgroundImagePath(),
+                        key: ValueKey<String>(_getQuoteBackgroundImagePath()),
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                        errorBuilder: (context, error, stackTrace) {
+                          debugPrint('⚠️ Quote background asset missing: $error');
+                          return Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  theme.colorScheme.primary,
+                                  theme.colorScheme.primaryContainer,
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(25, 40, 25, 100),
-                    child: Center(
-                      child: todayQuote == null
-                          ? const CircularProgressIndicator(
-                        color: Colors.white,
-                      )
-                          : SingleChildScrollView(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '"${todayQuote!.text}"',
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                height: 1.5,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 17.0,
-                                color: Colors.white,
-                                fontStyle: FontStyle.italic,
-                                shadows: [
-                                  Shadow(
-                                    blurRadius: 6.0,
-                                    color: Colors.black,
-                                    offset: Offset(0, 2),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 12),
-                            Text(
-                              '— ${todayQuote!.author}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14.0,
-                                color: theme
-                                    .colorScheme.secondaryContainer,
-                                shadows: [
-                                  Shadow(
-                                    blurRadius: 4.0,
-                                    color: Colors.black
-                                        .withOpacity(0.8),
-                                    offset: const Offset(0, 1),
-                                  ),
-                                ],
-                              ),
-                            ),
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.black.withValues(alpha: 0.40),
+                            Colors.black.withValues(alpha: 0.55),
+                            Colors.black.withValues(alpha: 0.75),
                           ],
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(25, 40, 25, 100),
+                      child: Center(
+                        child: todayQuote == null
+                            ? const CircularProgressIndicator(
+                          color: Colors.white,
+                        )
+                            : SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '"${todayQuote!.text}"',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  height: 1.5,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 17.0,
+                                  color: Colors.white,
+                                  fontStyle: FontStyle.italic,
+                                  shadows: [
+                                    Shadow(
+                                      blurRadius: 6.0,
+                                      color: Colors.black,
+                                      offset: Offset(0, 2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                '— ${todayQuote!.author}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14.0,
+                                  color: theme.colorScheme.secondary,
+                                  shadows: [
+                                    Shadow(
+                                      blurRadius: 4.0,
+                                      color: Colors.black
+                                          .withValues(alpha: 0.8),
+                                      offset: const Offset(0, 1),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: AnimatedBuilder(
-              animation: _tabController.animation!,
-              builder: (context, child) {
-                final double animationValue = _tabController.animation!.value;
-                final bool isFirstTab = animationValue < 0.5;
+            SliverToBoxAdapter(
+              child: AnimatedBuilder(
+                animation: _tabController.animation!,
+                builder: (context, child) {
+                  final double animationValue = _tabController.animation!.value;
+                  final bool isFirstTab = animationValue < 0.5;
 
-                return Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    if (isFirstTab) ...[
-                      if (!isLoading) ...[
-                        _buildNovenaAccordion(
-                          context: context,
-                          title: "In Progress Novenas",
-                          icon: Icons.hourglass_top_rounded,
-                          items: inProgressNovenas,
-                          headerColor: theme.colorScheme.primary,
-                          isInitiallyExpanded: true,
+                  return Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      if (isFirstTab) ...[
+                        if (!isLoading) ...[
+                          _buildNovenaAccordion(
+                            context: context,
+                            title: l10n.inProgressNovenas,
+                            icon: Icons.hourglass_top_rounded,
+                            items: inProgressNovenas,
+                            headerColor: theme.colorScheme.primary,
+                            isInitiallyExpanded: true,
+                          ),
+                          _buildNovenaAccordion(
+                            context: context,
+                            title: l10n.completedNovenas,
+                            icon: Icons.check_circle_rounded,
+                            items: completedNovenas,
+                            headerColor: Colors.green,
+                            isInitiallyExpanded: false,
+                          ),
+                        ],
+                        const SizedBox(height: 12),
+                        NovenaSection(
+                          onNovenaChanged: _fetchAllNovenas,
                         ),
-                        _buildNovenaAccordion(
-                          context: context,
-                          title: "Completed Novenas",
-                          icon: Icons.check_circle_rounded,
-                          items: completedNovenas,
-                          headerColor: Colors.green,
-                          isInitiallyExpanded: false,
+                        const SizedBox(height: 25),
+                        MyUniversalCard(
+                          title: l10n.gospelOfTheDay,
+                          description: l10n.gospelDescription,
+                          buttonColor: theme.colorScheme.primary,
+                          onPressed: () {
+                            try {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DailyReadingsScreen(),
+                                ),
+                              );
+                            } catch (e) {
+                              debugPrint('Error navigating to DailyReadingsScreen: $e');
+                            }
+                          },
                         ),
+                      ] else ...[
+                        const SizedBox(height: 50),
+                        Dailyprayer(
+                          initialPrayerTitle: activeTargetPrayerTitle,
+                        ),
+                        const SizedBox(height: 50),
                       ],
-                      const SizedBox(height: 12),
-                      NovenaSection(
-                        onNovenaChanged: _fetchAllNovenas,
-                      ),
-                      const SizedBox(height: 25),
-                      MyUniversalCard(
-                        title: "Gospel Of The Day",
-                        description: "Reflect your day with this Gospel verse",
-                        buttonColor: theme.colorScheme.primary,
-                        onPressed: () {},
-                      ),
-                    ] else ...[
-                      const SizedBox(height: 50),
-                      Dailyprayer(
-                        initialPrayerTitle: activeTargetPrayerTitle,
-                      ),
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 20),
+                      const DashboardSection(),
+                      const SizedBox(height: 100),
                     ],
-                    const SizedBox(height: 20),
-                    const DashboardSection(),
-                    const SizedBox(height: 100),
-                  ],
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -606,6 +637,7 @@ class MyUniversalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -652,7 +684,7 @@ class MyUniversalCard extends StatelessWidget {
                 ),
                 onPressed: onPressed,
                 child: Text(
-                  'Read',
+                  l10n.read,
                   style: TextStyle(
                     color: theme.colorScheme.onPrimary,
                     fontWeight: FontWeight.bold,

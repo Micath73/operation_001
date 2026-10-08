@@ -344,47 +344,33 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                             ),
                             elevation: 8,
                           ),
+                          // Locate the onPressed inside AngelusPrayerSession (around line 250):
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
-                                transitionDuration: const Duration(
-                                  milliseconds: 650,
-                                ),
-                                reverseTransitionDuration: const Duration(
-                                  milliseconds: 400,
-                                ),
-                                pageBuilder: (
-                                    context,
-                                    animation,
-                                    secondaryAnimation,
-                                    ) => PrayerCompletionScreen(
-                                  isAmharic: widget.isAmharic,
-                                  detailValue: widget.isAmharic
-                                      ? 'መልአኩ ሰላምታ'
-                                      : 'The Angelus',
-                                  prayerType: 'Angelus',
-                                  detailLabelEn: 'Devotional',
-                                  detailLabelAm: 'ጸሎት',
-                                  titleEn: 'Angelus Completed',
-                                  titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
-                                  subtitleEn:
-                                  'May the grace of His Incarnation fill your heart',
-                                  subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
-                                  bgImagePath: 'assets/img_19.png',
-                                ),
-                                transitionsBuilder: (
-                                    context,
-                                    animation,
-                                    secondaryAnimation,
-                                    child,
-                                    ) {
+                                transitionDuration: const Duration(milliseconds: 650),
+                                reverseTransitionDuration: const Duration(milliseconds: 400),
+                                pageBuilder: (context, animation, secondaryAnimation) =>
+                                    PrayerCompletionScreen(
+                                      isAmharic: widget.isAmharic,
+                                      detailValue: widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
+                                      // Updated to explicitly match PrayerType enum's dbValue
+                                      prayerType: 'angelus',
+                                      detailLabelEn: 'Devotional',
+                                      detailLabelAm: 'ጸሎት',
+                                      titleEn: 'Angelus Completed',
+                                      titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
+                                      subtitleEn: 'May the grace of His Incarnation fill your heart',
+                                      subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
+                                      bgImagePath: 'assets/img_19.png',
+                                    ),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(
                                     parent: animation,
                                     curve: Curves.easeOutCubic,
                                   );
 
-                                  final scaleAnimation =
-                                  Tween<double>(
+                                  final scaleAnimation = Tween<double>(
                                     begin: 0.95,
                                     end: 1.0,
                                   ).animate(

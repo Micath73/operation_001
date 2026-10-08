@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:operation_001/quote.dart';
 
@@ -20,12 +21,31 @@ class QuoteService {
 
       // Wrap around using modulo arithmetic
       final index = dayOfYear % data.length;
+      final rawItem = data[index];
 
-      return Quote(
-        text: data[index]['text'] as String,
-        author: data[index]['author'] as String,
-      );
-    } catch (_) {
+      if (rawItem is Map<String, dynamic>) {
+        // Safe extraction supporting multiple common JSON key variations
+        final String text = (rawItem['text'] ??
+            rawItem['quote'] ??
+            rawItem['content'] ??
+            'Be not afraid, for I am with you always.')
+            .toString();
+
+        final String author = (rawItem['author'] ??
+            rawItem['verse'] ??
+            rawItem['reference'] ??
+            'Isaiah 41:10')
+            .toString();
+
+        if (text.isNotEmpty) {
+          return Quote(text: text, author: author);
+        }
+      }
+
+      return _fallbackQuote();
+    } catch (e, stack) {
+      debugPrint("⚠️ QuoteService JSON Error on today's quote: $e");
+      debugPrint(stack.toString());
       return _fallbackQuote();
     }
   }

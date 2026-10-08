@@ -1,6 +1,8 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
+import 'prayer_type.dart';
+
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
@@ -265,7 +267,7 @@ class DatabaseHelper {
     }).toList();
   }
 
-  /// Fetches all FULLY COMPLETED novenas in 1 single database query
+  /// Fetches all FULLY completed 9-day novenas
   Future<List<Map<String, dynamic>>> getCompletedNovenasOverview() async {
     final db = await instance.database;
 
@@ -473,6 +475,24 @@ class DatabaseHelper {
       whereArgs: whereArgs.isEmpty ? null : whereArgs,
       orderBy: 'completed_at DESC',
     );
+  }
+
+  /// Exact-match version of "what's done today", used by the Dashboard.
+  /// Replaces the old pattern of fetching every log row for today and
+  /// running `.contains('mercy')`-style substring checks in Dart — this
+  /// resolves each row to a [PrayerType] via [PrayerType.fromDbValue]
+  /// (exact match first, substring only as a fallback for rows logged
+  /// before this enum existed) and returns the set of types completed
+  /// today in a single query.
+  Future<Set<PrayerType>> getTodaysCompletedTypes() async {
+    final rows = await getFilteredPrayerHistory('today');
+    final completed = <PrayerType>{};
+    for (final row in rows) {
+      final type = PrayerType.fromDbValue(row['prayer_type'] as String?) ??
+          PrayerType.fromDbValue(row['prayer_name'] as String?);
+      if (type != null) completed.add(type);
+    }
+    return completed;
   }
 
   Future<int> resetTodaysPrayers() async {

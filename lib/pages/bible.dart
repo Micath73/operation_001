@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:path/path.dart' as p;
@@ -117,9 +116,11 @@ class _UserBibleState extends State<UserBible> {
   }
 
   Future<void> _loadInitialData() async {
+    if (!mounted) return;
     setState(() => _isLoading = true);
     try {
       final books = await BibleDatabaseHelper.instance.getBooks();
+      if (!mounted) return;
       if (books.isNotEmpty) {
         _allBooks = books;
         _selectedBook = books.first;
@@ -129,13 +130,13 @@ class _UserBibleState extends State<UserBible> {
       }
     } catch (e) {
       debugPrint("❌ Database Book Load Error: $e");
-      setState(() => _isLoading = false);
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
   Future<void> _loadChapterFromDatabase() async {
     if (_selectedBook == null) return;
-    setState(() => _isLoading = true);
+    if (mounted) setState(() => _isLoading = true);
 
     try {
       final versesFromDb = await BibleDatabaseHelper.instance.getChapterVerses(
@@ -143,6 +144,7 @@ class _UserBibleState extends State<UserBible> {
         _selectedChapter,
       );
 
+      if (!mounted) return;
       setState(() {
         _verses = versesFromDb;
         _isLoading = false;
@@ -153,12 +155,12 @@ class _UserBibleState extends State<UserBible> {
       );
     } catch (e) {
       debugPrint("❌ Database Verse Load Error: $e");
-      setState(() => _isLoading = false);
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
   Future<void> _switchVersion(BibleVersion version) async {
-    setState(() => _isLoading = true);
+    if (mounted) setState(() => _isLoading = true);
     if (version.id == 'dr') {
       await BibleDatabaseHelper.instance.resetToDefaultDatabase();
     } else {
@@ -166,6 +168,7 @@ class _UserBibleState extends State<UserBible> {
       final filePath = p.join(dir.path, '${version.id}.db');
       await BibleDatabaseHelper.instance.openDownloadedDatabase(filePath);
     }
+    if (!mounted) return;
     setState(() => _currentTranslation = version.name);
     await _loadInitialData();
   }
@@ -183,7 +186,7 @@ class _UserBibleState extends State<UserBible> {
         version.downloadUrl,
         savePath,
         onReceiveProgress: (received, total) {
-          if (total != -1) {
+          if (total != -1 && mounted) {
             setState(() {
               _downloadProgress[version.id] = received / total;
             });
@@ -191,6 +194,8 @@ class _UserBibleState extends State<UserBible> {
           }
         },
       );
+
+      if (!mounted) return;
 
       setState(() {
         version.isDownloaded = true;
@@ -206,9 +211,9 @@ class _UserBibleState extends State<UserBible> {
         );
       }
     } catch (e) {
-      setState(() => _downloadProgress.remove(version.id));
-      setModalState(() {});
       if (mounted) {
+        setState(() => _downloadProgress.remove(version.id));
+        setModalState(() {});
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Failed to download ${version.name}: $e')),
         );
@@ -450,10 +455,13 @@ class _UserBibleState extends State<UserBible> {
       itemBuilder: (context, index) {
         final book = books[index];
         final isSelected = _selectedBook?['id'] == book['id'];
+        final bookTitle = widget.isAmharic
+            ? (book['am'] ?? book['name'] ?? 'Book ${book['id']}')
+            : (book['name'] ?? book['en'] ?? 'Book ${book['id']}');
 
         return ListTile(
           title: Text(
-            book['name'] ?? book['en'] ?? 'Book ${book['id']}',
+            bookTitle,
             style: TextStyle(
               color: isSelected
                   ? theme.colorScheme.primary
@@ -479,6 +487,9 @@ class _UserBibleState extends State<UserBible> {
 
   void _showChapterGrid(Map<String, dynamic> book, List<int> chapters) {
     final theme = Theme.of(context);
+    final bookTitle = widget.isAmharic
+        ? (book['am'] ?? book['name'] ?? 'Book')
+        : (book['name'] ?? book['en'] ?? 'Book');
 
     showModalBottomSheet(
       context: context,
@@ -494,7 +505,7 @@ class _UserBibleState extends State<UserBible> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${book['name']} - Select Chapter',
+                '$bookTitle - ${widget.isAmharic ? "ምዕራፍ ምረጥ" : "Select Chapter"}',
                 style: TextStyle(
                   color: theme.colorScheme.primary,
                   fontSize: 18,
@@ -579,62 +590,74 @@ class _UserBibleState extends State<UserBible> {
                     size: 28,
                   ),
                   const SizedBox(width: 12),
-                  Text(
-                    widget.isAmharic ? 'መጽሐፍ ቅዱስ' : 'HOLY BIBLE',
-                    style: TextStyle(
-                      fontFamily: 'Georgia',
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                      letterSpacing: 1.2,
+                  // Left Title
+                  Flexible(
+                    child: Text(
+                      widget.isAmharic ? 'መጽሐፍ ቅዱስ' : 'HOLY BIBLE',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontFamily: 'Georgia',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onSurface,
+                        letterSpacing: 1.2,
+                      ),
                     ),
                   ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: _showVersionDownloadPicker,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 6,
-                      ),
-                      constraints: const BoxConstraints(
-                        maxWidth: 160,
-                      ),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.primary.withAlpha(20),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: theme.colorScheme.primary.withAlpha(51),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.auto_awesome,
-                            color: theme.colorScheme.primary,
-                            size: 14,
+                  const SizedBox(width: 8),
+                  // Right Side Version Selector Chip
+                  Flexible(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        onTap: _showVersionDownloadPicker,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 6,
                           ),
-                          const SizedBox(width: 6),
-                          Flexible(
-                            child: Text(
-                              _currentTranslation,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                              style: TextStyle(
-                                color: theme.colorScheme.primary,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          constraints: const BoxConstraints(
+                            maxWidth: 155,
+                          ),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.primary.withAlpha(20),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: theme.colorScheme.primary.withAlpha(51),
                             ),
                           ),
-                          const SizedBox(width: 2),
-                          Icon(
-                            Icons.arrow_drop_down,
-                            color: theme.colorScheme.primary,
-                            size: 16,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.auto_awesome,
+                                color: theme.colorScheme.primary,
+                                size: 14,
+                              ),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  _currentTranslation,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  softWrap: false,
+                                  style: TextStyle(
+                                    color: theme.colorScheme.primary,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 2),
+                              Icon(
+                                Icons.arrow_drop_down,
+                                color: theme.colorScheme.primary,
+                                size: 16,
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -674,17 +697,24 @@ class _UserBibleState extends State<UserBible> {
                         ),
                         child: Row(
                           children: [
-                            Text(
-                              _selectedBook?['name'] ??
-                                  _selectedBook?['en'] ??
-                                  'Select Book',
-                              style: TextStyle(
-                                color: theme.colorScheme.onSurface,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: Text(
+                                widget.isAmharic
+                                    ? (_selectedBook?['am'] ??
+                                    _selectedBook?['name'] ??
+                                    'መጽሐፍ ምረጥ')
+                                    : (_selectedBook?['name'] ??
+                                    _selectedBook?['en'] ??
+                                    'Select Book'),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: theme.colorScheme.onSurface,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                            const Spacer(),
                             Icon(
                               Icons.arrow_drop_down,
                               color: theme.colorScheme.primary,
@@ -726,7 +756,9 @@ class _UserBibleState extends State<UserBible> {
                         ],
                       ),
                       child: Text(
-                        'Ch. $_selectedChapter',
+                        widget.isAmharic
+                            ? 'ምዕራፍ $_selectedChapter'
+                            : 'Ch. $_selectedChapter',
                         style: TextStyle(
                           color: theme.colorScheme.primary,
                           fontWeight: FontWeight.bold,
@@ -782,7 +814,8 @@ class _UserBibleState extends State<UserBible> {
                     physics: const BouncingScrollPhysics(),
                     itemCount: _verses.length,
                     separatorBuilder: (context, index) => Divider(
-                      color: theme.colorScheme.outlineVariant.withAlpha(128),
+                      color: theme.colorScheme.outlineVariant
+                          .withAlpha(128),
                       height: 24,
                     ),
                     itemBuilder: (context, index) {

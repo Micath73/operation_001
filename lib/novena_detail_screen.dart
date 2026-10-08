@@ -1,10 +1,16 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:operation_001/db_helper.dart';
 import 'package:operation_001/prayer_completion_screen.dart';
 
-// ── 1. DATA MODELS & DATABASE HELPER ─────────────────────────────────────────
+// Centralized so the whole screen's typographic voice lives in one place —
+// change it once here rather than in ~15 scattered TextStyle literals.
+// NOTE: confirm 'Serif' is actually registered as a custom font family in
+// pubspec.yaml — if it isn't, this silently falls back to a platform default
+// and the "premium" serif look this screen is going for won't render.
+const String kNovenaFontFamily = 'Serif';
+
+// ── DATA MODELS ─────────────────────────────────────────────────────────────
 
 class NovenaDayContent {
   final int dayNumber;
@@ -34,12 +40,10 @@ class NovenaData {
   static List<NovenaDayContent> getDaysForTitle(String title) {
     final cleanTitle = title.toLowerCase().trim();
 
-    // Direct exact match
     if (masterNovenaDB.containsKey(title)) {
       return masterNovenaDB[title]!;
     }
 
-    // Fuzzy / Partial match across map keys
     for (final entry in masterNovenaDB.entries) {
       final dbKey = entry.key.toLowerCase();
       if (cleanTitle.contains(dbKey) || dbKey.contains(cleanTitle)) {
@@ -47,14 +51,12 @@ class NovenaData {
       }
     }
 
-    // Alias fallback
     if (cleanTitle.contains("sacred heart")) {
       return masterNovenaDB["Novena to the Sacred Heart of Jesus"]!;
     } else if (cleanTitle.contains("divine mercy")) {
       return masterNovenaDB["Divine Mercy Chaplet"]!;
     }
 
-    // Generic fallback generator
     return List.generate(
       9,
           (i) => NovenaDayContent(
@@ -348,6 +350,8 @@ void openNovenaDetailScreen(
   });
 }
 
+// ── MAIN SCREEN WIDGET ───────────────────────────────────────────────────────
+
 class NovenaDetailScreen extends StatefulWidget {
   final String title;
   final String novenaImage;
@@ -373,18 +377,25 @@ class NovenaDetailScreen extends StatefulWidget {
 class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   late int currentDay;
   double fontSize = 16.5;
-  late bool isPraying;
   final Set<int> completedDays = {};
   bool _hasProgressChanged = false;
 
   final TextEditingController intentionController = TextEditingController();
   final ScrollController dayScrollController = ScrollController();
 
+  // One GlobalKey per day-chip so we can scroll to the actual rendered
+  // position via Scrollable.ensureVisible, rather than assuming every chip
+  // is a fixed 84px wide (completed chips are wider — they carry a
+  // checkmark icon — so that assumption drifts out of alignment over the
+  // course of the novena).
+  final Map<int, GlobalKey> _dayChipKeys = {
+    for (int i = 1; i <= 9; i++) i: GlobalKey(),
+  };
+
   @override
   void initState() {
     super.initState();
     currentDay = widget.initialDay;
-    isPraying = widget.autoStart;
     _loadSavedProgress();
     intentionController.addListener(_saveIntention);
   }
@@ -467,7 +478,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
     setState(() {
       completedDays.clear();
       currentDay = 1;
-      isPraying = true;
     });
 
     _scrollToActiveDay();
@@ -501,27 +511,19 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   }
 
   void _scrollToActiveDay() {
-    if (!dayScrollController.hasClients) return;
-    const double itemWidth = 84.0;
-    final double targetOffset = (currentDay - 1) * itemWidth;
-
-    dayScrollController.animateTo(
-      targetOffset,
-      duration: const Duration(milliseconds: 350),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  Future<void> _startNovena() async {
-    if (completedDays.length == 9) {
-      await _promptRestartNovena();
-      return;
-    }
-
-    HapticFeedback.lightImpact();
-    if (!mounted) return;
-    setState(() => isPraying = true);
-    _scrollToActiveDay();
+    // Wait a frame so the chip list has actually laid out (relevant right
+    // after initial load / a setState that just changed which chip is wider).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final key = _dayChipKeys[currentDay];
+      final ctx = key?.currentContext;
+      if (ctx == null) return;
+      Scrollable.ensureVisible(
+        ctx,
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeInOut,
+        alignment: 0.5,
+      );
+    });
   }
 
   Future<void> _completeCurrentDay() async {
@@ -615,23 +617,10 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
     }
   }
 
-  void _handlePop() {
-    if (isPraying) {
-      setState(() => isPraying = false);
-    } else {
-      Navigator.pop(context, _hasProgressChanged);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
-    final double fullHeight = MediaQuery.of(context).size.height;
-    final double dynamicImageHeight =
-    isPraying ? fullHeight * 0.40 : fullHeight;
-    final double manuscriptTop = isPraying ? fullHeight * 0.32 : fullHeight;
+    final primaryAccent = theme.colorScheme.primary;
 
     final activeDayData = widget.days.firstWhere(
           (d) => d.dayNumber == currentDay,
@@ -644,302 +633,336 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
       ),
     );
 
-    // Dynamic Theme Integration
-    final primaryAccent = theme.colorScheme.primary;
-    final scaffoldBg = theme.scaffoldBackgroundColor;
-
-    // Paper / Sheet background reflecting active dark/light mode surface theme
-    final sheetSurfaceBg = isDark
-        ? (theme.colorScheme.surfaceContainerHigh)
-        : const Color(0xFFFFFDF9);
-
-    final textBodyColor = theme.colorScheme.onSurface;
-
     return PopScope(
-      canPop: false,
+      canPop: true,
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) return;
-        _handlePop();
+        Navigator.pop(context, _hasProgressChanged);
       },
       child: Scaffold(
-        backgroundColor: scaffoldBg,
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color: isPraying ? primaryAccent : Colors.white,
-              size: 20,
-            ),
-            onPressed: _handlePop,
-          ),
-          actions: [
-            if (completedDays.isNotEmpty)
-              IconButton(
-                tooltip: 'Reset Novena',
-                icon:
-                const Icon(Icons.refresh_rounded, color: Colors.redAccent),
-                onPressed: () async {
-                  final bool? confirm = await showDialog<bool>(
-                    context: context,
-                    builder: (ctx) => AlertDialog(
-                      title: const Text('Reset Progress?'),
-                      content: Text(
-                        'Are you sure you want to clear all progress for "${widget.title}"?',
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(ctx, false),
-                          child: const Text('Cancel'),
-                        ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.redAccent),
-                          onPressed: () => Navigator.pop(ctx, true),
-                          child: const Text('Reset',
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ],
-                    ),
-                  );
-                  if (confirm == true) {
-                    await _clearAllProgress();
-                  }
-                },
-              ),
-            if (isPraying) ...[
-              IconButton(
-                icon: Icon(Icons.text_decrease_rounded, color: primaryAccent),
-                onPressed: () {
-                  if (fontSize > 12) setState(() => fontSize -= 2);
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.text_increase_rounded, color: primaryAccent),
-                onPressed: () {
-                  if (fontSize < 26) setState(() => fontSize += 2);
-                },
-              ),
-            ]
-          ],
-        ),
-        body: Stack(
-          children: [
-            // ── 1. Background Art ──
-            AnimatedPositioned(
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.easeOutCubic,
-              top: 0,
-              left: 0,
-              right: 0,
-              height: dynamicImageHeight,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    widget.novenaImage,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      color: theme.colorScheme.primaryContainer,
-                      child: Icon(Icons.church_rounded,
-                          size: 64, color: primaryAccent),
-                    ),
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            // ── SLIVER APP BAR WITH HERO HEADER ──
+            SliverAppBar(
+              expandedHeight: 280.0,
+              pinned: true,
+              elevation: 0,
+              leading: CircleAvatar(
+                backgroundColor: Colors.black38,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Colors.white,
+                    size: 18,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.black.withValues(alpha: 0.4),
-                          Colors.black.withValues(alpha: isPraying ? 0.75 : 0.85),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // ── 2. Welcome Card Overlay ──
-            if (!isPraying)
-              Center(
-                child: _NovenaWelcomeCard(
-                  title: widget.title,
-                  storyText: widget.storyText,
-                  completedCount: completedDays.length,
-                  primaryAccent: primaryAccent,
-                  isDark: isDark,
-                  onStartPressed: _startNovena,
+                  onPressed: () => Navigator.pop(context, _hasProgressChanged),
                 ),
               ),
-
-            // ── 3. Prayer Reading Sheet ──
-            AnimatedPositioned(
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.easeOutCubic,
-              top: manuscriptTop,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: IgnorePointer(
-                ignoring: !isPraying,
-                child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 450),
-                  opacity: isPraying ? 1.0 : 0.0,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: sheetSurfaceBg,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(28),
-                        topRight: Radius.circular(28),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: isDark ? 0.4 : 0.08),
-                          blurRadius: 18,
-                          offset: const Offset(0, -4),
-                        ),
-                      ],
-                    ),
-                    child: SafeArea(
-                      top: false,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12, bottom: 8),
-                            child: Container(
-                              width: 42,
-                              height: 4,
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.outline.withValues(alpha: 0.3),
-                                borderRadius: BorderRadius.circular(2),
-                              ),
+              actions: [
+                if (completedDays.isNotEmpty)
+                  CircleAvatar(
+                    backgroundColor: Colors.black38,
+                    child: IconButton(
+                      tooltip: 'Reset Novena',
+                      // Semantic error color from the theme instead of a
+                      // fixed named color — correctly contrasted in both
+                      // light and dark modes by construction.
+                      icon: Icon(Icons.refresh_rounded,
+                          color: theme.colorScheme.error),
+                      onPressed: () async {
+                        final bool? confirm = await showDialog<bool>(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: const Text('Reset Progress?'),
+                            content: Text(
+                              'Are you sure you want to clear all progress for "${widget.title}"?',
                             ),
-                          ),
-                          _DaySelectorHeader(
-                            scrollController: dayScrollController,
-                            currentDay: currentDay,
-                            completedDays: completedDays,
-                            primaryAccent: primaryAccent,
-                            textBodyColor: textBodyColor,
-                            onDaySelected: (dayNum) {
-                              HapticFeedback.selectionClick();
-                              setState(() => currentDay = dayNum);
-                              _scrollToActiveDay();
-                            },
-                          ),
-                          const SizedBox(height: 6),
-                          Divider(
-                            height: 1,
-                            indent: 20,
-                            endIndent: 20,
-                            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.3),
-                          ),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              physics: const BouncingScrollPhysics(),
-                              padding:
-                              const EdgeInsets.fromLTRB(20, 14, 20, 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  _PersonalIntentionCard(
-                                    controller: intentionController,
-                                    primaryAccent: primaryAccent,
-                                    textBodyColor: textBodyColor,
-                                  ),
-                                  const SizedBox(height: 16),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: 3,
-                                        height: 14,
-                                        color: primaryAccent,
-                                      ),
-                                      const SizedBox(width: 8),
-                                      Text(
-                                        'DAY $currentDay INTENTION',
-                                        style: TextStyle(
-                                          fontFamily: 'Serif',
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.bold,
-                                          color: primaryAccent,
-                                          letterSpacing: 2.2,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 6),
-                                  Text(
-                                    activeDayData.theme,
-                                    style: TextStyle(
-                                      fontFamily: 'Serif',
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold,
-                                      color: textBodyColor,
-                                      height: 1.25,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16),
-                                  _buildDropCapBody(
-                                    activeDayData.prayer,
-                                    textBodyColor,
-                                    primaryAccent,
-                                    fontSize,
-                                  ),
-                                  const SizedBox(height: 24),
-                                  Center(
-                                    child: Text(
-                                      '✦  Amen  ✦',
-                                      style: TextStyle(
-                                        fontFamily: 'Serif',
-                                        fontSize: 13,
-                                        fontStyle: FontStyle.italic,
-                                        color: primaryAccent.withValues(alpha: 0.8),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(ctx, false),
+                                child: const Text('Cancel'),
                               ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),
-                            child: SizedBox(
-                              width: double.infinity,
-                              height: 48,
-                              child: ElevatedButton.icon(
+                              ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: primaryAccent,
-                                  foregroundColor: theme.colorScheme.onPrimary,
-                                  elevation: 2,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
+                                  backgroundColor: theme.colorScheme.error,
                                 ),
-                                onPressed: _completeCurrentDay,
-                                icon: const Icon(Icons.check_circle_rounded),
-                                label: Text(
-                                  currentDay == 9
-                                      ? "Finish Novena & Complete"
-                                      : "Complete Day $currentDay & Continue",
-                                  style: const TextStyle(
-                                    fontFamily: 'Serif',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14,
-                                  ),
+                                onPressed: () => Navigator.pop(ctx, true),
+                                child: Text(
+                                  'Reset',
+                                  style: TextStyle(
+                                      color: theme.colorScheme.onError),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        );
+                        if (confirm == true) {
+                          await _clearAllProgress();
+                        }
+                      },
+                    ),
+                  ),
+                const SizedBox(width: 8),
+                CircleAvatar(
+                  backgroundColor: Colors.black38,
+                  child: IconButton(
+                    icon: const Icon(Icons.text_decrease_rounded,
+                        color: Colors.white),
+                    onPressed: () {
+                      if (fontSize > 12) setState(() => fontSize -= 2);
+                    },
+                  ),
+                ),
+                const SizedBox(width: 4),
+                CircleAvatar(
+                  backgroundColor: Colors.black38,
+                  child: IconButton(
+                    icon: const Icon(Icons.text_increase_rounded,
+                        color: Colors.white),
+                    onPressed: () {
+                      if (fontSize < 26) setState(() => fontSize += 2);
+                    },
+                  ),
+                ),
+                const SizedBox(width: 12),
+              ],
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding:
+                const EdgeInsets.only(left: 16, bottom: 16, right: 60),
+                title: Text(
+                  widget.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontFamily: kNovenaFontFamily,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      widget.novenaImage,
+                      fit: BoxFit.cover,
+                      // THE FIX: bias the crop toward the top of the source
+                      // image instead of center-cropping. Center-crop on a
+                      // portrait where the face sits in the upper third of
+                      // the frame is what was slicing through the head.
+                      alignment: Alignment.topCenter,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        color: theme.colorScheme.primaryContainer,
+                        child: Icon(Icons.church_rounded,
+                            size: 64, color: primaryAccent),
                       ),
+                    ),
+                    // Full-height gradient rather than a bottom-only one —
+                    // softly darkens the top too so the leading/action
+                    // icons stay legible over bright image regions, not
+                    // just relying on their individual translucent circles.
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.black.withValues(alpha: 0.35),
+                            Colors.black.withValues(alpha: 0.05),
+                            Colors.black.withValues(alpha: 0.3),
+                            Colors.black.withValues(alpha: 0.8),
+                          ],
+                          stops: const [0.0, 0.25, 0.6, 1.0],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // ── NOVENA STORY & INTRO CARD ──
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                child: Card(
+                  elevation: 0,
+                  // Single surface role, no isDark branch — matches the
+                  // intention card below and lets ColorScheme's own dark
+                  // variant do its job.
+                  color: theme.colorScheme.surfaceContainer,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    side: BorderSide(
+                      color: primaryAccent.withValues(alpha: 0.2),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'DEVOTIONAL OVERVIEW',
+                          style: TextStyle(
+                            fontFamily: kNovenaFontFamily,
+                            color: primaryAccent,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2.0,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          widget.storyText ??
+                              "A novena is a traditional Catholic devotion consisting of private or public prayers repeated for nine successive days.",
+                          style: TextStyle(
+                            fontFamily: kNovenaFontFamily,
+                            fontSize: 14,
+                            height: 1.5,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
+              ),
+            ),
+
+            // ── DAY SELECTOR CHIPS + PROGRESS ──
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Column(
+                  children: [
+                    _DaySelectorHeader(
+                      scrollController: dayScrollController,
+                      currentDay: currentDay,
+                      completedDays: completedDays,
+                      primaryAccent: primaryAccent,
+                      textBodyColor: theme.colorScheme.onSurface,
+                      chipKeys: _dayChipKeys,
+                      onDaySelected: (dayNum) {
+                        HapticFeedback.selectionClick();
+                        setState(() => currentDay = dayNum);
+                        _scrollToActiveDay();
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    // Slim overall-progress indicator — an at-a-glance
+                    // sense of how far along the novena is, beyond just
+                    // per-chip checkmarks.
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: LinearProgressIndicator(
+                          value: completedDays.length / 9,
+                          minHeight: 4,
+                          backgroundColor:
+                          theme.colorScheme.surfaceContainerHighest,
+                          valueColor:
+                          AlwaysStoppedAnimation<Color>(primaryAccent),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // ── PRAYER CONTENT BODY ──
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  _PersonalIntentionCard(
+                    controller: intentionController,
+                    primaryAccent: primaryAccent,
+                    textBodyColor: theme.colorScheme.onSurface,
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Container(
+                        width: 3,
+                        height: 14,
+                        color: primaryAccent,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        'DAY $currentDay INTENTION',
+                        style: TextStyle(
+                          fontFamily: kNovenaFontFamily,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                          color: primaryAccent,
+                          letterSpacing: 2.2,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    activeDayData.theme,
+                    style: TextStyle(
+                      fontFamily: kNovenaFontFamily,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onSurface,
+                      height: 1.25,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildDropCapBody(
+                    activeDayData.prayer,
+                    theme.colorScheme.onSurface,
+                    primaryAccent,
+                    fontSize,
+                  ),
+                  const SizedBox(height: 28),
+                  Center(
+                    child: Text(
+                      '✦  Amen  ✦',
+                      style: TextStyle(
+                        fontFamily: kNovenaFontFamily,
+                        fontSize: 14,
+                        fontStyle: FontStyle.italic,
+                        color: primaryAccent.withValues(alpha: 0.8),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 28),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryAccent,
+                        foregroundColor: theme.colorScheme.onPrimary,
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                      onPressed: _completeCurrentDay,
+                      icon: const Icon(Icons.check_circle_rounded),
+                      label: Text(
+                        currentDay == 9
+                            ? "Finish Novena & Complete"
+                            : "Complete Day $currentDay & Continue",
+                        style: const TextStyle(
+                          fontFamily: kNovenaFontFamily,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                ]),
               ),
             ),
           ],
@@ -970,7 +993,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
               child: Text(
                 dropLetter,
                 style: TextStyle(
-                  fontFamily: 'Serif',
+                  fontFamily: kNovenaFontFamily,
                   fontSize: bodyFontSize * 3.2,
                   fontWeight: FontWeight.bold,
                   color: dropColor,
@@ -983,7 +1006,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
           TextSpan(
             text: remainder,
             style: TextStyle(
-              fontFamily: 'Serif',
+              fontFamily: kNovenaFontFamily,
               fontSize: bodyFontSize,
               color: textBodyColor,
               height: 1.6,
@@ -997,116 +1020,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   }
 }
 
-class _NovenaWelcomeCard extends StatelessWidget {
-  final String title;
-  final String? storyText;
-  final int completedCount;
-  final Color primaryAccent;
-  final bool isDark;
-  final VoidCallback onStartPressed;
-
-  const _NovenaWelcomeCard({
-    required this.title,
-    this.storyText,
-    required this.completedCount,
-    required this.primaryAccent,
-    required this.isDark,
-    required this.onStartPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final fullHeight = MediaQuery.of(context).size.height;
-
-    final welcomeCardBg = isDark
-        ? theme.colorScheme.surface.withValues(alpha: 0.85)
-        : const Color(0xFF2A2421).withValues(alpha: 0.88);
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(24),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.86,
-          height: fullHeight * 0.56,
-          padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            color: welcomeCardBg,
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(
-              color: primaryAccent.withValues(alpha: 0.35),
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'HOLY NOVENA',
-                style: TextStyle(
-                  fontFamily: 'Serif',
-                  color: primaryAccent,
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 3.0,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Serif',
-                  color: isDark ? theme.colorScheme.onSurface : const Color(0xFFF5F0E6),
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 18),
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Text(
-                    storyText ??
-                        "A novena is a traditional Catholic devotion consisting of private or public prayers repeated for nine successive days.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Serif',
-                      color: isDark
-                          ? theme.colorScheme.onSurfaceVariant
-                          : const Color(0xFFE2DCD0).withValues(alpha: 0.9),
-                      fontSize: 15,
-                      height: 1.55,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              FloatingActionButton.extended(
-                backgroundColor: primaryAccent,
-                foregroundColor: theme.colorScheme.onPrimary,
-                elevation: 4,
-                onPressed: onStartPressed,
-                label: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(
-                    completedCount == 9 ? 'RESTART NOVENA' : 'START NOVENA',
-                    style: TextStyle(
-                      fontFamily: 'Serif',
-                      color: theme.colorScheme.onPrimary,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+// ── AUXILIARY COMPONENTS ─────────────────────────────────────────────────────
 
 class _DaySelectorHeader extends StatelessWidget {
   final ScrollController scrollController;
@@ -1114,6 +1028,7 @@ class _DaySelectorHeader extends StatelessWidget {
   final Set<int> completedDays;
   final Color primaryAccent;
   final Color textBodyColor;
+  final Map<int, GlobalKey> chipKeys;
   final ValueChanged<int> onDaySelected;
 
   const _DaySelectorHeader({
@@ -1122,6 +1037,7 @@ class _DaySelectorHeader extends StatelessWidget {
     required this.completedDays,
     required this.primaryAccent,
     required this.textBodyColor,
+    required this.chipKeys,
     required this.onDaySelected,
   });
 
@@ -1142,6 +1058,7 @@ class _DaySelectorHeader extends StatelessWidget {
           final isDone = completedDays.contains(dayNum);
 
           return Padding(
+            key: chipKeys[dayNum],
             padding: const EdgeInsets.only(right: 8),
             child: ChoiceChip(
               showCheckmark: false,
@@ -1161,7 +1078,7 @@ class _DaySelectorHeader extends StatelessWidget {
                   Text(
                     'Day $dayNum',
                     style: TextStyle(
-                      fontFamily: 'Serif',
+                      fontFamily: kNovenaFontFamily,
                       fontSize: 13,
                       fontWeight:
                       isSelected ? FontWeight.bold : FontWeight.w500,
@@ -1228,7 +1145,7 @@ class _PersonalIntentionCard extends StatelessWidget {
                 Text(
                   "My Personal Intention",
                   style: TextStyle(
-                    fontFamily: 'Serif',
+                    fontFamily: kNovenaFontFamily,
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
                     color: primaryAccent,
@@ -1241,14 +1158,14 @@ class _PersonalIntentionCard extends StatelessWidget {
               controller: controller,
               maxLines: 2,
               style: TextStyle(
-                fontFamily: 'Serif',
+                fontFamily: kNovenaFontFamily,
                 fontSize: 14,
                 color: textBodyColor,
               ),
               decoration: InputDecoration(
                 hintText: "State your prayer intention...",
                 hintStyle: TextStyle(
-                  fontFamily: 'Serif',
+                  fontFamily: kNovenaFontFamily,
                   fontSize: 13,
                   color: textBodyColor.withValues(alpha: 0.45),
                 ),

@@ -58,6 +58,8 @@ class _PrayerSessionState extends State<PrayerSession> {
               PrayerCompletionScreen(
                 isAmharic: widget.isAmharic,
                 detailValue: resolvedTitle,
+                // CRITICAL FIX: Pass 'rosary' so DatabaseHelper logs PrayerType.rosary correctly!
+                prayerType: 'rosary',
                 detailLabelEn: 'Mystery',
                 detailLabelAm: 'ምስጢር',
                 titleEn: 'Rosary Completed',

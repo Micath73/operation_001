@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/angelus_screen.dart';
 import 'package:operation_001/chapel_screen.dart';
-import 'package:operation_001/expansion_tile.dart';
-import 'package:operation_001/new_prayer_template_page.dart';
 import 'package:operation_001/novena_combo.dart';
+import 'package:operation_001/prayer_data.dart';
+import 'package:operation_001/prayer_detail_screen.dart';
+import 'package:operation_001/premium_page_route.dart';
 import 'package:operation_001/rosary_screen.dart';
 
 class Contain extends StatelessWidget {
@@ -17,37 +18,33 @@ class Contain extends StatelessWidget {
   });
 
   void _navigateToPrayer(BuildContext context, NovenaCombo prayer) {
-    Widget destinationPage;
-
     switch (prayer.text) {
-      case 'Morning Psalm Prayers':
-        destinationPage = const MorningPsalmPage();
-        break;
       case 'Angelus':
-        destinationPage = const AngelusScreen();
-        break;
+        Navigator.of(context, rootNavigator: true).push(
+          MaterialPageRoute(builder: (context) => const AngelusScreen()),
+        );
+        return;
       case 'Divine Mercy Chaplet':
-        destinationPage = const ChapletScreen();
-        break;
+        Navigator.of(context, rootNavigator: true).push(
+          MaterialPageRoute(builder: (context) => const ChapletScreen()),
+        );
+        return;
       case 'Rosary':
-        destinationPage = RosaryDetailScreen(
-          title: 'Holy Rosary',
-          steps: defaultRosaryList,
+        Navigator.of(context, rootNavigator: true).push(
+          MaterialPageRoute(
+            builder: (context) => RosaryDetailScreen(
+              title: 'The Holy Rosary',
+              steps: defaultRosaryList,
+            ),
+          ),
         );
-        break;
+        return;
       default:
-      // Open the illuminated manuscript template with prayer title & image
-        destinationPage = NewPrayerTemplatePage(
-          prayerTitle: prayer.text,
-          prayerImage: prayer.imagePath,
+        Navigator.of(context, rootNavigator: true).push(
+          premiumPageRoute(NovenaPrayerDetailScreen(prayer: prayer)),
         );
-        break;
+        return;
     }
-
-    // Push over the root navigator to cover bottom tabs smoothly
-    Navigator.of(context, rootNavigator: true).push(
-      MaterialPageRoute(builder: (context) => destinationPage),
-    );
   }
 
   @override
@@ -100,16 +97,20 @@ class Contain extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.asset(
-                              prayer.imagePath,
-                              height: 45,
-                              width: 45,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => Icon(
-                                Icons.image_not_supported,
-                                color: theme.colorScheme.onSurfaceVariant,
+                          Hero(
+                            tag: 'prayer-image-${prayer.text}',
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                prayer.imagePath,
+                                height: 45,
+                                width: 45,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    Icon(
+                                      Icons.image_not_supported,
+                                      color: theme.colorScheme.onSurfaceVariant,
+                                    ),
                               ),
                             ),
                           ),

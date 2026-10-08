@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:operation_001/angelus_screen.dart';
 import 'package:operation_001/chapel_screen.dart';
 import 'package:operation_001/daily_readings_screen.dart';
+import 'package:operation_001/db_helper.dart';
 import 'package:operation_001/glorious.dart';
 import 'package:operation_001/joyful.dart';
 import 'package:operation_001/luminous.dart';
 import 'package:operation_001/pre_prayer_intention_screen.dart';
+import 'package:operation_001/prayer_type.dart'; // Explicit package import fix
+import 'package:operation_001/route_observer.dart';
 import 'package:operation_001/sorrowful.dart';
 
 class DashboardSection extends StatefulWidget {
@@ -15,16 +18,65 @@ class DashboardSection extends StatefulWidget {
   State<DashboardSection> createState() => _DashboardSectionState();
 }
 
-class _DashboardSectionState extends State<DashboardSection> {
-  String selectedDay = 'Mon';
-  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+class _DashboardSectionState extends State<DashboardSection>
+    with RouteAware {
+  static const List<String> _days = [
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun'
+  ];
+
+  late String _previewDay = _todayLabel;
+
+  String get _todayLabel => _days[DateTime.now().weekday - 1];
+
+  bool isGospelCompleted = false;
+  bool isAngelusCompleted = false;
+  bool isRosaryCompleted = false;
+  bool isMercyCompleted = false;
 
   @override
   void initState() {
     super.initState();
-    int todayWeekday = DateTime.now().weekday; // 1 = Mon, 7 = Sun
-    List<String> dayMap = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    selectedDay = dayMap[todayWeekday - 1];
+    _checkTodaysCompletions();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route is PageRoute) {
+      appRouteObserver.subscribe(this, route);
+    }
+  }
+
+  @override
+  void dispose() {
+    appRouteObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    _checkTodaysCompletions();
+  }
+
+  Future<void> _checkTodaysCompletions() async {
+    try {
+      final completed = await DatabaseHelper.instance.getTodaysCompletedTypes();
+      if (!mounted) return;
+      setState(() {
+        isAngelusCompleted = completed.contains(PrayerType.angelus);
+        isRosaryCompleted = completed.contains(PrayerType.rosary);
+        isMercyCompleted = completed.contains(PrayerType.chaplet);
+      });
+    } catch (e) {
+      debugPrint('Error checking today completions: $e');
+    }
   }
 
   Widget _getRosaryScreenForDay(String day) {
@@ -39,43 +91,100 @@ class _DashboardSectionState extends State<DashboardSection> {
       case 'Sun':
         return const GloriousScreen();
       case 'Thu':
-      case 'Thur':
         return const LuminousScreen();
       default:
         return const JoyfulScreen();
     }
   }
 
+  Future<void> _navigateToAndRefresh(Widget page, [String? type]) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => page),
+    );
+
+    if (type == 'gospel' && mounted) {
+      setState(() {
+        isGospelCompleted = true;
+      });
+    }
+
+    await _checkTodaysCompletions();
+  }
+
   Widget _buildDailyButton({
     required String label,
+    required bool isCompleted,
     required VoidCallback onPressed,
     required ThemeData theme,
   }) {
+    final colorScheme = theme.colorScheme;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
-      child: SizedBox(
-        width: double.infinity,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: theme.colorScheme.surfaceContainerHighest,
-            foregroundColor: theme.colorScheme.onSurface,
-            elevation: 2,
-            padding: const EdgeInsets.symmetric(vertical: 14),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-              side: BorderSide(
-                color: theme.colorScheme.secondary.withValues(alpha: 0.3),
-                width: 1,
+      child: Material(
+        color: colorScheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(14),
+        clipBehavior: Clip.antiAlias,
+        elevation: 2,
+        child: InkWell(
+          onTap: onPressed,
+          child: Container(
+            padding:
+            const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: isCompleted
+                    ? colorScheme.secondary.withValues(alpha: 0.5)
+                    : colorScheme.secondary.withValues(alpha: 0.2),
+                width: isCompleted ? 1.3 : 1,
               ),
+              borderRadius: BorderRadius.circular(14),
             ),
-          ),
-          onPressed: onPressed,
-          child: Text(
-            label,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 14,
-              color: theme.colorScheme.onSurface,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    label,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
+                ),
+                if (isCompleted)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: colorScheme.secondary.withValues(alpha: 0.16),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.check_rounded,
+                            size: 14, color: colorScheme.secondary),
+                        const SizedBox(width: 3),
+                        Text(
+                          'Prayed',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: colorScheme.secondary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                else
+                  Icon(Icons.chevron_right_rounded,
+                      color: colorScheme.onSurfaceVariant
+                          .withValues(alpha: 0.6)),
+              ],
             ),
           ),
         ),
@@ -86,6 +195,8 @@ class _DashboardSectionState extends State<DashboardSection> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final isPreviewingOtherDay = _previewDay != _todayLabel;
 
     return Column(
       children: [
@@ -94,10 +205,10 @@ class _DashboardSectionState extends State<DashboardSection> {
           child: Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: theme.colorScheme.surfaceContainerHigh,
+              color: colorScheme.surfaceContainerHigh,
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: theme.colorScheme.primary.withValues(alpha: 0.15),
+                color: colorScheme.primary.withValues(alpha: 0.15),
                 width: 1,
               ),
             ),
@@ -110,7 +221,7 @@ class _DashboardSectionState extends State<DashboardSection> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: theme.colorScheme.secondary,
+                      color: colorScheme.secondary,
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -120,19 +231,16 @@ class _DashboardSectionState extends State<DashboardSection> {
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   child: Row(
-                    children: days.map((day) {
-                      bool isSelected = selectedDay == day;
+                    children: _days.map((day) {
+                      final isSelected = _previewDay == day;
+                      final isRealToday = day == _todayLabel;
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
                             borderRadius: BorderRadius.circular(10),
-                            onTap: () {
-                              setState(() {
-                                selectedDay = day;
-                              });
-                            },
+                            onTap: () => setState(() => _previewDay = day),
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 200),
                               padding: const EdgeInsets.symmetric(
@@ -141,28 +249,47 @@ class _DashboardSectionState extends State<DashboardSection> {
                               ),
                               decoration: BoxDecoration(
                                 color: isSelected
-                                    ? theme.colorScheme.primary
-                                    : theme.colorScheme.surfaceContainerHighest,
+                                    ? colorScheme.primary
+                                    : colorScheme.surfaceContainerHighest,
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                   color: isSelected
-                                      ? theme.colorScheme.secondary
-                                      : theme.colorScheme.outline.withValues(
-                                    alpha: 0.15,
-                                  ),
+                                      ? colorScheme.secondary
+                                      : colorScheme.outline
+                                      .withValues(alpha: 0.15),
                                   width: isSelected ? 1.5 : 1,
                                 ),
                               ),
-                              child: Text(
-                                day,
-                                style: TextStyle(
-                                  color: isSelected
-                                      ? theme.colorScheme.onPrimary
-                                      : theme.colorScheme.onSurfaceVariant,
-                                  fontWeight: isSelected
-                                      ? FontWeight.bold
-                                      : FontWeight.normal,
-                                ),
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Text(
+                                    day,
+                                    style: TextStyle(
+                                      color: isSelected
+                                          ? colorScheme.onPrimary
+                                          : colorScheme.onSurfaceVariant,
+                                      fontWeight: isSelected
+                                          ? FontWeight.bold
+                                          : FontWeight.normal,
+                                    ),
+                                  ),
+                                  if (isRealToday)
+                                    Positioned(
+                                      right: -6,
+                                      top: -6,
+                                      child: Container(
+                                        width: 6,
+                                        height: 6,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: isSelected
+                                              ? colorScheme.onPrimary
+                                              : colorScheme.secondary,
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
                             ),
                           ),
@@ -171,39 +298,39 @@ class _DashboardSectionState extends State<DashboardSection> {
                     }).toList(),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
                 Text(
-                  "Selected: $selectedDay",
+                  isPreviewingOtherDay
+                      ? "Previewing $_previewDay — today's Rosary still prays $_todayLabel's Mysteries"
+                      : "Today: $_todayLabel",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: theme.colorScheme.secondary,
+                    color: isPreviewingOtherDay
+                        ? colorScheme.onSurfaceVariant
+                        : colorScheme.secondary,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: isPreviewingOtherDay ? 12 : 15,
                   ),
                 ),
                 const SizedBox(height: 16),
                 _buildDailyButton(
                   label: "Read today's Gospel",
+                  isCompleted: isGospelCompleted,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const DailyReadingsScreen(),
-                      ),
-                    );
+                    _navigateToAndRefresh(
+                        const DailyReadingsScreen(), 'gospel');
                   },
                   theme: theme,
                 ),
                 _buildDailyButton(
                   label: "Pray today's Angelus",
+                  isCompleted: isAngelusCompleted,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PrePrayerIntentionScreen(
-                          prayerCategory: 'Angelus',
-                          isAmharic: false,
-                          targetPrayerPage: AngelusScreen(),
-                        ),
+                    _navigateToAndRefresh(
+                      PrePrayerIntentionScreen(
+                        prayerType: PrayerType.angelus,
+                        isAmharic: false,
+                        targetPrayerPage: const AngelusScreen(),
                       ),
                     );
                   },
@@ -211,33 +338,29 @@ class _DashboardSectionState extends State<DashboardSection> {
                 ),
                 _buildDailyButton(
                   label: "Pray today's Rosary",
+                  isCompleted: isRosaryCompleted,
                   onPressed: () {
-                    Widget rosaryTarget = _getRosaryScreenForDay(selectedDay);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PrePrayerIntentionScreen(
-                          prayerCategory: 'Rosary',
-                          isAmharic: false,
-                          targetPrayerPage: rosaryTarget,
-                        ),
+                    final rosaryTarget = _getRosaryScreenForDay(_todayLabel);
+                    _navigateToAndRefresh(
+                      PrePrayerIntentionScreen(
+                        prayerType: PrayerType.rosary,
+                        isAmharic: false,
+                        targetPrayerPage: rosaryTarget,
                       ),
                     );
                   },
                   theme: theme,
                 ),
-                if (selectedDay == 'Fri')
+                if (_todayLabel == 'Fri')
                   _buildDailyButton(
                     label: "Special Friday Divine Mercy",
+                    isCompleted: isMercyCompleted,
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PrePrayerIntentionScreen(
-                            prayerCategory: 'Divine Chaplet',
-                            isAmharic: false,
-                            targetPrayerPage: ChapletScreen(),
-                          ),
+                      _navigateToAndRefresh(
+                        PrePrayerIntentionScreen(
+                          prayerType: PrayerType.chaplet,
+                          isAmharic: false,
+                          targetPrayerPage: const ChapletScreen(),
                         ),
                       );
                     },

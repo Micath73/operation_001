@@ -19,6 +19,9 @@ android {
     }
 
     compileOptions {
+        // Enable Core Library Desugaring for notification timezone & Java 8+ API support
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -44,4 +47,9 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // Required for desugaring Java 8+ APIs used by flutter_local_notifications
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }

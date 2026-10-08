@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'daily_reading_model.dart';
-import 'readings_service.dart';
+import 'package:operation_001/daily_reading_model.dart';
+import 'package:operation_001/readings_service.dart';
 
 class DailyReadingsScreen extends StatefulWidget {
-  const DailyReadingsScreen({super.key});
+  final bool scrollToGospel;
+  final bool openCalendarOnLaunch;
+
+  const DailyReadingsScreen({
+    super.key,
+    this.scrollToGospel = false,
+    this.openCalendarOnLaunch = false,
+  });
 
   @override
   State<DailyReadingsScreen> createState() => _DailyReadingsScreenState();
@@ -11,11 +18,14 @@ class DailyReadingsScreen extends StatefulWidget {
 
 class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
   final ReadingsService _readingsService = ReadingsService();
+  final GlobalKey _gospelKey = GlobalKey();
+
   DateTime _selectedDate = DateTime.now();
   late Future<DailyReading?> _readingFuture;
   late ScrollController _scrollController;
 
   final double _itemWidth = 68.0;
+  bool _launchIntentsHandled = false;
 
   @override
   void initState() {
@@ -25,6 +35,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollToDateIndex(7);
+      _handleLaunchIntents();
     });
   }
 
@@ -32,6 +43,37 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
   void dispose() {
     _scrollController.dispose();
     super.dispose();
+  }
+
+  Future<void> _handleLaunchIntents() async {
+    if (_launchIntentsHandled || !mounted) return;
+    _launchIntentsHandled = true;
+
+    // Wait for route transition animation to finish
+    final animation = ModalRoute.of(context)?.animation;
+    if (animation != null && animation.status != AnimationStatus.completed) {
+      await animation;
+      if (!mounted) return;
+    }
+
+    if (widget.openCalendarOnLaunch) {
+      await _selectDateFromCalendar();
+    }
+  }
+
+  void _scrollToGospel() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final ctx = _gospelKey.currentContext;
+      if (ctx != null) {
+        Scrollable.ensureVisible(
+          ctx,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOutCubic,
+          alignment: 0.05,
+        );
+      }
+    });
   }
 
   void _scrollToDateIndex(int index) {
@@ -136,6 +178,11 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                   isDark,
                 );
 
+                // Trigger scroll to Gospel once data loads if intent requested it
+                if (widget.scrollToGospel) {
+                  _scrollToGospel();
+                }
+
                 return SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsets.all(16.0),
@@ -160,7 +207,11 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                           theme: theme,
                         ),
                       ],
-                      _buildGospelCard(reading, accentColor, theme),
+                      // Keyed Gospel Card for Auto-Scroll Intent
+                      KeyedSubtree(
+                        key: _gospelKey,
+                        child: _buildGospelCard(reading, accentColor, theme),
+                      ),
                     ],
                   ),
                 );

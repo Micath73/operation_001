@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/main.dart';
 
-class UserMore extends StatefulWidget {
+class UserMore extends StatelessWidget {
   const UserMore({super.key});
 
-  @override
-  State<UserMore> createState() => _UserMoreState();
-}
-
-class _UserMoreState extends State<UserMore> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -66,9 +61,7 @@ class _UserMoreState extends State<UserMore> {
                       groupValue: currentMode,
                       onChanged: (ThemeMode? newMode) {
                         if (newMode != null) {
-                          setState(() {
-                            themeNotifier.value = newMode;
-                          });
+                          themeNotifier.value = newMode;
                         }
                       },
                     ),
@@ -92,9 +85,7 @@ class _UserMoreState extends State<UserMore> {
                       groupValue: currentMode,
                       onChanged: (ThemeMode? newMode) {
                         if (newMode != null) {
-                          setState(() {
-                            themeNotifier.value = newMode;
-                          });
+                          themeNotifier.value = newMode;
                         }
                       },
                     ),
@@ -118,9 +109,7 @@ class _UserMoreState extends State<UserMore> {
                       groupValue: currentMode,
                       onChanged: (ThemeMode? newMode) {
                         if (newMode != null) {
-                          setState(() {
-                            themeNotifier.value = newMode;
-                          });
+                          themeNotifier.value = newMode;
                         }
                       },
                     ),

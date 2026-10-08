@@ -13,6 +13,7 @@ import 'package:operation_001/screens/rosary_guide_sheet.dart';
 import 'package:operation_001/widgets/roadmap_lesson_viewer_sheet.dart';
 import 'package:operation_001/screens/marian_dogmas_sheet.dart';
 import 'package:operation_001/screens/doctors_of_church_sheet.dart';
+import 'package:operation_001/premium_page_route.dart';
 
 class RoadmapRouterService {
   RoadmapRouterService._();
@@ -390,11 +391,19 @@ class RoadmapRouterService {
       },
       onOpenActOfContrition: () {
         // ✅ Push directly to NewPrayerTemplatePage for 'Act of Contrition'
-        Navigator.of(context).push(
+        // REPLACE:
+// Navigator.push(context, MaterialPageRoute(builder: (_) => NewPrayerTemplatePage(...)));
+
+// WITH:
+        Navigator.push(
+          context,
           MaterialPageRoute(
-            builder: (context) => const NewPrayerTemplatePage(
-              prayerTitle: 'Act of Contrition',
-              prayerImage: 'assets/sunrise.jpeg',
+            builder: (_) => PrayerDetailScreen(
+              prayer: NovenaCombo(
+                text: node.title,
+                imagePath: 'assets/sunrise.jpeg',
+                category: 'Roadmap Lesson',
+              ),
             ),
           ),
         );

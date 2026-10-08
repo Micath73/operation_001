@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:operation_001/controllers/saint_of_the_day_controller.dart';
 import 'package:operation_001/models/saint_model.dart';
@@ -16,6 +17,8 @@ class SaintOfDayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final activeController = controller ?? SaintOfTheDayController.instance;
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
 
     return ListenableBuilder(
       listenable: activeController,
@@ -24,10 +27,10 @@ class SaintOfDayCard extends StatelessWidget {
 
         if (primary == null || activeController.isLoading) {
           return Container(
-            height: 280,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            height: 140,
+            margin: const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.black12,
+              color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(20),
             ),
             child: const Center(child: CircularProgressIndicator()),
@@ -38,127 +41,182 @@ class SaintOfDayCard extends StatelessWidget {
             ? activeController.allTodaySaints.length - 1
             : 0;
 
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: GestureDetector(
-            onTap: () => _handleTap(context, activeController, primary),
+        return GestureDetector(
+          onTap: () => _handleTap(context, activeController, primary),
+          child: Container(
+            height: 140,
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  colorScheme.primary,
+                  Color.lerp(colorScheme.primary, Colors.black, 0.35)!,
+                ],
+              ),
+              border: Border.all(
+                color: colorScheme.secondary.withValues(alpha: 0.35),
+                width: 1.2,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: colorScheme.primary.withValues(alpha: 0.25),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Stack(
                 children: [
-                  // EXPANDED PORTRAIT CARD RATIO (3:4 aspect ratio gives generous vertical headroom)
-                  AspectRatio(
-                    aspectRatio: 3 / 4,
-                    child: Image.asset(
-                      primary.imagePath.isNotEmpty ? primary.imagePath : 'assets/saints/placeholder.jpg',
-                      fit: BoxFit.cover,
-                      alignment: Alignment.topCenter,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Image.asset(
-                          'assets/saints/placeholder.jpg',
-                          fit: BoxFit.cover,
-                          alignment: Alignment.topCenter,
-                          errorBuilder: (context, secondError, secondStackTrace) {
-                            return Container(
-                              decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [Color(0xFF1E293B), Color(0xFF0F172A)],
+                  // Ambient light glow spot in the background
+                  Positioned(
+                    right: -20,
+                    top: -20,
+                    child: Container(
+                      width: 130,
+                      height: 130,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: colorScheme.secondary.withValues(alpha: 0.18),
+                      ),
+                    ),
+                  ),
+
+                  // Main Content Row
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(
+                      children: [
+                        // 1. Saint Portrait Frame
+                        Container(
+                          width: 100,
+                          height: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: colorScheme.secondary.withValues(alpha: 0.5),
+                              width: 1.2,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.3),
+                                blurRadius: 6,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(13),
+                            child: Image.asset(
+                              primary.imagePath.isNotEmpty
+                                  ? primary.imagePath
+                                  : 'assets/saints/placeholder.jpg',
+                              fit: BoxFit.cover,
+                              alignment: Alignment.topCenter,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Container(
+                                  color: const Color(0xFF1E293B),
+                                  child: const Icon(
+                                    Icons.church_rounded,
+                                    color: Color(0xFFC9A24B),
+                                    size: 36,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(width: 14),
+
+                        // 2. Info Column (High Contrast White & Gold Text)
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    primary.isSolemnity ? 'SOLEMNITY' : 'SAINT OF THE DAY',
+                                    style: TextStyle(
+                                      color: colorScheme.secondary,
+                                      fontSize: 10.5,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1.2,
+                                    ),
+                                  ),
+                                  if (extraCount > 0) ...[
+                                    const Spacer(),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 6,
+                                        vertical: 2,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: colorScheme.secondary.withValues(alpha: 0.22),
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
+                                      child: Text(
+                                        '+$extraCount More',
+                                        style: TextStyle(
+                                          color: colorScheme.secondary,
+                                          fontSize: 9.5,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                primary.name,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.white, // Crisp white contrast
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.2,
                                 ),
                               ),
-                              child: const Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                              const SizedBox(height: 10),
+                              // Gold Action Badge
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: colorScheme.secondary,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(
-                                      Icons.church_rounded,
-                                      size: 56,
-                                      color: Color(0xFFC9A24B),
-                                    ),
-                                    SizedBox(height: 8),
                                     Text(
-                                      'Feast Day Reflection',
+                                      'Reflect Today',
                                       style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 14,
-                                        letterSpacing: 0.8,
+                                        color: colorScheme.onSecondary,
+                                        fontSize: 11.5,
+                                        fontWeight: FontWeight.bold,
                                       ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Icon(
+                                      Icons.arrow_forward_rounded,
+                                      size: 13,
+                                      color: colorScheme.onSecondary,
                                     ),
                                   ],
                                 ),
                               ),
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ),
-
-                  // GRADIENT OVERLAY
-                  Positioned.fill(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.transparent,
-                            Colors.black.withOpacity(0.85),
-                          ],
-                          stops: const [0.4, 1.0],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  // EXTRA FEASTS BADGE
-                  if (extraCount > 0)
-                    Positioned(
-                      top: 12,
-                      right: 12,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.65),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.white30),
-                        ),
-                        child: Text(
-                          '+$extraCount Other Feast${extraCount > 1 ? 's' : ''} Today',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                  // CARD TITLE & LITURGICAL RANK
-                  Positioned(
-                    left: 16,
-                    right: 16,
-                    bottom: 16,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        if (primary.isSolemnity)
-                          const Text(
-                            'SOLEMNITY',
-                            style: TextStyle(
-                              color: Color(0xFFC9A24B),
-                              fontSize: 11,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.2,
-                            ),
-                          ),
-                        Text(
-                          primary.name,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                            ],
                           ),
                         ),
                       ],
@@ -173,7 +231,8 @@ class SaintOfDayCard extends StatelessWidget {
     );
   }
 
-  void _handleTap(BuildContext context, SaintOfTheDayController ctrl, SaintModel primary) {
+  void _handleTap(
+      BuildContext context, SaintOfTheDayController ctrl, SaintModel primary) {
     final saints = ctrl.allTodaySaints;
 
     if (saints.length <= 1) {

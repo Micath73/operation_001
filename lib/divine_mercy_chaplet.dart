@@ -307,49 +307,35 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                             ),
                             elevation: 8,
                           ),
+                          // Locate the onPressed inside DivineMercyChaplet (around line 280):
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
-                                transitionDuration: const Duration(
-                                  milliseconds: 650,
-                                ),
-                                reverseTransitionDuration: const Duration(
-                                  milliseconds: 400,
-                                ),
-                                pageBuilder:
-                                    (
-                                    context,
-                                    animation,
-                                    secondaryAnimation,
-                                    ) => PrayerCompletionScreen(
-                                  isAmharic: widget.isAmharic,
-                                  detailValue: widget.isAmharic
-                                      ? 'የማሕሪው ኢየሱስ ጸሎት'
-                                      : 'Divine Mercy Chaplet',
-                                  prayerType: 'Chaplet',
-                                  detailLabelEn: 'Devotional',
-                                  detailLabelAm: 'ጸሎት',
-                                  titleEn: 'Chaplet Completed',
-                                  titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
-                                  subtitleEn:
-                                  'May His Divine Mercy shine upon you',
-                                  subtitleAm:
-                                  'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
-                                  bgImagePath: 'assets/img_3.png',
-                                ),
-                                transitionsBuilder: (
-                                    context,
-                                    animation,
-                                    secondaryAnimation,
-                                    child,
-                                    ) {
+                                transitionDuration: const Duration(milliseconds: 650),
+                                reverseTransitionDuration: const Duration(milliseconds: 400),
+                                pageBuilder: (context, animation, secondaryAnimation) =>
+                                    PrayerCompletionScreen(
+                                      isAmharic: widget.isAmharic,
+                                      detailValue: widget.isAmharic
+                                          ? 'የማሕሪው ኢየሱስ ጸሎት'
+                                          : 'Divine Mercy Chaplet',
+                                      // Updated to match PrayerType.chaplet.dbValue
+                                      prayerType: 'chaplet',
+                                      detailLabelEn: 'Devotional',
+                                      detailLabelAm: 'ጸሎት',
+                                      titleEn: 'Chaplet Completed',
+                                      titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
+                                      subtitleEn: 'May His Divine Mercy shine upon you',
+                                      subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
+                                      bgImagePath: 'assets/img_3.png',
+                                    ),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final fadeAnimation = CurvedAnimation(
                                     parent: animation,
                                     curve: Curves.easeOutCubic,
                                   );
 
-                                  final scaleAnimation =
-                                  Tween<double>(
+                                  final scaleAnimation = Tween<double>(
                                     begin: 0.95,
                                     end: 1.0,
                                   ).animate(

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'l10n/app_localizations.dart';// Auto-generated localizations class
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:operation_001/pages/bible.dart';
 import 'package:operation_001/pages/home.dart';
 import 'package:operation_001/pages/mass.dart';
 import 'package:operation_001/pages/more.dart';
 import 'package:operation_001/controllers/saint_of_the_day_controller.dart';
+import 'package:operation_001/controllers/language_controller.dart';
+import 'package:operation_001/route_observer.dart';
 import 'package:operation_001/theme.dart';
 import 'package:operation_001/screens/pilgrim_roadmap_wrapper.dart';
 import 'package:operation_001/models/roadmap_models.dart';
@@ -12,16 +16,24 @@ import 'package:operation_001/widgets/roadmap_lesson_viewer_sheet.dart';
 import 'package:operation_001/screens/essential_prayers_sheet.dart';
 import 'package:operation_001/screens/rosary_guide_sheet.dart';
 import 'package:operation_001/rosary_screen.dart';
+import 'package:operation_001/services/notification_service.dart';
 
 // Global notifier for dynamic theme switching across all screens
 final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.system);
 
 void main() async {
-  // Required before performing async operations or loading assets during startup
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Load 365-day saints dataset via background isolate
+  await LanguageController.instance.initLanguage(); // Initialize saved language preference
   await SaintOfTheDayController.instance.initialize();
+
+  // Initialize Notification Service
+  await NotificationService.instance.initialize(
+    onNotificationTap: (String? prayerTitle) {
+      if (prayerTitle != null && prayerTitle.isNotEmpty) {
+        // Deep-link routing logic to open AngelusScreen, ChapletScreen, or RosaryDetailScreen
+      }
+    },
+  );
 
   runApp(const CatholicApp());
 }
@@ -34,13 +46,29 @@ class CatholicApp extends StatelessWidget {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
       builder: (context, currentMode, _) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Catholic Prayer App',
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: currentMode,
-          home: const Home(),
+        return ListenableBuilder(
+          listenable: LanguageController.instance,
+          builder: (context, _) {
+            final langCtrl = LanguageController.instance;
+
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Catholic Devotional Hub',
+              locale: langCtrl.currentLocale,
+              supportedLocales: AppLocalizations.supportedLocales,
+              localizationsDelegates: const [
+                AppLocalizations.delegate, // Generated custom translations delegate
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              navigatorObservers: [appRouteObserver],
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              themeMode: currentMode,
+              home: const Home(),
+            );
+          },
         );
       },
     );
@@ -159,7 +187,14 @@ class _HomeState extends State<Home> {
     final isDark = theme.brightness == Brightness.dark;
 
     final pages = [
-      UserHome(key: _homeKey),
+      UserHome(
+        key: _homeKey,
+        isDarkMode: isDark,
+        onThemeChanged: (bool dark) {
+          // Dynamically updates the global themeNotifier across the entire app
+          themeNotifier.value = dark ? ThemeMode.dark : ThemeMode.light;
+        },
+      ),
       const UserBible(),
       UserMass(
         key: ValueKey(_massInitialTab), // Rebuilds when switching directly between Mass sub-tabs
