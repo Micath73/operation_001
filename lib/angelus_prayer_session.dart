@@ -1,8 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:operation_001/controllers/language_controller.dart'; // adjust path if yours differs
+import 'package:operation_001/l10n/app_localizations.dart'; // adjust path if yours differs
 import 'package:operation_001/prayer_completion_screen.dart';
 
 class AngelusPrayerSession extends StatefulWidget {
+  /// Ignored. Language now comes from [LanguageController.instance]; this
+  /// parameter only remains so existing call sites keep compiling.
+  @Deprecated('Language now comes from LanguageController.instance')
   final bool isAmharic;
 
   const AngelusPrayerSession({super.key, this.isAmharic = false});
@@ -27,46 +32,21 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
     return '$minutes:$secondsStr';
   }
 
-  // English Prayer Content
-  static const String _angelusEnglish =
-      "V. The Angel of the Lord declared unto Mary.\n"
-      "R. And she conceived of the Holy Spirit.\n\n"
-      "Hail Mary, full of grace, the Lord is with you!\n"
-      "Blessed are you among women, and blessed is the fruit of your womb, Jesus.\n"
-      "Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\n"
-      "V. Behold the handmaid of the Lord.\n"
-      "R. Be it done unto me according to your word.\n\n"
-      "Hail Mary, full of grace...\n\n"
-      "V. And the Word was made Flesh.\n"
-      "R. And dwelt among us.\n\n"
-      "Hail Mary, full of grace...\n\n"
-      "V. Pray for us, O holy Mother of God.\n"
-      "R. That we may be made worthy of the promises of Christ.\n\n"
-      "Let us pray:\n"
-      "Pour forth we beseech you, O Lord, your grace into our hearts, that we, to whom the incarnation of Christ your Son was made known by the message of an angel, may by his passion and cross be brought to the glory of his resurrection. Through the same Christ Our Lord. Amen.";
-
-  // Amharic Prayer Content
-  static const String _angelusAmharicText =
-      "V. የእግዚአብሔር መልአክ ማርያምን አበሠራት፡፡\n"
-      "R. እርሷም በመንፈስ ቅዱስ ፀነሰች፡፡\n\n"
-      "ጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\n"
-      "V. እነሆኝ የእግዚአብሔር አገልጋይ፡፡\n"
-      "R. እንዳልከኝ ይሁንልኝ፡፡\n\n"
-      "ጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\n"
-      "V. ቃል ሥጋ ሆነ፡፡\n"
-      "R. በኛም አደረ፡፡\n\n"
-      "ጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\n"
-      "V. ቅድስት የአምላክ እናት ሆይ ለምኝልን፡፡\n"
-      "R. ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን፡፡\n\n"
-      "እንጸልይ:\n"
-      "እግዚአብሔር ሆይ በመልአኩ ምስራች የልጅህን የኢየሱስ ክርስቶስን ሰው መሆኑን እንዳወቅን፤ በህማሙና በመስቀሉ ወደ ትንሣኤ ክብር እንድንደርስ ጸጋህን ስጠን፡፡ በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡";
-
   @override
   Widget build(BuildContext context) {
+    // Rebuilds when the user toggles language. Audio position / play state
+    // live in this State object, so they survive the rebuild.
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, _) => _buildScreen(context),
+    );
+  }
+
+  Widget _buildScreen(BuildContext context) {
     final theme = Theme.of(context);
-    final String content = widget.isAmharic
-        ? _angelusAmharicText
-        : _angelusEnglish;
+    final l10n = AppLocalizations.of(context)!;
+    final bool isAmharic = LanguageController.instance.isAmharic;
+    final String content = l10n.angelusPrayerText;
 
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
@@ -75,7 +55,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
+          l10n.angelusTitle,
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -160,9 +140,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              widget.isAmharic
-                                                  ? 'የመልአኩ ሰላምታ ድምፅ'
-                                                  : 'The Angelus Audio',
+                                              l10n.angelusAudioTitle,
                                               style: const TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.bold,
@@ -282,9 +260,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.isAmharic
-                                  ? 'የመክፈቻ ጸሎት'
-                                  : 'Devotional Text',
+                              l10n.angelusTextHeading,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -352,16 +328,16 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                                 reverseTransitionDuration: const Duration(milliseconds: 400),
                                 pageBuilder: (context, animation, secondaryAnimation) =>
                                     PrayerCompletionScreen(
-                                      isAmharic: widget.isAmharic,
-                                      detailValue: widget.isAmharic ? 'መልአኩ ሰላምታ' : 'The Angelus',
+                                      isAmharic: isAmharic,
+                                      detailValue: l10n.angelusTitle,
                                       // Updated to explicitly match PrayerType enum's dbValue
                                       prayerType: 'angelus',
-                                      detailLabelEn: 'Devotional',
-                                      detailLabelAm: 'ጸሎት',
-                                      titleEn: 'Angelus Completed',
-                                      titleAm: 'የመልአኩ ሰላምታ ተጠናቋል',
-                                      subtitleEn: 'May the grace of His Incarnation fill your heart',
-                                      subtitleAm: 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን',
+                                      detailLabelEn: l10n.devotionalLabelEn,
+                                      detailLabelAm: l10n.devotionalLabelAm,
+                                      titleEn: l10n.angelusCompletedTitleEn,
+                                      titleAm: l10n.angelusCompletedTitleAm,
+                                      subtitleEn: l10n.angelusCompletedSubtitleEn,
+                                      subtitleAm: l10n.angelusCompletedSubtitleAm,
                                       bgImagePath: 'assets/img_19.png',
                                     ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -397,7 +373,7 @@ class _AngelusPrayerSessionState extends State<AngelusPrayerSession> {
                             size: 24,
                           ),
                           label: Text(
-                            widget.isAmharic ? 'አሜን' : 'AMEN',
+                            l10n.amenButton,
                             style: TextStyle(
                               color: theme.colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,

@@ -7,7 +7,7 @@ import 'package:operation_001/novena_combo.dart';
 import 'package:operation_001/prayer_categories.dart';
 import 'package:operation_001/prayer_data.dart';
 import 'package:operation_001/prayer_detail_screen.dart';
-import 'package:operation_001/premium_page_route.dart'; // ✅ CORRECT
+import 'package:operation_001/premium_page_route.dart';
 import 'package:operation_001/rosary_screen.dart';
 
 class Dailyprayer extends StatefulWidget {
@@ -162,8 +162,9 @@ class _DailyprayerState extends State<Dailyprayer> {
 
           for (final section in PrayerLibrary.sections) ...[
             Contain(title: section.key, prayers: section.value),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
           ],
+          const SizedBox(height: 20),
         ],
       ),
     );

@@ -1,8 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:operation_001/angelus_prayer_session.dart';
+import 'package:operation_001/controllers/language_controller.dart'; // adjust path if yours differs
+import 'package:operation_001/l10n/app_localizations.dart'; // adjust path if yours differs
 
 class AngelusScreen extends StatefulWidget {
+  /// Ignored. Language now comes from [LanguageController.instance]; kept only
+  /// so existing call sites keep compiling.
+  @Deprecated('Language now comes from LanguageController.instance')
   final bool isAmharic;
 
   const AngelusScreen({super.key, this.isAmharic = false});
@@ -18,7 +23,16 @@ typedef angelus = AngelusScreen;
 class _AngelusScreenState extends State<AngelusScreen> {
   @override
   Widget build(BuildContext context) {
+    // Rebuilds whenever the user toggles language.
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, _) => _buildScreen(context),
+    );
+  }
+
+  Widget _buildScreen(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final double fullHeight = MediaQuery.of(context).size.height;
     final double fullWidth = MediaQuery.of(context).size.width;
 
@@ -79,7 +93,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
                       children: [
                         // --- TITLE ---
                         Text(
-                          widget.isAmharic ? 'የመልአኩ ሰላምታ' : 'THE ANGELUS',
+                          l10n.angelusHeroTitle,
                           textAlign: TextAlign.center,
                           style: theme.textTheme.titleMedium?.copyWith(
                             color: theme.colorScheme.secondary,
@@ -114,9 +128,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
                             child: SingleChildScrollView(
                               physics: const BouncingScrollPhysics(),
                               child: Text(
-                                widget.isAmharic
-                                    ? '"የእግዚአብሔር መልአክ ማርያምን አበሠራት፤ እርሷም በመንፈስ ቅዱስ ፀነሰች።"'
-                                    : '"The Angel of the Lord declared unto Mary, and she conceived of the Holy Spirit."',
+                                '"${l10n.angelusHeroQuote}"',
                                 textAlign: TextAlign.center,
                                 style: theme.textTheme.bodyMedium?.copyWith(
                                   color: Colors.white.withValues(alpha: 0.9),
@@ -140,7 +152,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
 
                         // Citation
                         Text(
-                          '— Luke 1:38',
+                          l10n.angelusCitation,
                           style: theme.textTheme.labelMedium?.copyWith(
                             color: theme.colorScheme.secondary,
                             fontWeight: FontWeight.w600,
@@ -177,9 +189,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
                                       context,
                                       animation,
                                       secondaryAnimation,
-                                      ) => AngelusPrayerSession(
-                                    isAmharic: widget.isAmharic,
-                                  ),
+                                      ) => const AngelusPrayerSession(),
                                   transitionsBuilder: (
                                       context,
                                       animation,
@@ -198,7 +208,7 @@ class _AngelusScreenState extends State<AngelusScreen> {
                               );
                             },
                             child: Text(
-                              widget.isAmharic ? 'እንጸልይ' : 'LET US PRAY',
+                              l10n.angelusLetUsPray,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,

@@ -5,975 +5,2124 @@ class PrayerData {
   static String getImagePath(String title) {
     switch (title.trim().toLowerCase()) {
       case 'act of contrition':
+      case 'የንስሐ ጸሎት':
         return 'assets/img_2.png';
       case 'the morning offering':
+      case 'የጠዋት መስዋዕት':
         return 'assets/sunrise.jpeg';
       case 'prayer of st. francis':
       case 'prayer to st. francis of assisi':
+      case 'የቅዱስ ፍራንቸስኮስ ጸሎት':
         return 'assets/francis.jpg';
       case 'the guardian angel prayer':
-        return 'assets/guardian angel.jpg';
-      case 'angelus':
-        return 'assets/img_1.png';
+      case 'ጸሎት ወደ ቅዱስ ጠባቂ መልአክ':
+        return 'assets/guardian.jpg';
       case 'prayer for the hour of mercy':
-      case 'jesus, i trust in you':
+      case 'hour of mercy':
+      case 'the hour of mercy':
+      case 'የምሕረት ሰዓት ጸሎት':
         return 'assets/img_5.png';
       case 'prayer to st. michael the archangel':
-        return 'assets/img_4.png';
-      case 'divine mercy chaplet':
+      case 'ወደ ቅዱስ ሚካኤል ሊቀ መላእክት ጸሎት':
+        return 'assets/img_13.png';
       case 'rosary':
+      case 'የመቁጠሪያ ጸሎት':
         return 'assets/img_6.png';
       case 'anima christi':
+      case 'አኒማ ክርስቲ (የቅዱስ ቁርባን ጸሎት)':
         return 'assets/anima christi vip.jpg';
       case 'litany of the holy name of jesus':
+      case 'የቅዱስ ኢየሱስ ስም ሊጣንያ':
         return 'assets/img_16.png';
       case 'come, holy spirit':
+      case 'ና መንፈስ ቅዱስ ፈጣሪ ሆይ':
         return 'assets/img_17.png';
-      case 'prayer of abandonment':
+      case 'prayer to the holy trinity':
+      case 'ጸሎት ወደ ቅድስት ሥላሴ':
       case 'prayer for the holy father':
+      case 'ለርዕሠ ሊቃነ ጳጳሳት ጸሎት':
         return 'assets/father.jpg';
+      case 'prayer to st. joseph':
       case 'prayer to saint joseph':
+      case 'ጸሎት ወደ ቅዱስ ዮሴፍ':
       case 'prayer for families':
+      case 'ለቤተሰብ ጸሎት':
         return 'assets/img_12.png';
       case 'traditional evening prayer':
+      case 'የማታ ፀሎት (ልዩ)':
         return 'assets/img_10.png';
       case 'st. patrick\'s breastplate':
-        return 'assets/francis.jpg';
+      case 'የቅዱስ ፓትሪክ ጥበቃ':
+        return 'assets/saint patrick.jpg';
       case 'visit we beseech thee':
+      case 'የቤት ጥበቃ ጸሎት':
       case 'psalm 51 (miserere)':
+      case 'መዝሙር 51 (ምስረሬ)':
         return 'assets/img_2.png';
+      case 'basic prayers (sign of the cross, our father, hail mary, glory be)':
+      case 'የዕለት ተዕለት መሠረታዊ ጸሎቶች':
+      case 'apostles\' creed':
+      case 'የሐዋርያት የእምነት መግለጫ':
+      case 'grace before & after meals':
+      case 'ከምግብ በፊትና በኋላ የሚደረግ ጸሎት':
+      case 'acts of faith, hope & charity':
+      case 'የእምነት፡ የተስፋና የፍቅር ሥራ ጸሎቶች':
+      case 'short aspirations':
+      case 'አጫጭር የልብ ምኞቶች':
+      case 'prayer before work':
+      case 'ሥራ ከመጀመር በፊት የሚደረግ ጸሎት':
+      case 'short night prayer or evening examen':
+      case 'የማታ አጭር ጸሎት':
+      case 'act of spiritual communion':
+      case 'የመንፈሳዊ ህብረት ሥራ ጸሎት':
+      case 'o sacrament most holy':
+      case 'ኦ እጅግ ቅዱስ ቁርባን':
+      case 'regina caeli':
+      case 'ንግስተ ሰማይ ደስ ይበልሽ':
       case 'sub tuum praesidium':
-        return 'assets/img_1.png';
-      case 'te deum':
-      case 'the benedictus':
-      case 'the magnificat':
-      case 'the memorare':
-      case 'hail holy queen':
-      case 'prayer of st. augustine':
-      case 'glory be':
+      case 'ከሰላማዊ ጥበቃህ ሥር':
+      case 'eternal rest (prayer for the dead)':
+      case 'ለነፍሳት ዕረፍት የሚደረግ ጸሎት':
+      case 'prayer of abandonment':
+      case 'የእጅ መስጠት ጸሎት':
       default:
         return 'assets/sunrise.jpeg';
     }
   }
+  /// Returns the true master title for a prayer card in English or Amharic
+  static String getMainTitle(String key, String langCode) {
+    final normalized = key.trim().toLowerCase();
+    final isAmharic = langCode == 'am';
+
+    if (normalized.contains('basic prayers')) {
+      return isAmharic ? 'መሠረታዊ ጸሎቶች' : 'Basic Prayers';
+    } else if (normalized.contains('grace before')) {
+      return isAmharic ? 'ከምግብ በፊትና በኋላ የሚደረግ ጸሎት' : 'Grace Before & After Meals';
+    } else if (normalized.contains('acts of faith')) {
+      return isAmharic ? 'የእምነት፡ የተስፋና የፍቅር ጸሎቶች' : 'Acts of Faith, Hope & Charity';
+    } else if (normalized.contains('short aspirations')) {
+      return isAmharic ? 'አጫጭር የልብ ምኞቶች' : 'Short Aspirations';
+    } else if (normalized.contains('rosary')) {
+      return isAmharic ? 'የመቁጠሪያ ጸሎት' : 'The Holy Rosary';
+    }
+
+    // Fallback: If it's a single prayer, grab the title from the first step
+    final steps = getPrayer(key);
+    if (steps.isNotEmpty) {
+      return steps.first.getTitle(langCode);
+    }
+    return key;
+  }
 
   static final Map<String, List<PrayerStep>> masterPrayerDB = {
-    'The Morning Offering': [
+    // -------------------------------------------------------------------------
+    // 1. BASIC PRAYERS (Partitioned)
+    // -------------------------------------------------------------------------
+    'Basic Prayers (Sign of the Cross, Our Father, Hail Mary, Glory Be)': [
       PrayerStep(
-        sectionHeader: 'READING FOCUS',
-        titleEn: 'The Morning Offering',
-        titleAm: 'የጠዋት መስዋዕት',
-        contentEn:
-        'O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys and sufferings of this day for all the intentions of Your Sacred Heart,',
-        contentAm:
-        'እግዚአብሔር፣ የኢየሱስ ልብ፣ ያለ አዳም ኃጢአት የተጸነስች እንዲሁም የቤተክርስቲያን እናት በሆነችዉ በማርያም በኩል፣',
+        sectionHeader: 'SIGN OF THE CROSS',
+        sectionHeaderAm: 'የመስቀል ምልክት',
+        titleEn: 'Sign of the Cross',
+        titleAm: 'መሰረታዊ ጸሎቶች',
+        contentEn: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+        contentAm: 'በስም ፡ አብ ፡ ወወልድ ፡ ወመንፈሰ ፡ ቅዱስ ፡ አሐዱ ፡ አምላክ ፡ አሜን',
         imagePath: 'assets/sunrise.jpeg',
       ),
       PrayerStep(
-        sectionHeader: 'INVOCATION',
-        titleEn: 'The Morning Offering',
-        titleAm: 'የጠዋት መስዋዕት',
-        contentEn:
-        'in union with the Holy Sacrifice of the Mass throughout the world, in reparation for my sins, for the intentions of all my relatives and friends,',
-        contentAm:
-        'በቅዱስ ቁርባን መስዋዕት በኩል፣ ልመናዎቼን ሥራዎቼን ተስፋዎቼንና የዛሬ ቀን መከራዎቼን ለወንዶችና ለሴቶች፣',
+        sectionHeader: 'OUR FATHER',
+        sectionHeaderAm: 'አባታችን ሆይ',
+        titleEn: 'The Lord\'s Prayer',
+        titleAm: 'አባታችን ሆይ',
+        contentEn: 'Our Father, who art in heaven, hallowed be thy name; thy kingdom come, thy will be done on earth as it is in heaven. Give us this day our daily bread, and forgive us our trespasses, as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.',
+        contentAm: 'በሰማይ የምትኖር አባታችን ሆይ፣ ስምህ ይመስገን፣ መንግሥትህ ይምጣ፤ ፈቃድህ በሰማይ እንደሆነ እንዲሁም በምድር ይሁን፡፡ የዕለት እንጀራችንን ዛሬ ስጠን፤ እኛ የበደሉንን ይቅር እንደምንል በደላችንን ይቅር በልልን፤ ከክፉ ሁሉ ሰውርን እንጂ ወደ ፈተና አታግባን፡፡ መንግስት ኃይልና ክብር ለዘለዓለም ያንተ ነውና፡፡ አሜን፡፡',
         imagePath: 'assets/sunrise.jpeg',
       ),
       PrayerStep(
-        sectionHeader: 'FINAL PETITION',
-        titleEn: 'The Morning Offering',
-        titleAm: 'የጠዋት መስዋዕት',
-        contentEn:
-        'and in particular for the intentions of the Holy Father. Amen.',
-        contentAm: 'ለሰው ልጆች ሁሉ ደህንነትና ለኃጢአቶች ካሣ እንዲሆን አቀርባለሁ፡፡ አሜን፡፡',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-    ],
-    'Hail Holy Queen': [
-      PrayerStep(
-        sectionHeader: 'READING FOCUS',
-        titleEn: 'Hail Holy Queen',
-        titleAm: 'ሰላም ለኪ እመቤታችን',
-        contentEn:
-        'Hail, Holy Queen, Mother of Mercy, our life, our sweetness and our hope. To thee do we cry, poor banished children of Eve.',
-        contentAm:
-        'የምህረት እናት ንግስት ሆይ ሰላም ለአንቺ ይሁን፤ ህይወታችን፣ ጣፋጭነታችንና ተስፋችን ሆይ ሰላም ለአንቺ ይሁን። የተሰደድነው የሔዋን ልጆች ወደ አንቺ እንጮኻለን።',
+        sectionHeader: 'HAIL MARY',
+        sectionHeaderAm: 'ጸጋን የሞላሽ ማርያም ሆይ',
+        titleEn: 'Hail Mary',
+        titleAm: 'ጸጋን የሞላሽ ማርያም ሆይ',
+        contentEn: 'Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.',
+        contentAm: 'ጸጋ የመላሽ ማርይም ሆይ ሰላም ላንቺ ይሁን፣ እግዚአብሔር ካንቺ ጋር ነው፣ ከሴቶች ሁሉ የተባረክሽ ነሽ፣ የሆድሽም ፍሬ ኢየሱስ የተባረከ ነው፡፡ ቅድስት ማርያም የአምላክ እናት ለኛ ለኃጢአተኞች አሁንም በሞታችንም ጊዜ ለምኝልን፡፡',
         imagePath: 'assets/sunrise.jpeg',
       ),
       PrayerStep(
-        sectionHeader: 'INVOCATION',
-        titleEn: 'Hail Holy Queen',
-        titleAm: 'ሰላም ለኪ እመቤታችን',
-        contentEn:
-        'To thee do we send up our sighs, mourning and weeping in this valley of tears.',
-        contentAm:
-        'በዚህ በሐዘንና በእንባ ሸለቆ ውስጥ እያለቀስንና እያዘንን ወደ አንቺ እንቃተታለን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'FINAL PETITION',
-        titleEn: 'Hail Holy Queen',
-        titleAm: 'ሰላም ለኪ እመቤታችን',
-        contentEn:
-        'Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile, show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary. Amen.',
-        contentAm:
-        'እንግዲህ አማላጃችን ሆይ፤ እነዚያን የምህረት ዓይኖችሽን ወደ እኛ መልሺ፤ ከዚህ ስደት በኋላም የማህፀንሽን የተባረከ ፍሬ ኢየሱስን አሳዪን። አንቺ ርኅሩኅ፣ አንቺ አፍቃሪ፣ አንቺ ጣፋጭ ድንግል ማርያም ሆይ። አሜን።',
+        sectionHeader: 'GLORY BE',
+        sectionHeaderAm: 'ስብሐት ለአብ',
+        titleEn: 'Glory Be',
+        titleAm: 'ስብሐት ለአብ',
+        contentEn: 'Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.',
+        contentAm: 'ለአብ፣ ለወልድና ለመንፈስ ቅዱስ ምስጋና ይሁን አሁንም ዘወትርም ለዘለዓለምም አሜን፡፡',
         imagePath: 'assets/sunrise.jpeg',
       ),
     ],
-    'Prayer of St. Francis': [
+
+
+    // -------------------------------------------------------------------------
+    // 2. APOSTLES' CREED
+    // -------------------------------------------------------------------------
+    'Apostles\' Creed': [
       PrayerStep(
-        sectionHeader: 'PETITION',
-        titleEn: 'Prayer of St. Francis',
-        titleAm: 'የቅዱስ ፍራንሲስ ጸሎት',
-        contentEn:
-        'Lord, make me an instrument of your peace:\nwhere there is hatred, let me sow love;\nwhere there is injury, pardon;\nwhere there is doubt, faith;\nwhere there is despair, hope;\nwhere there is darkness, light;\nwhere there is sadness, joy.',
-        contentAm:
-        'ጌታ ሆይ፣ የሰላምህ መሣሪያ አድርገኝ፡\nጥል ባለበት ቦታ፣ ፍቅርን እንድዘራ፤\nበደል ባለበት፣ ይቅርታን፤\nመጠራጠር ባለበት፣ እምነትን፤\nተስፋ መቁረጥ ባለበት፣ ተስፋን፤\nጨለማ ባለበት፣ ብርሃንን፤\nሐዘን ባለበት፣ ደስታን እንድዘራ እርዳኝ።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'REFLECTION',
-        titleEn: 'Prayer of St. Francis',
-        titleAm: 'የቅዱስ ፍራንሲስ ጸሎት',
-        contentEn:
-        'O divine Master, grant that I may not so much seek\nto be consoled as to console,\nto be understood as to understand,\nto be loved as to love.',
-        contentAm:
-        'ኦ ጌታ ሆይ፣ ከመጽናናት ይልቅ እንድጽናና፣\nከመወደድ ይልቅ እንድወድ፣\nከመረዳት ይልቅ እንድረዳ አድርገኝ።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'FINAL PRAYER',
-        titleEn: 'Prayer of St. Francis',
-        titleAm: 'የቅዱስ ፍራንሲስ ጸሎት',
-        contentEn:
-        'For it is in giving that we receive,\nit is in pardoning that we are pardoned,\nand it is in dying that we are born to eternal life. Amen.',
-        contentAm:
-        'በመስጠት ስለምንቀበል፣\nበይቅርታ ስለምንታረቅ፣\nበመሞትም ወደ ዘላለም ሕይወት ስለምንወለድ ነው። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
+        sectionHeader: 'PROFESSION OF FAITH',
+        sectionHeaderAm: 'የእምነት መግለጫ',
+        titleEn: 'Apostles\' Creed',
+        titleAm: 'የሐዋርያት እምነት መግለጫ',
+        contentEn: 'I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; he descended into hell; on the third day he rose again from the dead; he ascended into heaven, and is seated at the right hand of God the Father almighty; from there he will come to judge the living and the dead.\n\nI believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.',
+        contentAm: 'ሁሉን በሚችል ሰማይንና ምድርን በፈጠረ በእግዚአግሔር አብ አምናለሁ፡፡ የአብ አንድ ልጅ በሆነው በጌታችን ኢየሱስ ክርስቶስ አምናለሁ፡፡ እሱ በመንፈስ ቅዱስ ተጸነሰ፣ ከድንግል ማርያም ተወለደ፣ በጴንጤናዊው ጲላጦስ ዘመን ተሰቃየ፣ ተሰቀለ፣ ሞተ፣ ተቀበረ፣ ወደ ሲኦል ወረደ፣ በሶስተኛው ቀን ከሙታን ተለይቶ ተነሣ፣ ወደ ሰማይ ወጣ፣ ሁሉን በሚችል በእግዚአብሔር አብ ቀኝ ተቀመጠ፣ ያሉትንና የሞቱትን ሊፈርድ ዳግመኛ ይመጣል፣ በመንፈስ ቅዱስም አምናለሁ፣ የሁሉም በሆነችው በቅድስት ቤተክርስቲያን በቅዱሳንም አንድነት አምናለሁ፣ በኃጢአት ስርየት፣ በሙታን ትንሣኤ፣ በዘላለም ሕይወት አምናለሁ፡፡ አሜን፡፡',
+        imagePath: 'assets/ethiopian_manuscript.jpeg',
       ),
     ],
-    'The Guardian Angel Prayer': [
+
+// -------------------------------------------------------------------------
+// 3. GRACE BEFORE & AFTER MEALS (Partitioned)
+// -------------------------------------------------------------------------
+    'Grace Before & After Meals': [
       PrayerStep(
-        sectionHeader: 'PROTECTION',
-        titleEn: 'The Guardian Angel Prayer',
-        titleAm: 'የጠባቂ መልአክ ጸሎት',
-        contentEn:
-        'Angel of God, my guardian dear,\nTo whom God\'s love commits me here,\nEver this day, be at my side,\nTo light, to guard, to rule, and guide. Amen.',
-        contentAm:
-        'የእግዚአብሔር መልአክ፣ ውድ ጠባቂዬ፣\nየእግዚአብሔር ፍቅር ለእኔ የሰጠህ፣\nዛሬ ሁልጊዜ ከአጠገቤ ሁን፣\nእንድታበራልኝ፣ እንድትጠብቀኝ፣ እንድትመራኝም። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
+        sectionHeader: 'GRACE BEFORE MEALS',
+        sectionHeaderAm: 'ከምግብ በፊት የሚደረግ ጸሎት',
+        titleEn: 'Grace Before Meals',
+        titleAm: 'ከምግብ በፊት ና በኋላ የሚደረግ ጸሎት ',
+        contentEn: 'Bless us, O Lord, and these Thy gifts, which we are about to receive from Thy bounty, through Christ our Lord. Amen.',
+        contentAm: 'ጌታ ሆይ እኛን ልጆችህን ባርክ፤ ይህንንም የቀረበልን ምግብ ከእኛ ጭምር ባርክ፤ ለተራቡትም ምግብ ስጣቸው፡፡ አሜን፡፡',
+        imagePath: 'assets/ethiopian_blessing.jpeg',
+      ),
+      PrayerStep(
+        sectionHeader: 'GRACE AFTER MEALS',
+        sectionHeaderAm: 'ምግብ ከበሉ በኋላ',
+        titleEn: 'Grace After Meals',
+        titleAm: 'ምግብ ከበሉ በኋላ',
+        contentEn: 'We give Thee thanks, Almighty God, for all Thy benefits, who livest and reignest world without end. Amen. May the souls of the faithful departed, through the mercy of God, rest in peace. Amen.',
+        contentAm: 'ጌታ ሆይ ስላደረግልህን መልካም ነገር ሁሉ እናመሰግንሃለን፡፡ ነፍሳችንን በሠላም ጠብቃት፣ ልባችን ለዘላለም እንዲያመሰግንህ አድርግ፡፡ አሜን፡፡',
+        imagePath: 'assets/ethiopian_blessing.jpeg',
       ),
     ],
+
+// -------------------------------------------------------------------------
+// 4. ACTS OF FAITH, HOPE & CHARITY (Partitioned)
+// -------------------------------------------------------------------------
+    'Acts of Faith, Hope & Charity': [
+      PrayerStep(
+        sectionHeader: 'ACT OF FAITH',
+        sectionHeaderAm: 'የእምነት፡ የተስፋና የፍቅር ጸሎቶች',
+        titleEn: 'Act of Faith',
+        titleAm: 'የእምነት ሥራ',
+        contentEn: 'O my God, I firmly believe that You are one God in three divine Persons, Father, Son, and Holy Spirit. I believe that Your divine Son became man and died for our sins, and that He will come to judge the living and the dead. I believe these and all the truths which the holy Catholic Church teaches, because You have revealed them, Who can neither deceive nor be deceived. Amen.',
+        contentAm: 'አምላኬ ሆይ አንተ የገለጥኸውን ቅድስት ቤተክርስቲያን የምታምነውንና የምታስተምረውን ሁሉ አምናለሁ፡፡',
+        imagePath: 'assets/ethiopian_icon_faith.jpeg',
+      ),
+      PrayerStep(
+        sectionHeader: 'ACT OF FAITH - OPTION 2',
+        sectionHeaderAm: 'የእምነት ሥራ 2',
+        titleEn: 'Act of Faith - Option 2',
+        titleAm: 'የእምነት ሥራ 2',
+        contentEn: 'O Lord my God, I firmly believe in Your triune Godhead: Father, Son, and Holy Spirit. I believe that Your divine Son became man, died for our sins, rose from the dead, and will return to judge the living and the dead. I believe this and all that the Catholic Church teaches, for You have revealed it, Who can neither deceive nor be deceived by mankind. Amen.',
+        contentAm: 'ጌታ አምላኬ ሆይ፣ የአንተ ሦስት አምላክነት ስሞች በአብ፣ በወልድና በመንፈስ ቅዱስ አጠንክሬ አምናለሁ፡፡ የአንተ የእግዚአብሔር ልጅ ሰው ሆኖ ለኃጢአታችን ሞቶ ከሞት እንደተነሳ እንዲሁም ተመልሶ ያሉትንና የሞቱትን ሊፈርድ ይመጣል፡፡ ይህንንና ካቶሊክ ቤተክርስቲያን የሚታስተምረውን ሁሉ አምናለሁ፡፡ ለምን ቢባል አንተ የሰው ልጆችን ማታለል የማትችልና በእነርሱ የማትታለል መሆኑን ግልጽ አድርገሃል፡፡',
+        imagePath: 'assets/ethiopian_icon_faith.jpeg',
+      ),
+      PrayerStep(
+        sectionHeader: 'ACT OF HOPE',
+        sectionHeaderAm: 'የተስፋ ሥራ',
+        titleEn: 'Act of Hope',
+        titleAm: 'የተስፋ ሥራ',
+        contentEn: 'O my God, relying on Your infinite goodness and promises, I hope to obtain pardon of my sins, the help of Your grace, and life everlasting, through the merits of Jesus Christ, my Lord and Redeemer. Amen.',
+        contentAm: 'አምላኬ ሆይ ተስፋ የሰጠኸው ቃልህ እውነተኛ ነውና ስለ ኢየሱስ ክርስቶስ ትሩፋት የዘላለም ሕይወት እንደምትሰጠኝና ወደዚያውም ለመድረስ ጸጋህን እንደምታድለኝ ተሰፋ አደርጋለሁ፡፡',
+        imagePath: 'assets/ethiopian_icon_faith.jpeg',
+      ),
+      PrayerStep(
+        sectionHeader: 'ACT OF HOPE - OPTION 2',
+        sectionHeaderAm: 'የተስፋ ሥራ 2',
+        titleEn: 'Act of Hope - Option 2',
+        titleAm: 'የተስፋ ሥራ 2',
+        contentEn: 'O my God, I rely upon Your infinite mercy and Your holy promises, hoping to obtain the forgiveness of my sins. Through the merits of the good works found in my Lord and Savior Jesus Christ, I place my hope in Your grace and in life everlasting. Amen.',
+        contentAm: 'አምላኬ ሆይ በማይወሰን ርኀራኄህና ቃል በመግባትህ እመካለሁ፤ የኃጢአቶቼንም ይቅርታ እንዳማገኝ ተስፋ አደርጋለሁ፡፡ በጌታዬና በመድኃኔቴ በኢየሱስ ክርስቶስ በኩል በሚገኘው በመልካም ሥራዎች በኩል፣ ከአንተ በሚገኘው ጸጋና በዘላለም ሕይወት ተስፋ አደረጋሃለሁ፡፡',
+        imagePath: 'assets/ethiopian_icon_faith.jpeg',
+      ),
+      PrayerStep(
+        sectionHeader: 'ACT OF CHARITY',
+        sectionHeaderAm: 'የፍቅር ሥራ',
+        titleEn: 'Act of Charity',
+        titleAm: 'የፍቅር ሥራ',
+        contentEn: 'O my God, I love You above all things, with my whole heart and soul, because You are all-good and worthy of all love. Loving You, I also love my neighbor as myself for the love of You. Amen.',
+        contentAm: 'አምላኬ ሆይ አለመጠን ደግ፣ አለመጠንም ተወዳጅ ነህና እወድሃለሁ፣ ስላንተ ፍቅር ሰውንም ሁሉ እወዳለሁ፡፡',
+        imagePath: 'assets/ethiopian_icon_faith.jpeg',
+      ),
+      PrayerStep(
+        sectionHeader: 'ACT OF CHARITY - OPTION 2',
+        sectionHeaderAm: 'የበጎ አድራጎት ሥራ',
+        titleEn: 'Act of Charity - Option 2',
+        titleAm: 'የበጎ አድራጎት ሥራ',
+        contentEn: 'O my God, I love You with my whole heart and soul above all things, for You are the fountain of all love and all goodness. For the love of You, I love my neighbors as myself. I forgive all who have offended me, and I ask pardon of those whom I have offended. Lord Jesus, grant me the grace of love that I may love You more and more. Amen.',
+        contentAm: 'አምላኬ ሆይ ከልቤ እና ነፍሴ ከሁሉ ነገሮች አብልጨ አንተን እወዳለሁ፤ ምክንያቱም አንተ የፍቅር ሁሉ ምንጭ እና የሁሉ መልካም ነህ፡፡ ስለአንተ ፍቅር ባለንጀሮቼን እንደራሴ አድርጌ እወዳቸዋለሁ፡፡ የበደሉኝን ሁሉ ይቅር እላቸዋለሁ፤ የበደልኳቸውንም ይቅርታ እጠይቃቸዋለሁ፡፡ ጌታ ኢየሱስ ሆይ አንተን የበለጠ እንዳፈቅር ፍቅር ስጠኝ፡፡',
+        imagePath: 'assets/ethiopian_icon_faith.jpeg',
+      ),
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // 5. SHORT ASPIRATIONS
+    // -------------------------------------------------------------------------
+    'Short Aspirations': [
+      PrayerStep(
+        sectionHeader: 'EJACULATIONS & SHORT PRAYERS',
+        sectionHeaderAm: 'አጫጭር የልብ ምኞቶች',
+        titleEn: 'Short Aspirations',
+        titleAm: 'አጫጭር የልብ ምኞቶች',
+        contentEn: 'Lord, have mercy upon me.\nJesus, meek and humble of heart, make my heart like unto Thine.\nSacred Heart of Jesus, I place all my trust in Thee.\nSweet Heart of Mary, be my salvation.\nMy Lord and my God!',
+        contentAm: 'ጌታ ሆይ፣ ማረኝ።\nልብህ የዋህና ትሑት የሆነው ኢየሱስ ሆይ፣ ልቤን እንደ ልብህ አድርገው።\nየኢየሱስ ቅዱስ ልብ ሆይ፣ ሙሉ ተስፋዬን በአንተ ላይ አደርጋለሁ።\nየማርያም ጣፋጭ ልብ ሆይ፣ መዳኛኝ ሁኚ።\nጌታዬና አምላኬ ሆይ!',
+        imagePath: 'assets/ethiopian_illumination.jpeg',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 6. COME, HOLY SPIRIT
+    // -------------------------------------------------------------------------
+    'Come, Holy Spirit': [
+      PrayerStep(
+        sectionHeader: 'VERSES 1 - 2',
+        sectionHeaderAm: 'አንቀፅ 1 - 2',
+        titleEn: 'Come, Holy Spirit',
+        titleAm: 'ና መንፈስ ቅዱስ ፈጣሪ ሆይ',
+        contentEn:
+        'Come, Holy Ghost, Creator blest,\nVouchsafe within our souls to rest;\nCome with Thy grace and heavenly aid,\nTo fill the hearts which Thou hast made.\n\nTo Thee, the Comforter, we cry,\nTo Thee, the Gift of God most High,\nThe Fount of life, the Fire of love,\nThe soul\'s Anointing from above.',
+        contentAm:
+        'ና መንፈስ ቅዱስ፣ የተባረክህ ፈጣሪ ሆይ፣\nበነፍሳችንም ውስጥ መኖሪያህን አድርግ፤\nበጸጋህና በሰማያዊ ረድኤትህ ና፣\nአንተ የፈጠርካቸውን ልቦች ሙላ።\n\nአጽናኝ ወደ ሆንኸው ወደ አንተ እንጮኻለን፣\nከሰማይ የወረድክ የልዑል እግዚአብሔር ስጦታ ሆይ፤\nየሕይወት ምንጭ እና የፍቅር እሳት ሆይ\nከእግዚአብሔር የመጣህ የነፍስ ቅባት አንተ ነህ።',
+        imagePath: 'assets/img_17.png',
+      ),
+      PrayerStep(
+        sectionHeader: 'VERSES 3 - 4',
+        sectionHeaderAm: 'አንቀፅ 3 - 4',
+        titleEn: 'Come, Holy Spirit',
+        titleAm: 'ና መንፈስ ቅዱስ ፈጣሪ ሆይ',
+        contentEn:
+        'The sevenfold gifts of grace are Thine,\nO Finger of the Hand Divine;\nTrue Promise of the Father Thou,\nWho dost the tongue with speech endow.\n\nThy light to every sense impart,\nAnd pour Thy love in every heart;\nThyself in our infirmity\nThe never-failing strength supply.',
+        contentAm:
+        'ሰባቱ የጸጋ ስጦታዎች የአንተ ናቸው፣\nየመለኮታዊው እጅ ጣት ሆይ፤\nአንተ የአብ ተስፋ ነህ፣\nአንደበትን በኃይል የምታናግር።\n\nስሜታችንን በብርሃንህ አብራው፣\nበልባችን ፍቅር ሞልቶ እንዲፈስ አድርገው፤\nበጽኑ ትዕግስትህ እና የጸጋ ስጦታህ\nድክመታችንን በኃይልህ አበርታው።',
+        imagePath: 'assets/img_17.png',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 7. THE MORNING OFFERING
+    // -------------------------------------------------------------------------
+      'The Morning Offering': [
+        PrayerStep(
+          sectionHeader: 'MORNING OFFERING - OPTION 1',
+          sectionHeaderAm: 'የጠዋት ጸሎት 1',
+          titleEn: 'Morning Prayer - Option 1',
+          titleAm: 'የጠዋት ጸሎት',
+          contentEn: 'Sign of the Cross...\nIn the name of the Father, and of the Son, and of the Holy Spirit, one God. Amen.\n\n(My God, I adore You):\nMy God, I adore You and I love You with my whole heart. I thank You for having created me, for making me a Christian, and for having preserved me during this night (this day). I offer You all my actions of this day; grant that they all may be according to Your holy will and for Your greater glory. I pray that You keep me from sin and deliver me from all evil this day (this night). Our Father...',
+          contentAm: 'የመስቀል ምልክት...\nበሰመ አብ፣ በወልድና በመንፈስ ቅዱስ አንድ አምላክ፡፡ አሜን፡፡\n\n(አምላኬ ሆይ እሰግድልሃለሁ):-\nአምላኬ ሆይ እሰግድልሃለሁ፤ በልቤ በፍጹም እወድሃለሁ፣ ስለ ፈጠርኸኝና ክርሲቲያን ስላደረግኸኝ፣ በዚህች ሌሊት(በዚች ቀን) ስለጠበቅኸኝ አመሰግንሃለሁ፡፡ ሥራዬን ሁሉ ላንተ አቀርባለሁ፤ በዚህች ቀን(በዚህች ሌሊት) ከኃጢአት እንድትጠብቀኝ ከክፉ ነገርም ሁሉ እንድታድነኝ እለምንሃለሁ፡፡\n\nአባታችን ሆይ …',
+          imagePath: 'assets/sunrise.jpeg',
+        ),
+        PrayerStep(
+          sectionHeader: 'MORNING OFFERING - OPTION 2',
+          sectionHeaderAm: 'የጠዋት መስዋዕት 2',
+          titleEn: 'The Morning Offering - Option 2',
+          titleAm: 'የጠዋት መስዋዕት',
+          contentEn: 'O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys and sufferings of this day for all the intentions of Your Sacred Heart, in union with the Holy Sacrifice of the Mass throughout the world, in reparation for my sins, for the intentions of all my relatives and friends, and in particular for the intentions of the Holy Father. Amen.',
+          contentAm: 'እግዚአብሔር፣ የኢየሱስ ልብ፣ ያለ አዳም ኃጢአት የተጸነስች እንዲሁም የቤተክርስቲያን እናት በሆነችዉ በማርያም በኩል፣ በቅዱስ ቁርባን መስዋዕት በኩል፣ ልመናዎቼን ሥራዎቼን ተስፋዎቼንና የዛሬ ቀን መከራዎቼን ለወንዶችና ለሴቶች፣ ለሰው ልጆች ሁሉ ደህንነትና ለኃጢአቶች ካሣ እንዲሆን አቀርባለሁ።',
+          imagePath: 'assets/sunrise.jpeg',
+        ),
+      ],
+
+    // -------------------------------------------------------------------------
+    // 8. PRAYER BEFORE WORK
+    // -------------------------------------------------------------------------
+    'Prayer Before Work': [
+      PrayerStep(
+        sectionHeader: 'DEDICATION OF LABOR',
+        sectionHeaderAm: 'ሥራን ለአምላክ መስጠት',
+        titleEn: 'Prayer Before Work',
+        titleAm: 'ሥራ ከመጀመር በፊት የሚደረግ ጸሎት',
+        contentEn: 'Lord Jesus, I offer You all my actions of this day. Direct my thoughts, sanctify my labor, and help me to perform all my duties with love and diligence, so that whatever I do may be pleasing in Your sight and bring glory to Your holy name. Amen.',
+        contentAm: 'አምላካችን ሆይ ይህ ሥራችንን በመሉ በአንተ ጀምረን ባንተ ወደ ፍጻሜ እንድናደርስ አንተን እለምንሃለሁ፡፡ ጸሎታችንም ሆነ ሥራችን ሁሉ ባንተ ተጀምሮ ባንተ እንዲያልቅ አድርግልን፡፡ ባንድ ልጅህ በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡',
+        imagePath: 'assets/ethiopian_work.jpeg',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 9. THE BENEDICTUS
+    // -------------------------------------------------------------------------
     'The Benedictus': [
       PrayerStep(
         sectionHeader: 'CANTICLE OF ZECHARIAH',
+        sectionHeaderAm: 'የዘካርያስ ምስጋና',
         titleEn: 'The Benedictus',
         titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
         contentEn:
-        'Blessed be the Lord, the God of Israel;\nhe has come to his people and set them free.\nHe has raised up for us a mighty savior,\nborn of the house of his servant David.\nThrough his holy prophets he promised of old\nthat he would save us from our enemies,\nfrom the hands of all who hate us.',
+        'Blessed be the Lord God of Israel; for he hath visited and redeemed his people,\n'
+            'And hath raised up an horn of salvation for us in the house of his servant David;\n'
+            'As he spake by the mouth of his holy prophets, which have been since the world began:\n'
+            'That we should be saved from our enemies, and from the hand of all that hate us;\n'
+            'To perform the mercy promised to our fathers, and to remember his holy covenant;\n'
+            'The oath which he sware to our father Abraham,\n'
+            'That he would grant unto us, that we being delivered out of the hand of our enemies\n'
+            'Might serve him without fear,\n'
+            'In holiness and righteousness before him, all the days of our life.\n\n'
+            'And thou, child, shalt be called the prophet of the Highest:\n'
+            'For thou shalt go before the face of the Lord to prepare his ways;\n'
+            'To give knowledge of salvation unto his people by the remission of their sins,\n'
+            'Through the tender mercy of our God;\n'
+            'Whereby the dayspring from on high hath visited us,\n'
+            'To give light to them that sit in darkness and in the shadow of death,\n'
+            'To guide our feet into the way of peace.',
         contentAm:
-        'የእስራኤል አምላክ ጌታ ይባረክ፤\nወደ ሕዝቡ መጥቶ ነጻ አውጥቷቸዋልና።\nበአገልጋዩ በዳዊት ቤት\nኃያል መድኃኒት አቆመልን፤\nከጠላቶቻችንና ከሚጠሉን ሁሉ እጅ እንደሚያድነን\nከጥንት ጀምሮ በቅዱሳን ነቢያቱ አፍ ተናግሯልና።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'COVENANT OF MERCY',
-        titleEn: 'The Benedictus',
-        titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-        contentEn:
-        'He promised to show mercy to our fathers\nand to remember his holy covenant.\nThis was the oath he swore to our father Abraham:\nto set us free from the hands of our enemies,\nfree to worship him without fear,\nholy and righteous in his sight all the days of our life.',
-        contentAm:
-        'ለአባቶቻችን ምሕረትን ለማድረግ\nቅዱስ ኪዳኑንም ለማሰብ ቃል ገባ፤\nይህም ለአባታችን ለአብርሃም የገባሁለት መሐላ ነው፤\nከጠላቶቻችን እጅ ነጻ ወጥተን፣\nበዘመናችን ሁሉ ያለ ፍርሃት በፊቱ በቅድስናና በጽድቅ እንድናመልከው።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'PROPHETIC PROPHECY',
-        titleEn: 'The Benedictus',
-        titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-        contentEn:
-        'You, my child, shall be called the prophet of the Most High;\nfor you will go before the Lord to prepare his way,\nto give his people knowledge of salvation\nby the forgiveness of their sins.',
-        contentAm:
-        'አንተም ሕፃን ሆይ፣ የልዑል ነቢይ ትባላለህ፤\nመንገዱን ልትጠርግ በጌታ ፊት ትሄዳለህና፣\nበኃጢአታቸው ስረየት የደኅንነትን እውቀት ለሕዝቡ ልትሰጥ።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'DAWN FROM ON HIGH',
-        titleEn: 'The Benedictus',
-        titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-        contentEn:
-        'In the tender compassion of our God\nthe dawn from on high shall break upon us,\nto shine on those who dwell in darkness and the shadow of death,\nand to guide our feet into the way of peace.\nGlory to the Father and to the Son and to the Holy Spirit,\nas it was in the beginning, is now, and will be forever. Amen.',
-        contentAm:
-        'ከአምላካችን ከበዛው ርኅራኄ የተነሣ\nከላይ የመጣው ንጋት ይጎበኘናል፤\nበጨለማና በሞት ጥላ ውስጥ ለቀመጡት ሊያበራ፣\nእግሮቻችንንም ወደ ሰላም መንገድ ሊመራ።\nክብር ለአብ ለወልድ ለመንፈስ ቅዱስም ይሁን፣\nበመጀመሪያ እንደነበረ አሁንም ዘወትርም ለዘላለሙ። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-    ],
-    'Act of Contrition': [
-      PrayerStep(
-        sectionHeader: 'REPENTANCE',
-        titleEn: 'Act of Contrition',
-        titleAm: 'የንስሐ ጸሎት',
-        contentEn:
-        'My God, I am sorry for my sins with all my heart. In choosing to do wrong and failing to do good, I have sinned against you whom I should love above all things.\nI firmly intend, with your help, to do penance, to sin no more, and to avoid whatever leads me to sin.\nOur Savior Jesus Christ suffered and died for us. In his name, my God, have mercy. Amen.',
-        contentAm:
-        'አምላኬ ሆይ፣ በፈጸምኩት ኃጢአት ሁሉ በሙሉ ልቤ እጸጸታለሁ። ክፉ በማድረጌና ደግ ነገር ባለማድረጌ፣ ከሁሉ በላይ ልወድህ በሚገባኝ በአንተ ላይ በደልሁ።\nበአንተ እርዳታ ንስሐ ለመግባት፣ ከእንግዲህ ወደ ኃጢአት ላለመመለስና ወደ ኃጢአት የሚመሩኝን ነገሮች ሁሉ ለማስወገድ ቁርጥ ውሳኔ አደርጋለሁ።\nመድኃኒታችን ኢየሱስ ክርስቶስ ስለ እኛ መከራን ተቀብሎ ሞተ። በስሙ አምላኬ ሆይ ምህረት አድርግልኝ። አሜን።',
-        imagePath: 'assets/img_2.png',
-      ),
-    ],
-    'Prayer for the Hour of Mercy': [
-      PrayerStep(
-        sectionHeader: 'FOUNT OF MERCY',
-        titleEn: 'Prayer for the Hour of Mercy',
-        titleAm: 'የምህረት ሰዓት ጸሎት',
-        contentEn:
-        'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of Mercy for us, I trust in You.\n\nYou Yourself, Jesus, surely out of love for us, underwent such a terrible Passion. Your Father\'s justice would have been propitiated with a single sigh from You, and all Your self abasement is solely the work of Your mercy and Your inconceivable love ... At the end of Your death on the Cross, You bestowed upon us eternal life; allowing Your most holy side to be opened, You opened an inexhaustible spring of mercy for us, giving us Your dearest possession, the Blood and Water from Your Heart. Such is the omnipotence of Your mercy. From it all grace flows to us.',
-        contentAm:
-        'ለእኛ የምህረት ምንጭ ሆነህ ከኢየሱስ ልብ የፈሰስክ ደምና ውኃ ሆይ፣ በአንተ እተማመናለሁ።\n\nኢየሱስ ሆይ፣ በእርግጥ ስለ እኛ ካለህ ፍቅር የተነሣ እንዲህ ዓይነቱን አስ መከራ ተቀበልክ። የአባትህ ፍትሕ በአንተ አንዲት እፎይታ እንኳን ትረካ ነበር፤ የእንዲህ ዓይነቱ ራስን ዝቅ ማድረግ ሙሉ በሙሉ የምህረትህና የማይመረመር ፍቅርህ ሥራ ነው። በ መስቀል ላይ በሞትህ ፍጻሜ የዘላለም ሕይወትን ሰጠኸን፤ ቅዱስ ጎንህ እንዲከፈት በማድረግ አታልቆ የምህረት ምንጭ ከፈትክልን፤ የልብህን ደምና ውኃ ሰጠኸን። የምህረትህ ኃያልነት እንዲህ ነው። ከእርሱ ጸጋ ሁሉ ይፈስስልናል።',
-        imagePath: 'assets/img_5.png',
-      ),
-      PrayerStep(
-        sectionHeader: 'PETITION FOR SINNERS',
-        titleEn: 'Prayer for the Hour of Mercy',
-        titleAm: 'የምህረት ሰዓት ጸሎት',
-        contentEn:
-        'O Jesus, eternal Truth, our Life, I call upon You and beg Your mercy for poor sinners. O sweetest Heart of my Lord, full of pity and unfathomable mercy, I plead with you for poor sinners. O Most Sacred Heart, Fount of Mercy from which gush forth rays of inconceivable graces upon the entire human race, I beg of You light for poor sinners. O Jesus, be mindful of Your own bitter Passion and do not permit the loss of souls redeemed at so dear a price of Your most precious Blood.\n\nO Jesus, when I consider the great price of Your Blood, I rejoice at its immensity, for one drop alone would have been enough for the salvation of all sinners. (...) Oh, what immense joy burns in my heart when I contemplate Your incomprehensible goodness, O Jesus! I desire to bring all sinners to Your feet that they may glorify Your mercy throughout endless ages.',
-        contentAm:
-        'ኦ ኢየሱስ፣ የዘላለም እውነት፣ ሕይወታችን፣ ስለ ምስኪን ኃጢአተኞች ምህረትህን እለምናለሁ። ኦ የጌታዬ እጅግ ጣፋጭ ልብ፣ በምህረት የተሞላኸው፣ ስለ ምስኪን ኃጢአተኞች እማልድሃለሁ። ኦ እጅግ ቅዱስ ልብ፣ በሰው ልጅ ሁሉ ላይ የማይመረመር ጸጋን የምታፈስስ የምህረት ምንጭ፣ ስለ ምስኪን ኃጢአተኞች ብርሃንን እለምንሃለሁ። ኢየሱስ ሆይ፣ መራራ መከራህን አስብ፣ በክቡር ደምህ በውድ ዋጋ የተዋጁትን ነፍሳት ጥፋት አትፍቀድ።',
-        imagePath: 'assets/img_5.png',
-      ),
-      PrayerStep(
-        sectionHeader: 'SURRENDER & EXPIRE',
-        titleEn: 'Prayer for the Hour of Mercy',
-        titleAm: 'የምህረት ሰዓት ጸሎት',
-        contentEn:
-        'O Jesus, stretched out upon the cross, I implore You, give me the grace of doing faithfully the most holy will of Your Father, in all things, always and everywhere. And when this will of God will seem to me very harsh and difficult to fulfill, it is then I beg You, Jesus, may power and strength flow upon me from your wounds, and may my lips keep repeating, "Your will be done, O Lord".\n\nO Savior of the world, Lover of man\'s salvation, who in such terrible torment and pain, forgot Yourself to think only of the salvation of souls, O most compassionate Jesus, grant in the grace to forget myself that I may live totally for souls, helping You in the work of salvation, according to the most holy will of Your Father.\n\nYou expired, Jesus, but the source of life gushed forth for souls and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, envelop the whole world and empty Yourself out upon us. Amen.',
-        contentAm:
-        'በመስቀል ላይ የተዘረጋኸው ኢየሱስ ሆይ፣ የአባትህን ቅዱስ ፈቃድ በነገር ሁሉ፣ ሁልጊዜና በቦታ ሁሉ ታማኝ ሆኜ እንድፈጽም ጸጋህን ስጠኝ።\n\nኢየሱስ ሆይ፣ ተሞትክ፣ ነገር ግን የሕይወት ምንጭ ለነፍሳት ፈሰሰ፤ የምህረት ውቅያኖስም ለመላው ዓለም ተከፈተ። ኦ የሕይወት ምንጭ፣ የማይመረመር አምላካዊ ምህረት፣ መላውን ዓለም ሸፍነህ በላያችን ላይ ራስህን አፍስስ። አሜን።',
-        imagePath: 'assets/img_5.png',
-      ),
-    ],
-    'Prayer to St. Michael the Archangel': [
-      PrayerStep(
-        sectionHeader: 'PROTECTION IN BATTLE',
-        titleEn: 'Prayer to St. Michael the Archangel',
-        titleAm: 'ወደ ቅዱስ ሚካኤል ሊቀ መላእክት ጸሎት',
-        contentEn:
-        'Saint Michael the Archangel, defend us in battle.\nBe our protection against the wickedness and snares of the devil.\nMay God rebuke him, we humbly pray; and do thou,\nO Prince of the heavenly host, by the power of God,\ncast into hell Satan and all the evil spirits,\nwho prowl about the world seeking the ruin of souls. Amen.',
-        contentAm:
-        'ቅዱስ ሚካኤል ሊቀ መላእክት ሆይ፣ በውጊያ ላይ ጠብቀን።\nከዲያብሎስ ክፋትና ወጥመድ መከታ ሁነን።\nእግዚአብሔር እንዲገሥጸው በትሕትና እንጸልያለን፤\nአንተም የሰማያዊ ሠራዊት አለቃ ሆይ፣ በእግዚአብሔር ኃይል፣\nየነፍሳትን ጥፋት በመፈለግ በዓለም ላይ የሚዞሩትን\nሰይጣንንና ክፉዎችን መናፍስት ሁሉ ወደ ሲኦል ጣላቸው። አሜን።',
-        imagePath: 'assets/img_4.png',
-      ),
-    ],
-    'The Magnificat': [
-      PrayerStep(
-        sectionHeader: 'CANTICLE OF MARY',
-        titleEn: 'The Magnificat',
-        titleAm: 'የእመቤታችን ማርያም ምስጋና (ማግኒፊካት)',
-        contentEn:
-        'My soul proclaims the greatness of the Lord,\nmy spirit rejoices in God my Savior,\nfor he has looked with favor on his lowly servant.\nFrom this day all generations will call me blessed:\nthe Almighty has done great things for me,\nand holy is his Name.',
-        contentAm:
-        'ነፍሴ ጌታን ታ ታበራዋለች፤\nመንፈሴም በአምላኬ በመድኃኒቴ ሐሴት ታደርጋለች፤\nየአገልጋዩን ትሕትና ተመልክቷልና።\nእነሆ ከዛሬ ጀምሮ ትውልድ ሁሉ ብፅዕት ይሉኛል፤\nብርቱ የሆነው እርሱ በእኔ ታላቅ ነገር አድርጓልና፤\nስሙም ቅዱስ ነው።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'EXALTATION OF THE LOWLY',
-        titleEn: 'The Magnificat',
-        titleAm: 'የእመቤታችን ማርያም ምስጋና (ማግኒፊካት)',
-        contentEn:
-        'He has mercy on those who fear him in every generation.\nHe has shown the strength of his arm,\nhe has scattered the proud in their conceit.\nHe has cast down the mighty from their thrones,\nand has lifted up the lowly.\nHe has filled the hungry with good things,\nand the rich he has sent away empty.',
-        contentAm:
-        'ምህረቱም ለሚፈሩት እስከ ትውልድና ትውልድ ይኖራል።\nበክንዱ ኃይል አሳይቷል፤\nትዕቢተኞችን በልባቸው አሳብ በትኗቸዋል።\nኃያላንን ከዙፋናቸው አዋርዷቸዋል፤\nትሑታንንም ከፍ ከፍ አድርጓቸዋል።\nራብተኞችን በበጎ ነገር አጥግቧቸዋል፤\nባለጠጎችንም ባዶ እጃቸውን ሰዶአቸዋል።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'GOD\'S FAITHFULNESS',
-        titleEn: 'The Magnificat',
-        titleAm: 'የእመቤታችን ማርያም ምስጋና (ማግኒፊካት)',
-        contentEn:
-        'He has come to the help of his servant Israel\nfor he has remembered his promise of mercy,\nthe promise he made to our fathers,\nto Abraham and his children forever.\nGlory to the Father and to the Son and to the Holy Spirit,\nas it was in the beginning, is now, and will be forever. Amen.',
-        contentAm:
-        'ለአባቶቻችን ለአብርሃምና ለዘሩ እስከ ዘላለም እንደተናገረው\nምህረቱን አስቦ አገልጋዩን እስራኤልን ረድቷል።\nክብር ለአብ ለወልድ ለመንፈስ ቅዱስም ይሁን፣\nበመጀመሪያ እንደነበረ አሁንም ዘወትርም ለዘላለሙ። አሜን።',
+        'የእስራኤል ጌታ አምላክ ይባረክ፥ ጐብኝቶ ለሕዝቡ ቤዛ አድርጎአልና፤\n'
+            'ከጥንት ጀምሮ በነበሩት በቅዱሳን ነቢያት አፍ እንደ ተናገረ፥\n'
+            'በብላቴናው በዳዊት ቤት የመዳን ቀንድን አስነስቶልናል፤\n'
+            'ማዳኑም ከወደረኞቻችንና ከሚጠሉን ሁሉ እጅ ነው፤\n'
+            'እንደዚህ ለአባቶቻችን ምሕረት አደረገ፤\n'
+            'ለአባታችን ለአብርሃምም የማለውን መሐላውን ቅዱሱን ኪዳን አሰበ፤\n'
+            'በእርሱም ከጠላቶቻችን እጅ ድነን\n'
+            'በዘመናችን ሁሉ ያለ ፍርሃት\n'
+            'በቅድስናና በጽድቅ በፊቱ እንድናገለግለው ሰጠን።\n\n'
+            'ደግሞም አንተ ሕፃን ሆይ፥ የልዑል ነቢይ ትባላለህ፥\n'
+            'መንገዱን ልትጠርግ በጌታ ፊት ትሄዳለህና፤\n'
+            'እንደዚህም የኃጢአታቸው ስርየት የሆነውን የመዳን እውቀት ለሕዝቡ ትሰጣለህ፤\n'
+            'ይህም ከላይ የመጣ ብርሃን በጐበኘበት\n'
+            'በአምላካችን ምሕረትና ርኅራኄ ምክንያት ነው፤\n'
+            'ብርሃኑም በጨለማና በሞት ጥላ ተቀምጠው ላሉት ያበራል፤\n'
+            'እግሮቻችንንም በሰላም መንገድ ያቀናል።',
         imagePath: 'assets/sunrise.jpeg',
       ),
     ],
-    'Prayer of St. Augustine': [
-      PrayerStep(
-        sectionHeader: 'DEVOTION',
-        titleEn: 'Prayer of St. Augustine',
-        titleAm: 'የቅዱስ ኦገስቲን ጸሎት',
-        contentEn:
-        'Lord Jesus, let me know myself and know you and desire nothing save only you. Let me hate myself and love you. Let me humble myself and exalt you. Let me think nothing except you. Let me die to myself and live in you. Let me accept whatever happens as from you. Let me banish myself and follow you, and ever desire to follow you. Let me fly from myself and take refuge in you, that I may deserve to be defended by you. Let me fear for myself, let me fear you, and let me be among those who are chosen by you. Let me be willing to obey for the sake of you. Let me cling to nothing save only to you, and let me be poor because of you. Look upon me, that I may love you. Call me that I may see you, and for ever enjoy you. Amen.',
-        contentAm:
-        'ጌታ ኢየሱስ ሆይ፣ ራሴን እንድያውቅና አንተን እንድያውቅ፣ ከአንተ በቀር ምንም እንዳልመኝ አድርገኝ። ራሴን እንድጠላ አንተን እንድወድ አድርገኝ። ራሴን እንድያንስ አንተን እንድከብር አድርገኝ። ከአንተ በቀር ምንም እንዳልያስብ አድርገኝ። ለራሴ ሞቼ በአንተ እንድኖር አድርገኝ። የሚሆነውን ሁሉ ከአንተ እንደሆነ አድርጌ እንድቀበል አድርገኝ። ራሴን ትቼ አንተን እንድከተል፣ ሁልጊዜም አንተን መከተል እንድመኝ አድርገኝ። ከራሴ ሽሼ በአንተ እንድጠለል አድርገኝ። ስሜን፣ አንተን እንድፈራ፣ በአንተ ከተመረጡት መካከል እንድሆን አድርገኝ። ስለ አንተ ብዬ ለመታዘዝ ፈቃደኛ እንድሆን አድርገኝ። ከአንተ በቀር በምንም እንዳልጣበቅ አድርገኝ። እንድወድህ ተመልከተኝ። እንድያይህና ለዘላለም በአንተ ደስ እንዲለኝ ጠራኝ። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-    ],
-    'The Memorare': [
-      PrayerStep(
-        sectionHeader: 'MARIAN INTERCESSION',
-        titleEn: 'The Memorare',
-        titleAm: 'ሜሞራሬ (አስቢ)',
-        contentEn:
-        'Remember, O most gracious Virgin Mary,\nthat never was it known that anyone who fled to thy protection,\nimplored thy help, or sought thy intercession, was left unaided.\nInspired by this confidence I fly unto thee, O Virgin of virgins, my Mother.\nTo thee do I come, before thee I stand, sinful and sorrowful.\nO Mother of the Word Incarnate, despise not my petitions,\nbut in thy mercy hear and answer me. Amen.',
-        contentAm:
-        'እጅግ ርኅሩኅ ድንግል ማርያም ሆይ፣\nወደ ጥበቃሽ የሸሸ፣ እርዳታሽን የጠየቀ ወይም አማላጅነትሽን የፈለገ\nማንም እንደተተወ ከቶ እንዳልተሰማ አስቢ።\nበዚህ እምነት ተነሣሥቼ፣ የድንግሎች ድንግል እናቴ ሆይ፣ ወደ አንቺ እመጣለሁ፤\nበፊትሽ እቆማለሁ፣ ኃጢአተኛና ሐዘነኛ ሆኜ።\nየሰው የሆነው ቃል እናት ሆይ፣ ልመናዬን አትናቂ፣\nበምህረትሽ ስሚኝና መልሽልኝ እንጂ። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-    ],
-    'Prayer to St. Joseph': [
-      PrayerStep(
-        sectionHeader: 'PETITION TO ST. JOSEPH',
-        titleEn: 'Prayer to St. Joseph',
-        titleAm: 'ወደ ቅዱስ ዮሴፍ ጸሎት',
-        contentEn:
-        'Oh, St. Joseph, whose protection is so great, so prompt, so strong,\nbefore the throne of God, I place in you all my interests and desires.\nOh, St. Joseph, do assist me by your powerful intercession,\nand obtain for me from your Divine Son\nall spiritual blessings, through Jesus Christ, our Lord.\nSo that, having engaged here below your heavenly power,\nI may offer my thanksgiving and homage to the most loving of fathers.\nOh, St. Joseph, I never weary contemplating you and Jesus asleep in your arms;\nI dare not approach while he reposes near your heart.\nPress him in my name and kiss his fine head for me and\nask him to return the kiss when I draw my dying breath.\nSt. Joseph, patron of departing souls - pray for me. Amen.',
-        contentAm:
-        'ኦ ቅዱስ ዮሴፍ፣ ጥበቃህ በእግዚአብሔር ዙፋን ፊት እጅግ ታላቅ፣ ፈጣንና ኃያል የሆነ፣\nፍላጎቶቼንና ምኞቶቼን ሁሉ በአንተ ላይ አኖራለሁ።\nኦ ቅዱስ ዮሴፍ፣ በኃያል አማላጅነትህ እርዳኝ፣\nበጌታችን በኢየሱስ ክርስቶስ በኩል ከአምላካዊ ልጅህ\nመንፈሳዊ በረከቶችን ሁሉ አላብሰኝ።\nኦ ቅዱስ ዮሴፍ፣ አንተና በጉያህ የተኛው ኢየሱስን ከማሰብ ከቶ አልታክትም፤\nበልብህ አቅራቢያ ሲያረፍ ልቀርበው አልደፍርም።\nበስሜ እቀፈው፣ ስለ እኔም ውብ ራሱን ሳመው፣\nየመጨረሻ እስፋፌን ስተፍ እሱም መልሶ እንዲስመኝ ጠይቅልኝ።\nቅዱስ ዮሴፍ የሟቾች ነፍሳት ጠባቂ - ስለ እኔ ጸልይ። አሜን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-    ],
-    'The Litany of Saints': [
-      PrayerStep(
-        sectionHeader: 'OPENING INVOCATION',
-        titleEn: 'The Litany of Saints',
-        titleAm: 'የቅዱሳን ሊታኒ (ሊታኒያ)',
-        contentEn:
-        'Lord, have mercy on us. — Lord, have mercy on us.\nChrist, have mercy on us. — Christ, have mercy on us.\nLord, have mercy on us. — Lord, have mercy on us.\nChrist, hear us. — Christ, graciously hear us.\n\nGod, the Father of Heaven, — have mercy on us.\nGod the Son, Redeemer of the world, — have mercy on us.\nGod the Holy Spirit, — have mercy on us.\nHoly Trinity, one God, — have mercy on us.',
-        contentAm:
-        'ጌታ ሆይ፣ ማረን። — ጌታ ሆይ፣ ማረን።\nክርስቶስ ሆይ፣ ማረን። — ክርስቶስ ሆይ፣ ማረን።\nጌታ ሆይ፣ ማረን። — ጌታ ሆይ፣ ማረን።\nክርስቶስ ሆይ፣ ስማን። — ክርስቶስ ሆይ፣ በደስታ ስማን።\n\nእግዚአብሔር የሰማይ አባት፣ — ማረን።\nእግዚአብሔር ወልድ የዓለም መድኃኒት፣ — ማረን።\nእግዚአብሔር መንፈስ ቅዱስ፣ — ማረን።\nቅድስት ሥላሴ አንድ አምላክ፣ — ማረን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'INVOCATION OF SAINTS',
-        titleEn: 'The Litany of Saints',
-        titleAm: 'የቅዱሳን ሊታኒ (ሊታኒያ)',
-        contentEn:
-        'Holy Mary, — pray for us.\nHoly Mother of God, — pray for us.\nHoly Virgin of Virgins, — pray for us.\nSt. Michael, — pray for us.\nSt. Gabriel, — pray for us.\nSt. Raphael, — pray for us.\nAll you Holy Angels and Archangels, — pray for us.\nSt. John the Baptist, — pray for us.\nSt. Joseph, — pray for us.\nAll you Holy Patriarchs and Prophets, — pray for us.\nSt. Peter, — pray for us.\nSt. Paul, — pray for us.\nSt. Andrew, — pray for us.\nSt. James, — pray for us.\nSt. John, — pray for us.\nSt. Thomas, — pray for us.\nSt. Philip, — pray for us.\nSt. Bartholomew, — pray for us.\nSt. Matthew, — pray for us.\nSt. Simon, — pray for us.\nSt. Jude, — pray for us.\nSt. Matthias, — pray for us.\nSt. Barnabas, — pray for us.\nSt. Luke, — pray for us.\nSt. Mark, — pray for us.\nAll you Holy Apostles and Evangelists, — pray for us.\nAll you Holy Disciples of the Lord, — pray for us.\nAll you Holy Innocents, — pray for us.',
-        contentAm:
-        'ቅድስት ማርያም፣ — ጸልዪልን።\nቅድስት የአምላክ እናት፣ — ጸልዪልን።\nቅድስት የድንግሎች ድንግል፣ — ጸልዪልን።\nቅዱስ ሚካኤል፣ — ጸልይልን።\nቅዱስ ገብርኤል፣ — ጸልይልን።\nቅዱስ ሩፋኤል፣ — ጸልይልን።\nቅዱሳን መላእክትና ሊቃነ መላእክት ሁሉ፣ — ጸልዩልን።\nቅዱስ ዮሐንስ መጥምቅ፣ — ጸልይልን።\nቅዱስ ዮሴፍ፣ — ጸልይልን።\nቅዱሳን አበውና ነቢያት ሁሉ፣ — ጸልዩልን።\nቅዱስ ጴጥሮስ፣ — ጸልይልን።\nቅዱስ ጳውሎስ፣ — ጸልይልን።\nቅዱሳን ሐዋርያትና ወንጌላውያን ሁሉ፣ — ጸልዩልን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'SUPPLICATIONS',
-        titleEn: 'The Litany of Saints',
-        titleAm: 'የቅዱሳን ሊታኒ (ሊታኒያ)',
-        contentEn:
-        'Lord, be merciful, — Lord, save your people.\nFrom all evil, — Lord, save your people.\nFrom all sin, — Lord, save your people.\nFrom your wrath, — Lord, save your people.\nFrom a sudden and unprovided death, — Lord, save your people.\nFrom the snares of the devil, — Lord, save your people.\nFrom anger, hatred and all ill-will, — Lord, save your people.\nFrom everlasting death, — Lord, save your people.\nBy the mystery of your Holy Incarnation, — Lord, save your people.\nBy Your Cross and Passion, — Lord, save your people.\nBy Your Holy Resurrection, — Lord, save your people.\nBy the coming of the Holy Spirit, — Lord, save your people.',
-        contentAm:
-        'ጌታ ሆይ፣ ምሑር ሁን፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nከክፉ ሁሉ፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nከኃጢአት ሁሉ፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nከቁጣህ፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nከዲያብሎስ ወጥመድ፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nከዘላለም ሞት፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nበቅዱስ ሰው የመሆንህ ምስጢር፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nበመስቀልህና በመከራህ፣ — ጌታ ሆይ፣ ሕዝብህን አድን።\nበቅዱስ ትንሣኤህ፣ — ጌታ ሆይ፣ ሕዝብህን አድን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      PrayerStep(
-        sectionHeader: 'PETITIONS & CONCLUSION',
-        titleEn: 'The Litany of Saints',
-        titleAm: 'የቅዱሳን ሊታኒ (ሊታኒያ)',
-        contentEn:
-        'Be merciful to us sinners, — Lord, hear our prayer.\nThat you will spare us, — Lord, hear our prayer.\nGuide and protect your holy Church, — Lord, hear our prayer.\nPreserve in holy religion the Pope, and all in holy Orders, — Lord, hear our prayer.\nGive peace and unity to the whole Christian people, — Lord, hear our prayer.\n\nLamb of God, who takes away the sins of the world, — spare us, O Lord!\nLamb of God, who takes away the sins of the world, — graciously hear us, O Lord!\nLamb of God, who takes away the sins of the world, — have mercy on us.\n\nChrist, hear us. — Christ, graciously hear us.\nLord, have mercy on us. — Lord, have mercy on us.',
-        contentAm:
-        'እኛን ኃጢአተኞችን ማረን፣ — ጌታ ሆይ፣ ጸሎታችንን ስማ።\nቅድስት ቤተክርስቲያንን መራ፣ ጠብቃትም፣ — ጌታ ሆይ፣ ጸሎታችንን ስማ።\nለክርስቲያን ሕዝብ ሁሉ ሰላምና አንድነትን ስጥ፣ — ጌታ ሆይ፣ ጸሎታችንን ስማ።\n\nየዓለምን ኃጢአት የሚያስወግድ የእግዚአብሔር በግ፣ — ማረን ጌታ ሆይ!\nየዓለምን ኃጢአት የሚያስወግድ የእግዚአብሔር በግ፣ — በደስታ ስማን ጌታ ሆይ!\nየዓለምን ኃጢአት የሚያስወግድ የእግዚአብሔር በግ፣ — ምህረት አድርግልን።\n\nክርስቶስ ሆይ፣ ስማን። — ክርስቶስ ሆይ፣ በደስታ ስማን።\nጌታ ሆይ፣ ማረን። — ጌታ ሆይ፣ ማረን።',
-        imagePath: 'assets/sunrise.jpeg',
-      ),
-      ],
 
-      'Anima Christi': [
-        PrayerStep(
-          sectionHeader: 'SOUL OF CHRIST',
-          titleEn: 'Anima Christi',
-          titleAm: 'አኒማ ክርስቲ (የክርስቶስ ነፍስ)',
-          contentEn:
-          'Soul of Christ, sanctify me.\n'
-              'Body of Christ, save me.\n'
-              'Blood of Christ, inebriate me.\n'
-              'Water from the side of Christ, wash me.\n'
-              'Passion of Christ, strengthen me.\n'
-              'O good Jesus, hear me.\n'
-              'Within your wounds hide me.\n'
-              'Suffer me not to be separated from you.\n'
-              'From the malicious enemy defend me.\n'
-              'In the hour of my death call me,\n'
-              'and bid me come unto you,\n'
-              'that with your saints I may praise you\n'
-              'for ever and ever. Amen.',
-          contentAm:
-          'የክርስቶስ ነፍስ ሆይ፣ ቀድሰኝ።\n'
-              'የክርስቶስ አካል ሆይ፣ አድነኝ።\n'
-              'የክርስቶስ ደም ሆይ፣ አርካኝ።\n'
-              'ከክርስቶስ ጎን የፈሰሰው ውኃ ሆይ፣ እጠበኝ።\n'
-              'የክርስቶስ መከራ ሆይ፣ አበርታኝ።\n'
-              'ኦ ቸሩ ኢየሱስ ሆይ፣ ስማኝ።\n'
-              'በቁስሎችህ ውስጥ ደብቀኝ።\n'
-              'ከአንተ እንዳልለይ አትፍቀድልኝ።\n'
-              'ከተንኮለኛው ጠላት ጠብቀኝ።\n'
-              'በሞቴ ሰዓት ጠራኝ፣\n'
-              'ወደ አንተም እንድመጣ እዘዘኝ፣\n'
-              'ከቅዱሳንህ ጋር አመሰግንህ ዘንድ\n'
-              'ለዘላለሙ። አሜን።',
-          imagePath: 'assets/anima christi vip.jpg',
-        ),
-      ],
 
-      // -------------------------------------------------------------------------
-      // 2. COME, HOLY SPIRIT
-      // -------------------------------------------------------------------------
-      'Come, Holy Spirit': [
-        PrayerStep(
-          sectionHeader: 'INVOCATION OF THE HOLY SPIRIT',
-          titleEn: 'Come, Holy Spirit',
-          titleAm: 'መንፈስ ቅዱስ ሆይ ና',
-          contentEn:
-          'Come, Holy Spirit, fill the hearts of your faithful\n'
-              'and enkindle in them the fire of your love.\n\n'
-              'V. Send forth your Spirit and they shall be created.\n'
-              'R. And you shall renew the face of the earth.\n\n'
-              'Let us pray.\n'
-              'O God, who by the light of the Holy Spirit, did instruct the hearts of the faithful, '
-              'grant that by the same Holy Spirit we may be truly wise and ever enjoy His consolations, '
-              'through Christ Our Lord. Amen.',
-          contentAm:
-          'መንፈስ ቅዱስ ሆይ ና፣ የሙእመናንህን ልብ ሙላ፣\n'
-              'የፍቅርህንም እሳት በውስጣቸው አክብድ።\n\n'
-              'ሀ. መንፈስህን ልክ፣ እነርሱም ይፈጠራሉ።\n'
-              'ለ. የምድርንም ፊት ታድሳለህ።\n\n'
-              'እንጸልይ።\n'
-              'አምላክ ሆይ፣ በመንፈስ ቅዱስ ብርሃን የሙእመናንን ልብ ያስተማርክ፣ '
-              'በዚያው መንፈስ እውነተኛ ጥበበኞች እንድንሆንና ሁልጊዜ በመጽናናቱ ደስ እንዲለን አድርገን፣ '
-              'በጌታችን በክርስቶስ በኩል. አሜን።',
-          imagePath: 'assets/img_17.png',
-        ),
-      ],
-
-      // -------------------------------------------------------------------------
-      // 3. PRAYER OF ABANDONMENT (CHARLES DE FOUCAULD)
-      // -------------------------------------------------------------------------
-      'Prayer of Abandonment': [
-        PrayerStep(
-          sectionHeader: 'SURRENDER TO THE FATHER',
-          titleEn: 'Prayer of Abandonment',
-          titleAm: 'የራስን ለአባት አሳልፎ መስጠት ጸሎት',
-          contentEn:
-          'Father, I abandon myself into your hands; do with me what you will.\n'
-              'Whatever you may do, I thank you: I am ready for all, I accept all.\n'
-              'Let only your will be done in me, and in all your creatures;\n'
-              'I wish nothing more than this, O Lord.\n\n'
-              'Into your hands I commend my soul: I offer it to you with all the love of my heart,\n'
-              'for I love you Lord, and so need to give myself, to surrender myself into your hands without reserve,\n'
-              'and with boundless confidence, for you are my Father. Amen.',
-          contentAm:
-          'አባቴ ሆይ፣ ራሴን በእጆችህ ላይ እጥላለሁ፤ የፈለግከውን አድርግብኝ።\n'
-              'ግን ለማንኛውም ነገር አመሰግንሃለሁ፤ ለሁሉም ዝግጁ ነኝ፣ ሁሉንም እቀበላለሁ።\n'
-              'በእኔና በፍጥረቶችህ ሁሉ ላይ ፈቃድህ ብቻ ይፈጸም፤\n'
-              'ጌታ ሆይ፣ ከዚህ ውጭ ምንም አልመኝም።\n\n'
-              'ነፍሴን በእጆችህ አምናለሁ፤ በልቤ ፍቅር ሁሉ ለአንተ እሰጣታለሁ፣\n'
-              'አንተን እወድሃለሁና፣ ስለዚህ ያለ ምንም ቅድመ ሁኔታና ያለ ወሰን እምነት ራሴን በእጆችህ ላይ አሳልፌ መስጠት አለብኝ፣\n'
-              'አንተ አባቴ ነህና። አሜን።',
-          imagePath: 'assets/father.jpg',
-        ),
-      ],
-
-      // -------------------------------------------------------------------------
-      // 4. LITANY OF THE HOLY NAME OF JESUS
-      // -------------------------------------------------------------------------
-      'Litany of the Holy Name of Jesus': [
-        PrayerStep(
-          sectionHeader: 'OPENING INVOCATIONS',
-          titleEn: 'Litany of the Holy Name of Jesus',
-          titleAm: 'የቅዱስ ኢየሱስ ስም ሊታኒ',
-          contentEn:
-          'Lord, have mercy. — Lord, have mercy.\n'
-              'Christ, have mercy. — Christ, have mercy.\n'
-              'Lord, have mercy. — Lord, have mercy.\n'
-              'Jesus, hear us. — Jesus, graciously hear us.\n\n'
-              'God, the Father of Heaven, — have mercy on us.\n'
-              'God the Son, Redeemer of the world, — have mercy on us.\n'
-              'God the Holy Spirit, — have mercy on us.\n'
-              'Holy Trinity, one God, — have mercy on us.',
-          contentAm:
-          'ጌታ ሆይ፣ ማረን። — ጌታ ሆይ፣ ማረን።\n'
-              'ክርስቶስ ሆይ፣ ማረን። — ክርስቶስ ሆይ፣ ማረን።\n'
-              'ጌታ ሆይ፣ ማረን። — ጌታ ሆይ፣ ማረን።\n'
-              'ኢየሱስ ሆይ፣ ስማን። — ኢየሱስ ሆይ፣ በደስታ ስማን።\n\n'
-              'እግዚአብሔር የሰማይ አባት፣ — ማረን።\n'
-              'እግዚአብሔር ወልድ የዓለም መድኃኒት፣ — ማረን።\n'
-              'እግዚአብሔር መንፈስ ቅዱስ፣ — ማረን።\n'
-              'ቅድስት ሥላሴ አንድ አምላክ፣ — ማረን።',
-          imagePath: 'assets/img_16.png',
-        ),
-        PrayerStep(
-          sectionHeader: 'INVOCATION OF HIS HOLY TITLES',
-          titleEn: 'Litany of the Holy Name of Jesus',
-          titleAm: 'የቅዱስ ኢየሱስ ስም ሊታኒ',
-          contentEn:
-          'Jesus, Son of the living God, — have mercy on us.\n'
-              'Jesus, Splendor of the Father, — have mercy on us.\n'
-              'Jesus, Brightness of eternal Light, — have mercy on us.\n'
-              'Jesus, King of Glory, — have mercy on us.\n'
-              'Jesus, Sun of Justice, — have mercy on us.\n'
-              'Jesus, Son of the Virgin Mary, — have mercy on us.\n'
-              'Jesus, most amiable, — have mercy on us.\n'
-              'Jesus, most admirable, — have mercy on us.\n'
-              'Jesus, the mighty God, — have mercy on us.\n'
-              'Jesus, Father of the world to come, — have mercy on us.\n'
-              'Jesus, Angel of great counsel, — have mercy on us.',
-          contentAm:
-          'ኢየሱስ፣ የሕያው እግዚአብሔር ልጅ፣ — ማረን።\n'
-              'ኢየሱስ፣ የአባት ግርማ፣ — ማረን።\n'
-              'ኢየሱስ፣ የዘላለም ብርሃን እብራቅ፣ — ማረን።\n'
-              'ኢየሱስ፣ የክብር ንጉሥ፣ — ማረን።\n'
-              'ኢየሱስ፣ የጽድቅ ፀሐይ፣ — ማረን።\n'
-              'ኢየሱስ፣ የድንግል ማርያም ልጅ፣ — ማረን።\n'
-              'ኢየሱስ፣ እጅግ ተወዳጅ፣ — ማረን።\n'
-              'ኢየሱስ፣ እጅግ ድንቅ፣ — ማረን።\n'
-              'ኢየሱስ፣ ኃያል አምላክ፣ — ማረን።\n'
-              'ኢየሱስ፣ የሚመጣው ዓለም አባት፣ — ማረን።',
-          imagePath: 'assets/img_16.png',
-        ),
-        PrayerStep(
-          sectionHeader: 'SUPPLICATIONS & CONCLUDING COLLECT',
-          titleEn: 'Litany of the Holy Name of Jesus',
-          titleAm: 'የቅዱስ ኢየሱስ ስም ሊታኒ',
-          contentEn:
-          'Be merciful, — spare us, O Jesus.\n'
-              'Be merciful, — graciously hear us, O Jesus.\n\n'
-              'From all evil, — deliver us, O Jesus.\n'
-              'From all sin, — deliver us, O Jesus.\n'
-              'By your Incarnation, — deliver us, O Jesus.\n'
-              'By your Nativity, — deliver us, O Jesus.\n'
-              'By your Cross and Passion, — deliver us, O Jesus.\n\n'
-              'Lamb of God, who takes away the sins of the world, — spare us, O Jesus.\n'
-              'Lamb of God, who takes away the sins of the world, — graciously hear us, O Jesus.\n'
-              'Lamb of God, who takes away the sins of the world, — have mercy on us, O Jesus.\n\n'
-              'Let us pray:\n'
-              'O Lord Jesus Christ, who has said: Ask and you shall receive; seek and you shall find; knock and it shall be opened unto you; '
-              'grant, we beseech You, to us who ask, the gift of Your most divine love. Amen.',
-          contentAm:
-          'ምሑር ሁን፣ — ማረን ኢየሱስ።\n'
-              'ምሑር ሁን፣ — በደስታ ስማን ኢየሱስ።\n\n'
-              'ከክፉ ሁሉ፣ — አድነን ኢየሱስ።\n'
-              'ከኃጢአት ሁሉ፣ — አድነን ኢየሱስ።\n'
-              'ሰው በመሆንህ፣ — አድነን ኢየሱስ።\n'
-              'በልደትህ፣ — አድነን ኢየሱስ።\n'
-              'በመስቀልህና በመከራህ፣ — አድነን ኢየሱስ።\n\n'
-              'የዓለምን ኃጢአት የሚያስወግድ የእግዚአብሔር በግ፣ — ማረን ኢየሱስ።\n'
-              'የዓለምን ኃጢአት የሚያስወግድ የእግዚአብሔር በግ፣ — በደስታ ስማን ኢየሱስ።\n'
-              'የዓለምን ኃጢአት የሚያስወግድ የእግዚአብሔር በግ፣ — ምህረት አድርግልን ኢየሱስ።\n\n'
-              'እንጸልይ፡\n'
-              'ጌታ ኢየሱስ ክርስቶስ ሆይ፣ ለምኑ ይሰጣችሁማል፤ ፈልጉ ታገኙማላችሁ፤ መዝጊያን አንኳኩ ይከፈትላችሁማል ያልከው፤ '
-              'የምንለምን እኛን የእግዚአብሔርን ፍቅር ስጦታ እንድታበለጽግልን እንለምንሃለን። አሜን።',
-          imagePath: 'assets/img_16.png',
-        ),
-      ],
-
-      // Existing core prayers retained cleanly
-      'The Morning Offering': [
-        PrayerStep(
-          sectionHeader: 'READING FOCUS',
-          titleEn: 'The Morning Offering',
-          titleAm: 'የጠዋት መስዋዕት',
-          contentEn:
-          'O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys and sufferings of this day for all the intentions of Your Sacred Heart,',
-          contentAm:
-          'እግዚአብሔር፣ የኢየሱስ ልብ፣ ያለ አዳም ኃጢአት የተጸነስች እንዲሁም የቤተክርስቲያን እናት በሆነችዉ በማርያም በኩል፣',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'INVOCATION',
-          titleEn: 'The Morning Offering',
-          titleAm: 'የጠዋት መስዋዕት',
-          contentEn:
-          'in union with the Holy Sacrifice of the Mass throughout the world, in reparation for my sins, for the intentions of all my relatives and friends,',
-          contentAm:
-          'በቅዱስ ቁርባን መስዋዕት በኩል፣ ልመናዎቼን ሥራዎቼን ተስፋዎቼንና የዛሬ ቀን መከራዎቼን ለወንዶችና ለሴቶች፣',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'FINAL PETITION',
-          titleEn: 'The Morning Offering',
-          titleAm: 'የጠዋት መስዋዕት',
-          contentEn:
-          'and in particular for the intentions of the Holy Father. Amen.',
-          contentAm: 'ለሰው ልጆች ሁሉ ደህንነትና ለኃጢአቶች ካሣ እንዲሆን አቀርባለሁ፡፡ አሜን፡፡',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-      ],
-      'Hail Holy Queen': [
-        PrayerStep(
-          sectionHeader: 'READING FOCUS',
-          titleEn: 'Hail Holy Queen',
-          titleAm: 'ሰላም ለኪ እመቤታችን',
-          contentEn:
-          'Hail, Holy Queen, Mother of Mercy, our life, our sweetness and our hope. To thee do we cry, poor banished children of Eve.',
-          contentAm:
-          'የምህረት እናት ንግስት ሆይ ሰላም ለአንቺ ይሁን፤ ህይወታችን፣ ጣፋጭነታችንና ተስፋችን ሆይ ሰላም ለአንቺ ይሁን። የተሰደድነው የሔዋን ልጆች ወደ አንቺ እንጮኻለን።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'INVOCATION',
-          titleEn: 'Hail Holy Queen',
-          titleAm: 'ሰላም ለኪ እመቤታችን',
-          contentEn:
-          'To thee do we send up our sighs, mourning and weeping in this valley of tears.',
-          contentAm:
-          'በዚህ በሐዘንና በእንባ ሸለቆ ውስጥ እያለቀስንና እያዘንን ወደ አንቺ እንቃተታለን።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'FINAL PETITION',
-          titleEn: 'Hail Holy Queen',
-          titleAm: 'ሰላም ለኪ እመቤታችን',
-          contentEn:
-          'Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile, show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary. Amen.',
-          contentAm:
-          'እንግዲህ አማላጃችን ሆይ፤ እነዚያን የምህረት ዓይኖችሽን ወደ እኛ መልሺ፤ ከዚህ ስደት በኋላም የማህፀንሽን የተባረከ ፍሬ ኢየሱስን አሳዪን። አንቺ ርኅሩኅ፣ አንቺ አፍቃሪ፣ አንቺ ጣፋጭ ድንግል ማርያም ሆይ። አሜን።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-      ],
-      'Prayer of St. Francis': [
-        PrayerStep(
-          sectionHeader: 'PETITION',
-          titleEn: 'Prayer of St. Francis',
-          titleAm: 'የቅዱስ ፍራንሲስ ጸሎት',
-          contentEn:
-          'Lord, make me an instrument of your peace:\nwhere there is hatred, let me sow love;\nwhere there is injury, pardon;\nwhere there is doubt, faith;\nwhere there is despair, hope;\nwhere there is darkness, light;\nwhere there is sadness, joy.',
-          contentAm:
-          'ጌታ ሆይ፣ የሰላምህ መሣሪያ አድርገኝ፡\nጥል ባለበት ቦታ፣ ፍቅርን እንድዘራ፤\nበደል ባለበት፣ ይቅርታን፤\nመጠራጠር ባለበት፣ እምነትን፤\nተስፋ መቁረጥ ባለበት፣ ተስፋን፤\nጨለማ ባለበት፣ ብርሃንን፤\nሐዘን ባለበት፣ ደስታን እንድዘራ እርዳኝ።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'REFLECTION',
-          titleEn: 'Prayer of St. Francis',
-          titleAm: 'የቅዱስ ፍራንሲስ ጸሎት',
-          contentEn:
-          'O divine Master, grant that I may not so much seek\nto be consoled as to console,\nto be understood as to understand,\nto be loved as to love.',
-          contentAm:
-          'ኦ ጌታ ሆይ፣ ከመጽናናት ይልቅ እንድጽናና፣\nከመወደድ ይልቅ እንድወድ፣\nከመረዳት ይልቅ እንድረዳ አድርገኝ።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'FINAL PRAYER',
-          titleEn: 'Prayer of St. Francis',
-          titleAm: 'የቅዱስ ፍራንሲስ ጸሎት',
-          contentEn:
-          'For it is in giving that we receive,\nit is in pardoning that we are pardoned,\nand it is in dying that we are born to eternal life. Amen.',
-          contentAm:
-          'በመስጠት ስለምንቀበል፣\nበይቅርታ ስለምንታረቅ፣\nበመሞትም ወደ ዘላለም ሕይወት ስለምንወለድ ነው። አሜን።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-      ],
-      'The Guardian Angel Prayer': [
-        PrayerStep(
-          sectionHeader: 'PROTECTION',
-          titleEn: 'The Guardian Angel Prayer',
-          titleAm: 'የጠባቂ መልአክ ጸሎት',
-          contentEn:
-          'Angel of God, my guardian dear,\nTo whom God\'s love commits me here,\nEver this day, be at my side,\nTo light, to guard, to rule, and guide. Amen.',
-          contentAm:
-          'የእግዚአብሔር መልአክ፣ ውድ ጠባቂዬ፣\nየእግዚአብሔር ፍቅር ለእኔ የሰጠህ፣\nዛሬ ሁልጊዜ ከአጠገቤ ሁን፣\nእንድታበራልኝ፣ እንድትጠብቀኝ፣ እንድትመራኝም። አሜን።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-      ],
-      'The Benedictus': [
-        PrayerStep(
-          sectionHeader: 'CANTICLE OF ZECHARIAH',
-          titleEn: 'The Benedictus',
-          titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-          contentEn:
-          'Blessed be the Lord, the God of Israel;\nhe has come to his people and set them free.\nHe has raised up for us a mighty savior,\nborn of the house of his servant David.\nThrough his holy prophets he promised of old\nthat he would save us from our enemies,\nfrom the hands of all who hate us.',
-          contentAm:
-          'የእስራኤል አምላክ ጌታ ይባረክ፤\nወደ ሕዝቡ መጥቶ ነጻ አውጥቷቸዋልና።\nበአገልጋዩ በዳዊት ቤት\nኃያል መድኃኒት አቆመልን፤\nከጠላቶቻችንና ከሚጠሉን ሁሉ እጅ እንደሚያድነን\nከጥንት ጀምሮ በቅዱሳን ነቢያቱ አፍ ተናግሯልና።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'COVENANT OF MERCY',
-          titleEn: 'The Benedictus',
-          titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-          contentEn:
-          'He promised to show mercy to our fathers\nand to remember his holy covenant.\nThis was the oath he swore to our father Abraham:\nto set us free from the hands of our enemies,\nfree to worship him without fear,\nholy and righteous in his sight all the days of our life.',
-          contentAm:
-          'ለአባቶቻችን ምሕረትን ለማድረግ\nቅዱስ ኪዳኑንም ለማሰብ ቃል ገባ፤\nይህም ለአባታችን ለአብርሃም የገባሁለት መሐላ ነው፤\nከጠላቶቻችን እጅ ነጻ ወጥተን፣\nበዘመናችን ሁሉ ያለ ፍርሃት በፊቱ በቅድስናና በጽድቅ እንድናመልከው።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'PROPHETIC PROPHECY',
-          titleEn: 'The Benedictus',
-          titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-          contentEn:
-          'You, my child, shall be called the prophet of the Most High;\nfor you will go before the Lord to prepare his way,\nto give his people knowledge of salvation\nby the forgiveness of their sins.',
-          contentAm:
-          'አንተም ሕፃን ሆይ፣ የልዑል ነቢይ ትባላለህ፤\nመንገዱን ልትጠርግ በጌታ ፊት ትሄዳለህና፣\nበኃጢአታቸው ስረየት የደኅንነትን እውቀት ለሕዝቡ ልትሰጥ።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-        PrayerStep(
-          sectionHeader: 'DAWN FROM ON HIGH',
-          titleEn: 'The Benedictus',
-          titleAm: 'የዘካርያስ ምስጋና (ቤኔዲክቱስ)',
-          contentEn:
-          'In the tender compassion of our God\nthe dawn from on high shall break upon us,\nto shine on those who dwell in darkness and the shadow of death,\nand to guide our feet into the way of peace.\nGlory to the Father and to the Son and to the Holy Spirit,\nas it was in the beginning, is now, and will be forever. Amen.',
-          contentAm:
-          'ከአምላካችን ከበዛው ርኅራኄ የተነሣ\nከላይ የመጣው ንጋት ይጎበኘናል፤\nበጨለማና በሞት ጥላ ውስጥ ለቀመጡት ሊያበራ፣\nእግሮቻችንንም ወደ ሰላም መንገድ ሊመራ።\nክብር ለአብ ለወልድ ለመንፈስ ቅዱስም ይሁን፣\nበመጀመሪያ እንደነበረ አሁንም ዘወትርም ለዘላለሙ። አሜን።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-      ],
-      'Act of Contrition': [
-        PrayerStep(
-          sectionHeader: 'REPENTANCE',
-          titleEn: 'Act of Contrition',
-          titleAm: 'የንስሐ ጸሎት',
-          contentEn:
-          'My God, I am sorry for my sins with all my heart. In choosing to do wrong and failing to do good, I have sinned against you whom I should love above all things.\nI firmly intend, with your help, to do penance, to sin no more, and to avoid whatever leads me to sin.\nOur Savior Jesus Christ suffered and died for us. In his name, my God, have mercy. Amen.',
-          contentAm:
-          'አምላኬ ሆይ፣ በፈጸምኩት ኃጢአት ሁሉ በሙሉ ልቤ እጸጸታለሁ። ክፉ በማድረጌና ደግ ነገር ባለማድረጌ፣ ከሁሉ በላይ ልወድህ በሚገባኝ በአንተ ላይ በደልሁ።\nበአንተ እርዳታ ንስሐ ለመግባት፣ ከእንግዲህ ወደ ኃጢአት ላለመመለስና ወደ ኃጢአት የሚመሩኝን ነገሮች ሁሉ ለማስወገድ ቁርጥ ውሳኔ አደርጋለሁ።\nመድኃኒታችን ኢየሱስ ክርስቶስ ስለ እኛ መከራን ተቀብሎ ሞተ። በስሙ አምላኬ ሆይ ምህረት አድርግልኝ። አሜን።',
-          imagePath: 'assets/img_2.png',
-        ),
-      ],
-      'Prayer for the Hour of Mercy': [
-        PrayerStep(
-          sectionHeader: 'FOUNT OF MERCY',
-          titleEn: 'Prayer for the Hour of Mercy',
-          titleAm: 'የምህረት ሰዓት ጸሎት',
-          contentEn:
-          'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of Mercy for us, I trust in You.\n\nYou Yourself, Jesus, surely out of love for us, underwent such a terrible Passion...',
-          contentAm:
-          'ለእኛ የምህረት ምንጭ ሆነህ ከኢየሱስ ልብ የፈሰስክ ደምና ውኃ ሆይ፣ በአንተ እተማመናለሁ...',
-          imagePath: 'assets/img_5.png',
-        ),
-      ],
-      'Prayer to St. Michael the Archangel': [
-        PrayerStep(
-          sectionHeader: 'PROTECTION IN BATTLE',
-          titleEn: 'Prayer to St. Michael the Archangel',
-          titleAm: 'ወደ ቅዱስ ሚካኤል ሊቀ መላእክት ጸሎት',
-          contentEn:
-          'Saint Michael the Archangel, defend us in battle.\nBe our protection against the wickedness and snares of the devil.\nMay God rebuke him, we humbly pray; and do thou,\nO Prince of the heavenly host, by the power of God,\ncast into hell Satan and all the evil spirits,\nwho prowl about the world seeking the ruin of souls. Amen.',
-          contentAm:
-          'ቅዱስ ሚካኤል ሊቀ መላእክት ሆይ፣ በውጊያ ላይ ጠብቀን።\nከዲያብሎስ ክፋትና ወጥመድ መከታ ሁነን።\nእግዚአብሔር እንዲገሥጸው በትሕትና እንጸልያለን፤\nአንተም የሰማያዊ ሠራዊት አለቃ ሆይ፣ በእግዚአብሔር ኃይል፣\nየነፍሳትን ጥፋት በመፈለግ በዓለም ላይ የሚዞሩትን\nሰይጣንንና ክፉዎችን መናፍስት ሁሉ ወደ ሲኦል ጣላቸው። አሜን።',
-          imagePath: 'assets/img_4.png',
-        ),
-      ],
-      'The Magnificat': [
-        PrayerStep(
-          sectionHeader: 'CANTICLE OF MARY',
-          titleEn: 'The Magnificat',
-          titleAm: 'የእመቤታችን ማርያም ምስጋና (ማግኒፊካት)',
-          contentEn:
-          'My soul proclaims the greatness of the Lord,\nmy spirit rejoices in God my Savior,\nfor he has looked with favor on his lowly servant.\nFrom this day all generations will call me blessed:\nthe Almighty has done great things for me,\nand holy is his Name.',
-          contentAm:
-          'ነፍሴ ጌታን ታበራዋለች፤\nመንፈሴም በአምላኬ በመድኃኒቴ ሐሴት ታደርጋለች፤\nየአገልጋዩን ትሕትና ተመልክቷልና።\nእነሆ ከዛሬ ጀምሮ ትውልድ ሁሉ ብፅዕት ይሉኛል፤\nብርቱ የሆነው እርሱ በእኔ ታላቅ ነገር አድርጓልና፤\nስሙም ቅዱስ ነው።',
-          imagePath: 'assets/sunrise.jpeg',
-        ),
-      ],
-      'Prayer to Saint Joseph': [
-        PrayerStep(
-          sectionHeader: 'PETITION TO ST. JOSEPH',
-          titleEn: 'Prayer to St. Joseph',
-          titleAm: 'ወደ ቅዱስ ዮሴፍ ጸሎት',
-          contentEn:
-          'Oh, St. Joseph, whose protection is so great, so prompt, so strong,\nbefore the throne of God, I place in you all my interests and desires...',
-          contentAm:
-          'ኦ ቅዱስ ዮሴፍ፣ ጥበቃህ በእግዚአብሔር ዙፋን ፊት እጅግ ታላቅ፣ ፈጣንና ኃያል የሆነ...',
-          imagePath: 'assets/img_12.png',
-        ),
-      ],
     // -------------------------------------------------------------------------
-    // NEW ADDITIONS FROM PERPLEXITY
+    // 10. TRADITIONAL EVENING PRAYER
     // -------------------------------------------------------------------------
     'Traditional Evening Prayer': [
       PrayerStep(
-        sectionHeader: 'EVENING THANKSGIVING',
-        titleEn: 'Traditional Evening Prayer',
-        titleAm: 'የምሽት ጸሎት',
-        contentEn:
-        'O my God, at the end of this day I thank You for all the graces I have received from You.\n'
-            'I am sorry for the sins I have committed this day. Forgive me, O Lord.\n'
-            'Protect me this night, and may Your grace be with me always. Amen.',
-        contentAm:
-        'አምላኬ ሆይ፣ በዚህ ቀን መጨረሻ ከእኔ የተቀበልኳቸውን ጸጋዎች ሁሉ አመሰግንሃለሁ።\n'
-            'ዛሬ ስለሠራኋቸው ኃጢአቶች እጸጸታለሁ። ጌታ ሆይ ይቅር በለኝ።\n'
-            'በዚህ ሌሊት ጠብቀኝ፣ ጸጋህም ሁልጊዜ ከእኔ ጋር ይሁን። አሜን።',
+        sectionHeader: 'EVENING PRAYER - OPTION 1',
+        sectionHeaderAm: 'የማታ ጸሎት 1',
+        titleEn: 'Evening Prayer - Option 1',
+        titleAm: 'የማታ ጸሎት',
+        contentEn: 'Sign of the Cross...\nIn the name of the Father, and of the Son, and of the Holy Spirit, one God. Amen.\n\n(My God, I adore You):\nMy God, I adore You and I love You with my whole heart. I thank You for having created me, for making me a Christian, and for having preserved me during this day (this night). I offer You all my actions of this day; grant that they all may be according to Your holy will and for Your greater glory. I pray that You keep me from sin and deliver me from all evil this night (this day). Our Father...',
+        contentAm: 'የመስቀል ምልክት...\nበሰመ አብ፣ በወልድና በመንፈስ ቅዱስ አንድ አምላክ፡፡ አሜን፡፡\n\n(አምላኬ ሆይ እሰግድልሃለሁ):-\nአምላኬ ሆይ እሰግድልሃለሁ፤ በልቤ በፍጹም እወድሃለሁ፣ ስለ ፈጠርኸኝና ክርሲቲያን ስላደረግኸኝ፣ በዚህች ሌሊት(በዚች ቀን) ስለጠበቅኸኝ አመሰግንሃለሁ፡፡ ሥራዬን ሁሉ ላንተ አቀርባለሁ፤ በዚህች ቀን(በዚህች ሌሊት) ከኃጢአት እንድትጠብቀኝ ከክፉ ነገርም ሁሉ እንድታድነኝ እለምንሃለሁ፡፡\n\nአባታችን ሆይ …',
+        imagePath: 'assets/img_10.png',
+      ),
+      PrayerStep(
+        sectionHeader: 'EVENING THANKSGIVING - OPTION 2',
+        sectionHeaderAm: 'የማታ ጸሎት 2',
+        titleEn: 'Traditional Evening Prayer - Option 2',
+        titleAm: 'የማታ ፀሎት (ልዩ)',
+        contentEn: 'O my God, at the end of this day I thank Thee most heartily for all the graces I have received from Thee. I am sorry for all my sins, and I beg Thy pardon for them. Look down upon me with Thy mercy, and protect me through this night. May Thy holy angels watch over me, and may the Blessed Virgin Mary, Saint Joseph, and my patron saints pray for me. Deliver me from all evil, and grant me a peaceful rest. Amen.',
+        contentAm: 'አምላኬ ሆይ፡- እኔ ሁል ጊዜ ከአንተ ለተቀበልኳቸው ጥቅሞች ሁሉ፤ ከሁሉ በላይ ለዚሁ ቀን አንተን አመሰግናለሁ፡፡ እኔ የሠራኋቸውን ኃጢአቶቼን እንድገናዘብ ብርሃን ስጠኝ በእነርሱም ከእውነት ለመጸጸት ጸጋህን ስጠኝ። አምላኬ ሆይ፣ በምህረትህ ተመልከተኝ፣ በዚህችም境 ሌሊት ጠብቀኝ። አሜን።',
         imagePath: 'assets/img_10.png',
       ),
     ],
 
+
+    // -------------------------------------------------------------------------
+    // 11. VISIT WE BESEECH THEE
+    // -------------------------------------------------------------------------
+    'Visit We Beseech Thee': [
+      PrayerStep(
+        sectionHeader: 'BLESSING OF THE FAMILY AND THE HOUSE',
+        sectionHeaderAm: 'ጸሎት ስለ ቤተሰብ ቡራኬ',
+        titleEn: 'Prayer for the Household',
+        titleAm: 'ስለ ቤተሰብ ና ስለ ቤት ቡራኬ',
+        contentEn: 'Hear us, Lord, holy Father, almighty and eternal God, and vouchsafe to send Your holy angel from heaven, to guard, cherish, protect, visit and defend all those who dwell in this house. Through Christ our Lord. Amen.',
+        contentAm: 'ሁሉን የምትችል ዘለዓለማዊ አምላክ ቅዱስ አባት ጌታችን ሆይ ጸሎታችንን ስማ እዚህ ቤት የሚገኙትን ሰዎች እንዲጠብቅ እንዲያበረታ እንዲደግፍ እንዲጎበኝ እንዲከላከልላቸው ከሰማይ መልአክህን ላክላቸው።',
+        imagePath: 'assets/img_2.png',
+      ),
+      PrayerStep(
+        sectionHeader: 'PROTECTION OF THE HOME',
+        sectionHeaderAm: 'ጸሎት ስለ ቤት ቡራኬ',
+        titleEn: 'Visit, We Beseech Thee',
+        titleAm: 'የቤት ጥበቃ ጸሎት',
+        contentEn: 'Visit, we beseech thee, O Lord, this dwelling, and drive far from it all the snares of the enemy; let thy holy angels dwell herein to preserve us in peace; and let thy blessing be always upon us. Through Christ our Lord. Amen.',
+        contentAm: 'አምላክ ሆይ ይህን ቤት እንድትጐበኝ የጠላትንም ወጥመድ ሁሉ ወዲያ እንድታርቅ እንለምንሃለን በሰላም እንዲጠብቁን ቅዱሳን መላእክትህ ይኑሩበት ቡራኬህም ሁል ጊዜ ከኛ ጋር ይሁን እያልን በጌታችን በኢየሱስ ክርስቶስ ስም እንለምንሃለን አሜን።',
+        imagePath: 'assets/img_2.png',
+      ),
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // 12. SHORT NIGHT PRAYER OR EVENING EXAMEN
+    // -------------------------------------------------------------------------
+    'Short Night Prayer or Evening Examen': [
+      PrayerStep(
+        sectionHeader: 'EXAMEN OF CONSCIENCE',
+        sectionHeaderAm: 'የሕሊና ምርመራ እና የምታ ጸሎት',
+        titleEn: 'Short Night Prayer',
+        titleAm: 'የማታ አጭር ጸሎት',
+        contentEn: 'Into Your hands, Lord, I commend my spirit. Forgive me my failings today, protect me through the quiet hours of the night, and grant me peaceful rest in Your sacred embrace. Amen.',
+        contentAm: 'ጌታ ሆይ፣ ነፍሴን በእጆችህ አደራ እሰጣለሁ። የዛሬውን ኃጢአቴን ይቅር በል፣ በዚህች ሌሊትም ጠብቀኝ፣ በቅዱስ እቅፍህም ሰላማዊ ዕረፍትን ስጠኝ። አሜን።',
+        imagePath: 'assets/ethiopian_night.jpeg',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 13. TE DEUM
+    // -------------------------------------------------------------------------
     'Te Deum': [
       PrayerStep(
-        sectionHeader: 'HYMN OF PRAISE',
-        titleEn: 'Te Deum (Hymn of Thanksgiving)',
-        titleAm: 'ተ ደኤም (የምስጋና መዝሙር)',
+        sectionHeader: 'READING FOCUS',
+        sectionHeaderAm: 'የንባብ ትኩረት',
+        titleEn: 'Te Deum',
+        titleAm: 'Te Deum (ምስጋና ለሥላሴ)',
         contentEn:
         'We praise Thee, O God; we acknowledge Thee to be the Lord.\n'
             'All the earth doth worship Thee, the Father everlasting.\n'
-            'To Thee all Angels cry aloud: the Heavens and all the Powers therein;\n'
+            'To Thee all Angels cry aloud, the Heavens and all the Powers therein.\n'
             'To Thee Cherubim and Seraphim continually do cry:\n'
             'Holy, Holy, Holy, Lord God of Sabaoth;\n'
-            'Heaven and earth are full of the majesty of Thy glory. Amen.',
+            'Heaven and earth are full of the Majesty of Thy glory.\n'
+            'The glorious company of the Apostles praise Thee.\n'
+            'The goodly fellowship of the Prophets praise Thee.\n'
+            'The noble army of Martyrs praise Thee.\n'
+            'The holy Church throughout all the world doth acknowledge Thee;\n'
+            'The Father of an infinite Majesty;\n'
+            'Thine honorable, true, and only Son;\n'
+            'Also the Holy Ghost, the Comforter.\n'
+            'Thou art the King of Glory, O Christ.\n'
+            'Thou art the everlasting Son of the Father.\n'
+            'When Thou tookest upon Thee to deliver man, Thou didst not abhor the Virgin\'s womb.\n'
+            'When Thou hadst overcome the sharpness of death, Thou didst open the Kingdom of Heaven to all believers.\n'
+            'Thou sittest at the right hand of God, in the glory of the Father.\n'
+            'We believe that Thou shalt come to be our Judge.\n'
+            'We therefore pray Thee, help Thy servants, whom Thou hast redeemed with Thy precious blood.\n'
+            'Make them to be numbered with Thy Saints in glory everlasting.\n'
+            'O Lord, save Thy people, and bless Thine heritage.\n'
+            'Govern them, and lift them up forever.\n'
+            'Day by day we magnify Thee;\n'
+            'And we worship Thy Name, ever world without end.\n'
+            'Vouchsafe, O Lord, to keep us this day without sin.\n'
+            'O Lord, have mercy upon us, have mercy upon us.\n'
+            'O Lord, let Thy mercy lighten upon us, as our trust is in Thee.\n'
+            'O Lord, in Thee have I trusted; let me never be confounded.\n'
+            'Amen.',
         contentAm:
-        'እግዚአብሔር ሆይ፣ እናመሰግንሃለን፤ ጌታ መሆንህን እንመሰክራለን።\n'
-            'ምድር ሁሉ ለዘላለም አባት ለአንተ ትሰግዳለች።\n'
-            'መላእክት ሁሉ፣ ሰማያትና በውስጣቸው ያሉ ኃይላት ሁሉ ወደ አንቺ ይጮሃሉ፤\n'
-            'ኪሩቤልና ሱራፌል ሳያቋርጡ ይጮሃሉ፡\n'
-            'ቅዱስ፣ ቅዱስ፣ ቅዱስ፣ የሠራዊት ጌታ እግዚአብሔር፤\n'
-            'ሰማይና ምድር የክብርህ ታላቅነት የተሞሉ ናቸው። አሜን።',
+        'አምላክ ሆይ፥ እናመሰግንሃለን፤ ጌታ እንደሆንህም እንመሰክራለን።\n'
+            'ዘላለማዊ አባት ሆይ፥ ምድር ሁሉ ትሰግድልሃለች።\n'
+            'መላእክት ሁሉ፥ ሰማያትም በውስጣቸው ያሉ ኃይላትም ሁሉ በታላቅ ድምፅ ወደ አንተ ይጮኻሉ።\n'
+            'ኪሩቤልና ሱራፌል ሳያቋርጡ ወደ አንተ ይጮኻሉ፦\n'
+            'ቅዱስ፥ ቅዱስ፥ ቅዱስ፥ የሠራዊት ጌታ እግዚአብሔር፤\n'
+            'ሰማይና ምድር በክብርህ ግርማ ተሞልተዋል።\n'
+            'የሐዋርያት የከበረ ማኅበር ያመሰግንሃል።\n'
+            'የነቢያት መልካም ኅብረት ያመሰግንሃል።\n'
+            'የሰማዕታት የተከበረ ሠራዊት ያመሰግንሃል።\n'
+            'በዓለም ሁሉ ያለች ቅድስት ቤተ ክርስቲያን አንተን ትመሰክራለች፤\n'
+            'ወሰን የሌለው ግርማ ባለቤት የሆነውን አብን፤\n'
+            'የተከበረውን፥ እውነተኛውንና አንድያውን ልጅህን፤\n'
+            'እንዲሁም አጽናኙን መንፈስ ቅዱስን።\n'
+            'ክርስቶስ ሆይ፥ አንተ የክብር ንጉሥ ነህ።\n'
+            'አንተ የአብ ዘላለማዊ ልጅ ነህ።\n'
+            'ሰውን ለማዳን ሰውነትን በተቀበልህ ጊዜ፥ የድንግልን ማኅፀን አልተጸየፍህም።\n'
+            'የሞትን መውጊያ ድል ካደረግህ በኋላ፥ መንግሥተ ሰማያትን ለምእመናን ሁሉ ከፈትህ።\n'
+            'በእግዚአብሔር ቀኝ በአብ ክብር ተቀምጠሃል።\n'
+            'ፈራጃችን ሆነህ እንደምትመጣ እናምናለን።\n'
+            'ስለዚህ እንለምንሃለን፤ በክቡር ደምህ የዋጀሃቸውን አገልጋዮችህን እርዳቸው።\n'
+            'በዘላለማዊ ክብር ከቅዱሳንህ ጋር እንዲቆጠሩ አድርጋቸው።\n'
+            'ጌታ ሆይ፥ ሕዝብህን አድን፤ ርስትህንም ባርክ።\n'
+            'ምራቸው፤ ለዘላለምም ከፍ ከፍ አድርጋቸው።\n'
+            'በየቀኑ እናከብርሃለን፤\n'
+            'ለስምህም ከዘላለም እስከ ዘላለም እንሰግዳለን።\n'
+            'ጌታ ሆይ፥ ይህችን ቀን ከሃጥያት እንድትጠብቀን እንለምንሃለን\n'
+            'ጌታ ሆይ፥ ማረን፤ ማረን።\n'
+            'ጌታ ሆይ፥ በአንተ እንደምንታመን ምሕረትህ በላያችን ይውረድ።\n'
+            'ጌታ ሆይ፥ በአንተ ታምኛለሁ፤ ለዘላለም አልፈር።\n'
+            'አሜን።',
         imagePath: 'assets/sunrise.jpeg',
       ),
     ],
 
+    // -------------------------------------------------------------------------
+    // 14. PRAYER TO ST. MICHAEL THE ARCHANGEL
+    // -------------------------------------------------------------------------
+    'Prayer to St. Michael the Archangel': [
+      PrayerStep(
+        sectionHeader: 'PROTECTION IN BATTLE',
+        sectionHeaderAm: 'የመንፈሳዊ ውጊያ ጥበቃ',
+        titleEn: 'Prayer to St. Michael the Archangel',
+        titleAm: 'ወደ ቅዱስ ሚካኤል ሊቀ መላእክት ጸሎት',
+        contentEn:
+        'Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil. May God rebuke him, we humbly pray; and do thou, O Prince of the heavenly host, by the power of God, cast into hell Satan and all the evil spirits, who prowl about the world seeking the ruin of souls. Amen.',
+        contentAm:
+        'እጅግ የተከበርክ ቅዱስ ሚካኤል ሆይ፣ ለምንልን፣ የሰማይ ሰራዊት ሁሉ አለቃ፣ የሰይጣን አሸናፊ፣ የቤተክርስቲያን ጠባቂና ባልደረባ፣ የቤተሰብ ረዳትየሆንክ ቅዱስ ሚካኤል ሆይ፣ ከሚታዩትና ከማይታዩት የነፍስ ጠላቶችና፣ ከርኩሳን መናፍስት ጠብቀን። አሜን።',
+        imagePath: 'assets/img_13.png',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 15. THE GUARDIAN ANGEL PRAYER
+    // -------------------------------------------------------------------------
+    'The Guardian Angel Prayer': [
+      PrayerStep(
+        sectionHeader: 'PROTECTION',
+        sectionHeaderAm: 'ጥበቃ',
+        titleEn: 'The Guardian Angel Prayer',
+        titleAm: 'ጸሎት ወደ ቅዱስ ጠባቂ መልአክ',
+        contentEn:
+        'Angel of God, my guardian dear, To whom God\'s love commits me here, Ever this day, be at my side, To light, to guard, to rule, and guide. Amen.',
+        contentAm:
+        'ጠባቂዬ የሆንህ የእግዚአብሔር መልአክ ሆይ፣ አንተ እንድትጠብቀኝ በአምላክ ቸርነት ላንተ ተሰጥቼአለሁና አዕምሮዬን አብራልኝ፣ ጠብቀኝ፣ ምራኝ፣ እርዳኝ። አሜን።',
+        imagePath: 'assets/guardian.jpg',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 16. LITANY OF THE HOLY NAME OF JESUS
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
+// LITANY OF THE HOLY NAME OF JESUS
+// -------------------------------------------------------------------------
+    'Litany of the Holy Name of Jesus': [
+      PrayerStep(
+        sectionHeader: 'OPENING INVOCATIONS',
+        sectionHeaderAm: 'የመግቢያ ምልጃ',
+        titleEn: 'Litany of the Holy Name of Jesus',
+        titleAm: 'የቅዱስ ኢየሱስ ስም ሊጣንያ',
+        contentEn:
+        'Lord, have mercy on us.\n'
+            'Christ, have mercy on us.\n'
+            'Lord, have mercy on us.\n'
+            'Jesus, hear us.\n'
+            'Jesus, graciously hear us.\n\n'
+            'God, the Father of Heaven, have mercy on us.\n'
+            'God the Son, Redeemer of the world, have mercy on us.\n'
+            'God, the Holy Spirit, have mercy on us.\n'
+            'Holy Trinity, one God, have mercy on us.\n\n'
+            'Jesus, Son of the living God, have mercy on us.\n'
+            'Jesus, Splendor of the Father, have mercy on us.\n'
+            'Jesus, Brightness of eternal Light, have mercy on us.\n'
+            'Jesus, King of Glory, have mercy on us.\n'
+            'Jesus, Sun of Justice, have mercy on us.\n'
+            'Jesus, Son of the Virgin Mary, have mercy on us.\n'
+            'Jesus, most admirable, have mercy on us.\n'
+            'Jesus, the mighty God, have mercy on us.\n'
+            'Jesus, Father of the world to come, have mercy on us.\n'
+            'Jesus, Angel of great counsel, have mercy on us.\n'
+            'Jesus, most powerful, have mercy on us.\n'
+            'Jesus, most patient, have mercy on us.\n'
+            'Jesus, most obedient, have mercy on us.\n'
+            'Jesus, meek and humble of heart, have mercy on us.\n'
+            'Jesus, lover of chastity, have mercy on us.\n'
+            'Jesus, our Lover, have mercy on us.\n'
+            'Jesus, God of Peace, have mercy on us.\n'
+            'Jesus, Author of Life, have mercy on us.\n'
+            'Jesus, Model of Virtues, have mercy on us.\n'
+            'Jesus, zealous for souls, have mercy on us.\n'
+            'Jesus, our God, have mercy on us.\n'
+            'Jesus, our Refuge, have mercy on us.\n'
+            'Jesus, Father of the Poor, have mercy on us.\n'
+            'Jesus, Treasure of the Faithful, have mercy on us.\n'
+            'Jesus, Good Shepherd, have mercy on us.\n'
+            'Jesus, True Light, have mercy on us.\n'
+            'Jesus, eternal Wisdom, have mercy on us.\n'
+            'Jesus, infinite Goodness, have mercy on us.\n'
+            'Jesus, our Way and our Life, have mercy on us.\n'
+            'Jesus, joy of the Angels, have mercy on us.\n'
+            'Jesus, King of the Patriarchs, have mercy on us.\n'
+            'Jesus, Master of the Apostles, have mercy on us.\n'
+            'Jesus, Teacher of the Evangelists, have mercy on us.\n'
+            'Jesus, Strength of Martyrs, have mercy on us.\n'
+            'Jesus, Light of Confessors, have mercy on us.\n'
+            'Jesus, Purity of Virgins, have mercy on us.\n'
+            'Jesus, Crown of all Saints, have mercy on us.\n\n'
+            'Be merciful, spare us, O Jesus.\n'
+            'Be merciful, graciously hear us, O Jesus.\n\n'
+            'From all evil, deliver us, O Jesus.\n'
+            'From all sin, deliver us, O Jesus.\n'
+            'From Your wrath, deliver us, O Jesus.\n'
+            'From the snares of the devil, deliver us, O Jesus.\n'
+            'From the spirit of impurity, deliver us, O Jesus.\n'
+            'From everlasting death, deliver us, O Jesus.\n'
+            'From neglect of Your inspirations, deliver us, O Jesus.\n\n'
+            'Through the mystery of Your holy Incarnation, deliver us, O Jesus.\n'
+            'Through Your Nativity, deliver us, O Jesus.\n'
+            'Through Your Infancy, deliver us, O Jesus.\n'
+            'Through Your most divine Life, deliver us, O Jesus.\n'
+            'Through Your labors, deliver us, O Jesus.\n'
+            'Through Your Agony and Passion, deliver us, O Jesus.\n'
+            'Through Your Cross and dereliction, deliver us, O Jesus.\n'
+            'Through Your sufferings, deliver us, O Jesus.\n'
+            'Through Your Death and Burial, deliver us, O Jesus.\n'
+            'Through Your Resurrection, deliver us, O Jesus.\n'
+            'Through Your Ascension, deliver us, O Jesus.\n'
+            'Through Your institution of the Most Holy Eucharist, deliver us, O Jesus.\n'
+            'Through Your joys, deliver us, O Jesus.\n'
+            'Through Your glory, deliver us, O Jesus.\n\n'
+            'Lamb of God, who takes away the sins of the world, spare us, O Jesus.\n'
+            'Lamb of God, who takes away the sins of the world, graciously hear us, O Jesus.\n'
+            'Lamb of God, who takes away the sins of the world, have mercy on us, O Jesus.\n'
+            'Jesus, hear us.\n'
+            'Jesus, graciously hear us.\n\n'
+            'Let us pray.\n'
+            'O Lord Jesus Christ, You have said, “Ask and you shall receive; seek, and you shall find; knock, and it shall be opened unto you.” Mercifully attend to our supplications, and grant us the grace of Your divine charity, that we may always love You with our whole heart, with all our words and deeds, and may never cease praising You.\n'
+            'Make us, O Lord, to have a lasting reverence and love for Your Holy Name, for You never fail to govern those whom You firmly establish in Your love.\n'
+            'You who live and reign forever and ever.\n'
+            'Amen.',
+        contentAm:
+        'ጌታ ሆይ • ማረን\n'
+            'ክርስቶስ ሆይ • ማረን\n'
+            'ጌታ ሆይ • ማረን\n'
+            'ኢየሱስ ሆይ • ስማን\n'
+            'ኢየሱስ ሆይ • አድምጠን\n\n'
+            'የሰማይ አባት አምላክ ሆይ • ማረን\n'
+            'የዓለም መድኃኒው የአምላክ ወንድ ሆይ • ማረን\n'
+            'መንፈስ ቅዱስ አምላክ ሆይ • ማረን\n'
+            'ቅዱስ ሥላሴ አንድ አምላክ ሆይ • ማረን\n\n'
+            'ኢየሱስ፥ የሕያው አምላክ ወንድ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የአብ ብርሃን ሆይ • ማረን\n'
+            'ኢየሱስ፥ የዘለለቀ ብርሃን ብርሃን ሆይ • ማረን\n'
+            'ኢየሱስ፥ የክብር ንጉሥ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የጽድቅ ፀሐይ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የድንግል ማርያም ወንድ ሆይ • ማረን\n'
+            'ኢየሱስ፥ በጣም የሚደነቅ ሆይ • ማረን\n'
+            'ኢየሱስ፥ ገዳይ አምላክ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የመጪው ዓለም አባት ሆይ • ማረን\n'
+            'ኢየሱስ፥ የታላቅ ምክር መልአክ ሆይ • ማረን\n'
+            'ኢየሱስ፥ በጣም ገዳይ ሆይ • ማረን\n'
+            'ኢየሱስ፥ በጣም ታጋሽ ሆይ • ማረን\n'
+            'ኢየሱስ፥ በጣም ታዘዥ ሆይ • ማረን\n'
+            'ኢየሱስ፥ ሩኅ ሩቅና ትሑት ልብ ያለው ሆይ • ማረን\n'
+            'ኢየሱስ፥ የንጹህነት ፍቃሪ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የእኛ ፍቃሪ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የሰላም አምላክ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የሕይወት መስጋት ሆይ • ማረን\n'
+            'ኢየሱስ፥ የሥነ-ምግባር ምሳሌ ሆይ • ማረን\n'
+            'ኢየሱስ፥ ለነፍሶች ታጋሽ ሆይ • ማረን\n'
+            'ኢየሱስ፥ አምላካችን ሆይ • ማረን\n'
+            'ኢየሱስ፥ መሸሸጊያችን ሆይ • ማረን\n'
+            'ኢየሱስ፥ የድሆች አባት ሆይ • ማረን\n'
+            'ኢየሱስ፥ የእምነተኞች ውድ ገበያ ሆይ • ማረን\n'
+            'ኢየሱስ፥ መልካም እረኛ ሆይ • ማረን\n'
+            'ኢየሱስ፥ እውነተኛ ብርሃን ሆይ • ማረን\n'
+            'ኢየሱስ፥ ዘለለቀ ጥበብ ሆይ • ማረን\n'
+            'ኢየሱስ፥ ያልተወሰነ መልካምነት ሆይ • ማረን\n'
+            'ኢየሱስ፥ መንገዳችንና ሕይወታችን ሆይ • ማረን\n'
+            'ኢየሱስ፥ የመልአካት ደስታ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የአባቶች ንጉሥ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የሐዋርያት መምህር ሆይ • ማረን\n'
+            'ኢየሱስ፥ የወንጌል ጸሐፊዎች አስተማሪ ሆይ • ማረን\n'
+            'ኢየሱስ፥ የተሰቃዮች ኃይል ሆይ • ማረን\n'
+            'ኢየሱስ፥ የእምነተኞች ብርሃን ሆይ • ማረን\n'
+            'ኢየሱስ፥ የድንግሎች ንጽህና ሆይ • ማረን\n'
+            'ኢየሱስ፥ የቅዱሳን ሁሉ ሴራቅ ሆይ • ማረን\n\n'
+            'ኢየሱስ ሆይ • ማርነን፥ አባርነን\n'
+            'ኢየሱስ ሆይ • ማርነን፥ አድምጠን\n\n'
+            'ከክፉ ሁሉ • አድነን ኢየሱስ ሆይ\n'
+            'ከኃጢአት ሁሉ • አድነን ኢየሱስ ሆይ\n'
+            'ከቍጣህ • አድነን ኢየሱስ ሆይ\n'
+            'ከዲያብሎስ ውርጃ • አድነን ኢየሱስ ሆይ\n'
+            'ከዝኙነኛ መንፈስ • አድነን ኢየሱስ ሆይ\n'
+            'ከዘለለቀ ሞት • አድነን ኢየሱስ ሆይ\n'
+            'ከተነሣሃብን መልአክት ማጣት • አድነን ኢየሱስ ሆይ\n\n'
+            'በቅዱስ ሥጋ ወነፍስ የተገለጥህ በሚስጥር • አድነን ኢየሱስ ሆይ\n'
+            'በወለድህ • አድነን ኢየሱስ ሆይ\n'
+            'በሕፃንነትህ • አድነን ኢየሱስ ሆይ\n'
+            'በበለጸገ መልካም ሕይወትህ • አድነን ኢየሱስ ሆይ\n'
+            'በሥራህ • አድነን ኢየሱስ ሆይ\n'
+            'በመከራህና በስቅለትህ • አድነን ኢየሱስ ሆይ\n'
+            'በመስቀልህና በተሃድሶህ • አድነን ኢየሱስ ሆይ\n'
+            'በስቃይህ • አድነን ኢየሱስ ሆይ\n'
+            'በሞትህና በተቀባርህ • አድነን ኢየሱስ ሆይ\n'
+            'በኵርናትህ • አድነን ኢየሱስ ሆይ\n'
+            'በወጣህ ጊዜ • አድነን ኢየሱስ ሆይ\n'
+            'በቅዱስ ቅዱስ ቅዱስ የእግዚአብሔር ሥጋ ወነፍስ ማስተዋወቅህ • አድነን ኢየሱስ ሆይ\n'
+            'በደስታህ • አድነን ኢየሱስ ሆይ\n'
+            'በክብርህ • አድነን ኢየሱስ ሆይ\n\n'
+            'የዓለም ኃጢአት የሚያስወግድ የእግዚእ ጠንቋይ ሆይ • ኢየሱስ ሆይ፥ አባርነን\n'
+            'የዓለም ኃጢአት የሚያስወግድ የእግዚእ ጠንቋይ ሆይ • ኢየሱስ ሆይ፥ አድምጠን\n'
+            'የዓለም ኃጢአት የሚያስወግድ የእግዚእ ጠንቋይ ሆይ • ኢየሱስ ሆይ፥ ማረን\n'
+            'ኢየሱስ ሆይ • ስማን\n'
+            'ኢየሱስ ሆይ • አድምጠን\n\n'
+            'እንጸልይ።\n'
+            'ጌታችን ኢየሱስ ክርስቶስ ሆይ፥ “ጠይቁ ትቀበሉ፥ ፍለጉ ታገኙ፥ ቅረቡ ይከፈትላችኋል” ብለሃል። ልመናችንን በምሕረት ተቀበል፥ የመልካምነትህን ጸጋ ስጠን፤ በልባችን ሁሉ፥ በቃላቻችንና በሥራቻችን ሁሉ ሁልጊዜ እንድንወድህ፥ ማመስገንም እንዳንቋርጥ።\n'
+            'ጌታ ሆይ፥ ለቅዱስ ስምህ ዘለለቀ ፍርሃትና ፍቅር ስጠን፤ በፍቅርህ የጠነከሩትን ሁልጊዜ አታሳልፋቸውምና።\n'
+            'ዘለለቀ ሕያው የሆንህና የምትነግሥ አንተ ነህ።\n'
+            'አሜን።',
+        imagePath: 'assets/img_16.png',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// ST. PATRICK'S BREASTPLATE
+// -------------------------------------------------------------------------
     'St. Patrick\'s Breastplate': [
       PrayerStep(
-        sectionHeader: 'LORICA OF PROTECTION',
+        sectionHeader: 'SHIELD INVOCATION',
+        sectionHeaderAm: 'የጥበቃ ጸሎት',
         titleEn: 'St. Patrick\'s Breastplate',
         titleAm: 'የቅዱስ ፓትሪክ ጥበቃ',
         contentEn:
-        'Christ with me, Christ before me, Christ behind me, Christ in me,\n'
-            'Christ beneath me, Christ above me, Christ on my right, Christ on my left,\n'
-            'Christ when I lie down, Christ when I sit, Christ when I arise,\n'
-            'Christ in the heart of every man who thinks of me,\n'
-            'Christ in the mouth of everyone who speaks of me,\n'
-            'Christ in every eye that sees me, Christ in every ear that hears me. Amen.',
+        'I bind unto myself today\n'
+            'The power of God to hold and lead me,\n'
+            'The eye of God to watch over me,\n'
+            'The wisdom of God to teach me,\n'
+            'The ear of God to hear me,\n'
+            'The word of God to speak for me,\n'
+            'The hand of God to guide me,\n'
+            'The way of God to lie before me,\n'
+            'The shield of God to shelter me,\n'
+            'The host of God to secure me,\n'
+            'Against the snares of demons,\n'
+            'Against the seductions of vices,\n'
+            'Against the lusts of nature,\n'
+            'Against everyone who meditates injury to me,\n'
+            'Whether far or near,\n'
+            'Whether few or many.\n\n'
+            'Christ be with me,\n'
+            'Christ within me,\n'
+            'Christ behind me,\n'
+            'Christ before me,\n'
+            'Christ beside me,\n'
+            'Christ to win me,\n'
+            'Christ to comfort and restore me,\n'
+            'Christ beneath me,\n'
+            'Christ above me,\n'
+            'Christ in quiet,\n'
+            'Christ in danger,\n'
+            'Christ in the hearts of all who love me,\n'
+            'Christ in the mouth of friend and stranger.\n\n'
+            'I bind unto myself today\n'
+            'The strong name of the Trinity,\n'
+            'By invocation of the same,\n'
+            'The Three in One, and One in Three,\n'
+            'Of whom all nature has creation,\n'
+            'Eternal Father, Spirit, Word:\n'
+            'Praise to the Lord of my salvation;\n'
+            'Salvation is of Christ the Lord.\n'
+            'Amen.',
         contentAm:
-        'ክርስቶስ ከእኔ ጋር፣ ክርስቶስ በፊቴ፣ ክርስቶስ ከበስተኋላዬ፣ ክርስቶስ በእኔ ውስጥ፣\n'
-            'ክርስቶስ ከበታቼ፣ ክርስቶስ ከበላዬ፣ ክርስቶስ በቀኝ በኩል፣ ክርስቶስ በግራ በኩል፣\n'
-            'ስተኛ ክርስቶስ፣ ስቀመጥ ክርስቶስ፣ ስነሳ ክርስቶስ፣\n'
-            'ስለ እኔ በሚያስብ ሰው ሁሉ ልብ ውስጥ ክርስቶስ፣\n'
-            'ስለ እኔ በሚናገር ሰው ሁሉ አፍ ውስጥ ክርስቶስ፣\n'
-            'በሚያየኝ ዓይን ሁሉ ውስጥ ክርስቶስ፣ በሚሰማኝ ጆሮ ሁሉ ውስጥ ክርስቶስ። አሜን።',
-        imagePath: 'assets/francis.jpg',
+        'ዛሬ ለራሴ እገያለሁ\n'
+            'እንድታይዝኝና እንድታስተምረኝ የአምላክን ኃይል፤\n'
+            'እንድታሳምረኝ የአምላክን ዓይን፤\n'
+            'እንድታስተምረኝ የአምላክን ጥበብ፤\n'
+            'እንድታዳምጠኝ የአምላክን ጆሮ፤\n'
+            'እንድትናገርልኝ የአምላክን ቃል፤\n'
+            'እንድታስተምረኝ የአምላክን እጅ፤\n'
+            'እንድታስቀምጥልኝ የአምላክን መንገድ፤\n'
+            'እንድታሸጠኝ የአምላክን ጋሻ፤\n'
+            'እንድታጠብኝ የአምላክን ሠራዊት፤\n'
+            'ከዲያብሎሳት ውርጃ፤\n'
+            'ከክፉ ምኞቶች ማታለል፤\n'
+            'ከተፈጥሮ ዝኙነኛ ምኞት፤\n'
+            'ርቀትም ቅርብም ሆነ ብዙም ሆነ ጥቂትም፥\n'
+            'ልከፍተኝ የሚፈልግ ሰው ሁሉ እንድታድነኝ።\n\n'
+            'ክርስቶስ ከእኔ ጋር፣\n'
+            'ክርስቶስ በእኔ ውስጥ፣\n'
+            'ክርስቶስ ከኋላዬ፣\n'
+            'ክርስቶስ ከፊቴ፣\n'
+            'ክርስቶስ አጠገቤ፣\n'
+            'ክርስቶስ ለማሸነፌ፣\n'
+            'ክርስቶስ ለማረኬና ለማበረታታቴ፣\n'
+            'ክርስቶስ ከእኔ በታች፣\n'
+            'ክርስቶስ ከእኔ በላይ፣\n'
+            'ክርስቶስ በረሃብታ፣\n'
+            'ክርስቶስ በመከራ፣\n'
+            'ክርስቶስ በሚወዱኝ ሁሉ ልብ ውስጥ፣\n'
+            'ክርስቶስ በጓደኛም ሆነ በእንግዳ አፍ ውስጥ።\n\n'
+            'ዛሬ ለራሴ እገያለሁ\n'
+            'የሥላሴን ጠንካራ ስም፤\n'
+            'በስሙ ጥሪ፤\n'
+            'ሦስት በአንድ፥ አንድ በሦስት፤\n'
+            'ሁሉንም ፍጥረት የፈጠረው፤\n'
+            'ዘለለቀ አብ፥ መንፈስ፥ ቃል፤\n'
+            'ለመዳኔ ጌታ ምስጋና ይገባል፤\n'
+            'ድኅነት የጌታው ከክርስቶስ ነው።\n'
+            'አሜን።',
+        imagePath: 'assets/saint patrick.jpg',
       ),
     ],
 
-    'Visit We Beseech Thee': [
+    // -------------------------------------------------------------------------
+    // 18. ACT OF CONTRITION
+    // -------------------------------------------------------------------------
+    'Act of Contrition': [
       PrayerStep(
-        sectionHeader: 'PROTECTION OF THE HOME',
-        titleEn: 'Visit, We Beseech Thee',
-        titleAm: 'የቤት ጥበቃ ጸሎት',
-        contentEn:
-        'Visit, we beseech Thee, O Lord, this habitation, and drive far from it all snares of the enemy.\n'
-            'Let Thy holy Angels dwell herein to preserve us in peace;\n'
-            'and may Thy blessing be always upon us, through our Lord Jesus Christ. Amen.',
-        contentAm:
-        'ጌታ ሆይ፣ ይህንን መኖሪያ እንድትጎበኝ፣ የጠላትንም ወጥመድ ሁሉ ከእርሱ እንድታርቅ እንለምንሃለን።\n'
-            'በሰላም እንድንኖር ቅዱሳን መላእክትህ በእርሱ ውስጥ ይደሩ፤\n'
-            'በረከትህም በጌታችን በኢየሱስ ክርስቶስ በኩል ሁልጊዜ በእኛ ላይ ይሁን። አሜን።',
+        sectionHeader: 'REPENTANCE',
+        sectionHeaderAm: 'የንስሐ ጸሎት',
+        titleEn: 'Act of Contrition',
+        titleAm: 'የንስሐ ጸሎት',
+        contentEn: 'O my God, I am heartily sorry for having offended You, and I detest all my sins because of Your just punishments, but most of all because they offend You, my God, who are all good and deserving of all my love. I firmly resolve, with the help of Your grace, to sin no more and to avoid the near occasions of sin. Amen.',
+        contentAm: 'አምላኬ ሆይ ፍጹም ተወዳጅ ነህ፣ ኃጢአትን የምትጠላ ነህ፤ በኃጢአቴ ስለበደልኩህ እጅግ አዝናለሁ፤ ማረኝ! ዳግመኛ ወደ ኃጢአት አልመለስም፤ በጸጋህ ከኃጢአት ምክንያት ሁሉ እርቃለሁ። አሜን።',
         imagePath: 'assets/img_2.png',
       ),
     ],
 
+    // -------------------------------------------------------------------------
+    // 19. PRAYER FOR THE HOUR OF MERCY
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
+// 19. PRAYER FOR THE FORGIVENESS OF SINS
+// -------------------------------------------------------------------------
+    'Prayer for the Hour of Mercy': [
+      PrayerStep(
+        sectionHeader: 'THE HOUR OF MERCY',
+        sectionHeaderAm: 'የምሕረት ሰዓት',
+        titleEn: 'Prayer for the Hour of Mercy',
+        titleAm: 'የምሕረት ሰዓት ጸሎት',
+        contentEn:
+        'At three in the afternoon,\n'
+            'the hour Christ died on the Cross,\n'
+            'pause wherever you are, even for a moment.\n'
+            'Remember His Passion and ask for His mercy,\n'
+            'especially for sinners.',
+        contentAm:
+        'ከቀኑ በዘጠኝ ሰዓት፣\n'
+            'ክርስቶስ በመስቀል ላይ በሞተበት ሰዓት፣\n'
+            'ባሉበት ለአፍታም ቢሆን ቆም ይበሉ።\n'
+            'ሕማሙን ያስቡ፤ ምሕረቱንም ይለምኑ፤\n'
+            'በተለይም ለኃጢአተኞች።',
+        imagePath: 'assets/img_5.png',
+      ),
+      PrayerStep(
+        sectionHeader: 'THE PRAYER',
+        sectionHeaderAm: 'ጸሎቱ',
+        titleEn: 'Prayer for the Hour of Mercy',
+        titleAm: 'የምሕረት ሰዓት ጸሎት',
+        contentEn:
+        'You expired, Jesus,\n'
+            'but the source of life gushed forth for souls,\n'
+            'and the ocean of mercy opened up for the whole world.\n\n'
+            'O Fount of Life,\n'
+            'unfathomable Divine Mercy,\n'
+            'envelop the whole world\n'
+            'and empty Yourself out upon us.',
+        contentAm:
+        'ኢየሱስ ሆይ፣ ሞትህ፤\n'
+            'ነገር ግን የሕይወት ምንጭ ለነፍሳት ፈለቀ፤\n'
+            'የምሕረትም ውቅያኖስ ለዓለም ሁሉ ተከፈተ።\n\n'
+            'የሕይወት ምንጭ ሆይ፣\n'
+            'የማይመረመር መለኮታዊ ምሕረት ሆይ፣\n'
+            'ዓለምን ሁሉ ሸፍን፤\n'
+            'ራስህንም በእኛ ላይ አፍስስ።',
+        imagePath: 'assets/img_5.png',
+      ),
+      PrayerStep(
+        sectionHeader: 'AN ACT OF TRUST',
+        sectionHeaderAm: 'የመታመን ጸሎት',
+        titleEn: 'Prayer for the Hour of Mercy',
+        titleAm: 'የምሕረት ሰዓት ጸሎት',
+        contentEn:
+        'O Blood and Water,\n'
+            'which gushed forth from the Heart of Jesus\n'
+            'as a fount of mercy for us,\n'
+            'I trust in You!\n\n'
+            'Jesus, I trust in You.\n'
+            'Amen.',
+        contentAm:
+        'ከኢየሱስ ልብ ለእኛ እንደ ምሕረት ምንጭ የፈለቁ\n'
+            'ደምና ውሃ ሆይ፣\n'
+            'በአንተ ታምኛለሁ!\n\n'
+            'ኢየሱስ ሆይ፣ በአንተ ታምኛለሁ።\n'
+            'አሜን።',
+        imagePath: 'assets/img_5.png',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 20. PSALM 51 (MISERERE)
+    // -------------------------------------------------------------------------
     'Psalm 51 (Miserere)': [
       PrayerStep(
-        sectionHeader: 'ACT OF PENITENCE',
+        sectionHeader: 'PSALM 51',
+        sectionHeaderAm: 'መዝሙር 51',
         titleEn: 'Psalm 51 (Miserere)',
-        titleAm: 'መዝሙር 51 (ምህረት አድርግልኝ)',
+        titleAm: 'መዝሙር 51 (የዳዊት ጸሎት)',
         contentEn:
-        'Have mercy on me, O God, according to Thy steadfast love;\n'
-            'according to Thy abundant mercy blot out my transgressions.\n'
-            'Wash me thoroughly from my iniquity, and cleanse me from my sin!\n'
-            'Create in me a clean heart, O God, and put a new and right spirit within me. Amen.',
+        'Have mercy upon me, O God, according to thy lovingkindness:\n'
+            'according unto the multitude of thy tender mercies blot out my transgressions.\n\n'
+            'Wash me throughly from mine iniquity,\n'
+            'and cleanse me from my sin.\n\n'
+            'For I acknowledge my transgressions:\n'
+            'and my sin is ever before me.\n\n'
+            'Against thee, thee only, have I sinned,\n'
+            'and done this evil in thy sight:\n'
+            'that thou mightest be justified when thou speakest,\n'
+            'and be clear when thou judgest.\n\n'
+            'Behold, I was shapen in iniquity;\n'
+            'and in sin did my mother conceive me.\n\n'
+            'Behold, thou desirest truth in the inward parts:\n'
+            'and in the hidden part thou shalt make me to know wisdom.\n\n'
+            'Purge me with hyssop, and I shall be clean:\n'
+            'wash me, and I shall be whiter than snow.\n\n'
+            'Make me to hear joy and gladness;\n'
+            'that the bones which thou hast broken may rejoice.\n\n'
+            'Hide thy face from my sins,\n'
+            'and blot out all mine iniquities.\n\n'
+            'Create in me a clean heart, O God;\n'
+            'and renew a right spirit within me.\n\n'
+            'Cast me not away from thy presence;\n'
+            'and take not thy holy spirit from me.\n\n'
+            'Restore unto me the joy of thy salvation;\n'
+            'and uphold me with thy free spirit.\n\n'
+            'Then will I teach transgressors thy ways;\n'
+            'and sinners shall be converted unto thee.\n\n'
+            'Deliver me from bloodguiltiness, O God,\n'
+            'thou God of my salvation:\n'
+            'and my tongue shall sing aloud of thy righteousness.\n\n'
+            'O Lord, open thou my lips;\n'
+            'and my mouth shall shew forth thy praise.\n\n'
+            'For thou desirest not sacrifice; else would I give it:\n'
+            'thou delightest not in burnt offering.\n\n'
+            'The sacrifices of God are a broken spirit:\n'
+            'a broken and a contrite heart, O God, thou wilt not despise.',
         contentAm:
-        'አምላክ ሆይ፣ እንደ ቸርነትህ መጠን ምሕረት አድርግልኝ፤\n'
-            'እንደ ምሕረትህም ብዛት መተላለፌን ደምስስ።\n'
-            'ከበደሌ ፈጽመህ እጠበኝ፣ ከኃጢአቴም አ hisፅራኝ።\n'
-            'አምላክ ሆይ፣ ንጹሕ ልብን ፍጠርልኝ፣ የቀናውንም መንፈስ በውስጤ አድስ። አሜን።',
+        'እግዚአብሔር ሆይ፤ እንደ ቸርነትህ መጠን፣ ምሕረት አድርግልኝ፤\n'
+            'እንደ ርኅራኄህም ብዛት፣ መተላለፌን ደምስስ።\n'
+            'በደሌን ፈጽሞ እጠብልኝ፤ ከኀጢአቴም አንጻኝ።\n\n'
+            'እኔ መተላለፌን አውቃለሁና፤ ኀጢአቴም ዘወትር በፊቴ ነው።\n'
+            'በውሳኔህ ትክክል፣ በምትሰጠው ፍርድም ንጹሕ ትሆን ዘንድ፣\n'
+            'አንተን፣ በእርግጥ አንተን ብቻ በደልሁ፤ በፊትህም ክፉ ነገር አደረግሁ።\n\n'
+            'ስወለድ ጀምሮ በደለኛ፣ ገና እናቴም ስትፀንሰኝ ኀጢአተኛ ነኝ።\n'
+            'እነሆ፤ እውነትን ከሰው ልብ ትሻለህ፤\n'
+            'ስለዚህ ጥልቅ ጥበብን በውስጤ አስተምረኝ።\n\n'
+            'በሂሶጵ እርጨኝ፤ እኔም እነጻለሁ፤ እጠበኝ፤ ከበረዶም ይልቅ ነጭ እሆናለሁ።\n'
+            'ሐሤትንና ደስታን አሰማኝ፤ ያደቀቅሃቸው ዐጥንቶቼም ደስ ይበላቸው።\n\n'
+            'ፊትህን ከኀጢአቴ መልስ፤ በደሌንም ሁሉ ደምስስልኝ።\n'
+            'አምላኬ ሆይ፤ ንጹሕ ልብ ፍጠርልኝ፤ ቀና የሆነውንም መንፈስ በውስጤ አድስ።\n'
+            'ከፊትህ አትጣለኝ፤ ቅዱስ መንፈስህንም ከእኔ ላይ አትውሰድ።\n\n'
+            'የማዳንህን ደስታ መልስልኝ፤ በእሽታ መንፈስም ደግፈህ ያዘኝ።\n'
+            'እኔም ለሕግ ተላላፊዎች መንገድህን አስተምራለሁ፤ ኀጢአተኞችም ወደ አንተ ይመለሳሉ።\n\n'
+            'የድነቴ አምላክ እግዚአብሔር ሆይ፤ ደም ከማፍሰስ አድነኝ፤\n'
+            'አንደበቴም ስለ ጽድቅህ በእልልታ ይዘምራል።\n'
+            'ጌታ ሆይ ከንፈሮቼን ክፈት፤ አፌም ምስጋናህን ያውጃል።\n\n'
+            'መሥዋዕትን ብትወድ ኖሮ ባቀረብሁልህ ነበር፤ የሚቃጠል መሥዋዕትም ደስ አያሰኝህም።\n'
+            'እግዚአብሔር የሚቀበለው መሥዋዕት የተሰበረ መንፈስ ነው፤\n'
+            'እግዚአብሔር ሆይ፤ አንተ የተሰበረውንና የተዋረደውን ልብ አትንቅም።',
         imagePath: 'assets/img_2.png',
       ),
     ],
 
+    // -------------------------------------------------------------------------
+    // 21. ANIMA CHRISTI
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
+// ANIMA CHRISTI
+// -------------------------------------------------------------------------
+    'Anima Christi': [
+      PrayerStep(
+        sectionHeader: 'PRAYER AFTER HOLY COMMUNION',
+        sectionHeaderAm: 'ጸሎት ከቁርባን በኋላ',
+        titleEn: 'Anima Christi',
+        titleAm: 'አኒማ ክርስቲ (የቅዱስ ቁርባን ጸሎት)',
+        contentEn:
+        'My Lord, You have given Your whole self to me,\n'
+            'and I also give my whole self to You.\n'
+            'I offer You my heart and my soul.\n'
+            'I give You my whole life.\n'
+            'I desire to be Yours forever.\n\n'
+            'My Lord, grant me all the graces that are beneficial for my soul.\n'
+            'Help my relatives, my loved ones, and those who are kind to me.\n'
+            'Deliver also the souls in purgatory from their suffering.\n\n'
+            'Soul of Christ, sanctify me.\n'
+            'Body of Christ, save me.\n'
+            'Blood of Christ, inebriate me.\n'
+            'Water from the side of Christ, wash me.\n'
+            'Passion of Christ, strengthen me.\n'
+            'O good Jesus, hear me.\n'
+            'Within Your wounds hide me.\n'
+            'Do not allow me to be separated from You.\n'
+            'From the evil enemy, defend me.\n'
+            'In the hour of my death, call me.\n'
+            'And bid me come to You,\n'
+            'that with Your saints I may praise You forever and ever.\n'
+            'Amen.',
+        contentAm:
+        'ጌታዬ ሆይ፥ ሁለንተናህን ለኔ ሰጥተሃልና፥\n'
+            'እኔም ሁለንተናየን ላንተ እሰጥሃለሁ።\n'
+            'ልቤን ነፍሴን አቀርብልሃለሁ።\n'
+            'ሕይወቴን በሙሉ ላንተ እሰጥሃለሁ።\n'
+            'ለዘላለም ያንተ መሆን እፈልጋለሁ።\n\n'
+            'ጌታዬ ሆይ፥ ለነፍሴ ጠቃሚዎች የሆኑትን ጸጋዎች ሁሉ ስጠኝ።\n'
+            'ዘመዶቼን፥ ወዳጆቼን፥ መልካም አድራጊዎቼን እርዳቸው።\n'
+            'የንስሐ ቦታ ነፍሶችንም ከጭንቅ አውጣቸው።\n\n'
+            'የክርስቶስ ነፍስ ሆይ፥ ቀድሰኝ።\n'
+            'የክርስቶስ ሥጋ ሆይ፥ አድነኝ።\n'
+            'የክርስቶስ ደም ሆይ፥ እጠበኝ።\n'
+            'የክርስቶስ ሕማም ሆይ፥ አበርታኝ።\n'
+            'ደጉ ኢየሱስ ሆይ፥ ስማኝ።\n'
+            'በቁስሎችህ ሰውረኝ።\n'
+            'ከክፉ ጠላት አድነኝ።\n'
+            'ካንተ እንዳልለይ አድርገኝ።\n'
+            'በሞት ጊዜ ወዳንተ ጥራኝ።\n'
+            'ለዘለዓለም ከቅዱሳን ጋር እንዳመሰግንህ ወዳንተ እመጣ ዘንድ ፍቀድልኝ።\n'
+            'አሜን።',
+        imagePath: 'assets/anima christi vip.jpg',
+      ),
+    ],
+
+
+    'Prayer Before Holy Communion': [
+      PrayerStep(
+        sectionHeader: 'BEFORE HOLY COMMUNION',
+        sectionHeaderAm: 'ከቅዱስ ቁርባን በፊት',
+        titleEn: 'Prayer Before Holy Communion',
+        titleAm: 'ጸሎት በቅዱስ ቁርባን ፊት',
+        contentEn:
+        'Our Lord Jesus Christ, for the love of mankind, through the symbol of Your kindness and love, the Holy Communion, You wait day and night for those who visit You; You call them and receive them.\n\n'
+            'On this tabernacle throne, in the Holy Communion, we believe that You are truly present.\n'
+            'We worship You.\n'
+            'For all the good things You have done for us, we thank You.\n'
+            'We thank You especially because You gave Yourself to us in the Holy Communion.\n'
+            'We also thank You because You gave us Your Holy Mother Mary to be our protector.\n\n'
+            'By thanking Your Sacred Heart,\n'
+            'by offering You the kiss of love in place of the betrayal You endured,\n'
+            'and by giving You the honor You deserve in place of the humiliation You received in the Holy Communion, we worship You.\n\n'
+            'Our Jesus, we love You in our hearts.\n'
+            'We are sorry for having offended Your boundless kindness so many times.\n'
+            'In the time to come, we firmly resolve not to offend You again.\n'
+            'Even now, our poverty is known; we offer our whole being to You.\n'
+            'Let our will, our love, and all our desires be Yours.\n'
+            'From this day forward, do with us, and with all that is ours, as You please.\n\n'
+            'We ask only one thing of You:\n'
+            'make Your love never depart from us,\n'
+            'make our final end beautiful,\n'
+            'and enable us always to fulfill Your will.\n\n'
+            'Helper of souls in purgatory, help those entrusted to Your care.\n'
+            'Help especially those who once honored You in the Holy Communion\n'
+            'and loved Your Holy Mother Mary.\n'
+            'Look upon all sinners with eyes of mercy.\n\n'
+            'Our most beloved Savior, Jesus Christ, we unite all our thoughts with the thoughts of Your beloved Sacred Heart and offer them to Your eternal Father.\n'
+            'We ask this in Your name, that He may accept them for love of You.\n\n'
+            'Jesus our God, who are present in the Holy Communion, the mystery of love, we worship You.\n'
+            'May this most holy divine mystery be praised forever.',
+        contentAm:
+        'ጌታችን ኢየሱስ ክርስቶስ ሆይ፥ ስለ ሰዎች ፍቅር ብለህ፥ የደግነትህና የፍቅርህ ምልክት በሆነው በምሥጢረ ቁርባን፥ ሌት ተቀን ተገኝተህ የሚጎበኙህን ትጠባበቃለህ፥ ትጠራለህ፥ ትቀበላለህም።\n\n'
+            'በዚህ በመንበረ ታቦት ላይ፥ በምሥጢረ ቁርባን፥ በእውነት እንዳለህ እናምናለን።\n'
+            'እንሰግድልሃለን።\n'
+            'ስላደረግህልን መልካም ነገር ሁሉ እናመሰግንሃለን።\n'
+            'ይልቁንም በቁርባን ራስህን ስለሰጠኸን እናመሰግንሃለን።\n'
+            'ቅድስት እናትህን ማርያምን ጠበቃ እንድትሆነን ስለሰጠኸንም እናመሰግንሃለን።\n\n'
+            'ቅዱስ ልብህን በማመስገን፥\n'
+            'በምትበደለው በደል ፈንታ ካሣ በማቅረብ፥\n'
+            'በቅዱስ ቁርባን በሚያዋርዱህ ውርደት ፈንታ የተገባ ክብር በመስጠት እንሰግድልሃለን።\n\n'
+            'የኛ ኢየሱስ ሆይ፥ በልባችን እንወድሃለን።\n'
+            'ወሰን የሌለውን ደግነትህን ብዙ ጊዜ በመበደላችን እንፀፀታለን።\n'
+            'በመጪው ጊዜ ዳግመኛ አንበድልህም ብለን ቁርጥ ፈቃድ እናደርጋለን።\n'
+            'አሁንም ቢሆን ምስኪንነታችን የታወቀ ነው፤ ሁለንተናችንን ላንተ እናቀርባለን።\n'
+            'ፈቃዳችን፥ ፍቅራችን፥ ምኞታችን፥ ያለንም ሁሉ ያንተ ይሁን።\n'
+            'ከዛሬ ጀምሮ እኛንም ሆነ ያለንን ሁሉ እንደፈለግህ አድርግ።\n\n'
+            'አንድ ነገር ብቻ እንለምንሃለን፥\n'
+            'ፍቅርህ እንዳይለየን፥ የመጨረሻው ፍጻሜያችን እንዲያምርልን፥\n'
+            'ሁልጊዜ ፈቃድህን ፈጻሚ ሆነን እንድንገኝ አድርገን።\n\n'
+            'የንስሐ ቦታ ነፍሶችን አደራህ ሆይ፥ እርዳቸው።\n'
+            'ይልቁንም አንተን በምሥጢረ ቁርባን ያከብሩ የነበሩትን፥\n'
+            'ቅድስት ማርያምን የሚወዱ የነበሩትን እርዳቸው።\n'
+            'እንዲሁም ኃጢአተኞችን ሁሉ በምሕረት ዓይን ተመልከታቸው።\n\n'
+            'እጅግ የተወደድህ መድኃኒታችን ኢየሱስ ክርስቶስ ሆይ፥ ከተወዳጁ ቅዱስ ልብህ አሳቦች ጋር የኛንም አሳቦች ሁሉ አጋጥመን ለዘላለማዊ አባትህ እናቀርባለን።\n'
+            'ስላንተ ፍቅር ሲል እንዲቀበለን ባንተ ስም እንለምነዋለን።\n\n'
+            'የፍቅር ምስጢር በሆነው በቅዱስ ቁርባን የምትገኝ ኢየሱስ አምላካችን ሆይ፥ እንሰግድልሃለን።\n'
+            'ይህ እጅግ የተቀደሰ አምላካዊ ምስጢር ሁልጊዜ የተመሰገነ ይሁን።',
+        imagePath: 'assets/Holy Mass.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 23. BLESSING OF THE HOLY COMMUNION (ST. THOMAS)
+// -------------------------------------------------------------------------
+    'Blessing of the Holy Communion (St. Thomas)': [
+      PrayerStep(
+        sectionHeader: 'EUCHARISTIC BLESSING',
+        sectionHeaderAm: 'የቅዱስ ቁርባን ቡራኬ',
+        titleEn: 'Blessing of the Holy Communion (St. Thomas)',
+        titleAm: 'የቅዱስ ቁርባን ቡራኬ (የቅዱስ ቶማስ)',
+        contentEn:
+        'Before this exceedingly exalted mystery, let us humble ourselves and worship.\n'
+            'Let the old order give way to the new.\n'
+            'Let faith supply what the senses cannot grasp.\n'
+            'To the Father and to the Son be praise, joy, honor, power, and thanksgiving.\n'
+            'To the Spirit proceeding from both be equal praise.\n'
+            'Amen.\n\n'
+            'He gave them bread from heaven,\n'
+            'containing all sweetness.\n\n'
+            'Let us pray.\n\n'
+            'O God, who in this wondrous mystery have left us a memorial of Your Passion, grant us, we pray, so to venerate the sacred mysteries of Your Body and Blood that we may always experience within ourselves the fruit of Your redemption.\n'
+            'You who live and reign forever and ever.\n'
+            'Amen.\n\n'
+            'Thanksgiving after the Blessing.\n\n'
+            'Blessed be God.\n'
+            'Blessed be His Holy Name.\n'
+            'Blessed be Jesus Christ, true God and true Man.\n'
+            'Blessed be the Name of Jesus.\n'
+            'Blessed be His Most Sacred Heart.\n'
+            'Blessed be Jesus in the Most Holy Sacrament of the Altar.\n'
+            'Blessed be Jesus in His Precious Blood.\n'
+            'Blessed be the Holy Spirit, the Paraclete.\n'
+            'Blessed be the great Mother of God, Mary most holy.\n'
+            'Blessed be her holy and immaculate Conception.\n'
+            'Blessed be her glorious Assumption.\n'
+            'Blessed be the name of Mary, Virgin and Mother.\n'
+            'Blessed be Saint Joseph, her most chaste spouse.\n'
+            'Blessed be God in His angels and in His saints.\n'
+            'Amen.',
+        contentAm:
+        'እንግድህ እጅግ ከፍ ላለው ምሥጢር ራሳችንን ዝቅ በማድረግ እንሰግድለት።\n'
+            'አሮጌ ሥርዓቶች ለአዲሱ ሥርዓት ቦታ ይልቀቁ።\n'
+            'ሕዋሳት በሚያጎድሉት ሃይማኖት ትሙላ።\n'
+            'ለአብና ለወልድ ምስጋናና ደስታ፥ ሕይወትና ክብር፥ ኃይልና ውዳሴ ይሁን።\n'
+            'ከሁለቱም ለሚሰርፀው መንፈስ ቅዱስ እንዲሁ ትክክል ምስጋና ይሁን።\n'
+            'አሜን።\n\n'
+            'ከሰማይ የወረደ ኅብስት ሰጣቸው፥\n'
+            'ጣዕም ሁሉ ያለበትን።\n\n'
+            'እንጸልይ።\n\n'
+            'በዚህ አስደናቂ በሆነው ምሥጢር የሕማማትህን መታሰቢያ የተዉልን አምላክ ሆይ፥ የማዳንህ ፍሬ ሁልጊዜ በውስጣችን ይሰማን ዘንድ፥ አንተ ለዘላለም የምትኖር እና የምትነግስ ለሥጋህና ለደምህ ቅዱስ ምስጢር እንድንሰግድ አድርገን።\n'
+            'አሜን።\n\n'
+            'ከቡራኬ በኋላ ምስጋና።\n\n'
+            'እግዚአብሔር የተመሰገነ ይሁን።\n'
+            'ቅዱስ ስሙ የተመሰገነ ይሁን።\n'
+            'ፍጹም አምላክ ፍጹም ሰው ኢየሱስ ክርስቶስ የተመሰገነ ይሁን።\n'
+            'የኢየሱስ ስም የተመሰገነ ይሁን።\n'
+            'እጅግ ቅዱስ ልቡ የተመሰገነ ይሁን።\n'
+            'በቅዱስ ቁርባን የሚገኝ ኢየሱስ የተመሰገነ ይሁን።\n'
+            'ኢየሱስ በክቡር ደሙ የተመሰገነ ይሁን።\n'
+            'መንፈስ ቅዱስ ጰራቅሊጦስ የተመሰገነ ይሁን።\n'
+            'የአምላክ እናት ቅድስት ማርያም የተመሰገነች ትሁን።\n'
+            'እድፍ በሌለበት በቅድስት ፅንሰታዋ የተመሰገነች ትሁን።\n'
+            'ድንግል ማርያም በቅድስት ፍልሰታዋ የተመሰገነች ትሁን።\n'
+            'ድንግልም እናትም የሆነች የማርያም ስም የተመሰገነ ይሁን።\n'
+            'እጅግ ንጹሕ እጮኛዋ ቅዱስ ዮሴፍ የተመሰገነ ይሁን።\n'
+            'እግዚአብሔር በመላእክቱና በጻድቃኑ ዘንድ የተመሰገነ ይሁን።\n'
+            'አሜን።',
+        imagePath: 'assets/Holy Mass.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 24. PRAYER AFTER RECEIVING HOLY COMMUNION
+// -------------------------------------------------------------------------
+    'Prayer After Receiving Holy Communion': [
+      PrayerStep(
+        sectionHeader: 'AFTER HOLY COMMUNION',
+        sectionHeaderAm: 'ከቅዱስ ቁርባን በኋላ',
+        titleEn: 'Prayer After Receiving Holy Communion',
+        titleAm: 'ከቁርባን በኋላ የሚደገም ጸሎት',
+        contentEn:
+        'Jesus, receive my smallest offering.\n'
+            'You have given Your whole self to me,\n'
+            'and I also offer my whole self to You.\n\n'
+            'Cleanse me and make me pure.\n'
+            'I offer You my heart and my soul.\n'
+            'I give You my whole life.\n'
+            'Take me to Yourself at the end of my life and at my death.\n'
+            'I desire to be Yours forever.\n'
+            'Amen.\n\n'
+            'O most kind and humble Jesus, behold, I kneel before You.\n'
+            'O merciful Jesus, as the prophet David foretold, You counted my hands and my feet; You counted all my bones.\n'
+            'As I behold this word with great love and contrition, and as I meditate on it in my mind, I earnestly ask You to imprint upon my heart faith, hope, and love, true contrition for my sins, and a very firm resolve to avoid them.\n'
+            'I beg this of You, and I promise it to You.\n'
+            'Amen.',
+        contentAm:
+        'ኢየሱስ ሆይ፥ የእኔን ትንሿን መስዋእቴን ተቀበል፤\n'
+            'ሁለንትናህን ለኔ ሰጥተሃልና፥\n'
+            'እኔም ሁለንተናዬን ላንተ እስጣለሁ።\n\n'
+            'ንጹሕ አድርገህ አንጻኝ።\n'
+            'ልቤን፥ ነፍሴን ላንተ አቀርብልሃለሁ።\n'
+            'ሕይወቴን በሙሉ ላንተ እሰጣለሁ።\n'
+            'በኑሮዬና በሞቴ መጨረሻ እኔን ላንተ ውሰድ።\n'
+            'ለዘላለሙ ያንተ መሆን እፈልጋለሁ።\n'
+            'አሜን።\n\n'
+            'እጅግ ደግና የዋህ ኢየሱስ ሆይ፥ እነሆ እኔ በፊትህ ተንበርክኬአለሁ።\n'
+            'ቸሩ ኢየሱስ ሆይ፥ ነብዩ ዳዊት አስቀድሞ ባንተ አፍ፥\n'
+            'እጆቼንና እግሮቼን ቸነከሩ፥ አጥንቶቼንም ሁሉ ቆጠሩ ብሎ የተናገረውን ቃል በታላቅ ፍቅርና ጸጸት ስመለከት በሕሊናዬም ሳስብ ሳለሁ፥\n'
+            'የሃይማኖት፥ የተስፋ የፍቅር ስሜትና የኃጢአቶቼም እውነተኛ ንስሐ፥ ከኃጢአቶቼም የምርቅበት እጅግ ጠንካራ ፈቃድ በልቤ ውስጥ እንዲታተም ታደርግልኝ ዘንድ በልቤ በጣም አጥብቄ እለምንሃለሁ።\n'
+            'እማልድህማለሁ።\n'
+            'አሜን።',
+        imagePath: 'assets/Holy Mass.jpg',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 24. ROSARY (Partitioned)
+    // -------------------------------------------------------------------------
+    'Rosary': [
+      PrayerStep(
+        sectionHeader: 'THE HOLY ROSARY',
+        sectionHeaderAm: 'የመቁጠሪያ ጸሎት አጀማመር',
+        titleEn: 'Rosary Introduction',
+        titleAm: 'የመቁጠሪያ ጸሎት',
+        contentEn: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n(Apostles\' Creed, Our Father, Three Hail Marys, Glory Be)',
+        contentAm: 'በስብሐተ አብ፣ በወልድ፣ በመንፈስ ቅዱስ በአንድ አምላክ ስም አሜን።\n\n(የሐዋርያት እምነት፣ አባታችን ሆይ፣ ሦስት ጸጋን የሞላብሽ፣ ስብሐት ለአብ)',
+        imagePath: 'assets/img_6.png',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+// 25. THE MAGNIFICAT
+// -------------------------------------------------------------------------
+    'The Magnificat': [
+      PrayerStep(
+        sectionHeader: 'CANTICLE OF MARY',
+        sectionHeaderAm: 'የእመቤታችን ማርያም ምስጋና',
+        titleEn: 'The Magnificat',
+        titleAm: 'የእመቤታችን ማርያም ምስጋና (ማግኒፊካት)',
+        contentEn:
+        'My soul doth magnify the Lord,\n'
+            'And my spirit hath rejoiced in God my Saviour.\n'
+            'For he hath regarded the low estate of his handmaiden:\n'
+            'For, behold, from henceforth all generations shall call me blessed.\n'
+            'For he that is mighty hath done to me great things;\n'
+            'And holy is his name.\n'
+            'And his mercy is on them that fear him\n'
+            'From generation to generation.\n'
+            'He hath shewed strength with his arm;\n'
+            'He hath scattered the proud in the imagination of their hearts.\n'
+            'He hath put down the mighty from their seats,\n'
+            'And exalted them of low degree.\n'
+            'He hath filled the hungry with good things;\n'
+            'And the rich he hath sent empty away.\n'
+            'He hath holpen his servant Israel,\n'
+            'In remembrance of his mercy;\n'
+            'As he spake to our fathers,\n'
+            'To Abraham, and to his seed for ever.',
+        contentAm:
+        'ነፍሴ ጌታን ታከብረዋለች፥\n'
+            'መንፈሴም በአምላኬ በመድኃኒቴ ሐሴት ታደርጋለች፤\n'
+            'የባሪያይቱን ውርደት ተመልክቶአልና።\n'
+            'እነሆም፥ ከዛሬ ጀምሮ ትውልድ ሁሉ ብፅዕት ይሉኛል፤\n'
+            'ብርቱ የሆነ እርሱ በእኔ ታላቅ ሥራ አድርጎአልና፤\n'
+            'ስሙም ቅዱስ ነው።\n'
+            'ምሕረቱም ለሚፈሩት ከትውልድ እስከ ትውልድ ይኖራል።\n'
+            'በክንዱ ኃይል አሳየ፤\n'
+            'ትዕቢተኞችን በልባቸው ምኞት በታበጠ።\n'
+            'ገዢዎችን ከዙፋናቸው አወረደ፤\n'
+            'ዝቅተኞችንም አስነሳ።\n'
+            'ከበደ የሆኑትን በመልካም ነገር አሟላ፤\n'
+            'ባለ ጠገ቞ችንም ባዶ ልኮአቸው።\n'
+            'እስራኤልን ባሪያውን ረዳ፥\n'
+            'ምሕረቱን አስቦ፤\n'
+            'እንደ ተናገረውም ለአባቶቻችን፥\n'
+            'ለአብርሃምና ለዘርዋ ለዘላለም።',
+        imagePath: 'assets/img_8.png',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 26. THE MEMORARE
+// -------------------------------------------------------------------------
+    'The Memorare': [
+      PrayerStep(
+        sectionHeader: 'MARIAN INTERCESSION',
+        sectionHeaderAm: 'የማርያም አማላጅነት',
+        titleEn: 'The Memorare',
+        titleAm: 'እጅግ ርህርት የሆንሽ ድንግል ማርያም ሆይ',
+        contentEn:
+        'Remember, O most gracious Virgin Mary,\n'
+            'that never was it known\n'
+            'that anyone who fled to your protection,\n'
+            'implored your help, or sought your intercession\n'
+            'was left unaided.\n\n'
+            'Inspired by this confidence, I fly unto you,\n'
+            'O Virgin of virgins, my Mother.\n'
+            'To you I come; before you I stand, sinful and sorrowful.\n'
+            'O Mother of the Word Incarnate, despise not my petitions,\n'
+            'but in your mercy hear and answer me.\n'
+            'Amen.',
+        contentAm:
+        'ባንቺ ጥበቃ ከተማፀኑ፥ እርዳታሽን ከለመኑ፥ አማለጅነትሽን ከፈለጉ ሰዎች\n'
+            'አንድስ እንኳን የተኮነነ እንዳልተሰማ አስቢ።\n'
+            'የድንግሎች ድንግል የሆንሽ እናቴ ሆይ፤\n'
+            'እኔም በዚህ እምነት ተጽናንቼ ወደ አንቺ እሮጣለሁ።\n'
+            'በኀጢአቴም እየተጨነቅሁ በፊትሽ ቆሚያለሁ።\n'
+            'የቃለ እግዚአብሔር እናት ሆይ፥ ራርተሽ ቃሌን ስሚ፤\n'
+            'አድምጪ እንጂ ችላ አትበይ።\n'
+            'አሜን።',
+        imagePath: 'assets/img_11.png',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 27. HAIL HOLY QUEEN
+// -------------------------------------------------------------------------
+    'Hail Holy Queen': [
+      PrayerStep(
+        sectionHeader: 'SALVE REGINA',
+        sectionHeaderAm: 'የምህረት እናት ንግስት ሆይ',
+        titleEn: 'Hail Holy Queen',
+        titleAm: 'የምህረት እናት ንግስት ሆይ',
+        contentEn:
+        'Hail, Holy Queen, Mother of Mercy,\n'
+            'our life, our sweetness, and our hope.\n'
+            'To you do we cry, poor banished children of Eve.\n'
+            'To you do we send up our sighs,\n'
+            'mourning and weeping in this valley of tears.\n\n'
+            'Turn then, most gracious Advocate, your eyes of mercy toward us.\n'
+            'And after this our exile,\n'
+            'show unto us the blessed fruit of your womb, Jesus.\n'
+            'O clement, O loving, O sweet Virgin Mary.\n'
+            'Amen.',
+        contentAm:
+        'ሰላም ላንቺ ይሁን ሕይወታችን፥ ደስታችን፥ ተስፋችን ሆይ፥ ሰላም ላንቺ ይሁን።\n'
+            'እኛ የሔዋን ልጆች ስደተኞች ጩኸታችንን ወዳንቺ እናቀርባለን።\n'
+            'በዚህ በለቅሶ ቆላ እተጨነቅንና እያለቀሰን ወደንቺ እንማጠናለን።\n\n'
+            'እንግዲህ እባክሽ የኛ ጠበቃ ሆይ፥ በምህረት ዓይኖችሽ ወደ እኛ ተመልከቺ።\n'
+            'ደጊቱ፥ ቸሪቱ፥ መሐሪቱ ድንግል ማርያም ሆይ፥\n'
+            'የተባረከውን የሆድሽን ፍሬ ኢየሱስን ከዚህ ከስደት በኋላ ለኛ እባክሽ አሳይን።\n'
+            'አሜን።',
+        imagePath: 'assets/img_18.png',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 28. REGINA CAELI
+// -------------------------------------------------------------------------
+    'Regina Caeli': [
+      PrayerStep(
+        sectionHeader: 'QUEEN OF HEAVEN',
+        sectionHeaderAm: 'ንግስተ ሰማይ ደስ ይበልሽ',
+        titleEn: 'Regina Caeli',
+        titleAm: 'ንግስተ ሰማይ ደስ ይበልሽ',
+        contentEn:
+        'Queen of Heaven, rejoice, alleluia.\n'
+            'For He whom you did merit to bear, alleluia,\n'
+            'has risen, as He said, alleluia.\n'
+            'Pray for us to God, alleluia.',
+        contentAm:
+        'ንግስተ ሰማይ ሆይ፥ ደስ ይበልሽ፥ አልሉያ፤\n'
+            'የሸከምሽው አምላክ እንደ ተናገረው ተነሥቷልና፥ አልሉያ፤\n'
+            'ወደ እግዚአብሔር ለምኝልን፥ አልሉያ።',
+        imagePath: 'assets/Mary.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 29. SUB TUUM PRAESIDIUM
+// -------------------------------------------------------------------------
     'Sub Tuum Praesidium': [
       PrayerStep(
-        sectionHeader: 'ANCIENT MARIAN PRAYER',
+        sectionHeader: 'UNDER THY PROTECTION',
+        sectionHeaderAm: 'በክንፎችሽ ጥላ ሰውሪን',
         titleEn: 'Sub Tuum Praesidium',
-        titleAm: 'ሱብ ቱም ፕሬሲዲየም (ወደ አንቺ እንጠጋለን)',
+        titleAm: 'በክንፎችሽ ጥላ ሰውሪን',
         contentEn:
-        'We fly to thy patronage, O holy Mother of God;\n'
-            'despise not our petitions in our necessities,\n'
-            'but deliver us always from all dangers, O glorious and blessed Virgin. Amen.',
+        'We fly to your protection, O Holy Mother of God.\n'
+            'Despise not our petitions in our necessities,\n'
+            'but deliver us always from all dangers,\n'
+            'O glorious and blessed Virgin Mary.\n'
+            'Amen.',
         contentAm:
-        'ቅድስት የአምላክ እናት ሆይ፣ ወደ አንቺ ጥበቃ እንሸሻለን፤\n'
-            'በችግራችን ጊዜ ልመናችንን አትናቂ፣\n'
-            'የከበርሽና የተባረክሽ ድንግል ሆይ፣ ሁልጊዜ ከደጋፊዎች ሁሉ አድነን። አሜን።',
-        imagePath: 'assets/img_1.png',
+        'ቅድስት የአምላክ እናት ሆይ፥ ጸሎታችንን አትናቂ፤\n'
+            'በተቸገርን ጊዜ ከክፉ ሁሉ ሰውሪን።\n'
+            'የተባረክሽ እና የተከበርሽ ድንግል ማርያም ሆይ፥ አሜን።',
+        imagePath: 'assets/Mary.jpg',
       ),
     ],
 
-    'Prayer for the Holy Father': [
+// -------------------------------------------------------------------------
+// 30. PRAYER OF PURITY
+// -------------------------------------------------------------------------
+    'Prayer of Purity': [
       PrayerStep(
-        sectionHeader: 'INTERCESSION FOR THE POPE',
-        titleEn: 'Prayer for the Holy Father',
-        titleAm: 'ለርዕሰ ሊቃነ ጳጳሳት ጸሎት',
+        sectionHeader: 'PRAYER OF PURITY',
+        sectionHeaderAm: 'የንጽህና ፀሎት',
+        titleEn: 'Prayer of Purity',
+        titleAm: 'የንጽህና ፀሎት',
         contentEn:
-        'O God, the Shepherd and Ruler of all the faithful, look mercifully upon Thy servant, the Pope, whom Thou hast appointed to preside over Thy Church.\n'
-            'Grant, we beseech Thee, that by word and example he may edify those under his charge, so that, together with the flock entrusted to him, he may attain everlasting life. Through Christ our Lord. Amen.',
+        'Holy Virgin Mary, pray for me\n'
+            'that today I may not think any evil thing about Your Son.\n'
+            'Guard my heart, and obtain for me the grace of purity.\n\n'
+            'Hail Mary, full of grace, the Lord is with thee.\n'
+            'Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.\n'
+            'Holy Mary, Mother of God, pray for us sinners,\n'
+            'now and at the hour of our death. Amen.\n\n'
+            'Holy Virgin Mary, pray for me\n'
+            'that today I may not speak any evil thing about Your Son.\n'
+            'Guard my mouth, and obtain for me the grace of purity.\n\n'
+            'Hail Mary, full of grace, the Lord is with thee.\n'
+            'Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.\n'
+            'Holy Mary, Mother of God, pray for us sinners,\n'
+            'now and at the hour of our death. Amen.\n\n'
+            'Holy Virgin Mary, pray for me\n'
+            'that today I may not do any evil thing against Your Son.\n'
+            'Obtain for me the strength and love of Christ.\n\n'
+            'Hail Mary, full of grace, the Lord is with thee.\n'
+            'Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.\n'
+            'Holy Mary, Mother of God, pray for us sinners,\n'
+            'now and at the hour of our death. Amen.',
         contentAm:
-        'የምእመናን ሁሉ እረኛና መሪ የሆንክ አምላክ ሆይ፣ በቤተክርስቲያንህ ላይ እንዲሾም በሾምከው አገልጋይህ ርዕሰ ሊቃነ ጳጳሳት ላይ በምህረት ተመልከት።\n'
-            'በቃልና በምሳሌነት በሥሩ ያሉትን ያንጽ ዘንድ፣ ከተሰጠው መንጋ ጋር ወደ ዘላለም ሕይወት ይደርስ ዘንድ እንለምንሃለን። በጌታችን በክርስቶስ በኩል. አሜን።',
-        imagePath: 'assets/father.jpg',
+        'ቅድስት ድንግል ማርያም ሆይ፥ ስለ ልጅሽ ዛሬ እኔ ክፉ ነገር እንዳላስብ\n'
+            'ልቤን እንድጠብቅ ፀጋን ለምኝልኝ።\n\n'
+            'ፀጋ የመላሽ ማርያም ሆይ…\n\n'
+            'ቅድስት ድንግል ማርያም ሆይ፥ ስለ ልጅሽ ዛሬ ክፉ ነገር እንዳልናገር\n'
+            'አፌን እንድጠብቅ ፀጋን ለምኝልኝ።\n\n'
+            'ፀጋ የመላሽ ማርያም ሆይ…\n\n'
+            'ቅድስት ድንግል ማርያም ሆይ፥ ስለ ልጅሽ ዛሬ ክፉ ነገር እንዳልሠራ\n'
+            'ከክርስቶስ ኃይልና ፍቅርን ለኔ ለምኝልኝ።\n\n'
+            'ፀጋ የመላሽ ማርያም ሆይ…',
+        imagePath: 'assets/img_11.png',
       ),
     ],
 
-    'Prayer for Families': [
+// -------------------------------------------------------------------------
+// 31. LITANY OF OUR LADY
+// -------------------------------------------------------------------------
+    'Litany of Our Lady': [
       PrayerStep(
-        sectionHeader: 'BLESSING OF THE HOUSEHOLD',
-        titleEn: 'Prayer for Families',
-        titleAm: 'ለቤተሰብ ጸሎት',
+        sectionHeader: 'LITANY OF OUR LADY',
+        sectionHeaderAm: 'የእመቤታችን ሊጣንያ',
+        titleEn: 'Litany of Our Lady',
+        titleAm: 'የእመቤታችን ሊጣንያ',
         contentEn:
-        'O God, from whom all fatherhood and motherhood proceed, grant to our families the grace to live in Thy love and peace.\n'
-            'Protect us from all harm, and guide us in the way of salvation. Through Christ our Lord. Amen.',
+        'Lord, have mercy on us.\n'
+            'Christ, have mercy on us.\n'
+            'Lord, have mercy on us.\n'
+            'Christ, hear us.\n'
+            'Christ, graciously hear us.\n\n'
+            'God, the Father of Heaven, have mercy on us.\n'
+            'God the Son, Redeemer of the world, have mercy on us.\n'
+            'God, the Holy Spirit, have mercy on us.\n'
+            'Holy Trinity, one God, have mercy on us.\n\n'
+            'Holy Mary, pray for us.\n'
+            'Holy Mother of God, pray for us.\n'
+            'Holy Virgin of virgins, pray for us.\n'
+            'Mother of Christ, pray for us.\n'
+            'Mother of divine grace, pray for us.\n'
+            'Mother most pure, pray for us.\n'
+            'Mother most chaste, pray for us.\n'
+            'Mother inviolate, pray for us.\n'
+            'Mother undefiled, pray for us.\n'
+            'Mother most amiable, pray for us.\n'
+            'Mother most admirable, pray for us.\n'
+            'Mother of good counsel, pray for us.\n'
+            'Mother of our Creator, pray for us.\n'
+            'Mother of our Savior, pray for us.\n'
+            'Virgin most prudent, pray for us.\n'
+            'Virgin most venerable, pray for us.\n'
+            'Virgin most renowned, pray for us.\n'
+            'Virgin most powerful, pray for us.\n'
+            'Virgin most merciful, pray for us.\n'
+            'Virgin most faithful, pray for us.\n'
+            'Mirror of justice, pray for us.\n'
+            'Seat of wisdom, pray for us.\n'
+            'Cause of our joy, pray for us.\n'
+            'Spiritual vessel, pray for us.\n'
+            'Vessel of honor, pray for us.\n'
+            'Singular vessel of devotion, pray for us.\n'
+            'Mystical rose, pray for us.\n'
+            'Tower of David, pray for us.\n'
+            'Tower of ivory, pray for us.\n'
+            'House of gold, pray for us.\n'
+            'Ark of the covenant, pray for us.\n'
+            'Gate of heaven, pray for us.\n'
+            'Morning star, pray for us.\n'
+            'Health of the sick, pray for us.\n'
+            'Refuge of sinners, pray for us.\n'
+            'Comforter of the afflicted, pray for us.\n'
+            'Help of Christians, pray for us.\n'
+            'Queen of angels, pray for us.\n'
+            'Queen of patriarchs, pray for us.\n'
+            'Queen of prophets, pray for us.\n'
+            'Queen of apostles, pray for us.\n'
+            'Queen of martyrs, pray for us.\n'
+            'Queen of confessors, pray for us.\n'
+            'Queen of virgins, pray for us.\n'
+            'Queen of all saints, pray for us.\n'
+            'Queen conceived without original sin, pray for us.\n'
+            'Queen assumed into heaven, pray for us.\n'
+            'Queen of the most holy Rosary, pray for us.\n'
+            'Queen of peace, pray for us.\n\n'
+            'Lamb of God, who takes away the sins of the world, spare us, O Lord.\n'
+            'Lamb of God, who takes away the sins of the world, graciously hear us, O Lord.\n'
+            'Lamb of God, who takes away the sins of the world, have mercy on us.\n\n'
+            'Pray for us, O Holy Mother of God,\n'
+            'that we may be made worthy of the promises of Christ.\n\n'
+            'Let us pray.\n'
+            'Almighty and everlasting God, who by the cooperation of the Holy Spirit prepared the body and soul of the glorious Virgin Mary to become a worthy dwelling for Your Son, grant that we who rejoice in her commemoration may, by her loving intercession, be delivered from present evils and from everlasting death.\n'
+            'Through the same Christ our Lord.\n'
+            'Amen.',
         contentAm:
-        'አባትነትና እናትነት ሁሉ ከእርሱ የሚወጣ አምላክ ሆይ፣ ለቤተሰቦቻችን በፍቅርህና በሰላምህ የመኖርን ጸጋ ስጣቸው።\n'
-            'ከጉዳት ሁሉ ጠብቀን፣ በደኅንነትም መንገድ መራን። በጌታችን በክርስቶስ በኩል. አሜን።',
+        'ጌታ ሆይ - ማረን\n'
+            'ክርስቶስ ሆይ - ማረን\n'
+            'ጌታ ሆይ - ማረን\n'
+            'ክርስቶስ ሆይ - ስማን\n'
+            'ክርስቶስ ሆይ - አድምጠን\n\n'
+            'ሰማያዊ አብ አምላክ ሆይ - ማረን\n'
+            'መድኃኔዓለም ወልድ አምላክ ሆይ - ማረን\n'
+            'መንፈስ ቅዱስ አምላክ ሆይ - ማረን\n'
+            'ቅድስት ሥላሴ አንድ አምላክ ሆይ - ማረን\n\n'
+            'ቅድስት ማርያም ሆይ - ለምኝልን\n'
+            'ቅድስት የአምላክ እናት ሆይ - ለምኝልን\n'
+            'ቅድስት የድንግሎች ድንግል ሆይ - ለምኝልን\n'
+            'የክርስቶስ እናት ሆይ - ለምኝልን\n'
+            'የአምላካዊ ጸጋ እናት ሆይ - ለምኝልን\n'
+            'እጅግ የጠራሽ እናት ሆይ - ለምኝልን\n'
+            'እጅግ ንጽሕት እናት ሆይ - ለምኝልን\n'
+            'የምተወደጂ እናት ሆይ - ለምኝልን\n'
+            'የምትደነቂ እናት ሆይ - ለምኝልን\n'
+            'የመልካም ምክር እናት ሆይ - ለምኝልን\n'
+            'የፈጣሪ እናት ሆይ - ለምኝልን\n'
+            'የመድኃኔዓለም እናት ሆይ - ለምኝልን\n'
+            'እጅግ ጥበበኛ ድንግል ሆይ - ለምኝልን\n'
+            'ክብር የሚገባሽ ድንግል ሆይ - ለምኝልን\n'
+            'ምስጋና የሚገባሽ ድንግል ሆይ - ለምኝልን\n'
+            'የምትራሪ ድንግል ሆይ - ለምኝልን\n'
+            'የጽድቅ መስተዋት ሆይ - ለምኝልን\n'
+            'የጥበብ ወንበር ሆይ - ለምኝልን\n'
+            'የደስታችን ምክንያት ሆይ - ለምኝልን\n'
+            'ምስጢራዊት ጽጌረዳ ሆይ - ለምኝልን\n'
+            'የኪዳን ታቦት ሆይ - ለምኝልን\n'
+            'የሰማይ ደጃፍ ሆይ - ለምኝልን\n'
+            'አጥቢያ ኮከብ ሆይ - ለምኝልን\n'
+            'የበሽተኞች ፈውስ ሆይ - ለምኝልን\n'
+            'የዳዊት ግንብ ሆይ - ለምኝልን\n'
+            'የዝሆን ጥርስ ግንብ ሆይ - ለምኝልን\n'
+            'የወርቅ ቤት ሆይ - ለምኝልን\n'
+            'የኃጢአተኞች መማጠኛ ሆይ - ለምኝልን\n'
+            'የሐዘንተኞች አፅናኝ ሆይ - ለምኝልን\n'
+            'የክርስቲያኞች ረዳት ሆይ - ለምኝልን\n'
+            'የመላእክት ንግሥት ሆይ - ለምኝልን\n'
+            'የአባቶች ንግሥት ሆይ - ለምኝልን\n'
+            'የነቢያት ንግሥት ሆይ - ለምኝልን\n'
+            'የሐዋርያት ንግሥት ሆይ - ለምኝልን\n'
+            'የሰማእታት ንግሥት ሆይ - ለምኝልን\n'
+            'የጻድቃን ንግሥት ሆይ - ለምኝልን\n'
+            'የድንግሎች ንግሥት ሆይ - ለምኝልን\n'
+            'የምዕመናን ንግሥት ሆይ - ለምኝልን\n'
+            'የቅዱሳን ሁሉ ንግሥት ሆይ - ለምኝልን\n'
+            'ያለአዳም ኃጢአት የተጸነሽ ንግሥት ሆይ - ለምኝልን\n'
+            'ወደ ሰማይ የወጣሽ ንግሥት ሆይ - ለምኝልን\n'
+            'የሰላም ንግሥት ሆይ - ለምኝልን\n\n'
+            'የዓለምን ኃጢአት የምታጠፋ የእግዚአብሔር በግ ሆይ - ራራልን\n'
+            'የዓለምን ኃጢአት የምታጠፋ የእግዚአብሔር በግ ሆይ - አድምጠን\n'
+            'የዓለምን ኃጢአት የምታጠፋ የእግዚአብሔር በግ ሆይ - ማረን\n\n'
+            'ቅድስት የአምላክ እናት ሆይ - ለምኝልን፥\n'
+            'ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን።\n\n'
+            'እንጸልይ።\n'
+            'እግዚአብሔር አምላክ ሆይ፥ ለነፍሳችንና ለሥጋችን በሚሆን ጤና ዘወትር ደስ እንዲለን፥\n'
+            'በተመሰገነችው ዘወትር ድንግል በሆነችው በእመቤታችን ማርያም በከበረው አማላጅነቷ፥\n'
+            'ከዚህ ዓለም ሀዘን እንድንድንና የዘለዓለምን ደስታ እንድናገኝ ለኛ ለአገልጋዮችህ አድርግልን ብለን በጌታችን ኢየሱስ ክርስቶስ ስም እንለምናሃለን።\n'
+            'አሜን።',
+        imagePath: 'assets/img.png',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+// 30. PRAYER TO ST. JOSEPH
+// -------------------------------------------------------------------------
+    'Prayer to St. Joseph': [
+      PrayerStep(
+        sectionHeader: 'PETITION TO ST. JOSEPH',
+        sectionHeaderAm: 'ጸሎት ወደ ቅዱስ ዮሴፍ',
+        titleEn: 'Prayer to St. Joseph',
+        titleAm: 'ጸሎት ወደ ቅዱስ ዮሴፍ',
+        contentEn:
+        'To you, O blessed Joseph, do we come in our afflictions,\n'
+            'and having implored the help of your most holy Spouse,\n'
+            'we confidently invoke your patronage also.\n\n'
+            'Through that charity which bound you to the Immaculate Virgin Mother of God,\n'
+            'and through the paternal love with which you embraced the Child Jesus,\n'
+            'we humbly beg you graciously to regard the inheritance\n'
+            'which Jesus Christ has purchased by His Blood,\n'
+            'and with your power and strength to aid us in our necessities.\n\n'
+            'O most watchful Guardian of the Holy Family,\n'
+            'defend the chosen children of Jesus Christ.\n'
+            'O most loving Father, ward off from us every contagion of error and corrupting influence.\n'
+            'O our most mighty Protector, be kind to us,\n'
+            'and from heaven assist us in our struggle with the power of darkness.\n\n'
+            'As once you rescued the Child Jesus from deadly peril,\n'
+            'so now protect God’s Holy Church\n'
+            'from the snares of the enemy and from all adversity.\n'
+            'Shield each one of us by your constant protection,\n'
+            'so that, supported by your example and your help,\n'
+            'we may be able to live piously, to die holy,\n'
+            'and to obtain eternal happiness in heaven.\n'
+            'Amen.\n\n'
+            'Pray for us, O most watchful Guardian of the Holy Family,\n'
+            'O chaste guardian of the Virgin Mary, and foster father of Jesus Christ.',
+        contentAm:
+        'ቅዱስ ዮሴፍ ሆይ፥ በጭንቃችን ጊዜ ወዳንተ እንማጠናለን።\n'
+            'የቅድስት እጮኛህንና ያንተንም እርዳታ እንለምናለን።\n'
+            'ከንጽሕት ድንግል የአምላክ እናት ጋር አንተን ባጋጠመና ሕፃኑን ኢየሱስን በወደድህበት በአባትነት ፍቅር፥\n'
+            'ኢየሱስ ክርስቶስ በደሙ የገዛትን ርስት፥\n'
+            'እባክህ በመልካም ዓይን ተመልከታት፤\n'
+            'በችግራችንም ጊዜ ኃይልህና እርዳታህ አይለየን።\n\n'
+            'የቅድስት ቤተ ሰብ ትጉ ጠባቂ ሆይ፥ የተመረጡትን የኢየሱስ ክርስቶስን ትውልድ ጠብቃት።\n'
+            'እጅግ ተወዳጅ አባት ሆይ፥ ዓለምን የሚያሠቃይ የስሕተትና የመጥፎ አመል በሽታን ከኛ ወዲያ አስወግድልን።\n'
+            'ብርቱ ጠባቂያችን ሆይ፥ ከሰይጣን ጋር በምናደርገው ውጊያ በሰማይ ሆነህ ራርተህ እርዳን።\n\n'
+            'ቀድሞ የሕፃኑን የኢየሱስን ሕይወት ከሄሮድስ እጅ ከሞት አደጋ እንደ አዳንህ፥\n'
+            'እንዲሁም አሁን የአምላክን ቅድስት ቤተ ክርስቲያን ከጠላት ውርጃና ከክፉ ነገር ሁሉ ሠውራት።\n\n'
+            'እኛም አብነትህን ተከትለን እርዳታህንም ተመርኩዘን፥\n'
+            'በቅድስና መኖር፥ በመንፈሳዊነት መሞትና በሰማይም የዘለዓለምን ደስታ መውረስ እንድንችል፥\n'
+            'የዘወትር ጥበቃህ አይለየን።\n'
+            'አሜን።\n\n'
+            'የጌታችን የኢየሱስ ክርስቶስ ትጉ አሳዳጊና የእመቤታችን የድንግል ማርያም ንጹሕ ጠባቂ ቅዱስ ዮሴፍ ሆይ፥ ለምንልን።',
         imagePath: 'assets/img_12.png',
       ),
     ],
 
-    'Glory Be': [
+// -------------------------------------------------------------------------
+// 31. THE LITANY OF SAINTS
+// -------------------------------------------------------------------------
+    'The Litany of Saints': [
       PrayerStep(
-        sectionHeader: 'DOXOLOGY',
-        titleEn: 'Glory Be',
-        titleAm: 'ስብሐት ለአብ (ስብሐት)',
+        sectionHeader: 'OPENING INVOCATION',
+        sectionHeaderAm: 'የመግቢያ ምልጃ',
+        titleEn: 'The Litany of Saints',
+        titleAm: 'የቅዱሳን ሊጣንያ',
         contentEn:
-        'Glory be to the Father, and to the Son, and to the Holy Spirit.\n'
-            'As it was in the beginning, is now, and ever shall be, world without end. Amen.',
+        'Lord, have mercy on us.\n'
+            'Christ, have mercy on us.\n'
+            'Lord, have mercy on us.\n'
+            'Christ, hear us.\n'
+            'Christ, graciously hear us.\n\n'
+            'God, the Father of Heaven, have mercy on us.\n'
+            'God the Son, Redeemer of the world, have mercy on us.\n'
+            'God, the Holy Spirit, have mercy on us.\n'
+            'Holy Trinity, one God, have mercy on us.\n\n'
+            'Holy Mary, pray for us.\n'
+            'Holy Mother of God, pray for us.\n'
+            'Holy Virgin of virgins, pray for us.\n'
+            'Saint Michael, pray for us.\n'
+            'Saint Gabriel, pray for us.\n'
+            'Saint Raphael, pray for us.\n'
+            'All holy Angels and Archangels, pray for us.\n'
+            'All holy orders of blessed Spirits, pray for us.\n'
+            'Saint John the Baptist, pray for us.\n'
+            'Saint Joseph, pray for us.\n'
+            'Saints Peter and Paul, pray for us.\n'
+            'Saint Andrew, pray for us.\n'
+            'Saints James and John, pray for us.\n'
+            'Saint Thomas, pray for us.\n'
+            'Saint James, pray for us.\n'
+            'Saint Philip, pray for us.\n'
+            'Saint Bartholomew, pray for us.\n'
+            'Saints Simon and Jude, pray for us.\n'
+            'Saint Matthew, pray for us.\n'
+            'Saint Matthias, pray for us.\n'
+            'Saint Barnabas, pray for us.\n'
+            'Saint Luke, pray for us.\n'
+            'Saint Mark, pray for us.\n'
+            'All holy Apostles and Evangelists, pray for us.\n'
+            'All holy Disciples of the Lord, pray for us.\n'
+            'All holy Innocents, pray for us.\n'
+            'Saint Stephen, pray for us.\n'
+            'Saint Lawrence, pray for us.\n'
+            'Saints Chrysanthus and Daria, pray for us.\n'
+            'Saints John and Paul, pray for us.\n'
+            'Saints Cosmas and Damian, pray for us.\n'
+            'Saints Gervase and Protase, pray for us.\n'
+            'All holy Martyrs, pray for us.\n'
+            'Saint Sylvester, pray for us.\n'
+            'Saint Gregory, pray for us.\n'
+            'Saint Ambrose, pray for us.\n'
+            'Saint Augustine, pray for us.\n'
+            'Saint Jerome, pray for us.\n'
+            'Saint Martin, pray for us.\n'
+            'Saint Nicholas, pray for us.\n'
+            'All holy Bishops and Confessors, pray for us.\n'
+            'All holy Priests and Levites, pray for us.\n'
+            'All holy Monks and Hermits, pray for us.\n'
+            'Saint Mary Magdalene, pray for us.\n'
+            'Saint Agatha, pray for us.\n'
+            'Saint Lucy, pray for us.\n'
+            'Saint Agnes, pray for us.\n'
+            'Saint Cecilia, pray for us.\n'
+            'Saint Catherine, pray for us.\n'
+            'Saint Anastasia, pray for us.\n'
+            'All holy Virgins and Widows, pray for us.\n'
+            'All holy Saints of God, pray for us.\n\n'
+            'Be merciful, spare us, O Lord.\n'
+            'Be merciful, graciously hear us, O Lord.\n\n'
+            'From all evil, deliver us, O Lord.\n'
+            'From every sin, deliver us, O Lord.\n'
+            'From everlasting death, deliver us, O Lord.\n'
+            'Through the mystery of Your holy Incarnation, deliver us, O Lord.\n'
+            'Through Your coming, deliver us, O Lord.\n'
+            'Through Your Birth, deliver us, O Lord.\n'
+            'Through Your Baptism and holy Fasting, deliver us, O Lord.\n'
+            'Through Your Cross and Passion, deliver us, O Lord.\n'
+            'Through Your Death and Burial, deliver us, O Lord.\n'
+            'Through Your holy Resurrection, deliver us, O Lord.\n'
+            'Through Your admirable Ascension, deliver us, O Lord.\n'
+            'Through the coming of the Holy Spirit, the Paraclete, deliver us, O Lord.\n'
+            'In the day of Judgment, deliver us, O Lord.\n\n'
+            'We sinners, we beg You to hear us.\n'
+            'That You may spare us, we beg You to hear us.\n'
+            'That You may pardon us, we beg You to hear us.\n'
+            'That You may bring us to true penance, we beg You to hear us.\n'
+            'That You may govern and preserve Your holy Church, we beg You to hear us.\n'
+            'That You may preserve the Pope and all orders in the Church in holy religion, we beg You to hear us.\n'
+            'That You may humble the enemies of Your holy Church, we beg You to hear us.\n'
+            'That You may give peace and true concord to Christian kings and rulers, we beg You to hear us.\n'
+            'That You may grant peace and unity to all Christian people, we beg You to hear us.\n'
+            'That You may bring back to the unity of the Church all who have strayed from the truth, and lead all unbelievers to the light of the Gospel, we beg You to hear us.\n'
+            'That You may confirm and preserve us in Your holy service, we beg You to hear us.\n'
+            'That You may lift up our minds to heavenly desires, we beg You to hear us.\n'
+            'That You may render everlasting blessings to all our benefactors, we beg You to hear us.\n'
+            'That You may deliver our souls and the souls of our brethren, relatives, and benefactors from eternal damnation, we beg You to hear us.\n'
+            'That You may give and preserve the fruits of the earth, we beg You to hear us.\n'
+            'That You may grant eternal rest to all the faithful departed, we beg You to hear us.\n'
+            'That You may graciously hear us, we sinners, we beg You to hear us.\n\n'
+            'Son of God, we beg You to hear us.\n\n'
+            'Lamb of God, who takes away the sins of the world, spare us, O Lord.\n'
+            'Lamb of God, who takes away the sins of the world, graciously hear us, O Lord.\n'
+            'Lamb of God, who takes away the sins of the world, have mercy on us.\n\n'
+            'Christ, hear us.\n'
+            'Christ, graciously hear us.\n\n'
+            'Let us pray.\n'
+            'Almighty and everlasting God, who have dominion over the living and the dead and are merciful to all whom You foresee will be Yours through faith and works of mercy, we humbly beseech You that all for whom we are mindful to pray, whether in this present world or in the world to come, may by the intercession of all Your Saints obtain the remission of all their sins.\n'
+            'Through our Lord Jesus Christ, Your Son, who lives and reigns with You in the unity of the Holy Spirit, God, forever and ever.\n'
+            'Amen.',
         contentAm:
-        'ክብር ለአብ ለወልድ ለመንፈስ ቅዱስም ይሁን።\n'
-            'በመጀመሪያ እንደነበረ አሁንም ዘወትርም ለዘላለሙ። አሜን።',
+        'ጌታ ሆይ - ማረን\n'
+            'ክርስቶስ ሆይ - ማረን\n'
+            'ጌታ ሆይ - ማረን\n'
+            'ክርስቶስ ሆይ - ስማን\n'
+            'ክርስቶስ ሆይ - አድምጠን\n\n'
+            'ሰማያዊ አብ አምላክ ሆይ - ማረን\n'
+            'መድኃኔዓለም ወልድ አምላክ ሆይ - ማረን\n'
+            'መንፈስ ቅዱስ አምላክ ሆይ - ማረን\n'
+            'ቅድስት ሥላሴ አንድ አምላክ ሆይ - ማረን\n\n'
+            'ቅድስት ማርያም ሆይ - ለምኝልን\n'
+            'ቅድስት የአምላክ እናት ሆይ - ለምኝልን\n'
+            'ቅድስት የድንግሎች ድንግል ሆይ - ለምኝልን\n'
+            'ቅዱስ ሚካኤል ሆይ - ለምኝልን\n'
+            'ቅዱስ ገብርኤል ሆይ - ለምኝልን\n'
+            'ቅዱስ ሩፋኤል ሆይ - ለምኝልን\n'
+            'ቅዱሳን መላእክትና አርአያት ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱስ ዮሐንስ መጥምቁ ሆይ - ለምኝልን\n'
+            'ቅዱስ ዮሴፍ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ጴጥሮስና ጳውሎስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ንድርያስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ያዕቆብና ዮሐንስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ቶማስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ያዕቆብ ሆይ - ለምኝልን\n'
+            'ቅዱስ ፊሊጶስ ሆይ - ለምኝልን\n'
+            'ቅዱስ በርተሎሜዎስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ስምዖንና ይሁዳ ሆይ - ለምኝልን\n'
+            'ቅዱስ ማቴዎስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ማትያስ ሆይ - ለምኝልን\n'
+            'ቅዱስ በርናባስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ሉቃስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ማርቆስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ሐዋርያትና ወንጌላውያን ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ደቀ መዛሙርት ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱስ እስጢፋኖስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ላውርያኖስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ስሮንስያኖስና ዳርያ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ዮሐንስና ጳውሎስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ቆስጠንጢኖስና ዳምያኖስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ጌርቫስዮስና ፕሮታስዮስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ሰማእታት ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱስ ሲልቬስተር ሆይ - ለምኝልን\n'
+            'ቅዱስ ግሪጎሪዎስ ሆይ - ለምኝልን\n'
+            'ቅዱስ አምብሮስ ሆይ - ለምኝልን\n'
+            'ቅዱስ አውጎስጢኖስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ኢያርቆስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ማርቲኖስ ሆይ - ለምኝልን\n'
+            'ቅዱስ ኒቆላዎስ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ጳጳሳትና እምነተኞች ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ካህናትና ሌዋውያን ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱሳን መነኮሳትና መነዘሮች ሁሉ ሆይ - ለምኝልን\n'
+            'ቅድስት ማርያም ማግዳሌና ሆይ - ለምኝልን\n'
+            'ቅድስት አጋታ ሆይ - ለምኝልን\n'
+            'ቅድስት ሉሲ ሆይ - ለምኝልን\n'
+            'ቅድስት አግነስ ሆይ - ለምኝልን\n'
+            'ቅድስት ሴሲሊያ ሆይ - ለምኝልን\n'
+            'ቅድስት ካትሪና ሆይ - ለምኝልን\n'
+            'ቅድስት አናስታሲያ ሆይ - ለምኝልን\n'
+            'ቅዱሳን ድንግሎትና መርያሞች ሁሉ ሆይ - ለምኝልን\n'
+            'ቅዱሳን የእግዚአብሔር ቅዱሳን ሁሉ ሆይ - ለምኝልን\n\n'
+            'ጌታ ሆይ - ማርነን፥ አባርነን\n'
+            'ጌታ ሆይ - ማርነን፥ አድምጠን\n\n'
+            'ከክፉ ሁሉ - አድነን ጌታ ሆይ\n'
+            'ከኃጢአት ሁሉ - አድነን ጌታ ሆይ\n'
+            'ከዘለለቀ ሞት - አድነን ጌታ ሆይ\n'
+            'በቅዱስ ሥጋ ወነፍስ የተገለጥህ በሚስጥር - አድነን ጌታ ሆይ\n'
+            'በመጣህ ጊዜ - አድነን ጌታ ሆይ\n'
+            'በወለድህ - አድነን ጌታ ሆይ\n'
+            'በጥምቀትህና በቅዱስ ጾምህ - አድነን ጌታ ሆይ\n'
+            'በመስቀልህና በስቅለትህ - አድነን ጌታ ሆይ\n'
+            'በሞትህና በተቀባርህ - አድነን ጌታ ሆይ\n'
+            'በቅዱስ ኵርናትህ - አድነን ጌታ ሆይ\n'
+            'በአስደናቂ ወጣትህ - አድነን ጌታ ሆይ\n'
+            'በመንፈስ ቅዱስ ጰራቅሊጦስ መምጣት - አድነን ጌታ ሆይ\n'
+            'በፍርድ ቀን - አድነን ጌታ ሆይ\n\n'
+            'እኛ ኃጢአተኞች - እንለምናለን፥ ስማን\n'
+            'እንድታባርነን - እንለምናለን፥ ስማን\n'
+            'እንድትርሰን - እንለምናለን፥ ስማን\n'
+            'ወደ እውነተኛ ንስሐ እንድታመጣን - እንለምናለን፥ ስማን\n'
+            'ቅዱስን ቤተ ክርስቲያንህ እንድታስተዳድርና እንድታጠብ - እንለምናለን፥ ስማን\n'
+            'ርዕሠ ሊቃነ ጳጳሳቱንና ሁሉንም ደረጃዎች በቅዱስ ሃይማኖት እንድታጠብ - እንለምናለን፥ ስማን\n'
+            'የቅዱስ ቤተ ክርስቲያንህን ጠላቶች እንድታዋርድ - እንለምናለን፥ ስማን\n'
+            'ለክርስቲያኖች ነገሥናትና መሪዎች ሰላምና እውነተኛ ወጥነት እንድትሰጥ - እንለምናለን፥ ስማን\n'
+            'ለክርስቲያኖች ሁሉ ሰላምና ወንድማማክነት እንድትሰጥ - እንለምናለን፥ ስማን\n'
+            'ከእውነት የተሳሳቱትን ወደ ቤተ ክርስቲያን ወንድማማክነት እንድትመልስ፥ አማኞችንም ወደ ወንጌል ብርሃን እንድታመጣ - እንለምናለን፥ ስማን\n'
+            'በቅዱስ አገልግሎትህ እንድናጠናከርና እንድንጠብ - እንለምናለን፥ ስማን\n'
+            'አሳባችንን ወደ ሰማያዊ ምኞት እንድታስነሳ - እንለምናለን፥ ስማን\n'
+            'ለሁሉም ጠቅሚ ሰጪዎቻችን ዘለለቀ በረከት እንድትሰጥ - እንለምናለን፥ ስማን\n'
+            'ነፍሳችንንና የወንድማማቾቻችንን፥ የዘመዶቻችንን፥ የጠቅሚ ሰጪዎቻችንን ነፍሶች ከዘለለቀ ቅጣት እንድታድን - እንለምናለን፥ ስማን\n'
+            'የምድርን ፍሬ እንድትሰጥና እንድታጠብ - እንለምናለን፥ ስማን\n'
+            'ለሁሉም እምነተኞች ሙታን የዘለለቀ እረፍት እንድትስጥ - እንለምናለን፥ ስማን\n'
+            'እኛን ኃጢአተኞች በምሕረት እንድታዳምጠን - እንለምናለን፥ ስማን\n\n'
+            'የአምላክ ወንድ ሆይ - እንለምናለን፥ ስማን\n\n'
+            'የዓለምን ኃጢአት የሚያስወግድ የእግዚእ ጠንቋይ ሆይ - ጌታ ሆይ፥ አባርነን\n'
+            'የዓለምን ኃጢአት የሚያስወግድ የእግዚእ ጠንቋይ ሆይ - ጌታ ሆይ፥ አድምጠን\n'
+            'የዓለምን ኃጢአት የሚያስወግድ የእግዚእ ጠንቋይ ሆይ - ማረን\n\n'
+            'ክርስቶስ ሆይ - ስማን\n'
+            'ክርስቶስ ሆይ - አድምጠን\n\n'
+            'እንጸልይ።\n'
+            'ሁሉን ሕያውና ሙት የሚያስተዳድር፥ በእምነትና በምሕረት ሥራ ለራሱ የሚሆኑትን ሁሉ የሚያርፋቸው ሁሉን ቻይ ዘለለቀ አምላክ ሆይ፥ ለምንላቸው ለሆኑ ሁሉ፥ በዚህ ዓለም ሆነ በመጪው ዓለም፥ በቅዱሳንህ አማላጅነት ከኃጢአታቸው ሁሉ ስርየት እንዲያገኙ በርሃለን።\n'
+            'በጌታችን በኢየሱስ ክርስቶስ በወንድህ በአብ ጋር በመንፈስ ቅዱስ ወሐድነት ሕያው የሆንህና የምትነግሥ አንተ ነህ።\n'
+            'አሜን።',
+        imagePath: 'assets/img_15.png',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 32. PRAYER OF ST. FRANCIS
+// -------------------------------------------------------------------------
+    'Prayer of St. Francis': [
+      PrayerStep(
+        sectionHeader: 'PETITION FOR PEACE',
+        sectionHeaderAm: 'የሰላም ልመና',
+        titleEn: 'Prayer of St. Francis',
+        titleAm: 'የቅዱስ ፍራንቸስኮስ ጸሎት',
+        contentEn:
+        'Lord, make me an instrument of Your peace.\n'
+            'Where there is hatred, let me sow love;\n'
+            'where there is injury, pardon;\n'
+            'where there is discord, union;\n'
+            'where there is doubt, faith;\n'
+            'where there is despair, hope;\n'
+            'where there is darkness, light;\n'
+            'and where there is sadness, joy.\n\n'
+            'O Divine Master, grant that I may not so much seek\n'
+            'to be consoled as to console;\n'
+            'to be understood as to understand;\n'
+            'to be loved as to love;\n'
+            'for it is in giving that we receive,\n'
+            'it is in pardoning that we are pardoned,\n'
+            'and it is in dying that we are born to eternal life.\n'
+            'Amen.',
+        contentAm:
+        'ጌታ ሆይ የሰላም መሳሪያ እንድሆን አድርገኝ፤\n'
+            'ጥል ባለበት ፍቅር፣\n'
+            'በደል ባለበት ይቅርታ፣\n'
+            'ክርክር ባለበት ስምምነት፣\n'
+            'ጥርጣሬ ባለበት እምነት፣\n'
+            'ስህተት ባለበት እውነት፣\n'
+            'ተስፋ መቁረጥ ባለበት መጽናናት፣\n'
+            'ሐዘን ባለበት ደስታ፣\n'
+            'ጨለማ ባለበት ብርሃን እንዲገኝ አደርግ ዘንድ አብቃኝ።\n\n'
+            'ጌታ ሆይ፥\n'
+            'ከመጽናናት ማጽናናት፥\n'
+            'ከመግባባት ማግባባት፥\n'
+            'ከመወደድ መውደድ፥\n'
+            'ከመቀበል መስጠት፥\n'
+            'ይቅር ለመባል ይቅር ማለት፥\n'
+            'የዘለዓለም ሕይወት ለማግኘት መሞት እንዳለብኝ ለማወቅ እርዳኝ።\n'
+            'አሜን።',
+        imagePath: 'assets/francis.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 33. PRAYER FOR THE HOLY FATHER
+// -------------------------------------------------------------------------
+    'Prayer for the Holy Father': [
+      PrayerStep(
+        sectionHeader: 'PRAYER FOR THE POPE',
+        sectionHeaderAm: 'ለርዕሠ ሊቃነ ጳጳሳታችን ጸሎት',
+        titleEn: 'Prayer for the Holy Father',
+        titleAm: 'ለርዕሠ ሊቃነ ጳጳሳታችን ጸሎት',
+        contentEn:
+        'O God, Shepherd and Ruler of all the faithful,\n'
+            'look favorably upon Your servant Leo,\n'
+            'whom You have set at the head of Your Church as her shepherd.\n'
+            'Grant, we pray, that by word and example\n'
+            'he may be of service to those over whom he presides,\n'
+            'so that, together with the flock entrusted to his care,\n'
+            'he may come to everlasting life.\n'
+            'Amen.',
+        contentAm:
+        'እግዚአብሔር ሆይ፥ የምእመናንህ ሁሉ እረኛና መሪ፥\n'
+            'የቤተ ክርስቲያንህን እረኛ የሆነውን አገልጋይህን ሊዮን በምሕረት ተመልከት።\n'
+            'በቃሉም ሆነ በተግባሩ ለሚመራቸው ሁሉ አገልግሎት\n'
+            'እንዲያበረክት፥\n'
+            'እሱም ከተሰጠው መንጠቅ ጋር\n'
+            'ወደ ዘለለቀ ሕይወት እንዲደርስ አድርግልን።\n'
+            'አሜን።',
+        imagePath: 'assets/father.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 34. PRAYER TO THE HOLY FAMILY
+// -------------------------------------------------------------------------
+    'Prayer to the Holy Family': [
+      PrayerStep(
+        sectionHeader: 'CONSECRATION TO THE HOLY FAMILY',
+        sectionHeaderAm: 'ወደ ቅድስት ቤተሰብ ጸሎት',
+        titleEn: 'Prayer to the Holy Family',
+        titleAm: 'ወደ ቅድስት ቤተሰብ ጸሎት',
+        contentEn:
+        'Jesus, Mary, and Joseph,\n'
+            'I give You my heart, my soul, and my life.\n'
+            'Jesus, Mary, and Joseph,\n'
+            'help me in my final hour.\n'
+            'Jesus, Mary, and Joseph,\n'
+            'may I breathe forth my soul in peace with You.\n'
+            'Amen.',
+        contentAm:
+        'ኢየሱስ፥ ማርያም፥ ዮሴፍ፥ ልቤን፥ ነፍሴን፥ ሕይወቴን እሰጣችኋለሁ።\n'
+            'ኢየሱስ፥ ማርያም፥ ዮሴፍ፥ በሞት ጊዜ እርዱኝ።\n'
+            'ኢየሱስ፥ ማርያም፥ ዮሴፍ፥ በእጃችሁ በሰላም ልሙት።\n'
+            'አሜን።',
+        imagePath: 'assets/holy family.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 35. ETERNAL REST (PRAYER FOR THE DEAD)
+// -------------------------------------------------------------------------
+    'Eternal Rest (Prayer for the Dead)': [
+      PrayerStep(
+        sectionHeader: 'PRAYER FOR THE DEPARTED',
+        sectionHeaderAm: 'ለሙታን የሚደረግ ጸሎት',
+        titleEn: 'Eternal Rest',
+        titleAm: 'የዕረፍተ ነፍስ ጸሎት',
+        contentEn:
+        'Eternal rest grant unto them, O Lord,\n'
+            'and let perpetual light shine upon them.\n'
+            'May they rest in peace.\n'
+            'Amen.',
+        contentAm:
+        'ጌታ ሆይ፥ ለሙታን የዘላለም ዕረፍት ስጣቸው፤\n'
+            'የዘላለምን ብርሃን አብራላቸው፤\n'
+            'በሰላም አሳርፋቸው።\n'
+            'አሜን።',
+        imagePath: 'assets/Holy Mass.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 36. PRAYER OF ABANDONMENT
+// -------------------------------------------------------------------------
+    'Prayer of Abandonment': [
+      PrayerStep(
+        sectionHeader: 'SURRENDER TO GOD',
+        sectionHeaderAm: 'እጅ መስጠት እና መታመን',
+        titleEn: 'Prayer of Abandonment',
+        titleAm: 'የእጅ መስጠት ጸሎት',
+        contentEn:
+        'Father, I abandon myself into Your hands;\n'
+            'do with me what You will.\n'
+            'Whatever You may do, I thank You.\n'
+            'I am ready for all; I accept all.\n'
+            'Let only Your will be done in me,\n'
+            'and in all Your creatures.\n'
+            'Amen.',
+        contentAm:
+        'አባት ሆይ፥ ራሴን ሙሉ በሙሉ በእጆችህ አደራ እሰጣለሁ፤\n'
+            'የፈቀድከውን አድርግብኝ።\n'
+            'ስለምታደርገውም ሁሉ አመሰግናለሁ፤\n'
+            'ለሁሉም ዝግጁ ነኝ።\n'
+            'ፈቃድህ ብቻ በእኔ ላይ ይሁን።\n'
+            'አሜን።',
+        imagePath: 'assets/father.jpg',
+      ),
+    ],
+
+// -------------------------------------------------------------------------
+// 37. PRAYER OF ST. AUGUSTINE
+// -------------------------------------------------------------------------
+    'Prayer of St. Augustine': [
+      PrayerStep(
+        sectionHeader: 'DEVOTION',
+        sectionHeaderAm: 'መነሳትና ፍቅር',
+        titleEn: 'Prayer of St. Augustine',
+        titleAm: 'የቅዱስ አውጎስጢኖስ ጸሎት',
+        contentEn:
+        'Lord Jesus, let me know myself and know You,\n'
+            'and desire nothing save only You.\n'
+            'Let me hate myself and love You.\n'
+            'Let me do all things for the sake of You,\n'
+            'and deny myself for the sake of You,\n'
+            'because You, and not any other good, are my supreme good.\n'
+            'Amen.',
+        contentAm:
+        'ጌታ ኢየሱስ ሆይ፥ ራሴን እንድያውቅና አንተን እንድያውቅ፥\n'
+            'ከአንተ በቀር ምንም እንዳልመኝ አድርገኝ።\n'
+            'ራሴን እንድጠላና አንተን እንድወድ አድርገኝ።\n'
+            'ሁሉንም ሥራ ለአንተ ፈቃድ እንድደርግ፥\n'
+            'ራሴንም ለአንተ ፈቃድ እንድካድ አድርገኝ፤\n'
+            'ምክንያቱም አንተ ብቻ ከሁሉ የላቀ የእኔ መልካም ነህ።\n'
+            'አሜን።',
         imagePath: 'assets/sunrise.jpeg',
       ),
     ],
 
-    'Jesus, I Trust in You': [
+    // -------------------------------------------------------------------------
+    // 36. PRAYER OF ABANDONMENT
+    // -------------------------------------------------------------------------
+    'Prayer of Abandonment': [
       PrayerStep(
-        sectionHeader: 'ACT OF TRUST',
-        titleEn: 'Jesus, I Trust in You',
-        titleAm: 'ኢየሱስ ሆይ፣ በአንተ እተማመናለሁ',
-        contentEn:
-        'O Jesus, Fount of Mercy and Love, when doubts arise and burdens weigh heavy, I rest my soul in Your Sacred Heart.\n\n'
-            'Jesus, I trust in You!\n'
-            'Jesus, I trust in You!\n'
-            'Jesus, I trust in You! Amen.',
-        contentAm:
-        'ኦ ኢየሱስ፣ የምህረትና የፍቅር ምንጭ፣ መጠራጠር በሚነሳበትና ሸክም በሚከብድበት ጊዜ፣ ነፍሴን በቅዱስ ልብህ ውስጥ አሳርፋለሁ።\n\n'
-            'ኢየሱስ ሆይ፣ በአንተ እተማመናለሁ!\n'
-            'ኢየሱስ ሆይ፣ በአንተ እተማመናለሁ!\n'
-            'ኢየሱስ ሆይ፣ በአንተ እተማመናለሁ! አሜን።',
-        imagePath: 'assets/img_5.png',
+        sectionHeader: 'SURRENDER TO GOD',
+        sectionHeaderAm: 'እጅ መስጠት እና መታመን',
+        titleEn: 'Prayer of Abandonment',
+        titleAm: 'የእጅ መስጠት ጸሎት',
+        contentEn: 'Father, I abandon myself into your hands; do with me what you will. Whatever you may do, I thank you: I am ready for all, I accept all. Let only your will be done in me, and in all your creatures... Amen.',
+        contentAm: 'አባት ሆይ፣ ራሴን ሙሉ በሙሉ በእጆችህ አደራ እሰጣለሁ፤ የፈቀድከውን አድርግብኝ። ስለምታደርገውም ሁሉ አመሰግናለሁ፤ ለሁሉም ዝግጁ ነኝ። ፈቃድህ ብቻ በእኔ ላይ ይሁን። አሜን።',
+        imagePath: 'assets/father.jpg',
+      ),
+    ],
+
+    // -------------------------------------------------------------------------
+    // 37. PRAYER OF ST. AUGUSTINE
+    // -------------------------------------------------------------------------
+    'Prayer of St. Augustine': [
+      PrayerStep(
+        sectionHeader: 'DEVOTION',
+        sectionHeaderAm: 'መነሳትና ፍቅር',
+        titleEn: 'Prayer of St. Augustine',
+        titleAm: 'የቅዱስ አውጎስጢኖስ ጸሎት',
+        contentEn: 'Lord Jesus, let me know myself and know you and desire nothing save only you. Amen.',
+        contentAm: 'ጌታ ኢየሱስ ሆይ፣ ራሴን እንድያውቅና አንተን እንድያውቅ፣ ከአንተ በቀር ምንም እንዳልመኝ አድርገኝ። አሜን።',
+        imagePath: 'assets/sunrise.jpeg',
       ),
     ],
   };
 
+  /// Retrieves steps for a given prayer key and enforces background image mapping
   static List<PrayerStep> getPrayer(String key) {
     final normalizedKey = key.trim().toLowerCase();
+    final imageAsset = getImagePath(key);
+
+    String searchKey = normalizedKey;
+    if (searchKey == 'hour of mercy' ||
+        searchKey == 'the hour of mercy' ||
+        searchKey == 'የምሕረት ሰዓት ጸሎት') {
+      searchKey = 'prayer for the hour of mercy';
+    }
 
     final entry = masterPrayerDB.entries.firstWhere(
-          (e) => e.key.trim().toLowerCase() == normalizedKey,
+          (e) =>
+      e.key.trim().toLowerCase() == searchKey ||
+          e.value.any((step) =>
+          step.titleEn.trim().toLowerCase() == searchKey ||
+              step.titleAm.trim().toLowerCase() == searchKey),
       orElse: () => MapEntry(
         key,
         [
           PrayerStep(
             sectionHeader: 'PRAYER',
+            sectionHeaderAm: 'ጸሎት',
             titleEn: key,
             titleAm: key,
-            contentEn: 'Opening prayer for $key...\n\nLord, hear our prayer. Amen.',
+            contentEn:
+            'Opening prayer for $key...\n\nLord, hear our prayer. Amen.',
             contentAm: 'የቀን ጸሎት ለ $key...\n\nአምላክ ሆይ፣ ጸሎታችንን ስማ። አሜን።',
-            imagePath: getImagePath(key),
+            imagePath: imageAsset,
           ),
         ],
       ),
     );
-    return entry.value;
+
+    return entry.value
+        .map((step) => PrayerStep(
+      sectionHeader: step.sectionHeader,
+      sectionHeaderAm: step.sectionHeaderAm,
+      titleEn: step.titleEn,
+      titleAm: step.titleAm,
+      contentEn: step.contentEn,
+      contentAm: step.contentAm,
+      imagePath: imageAsset,
+    ))
+        .toList();
   }
 }

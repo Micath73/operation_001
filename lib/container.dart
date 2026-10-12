@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:operation_001/angelus_screen.dart';
-import 'package:operation_001/chapel_screen.dart';
+import 'package:operation_001/controllers/language_controller.dart';
+import 'package:operation_001/l10n/app_localizations.dart';
 import 'package:operation_001/novena_combo.dart';
-import 'package:operation_001/prayer_data.dart';
-import 'package:operation_001/prayer_detail_screen.dart';
-import 'package:operation_001/premium_page_route.dart';
-import 'package:operation_001/rosary_screen.dart';
+import 'package:operation_001/prayer_category_screen.dart';
 
 class Contain extends StatelessWidget {
   final String title;
@@ -17,129 +14,200 @@ class Contain extends StatelessWidget {
     required this.prayers,
   });
 
-  void _navigateToPrayer(BuildContext context, NovenaCombo prayer) {
-    switch (prayer.text) {
-      case 'Angelus':
-        Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(builder: (context) => const AngelusScreen()),
-        );
-        return;
-      case 'Divine Mercy Chaplet':
-        Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(builder: (context) => const ChapletScreen()),
-        );
-        return;
-      case 'Rosary':
-        Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(
-            builder: (context) => RosaryDetailScreen(
-              title: 'The Holy Rosary',
-              steps: defaultRosaryList,
-            ),
-          ),
-        );
-        return;
-      default:
-        Navigator.of(context, rootNavigator: true).push(
-          premiumPageRoute(NovenaPrayerDetailScreen(prayer: prayer)),
-        );
-        return;
-    }
+  IconData _getCategoryIcon(String categoryTitle) {
+    final lower = categoryTitle.toLowerCase();
+    if (lower.contains('everyday')) return Icons.wb_sunny_rounded;
+    if (lower.contains('anchors')) return Icons.anchor_rounded;
+    if (lower.contains('protection') || lower.contains('warfare')) return Icons.shield_rounded;
+    if (lower.contains('repentance') || lower.contains('mercy')) return Icons.favorite_rounded;
+    if (lower.contains('eucharistic')) return Icons.church_rounded;
+    if (lower.contains('marian')) return Icons.star_rounded;
+    if (lower.contains('intercession')) return Icons.people_rounded;
+    return Icons.self_improvement_rounded;
+  }
+
+  String _getLocalizedContainerTitle(String originalTitle, bool isAmharic) {
+    if (!isAmharic) return originalTitle;
+
+    final lower = originalTitle.toLowerCase();
+    if (lower.contains('everyday essentials')) return 'የዕለት ተዕለት መሠረታዊ ጸሎቶች';
+    if (lower.contains('anchors of the day')) return 'የዕለቱ ዋና ዋና ጸሎቶች';
+    if (lower.contains('protection') || lower.contains('warfare')) return 'ጥበቃ እና መንፈሳዊ ውጊያ';
+    if (lower.contains('repentance') || lower.contains('mercy')) return 'ንስሐ እና ምሕረት';
+    if (lower.contains('eucharistic')) return 'የቅዱስ ቁርባን ጸሎቶች';
+    if (lower.contains('marian')) return 'የእመቤታችን ጸሎቶች';
+    if (lower.contains('intercession')) return 'ምልጃ እና ለሌሎች መጸለይ';
+    if (lower.contains('reflection') || lower.contains('surrender')) return 'መንፈሳዊ ማሰላሰል እና እጅ መስጠት';
+    return originalTitle;
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final primaryColor = theme.colorScheme.primary;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.surfaceContainerLow,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.4),
-            width: 1,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: theme.colorScheme.shadow.withValues(alpha: 0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: theme.textTheme.titleLarge?.copyWith(
-                color: theme.colorScheme.onSurface,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
-            ...prayers.map((prayer) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Material(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(12),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(12),
-                    onTap: () => _navigateToPrayer(context, prayer),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal: 8,
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
+        final localizedTitle = _getLocalizedContainerTitle(title, isAmharic);
+        final categoryIcon = _getCategoryIcon(title);
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+          child: Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(20),
+            elevation: 3,
+            shadowColor: primaryColor.withValues(alpha: 0.2),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(20),
+              onTap: () {
+                Navigator.of(context, rootNavigator: true).push(
+                  MaterialPageRoute(
+                    builder: (context) => PrayerCategoryScreen(
+                      categoryTitle: localizedTitle,
+                      prayers: prayers,
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(14), // Reduced from 16 to 14 for perfect layout fit
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      primaryColor,
+                      primaryColor.withValues(alpha: 0.75),
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.2),
+                    width: 1,
+                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Stack(
+                    children: [
+                      // Decorative background circle
+                      Positioned(
+                        right: -25,
+                        top: -15,
+                        bottom: -15,
+                        child: Container(
+                          width: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white.withValues(alpha: 0.08),
+                          ),
+                        ),
                       ),
-                      child: Row(
+                      Row(
                         children: [
-                          Hero(
-                            tag: 'prayer-image-${prayer.text}',
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Image.asset(
-                                prayer.imagePath,
-                                height: 45,
-                                width: 45,
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    Icon(
-                                      Icons.image_not_supported,
-                                      color: theme.colorScheme.onSurfaceVariant,
-                                    ),
+                          // Left icon container
+                          Container(
+                            height: 74,
+                            width: 74,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.3),
+                                width: 1.2,
+                              ),
+                            ),
+                            child: Center(
+                              child: Icon(
+                                categoryIcon,
+                                color: theme.colorScheme.onPrimary,
+                                size: 34,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 15),
+                          const SizedBox(width: 16),
+                          // Category details and pill button
                           Expanded(
-                            child: Text(
-                              prayer.text,
-                              style: theme.textTheme.bodyLarge?.copyWith(
-                                color: theme.colorScheme.onSurface,
-                                fontWeight: FontWeight.w500,
-                              ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min, // Allows Column to adapt naturally
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  isAmharic ? 'ምድብ' : 'CATEGORY',
+                                  style: TextStyle(
+                                    fontFamily: 'Georgia',
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: theme.colorScheme.onPrimary.withValues(alpha: 0.75),
+                                    letterSpacing: 1.5,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  localizedTitle,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontFamily: 'Georgia',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: theme.colorScheme.onPrimary,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                // Action Pill Button
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withValues(alpha: 0.2),
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.white.withValues(alpha: 0.3),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        isAmharic
+                                            ? '${prayers.length} ጸሎቶች'
+                                            : 'Explore (${prayers.length})',
+                                        style: TextStyle(
+                                          fontFamily: 'Georgia',
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.bold,
+                                          color: theme.colorScheme.onPrimary,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Icon(
+                                        Icons.arrow_forward_rounded,
+                                        size: 13,
+                                        color: theme.colorScheme.onPrimary,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Icon(
-                            Icons.chevron_right,
-                            color: theme.colorScheme.onSurfaceVariant
-                                .withValues(alpha: 0.6),
-                            size: 20,
                           ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              );
-            }),
-          ],
-        ),
-      ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

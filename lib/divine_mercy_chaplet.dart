@@ -2,10 +2,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:operation_001/prayer_completion_screen.dart';
 
-class DivineMercyChaplet extends StatefulWidget {
-  final bool isAmharic;
+import 'package:operation_001/l10n/app_localizations.dart';
+// ⚠ Change this one to wherever LanguageController lives in your project.
+import 'package:operation_001/controllers/language_controller.dart';
 
-  const DivineMercyChaplet({super.key, this.isAmharic = false});
+class DivineMercyChaplet extends StatefulWidget {
+  const DivineMercyChaplet({
+    super.key,
+    @Deprecated('Language now comes from LanguageController.instance.')
+    bool? isAmharic,
+  });
 
   @override
   State<DivineMercyChaplet> createState() => _DivineMercyChapletState();
@@ -30,6 +36,25 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, _) {
+        // Resolved straight from the controller (not AppLocalizations.of)
+        // so the text follows `isAmharic` even if MaterialApp.locale
+        // isn't bound to it.
+        final l10n = lookupAppLocalizations(
+          Locale(LanguageController.instance.isAmharic ? 'am' : 'en'),
+        );
+        return _buildScaffold(context, theme, l10n);
+      },
+    );
+  }
+
+  Widget _buildScaffold(
+      BuildContext context,
+      ThemeData theme,
+      AppLocalizations l10n,
+      ) {
     return Scaffold(
       backgroundColor: Colors.black, // Hardcoded dark base
       extendBodyBehindAppBar: true,
@@ -37,7 +62,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          widget.isAmharic ? 'የማሕሪው ኢየሱስ ጸሎት' : 'Divine Mercy Chaplet',
+          l10n.chapletTitle,
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -124,9 +149,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              widget.isAmharic
-                                                  ? 'የማሕሪው ኢየሱስ ድምፅ'
-                                                  : 'Divine Mercy Chaplet Audio',
+                                              l10n.chapletAudioTitle,
                                               style: const TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.bold,
@@ -223,70 +246,32 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                     // --- Step 1: Sign of the Cross & Opening Prayers ---
                     _buildPrayerCard(
                       theme: theme,
-                      title: widget.isAmharic
-                          ? '1. የመክፈቻ ጸሎት'
-                          : '1. Opening Prayers',
-                      content: widget.isAmharic
-                          ? 'በአብ፡ በወልድ፡ ወመንፈስ ቅዱስ ስም አሐዱ አምላክ አሜን።\n\n'
-                          'አቤቱ ኢየሱስ ሆይ፡ ሞትክ፡ ነገር ግን የሕይወት ምንጭ ለነፍሳት ፈሰሰ፤ የምሕረትም ውቅያኖስ ለመላው ዓለም ተከፈተ። እጅግ ጥልቅ የሆነ የምሕረት ምንጭ ሆይ፡ መላውን ዓለም ሸፍን፡ እራስህንም በእኛ ላይ አፍስስ።\n\n'
-                          'እኛን የሚምር የኢየሱስ ልብ ሆይ፡ ከአንተ የፈሰሰው ደምና ውኃ፡ በእንተ እተማመናለሁ! (3 ጊዜ)'
-                          : 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n'
-                          'You expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, enfold the whole world and empty Yourself out upon us.\n\n'
-                          'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of mercy for us, I trust in You! (Repeat 3 times)',
+                      title: l10n.chapletStep1Title,
+                      content: l10n.chapletStep1Body,
                     ),
                     const SizedBox(height: 16),
 
                     // --- Step 2: Preparatory Prayers ---
                     _buildPrayerCard(
                       theme: theme,
-                      title: widget.isAmharic
-                          ? '2. የመዘጋጃ ጸሎቶች'
-                          : '2. Preparatory Prayers',
-                      content: widget.isAmharic
-                          ? 'አባታችን ሆይ በሰማያት የምትኖር… (አባታችን ሆይ)\n\n'
-                          'ጸጋን የሞላብሽ ማርያም ሆይ ሰላም ለአንቺ ይሁን… (ሰላም ለአንቺ ይሁን)\n\n'
-                          'የሐዋርያት እምነት ጸሎት (ሃይማኖተ አበው):\n'
-                          'ሁሉን በሚችል በሰማይና በምድር በታየውና ባልታየው በፈጠረ በአንድ አምላክ በእግዚአብሔር አብ እንስማማለን…'
-                          : 'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.\n\n'
-                          'Hail Mary, full of grace. The Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\n'
-                          'The Apostles\' Creed:\n'
-                          'I believe in God, the Father Almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and is seated at the right hand of God the Father Almighty; from there He will come to judge the living and the dead. I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.',
+                      title: l10n.chapletStep2Title,
+                      content: l10n.chapletStep2Body,
                     ),
                     const SizedBox(height: 16),
 
                     // --- Step 3: The 5 Decades ---
                     _buildPrayerCard(
                       theme: theme,
-                      title: widget.isAmharic
-                          ? '3. አምስቱ አስርቶች'
-                          : '3. The 5 Decades',
-                      content: widget.isAmharic
-                          ? 'ለእያንዳንዱ 5 አስርቶች የሚከተለውን ይጸልዩ:\n\n'
-                          'በትልቁ እንቁላል ላይ:\n'
-                          '"ዘላላማዊ አባት ሆይ፡ ስለ እኛና ስለ መላው ዓለም ኃጢአት ማስተስረያ፡ የተወደደውን ልጅህን የጌታችንን የኢየሱስ ክርስቶስን ሥጋውንና ደሙን ነፍሱንና አምላክነቱን ለአንተ እናቀርባለን።"\n\n'
-                          'በ 10 ትናንሽ እንቁላሎች ላይ:\n'
-                          '"ስለ ሕማማቱና ስለ ሞቱ፡ በእኛና በመላው ዓለም ላይ ምሕረት አድርግ።"'
-                          : 'For each of the 5 Decades, pray the following:\n\n'
-                          'On the Large Bead (Eternal Father):\n'
-                          '"Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your Dearly Beloved Son, Our Lord, Jesus Christ, in atonement for our sins and those of the whole world." \n\n'
-                          'On the 10 Small Beads (Sorrowful Passion):\n'
-                          '"For the sake of His sorrowful Passion, have mercy on us and on the whole world."',
+                      title: l10n.chapletStep3Title,
+                      content: l10n.chapletStep3Body,
                     ),
                     const SizedBox(height: 16),
 
                     // --- Step 4: Concluding Doxology ---
                     _buildPrayerCard(
                       theme: theme,
-                      title: widget.isAmharic
-                          ? '4. የማጠቃለያ ጸሎት'
-                          : '4. Concluding Doxology',
-                      content: widget.isAmharic
-                          ? 'ቅዱስ እግዚአብሔር፡ ቅዱስ ኃያል፡ ቅዱስ ሕያው የማይሞት፡ በእኛና በመላው ዓለም ላይ ምሕረት አድርግ። (3 ጊዜ)\n\n'
-                          'የመዝጊያ ጸሎት:\n'
-                          'ዘላለማዊ አምላክ ሆይ፡ ምሕረትህ አያልቅም፡ የርኅራኄህም መዝገብ አይጨረስም፤ በጭንቅ ጊዜ ተስፋ እንዳንቆርጥ፡ በታላቅ እምነት ወደ ቅዱስ ፈቃድህ እንድንመለስ በምሕረትህ ተመልከተን። አሜን።'
-                          : 'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n(Repeat 3 times)\n\n'
-                          'Closing Prayer:\n'
-                          'Eternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself. Amen.',
+                      title: l10n.chapletStep4Title,
+                      content: l10n.chapletStep4Body,
                     ),
                     const SizedBox(height: 32),
 
@@ -307,7 +292,6 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                             ),
                             elevation: 8,
                           ),
-                          // Locate the onPressed inside DivineMercyChaplet (around line 280):
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
@@ -315,18 +299,20 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                                 reverseTransitionDuration: const Duration(milliseconds: 400),
                                 pageBuilder: (context, animation, secondaryAnimation) =>
                                     PrayerCompletionScreen(
-                                      isAmharic: widget.isAmharic,
-                                      detailValue: widget.isAmharic
-                                          ? 'የማሕሪው ኢየሱስ ጸሎት'
-                                          : 'Divine Mercy Chaplet',
+                                      isAmharic:
+                                      LanguageController.instance.isAmharic,
+                                      detailValue: l10n.chapletTitle,
                                       // Updated to match PrayerType.chaplet.dbValue
                                       prayerType: 'chaplet',
-                                      detailLabelEn: 'Devotional',
-                                      detailLabelAm: 'ጸሎት',
-                                      titleEn: 'Chaplet Completed',
-                                      titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
-                                      subtitleEn: 'May His Divine Mercy shine upon you',
-                                      subtitleAm: 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን',
+                                      // l10n is already in the active language, so the
+                                      // En/Am pair gets the same string — the completion
+                                      // screen picks by its own isAmharic flag.
+                                      detailLabelEn: l10n.chapletDetailLabel,
+                                      detailLabelAm: l10n.chapletDetailLabel,
+                                      titleEn: l10n.chapletCompletedTitle,
+                                      titleAm: l10n.chapletCompletedTitle,
+                                      subtitleEn: l10n.chapletCompletedSubtitle,
+                                      subtitleAm: l10n.chapletCompletedSubtitle,
                                       bgImagePath: 'assets/img_3.png',
                                     ),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -362,7 +348,7 @@ class _DivineMercyChapletState extends State<DivineMercyChaplet> {
                             size: 24,
                           ),
                           label: Text(
-                            widget.isAmharic ? 'አሜን' : 'AMEN',
+                            l10n.chapletAmen.toUpperCase(),
                             style: TextStyle(
                               color: theme.colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,

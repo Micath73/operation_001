@@ -169,4 +169,123 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get concludingRitesDesc => 'ማስታወቂያዎች፣ የመጨረሻ ቡራኬ እና መበተን::';
+
+  @override
+  String get angelusHeroTitle => 'የመልአኩ ሰላምታ';
+
+  @override
+  String get angelusHeroQuote =>
+      'የእግዚአብሔር መልአክ ማርያምን አበሠራት፤ እርሷም በመንፈስ ቅዱስ ፀነሰች።';
+
+  @override
+  String get angelusCitation => '— ሉቃስ 1:38';
+
+  @override
+  String get angelusLetUsPray => 'እንጸልይ';
+
+  @override
+  String get angelusTitle => 'መልአኩ ሰላምታ';
+
+  @override
+  String get angelusAudioTitle => 'የመልአኩ ሰላምታ ድምፅ';
+
+  @override
+  String get angelusTextHeading => 'የመክፈቻ ጸሎት';
+
+  @override
+  String get angelusPrayerText =>
+      'V. የእግዚአብሔር መልአክ ማርያምን አበሠራት፡፡\nR. እርሷም በመንፈስ ቅዱስ ፀነሰች፡፡\n\nጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\nV. እነሆኝ የእግዚአብሔር አገልጋይ፡፡\nR. እንዳልከኝ ይሁንልኝ፡፡\n\nጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\nV. ቃል ሥጋ ሆነ፡፡\nR. በኛም አደረ፡፡\n\nጸጋ የመላሽ ማርያም ሆይ… ቅድስት ማርያም…\n\nV. ቅድስት የአምላክ እናት ሆይ ለምኝልን፡፡\nR. ክርስቶስ ለሰጠን ተስፋ የተገባን እንድንሆን፡፡\n\nእንጸልይ:\nእግዚአብሔር ሆይ በመልአኩ ምስራች የልጅህን የኢየሱስ ክርስቶስን ሰው መሆኑን እንዳወቅን፤ በህማሙና በመስቀሉ ወደ ትንሣኤ ክብር እንድንደርስ ጸጋህን ስጠን፡፡ በጌታችን ኢየሱስ ክርስቶስ ስም እንለምንሃለን፡፡ አሜን፡፡';
+
+  @override
+  String get amenButton => 'አሜን';
+
+  @override
+  String get devotionalLabelEn => 'Devotional';
+
+  @override
+  String get devotionalLabelAm => 'ጸሎት';
+
+  @override
+  String get angelusCompletedTitleEn => 'Angelus Completed';
+
+  @override
+  String get angelusCompletedTitleAm => 'የመልአኩ ሰላምታ ተጠናቋል';
+
+  @override
+  String get angelusCompletedSubtitleEn =>
+      'May the grace of His Incarnation fill your heart';
+
+  @override
+  String get angelusCompletedSubtitleAm => 'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን';
+
+  @override
+  String get chapletScreenHeading => 'የማሕሪው ኢየሱስ ጸሎት';
+
+  @override
+  String get chapletQuote =>
+      '\"ልጄ ሆይ፣ የሰጠሁሽን ጸሎት ነፍሳት እንዲጸልዩ አበረታቺ። ይህን ጸሎት በመጸለይ የሚጠይቁኝን ሁሉ መስጠት ደስ ያሰኘኛል።\"';
+
+  @override
+  String get chapletQuoteCitation => '— ማስታወሻ ደብተር፣ 1541';
+
+  @override
+  String get chapletLetUsPray => 'እንጸልይ';
+
+  @override
+  String get chapletTitle => 'የማሕሪው ኢየሱስ ጸሎት';
+
+  @override
+  String get chapletAudioTitle => 'የማሕሪው ኢየሱስ ድምፅ';
+
+  @override
+  String get chapletStep1Title => '1. የመክፈቻ ጸሎት';
+
+  @override
+  String get chapletStep1Body =>
+      'በአብ፡ በወልድ፡ ወመንፈስ ቅዱስ ስም አሐዱ አምላክ አሜን።\n\nአቤቱ ኢየሱስ ሆይ፡ ሞትክ፡ ነገር ግን የሕይወት ምንጭ ለነፍሳት ፈሰሰ፤ የምሕረትም ውቅያኖስ ለመላው ዓለም ተከፈተ። እጅግ ጥልቅ የሆነ የምሕረት ምንጭ ሆይ፡ መላውን ዓለም ሸፍን፡ እራስህንም በእኛ ላይ አፍስስ።\n\nእኛን የሚምር የኢየሱስ ልብ ሆይ፡ ከአንተ የፈሰሰው ደምና ውኃ፡ በእንተ እተማመናለሁ! (3 ጊዜ)';
+
+  @override
+  String get chapletStep2Title => '2. የመዘጋጃ ጸሎቶች';
+
+  @override
+  String get chapletStep2Body =>
+      'አባታችን ሆይ በሰማያት የምትኖር… (አባታችን ሆይ)\n\nጸጋን የሞላብሽ ማርያም ሆይ ሰላም ለአንቺ ይሁን… (ሰላም ለአንቺ ይሁን)\n\nየሐዋርያት እምነት ጸሎት (ሃይማኖተ አበው):\nሁሉን በሚችል በሰማይና በምድር በታየውና ባልታየው በፈጠረ በአንድ አምላክ በእግዚአብሔር አብ እንስማማለን…';
+
+  @override
+  String get chapletStep3Title => '3. አምስቱ አስርቶች';
+
+  @override
+  String get chapletStep3Body =>
+      'ለእያንዳንዱ 5 አስርቶች የሚከተለውን ይጸልዩ:\n\nበትልቁ እንቁላል ላይ:\n\"ዘላላማዊ አባት ሆይ፡ ስለ እኛና ስለ መላው ዓለም ኃጢአት ማስተስረያ፡ የተወደደውን ልጅህን የጌታችንን የኢየሱስ ክርስቶስን ሥጋውንና ደሙን ነፍሱንና አምላክነቱን ለአንተ እናቀርባለን።\"\n\nበ 10 ትናንሽ እንቁላሎች ላይ:\n\"ስለ ሕማማቱና ስለ ሞቱ፡ በእኛና በመላው ዓለም ላይ ምሕረት አድርግ።\"';
+
+  @override
+  String get chapletStep4Title => '4. የማጠቃለያ ጸሎት';
+
+  @override
+  String get chapletStep4Body =>
+      'ቅዱስ እግዚአብሔር፡ ቅዱስ ኃያል፡ ቅዱስ ሕያው የማይሞት፡ በእኛና በመላው ዓለም ላይ ምሕረት አድርግ። (3 ጊዜ)\n\nየመዝጊያ ጸሎት:\nዘላለማዊ አምላክ ሆይ፡ ምሕረትህ አያልቅም፡ የርኅራኄህም መዝገብ አይጨረስም፤ በጭንቅ ጊዜ ተስፋ እንዳንቆርጥ፡ በታላቅ እምነት ወደ ቅዱስ ፈቃድህ እንድንመለስ በምሕረትህ ተመልከተን። አሜን።';
+
+  @override
+  String get chapletAmen => 'አሜን';
+
+  @override
+  String get chapletCompletedTitle => 'ጸሎቱ በስኬት ተጠናቋል';
+
+  @override
+  String get chapletCompletedSubtitle => 'ምህረቱ እና ጸጋው ከእርስዎ ጋር ይሁን';
+
+  @override
+  String get chapletDetailLabel => 'ጸሎት';
+
+  @override
+  String get angelus => 'አንጀሉስ';
+
+  @override
+  String get divineMercyChaplet => 'የመለኮታዊ ምሕረት ጸሎት';
+
+  @override
+  String get rosary => 'የመቁጠሪያ ጸሎት';
+
+  @override
+  String get holyRosary => 'የመቁጠሪያ ጸሎት';
 }

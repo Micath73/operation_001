@@ -415,6 +415,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Announcements, the final blessing, and the dismissal.'**
   String get concludingRitesDesc;
+
+  /// No description provided for @angelusHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'THE ANGELUS'**
+  String get angelusHeroTitle;
+
+  /// No description provided for @angelusHeroQuote.
+  ///
+  /// In en, this message translates to:
+  /// **'The Angel of the Lord declared unto Mary, and she conceived of the Holy Spirit.'**
+  String get angelusHeroQuote;
+
+  /// No description provided for @angelusCitation.
+  ///
+  /// In en, this message translates to:
+  /// **'— Luke 1:38'**
+  String get angelusCitation;
+
+  /// No description provided for @angelusLetUsPray.
+  ///
+  /// In en, this message translates to:
+  /// **'LET US PRAY'**
+  String get angelusLetUsPray;
+
+  /// No description provided for @angelusTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Angelus'**
+  String get angelusTitle;
+
+  /// No description provided for @angelusAudioTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Angelus Audio'**
+  String get angelusAudioTitle;
+
+  /// No description provided for @angelusTextHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Devotional Text'**
+  String get angelusTextHeading;
+
+  /// No description provided for @angelusPrayerText.
+  ///
+  /// In en, this message translates to:
+  /// **'V. The Angel of the Lord declared unto Mary.\nR. And she conceived of the Holy Spirit.\n\nHail Mary, full of grace, the Lord is with you!\nBlessed are you among women, and blessed is the fruit of your womb, Jesus.\nHoly Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\nV. Behold the handmaid of the Lord.\nR. Be it done unto me according to your word.\n\nHail Mary, full of grace...\n\nV. And the Word was made Flesh.\nR. And dwelt among us.\n\nHail Mary, full of grace...\n\nV. Pray for us, O holy Mother of God.\nR. That we may be made worthy of the promises of Christ.\n\nLet us pray:\nPour forth we beseech you, O Lord, your grace into our hearts, that we, to whom the incarnation of Christ your Son was made known by the message of an angel, may by his passion and cross be brought to the glory of his resurrection. Through the same Christ Our Lord. Amen.'**
+  String get angelusPrayerText;
+
+  /// No description provided for @amenButton.
+  ///
+  /// In en, this message translates to:
+  /// **'AMEN'**
+  String get amenButton;
+
+  /// No description provided for @devotionalLabelEn.
+  ///
+  /// In en, this message translates to:
+  /// **'Devotional'**
+  String get devotionalLabelEn;
+
+  /// No description provided for @devotionalLabelAm.
+  ///
+  /// In en, this message translates to:
+  /// **'ጸሎት'**
+  String get devotionalLabelAm;
+
+  /// No description provided for @angelusCompletedTitleEn.
+  ///
+  /// In en, this message translates to:
+  /// **'Angelus Completed'**
+  String get angelusCompletedTitleEn;
+
+  /// No description provided for @angelusCompletedTitleAm.
+  ///
+  /// In en, this message translates to:
+  /// **'የመልአኩ ሰላምታ ተጠናቋል'**
+  String get angelusCompletedTitleAm;
+
+  /// No description provided for @angelusCompletedSubtitleEn.
+  ///
+  /// In en, this message translates to:
+  /// **'May the grace of His Incarnation fill your heart'**
+  String get angelusCompletedSubtitleEn;
+
+  /// No description provided for @angelusCompletedSubtitleAm.
+  ///
+  /// In en, this message translates to:
+  /// **'የምስራቹ ጸጋ ከእርስዎ ጋር ይሁን'**
+  String get angelusCompletedSubtitleAm;
+
+  /// No description provided for @chapletScreenHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'The Divine Mercy Chaplet'**
+  String get chapletScreenHeading;
+
+  /// No description provided for @chapletQuote.
+  ///
+  /// In en, this message translates to:
+  /// **'\"My daughter, encourage souls to say the chaplet which I have given you. It pleases Me to grant everything they ask of Me by saying the chaplet.\"'**
+  String get chapletQuote;
+
+  /// No description provided for @chapletQuoteCitation.
+  ///
+  /// In en, this message translates to:
+  /// **'— Diary, 1541'**
+  String get chapletQuoteCitation;
+
+  /// No description provided for @chapletLetUsPray.
+  ///
+  /// In en, this message translates to:
+  /// **'Let us pray'**
+  String get chapletLetUsPray;
+
+  /// No description provided for @chapletTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Divine Mercy Chaplet'**
+  String get chapletTitle;
+
+  /// No description provided for @chapletAudioTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Divine Mercy Chaplet Audio'**
+  String get chapletAudioTitle;
+
+  /// No description provided for @chapletStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Opening Prayers'**
+  String get chapletStep1Title;
+
+  /// No description provided for @chapletStep1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\nYou expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, enfold the whole world and empty Yourself out upon us.\n\nO Blood and Water, which gushed forth from the Heart of Jesus as a fount of mercy for us, I trust in You! (Repeat 3 times)'**
+  String get chapletStep1Body;
+
+  /// No description provided for @chapletStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'2. Preparatory Prayers'**
+  String get chapletStep2Title;
+
+  /// No description provided for @chapletStep2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.\n\nHail Mary, full of grace. The Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\n\nThe Apostles’ Creed:\nI believe in God, the Father Almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and is seated at the right hand of God the Father Almighty; from there He will come to judge the living and the dead. I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.'**
+  String get chapletStep2Body;
+
+  /// No description provided for @chapletStep3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'3. The 5 Decades'**
+  String get chapletStep3Title;
+
+  /// No description provided for @chapletStep3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'For each of the 5 Decades, pray the following:\n\nOn the Large Bead (Eternal Father):\n\"Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your Dearly Beloved Son, Our Lord, Jesus Christ, in atonement for our sins and those of the whole world.\"\n\nOn the 10 Small Beads (Sorrowful Passion):\n\"For the sake of His sorrowful Passion, have mercy on us and on the whole world.\"'**
+  String get chapletStep3Body;
+
+  /// No description provided for @chapletStep4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'4. Concluding Doxology'**
+  String get chapletStep4Title;
+
+  /// No description provided for @chapletStep4Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n(Repeat 3 times)\n\nClosing Prayer:\nEternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself. Amen.'**
+  String get chapletStep4Body;
+
+  /// No description provided for @chapletAmen.
+  ///
+  /// In en, this message translates to:
+  /// **'Amen'**
+  String get chapletAmen;
+
+  /// No description provided for @chapletCompletedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chaplet Completed'**
+  String get chapletCompletedTitle;
+
+  /// No description provided for @chapletCompletedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'May His Divine Mercy shine upon you'**
+  String get chapletCompletedSubtitle;
+
+  /// No description provided for @chapletDetailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Devotional'**
+  String get chapletDetailLabel;
+
+  /// No description provided for @angelus.
+  ///
+  /// In en, this message translates to:
+  /// **'Angelus'**
+  String get angelus;
+
+  /// No description provided for @divineMercyChaplet.
+  ///
+  /// In en, this message translates to:
+  /// **'Divine Mercy Chaplet'**
+  String get divineMercyChaplet;
+
+  /// No description provided for @rosary.
+  ///
+  /// In en, this message translates to:
+  /// **'Rosary'**
+  String get rosary;
+
+  /// No description provided for @holyRosary.
+  ///
+  /// In en, this message translates to:
+  /// **'The Holy Rosary'**
+  String get holyRosary;
 }
 
 class _AppLocalizationsDelegate
