@@ -254,7 +254,7 @@ class PrayerLibrary {
   // 7. INTERCESSION & FOR OTHERS
   static const List<NovenaCombo> intercessionOthers = [
     NovenaCombo(
-      text: 'Prayer to Saint Joseph',
+      text: 'Prayer to St. Joseph',
       imagePath: 'assets/img_12.png',
       category: 'Intercession & For Others',
       intentions: ['Intercession & For Others'],
@@ -282,7 +282,7 @@ class PrayerLibrary {
       suggestedTimes: ['morning'],
     ),
     NovenaCombo(
-      text: 'Prayer for Families',
+      text: 'Prayer to the Holy Family',
       imagePath: 'assets/holy family.jpg',
       category: 'Intercession & For Others',
       intentions: ['Intercession & For Others'],
@@ -309,6 +309,13 @@ class PrayerLibrary {
     NovenaCombo(
       text: 'Prayer of St. Augustine',
       imagePath: 'assets/img_9.png',
+      category: 'Spiritual Reflection & Surrender',
+      intentions: ['Spiritual Reflection & Surrender'],
+      suggestedTimes: ['anytime'],
+    ),
+    NovenaCombo(
+      text: 'Prayer of Abandonment',
+      imagePath: 'assets/father.jpg',
       category: 'Spiritual Reflection & Surrender',
       intentions: ['Spiritual Reflection & Surrender'],
       suggestedTimes: ['anytime'],
