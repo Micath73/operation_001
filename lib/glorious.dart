@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/controllers/language_controller.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
+import 'package:operation_001/rosary_conclusion_screen.dart';
 
 class GloriousScreen extends StatefulWidget {
   const GloriousScreen({super.key});
@@ -10,8 +12,6 @@ class GloriousScreen extends StatefulWidget {
 }
 
 class _GloriousScreenState extends State<GloriousScreen> {
-  bool isAmharic = false;
-
   final int dayNumber = DateTime.now().weekday;
 
   static const List<String> weekDay = [
@@ -214,139 +214,132 @@ class _GloriousScreenState extends State<GloriousScreen> {
       ],
     );
 
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: theme.colorScheme.surface,
-      appBar: AppBar(
-        title: SizedBox(
-          width: screenWidth * 0.6,
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
-            child: Text(
-              isAmharic ? 'የክብር ምሥጢር' : 'The Glorious Mystery',
-              key: ValueKey<bool>(isAmharic),
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: TextButton(
-              onPressed: () => setState(() => isAmharic = !isAmharic),
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.white.withValues(alpha: 0.12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Text(
-                isAmharic ? 'EN' : 'አማ',
-                style: TextStyle(
-                  color: theme.colorScheme.secondary,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(
-              'assets/wmremove-transformed (9).jpeg',
-              fit: BoxFit.cover,
-            ),
-          ),
-          Positioned.fill(
-            child: Container(color: Colors.black.withValues(alpha: 0.49)),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                children: [
-                  const Spacer(flex: 3),
-                  if (isGloriousDay)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: Colors.white.withValues(alpha: 0.2),
-                        ),
-                      ),
-                      child: _buildAnimatedText(
-                        isAmharic
-                            ? 'ዛሬ ${weekdays[dayNumber]} ነው (የክብር ምሥጢር)'
-                            : 'Today is ${weekDay[dayNumber]} (Glorious Mystery)',
-                        const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  const SizedBox(height: 16),
-                  _buildAnimatedText(
-                    isAmharic
-                        ? 'በክብር ምሥጢር\nእናሰላስል'
-                        : 'Let\'s Meditate Through The Glorious Mystery',
-                    titleStyle,
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
+
+        return Scaffold(
+          extendBodyBehindAppBar: true,
+          backgroundColor: theme.colorScheme.surface,
+          appBar: AppBar(
+            title: SizedBox(
+              width: screenWidth * 0.6,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: Text(
+                  isAmharic ? 'የክብር ምሥጢር' : 'The Glorious Mystery',
+                  key: ValueKey<bool>(isAmharic),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const Spacer(flex: 3),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 56,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PrayerSession(
-                              prayerSteps: prayerSequence,
-                              isAmharic: isAmharic,
+                ),
+              ),
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconTheme: const IconThemeData(color: Colors.white),
+          ),
+          body: Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  'assets/wmremove-transformed (9).jpeg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned.fill(
+                child: Container(color: Colors.black.withValues(alpha: 0.49)),
+              ),
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Column(
+                    children: [
+                      const Spacer(flex: 3),
+                      if (isGloriousDay)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: Colors.white.withValues(alpha: 0.2),
                             ),
                           ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: theme.colorScheme.primary,
-                        foregroundColor: theme.colorScheme.onPrimary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28),
+                          child: _buildAnimatedText(
+                            isAmharic
+                                ? 'ዛሬ ${weekdays[dayNumber]} ነው (የክብር ምሥጢር)'
+                                : 'Today is ${weekDay[dayNumber]} (Glorious Mystery)',
+                            const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                        elevation: 8,
+                      const SizedBox(height: 16),
+                      _buildAnimatedText(
+                        isAmharic
+                            ? 'በክብር ምሥጢር\nእናሰላስል'
+                            : 'Let\'s Meditate Through The Glorious Mystery',
+                        titleStyle,
                       ),
-                      child: Text(
-                        isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                        style: TextStyle(
-                          color: theme.colorScheme.onPrimary,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      const Spacer(flex: 3),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 56,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PrayerSession(
+                                  prayerSteps: prayerSequence,
+                                  isAmharic: isAmharic,
+                                ),
+                              ),
+                            );
+                            if (!context.mounted) return;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                const RosaryConclusionScreen(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.colorScheme.primary,
+                            foregroundColor: theme.colorScheme.onPrimary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            elevation: 8,
+                          ),
+                          child: Text(
+                            isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                            style: TextStyle(
+                              color: theme.colorScheme.onPrimary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 48),
+                    ],
                   ),
-                  const SizedBox(height: 48),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 

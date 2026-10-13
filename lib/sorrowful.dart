@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/controllers/language_controller.dart';
 import 'package:operation_001/prayer_model.dart';
 import 'package:operation_001/prayer_session_screen.dart';
+import 'package:operation_001/rosary_conclusion_screen.dart';
 
 class SorrowfulScreen extends StatefulWidget {
   const SorrowfulScreen({super.key});
@@ -10,8 +12,6 @@ class SorrowfulScreen extends StatefulWidget {
 }
 
 class _SorrowfulScreenState extends State<SorrowfulScreen> {
-  bool isAmharic = false;
-
   final int dayNumber = DateTime.now().weekday;
 
   static const Map<int, String> _weekDaysEn = {
@@ -188,7 +188,6 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    // Tuesday = 2, Friday = 5
     final bool isSorrowfulDay = (dayNumber == 2 || dayNumber == 5);
     final double screenWidth = MediaQuery.of(context).size.width;
 
@@ -204,147 +203,136 @@ class _SorrowfulScreenState extends State<SorrowfulScreen> {
       ],
     );
 
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: theme.colorScheme.surface,
-      appBar: AppBar(
-        title: SizedBox(
-          width: screenWidth * 0.6,
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
-            child: Text(
-              isAmharic ? 'የሕማማት ምሥጢር' : 'The Sorrowful Mystery',
-              key: ValueKey<bool>(isAmharic),
-              style: TextStyle(
-                color: theme.colorScheme.onPrimary,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: TextButton(
-              onPressed: () => setState(() => isAmharic = !isAmharic),
-              style: TextButton.styleFrom(
-                backgroundColor: theme.colorScheme.surface.withValues(alpha: 0.2),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Text(
-                isAmharic ? 'EN' : 'አማ',
-                style: TextStyle(
-                  color: theme.colorScheme.onPrimary,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          // Background Image
-          Positioned.fill(
-            child: Image.asset(
-              'assets/wmremove-transformed (6).jpeg',
-              fit: BoxFit.cover,
-            ),
-          ),
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
 
-          // M3 Compliant Scrim Overlay
-          Positioned.fill(
-            child: Container(
-              color: theme.colorScheme.scrim.withValues(alpha: 0.5),
-            ),
-          ),
-
-          // Content Layer
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                children: [
-                  const Spacer(flex: 3),
-                  if (isSorrowfulDay)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.surface.withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: theme.colorScheme.outlineVariant
-                              .withValues(alpha: 0.3),
-                        ),
-                      ),
-                      child: _buildAnimatedText(
-                        isAmharic
-                            ? 'ዛሬ ${_weekDaysAm[dayNumber] ?? ''} ነው (የሕማማት ምሥጢር)'
-                            : 'Today is ${_weekDaysEn[dayNumber] ?? ''} (Sorrowful Mystery)',
-                        TextStyle(
-                          color: theme.colorScheme.onPrimary,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  const SizedBox(height: 16),
-                  _buildAnimatedText(
-                    isAmharic
-                        ? 'በሕማማት ምሥጢር\nእናሰላስል'
-                        : 'Let\'s Meditate Through The Sorrowful Mystery',
-                    titleStyle ?? const TextStyle(),
+        return Scaffold(
+          extendBodyBehindAppBar: true,
+          backgroundColor: theme.colorScheme.surface,
+          appBar: AppBar(
+            title: SizedBox(
+              width: screenWidth * 0.6,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: Text(
+                  isAmharic ? 'የሕማማት ምሥጢር' : 'The Sorrowful Mystery',
+                  key: ValueKey<bool>(isAmharic),
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const Spacer(flex: 3),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 56,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PrayerSession(
-                              prayerSteps: prayerSequence,
-                              isAmharic: isAmharic,
+                ),
+              ),
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
+          ),
+          body: Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  'assets/wmremove-transformed (6).jpeg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned.fill(
+                child: Container(
+                  color: theme.colorScheme.scrim.withValues(alpha: 0.5),
+                ),
+              ),
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Column(
+                    children: [
+                      const Spacer(flex: 3),
+                      if (isSorrowfulDay)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surface
+                                .withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: theme.colorScheme.outlineVariant
+                                  .withValues(alpha: 0.3),
                             ),
                           ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: theme.colorScheme.primary,
-                        foregroundColor: theme.colorScheme.onPrimary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28),
+                          child: _buildAnimatedText(
+                            isAmharic
+                                ? 'ዛሬ ${_weekDaysAm[dayNumber] ?? ''} ነው (የሕማማት ምሥጢር)'
+                                : 'Today is ${_weekDaysEn[dayNumber] ?? ''} (Sorrowful Mystery)',
+                            TextStyle(
+                              color: theme.colorScheme.onPrimary,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                        elevation: 4,
+                      const SizedBox(height: 16),
+                      _buildAnimatedText(
+                        isAmharic
+                            ? 'በሕማማት ምሥጢር\nእናሰላስል'
+                            : 'Let\'s Meditate Through The Sorrowful Mystery',
+                        titleStyle ?? const TextStyle(),
                       ),
-                      child: Text(
-                        isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
-                        style: TextStyle(
-                          color: theme.colorScheme.onPrimary,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      const Spacer(flex: 3),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 56,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PrayerSession(
+                                  prayerSteps: prayerSequence,
+                                  isAmharic: isAmharic,
+                                ),
+                              ),
+                            );
+                            if (!context.mounted) return;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                const RosaryConclusionScreen(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.colorScheme.primary,
+                            foregroundColor: theme.colorScheme.onPrimary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            elevation: 4,
+                          ),
+                          child: Text(
+                            isAmharic ? 'ጸሎቱን ጀምር' : 'START PRAYER',
+                            style: TextStyle(
+                              color: theme.colorScheme.onPrimary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 48),
+                    ],
                   ),
-                  const SizedBox(height: 48),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
