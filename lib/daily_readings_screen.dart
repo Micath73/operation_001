@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/controllers/language_controller.dart';
 import 'package:operation_001/daily_reading_model.dart';
 import 'package:operation_001/readings_service.dart';
 
@@ -141,89 +142,97 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
     final colorScheme = theme.colorScheme;
     final isDark = theme.brightness == Brightness.dark;
 
-    return Scaffold(
-      backgroundColor: colorScheme.surface,
-      appBar: AppBar(
-        title: const Text("Daily Mass Readings"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.calendar_month_rounded),
-            tooltip: 'Pick Date',
-            onPressed: _selectDateFromCalendar,
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
+        final langCode = isAmharic ? 'am' : 'en';
+
+        return Scaffold(
+          backgroundColor: colorScheme.surface,
+          appBar: AppBar(
+            title: Text(isAmharic ? "ዕለታዊ የቅዱስ መስዋዕት ንባቦች" : "Daily Mass Readings"),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.calendar_month_rounded),
+                tooltip: isAmharic ? 'ቀን ይምረጡ' : 'Pick Date',
+                onPressed: _selectDateFromCalendar,
+              ),
+            ],
           ),
-        ],
-      ),
-      body: Column(
-        children: [
-          _buildDatePickerStrip(colorScheme),
-          Expanded(
-            child: FutureBuilder<DailyReading?>(
-              future: _readingFuture,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      color: colorScheme.primary,
-                    ),
-                  );
-                }
-
-                if (snapshot.hasError || snapshot.data == null) {
-                  return _buildOfflineErrorWidget(theme);
-                }
-
-                final reading = snapshot.data!;
-                final accentColor = _getLiturgicalColor(
-                  reading.liturgicalColor,
-                  isDark,
-                );
-
-                // Trigger scroll to Gospel once data loads if intent requested it
-                if (widget.scrollToGospel) {
-                  _scrollToGospel();
-                }
-
-                return SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildLiturgicalHeader(reading, accentColor, theme),
-                      const SizedBox(height: 16),
-                      _buildReadingCard(
-                        title: reading.firstReadingTitle,
-                        text: reading.firstReadingText,
-                        accentColor: accentColor,
-                        theme: theme,
-                      ),
-                      _buildPsalmCard(reading, accentColor, theme),
-                      if (reading.secondReadingTitle != null &&
-                          reading.secondReadingText != null) ...[
-                        _buildReadingCard(
-                          title: reading.secondReadingTitle!,
-                          text: reading.secondReadingText!,
-                          accentColor: accentColor,
-                          theme: theme,
+          body: Column(
+            children: [
+              _buildDatePickerStrip(colorScheme, isAmharic),
+              Expanded(
+                child: FutureBuilder<DailyReading?>(
+                  future: _readingFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: colorScheme.primary,
                         ),
-                      ],
-                      // Keyed Gospel Card for Auto-Scroll Intent
-                      KeyedSubtree(
-                        key: _gospelKey,
-                        child: _buildGospelCard(reading, accentColor, theme),
+                      );
+                    }
+
+                    if (snapshot.hasError || snapshot.data == null) {
+                      return _buildOfflineErrorWidget(theme, isAmharic);
+                    }
+
+                    final reading = snapshot.data!;
+                    final accentColor = _getLiturgicalColor(
+                      reading.liturgicalColor,
+                      isDark,
+                    );
+
+                    // Trigger scroll to Gospel once data loads if intent requested it
+                    if (widget.scrollToGospel) {
+                      _scrollToGospel();
+                    }
+
+                    return SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _buildLiturgicalHeader(reading, accentColor, theme, langCode),
+                          const SizedBox(height: 16),
+                          _buildReadingCard(
+                            title: reading.getFirstReadingTitle(langCode),
+                            text: reading.getFirstReadingText(langCode),
+                            accentColor: accentColor,
+                            theme: theme,
+                          ),
+                          _buildPsalmCard(reading, accentColor, theme, langCode),
+                          if (reading.secondReadingTitle != null &&
+                              reading.secondReadingText != null) ...[
+                            _buildReadingCard(
+                              title: reading.getSecondReadingTitle(langCode) ?? '',
+                              text: reading.getSecondReadingText(langCode) ?? '',
+                              accentColor: accentColor,
+                              theme: theme,
+                            ),
+                          ],
+                          // Keyed Gospel Card for Auto-Scroll Intent
+                          KeyedSubtree(
+                            key: _gospelKey,
+                            child: _buildGospelCard(reading, accentColor, theme, langCode, isAmharic),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                );
-              },
-            ),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildDatePickerStrip(ColorScheme colorScheme) {
+  Widget _buildDatePickerStrip(ColorScheme colorScheme, bool isAmharic) {
     return Container(
       height: 75,
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -255,16 +264,14 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
                     decoration: BoxDecoration(
-                      color:
-                      isSelected
+                      color: isSelected
                           ? colorScheme.primary
                           : colorScheme.surfaceContainerHighest.withValues(
                         alpha: 0.3,
                       ),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color:
-                        isSelected
+                        color: isSelected
                             ? colorScheme.primary
                             : colorScheme.outline.withValues(alpha: 0.2),
                         width: isSelected ? 2 : 1,
@@ -274,10 +281,9 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          _getDayAbbreviation(date.weekday),
+                          _getDayAbbreviation(date.weekday, isAmharic),
                           style: TextStyle(
-                            color:
-                            isSelected
+                            color: isSelected
                                 ? colorScheme.onPrimary
                                 : colorScheme.onSurfaceVariant,
                             fontSize: 12,
@@ -288,8 +294,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
                         Text(
                           "${date.day}",
                           style: TextStyle(
-                            color:
-                            isSelected
+                            color: isSelected
                                 ? colorScheme.onPrimary
                                 : colorScheme.onSurface,
                             fontSize: 16,
@@ -312,6 +317,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
       DailyReading reading,
       Color accentColor,
       ThemeData theme,
+      String langCode,
       ) {
     return Container(
       width: double.infinity,
@@ -340,7 +346,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           ),
           const SizedBox(height: 6),
           Text(
-            reading.liturgicalTitle,
+            reading.getLiturgicalTitle(langCode),
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -394,7 +400,9 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
       DailyReading reading,
       Color accentColor,
       ThemeData theme,
+      String langCode,
       ) {
+    final isAmharic = langCode == 'am';
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
       padding: const EdgeInsets.all(16.0),
@@ -411,7 +419,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Responsorial Psalm",
+            isAmharic ? "ምላሽ መዝሙር" : "Responsorial Psalm",
             style: TextStyle(
               color: accentColor,
               fontSize: 16,
@@ -420,7 +428,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            reading.psalmResponse,
+            reading.getPsalmResponse(langCode),
             style: TextStyle(
               color: theme.colorScheme.secondary,
               fontSize: 15,
@@ -430,7 +438,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           ),
           const Divider(height: 20),
           Text(
-            reading.psalmText,
+            reading.getPsalmText(langCode),
             style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
           ),
         ],
@@ -442,7 +450,10 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
       DailyReading reading,
       Color accentColor,
       ThemeData theme,
+      String langCode,
+      bool isAmharic,
       ) {
+    final gospelAccl = reading.getGospelAcclamation(langCode);
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
       padding: const EdgeInsets.all(16.0),
@@ -456,10 +467,9 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (reading.gospelAcclamation != null &&
-              reading.gospelAcclamation!.isNotEmpty) ...[
+          if (gospelAccl != null && gospelAccl.isNotEmpty) ...[
             Text(
-              "Gospel Acclamation",
+              isAmharic ? "የወንጌል ምስጋና" : "Gospel Acclamation",
               style: TextStyle(
                 color: theme.colorScheme.secondary,
                 fontSize: 14,
@@ -468,7 +478,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
             ),
             const SizedBox(height: 4),
             Text(
-              reading.gospelAcclamation!,
+              gospelAccl,
               style: theme.textTheme.bodyMedium?.copyWith(
                 fontStyle: FontStyle.italic,
                 color: theme.colorScheme.onSurfaceVariant,
@@ -477,7 +487,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
             const Divider(height: 20),
           ],
           Text(
-            reading.gospelTitle,
+            reading.getGospelTitle(langCode),
             style: TextStyle(
               color: theme.colorScheme.secondary,
               fontSize: 16,
@@ -486,7 +496,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
           ),
           const Divider(height: 20),
           Text(
-            reading.gospelText,
+            reading.getGospelText(langCode),
             style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
           ),
         ],
@@ -494,7 +504,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
     );
   }
 
-  Widget _buildOfflineErrorWidget(ThemeData theme) {
+  Widget _buildOfflineErrorWidget(ThemeData theme, bool isAmharic) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -508,14 +518,16 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              "No Readings Available Offline",
+              isAmharic ? "ከመስመር ውጭ ንባቦች የሉም" : "No Readings Available Offline",
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              "Connect to the internet to download readings for this date.",
+              isAmharic
+                  ? "ለዚህ ቀን ንባቦች ከኢንተርኔት ጋር ይገናኙ።"
+                  : "Connect to the internet to download readings for this date.",
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyMedium,
             ),
@@ -523,7 +535,7 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
             ElevatedButton.icon(
               onPressed: _loadReading,
               icon: const Icon(Icons.refresh),
-              label: const Text("Retry"),
+              label: Text(isAmharic ? "እንደገና ሞክር" : "Retry"),
             ),
           ],
         ),
@@ -531,8 +543,12 @@ class _DailyReadingsScreenState extends State<DailyReadingsScreen> {
     );
   }
 
-  String _getDayAbbreviation(int weekday) {
-    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    return days[weekday - 1];
+  String _getDayAbbreviation(int weekday, bool isAmharic) {
+    if (isAmharic) {
+      const daysAm = ['ሰኞ', 'ማክሰ', 'ዕሮብ', 'ሐሙስ', 'አርብ', 'ቅዳሜ', 'እሑድ'];
+      return daysAm[weekday - 1];
+    }
+    const daysEn = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    return daysEn[weekday - 1];
   }
 }

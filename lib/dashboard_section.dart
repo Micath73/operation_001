@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:operation_001/angelus_screen.dart';
 import 'package:operation_001/chapel_screen.dart';
+import 'package:operation_001/controllers/language_controller.dart';
 import 'package:operation_001/daily_readings_screen.dart';
 import 'package:operation_001/db_helper.dart';
 import 'package:operation_001/glorious.dart';
 import 'package:operation_001/joyful.dart';
 import 'package:operation_001/luminous.dart';
 import 'package:operation_001/pre_prayer_intention_screen.dart';
-import 'package:operation_001/prayer_type.dart'; // Explicit package import fix
+import 'package:operation_001/prayer_type.dart';
 import 'package:operation_001/route_observer.dart';
 import 'package:operation_001/sorrowful.dart';
 
@@ -112,11 +113,34 @@ class _DashboardSectionState extends State<DashboardSection>
     await _checkTodaysCompletions();
   }
 
+  String _getDayLabel(String day, bool isAmharic) {
+    if (!isAmharic) return day;
+    switch (day) {
+      case 'Mon':
+        return 'ሰኞ';
+      case 'Tue':
+        return 'ማክሰ';
+      case 'Wed':
+        return 'ዕሮብ';
+      case 'Thu':
+        return 'ሐሙስ';
+      case 'Fri':
+        return 'አርብ';
+      case 'Sat':
+        return 'ቅዳሜ';
+      case 'Sun':
+        return 'እሑድ';
+      default:
+        return day;
+    }
+  }
+
   Widget _buildDailyButton({
     required String label,
     required bool isCompleted,
     required VoidCallback onPressed,
     required ThemeData theme,
+    required bool isAmharic,
   }) {
     final colorScheme = theme.colorScheme;
 
@@ -170,7 +194,7 @@ class _DashboardSectionState extends State<DashboardSection>
                             size: 14, color: colorScheme.secondary),
                         const SizedBox(width: 3),
                         Text(
-                          'Prayed',
+                          isAmharic ? 'ተጸልዮአል' : 'Prayed',
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.bold,
@@ -198,179 +222,206 @@ class _DashboardSectionState extends State<DashboardSection>
     final colorScheme = theme.colorScheme;
     final isPreviewingOtherDay = _previewDay != _todayLabel;
 
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
-          child: Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: colorScheme.surfaceContainerHigh,
-              borderRadius: BorderRadius.circular(18),
-              border: Border.all(
-                color: colorScheme.primary.withValues(alpha: 0.15),
-                width: 1,
-              ),
-            ),
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    'Daily Progress Dashboard',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: colorScheme.secondary,
-                      letterSpacing: 0.5,
-                    ),
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
+        final todayDisplay = _getDayLabel(_todayLabel, isAmharic);
+        final previewDisplay = _getDayLabel(_previewDay, isAmharic);
+
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
+              child: Container(
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: colorScheme.surfaceContainerHigh,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: colorScheme.primary.withValues(alpha: 0.15),
+                    width: 1,
                   ),
                 ),
-                const SizedBox(height: 16),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  child: Row(
-                    children: _days.map((day) {
-                      final isSelected = _previewDay == day;
-                      final isRealToday = day == _todayLabel;
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(10),
-                            onTap: () => setState(() => _previewDay = day),
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 200),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 14,
-                                vertical: 10,
-                              ),
-                              decoration: BoxDecoration(
-                                color: isSelected
-                                    ? colorScheme.primary
-                                    : colorScheme.surfaceContainerHighest,
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        isAmharic
+                            ? 'የዕለት ተዕለት የእድገት ዳሽቦርድ'
+                            : 'Daily Progress Dashboard',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: colorScheme.secondary,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      child: Row(
+                        children: _days.map((day) {
+                          final isSelected = _previewDay == day;
+                          final isRealToday = day == _todayLabel;
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
                                 borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: isSelected
-                                      ? colorScheme.secondary
-                                      : colorScheme.outline
-                                      .withValues(alpha: 0.15),
-                                  width: isSelected ? 1.5 : 1,
-                                ),
-                              ),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Text(
-                                    day,
-                                    style: TextStyle(
+                                onTap: () => setState(() => _previewDay = day),
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 200),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 14,
+                                    vertical: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: isSelected
+                                        ? colorScheme.primary
+                                        : colorScheme.surfaceContainerHighest,
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
                                       color: isSelected
-                                          ? colorScheme.onPrimary
-                                          : colorScheme.onSurfaceVariant,
-                                      fontWeight: isSelected
-                                          ? FontWeight.bold
-                                          : FontWeight.normal,
+                                          ? colorScheme.secondary
+                                          : colorScheme.outline
+                                          .withValues(alpha: 0.15),
+                                      width: isSelected ? 1.5 : 1,
                                     ),
                                   ),
-                                  if (isRealToday)
-                                    Positioned(
-                                      right: -6,
-                                      top: -6,
-                                      child: Container(
-                                        width: 6,
-                                        height: 6,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
+                                  child: Stack(
+                                    clipBehavior: Clip.none,
+                                    children: [
+                                      Text(
+                                        _getDayLabel(day, isAmharic),
+                                        style: TextStyle(
                                           color: isSelected
                                               ? colorScheme.onPrimary
-                                              : colorScheme.secondary,
+                                              : colorScheme.onSurfaceVariant,
+                                          fontWeight: isSelected
+                                              ? FontWeight.bold
+                                              : FontWeight.normal,
                                         ),
                                       ),
-                                    ),
-                                ],
+                                      if (isRealToday)
+                                        Positioned(
+                                          right: -6,
+                                          top: -6,
+                                          child: Container(
+                                            width: 6,
+                                            height: 6,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: isSelected
+                                                  ? colorScheme.onPrimary
+                                                  : colorScheme.secondary,
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      isPreviewingOtherDay
+                          ? (isAmharic
+                          ? 'የ$previewDisplay ቅድመ እይታ — የዛሬው መቁጠሪያ አሁንም የሚጸልየው የ$todayDisplay ምስጢራትን ነው'
+                          : "Previewing $_previewDay — today's Rosary still prays $_todayLabel's Mysteries")
+                          : (isAmharic
+                          ? 'ዛሬ፦ $todayDisplay'
+                          : "Today: $_todayLabel"),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: isPreviewingOtherDay
+                            ? colorScheme.onSurfaceVariant
+                            : colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: isPreviewingOtherDay ? 12 : 15,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildDailyButton(
+                      label: isAmharic
+                          ? "የዛሬውን ወንጌል ያንብቡ"
+                          : "Read today's Gospel",
+                      isCompleted: isGospelCompleted,
+                      onPressed: () {
+                        _navigateToAndRefresh(
+                            const DailyReadingsScreen(), 'gospel');
+                      },
+                      theme: theme,
+                      isAmharic: isAmharic,
+                    ),
+                    _buildDailyButton(
+                      label: isAmharic
+                          ? "የዛሬውን የገብርኤል ብስራት ይጸልዩ"
+                          : "Pray today's Angelus",
+                      isCompleted: isAngelusCompleted,
+                      onPressed: () {
+                        _navigateToAndRefresh(
+                          PrePrayerIntentionScreen(
+                            prayerType: PrayerType.angelus,
+                            isAmharic: isAmharic,
+                            targetPrayerPage: const AngelusScreen(),
                           ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  isPreviewingOtherDay
-                      ? "Previewing $_previewDay — today's Rosary still prays $_todayLabel's Mysteries"
-                      : "Today: $_todayLabel",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: isPreviewingOtherDay
-                        ? colorScheme.onSurfaceVariant
-                        : colorScheme.secondary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: isPreviewingOtherDay ? 12 : 15,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                _buildDailyButton(
-                  label: "Read today's Gospel",
-                  isCompleted: isGospelCompleted,
-                  onPressed: () {
-                    _navigateToAndRefresh(
-                        const DailyReadingsScreen(), 'gospel');
-                  },
-                  theme: theme,
-                ),
-                _buildDailyButton(
-                  label: "Pray today's Angelus",
-                  isCompleted: isAngelusCompleted,
-                  onPressed: () {
-                    _navigateToAndRefresh(
-                      PrePrayerIntentionScreen(
-                        prayerType: PrayerType.angelus,
-                        isAmharic: false,
-                        targetPrayerPage: const AngelusScreen(),
+                        );
+                      },
+                      theme: theme,
+                      isAmharic: isAmharic,
+                    ),
+                    _buildDailyButton(
+                      label: isAmharic
+                          ? "የዛሬውን መቁጠሪያ ይጸልዩ"
+                          : "Pray today's Rosary",
+                      isCompleted: isRosaryCompleted,
+                      onPressed: () {
+                        final rosaryTarget = _getRosaryScreenForDay(_todayLabel);
+                        _navigateToAndRefresh(
+                          PrePrayerIntentionScreen(
+                            prayerType: PrayerType.rosary,
+                            isAmharic: isAmharic,
+                            targetPrayerPage: rosaryTarget,
+                          ),
+                        );
+                      },
+                      theme: theme,
+                      isAmharic: isAmharic,
+                    ),
+                    if (_previewDay == 'Fri')
+                      _buildDailyButton(
+                        label: isAmharic
+                            ? "ልዩ የአርብ የመለኮታዊ ምሕረት ጸሎት ይጸልዩ"
+                            : "Special Friday Divine Mercy",
+                        isCompleted: isMercyCompleted,
+                        onPressed: () {
+                          _navigateToAndRefresh(
+                            PrePrayerIntentionScreen(
+                              prayerType: PrayerType.chaplet,
+                              isAmharic: isAmharic,
+                              targetPrayerPage: const ChapletScreen(),
+                            ),
+                          );
+                        },
+                        theme: theme,
+                        isAmharic: isAmharic,
                       ),
-                    );
-                  },
-                  theme: theme,
+                  ],
                 ),
-                _buildDailyButton(
-                  label: "Pray today's Rosary",
-                  isCompleted: isRosaryCompleted,
-                  onPressed: () {
-                    final rosaryTarget = _getRosaryScreenForDay(_todayLabel);
-                    _navigateToAndRefresh(
-                      PrePrayerIntentionScreen(
-                        prayerType: PrayerType.rosary,
-                        isAmharic: false,
-                        targetPrayerPage: rosaryTarget,
-                      ),
-                    );
-                  },
-                  theme: theme,
-                ),
-                if (_todayLabel == 'Fri')
-                  _buildDailyButton(
-                    label: "Special Friday Divine Mercy",
-                    isCompleted: isMercyCompleted,
-                    onPressed: () {
-                      _navigateToAndRefresh(
-                        PrePrayerIntentionScreen(
-                          prayerType: PrayerType.chaplet,
-                          isAmharic: false,
-                          targetPrayerPage: const ChapletScreen(),
-                        ),
-                      );
-                    },
-                    theme: theme,
-                  ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:operation_001/angelus_screen.dart';
 import 'package:operation_001/chapel_screen.dart';
 import 'package:operation_001/container.dart';
 import 'package:operation_001/context_hero_banner.dart';
+import 'package:operation_001/controllers/language_controller.dart';
 import 'package:operation_001/novena_combo.dart';
 import 'package:operation_001/prayer_categories.dart';
 import 'package:operation_001/prayer_data.dart';
@@ -103,70 +104,106 @@ class _DailyprayerState extends State<Dailyprayer> {
     );
   }
 
+  /// Maps English section titles to authentic Amharic titles
+  String _getCategoryTitleAm(String key) {
+    switch (key.trim()) {
+      case 'Everyday Essentials':
+        return 'የዕለት ተዕለት መሠረታዊ ጸሎቶች';
+      case 'Anchors of the Day':
+        return 'የቀኑ መልህቆች';
+      case 'Protection & Spiritual Warfare':
+        return 'ጥበቃና መንፈሳዊ ውጊያ';
+      case 'Repentance & Mercy':
+        return 'ንስሐና ምሕረት';
+      case 'Eucharistic':
+        return 'የቅዱስ ቁርባን ጸሎቶች';
+      case 'Marian Devotions':
+        return 'የእመቤታችን ውዳሴዎች';
+      case 'Intercession & For Others':
+        return 'ምልጃና ለሌሎች የሚደረግ ጸሎት';
+      case 'Spiritual Reflection & Surrender':
+        return 'መንፈሳዊ ማሰላሰልና ራስን አሳልፎ መስጠት';
+      default:
+        return key;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SizedBox(height: 8),
-          ContextHeroBanner(
-            onSuggestionTap: (prayer) => _openTargetPrayer(prayer.text),
-          ),
-          const SizedBox(height: 20),
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
 
-          // Quick Action Hub
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surfaceContainerLow,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: theme.colorScheme.outlineVariant),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 8),
+              ContextHeroBanner(
+                onSuggestionTap: (prayer) => _openTargetPrayer(prayer.text),
               ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: _buildActionButton(
-                      context: context,
-                      title: 'Angelus',
-                      icon: Icons.church_rounded,
-                      onTap: _openAngelus,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: _buildActionButton(
-                      context: context,
-                      title: 'Rosary',
-                      icon: Icons.grain_rounded,
-                      onTap: _openRosary,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: _buildActionButton(
-                      context: context,
-                      title: 'Chaplet',
-                      icon: Icons.favorite_rounded,
-                      onTap: _openChaplet,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 24),
+              const SizedBox(height: 20),
 
-          for (final section in PrayerLibrary.sections) ...[
-            Contain(title: section.key, prayers: section.value),
-            const SizedBox(height: 16),
-          ],
-          const SizedBox(height: 20),
-        ],
-      ),
+              // Quick Action Hub
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surfaceContainerLow,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: theme.colorScheme.outlineVariant),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: _buildActionButton(
+                          context: context,
+                          title: isAmharic ? 'የገብርኤል ብስራት' : 'Angelus',
+                          icon: Icons.church_rounded,
+                          onTap: _openAngelus,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: _buildActionButton(
+                          context: context,
+                          title: isAmharic ? 'መቁጠሪያ' : 'Rosary',
+                          icon: Icons.grain_rounded,
+                          onTap: _openRosary,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: _buildActionButton(
+                          context: context,
+                          title: isAmharic ? 'መለኮታዊ ምህረት' : 'Chaplet',
+                          icon: Icons.favorite_rounded,
+                          onTap: _openChaplet,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              for (final section in PrayerLibrary.sections) ...[
+                Contain(
+                  title: isAmharic
+                      ? _getCategoryTitleAm(section.key)
+                      : section.key,
+                  prayers: section.value,
+                ),
+                const SizedBox(height: 16),
+              ],
+              const SizedBox(height: 20),
+            ],
+          ),
+        );
+      },
     );
   }
 
