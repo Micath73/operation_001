@@ -41,7 +41,7 @@ class _LuminousScreenState extends State<LuminousScreen> {
     PrayerStep(
       sectionHeader: 'Sign of the Cross',
       titleEn: 'Sign Of The Cross',
-      titleAm: 'በስመ አብ ወወልድ ወመንፈስ ቅዱስ',
+      titleAm: 'የመስቀል ምልክት',
       contentEn:
       'In The Name Of The Father,\nAnd Of The Son,\nAnd Of The Holy Spirit.\nAmen',
       contentAm: 'በስመ አብ ወወልድ ወመንፈስ ቅዱስ አሐዱ አምላክ አሜን።',
@@ -281,7 +281,7 @@ class _LuminousScreenState extends State<LuminousScreen> {
                         height: 56,
                         child: ElevatedButton(
                           onPressed: () async {
-                            await Navigator.push(
+                            final bool? completed = await Navigator.push<bool>(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => PrayerSession(
@@ -290,12 +290,16 @@ class _LuminousScreenState extends State<LuminousScreen> {
                                 ),
                               ),
                             );
+                            // If the user cancelled or backed out of the prayer session, do not push conclusion
+                            if (completed != true) return;
                             if (!context.mounted) return;
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                const RosaryConclusionScreen(),
+                                builder: (context) => const RosaryConclusionScreen(
+                                  bgImagePath: 'assets/wmremove-transformed (10).png',
+                                ),
                               ),
                             );
                           },

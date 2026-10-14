@@ -57,7 +57,7 @@ class PrayerCompletionScreen extends StatefulWidget {
     this.detailLabelAm,
     this.subtitleEn,
     this.subtitleAm,
-    this.bgImagePath = 'assets/images/prayer_bg.jpg',
+    this.bgImagePath = 'assets/wmremove-transformed (9).jpeg', // Updated fallback!
     this.completionId,
   });
 

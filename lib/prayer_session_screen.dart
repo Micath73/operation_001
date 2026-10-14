@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:operation_001/theme.dart'; // Adjust path as needed
+import 'package:operation_001/theme.dart';
 import 'package:operation_001/prayer_completion_screen.dart';
 import 'package:operation_001/prayer_model.dart';
 
@@ -25,6 +25,7 @@ class _PrayerSessionState extends State<PrayerSession> {
   double _currentPosition = 0.0;
   final double _totalDuration = 150.0;
   bool _isPlaying = false;
+  double _textScale = 1.0; // Font size scale factor (0.8x to 1.6x)
 
   String _formatDuration(double seconds) {
     final int totalSeconds = seconds.toInt();
@@ -44,78 +45,8 @@ class _PrayerSessionState extends State<PrayerSession> {
         _currentPosition = 0.0;
       });
     } else {
-      final String resolvedTitle =
-          widget.mysteryTitle ?? _extractOverallMysteryTitle();
-      final currentStep = widget.prayerSteps[_currentIndex];
-
       if (!mounted) return;
-
-      Navigator.of(context).pushReplacement(
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 650),
-          reverseTransitionDuration: const Duration(milliseconds: 400),
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              PrayerCompletionScreen(
-                isAmharic: widget.isAmharic,
-                detailValue: resolvedTitle,
-                // CRITICAL FIX: Pass 'rosary' so DatabaseHelper logs PrayerType.rosary correctly!
-                prayerType: 'rosary',
-                detailLabelEn: 'Mystery',
-                detailLabelAm: 'ምስጢር',
-                titleEn: 'Rosary Completed',
-                titleAm: 'ጸሎቱ በስኬት ተጠናቋል',
-                bgImagePath: currentStep.imagePath,
-              ),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            final fadeAnimation = CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeOutCubic,
-            );
-
-            final scaleAnimation = Tween<double>(begin: 0.95, end: 1.0).animate(
-              CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
-            );
-
-            return FadeTransition(
-              opacity: fadeAnimation,
-              child: ScaleTransition(scale: scaleAnimation, child: child),
-            );
-          },
-        ),
-      );
-    }
-  }
-
-  String _extractOverallMysteryTitle() {
-    if (widget.prayerSteps.isEmpty) return '';
-
-    final PrayerStep mysteryStep = widget.prayerSteps.firstWhere(
-          (step) =>
-      (step.sectionHeader != null &&
-          (step.sectionHeader!.contains('Mystery') ||
-              step.sectionHeader!.contains('ምሥጢር'))) ||
-          (step.titleEn.contains('Mystery') || step.titleAm.contains('ምሥጢር')),
-      orElse: () => widget.prayerSteps.first,
-    );
-
-    final String rawTitle = widget.isAmharic
-        ? (mysteryStep.sectionHeader ?? mysteryStep.titleAm)
-        : (mysteryStep.sectionHeader ?? mysteryStep.titleEn);
-
-    if (widget.isAmharic) {
-      return rawTitle
-          .replaceAll(RegExp(r'^(አንደኛ|ሁለተኛ|ሦስተኛ|አራተኛ|አምስተኛ)\s*'), '')
-          .trim();
-    } else {
-      return rawTitle
-          .replaceAll(
-        RegExp(
-          r'^(1st|2nd|3rd|4th|5th|First|Second|Third|Fourth|Fifth)\s*',
-          caseSensitive: false,
-        ),
-        '',
-      )
-          .trim();
+      Navigator.of(context).pop(true);
     }
   }
 
@@ -165,6 +96,16 @@ class _PrayerSessionState extends State<PrayerSession> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            if (_currentIndex > 0) {
+              _previousPrayer();
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
+        ),
         title: Text(
           currentStep.sectionHeader ??
               (widget.isAmharic ? 'የጸሎት ጊዜ' : 'Prayer Session'),
@@ -174,7 +115,29 @@ class _PrayerSessionState extends State<PrayerSession> {
           ),
         ),
         centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          IconButton(
+            icon: const Text('A-',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white)),
+            tooltip: 'Decrease text size',
+            onPressed: () =>
+                setState(() => _textScale = (_textScale - 0.1).clamp(0.8, 1.6)),
+          ),
+          IconButton(
+            icon: const Text('A+',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white)),
+            tooltip: 'Increase text size',
+            onPressed: () =>
+                setState(() => _textScale = (_textScale + 0.1).clamp(0.8, 1.6)),
+          ),
+          const SizedBox(width: 4),
+        ],
       ),
       body: Stack(
         children: [
@@ -218,7 +181,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Glassmorphic Audio Player Card
+                          // Audio Player Card
                           Container(
                             height: 110,
                             margin: const EdgeInsets.symmetric(
@@ -387,7 +350,7 @@ class _PrayerSessionState extends State<PrayerSession> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Scripture / Prayer Glass Card with Marian & Gold Accents
+                          // Scripture / Prayer Card with Text Scaling
                           Padding(
                             padding:
                             const EdgeInsets.symmetric(horizontal: 16.0),
@@ -399,7 +362,8 @@ class _PrayerSessionState extends State<PrayerSession> {
                                   colors: [
                                     Colors.white.withValues(alpha: 0.65),
                                     AppTheme.softGoldDark.withValues(alpha: 0.45),
-                                    AppTheme.marianBlueDark.withValues(alpha: 0.50),
+                                    AppTheme.marianBlueDark
+                                        .withValues(alpha: 0.50),
                                     Colors.white.withValues(alpha: 0.30),
                                   ],
                                   begin: Alignment.topLeft,
@@ -410,7 +374,8 @@ class _PrayerSessionState extends State<PrayerSession> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(22.0),
                                 decoration: BoxDecoration(
-                                  color: AppTheme.darkCard.withValues(alpha: 0.45),
+                                  color: AppTheme.darkCard
+                                      .withValues(alpha: 0.45),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Column(
@@ -422,6 +387,10 @@ class _PrayerSessionState extends State<PrayerSession> {
                                           ?.copyWith(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
+                                        fontSize: (theme.textTheme.headlineLarge
+                                            ?.fontSize ??
+                                            28) *
+                                            _textScale,
                                         shadows: [
                                           Shadow(
                                             blurRadius: 8,
@@ -445,6 +414,10 @@ class _PrayerSessionState extends State<PrayerSession> {
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white
                                             .withValues(alpha: 0.95),
+                                        fontSize: (theme.textTheme.bodyLarge
+                                            ?.fontSize ??
+                                            16) *
+                                            _textScale,
                                         shadows: [
                                           Shadow(
                                             blurRadius: 6,
@@ -461,7 +434,6 @@ class _PrayerSessionState extends State<PrayerSession> {
                             ),
                           ),
 
-                          // Interactive Badges with Liturgical Gold Accent
                           if (isMysteryStep) ...[
                             const SizedBox(height: 18),
                             Padding(
@@ -479,7 +451,8 @@ class _PrayerSessionState extends State<PrayerSession> {
                                       widget.isAmharic
                                           ? 'የምስጢሩ ጸሎቶች sequence:'
                                           : 'PRAYER SEQUENCE',
-                                      style: theme.textTheme.labelSmall?.copyWith(
+                                      style: theme.textTheme.labelSmall
+                                          ?.copyWith(
                                         fontWeight: FontWeight.bold,
                                         color: AppTheme.softGoldDark,
                                         letterSpacing: 1.1,
@@ -520,14 +493,13 @@ class _PrayerSessionState extends State<PrayerSession> {
                               ),
                             ),
                           ],
-
                           const SizedBox(height: 30),
                         ],
                       ),
                     ),
                   ),
 
-                  // Bottom Navigation Buttons using Marian Blue Primary
+                  // Bottom Navigation Buttons
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20.0,
@@ -630,36 +602,5 @@ class _PrayerSessionState extends State<PrayerSession> {
         ),
       ),
     );
-  }
-}
-
-class GradientBorderPainter extends CustomPainter {
-  final double strokeWidth;
-  final double radius;
-  final Gradient gradient;
-
-  GradientBorderPainter({
-    required this.strokeWidth,
-    required this.radius,
-    required this.gradient,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Rect rect = Offset.zero & size;
-    final RRect rrect = RRect.fromRectAndRadius(rect, Radius.circular(radius));
-    final Paint paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth
-      ..shader = gradient.createShader(rect);
-
-    canvas.drawRRect(rrect, paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant GradientBorderPainter oldDelegate) {
-    return oldDelegate.strokeWidth != strokeWidth ||
-        oldDelegate.radius != radius ||
-        oldDelegate.gradient != gradient;
   }
 }

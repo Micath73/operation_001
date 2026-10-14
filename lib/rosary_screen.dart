@@ -36,7 +36,7 @@ class RosaryItem {
 final List<RosaryItem> defaultRosaryList = [
   RosaryItem(
     titleEn: 'The Joyful Mysteries',
-    titleAm: 'የደስታ ምስጢራት',
+    titleAm: 'የደስታ ምሥጢር',
     daysEn: 'Mondays & Saturdays',
     daysAm: 'ሰኞ እና ቅዳሜ',
     quoteEn:
@@ -48,7 +48,7 @@ final List<RosaryItem> defaultRosaryList = [
   ),
   RosaryItem(
     titleEn: 'The Sorrowful Mysteries',
-    titleAm: 'የሐዘን ምስጢራት',
+    titleAm: 'የሕማም ምሥጢር',
     daysEn: 'Tuesdays & Fridays',
     daysAm: 'ማክሰኞ እና አርብ',
     quoteEn:
@@ -60,7 +60,7 @@ final List<RosaryItem> defaultRosaryList = [
   ),
   RosaryItem(
     titleEn: 'The Glorious Mysteries',
-    titleAm: 'የክብር ምስጢራት',
+    titleAm: 'የክብር ምሥጢር',
     daysEn: 'Wednesdays & Sundays',
     daysAm: 'ዕሮብ እና እሑድ',
     quoteEn:
@@ -72,7 +72,7 @@ final List<RosaryItem> defaultRosaryList = [
   ),
   RosaryItem(
     titleEn: 'The Luminous Mysteries',
-    titleAm: 'የብርሃን ምስጢራት',
+    titleAm: 'የብርሃን ምሥጢር',
     daysEn: 'Thursdays',
     daysAm: 'ሐሙስ',
     quoteEn:
@@ -102,7 +102,7 @@ class RosaryDetailScreen extends StatelessWidget {
       listenable: LanguageController.instance,
       builder: (context, child) {
         final isAmharic = LanguageController.instance.isAmharic;
-        final screenTitle = isAmharic ? 'የቅዱስ መቁጠሪያ ምስጢራት' : title;
+        final screenTitle = isAmharic ? 'የመቁጠሪያ ምሥጢራት' : title;
 
         return Scaffold(
           backgroundColor: theme.colorScheme.surface,

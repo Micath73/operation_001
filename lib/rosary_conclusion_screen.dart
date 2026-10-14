@@ -4,7 +4,8 @@ import 'package:operation_001/prayer_completion_screen.dart';
 import 'package:operation_001/prayer_model.dart';
 
 class RosaryConclusionScreen extends StatefulWidget {
-  const RosaryConclusionScreen({super.key});
+  final String? bgImagePath;
+  const RosaryConclusionScreen({super.key, this.bgImagePath});
 
   @override
   State<RosaryConclusionScreen> createState() =>
@@ -14,9 +15,9 @@ class RosaryConclusionScreen extends StatefulWidget {
 class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  double _textScale = 1.0; // Font size scale factor
 
   final List<PrayerStep> _conclusionPrayers = [
-    // 1. Hail Holy Queen (Salve Regina)
     PrayerStep(
       sectionHeader: 'SALVE REGINA',
       sectionHeaderAm: 'የምህረት እናት ንግስት ሆይ',
@@ -28,7 +29,6 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
       'ሰላም ላንቺ ይሁን ሕይወታችን፥ ደስታችን፥ ተስፋችን ሆይ፥ ሰላም ላንቺ ይሁን።\nእኛ የሔዋን ልጆች ስደተኞች ጩኸታችንን ወዳንቺ እናቀርባለን።\nበዚህ በለቅሶ ቆላ እተጨነቅንና እያለቀሰን ወደንቺ እንማጠናለን።\n\nእንግዲህ እባክሽ የኛ ጠበቃ ሆይ፥ በምህረት ዓይኖችሽ ወደ እኛ ተመልከቺ።\nደጊቱ፥ ቸሪቱ፥ መሐሪቱ ድንግል ማርያም ሆይ፥\nየተባረከውን የሆድሽን ፍሬ ኢየሱስን ከዚህ ከስደት በኋላ ለኛ እባክሽ አሳይን።\nአሜን።',
       imagePath: 'assets/img_18.png',
     ),
-    // 2. Sub Tuum Praesidium (Under Thy Protection)
     PrayerStep(
       sectionHeader: 'UNDER THY PROTECTION',
       sectionHeaderAm: 'በክንፎችሽ ጥላ ሰውሪን',
@@ -40,7 +40,6 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
       'ቅድስት የአምላክ እናት ሆይ፥ ጸሎታችንን አትናቂ፤\nበተቸገርን ጊዜ ከክፉ ሁሉ ሰውሪን።\nየተባረክሽ እና የተከበርሽ ድንግል ማርያም ሆይ፥ አሜን።',
       imagePath: 'assets/Mary.jpg',
     ),
-    // 3. The Memorare
     PrayerStep(
       sectionHeader: 'MARIAN INTERCESSION',
       sectionHeaderAm: 'የማርያም አማላጅነት',
@@ -52,7 +51,6 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
       'ባንቺ ጥበቃ ከተማፀኑ፥ እርዳታሽን ከለመኑ፥ አማለጅነትሽን ከፈለጉ ሰዎች\nአንድስ እንኳን የተኮነነ እንዳልተሰማ አስቢ።\nየድንግሎች ድንግል የሆንሽ እናቴ ሆይ፤\nእኔም በዚህ እምነት ተጽናንቼ ወደ አንቺ እሮጣለሁ።\nበኀጢአቴም እየተጨነቅሁ በፊትሽ ቆሚያለሁ።\nየቃለ እግዚአብሔር እናት ሆይ፥ ራርተሽ ቃሌን ስሚ፤\nአድምጪ እንጂ ችላ አትበይ።\nአሜን።',
       imagePath: 'assets/img_11.png',
     ),
-    // 4. Litany of Our Lady
     PrayerStep(
       sectionHeader: 'LITANY OF OUR LADY',
       sectionHeaderAm: 'የእመቤታችን ሊጣንያ',
@@ -80,6 +78,8 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
           isAmharic: isAmharic,
           detailValue: isAmharic ? 'የቅዱስ መቁጠሪያ ጸሎት' : 'The Holy Rosary',
           prayerType: 'Rosary',
+          bgImagePath:
+          widget.bgImagePath ?? 'assets/wmremove-transformed (9).jpeg',
         ),
       ),
     );
@@ -99,6 +99,42 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
             title: Text(
               isAmharic ? 'የመቁጠሪያ ማጠቃለያ ጸሎቶች' : 'Concluding Rosary Prayers',
             ),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () {
+                if (_currentPage > 0) {
+                  _pageController.previousPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  Navigator.of(context).pop();
+                }
+              },
+            ),
+            actions: [
+              IconButton(
+                icon: const Text('A-',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.white)),
+                tooltip: 'Decrease text size',
+                onPressed: () => setState(
+                        () => _textScale = (_textScale - 0.1).clamp(0.8, 1.6)),
+              ),
+              IconButton(
+                icon: const Text('A+',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.white)),
+                tooltip: 'Increase text size',
+                onPressed: () => setState(
+                        () => _textScale = (_textScale + 0.1).clamp(0.8, 1.6)),
+              ),
+              const SizedBox(width: 4),
+            ],
           ),
           body: Column(
             children: [
@@ -151,6 +187,9 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
                               color: theme.colorScheme.primary,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1.2,
+                              fontSize: (theme.textTheme.labelLarge?.fontSize ??
+                                  14) *
+                                  _textScale,
                             ),
                           ),
                           const SizedBox(height: 6),
@@ -159,39 +198,36 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
                             textAlign: TextAlign.center,
                             style: theme.textTheme.headlineSmall?.copyWith(
                               fontWeight: FontWeight.bold,
+                              fontSize: (theme.textTheme.headlineSmall
+                                  ?.fontSize ??
+                                  20) *
+                                  _textScale,
                             ),
                           ),
                           const SizedBox(height: 16),
-                          // Premium curvy container with increased height (260) and soft shadow/border
                           Container(
-                            height: 260,
-                            width: double.infinity,
                             decoration: BoxDecoration(
-                              color: theme.colorScheme.surfaceContainerLow,
-                              borderRadius: BorderRadius.circular(24),
-                              border: Border.all(
-                                color: theme.colorScheme.outlineVariant
-                                    .withValues(alpha: 0.3),
-                                width: 1.5,
-                              ),
+                              borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withValues(alpha: 0.15),
-                                  blurRadius: 12,
-                                  offset: const Offset(0, 4),
+                                  color: Colors.black.withValues(alpha: 0.12),
+                                  blurRadius: 16,
+                                  offset: const Offset(0, 6),
                                 ),
                               ],
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(24),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              borderRadius: BorderRadius.circular(20),
+                              child: AspectRatio(
+                                aspectRatio: 4 / 3,
                                 child: Image.asset(
                                   step.imagePath,
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.cover,
+                                  alignment: Alignment.topCenter,
                                   errorBuilder: (context, error, stackTrace) =>
                                       Container(
-                                        color: theme.colorScheme.surfaceContainerHigh,
+                                        color:
+                                        theme.colorScheme.surfaceContainerHigh,
                                         child: const Icon(Icons.church_rounded,
                                             size: 48),
                                       ),
@@ -214,6 +250,9 @@ class _RosaryConclusionScreenState extends State<RosaryConclusionScreen> {
                               isAmharic ? step.contentAm : step.contentEn,
                               style: theme.textTheme.bodyLarge?.copyWith(
                                 height: 1.6,
+                                fontSize:
+                                (theme.textTheme.bodyLarge?.fontSize ?? 16) *
+                                    _textScale,
                               ),
                             ),
                           ),
