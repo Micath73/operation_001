@@ -50,8 +50,10 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
   String? activeTargetPrayerTitle;
 
   final List<ActiveNovena> novenaLibrary = [
-    ActiveNovena(title: "Sacred Heart", imagePath: "assets/SacredHeart.jpg"),
+    ActiveNovena(title: "Novena to the Sacred Heart of Jesus", imagePath: "assets/SacredHeart.jpg"),
     ActiveNovena(title: "Divine Mercy Chaplet", imagePath: "assets/img_3.png"),
+    ActiveNovena(title: "Novena to Our Lady of Loreto", imagePath: "assets/our lady of loreto.jpg"),
+    ActiveNovena(title: "Novena to Our Lady of Lourdes", imagePath: "assets/Our Lady of Lourdes.jpg"),
     ActiveNovena(title: "Arch Angel Michael", imagePath: "assets/Michael.jpg"),
     ActiveNovena(title: "Holy Trinity", imagePath: "assets/Trinity.jpg"),
     ActiveNovena(title: "Pentecost", imagePath: "assets/Pentecost.jpg"),
@@ -273,16 +275,15 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
 
     if (!mounted) return;
 
-    final story = NovenaData.getStoryForTitle(novena.title);
     final days = NovenaData.getDaysForTitle(novena.title);
 
+    // FIXED: Removed the obsolete 'storyText' parameter
     await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => NovenaDetailScreen(
           title: novena.title,
           novenaImage: novena.imagePath,
-          storyText: story,
           days: days,
           initialDay: targetDay ?? 1,
           autoStart: targetDay != null,
@@ -315,7 +316,7 @@ class UserHomeState extends State<UserHome> with SingleTickerProviderStateMixin 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(
-            color: theme.colorScheme.outline.withOpacity(0.15),
+            color: theme.colorScheme.outline.withValues(alpha: 0.15),
           ),
         ),
         color: theme.colorScheme.surfaceContainer,
@@ -646,7 +647,7 @@ class MyUniversalCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
         side: BorderSide(
-          color: theme.colorScheme.outline.withOpacity(0.15),
+          color: theme.colorScheme.outline.withValues(alpha: 0.15),
           width: 1,
         ),
       ),

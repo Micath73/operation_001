@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/controllers/language_controller.dart';
 import 'package:operation_001/controllers/saint_of_the_day_controller.dart';
 import 'package:operation_001/novena_combo.dart';
-import 'package:operation_001/novena_data.dart';
 import 'package:operation_001/novena_detail_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:operation_001/screens/lesson_detail_screen.dart';
 import 'package:operation_001/screens/saints_directory_screen.dart';
 import 'package:operation_001/widgets/saint_of_the_day_card.dart';
+
+const List<String> _kEthiopicFallbacks = ['Noto Sans Ethiopic', 'Abyssinica SIL', 'Kefa'];
 
 class NovenaSection extends StatefulWidget {
   final VoidCallback? onNovenaChanged;
@@ -19,10 +21,11 @@ class NovenaSection extends StatefulWidget {
 
 class _NovenaSectionState extends State<NovenaSection> {
   String selectedCategory = 'All';
+
   @override
   void initState() {
     super.initState();
-    SaintOfTheDayController.instance.initialize(); //[cite: 9]
+    SaintOfTheDayController.instance.initialize();
   }
 
   static const List<String> categories = [
@@ -36,10 +39,18 @@ class _NovenaSectionState extends State<NovenaSection> {
     'Online Resources',
   ];
 
+  static const Map<String, String> categoryAmharicMap = {
+    'All': 'ሁሉም',
+    'Catechism': 'ቀኖና ትምህርት',
+    'Dogma': 'ዶግማ',
+    'Saints': 'ቅዱሳን',
+    'Apparitions': 'ተአምራት',
+    'Liturgical': 'ሥርዓተ ጸሎት',
+    'Devotions': 'ዕለታዊ ጸሎቶች',
+    'Online Resources': 'የድረ-ገጽ ምንጮች',
+  };
+
   static const List<NovenaCombo> spiritualLessons = [
-    // ==========================================
-    // Category 1: Catechism (CCC Pillar Order)
-    // ==========================================
     NovenaCombo(
       text: 'The Trinity: One God in Three Persons',
       imagePath: 'assets/Holy Trinity.jpg',
@@ -84,36 +95,32 @@ class _NovenaSectionState extends State<NovenaSection> {
     ),
     NovenaCombo(
       text: 'The Four Last Things: Death & Judgment',
-      imagePath: 'assets/Catechism/the four last things org.jpeg', // or '' if no image
+      imagePath: 'assets/Catechism/the four last things org.jpeg',
       category: 'Catechism',
       jsonAsset: 'assets/json/lessons/four_last_things_death_and_judgment.json',
       tags: ['Eschatology', 'Heaven', 'Hell'],
     ),
     NovenaCombo(
       text: 'The Virtues: Theological & Cardinal',
-      imagePath: 'assets/Catechism/The Virtues Theological  Cardinal.jpg', // or '' if no image
+      imagePath: 'assets/Catechism/The Virtues Theological  Cardinal.jpg',
       category: 'Catechism',
       jsonAsset: 'assets/json/lessons/virtues_theological_and_cardinal.json',
       tags: ['Virtues', 'Faith', 'Hope', 'Charity'],
     ),
     NovenaCombo(
       text: 'The Precepts of the Church',
-      imagePath: 'assets/Catechism/The Precepts of the Church.jpg', // or '' if no image
+      imagePath: 'assets/Catechism/The Precepts of the Church.jpg',
       category: 'Catechism',
       jsonAsset: 'assets/json/lessons/precepts_of_the_church.json',
       tags: ['Church', 'Laws', 'Duty'],
     ),
     NovenaCombo(
       text: 'Prayer & The Our Father Breakdown',
-      imagePath: 'assets/Catechism/Prayer and The our father breakdown.jpg', // or '' if no image
+      imagePath: 'assets/Catechism/Prayer and The our father breakdown.jpg',
       category: 'Catechism',
       jsonAsset: 'assets/json/lessons/prayer_and_our_father_breakdown.json',
       tags: ['Prayer', 'Lord\'s Prayer', 'Gospel'],
     ),
-
-    // ==========================================
-    // Category 2: Dogma (Doctrines & Marian Dogmas)
-    // ==========================================
     NovenaCombo(
       text: 'The Divinity of Christ',
       imagePath: 'assets/Dogma/The Divinity of Christ.webp',
@@ -184,16 +191,6 @@ class _NovenaSectionState extends State<NovenaSection> {
       tags: ['Resurrection', 'Eschatology', 'Hope'],
       jsonAsset: 'assets/json/lessons/resurrection_of_the_body.json',
     ),
-
-    // ==========================================
-    // Category 3: Saints & Church Fathers
-    // Handled dynamically — see SaintOfDayCard / SaintsDirectoryScreen,
-    // backed by SaintsRepository and assets/data/saints_365.json.
-    // ==========================================
-
-    // ==========================================
-    // Category 4: Marian & Sacred Apparitions
-    // ==========================================
     NovenaCombo(
       text: 'Sacred Heart Apparition to St. Margaret Mary',
       imagePath: 'assets/Marian & Sacred Apparitions/Sacred Heart Apparition to St. Margaret Mary.jpg',
@@ -271,10 +268,6 @@ class _NovenaSectionState extends State<NovenaSection> {
       tags: ['Help of Christians', 'Mary', 'Protection'],
       jsonAsset: 'assets/json/lessons/our_lady_help_of_christians.json',
     ),
-
-    // ==========================================
-    // Category 5: Liturgical Year (Full Cycle)
-    // ==========================================
     NovenaCombo(
       text: 'Advent: Preparation & Hope',
       imagePath: 'assets/Liturgical Year/advent.jpg',
@@ -345,10 +338,6 @@ class _NovenaSectionState extends State<NovenaSection> {
       jsonAsset: 'assets/json/lessons/solemnity_of_christ_the_king.json',
       tags: ['Christ the King', 'Solemnity', 'Kingdom'],
     ),
-
-    // ==========================================
-    // Category 6: Devotions & Sacraments
-    // ==========================================
     NovenaCombo(
       text: 'The Holy Mass Explained',
       imagePath: 'assets/Devotions & Sacraments/holy mass.jpg',
@@ -405,10 +394,6 @@ class _NovenaSectionState extends State<NovenaSection> {
       jsonAsset: 'assets/json/lessons/scapulars.json',
       tags: ['Sacramentals', 'Scapular', 'Devotion'],
     ),
-
-    // ==========================================
-    // Category 7: Online Web Resources
-    // ==========================================
     NovenaCombo(
       text: 'Catechism of the Catholic Church (Vatican Archive)',
       imagePath: 'assets/vatican png.jpg',
@@ -470,8 +455,7 @@ class _NovenaSectionState extends State<NovenaSection> {
       imagePath: 'assets/Social Teaching.jpg',
       category: 'Online Resources',
       isOnline: true,
-      webUrl:
-      'https://www.usccb.org/beliefs-and-teachings/what-we-believe/catholic-social-teaching',
+      webUrl: 'https://www.usccb.org/beliefs-and-teachings/what-we-believe/catholic-social-teaching',
       tags: ['Social Teaching', 'Justice', 'USCCB'],
     ),
     NovenaCombo(
@@ -499,7 +483,7 @@ class _NovenaSectionState extends State<NovenaSection> {
       category: 'Novena',
     ),
     NovenaCombo(
-      text: 'Sacred Heart',
+      text: 'Novena to the Sacred Heart of Jesus',
       imagePath: 'assets/SacredHeart.jpg',
       category: 'Novena',
     ),
@@ -523,6 +507,17 @@ class _NovenaSectionState extends State<NovenaSection> {
       imagePath: 'assets/Leo.jpg',
       category: 'Novena',
     ),
+    NovenaCombo(
+      text: 'Novena to Our Lady of Loreto',
+      imagePath: 'assets/our lady of loreto.jpg',
+      category: 'Novena',
+    ),
+    NovenaCombo(
+      text: 'Novena to Our Lady of Lourdes',
+      imagePath: 'assets/Our Lady of Lourdes.jpg',
+      category: 'Novena',
+    ),
+
   ];
 
   List<NovenaCombo> get filteredLessons {
@@ -532,10 +527,6 @@ class _NovenaSectionState extends State<NovenaSection> {
         .toList();
   }
 
-  /// Smart tap handler: launches the external site for online resources,
-  /// otherwise routes into the in-app detail screen.
-  /// Smart tap handler: routes lessons to LessonDetailScreen and novenas to NovenaDetailScreen
-  /// Smart tap handler: routes lessons to LessonDetailScreen and novenas to NovenaDetailScreen
   Future<void> _handleItemTap(BuildContext context, NovenaCombo item) async {
     final url = item.webUrl;
     if (item.isOnline && url != null && url.isNotEmpty) {
@@ -543,18 +534,16 @@ class _NovenaSectionState extends State<NovenaSection> {
       if (uri == null) return;
 
       final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
-
       if (!launched && context.mounted) {
+        final isAmharic = LanguageController.instance.isAmharic;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not open ${item.text}.')),
+          SnackBar(content: Text(isAmharic ? '${item.text} መክፈት አልተቻለም።' : 'Could not open ${item.text}.')),
         );
       }
       return;
     }
 
-    // Check if the item belongs to the spiritual lessons array
     final isLesson = spiritualLessons.contains(item);
-
     if (isLesson) {
       await _openLessonDetail(context, item);
     } else {
@@ -572,14 +561,14 @@ class _NovenaSectionState extends State<NovenaSection> {
   }
 
   Future<void> _openNovenaDetail(BuildContext context, NovenaCombo item) async {
+    // FIXED: Removed the invalid 'storyText' parameter
     await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => NovenaDetailScreen(
           title: item.text,
           novenaImage: item.imagePath,
-          storyText: getNovenaStoryForTitle(item.text),
-          days: getNovenaDaysForTitle(item.text),
+          days: NovenaData.getDaysForTitle(item.text),
         ),
       ),
     );
@@ -593,355 +582,362 @@ class _NovenaSectionState extends State<NovenaSection> {
     final displayedLessons = filteredLessons;
     final previewNovenas = novenaTitles.take(4).toList();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // SPIRITUAL LESSONS SECTION
-        Container(
-          width: double.infinity,
-          color: theme.colorScheme.surface,
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Spiritual Lessons',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface,
-                      ),
+    return ListenableBuilder(
+      listenable: LanguageController.instance,
+      builder: (context, child) {
+        final isAmharic = LanguageController.instance.isAmharic;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // SPIRITUAL LESSONS SECTION
+            Container(
+              width: double.infinity,
+              color: theme.colorScheme.surface,
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          isAmharic ? 'መንፈሳዊ ትምህርቶች' : 'Spiritual Lessons',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.onSurface,
+                            fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: () {
+                            if (selectedCategory == 'Saints') {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SaintsDirectoryScreen(),
+                                ),
+                              );
+                              return;
+                            }
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SeeAllGridPage(
+                                  title: isAmharic ? 'መንፈሳዊ ትምህርቶች' : 'Spiritual Lessons',
+                                  items: filteredLessons,
+                                  cardHeight: 220,
+                                  onItemTap: (item) => _handleItemTap(context, item),
+                                ),
+                              ),
+                            );
+                          },
+                          icon: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 14,
+                            color: theme.colorScheme.primary,
+                          ),
+                          label: Text(
+                            selectedCategory == 'Saints'
+                                ? (isAmharic ? 'ማውጫውን ክፈት' : 'Open Directory')
+                                : (isAmharic ? 'ሁሉንም ይመልከቱ' : 'See All'),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                              fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    TextButton.icon(
-                      onPressed: () {
-                        if (selectedCategory == 'Saints') {
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  // CATEGORY FILTER CHIPS
+                  SizedBox(
+                    height: 40,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      itemCount: categories.length,
+                      itemBuilder: (context, index) {
+                        final cat = categories[index];
+                        final isSelected = selectedCategory == cat;
+                        final labelText = isAmharic ? (categoryAmharicMap[cat] ?? cat) : cat;
+
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: ChoiceChip(
+                            label: Text(
+                              labelText,
+                              style: TextStyle(
+                                fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
+                              ),
+                            ),
+                            selected: isSelected,
+                            selectedColor: theme.colorScheme.primaryContainer,
+                            backgroundColor: theme.colorScheme.surfaceContainerLow,
+                            side: BorderSide(
+                              color: isSelected
+                                  ? theme.colorScheme.primary
+                                  : theme.colorScheme.outlineVariant,
+                            ),
+                            labelStyle: TextStyle(
+                              color: isSelected
+                                  ? theme.colorScheme.onPrimaryContainer
+                                  : theme.colorScheme.onSurfaceVariant,
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                              fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
+                            ),
+                            onSelected: (selected) {
+                              if (selected) {
+                                setState(() {
+                                  selectedCategory = cat;
+                                });
+                              }
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  if (selectedCategory == 'Saints')
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: GestureDetector(
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => const SaintsDirectoryScreen(),
                             ),
                           );
-                          return;
-                        }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SeeAllGridPage(
-                              title: 'Spiritual Lessons',
-                              items: filteredLessons,
-                              cardHeight: 220,
-                              onItemTap: (item) => _handleItemTap(context, item),
-                            ),
+                        },
+                        child: ListenableBuilder(
+                          listenable: SaintOfTheDayController.instance,
+                          builder: (context, child) {
+                            final todaySaint = SaintOfTheDayController.instance.primaryTodaySaint;
+                            return SaintOfDayCard(saint: todaySaint);
+                          },
+                        ),
+                      ),
+                    )
+                  else
+                    SizedBox(
+                      height: 280,
+                      child: displayedLessons.isEmpty
+                          ? Center(
+                        child: Text(
+                          isAmharic ? 'በዚህ ምድብ ውስጥ ምንም ትምህርቶች የሉም።' : 'No lessons in this category yet.',
+                          style: TextStyle(
+                            color: theme.colorScheme.outline,
+                            fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
                           ),
-                        );
-                      },
-                      icon: Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 14,
-                        color: theme.colorScheme.primary,
-                      ),
-                      label: Text(
-                        selectedCategory == 'Saints' ? 'Open Directory' : 'See All',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 10),
-
-              // CATEGORY FILTER CHIPS
-              SizedBox(
-                height: 40,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    final cat = categories[index];
-                    final isSelected = selectedCategory == cat;
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: ChoiceChip(
-                        label: Text(cat),
-                        selected: isSelected,
-                        selectedColor: theme.colorScheme.primaryContainer,
-                        backgroundColor: theme.colorScheme.surfaceContainerLow,
-                        side: BorderSide(
-                          color: isSelected
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.outlineVariant,
-                        ),
-                        labelStyle: TextStyle(
-                          color: isSelected
-                              ? theme.colorScheme.onPrimaryContainer
-                              : theme.colorScheme.onSurfaceVariant,
-                          fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
-                        ),
-                        onSelected: (selected) {
-                          if (selected) {
-                            setState(() {
-                              selectedCategory = cat;
-                            });
-                          }
+                      )
+                          : ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: displayedLessons.length,
+                        itemBuilder: (context, index) {
+                          final pray = displayedLessons[index];
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(20),
+                              onTap: () => _handleItemTap(context, pray),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: 180,
+                                    height: 220,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: theme.colorScheme.shadow.withValues(alpha: 0.12),
+                                          blurRadius: 10,
+                                          offset: const Offset(0, 5),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(20),
+                                          child: Image.asset(
+                                            pray.imagePath,
+                                            fit: BoxFit.cover,
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            errorBuilder: (context, error, stackTrace) => Container(
+                                              color: theme.colorScheme.surfaceContainerHighest,
+                                              child: Icon(
+                                                Icons.image_not_supported_rounded,
+                                                color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        if (pray.isOnline) const _OnlineIndicatorBadge(),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  SizedBox(
+                                    width: 180,
+                                    child: Text(
+                                      pray.text,
+                                      textAlign: TextAlign.center,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: theme.colorScheme.onSurface,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
                         },
                       ),
-                    );
-                  },
-                ),
+                    ),
+                ],
               ),
+            ),
 
-              const SizedBox(height: 15),
+            const SizedBox(height: 25),
 
-              // SAINTS: dynamic Saint of the Day card, or LESSONS HORIZONTAL LIST
-              if (selectedCategory == 'Saints')
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: GestureDetector(
-                    onTap: () {
+            // NOVENA SECTION
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    isAmharic ? 'የኖቬና ጸሎቶች' : 'Novena',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: theme.colorScheme.onSurface,
+                      fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SaintsDirectoryScreen(),
-                        ),
-                      );
-                    },
-                    child: ListenableBuilder(
-                      listenable: SaintOfTheDayController.instance,
-                      builder: (context, child) {
-                        final todaySaint = SaintOfTheDayController.instance.primaryTodaySaint;
-                        return SaintOfDayCard(saint: todaySaint);
-                      },
-                    ),
-                  ),
-                )
-              else
-              // LESSONS HORIZONTAL LIST
-                SizedBox(
-                  height: 280,
-                  child: displayedLessons.isEmpty
-                      ? Center(
-                    child: Text(
-                      'No lessons in this category yet.',
-                      style: TextStyle(color: theme.colorScheme.outline),
-                    ),
-                  )
-                      : ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    itemCount: displayedLessons.length,
-                    itemBuilder: (context, index) {
-                      final pray = displayedLessons[index];
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () => _handleItemTap(context, pray),
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 180,
-                                height: 220,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: theme.colorScheme.shadow
-                                          .withValues(alpha: 0.12),
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 5),
-                                    ),
-                                  ],
-                                ),
-                                child: Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius:
-                                      BorderRadius.circular(20),
-                                      child: Image.asset(
-                                        pray.imagePath,
-                                        fit: BoxFit.cover,
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                            Container(
-                                              color: theme.colorScheme
-                                                  .surfaceContainerHighest,
-                                              child: Icon(
-                                                Icons
-                                                    .image_not_supported_rounded,
-                                                color: theme
-                                                    .colorScheme.onSurface
-                                                    .withValues(alpha: 0.4),
-                                              ),
-                                            ),
-                                      ),
-                                    ),
-                                    if (pray.isOnline)
-                                      const _OnlineIndicatorBadge(),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              SizedBox(
-                                width: 180,
-                                child: Text(
-                                  pray.text,
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600,
-                                    color: theme.colorScheme.onSurface,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          builder: (context) => SeeAllGridPage(
+                            title: isAmharic ? 'የካቶሊክ ኖቬና ጸሎቶች' : 'Catholic Novenas',
+                            items: novenaTitles,
+                            cardHeight: 140,
+                            onItemTap: (item) => _openNovenaDetail(context, item),
                           ),
                         ),
                       );
                     },
+                    icon: Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 14,
+                      color: theme.colorScheme.primary,
+                    ),
+                    label: Text(
+                      isAmharic ? 'ሁሉንም ይመልከቱ' : 'See All',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.primary,
+                        fontFamilyFallback: isAmharic ? _kEthiopicFallbacks : null,
+                      ),
+                    ),
                   ),
-                ),
-            ],
-          ),
-        ),
-
-        const SizedBox(height: 25),
-
-        // NOVENA SECTION
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Novena',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: theme.colorScheme.onSurface,
-                ),
+                ],
               ),
-              TextButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SeeAllGridPage(
-                        title: 'Catholic Novenas',
-                        items: novenaTitles,
-                        cardHeight: 140,
-                        onItemTap: (item) => _openNovenaDetail(context, item), // <-- Updated here
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 180,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                itemCount: previewNovenas.length,
+                itemBuilder: (context, index) {
+                  final item = previewNovenas[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 12),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(15),
+                      onTap: () => _handleItemTap(context, item),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 110,
+                            height: 110,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.asset(
+                                    item.imagePath,
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    errorBuilder: (context, error, stackTrace) => Container(
+                                      color: theme.colorScheme.surfaceContainerHighest,
+                                      child: Icon(
+                                        Icons.image_not_supported_rounded,
+                                        color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                if (item.isOnline) const _OnlineIndicatorBadge(),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          SizedBox(
+                            width: 110,
+                            child: Text(
+                              item.text,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: theme.colorScheme.onSurface,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
                 },
-                icon: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 14,
-                  color: theme.colorScheme.primary,
-                ),
-                label: Text(
-                  'See All',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.primary,
-                  ),
-                ),
               ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        SizedBox(
-          height: 180,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            itemCount: previewNovenas.length,
-            itemBuilder: (context, index) {
-              final item = previewNovenas[index];
-              return Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(15),
-                  onTap: () => _handleItemTap(context, item),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 110,
-                        height: 110,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Stack(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image.asset(
-                                item.imagePath,
-                                fit: BoxFit.cover,
-                                width: double.infinity,
-                                height: double.infinity,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    Container(
-                                      color: theme
-                                          .colorScheme.surfaceContainerHighest,
-                                      child: Icon(
-                                        Icons.image_not_supported_rounded,
-                                        color: theme.colorScheme.onSurface
-                                            .withValues(alpha: 0.4),
-                                      ),
-                                    ),
-                              ),
-                            ),
-                            if (item.isOnline) const _OnlineIndicatorBadge(),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      SizedBox(
-                        width: 110,
-                        child: Text(
-                          item.text,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: theme.colorScheme.onSurface,
-                          ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-        const SizedBox(height: 20),
-      ],
+            ),
+            const SizedBox(height: 20),
+          ],
+        );
+      },
     );
   }
 }
 
-/// Small circular badge shown on cards for items that open an external
-/// link (isOnline == true), signalling they leave the app.
 class _OnlineIndicatorBadge extends StatelessWidget {
   const _OnlineIndicatorBadge();
 
@@ -974,7 +970,6 @@ class _OnlineIndicatorBadge extends StatelessWidget {
   }
 }
 
-// SHARED "SEE ALL" EXPANDED PAGE
 class SeeAllGridPage extends StatelessWidget {
   final String title;
   final List<NovenaCombo> items;
@@ -1024,8 +1019,7 @@ class SeeAllGridPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
-                          color:
-                          theme.colorScheme.shadow.withValues(alpha: 0.1),
+                          color: theme.colorScheme.shadow.withValues(alpha: 0.1),
                           blurRadius: 6,
                           offset: const Offset(0, 3),
                         ),
@@ -1040,16 +1034,13 @@ class SeeAllGridPage extends StatelessWidget {
                             fit: BoxFit.cover,
                             width: double.infinity,
                             height: double.infinity,
-                            errorBuilder: (context, error, stackTrace) =>
-                                Container(
-                                  color:
-                                  theme.colorScheme.surfaceContainerHighest,
-                                  child: Icon(
-                                    Icons.image_not_supported_rounded,
-                                    color: theme.colorScheme.onSurface
-                                        .withValues(alpha: 0.4),
-                                  ),
-                                ),
+                            errorBuilder: (context, error, stackTrace) => Container(
+                              color: theme.colorScheme.surfaceContainerHighest,
+                              child: Icon(
+                                Icons.image_not_supported_rounded,
+                                color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                              ),
+                            ),
                           ),
                         ),
                         if (item.isOnline) const _OnlineIndicatorBadge(),

@@ -3,11 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:operation_001/db_helper.dart';
 import 'package:operation_001/prayer_completion_screen.dart';
 
-// Centralized so the whole screen's typographic voice lives in one place —
-// change it once here rather than in ~15 scattered TextStyle literals.
-// NOTE: confirm 'Serif' is actually registered as a custom font family in
-// pubspec.yaml — if it isn't, this silently falls back to a platform default
-// and the "premium" serif look this screen is going for won't render.
+// Centralized typographic voice
 const String kNovenaFontFamily = 'Serif';
 
 // ── DATA MODELS ─────────────────────────────────────────────────────────────
@@ -33,6 +29,10 @@ class NovenaData {
       return divineMercyStory;
     } else if (lowerTitle.contains("sacred heart")) {
       return sacredHeartStory;
+    } else if (lowerTitle.contains("loreto")) {
+      return loretoStory;
+    } else if (lowerTitle.contains("lourdes")) {
+      return lourdesStory;
     }
     return "A novena is a traditional Catholic devotion consisting of private or public prayers repeated for nine successive days or weeks for a particular intent.";
   }
@@ -55,6 +55,10 @@ class NovenaData {
       return masterNovenaDB["Novena to the Sacred Heart of Jesus"]!;
     } else if (cleanTitle.contains("divine mercy")) {
       return masterNovenaDB["Divine Mercy Chaplet"]!;
+    } else if (cleanTitle.contains("loreto")) {
+      return masterNovenaDB["Novena to Our Lady of Loreto"]!;
+    } else if (cleanTitle.contains("lourdes")) {
+      return masterNovenaDB["Novena to Our Lady of Lourdes"]!;
     }
 
     return List.generate(
@@ -77,6 +81,16 @@ class NovenaData {
       'The devotion to the Sacred Heart of Jesus was inspired by Jesus’ apparitions to St. Margaret Mary Alacoque. '
       'This prayer, known as the Efficacious Novena, was prayed daily by St. Padre Pio for all who requested his intercession. '
       'Through these 9 days, we place our petitions in Christ’s infinite ocean of mercy and unite our hearts to His divine love.';
+
+  static const String loretoStory =
+      'The Holy House of Loreto is venerated as the sacred home where the Blessed Virgin Mary was born, greeted by the Angel Gabriel, and where the Word was made flesh. '
+      'Dedicated parishes and faithful across communities cherish Our Lady of Loreto as the guardian of Christian homes, families, and domestic holiness. '
+      'Through this novena, we seek her maternal intercession to anchor our families in faith, purity, and profound peace.';
+
+  static const String lourdesStory =
+      'At the grotto of Massabielle in Lourdes, France, the Blessed Virgin Mary appeared to St. Bernadette Soubirous, declaring herself to be the Immaculate Conception. '
+      'Lourdes has since become a beacon of miraculous healing, spiritual renewal, and compassionate care for the sick and suffering. '
+      'In uniting with our parish communities, we bring our physical and spiritual ailments to her immaculate heart, trusting in her unfailing maternal prayers.';
 
   static final Map<String, List<NovenaDayContent>> masterNovenaDB = {
     "Divine Mercy Chaplet": [
@@ -161,17 +175,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "O Sacred Heart of Jesus, on this first day, I place my trust in Your infinite love. You invite all who labor and are heavy burdened to come to You for rest. Lord, take my worries, my doubts, and my intentions into Your Heart.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, have pity on us sinners and grant us the grace which we ask of You through the Immaculate Heart of Mary. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 2,
@@ -179,17 +184,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "Sacred Heart of Jesus, on this second day, I seek the grace of complete confidence in Your divine will. When obstacles arise and my faith feels weak, draw my soul closer to the burning furnace of Your charity.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, grant us the grace which we ask through Mary's Immaculate Heart. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 3,
@@ -197,17 +193,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "Lord Jesus, Your Sacred Heart was wounded for our transgressions. Today I ask for spiritual healing and forgiveness. Cleanse my heart from sin and fill it with peace, patience, and purity.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, have pity on us and grant our petition through Mary, Mother of Mercy. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 4,
@@ -215,17 +202,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "O Most Holy Heart of Jesus, teach me to love others as You have loved us. Remove all selfishness, pride, and resentment from my life, and let Your divine love shine through my daily actions.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, hear our prayer through the intercession of the Blessed Virgin Mary. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 5,
@@ -233,17 +211,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "Sacred Heart of Jesus, You experienced suffering and loneliness in the Garden of Olives. Give me courage when I face trials, and remind me that You walk with me through every shadow.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, grant us endurance and grant our request through Mary's Sorrowful Heart. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 6,
@@ -251,17 +220,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "O Jesus, King and Center of all hearts, I consecrate my home and family to Your Sacred Heart. Bring unity, peace, and understanding into our relationships, and protect us from all harm.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, bless our homes and grant our special intentions through Holy Mary. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 7,
@@ -269,17 +229,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "Loving Savior, today I surrender all my anxiety regarding the answer to my prayer. I lay my deepest longings at the foot of Your Cross, trusting that Your divine wisdom knows what is best for my soul.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, accept my surrender and fulfill my petitions as best suits Your divine plan. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 8,
@@ -287,17 +238,8 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "Sacred Heart of Jesus, keep my hope steadfast as I near the end of this novena. Grant me the gift of final perseverance, that I may remain faithful to You through all stages of my life journey.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, strengthen my faith and hear my prayer through the Mother of God. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
       const NovenaDayContent(
         dayNumber: 9,
@@ -305,20 +247,35 @@ class NovenaData {
         prayer:
         "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
             "O Sacred Heart of Jesus, on this final day, I thank You for Your endless mercies and for listening to my prayer. I consecrate my heart, my mind, and my entire life to Your service now and forever.\n\n"
-            "I. O my Jesus, You have said: “Truly I say to you, ask and you will receive, seek and you will find, knock and it will be opened to you.” Behold I knock, I seek, and I ask for the grace of my intention.\n"
             "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "II. O my Jesus, You have said: “Truly I say to you, if you ask anything of the Father in My name, He will give it to you.” Behold, in Your name, I ask the Father for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "III. O my Jesus, You have said: “Truly I say to you, heaven and earth will pass away but My words will not pass away.” Encouraged by Your infallible words, I now ask for the grace of my intention.\n"
-            "• Our Father... • Hail Mary... • Glory be...\n"
-            "Sacred Heart of Jesus, I place all my trust in You.\n\n"
-            "Concluding Prayer:\n"
-            "O Sacred Heart of Jesus, for whom it is impossible not to have compassion on the afflicted, have pity on us miserable sinners and grant us the grace which we ask of You, through the Sorrowful and Immaculate Heart of Mary, Your tender Mother and ours.\n\n"
-            "Hail, Holy Queen (Salve Regina):\n"
-            "Hail, Holy Queen, Mother of Mercy, our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this valley of tears. Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile, show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary. Amen.",
+            "Sacred Heart of Jesus, I place all my trust in You. Amen.",
       ),
+    ],
+    "Novena to Our Lady of Loreto": [
+      for (int i = 1; i <= 9; i++)
+        NovenaDayContent(
+          dayNumber: i,
+          theme: "Day $i: Holiness of the Holy House",
+          prayer:
+          "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
+              "O Blessed Virgin Mary, Queen of Loreto, whose holy home was sanctified by the presence of Jesus and Joseph, look with maternal tenderness upon our families and communities today.\n\n"
+              "On this $i${i == 1 ? 'st' : i == 2 ? 'nd' : i == 3 ? 'rd' : 'th'} day of our novena, we pray that you instill in our homes the virtues of love, humility, and obedience that filled your dwelling in Nazareth. Protect our households from every spiritual and physical danger.\n\n"
+              "• Our Father... • Hail Mary... • Glory be...\n\n"
+              "Our Lady of Loreto, pray for our families and guide our steps toward eternal life. Amen.",
+        ),
+    ],
+    "Novena to Our Lady of Lourdes": [
+      for (int i = 1; i <= 9; i++)
+        NovenaDayContent(
+          dayNumber: i,
+          theme: "Day $i: Healing and Immaculate Grace",
+          prayer:
+          "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n\n"
+              "O Immaculate Virgin Mary, Our Lady of Lourdes, refuge of the sick and comfort of the afflicted, we turn to your immaculate heart with complete trust.\n\n"
+              "On this $i${i == 1 ? 'st' : i == 2 ? 'nd' : i == 3 ? 'rd' : 'th'} day of our novena, intercede before your Divine Son for our physical and spiritual healing. Pour forth streams of grace upon all who suffer in body or spirit across our parishes and the world.\n\n"
+              "• Our Father... • Hail Mary... • Glory be...\n\n"
+              "Our Lady of Lourdes, health of the sick and mother of mercy, pray for us. Amen.",
+        ),
     ],
   };
 }
@@ -337,7 +294,6 @@ void openNovenaDetailScreen(
       builder: (context) => NovenaDetailScreen(
         title: title,
         novenaImage: novenaImage,
-        storyText: NovenaData.getStoryForTitle(title),
         days: NovenaData.getDaysForTitle(title),
         initialDay: targetDay,
         autoStart: autoStart,
@@ -355,7 +311,6 @@ void openNovenaDetailScreen(
 class NovenaDetailScreen extends StatefulWidget {
   final String title;
   final String novenaImage;
-  final String? storyText;
   final List<NovenaDayContent> days;
   final int initialDay;
   final bool autoStart;
@@ -364,7 +319,6 @@ class NovenaDetailScreen extends StatefulWidget {
     super.key,
     required this.title,
     required this.novenaImage,
-    this.storyText,
     required this.days,
     this.initialDay = 1,
     this.autoStart = false,
@@ -383,11 +337,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   final TextEditingController intentionController = TextEditingController();
   final ScrollController dayScrollController = ScrollController();
 
-  // One GlobalKey per day-chip so we can scroll to the actual rendered
-  // position via Scrollable.ensureVisible, rather than assuming every chip
-  // is a fixed 84px wide (completed chips are wider — they carry a
-  // checkmark icon — so that assumption drifts out of alignment over the
-  // course of the novena).
   final Map<int, GlobalKey> _dayChipKeys = {
     for (int i = 1; i <= 9; i++) i: GlobalKey(),
   };
@@ -511,8 +460,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
   }
 
   void _scrollToActiveDay() {
-    // Wait a frame so the chip list has actually laid out (relevant right
-    // after initial load / a setState that just changed which chip is wider).
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final key = _dayChipKeys[currentDay];
       final ctx = key?.currentContext;
@@ -622,6 +569,8 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
     final theme = Theme.of(context);
     final primaryAccent = theme.colorScheme.primary;
 
+    final storyText = NovenaData.getStoryForTitle(widget.title);
+
     final activeDayData = widget.days.firstWhere(
           (d) => d.dayNumber == currentDay,
       orElse: () => widget.days.isNotEmpty
@@ -643,7 +592,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
         body: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
-            // ── SLIVER APP BAR WITH HERO HEADER ──
+            // ── SLIVER APP BAR ──
             SliverAppBar(
               expandedHeight: 280.0,
               pinned: true,
@@ -665,9 +614,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                     backgroundColor: Colors.black38,
                     child: IconButton(
                       tooltip: 'Reset Novena',
-                      // Semantic error color from the theme instead of a
-                      // fixed named color — correctly contrasted in both
-                      // light and dark modes by construction.
                       icon: Icon(Icons.refresh_rounded,
                           color: theme.colorScheme.error),
                       onPressed: () async {
@@ -747,10 +693,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                     Image.asset(
                       widget.novenaImage,
                       fit: BoxFit.cover,
-                      // THE FIX: bias the crop toward the top of the source
-                      // image instead of center-cropping. Center-crop on a
-                      // portrait where the face sits in the upper third of
-                      // the frame is what was slicing through the head.
                       alignment: Alignment.topCenter,
                       errorBuilder: (context, error, stackTrace) => Container(
                         color: theme.colorScheme.primaryContainer,
@@ -758,10 +700,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                             size: 64, color: primaryAccent),
                       ),
                     ),
-                    // Full-height gradient rather than a bottom-only one —
-                    // softly darkens the top too so the leading/action
-                    // icons stay legible over bright image regions, not
-                    // just relying on their individual translucent circles.
                     Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -782,15 +720,12 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
               ),
             ),
 
-            // ── NOVENA STORY & INTRO CARD ──
+            // ── DEVOTIONAL OVERVIEW ──
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                 child: Card(
                   elevation: 0,
-                  // Single surface role, no isDark branch — matches the
-                  // intention card below and lets ColorScheme's own dark
-                  // variant do its job.
                   color: theme.colorScheme.surfaceContainer,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -815,12 +750,11 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          widget.storyText ??
-                              "A novena is a traditional Catholic devotion consisting of private or public prayers repeated for nine successive days.",
+                          storyText,
                           style: TextStyle(
                             fontFamily: kNovenaFontFamily,
                             fontSize: 14,
-                            height: 1.5,
+                            height: 1.6,
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
                         ),
@@ -831,7 +765,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
               ),
             ),
 
-            // ── DAY SELECTOR CHIPS + PROGRESS ──
+            // ── DAY SELECTOR CHIPS ──
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -851,9 +785,6 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                       },
                     ),
                     const SizedBox(height: 10),
-                    // Slim overall-progress indicator — an at-a-glance
-                    // sense of how far along the novena is, beyond just
-                    // per-chip checkmarks.
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: ClipRRect(
@@ -912,7 +843,7 @@ class _NovenaDetailScreenState extends State<NovenaDetailScreen> {
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: theme.colorScheme.onSurface,
-                      height: 1.25,
+                      height: 1.3,
                     ),
                   ),
                   const SizedBox(height: 16),

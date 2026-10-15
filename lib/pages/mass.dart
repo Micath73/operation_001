@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operation_001/controllers/language_controller.dart'; // Import your controller
 import 'package:operation_001/daily_readings_screen.dart';
 import 'package:operation_001/l10n/app_localizations.dart';
 
@@ -17,6 +18,7 @@ class UserMass extends StatefulWidget {
 class _UserMassState extends State<UserMass> {
   List<Map<String, dynamic>> _getMassSections(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final bool isAmharic = LanguageController.instance.isAmharic; // Check current language
 
     return [
       {
@@ -26,387 +28,502 @@ class _UserMassState extends State<UserMass> {
         "image": "assets/church interior.jpeg",
         "content": [
           {
-            "title": "1. Entrance",
+            // 1. Localize the section title
+            "title": isAmharic ? "1. መግቢያ ሥርዓት (Entrance)" : "1. Entrance",
             "lines": [
               {
                 "type": "rubric",
-                "text": "When the people are gathered, the Priest approaches the altar with the ministers while the Entrance Chant is sung."
+                // 2. Localize rubric instructions
+                "text": isAmharic
+                    ? "ሕዝብ ሲሰበሰብ ካህኑ ከዲያቆናት(ከሌሎች ካህናት)፤አገልጋዮች ጋር ወደ መሠዊያው(ኦልታር) ይቀርባሉ፤ በዚህ ጊዜ የመግቢያ መዝሙር ይዘመራል።"
+                    : "When the people are gathered, the Priest approaches the altar with the ministers while the Entrance Chant is sung."
               },
               {
                 "type": "rubric",
-                "text": "When he has arrived at the altar, after making a profound bow with the ministers, the Priest venerates the altar with a kiss and, if appropriate, incenses the cross and the altar. Then, with the ministers, he goes to the chair."
+                "text": isAmharic
+                    ? "ወደ መሠዊያው(ኦልታር) ሲደርሱ ካህኑ ከአገልጋዮቹ ጋር አጎንብሰዉ ሰግደው መሠዊያውን በመሳም ይሳለማሉ፤ መስቀሉንና መሠዊያውን ዕጣን ያጥናሉ።"
+                    : "When he has arrived at the altar, after making a profound bow with the ministers, the Priest venerates the altar with a kiss, followed by incensing..."
               },
               {
                 "type": "rubric",
-                "text": "When the Entrance Chant is concluded, the Priest and the faithful, standing, sign themselves with the Sign of the Cross, while the Priest, facing the people, says:"
+                "text": isAmharic
+                    ? "የመግቢያ መዝሙር ሲያልቅ ካህኑ እና ሕዝቡ ቆመው በመስቀል ምልክት ራሳቸውን ይባርካሉ፤ ካህኑም ወደ ሕዝቡ ዞር ብሎ እንዲህ ይላል፦"
+                    : "When the Entrance Chant is concluded, the Priest and the faithful, standing, sign themselves with the Sign of the Cross..."
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "In the name of the Father, and of the Son, and of the Holy Spirit."
+                // 3. Localize dialogue roles (Priest -> ካህን)
+                "role": isAmharic ? "ካህን" : "Priest",
+                // 4. Localize spoken dialogue text
+                "text": isAmharic
+                    ? "በስመ አብ ወወልድ ወመንፈስ ቅዱስ አሐዱ አምላክ።"
+                    : "In the name of the Father, and of the Son, and of the Holy Spirit."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Amen."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": "አሜን።"
+                // Amen is the same/universal, but can be localized if needed
               },
             ]
           },
           {
-            "title": "2. Greeting",
+            "title": isAmharic ? "2. ሰላምታ" : "2. Greeting",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then the Priest, extending his hands, greets the people, saying:"
+                "text": isAmharic
+                    ? "ቀጥሎም ካህኑ እጆቹን ዘርግቶ ሕዝቡን እንዲህ ሲል ሰላምታ ይሰጣል፦"
+                    : "Then the Priest, extending his hands, greets the people, saying:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "The grace of our Lord Jesus Christ, and the love of God, and the communion of the Holy Spirit be with you all."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "የጌታችን የኢየሱስ ክርስቶስ ጸጋ፥ የእግዚአብሔርም ፍቅር፥ የመንፈስ ቅዱስም ኅብረት ከሁላችሁ ጋር ይሁን።"
+                    : "The grace of our Lord Jesus Christ, and the love of God, and the communion of the Holy Spirit be with you all."
               },
               {
                 "type": "rubric",
-                "text": "Or:"
+                "text": isAmharic ? "ወይም፦" : "Or:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Grace to you and peace from God our Father and the Lord Jesus Christ."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ከእግዚአብሔር ከአባታችን ከጌታችንም ከኢየሱስ ክርስቶስ ጸጋና ሰላም ለእናንተ ይሁን።"
+                    : "Grace to you and peace from God our Father and the Lord Jesus Christ."
               },
               {
                 "type": "rubric",
-                "text": "Or:"
+                "text": isAmharic ? "ወይም፦" : "Or:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "The Lord be with you."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ጌታ ከሁላችሁ ጋር ይሁን።"
+                    : "The Lord be with you."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "And with your spirit."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ከመንፈስህም ጋር።"
+                    : "And with your spirit."
               },
               {
                 "type": "rubric",
-                "text": "In this first greeting a Bishop, instead of The Lord be with you, says:"
+                "text": isAmharic
+                    ? "በዚህ የመጀመሪያ ሰላምታ ጊዜ ጳጳሱ «ጌታ ከሁላችሁ ጋር ይሁን» ከማለት ፈንታ እንዲህ ይላል፦"
+                    : "In this first greeting a Bishop, instead of The Lord be with you, says:"
               },
               {
                 "type": "dialogue",
-                "role": "Bishop",
-                "text": "Peace be with you."
+                "role": isAmharic ? "ጳጳስ" : "Bishop",
+                "text": isAmharic
+                    ? "ሰላም ለእናንተ ይሁን።"
+                    : "Peace be with you."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "And with your spirit."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ከመንፈስህም ጋር።"
+                    : "And with your spirit."
               },
             ]
           },
           {
-            "title": "3. Introduction to the Mass of the Day",
+            "title": isAmharic
+                ? "3. የዕለቱ ቅዳሴ መግቢያ"
+                : "3. Introduction to the Mass of the Day",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Priest, or a Deacon, or another minister, may very briefly introduce the faithful to the Mass of the day."
+                "text": isAmharic
+                    ? "ካህኑ፣ ዲያቆኑ ወይም ሌላ አገልጋይ ለሕዝቡ ስለዕለቱ ቅዳሴ በአጭሩ ሊያስተዋውቁ ይችላሉ።"
+                    : "The Priest, or a Deacon, or another minister, may very briefly introduce the faithful to the Mass of the day."
               },
               {
                 "type": "rubric",
-                "text": "From time to time on Sundays, especially in Easter Time, instead of the customary Penitential Act, the blessing and sprinkling of water may take place as a reminder of Baptism."
+                "text": isAmharic
+                    ? "በእሁድ ቀናት፣ ካህናቱ መሰዊያዉን ከተሳለሙ በኋላ (ከመሳለማቸዉ በፊት) ጥምቀታችንን እንድናስታዉስ የውሃ ቡራኬና መርጨት ይደረጋል።"
+                    : "From time to time on Sundays, especially in Easter Time, instead of the customary Penitential Act, the blessing and sprinkling of water may take place as a reminder of Baptism."
               },
             ]
           },
           {
-            "title": "4. Penitential Act — Form A",
+            "title": isAmharic
+                ? "4. የንስሐ ሥርዓት — ሀ"
+                : "4. Penitential Act — Form A",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then follows the Penitential Act, to which the Priest invites the faithful, saying:"
+                "text": isAmharic
+                    ? "ቀጥሎ የንስሐ ሥርዓት ይደረጋል፤ ካህኑም ሕዝቡን እንዲህ ሲል ይጋብዛል፦"
+                    : "Then follows the Penitential Act, to which the Priest invites the faithful, saying:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Brethren (brothers and sisters), let us acknowledge our sins, and so prepare ourselves to celebrate the sacred mysteries."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ወንድሞቼ ሆይ (ወንድሞቼና እህቶቼ ሆይ)፥ ቅዱሳን ምሥጢራትን ለመፈጸም የተገባን እንድንሆን፣ ኃጢኣታችንን እንናዘዝ።"
+                    : "Brethren (brothers and sisters), let us acknowledge our sins, and so prepare ourselves to celebrate the sacred mysteries."
               },
               {
                 "type": "rubric",
-                "text": "A brief pause for silence follows. Then all recite together the formula of general confession:"
+                "text": isAmharic
+                    ? "ትንሽ የጸጥታ ጊዜ ይሆናል። ከዚያም ሁሉም በጋራ የኃጢአት ኑዛዜ ቃል ይጸልያሉ፦"
+                    : "A brief pause for silence follows. Then all recite together the formula of general confession:"
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I confess to almighty God and to you, my brothers and sisters, that I have greatly sinned, in my thoughts and in my words, in what I have done and in what I have failed to do,"
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "ሁሉን ለሚችል እግዚአብሔር፤ ለናንተም ወንድሞቼ እህቶቼ ፣ በማሰብ በመናገር በማድረግ ተግባሬንም ባለመፈጸም፤ ብዙ ኃጢአት መሥራቴን እናዘዛለሁ፤"
+                    : "I confess to almighty God and to you, my brothers and sisters, that I have greatly sinned, in my thoughts and in my words, in what I have done and in what I have failed to do,"
               },
               {
                 "type": "rubric",
-                "text": "And, striking their breast, they say:"
+                "text": isAmharic
+                    ? "ደረታቸውን እየመቱም እንዲህ ይላሉ፦"
+                    : "And, striking their breast, they say:"
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "through my fault, through my fault, through my most grievous fault;"
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "በኔ ክፋት በኔ ክፋት በኔ ብዙ ክፋት ነውና፤"
+                    : "through my fault, through my fault, through my most grievous fault;"
               },
               {
                 "type": "rubric",
-                "text": "Then they continue:"
+                "text": isAmharic ? "ቀጥለውም እንዲህ ይላሉ፦" : "Then they continue:"
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "therefore I ask blessed Mary ever-Virgin, all the Angels and Saints, and you, my brothers and sisters, to pray for me to the Lord our God."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "ስለዚህ ዘወትር ድንግል በሆነችው እመቤታችን ቅድስት ድንግል ማርያም ፤ መላእክትና ቅዱሳንም ሁሉ እናንተም ወንድሞቼን እህቶቼም ከጌታችን ከአምላካችን ታማልዱኝ ዘንድ እለምናለሁ።"
+                    : "therefore I ask blessed Mary ever-Virgin, all the Angels and Saints, and you, my brothers and sisters, to pray for me to the Lord our God."
               },
               {
                 "type": "rubric",
-                "text": "The absolution by the Priest follows:"
+                "text": isAmharic
+                    ? "ቀጥሎም በካህኑ የሚደረግ የይቅርታ ቃል ይከተላል፦"
+                    : "The absolution by the Priest follows:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "May almighty God have mercy on us, forgive us our sins, and bring us to everlasting life."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ሁሉን የሚችል እግዚአብሔር በምሕረቱ ኃጢአታችንን ይቅር ብሎ ወደ ዘለዓለም ሕይወት ያግባን። አሜን!"
+                    : "May almighty God have mercy on us, forgive us our sins, and bring us to everlasting life."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Amen."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": "አሜን።"
               },
             ]
           },
           {
-            "title": "5. Penitential Act — Form B",
+            "title": isAmharic
+                ? "5. የንስሐ ሥርዓት — ለ"
+                : "5. Penitential Act — Form B",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Priest invites the faithful to make the Penitential Act:"
+                "text": isAmharic
+                    ? "ካህኑ ሕዝቡን የንስሐ ሥርዓት እንዲያደርጉ ይጋብዛል፦"
+                    : "The Priest invites the faithful to make the Penitential Act:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Brethren (brothers and sisters), let us acknowledge our sins, and so prepare ourselves to celebrate the sacred mysteries."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ወንድሞቼ ሆይ (ወንድሞቼና እህቶቼ ሆይ)፥ ቅዱሳን ምሥጢራትን ለመፈጸም የተገባን እንድንሆን፣ ኃጢኣታችንን እንናዘዝ።"
+                    : "Brethren (brothers and sisters), let us acknowledge our sins, and so prepare ourselves to celebrate the sacred mysteries."
               },
               {
                 "type": "rubric",
-                "text": "A brief pause for silence follows. The Priest then says:"
+                "text": isAmharic
+                    ? "ትንሽ የጸጥታ ጊዜ ይሆናል። ከዚያም ካህኑ እንዲህ ይላል፦"
+                    : "A brief pause for silence follows. The Priest then says:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Have mercy on us, O Lord."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic ? "ጌታ ሆይ ማረን..." : "Have mercy on us, O Lord."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "For we have sinned against you."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ባንተ ላይ ኃጢአት ሠርተናልና።"
+                    : "For we have sinned against you."
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Show us, O Lord, your mercy."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "አቤቱ፥ ምህረትህን አሳየን።"
+                    : "Show us, O Lord, your mercy."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "And grant us your salvation."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ማዳንህንም ስጠን።"
+                    : "And grant us your salvation."
               },
               {
                 "type": "rubric",
-                "text": "The absolution by the Priest follows:"
+                "text": isAmharic
+                    ? "ቀጥሎም በካህኑ የሚደረግ የይቅርታ ቃል ይቀጥላል፦"
+                    : "The absolution by the Priest follows:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "May almighty God have mercy on us, forgive us our sins, and bring us to everlasting life."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ሁሉን የሚችል እግዚአብሔር በምሕረቱ ኃጢአታችንን ይቅር ብሎ ወደ ዘለዓለም ሕይወት ያግባን። አሜን!"
+                    : "May almighty God have mercy on us, forgive us our sins, and bring us to everlasting life."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Amen."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": "አሜን።"
               },
             ]
           },
           {
-            "title": "6. Penitential Act — Form C",
+            "title": isAmharic
+                ? "6. የንስሐ ሥርዓት — ሐ"
+                : "6. Penitential Act — Form C",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Priest invites the faithful to make the Penitential Act:"
+                "text": isAmharic
+                    ? "ካህኑ ሕዝቡን የንስሐ ሥርዓት እንዲያደርጉ ይጋብዛል፦"
+                    : "The Priest invites the faithful to make the Penitential Act:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Brethren (brothers and sisters), let us acknowledge our sins, and so prepare ourselves to celebrate the sacred mysteries."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ወንድሞቼ ሆይ (ወንድሞቼና እህቶቼ ሆይ)፥ ቅዱሳን ምሥጢራትን ለመፈጸም የተገባን እንድንሆን፣ ኃጢኣታችንን እንናዘዝ።"
+                    : "Brethren (brothers and sisters), let us acknowledge our sins, and so prepare ourselves to celebrate the sacred mysteries."
               },
               {
                 "type": "rubric",
-                "text": "A brief pause for silence follows."
+                "text": isAmharic
+                    ? "ትንሽ የጸጥታ ጊዜ ይሆናል።"
+                    : "A brief pause for silence follows."
               },
               {
                 "type": "rubric",
-                "text": "The Priest, or a Deacon or another minister, then says the following or other invocations with Kyrie, eleison (Lord, have mercy):"
+                "text": isAmharic
+                    ? "ካህኑ ወይም ዲያቆኑ ወይም ሌላ አገልጋይ የሚከተሉትን ወይም ሌሎችን ጸሎቶች ከ«ኪርያላይሶ» (አቤቱ ማረን) ጋር ይላል፦"
+                    : "The Priest, or a Deacon or another minister, then says the following or other invocations with Kyrie, eleison (Lord, have mercy):"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "You were sent to heal the contrite of heart: Lord, have mercy. (Or: Kyrie, eleison.)"
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "የተሰበረ ልብ ያላቸውን ልትፈውስ ተልከሃል፡ ጌታ ሆይ ማረን። (ወይም፡ ኪርያላይሶ።)"
+                    : "You were sent to heal the contrite of heart: Lord, have mercy. (Or: Kyrie, eleison.)"
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Lord, have mercy. (Or: Kyrie, eleison.)"
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ጌታ ሆይ ማረን። (ወይም፡ ኪርያላይሶ።)"
+                    : "Lord, have mercy. (Or: Kyrie, eleison.)"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "You came to call sinners: Christ, have mercy. (Or: Christe, eleison.)"
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ኃጢአተኞችን ልትጠራ መጥተሃል፡ ክርስቶስ ሆይ ማረን። (ወይም፡ ኪርያላይሶ።)"
+                    : "You came to call sinners: Christ, have mercy. (Or: Christe, eleison.)"
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Christ, have mercy. (Or: Christe, eleison.)"
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ክርስቶስ ሆይ ማረን። (ወይም፡ ኪርያላይሶ።)"
+                    : "Christ, have mercy. (Or: Christe, eleison.)"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "You are seated at the right hand of the Father to intercede for us: Lord, have mercy. (Or: Kyrie, eleison.)"
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ስለእኛ ልትማልድ በአብ ቀኝ ተቀምጠሃል፡ ጌታ ሆይ ማረን። (ወይም፡ ኪርያላይሶ።)"
+                    : "You are seated at the right hand of the Father to intercede for us: Lord, have mercy. (Or: Kyrie, eleison.)"
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Lord, have mercy. (Or: Kyrie, eleison.)"
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ጌታ ሆይ ማረን። (ወይም፡ ኪርያላይሶ።)"
+                    : "Lord, have mercy. (Or: Kyrie, eleison.)"
               },
               {
                 "type": "rubric",
-                "text": "The absolution by the Priest follows:"
+                "text": isAmharic
+                    ? "ቀጥሎም በካህኑ የሚደረግ የይቅርታ ቃል ይቀጥላል፦"
+                    : "The absolution by the Priest follows:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "May almighty God have mercy on us, forgive us our sins, and bring us to everlasting life."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ሁሉን የሚችል እግዚአብሔር በምሕረቱ ኃጢአታችንን ይቅር ብሎ ወደ ዘለዓለም ሕይወት ያግባን። አሜን!"
+                    : "May almighty God have mercy on us, forgive us our sins, and bring us to everlasting life."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Amen."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": "አሜን።"
               },
             ]
           },
           {
-            "title": "7. The Kyrie",
+            "title": isAmharic ? "7. ኪርያላይሶ (ጌታ ሆይ ማረን)" : "7. The Kyrie",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Kyrie eleison (Lord, have mercy) invocations follow, unless they have just occurred in a formula of the Penitential Act."
+                "text": isAmharic
+                    ? "የንስሐ ሥርዓት(Penitential Act) ባልተደረገበት ጊዜ (ወይም ካልተካተተ) 'ኪርያላይሶ' (ጌታ ሆይ ማረን) ጸሎት ይቀጥላል።"
+                    : "The Kyrie eleison (Lord, have mercy) invocations follow, unless they have just occurred in a formula of the Penitential Act."
               },
               {
                 "type": "dialogue",
-                "role": "V",
-                "text": "Lord, have mercy."
+                "role": isAmharic ? "ካህን" : "V",
+                "text": isAmharic ? "ጌታ ሆይ ማረን" : "Lord, have mercy."
               },
               {
                 "type": "dialogue",
-                "role": "R",
-                "text": "Lord, have mercy."
+                "role": isAmharic ? "ሕዝብ" : "R",
+                "text": isAmharic ? "ጌታ ሆይ ማረን" : "Lord, have mercy."
               },
               {
                 "type": "dialogue",
-                "role": "V",
-                "text": "Christ, have mercy."
+                "role": isAmharic ? "ካህን" : "V",
+                "text": isAmharic ? "ክርስቶስ ሆይ ማረን።" : "Christ, have mercy."
               },
               {
                 "type": "dialogue",
-                "role": "R",
-                "text": "Christ, have mercy."
+                "role": isAmharic ? "ሕዝብ" : "R",
+                "text": isAmharic ? "ክርስቶስ ሆይ ማረን።" : "Christ, have mercy."
               },
               {
                 "type": "dialogue",
-                "role": "V",
-                "text": "Lord, have mercy."
+                "role": isAmharic ? "ካህን" : "V",
+                "text": isAmharic ? "ጌታ ሆይ ማረን" : "Lord, have mercy."
               },
               {
                 "type": "dialogue",
-                "role": "R",
-                "text": "Lord, have mercy."
+                "role": isAmharic ? "ሕዝብ" : "R",
+                "text": isAmharic ? "ጌታ ሆይ ማረን" : "Lord, have mercy."
               },
               {
                 "type": "rubric",
-                "text": "Or:"
+                "text": isAmharic ? "ወይም፦" : "Or:"
               },
               {
                 "type": "dialogue",
-                "role": "V",
-                "text": "Kyrie, eleison."
+                "role": isAmharic ? "ካህን" : "V",
+                "text": isAmharic ? "ኪርያላይሶ" : "Kyrie, eleison."
               },
               {
                 "type": "dialogue",
-                "role": "R",
-                "text": "Kyrie, eleison."
+                "role": isAmharic ? "ሕዝብ" : "R",
+                "text": isAmharic ? "ኪርያላይሶ" : "Kyrie, eleison."
               },
               {
                 "type": "dialogue",
-                "role": "V",
-                "text": "Christe, eleison."
+                "role": isAmharic ? "ካህን" : "V",
+                "text": isAmharic ? "ክርስቴ ያላይሶ" : "Christe, eleison."
               },
               {
                 "type": "dialogue",
-                "role": "R",
-                "text": "Christe, eleison."
+                "role": isAmharic ? "ሕዝብ" : "R",
+                "text": isAmharic ? "ክርስቴ ያላይሶ" : "Christe, eleison."
               },
               {
                 "type": "dialogue",
-                "role": "V",
-                "text": "Kyrie, eleison."
+                "role": isAmharic ? "ካህን" : "V",
+                "text": isAmharic ? "ኪርያላይሶ" : "Kyrie, eleison."
               },
               {
                 "type": "dialogue",
-                "role": "R",
-                "text": "Kyrie, eleison."
+                "role": isAmharic ? "ሕዝብ" : "R",
+                "text": isAmharic ? "ኪርያላይሶ" : "Kyrie, eleison."
               },
             ]
           },
           {
-            "title": "8. The Gloria",
+            "title": isAmharic ? "8. የክብር መዝሙር (ግሎሪያ)" : "8. The Gloria",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then, when it is prescribed, this hymn is either sung or said:"
+                "text": isAmharic
+                    ? "በታዘዘባቸው ቀናት ይህ መዝሙር ይዘመራል ወይም ይነበባል፦"
+                    : "Then, when it is prescribed, this hymn is either sung or said:"
               },
               {
                 "type": "dialogue",
-                "text": "Glory to God in the highest, and on earth peace to people of good will. We praise you, we bless you, we adore you, we glorify you, we give you thanks for your great glory, Lord God, heavenly King, O God, almighty Father."
+                "text": isAmharic
+                    ? "በሰማያት ለእግዚአብሔር ምስጋና፤ በምድርም በጐ ፈቃድ ለአላቸው ሰዎች ሰላም ይሁን፤ ሁሉን የምትችል አብ ሰማያዊ ንጉሥ ጌታ አምላክ ሆይ:- እናሞግስሃለን፤ እንወድስሃለን፤ እንሰግድልሃለን፤ እናከብርሃለን፤ ስለታላቁ ክብርህ ምሥጋናን እናቀርብልሃለን።"
+                    : "Glory to God in the highest, and on earth peace to people of good will. We praise you, we bless you, we adore you, we glorify you, we give you thanks for your great glory, Lord God, heavenly King, O God, almighty Father."
               },
               {
                 "type": "dialogue",
-                "text": "Lord Jesus Christ, Only Begotten Son, Lord God, Lamb of God, Son of the Father, you take away the sins of the world, have mercy on us; you take away the sins of the world, receive our prayer; you are seated at the right hand of the Father, have mercy on us."
+                "text": isAmharic
+                    ? "የዓለምን ኃጢአት የምታጠፋ የእግዚአብሔር በግ፤ የአብ አንድ ልጅ አምላክ የሆንህ ጌታችን ኢየሱስ ክርስቶስ ሆይ ይቅር በለን፤ የዓለምን ኃጢአት የምታጠፋ ትሑት ጸሎታችንን ተቀበል፤ በአብ ቀኝ የምትቀመጥ ይቅር በለን።"
+                    : "Lord Jesus Christ, Only Begotten Son, Lord God, Lamb of God, Son of the Father, you take away the sins of the world, have mercy on us; you take away the sins of the world, receive our prayer; you are seated at the right hand of the Father, have mercy on us."
               },
               {
                 "type": "dialogue",
-                "text": "For you alone are the Holy One, you alone are the Lord, you alone are the Most High, Jesus Christ, with the Holy Spirit, in the glory of God the Father. Amen."
+                "text": isAmharic
+                    ? "ኢየሱስ ክርስቶስ ሆይ ቅዱስ አንተ ብቻ ነህ፤ ጌታ አንተ ብቻ ነህ፤ ልዑል አንተ ብቻነህ። ከመንፈስ ቅዱስም ጋር በእግዚአብሔር አብ ከብረህ ትኖራለህ ። አሜን!"
+                    : "For you alone are the Holy One, you alone are the Lord, you alone are the Most High, Jesus Christ, with the Holy Spirit, in the glory of God the Father. Amen."
               },
             ]
           },
           {
-            "title": "9. The Collect",
+            "title": isAmharic ? "9. የማሳረጊያ ጸሎት (ኮሌክት)" : "9. The Collect",
             "lines": [
               {
                 "type": "rubric",
-                "text": "When this hymn is concluded, the Priest, with hands joined, says:"
+                "text": isAmharic
+                    ? "ይህ መዝሙር ሲያልቅ ካህኑ እጆቹን ዘርግቶ እንዲህ ይላል፦"
+                    : "When this hymn is concluded, the Priest, with hands joined, says:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Let us pray."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic ? "እንጸልይ" : "Let us pray."
               },
               {
                 "type": "rubric",
-                "text": "And all pray in silence with the Priest for a while."
+                "text": isAmharic
+                    ? "ከዚያም ሁሉም ከካህኑ ጋር ለተወሰነ ጊዜ በጸጥታ ይጸልያሉ።"
+                    : "And all pray in silence with the Priest for a while."
               },
               {
                 "type": "rubric",
-                "text": "Then the Priest, with hands extended, says the Collect prayer, at the end of which the people acclaim:"
+                "text": isAmharic
+                    ? "ቀጥሎም ካህኑ እጆቹን ዘርግቶ የማሳረጊያ ጸሎት (ኮሌክት)፤ በጸሎቱ ማጠናቀቂያ ላይ ሕዝቡ እንዲህ ብሎ ይቀበላል፦"
+                    : "Then the Priest, with hands extended, says the Collect prayer, at the end of which the people acclaim:"
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Amen."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": "አሜን።"
               },
             ]
           },
@@ -419,261 +536,351 @@ class _UserMassState extends State<UserMass> {
         "image": "assets/bible reading.jpg",
         "content": [
           {
-            "title": "10. First Reading",
+            "title": isAmharic ? "10. የመጀመሪያ ንባብ" : "10. First Reading",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then the reader goes to the ambo and reads the First Reading, while all sit and listen."
+                "text": isAmharic
+                    ? "ቀጥሎ አንባቢው ወደ መድረክ (አምቦ) ሄዶ የመጀመሪያውን ንባብ ያነባል፤ ሕዝቡም ሁሉ ተቀምጦ ያዳምጣል።"
+                    : "Then the reader goes to the ambo and reads the First Reading, while all sit and listen."
               },
               {
                 "type": "rubric",
-                "text": "To indicate the end of the reading, the reader acclaims:"
+                "text": isAmharic
+                    ? "የንባቡን ማጠናቀቂያ ለማመልከት አንባቢው እንዲህ ይላል፦"
+                    : "To indicate the end of the reading, the reader acclaims:"
               },
               {
                 "type": "dialogue",
-                "role": "Reader",
-                "text": "The word of the Lord."
+                "role": isAmharic ? "አንባቢ" : "Reader",
+                "text": isAmharic
+                    ? "ይህ የእግዚአብሔር ቃል ነው፡፡"
+                    : "The word of the Lord."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Thanks be to God."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "ለእግዚአብሔር ምስጋና ይሁን።" : "Thanks be to God."
               },
             ]
           },
           {
-            "title": "11. Responsorial Psalm",
+            "title": isAmharic ? "11. የምላሽ መዝሙር" : "11. Responsorial Psalm",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The psalmist or cantor sings or says the Psalm, with the people making the response."
+                "text": isAmharic
+                    ? "ከመጀመሪያ ንባብ በኋላ፤ መዝሙረ ዳዊት ይነበባል( አገልጋዮች በዝማሬ ሊያጅቡ ይችላሉ) ሕዝቡም የመዝሙሩን መልስ ይመልሳሉ።"
+                    : "The psalmist or cantor sings or says the Psalm, with the people making the response."
               },
             ]
           },
           {
-            "title": "12. Second Reading",
+            "title": isAmharic ? "12. ሁለተኛ ንባብ" : "12. Second Reading",
             "lines": [
               {
                 "type": "rubric",
-                "text": "After this, if there is to be a Second Reading, a reader reads it from the ambo, as above."
+                "text": isAmharic
+                    ? "ከዚህ በኋላ ሁለተኛ ንባብ፥ ከላይ እንደተገለጸው አንባቢው ከመድረክ (አምቦ) ያነባል።"
+                    : "After this, if there is to be a Second Reading, a reader reads it from the ambo, as above."
               },
               {
                 "type": "rubric",
-                "text": "To indicate the end of the reading, the reader acclaims:"
+                "text": isAmharic
+                    ? "የንባቡን መጠናቀቅ ለማመልከት አንባቢው እንዲህ ይላል፦"
+                    : "To indicate the end of the reading, the reader acclaims:"
               },
               {
                 "type": "dialogue",
-                "role": "Reader",
-                "text": "The word of the Lord."
+                "role": isAmharic ? "አንባቢ" : "Reader",
+                "text": isAmharic
+                    ? "ይህ የእግዚአብሔር ቃል ነው ፡፡"
+                    : "The word of the Lord."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Thanks be to God."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "ለእግዚአብሔር ምስጋና ይሁን።" : "Thanks be to God."
               },
             ]
           },
           {
-            "title": "13. Gospel Acclamation",
+            "title": isAmharic
+                ? "13. የምስጋና መዝሙር (ሀሌሉያ)"
+                : "13. Gospel Acclamation",
             "lines": [
               {
                 "type": "rubric",
-                "text": "There follows the Alleluia or another chant laid down by the rubrics, as the liturgical time requires."
+                "text": isAmharic
+                    ? "እንደ ሥርዓተ ጸሎቱ ወቅት 'ሀሌሉያ' ወይም ሌላ መዝሙር ይቀጥላል።"
+                    : "There follows the Alleluia or another chant laid down by the rubrics, as the liturgical time requires."
               },
             ]
           },
           {
-            "title": "14. Blessing Before the Gospel",
+            "title": isAmharic
+                ? "14. ከወንጌል በፊት የሚደረግ ቡራኬ"
+                : "14. Blessing Before the Gospel",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Meanwhile, if incense is used, the Priest puts some into the thurible. After this, the Deacon who is to proclaim the Gospel, bowing profoundly before the Priest, asks for the blessing, saying in a low voice:"
+                "text": isAmharic
+                    ? "በዚህ መሀል ካህኑ ወንጌል የሚያነብ ከሆነ፤ ወንጌሉን በዕጣን ያጥነዋል። ወንጌሉን የሚያነብበው ዲያቆን ከሆነ፤ በካህኑ ፊት አጎንብሶ በለስላሳ ድምፅ ቡራኬ እንዲህ ሲል ይጠይቃል፦"
+                    : "Meanwhile, if incense is used, the Priest puts some into the thurible. After this, the Deacon who is to proclaim the Gospel, bowing profoundly before the Priest, asks for the blessing, saying in a low voice:"
               },
               {
                 "type": "dialogue",
-                "role": "Deacon",
-                "text": "Your blessing, Father."
+                "role": isAmharic ? "ዲያቆን" : "Deacon",
+                "text": isAmharic ? "አባት ሆይ ባርከኝ።" : "Your blessing, Father."
               },
               {
                 "type": "rubric",
-                "text": "The Priest says in a low voice:"
+                "text": isAmharic
+                    ? "ካህኑ በለስላሳ ድምፅ እንዲህ ይላል፦"
+                    : "The Priest says in a low voice:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "May the Lord be in your heart and on your lips, that you may proclaim his Gospel worthily and well, in the name of the Father and of the Son + and of the Holy Spirit."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ወንጌሉን በሚገባና በትክክል ለማሰማት እንድትችል፡ ጌታ በልብህና በከንፈሮችህ ይኑር። በአብ በወልድና በመንፈስ ቅዱስ ስም። አሜን።"
+                    : "May the Lord be in your heart and on your lips, that you may proclaim his Gospel worthily and well, in the name of the Father and of the Son + and of the Holy Spirit."
               },
               {
                 "type": "rubric",
-                "text": "The Deacon signs himself with the Sign of the Cross and replies:"
+                "text": isAmharic
+                    ? "ዲያቆኑ በመስቀል ምልክት ራሱን ባርኮ ይመልሳል፦"
+                    : "The Deacon signs himself with the Sign of the Cross and replies:"
               },
               {
                 "type": "dialogue",
-                "role": "Deacon",
-                "text": "Amen."
+                "role": isAmharic ? "ዲያቆን" : "Deacon",
+                "text": "አሜን።"
               },
               {
                 "type": "rubric",
-                "text": "If, however, a Deacon is not present, the Priest, bowing before the altar, says quietly:"
+                "text": isAmharic
+                    ? "ነገር ግን ዲያቆን ከሌለ ካህኑ በመሠዊያው ፊት ሰግዶ በድብቅ እንዲህ ይላል፦"
+                    : "If, however, a Deacon is not present, the Priest, bowing before the altar, says quietly:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Cleanse my heart and my lips, almighty God, that I may worthily proclaim your holy Gospel."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ሁሉን የምትችል አምላክ ሆይ፤ ቅዱስ ወንጌልህን በሚገባ ለማሰማት እንድችል፤ ልቤንና ከንፈሮቼን ንጹሕ አድርጋቸው"
+                    : "Cleanse my heart and my lips, almighty God, that I may worthily proclaim your holy Gospel."
               },
             ]
           },
           {
-            "title": "15. The Gospel",
+            "title": isAmharic ? "15. ወንጌል" : "15. The Gospel",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Deacon, or the Priest, then proceeds to the ambo, accompanied, if appropriate, by ministers with incense and candles. There he says:"
+                "text": isAmharic
+                    ? "ካህኑ (ዲያቆኑ)፤ ወንጌል ለማንበብ በቆመበት፤ የኦልታር አገልጋዮች ሻማ ይዘዉ ከካህኑ ጋር አብረዋቸው ይቆማሉ። በዚያም ካህኑ (ዲያቆኑ) እንዲህ ይላል፦"
+                    : "The Deacon, or the Priest, then proceeds to the ambo, accompanied, if appropriate, by ministers with incense and candles. There he says:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "The Lord be with you."
+                "role": isAmharic ? "ካህን / ዲያቆን" : "Priest",
+                "text": isAmharic
+                    ? "እግዚአብሔር ከናንተ ጋር ይሁን ።"
+                    : "The Lord be with you."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "And with your spirit."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "ከመንፈስህም ጋር።" : "And with your spirit."
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "A reading from the holy Gospel according to N."
+                "role": isAmharic ? "ካህን / ዲያቆን" : "Priest",
+                "text": isAmharic
+                    ? "የጌታችን ኢየሱስ ክርስቶስ ወንጌል፤ ቅዱስ ...እንደጻፈው።"
+                    : "A reading from the holy Gospel according to N."
               },
               {
                 "type": "rubric",
-                "text": "and, at the same time, he makes the Sign of the Cross on the book and on his forehead, lips, and breast."
+                "text": isAmharic
+                    ? "በተመሳሳይ ጊዜ በመጽሐፉ ላይ እና በግንባሩ፣ በከንፈሮቹና በደረቱ ላይ የመስቀል ምልክት ያደርጋል።"
+                    : "and, at the same time, he makes the Sign of the Cross on the book and on his forehead, lips, and breast."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Glory to you, O Lord."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ጌታ ሆይ ምስጋና ላንተ ይሁን።"
+                    : "Glory to you, O Lord."
               },
               {
                 "type": "rubric",
-                "text": "Then the Deacon, or the Priest, incenses the book, if incense is used, and proclaims the Gospel."
+                "text": isAmharic
+                    ? "ከዚያም ዲያቆኑ ወይም ካህኑ መጽሐፉን ያጥናሉ፥ ወንጌሉንም ያውጃሉ።"
+                    : "Then the Deacon, or the Priest, incenses the book, if incense is used, and proclaims the Gospel."
               },
             ]
           },
           {
-            "title": "16. End of the Gospel",
+            "title": isAmharic ? "16. የወንጌል ማጠናቀቂያ" : "16. End of the Gospel",
             "lines": [
               {
                 "type": "rubric",
-                "text": "At the end of the Gospel, the Deacon, or the Priest, acclaims:"
+                "text": isAmharic
+                    ? "የወንጌል ንባብ ሲያልቅ ዲያቆኑ ወይም ካህኑ እንዲህ ብለው ያውጃሉ፦"
+                    : "At the end of the Gospel, the Deacon, or the Priest, acclaims:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "The Gospel of the Lord."
+                "role": isAmharic ? "ካህን / ዲያቆን" : "Priest",
+                "text": isAmharic
+                    ? "ይህ የክርስቶስ ቃል ነው ።"
+                    : "The Gospel of the Lord."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Praise to you, Lord Jesus Christ."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ክርስቶስ ሆይ ምስጋና ላንተ ይሁን ።"
+                    : "Praise to you, Lord Jesus Christ."
               },
               {
                 "type": "rubric",
-                "text": "Then he kisses the book, saying quietly:"
+                "text": isAmharic
+                    ? "ከዚያም መጽሐፉን በጸጥታ እየሳመ እንዲህ ይላል፦"
+                    : "Then he kisses the book, saying quietly:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Through the words of the Gospel may our sins be wiped away."
+                "role": isAmharic ? "ካህን / ዲያቆን" : "Priest",
+                "text": isAmharic
+                    ? "በወንጌል ቃላት ኃጢአታችን ይደምሰስ።"
+                    : "Through the words of the Gospel may our sins be wiped away."
               },
             ]
           },
           {
-            "title": "17. The Homily",
+            "title": isAmharic ? "17. ስብከት (ትምህርተ ወንጌል)" : "17. The Homily",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then follows the Homily, which is to be preached by a Priest or Deacon on all Sundays and Holydays of Obligation; on other days, it is recommended."
+                "text": isAmharic
+                    ? "ቀጥሎም በሰንበት ቀናትና በለሎችም ቀናት በካህን ወይም በዲያቆን የሚሰበከው ስብከት ይቀጥላል።"
+                    : "Then follows the Homily, which is to be preached by a Priest or Deacon on all Sundays and Holydays of Obligation; on other days, it is recommended."
               },
             ]
           },
           {
-            "title": "18. The Niceno-Constantinopolitan Creed",
+            "title": isAmharic
+                ? "ጸሎተ ሃይማኖት ፩"
+                : "18. The Niceno-Constantinopolitan Creed",
             "lines": [
               {
                 "type": "rubric",
-                "text": "At the end of the Homily, the Symbol or Profession of Faith or Creed, when prescribed, is either said or sung:"
+                "text": isAmharic
+                    ? "ስብከት ሲያልቅ፣ ጸሎተ ሃይማኖት ይቀጥላል፦"
+                    : "At the end of the Homily, the Symbol or Profession of Faith or Creed, when prescribed, is either said or sung:"
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "ሰማይና ምድርን የሚታየውንና የማይታየውን በፈጠረ፡ በአንድ እግዚአብሔር ሁሉን በሚችል ኣብ አምናለሁ ።"
+                    : "I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible."
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I believe in one Lord Jesus Christ, the Only Begotten Son of God, born of the Father before all ages. God from God, Light from Light, true God from true God, begotten, not made, consubstantial with the Father; through him all things were made. For us men and for our salvation he came down from heaven,"
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "በአብ አንድ ልጅ በአንድ ጌታ በኢየሱስ ክርስቶስ ኣምናለሁ - እርሱ ከዘመን ሁሉ በፊት ከአብ ተወለደ • አምላክ ከአምላክ • ብርሃን ከብርሃን • እውነተኛው አምላክ ከእውነተኛው አምላክ ተወለደ እንጂ አልተፈጠረም - በመለኮቱ ከአብ ጋር እኩል ሆኖ ሁሉም በእርሱ ተፈጠረ ስለ ሰው ደኅንነታችንም ከሰማያት ወረደ"
+                    : "I believe in one Lord Jesus Christ, the Only Begotten Son of God, born of the Father before all ages. God from God, Light from Light, true God from true God, begotten, not made, consubstantial with the Father; through him all things were made. For us men and for our salvation he came down from heaven,"
               },
               {
                 "type": "rubric",
-                "text": "(At the words that follow up to and including 'and became man,' all bow.)"
+                "text": isAmharic
+                    ? "(ከዚህ ቀጥሎ እስከ 'ሰውም ሆነ' ባሉት ቃላት ሁሉም ይሰግዳሉ።)"
+                    : "(At the words that follow up to and including 'and became man,' all bow.)"
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "and by the Holy Spirit was incarnate of the Virgin Mary, and became man."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "• በመንፈስ ቅዱስ ከድንግል ማርያም ሥጋ ለበሰ ሰውም ሆነ ።"
+                    : "and by the Holy Spirit was incarnate of the Virgin Mary, and became man."
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures. He ascended into heaven and is seated at the right hand of the Father. He will come again in glory to judge the living and the dead and his kingdom will have no end."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "በጴንጤናዊ ጲላጦስ ገዢነት ስለኛ ብሎ ተሰቀለ ተሰቃየ ሞተ ተቀበረም እንደ መጻሕፍት ቃል በሦስተኛው ቀን ከሙታን ተነሣ • ወደ ሰማይ ወጣ በአብ ቀኝም ተቀመጠ - ሕያዋንንና ሙታንን ሊፈርድ ዳግመኛ በክብር ይመጣል • ለመንግሥቱም ፍጻሜ የለውም።"
+                    : "For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures. He ascended into heaven and is seated at the right hand of the Father. He will come again in glory to judge the living and the dead and his kingdom will have no end."
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I believe in the Holy Spirit, the Lord, the giver of life, who proceeds from the Father and the Son, who with the Father and the Son is adored and glorified, who has spoken through the prophets."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "ሕይወትን በሚሰጥ አምላክ በሆነው • ከአብና ከወልድ በሚሠርፀው • ከአብና ከወልድ ጋር አብሮ በሚከበረውና በሚወደሰው - በነቢያትም አፍ በተናገረው በመንፈስ ቅዱስ አምናለሁ ።"
+                    : "I believe in the Holy Spirit, the Lord, the giver of life, who proceeds from the Father and the Son, who with the Father and the Son is adored and glorified, who has spoken through the prophets."
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I believe in one, holy, catholic and apostolic Church. I confess one baptism for the forgiveness of sins and I look forward to the resurrection of the dead and the life of the world to come. Amen."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "አንዲት ቅድስት እውነተኛ ሐዋርያዊትም በሆነችው በ(ካቶሊካዊት)ቤተ ክርስትያን አምናለሁ ። በሙታን ትንሣኤና በሚመጣው ዓለም ሕይወት ተስፋ አደርጋለሁ ። አሜን ።"
+                    : "I believe in one, holy, catholic and apostolic Church. I confess one baptism for the forgiveness of sins and I look forward to the resurrection of the dead and the life of the world to come. Amen."
               },
             ]
           },
           {
-            "title": "19. The Apostles' Creed (Alternative)",
+            "title": isAmharic
+                ? "ጸሎተ ሃይማኖት ፪"
+                : "19. The Apostles' Creed (Alternative)",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Instead of the Niceno-Constantinopolitan Creed, especially during Lent and Easter time, the baptismal Symbol of the Roman Church, known as the Apostles' Creed, may be used."
+                "text": isAmharic
+                    ? "በኒቂያ፡ቁስጥንጥንያ ጸሎተ ሃይማኖት ፈንታ፣ በተለይም በጾም እና በፋሲካ ወቅት፣ የሮማን ካቶሊክ ቤተ ክርስቲያን የእምነት መግለጫ የሆነው የሚከተለዉን የሐዋርያት ጸሎተ ሃይማኖት መጠቀም ይችላል።"
+                    : "Instead of the Niceno-Constantinopolitan Creed, especially during Lent and Easter time, the baptismal Symbol of the Roman Church, known as the Apostles' Creed, may be used."
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord,"
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "ሁሉን በሚችል ሰማይንና ምድርን በፈጠረ - በእግዚአብሔር አብ አምናለሁ ። የእብ አንድ ልጅ በሆነው በጌታችን በኢየሱስ ክርስቶስ አምናለሁ"
+                    : "I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord,"
               },
               {
                 "type": "rubric",
-                "text": "(At the words that follow, up to and including 'the Virgin Mary,' all bow.)"
+                "text": isAmharic
+                    ? "(ከዚህ ቀጥሎ 'ከቅድስት ድንግል ማርያም ተወለደ' እስከሚለዉ ድረስ ሁሉም ይሰግዳሉ።)"
+                    : "(At the words that follow, up to and including 'the Virgin Mary,' all bow.)"
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; he descended into hell; on the third day he rose again from the dead; he ascended into heaven, and is seated at the right hand of God the Father almighty; from there he will come to judge the living and the dead."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "– እርሱ በመንፈስ ቅዱስ ተጸንሶ ከቅድስት ድንግል ማርያም ተወለደ – በጴንጤናዊው ጲላጦስ ገዢነት ተሰቃየ ተሰቀለ ሞተ ተቀበረም • ወደ ሲኦልም ወረደ – በሶስተኛው ቀንም ከሙታን ተለይቶ ተነሣ ወደ ሰማይ ወጣ • ሁሉን በሚችል በእግዚአብሔር አብ ቀኝም ተቀመጠ – ያሉትንና የሞቱትን ሊፈርድ ይመጣል ።"
+                    : "who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; he descended into hell; on the third day he rose again from the dead; he ascended into heaven, and is seated at the right hand of God the Father almighty; from there he will come to judge the living and the dead."
               },
               {
                 "type": "dialogue",
-                "role": "All",
-                "text": "I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen."
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "በመንፈስ ቅዱስ አምናለሁ ። ቅድስትና እውነተኛ በሆነችው በ(ካቶሊካዊት)ቤተ ክርስቲያን • በቅዱሳንም አንድነት አምናለሁ ። በኃጢአት ሥርየት በሙታን ትንሣኤ • በዘላለም ሕይወትም አምናለሁ። አሜን ።"
+                    : "I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen."
               },
             ]
           },
           {
-            "title": "20. The Universal Prayer",
+            "title": isAmharic
+                ? "20. የሕዝብ ጸሎት (አጠቃላይ ጸሎት)"
+                : "20. The Universal Prayer",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then follows the Universal Prayer, that is, the Prayer of the Faithful or Bidding Prayers."
+                "text": isAmharic
+                    ? "ቀጥሎም የሕዝብ ጸሎት (ወይም የምልጃ ጸሎት) ይቀጥላል።"
+                    : "Then follows the Universal Prayer, that is, the Prayer of the Faithful or Bidding Prayers."
               },
             ]
           },
@@ -686,120 +893,263 @@ class _UserMassState extends State<UserMass> {
         "image": "assets/bread and wine.jpg",
         "content": [
           {
-            "title": "21–22. Preparation of the Altar and Gifts",
+            "title": isAmharic ? "21–22. የመሠዊያና የስጦታዎች ዝግጅት" : "21–22. Preparation of the Altar and Gifts",
             "lines": [
               {
                 "type": "rubric",
-                "text": "When all this has been done, the Offertory Chant begins. Meanwhile, the ministers place the corporal, the purificator, the chalice, the pall, and the Missal on the altar."
+                "text": isAmharic
+                    ? "ይህ ሁሉ ከተደረገ በኋላ የመባ መዝሙር ይጀመራል። በዚህ መሀል አገልጋዮች ለቅዱስ ቁርባን ስርዓት የሚያገለግሉ ንዋየ ቅድሳትን (መዘርጊያውን (ኮርፖራል)፣ ክደን፤ ዓውደ ነቅዕ፤ ንዋየ ላህም፤ ሣህን፤ ጽዋውን፣ መሸፈኛውን፤ የቅዳሴ መጽሐፍን... ) በመሠዊያው ላይ ያስቀምጣሉ።"
+                    : "When all this has been done, the Offertory Chant begins. Meanwhile, the ministers place the corporal, the purificator, the chalice, the pall, and the Missal on the altar."
               },
               {
                 "type": "rubric",
-                "text": "It is desirable that the faithful express their participation by making an offering, bringing forward bread and wine for the celebration of the Eucharist and perhaps other gifts to relieve the needs of the Church and of the poor."
+                "text": isAmharic
+                    ? "ለቅዳሴ አገልግሎት የሚሆን እንጀራና (ህብስት) ወይን ጠጅ፤ እንዲሁም ለቤተ ክርስቲያን እና ለድሆች ፍላጎት የሚረዱ ሌሎች ስጦታዎችን(የመስዋዕት ሳንቲም)፤ ስዕለትም በማቅረብ ሕዝቡ ይሳተፋል።"
+                    : "It is desirable that the faithful express their participation by making an offering, bringing forward bread and wine for the celebration of the Eucharist and perhaps other gifts to relieve the needs of the Church and of the poor."
               },
             ]
           },
           {
-            "title": "23. Offering of the Bread",
+            "title": isAmharic ? "28.5. መሥዋዕትን የማቅረብ ጸሎትና ምላሽ" : "28.5. Prayer Over the Offerings",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Priest, standing at the altar, takes the paten with the bread and holds it slightly raised above the altar with both hands, saying in a low voice:"
+                "text": isAmharic
+                    ? "ካህኑ ሕዝቡን እንዲህ ሲል ይጋብዛል፦"
+                    : "The Priest invites the faithful, saying:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Blessed are you, Lord God of all creation, for through your goodness we have received the bread we offer you: fruit of the earth and work of human hands, it will become for us the bread of life."
-              },
-              {
-                "type": "rubric",
-                "text": "Then he places the paten with the bread on the corporal."
-              },
-              {
-                "type": "rubric",
-                "text": "If the Offertory Chant is not sung, the Priest may speak these words aloud; at the end, the people may acclaim:"
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ወንድሞቼ(እና እህቶቼ) ሆይ የኔና የናንተ መሥዋዕት ሁሉን ለሚችል ለእግዚኣብሔር አብ ደስ እንዲያሰኝ ጸልዩ።"
+                    : "Pray, brethren, that my sacrifice and yours may be acceptable to God, the almighty Father."
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Blessed be God for ever."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic
+                    ? "ስለ ስሙ ክብርና ምስጋና፤ ስለ መላው ሕዝበ ክርስቲያንም ደኅንነት፤ እግዚአብሔር ይህንን መስዋዕት ከእጅህ ይቀበል።"
+                    : "May the Lord accept the sacrifice at your hands for the praise and glory of his name, for our good and the good of all his holy Church."
+              },
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "ከዚያም ካህኑ በመባዎቹ ላይ ጸሎቱን ያደርሳል።"
+                    : "Then the Priest says the prayer over the offerings. The people rise, if they were seated."
+              },
+            ]
+          },
+
+          {
+            "title": isAmharic ? "29. የአኰቴተ ቍርባን ውይይት (የፕሬፋስ ውይይት)" : "29. The Preface Dialogue",
+            "lines": [
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "የእግዚአብሔር ሕዝብ ከካህኑ ጋር በመሆን የኢንካሪስቱን (የቁርባን) ታላቅ ምሥጢር ለማክበር ሕዝቡም ከተቀመጡበት ይነሣሉ። ራሳቸውንም ያዘጋጃሉ፦"
+                    : "The Priest begins the Eucharistic Prayer, lifting up the hearts of the faithful to the Lord in prayer and thanksgiving."
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic ? "እግዚአብሔር ከእናንተ ጋር ይሁን።" : "The Lord be with you."
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "ከመንፈስህም ጋር።" : "And with your spirit."
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic ? "መንፈሳችንን ከፍ እናደርግ።" : "Lift up your hearts."
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "መንፈሳችን በእግዚአብሔር ዘንድ ነው።" : "We have lifted them up to the Lord."
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic ? "ለጌታ ለአምላካችን ምስጋናን እናቅርብ።" : "Let us give thanks to the Lord our God."
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "ተገቢና ትክክለኛ ነው።" : "It is right and just."
               },
             ]
           },
           {
-            "title": "24. Mingling of Water and Wine",
+            "title": isAmharic ? "30. የአኰቴተ ቍርባን መቅደም (ፕሬፋስ)" : "30. The Preface",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Deacon, or the Priest, pours wine and a little water into the chalice, saying quietly:"
+                "text": isAmharic
+                    ? "ካህኑ እጆቹን ዘርግቶ የምስጋና ጸሎቱን ይቀጥላል፦"
+                    : "The Priest, with hands extended, continues the Preface:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "By the mystery of this water and wine may we come to share in the divinity of Christ who humbled himself to share in our humanity."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "እግዚኣብሔር ቅዱስ አባት ሁሉን የምትችል ዘለዓለማዊ ኣምላክ ሆይ ሁሉ ጊዜ በሁሉ ስፍራ አንተን ማመስገን በእውነት ተገቢና አስፈላጊ ነዉ። ኣንተ በደግነትህ ሰውን ፈጥረሃል፤ በሚገባ የተፈረደበትንም በጌታችን በኢየሱስ ክርስቶስ አድነሃልና ። በርሱ ስም መላእክት ግርማህን ያመሰግናሉ፤ ሊቃነ መላእክት ይሰግዱልሃል ፡ ሥልጣናት በፍርሃት ያከብሩሃል ፡ የሰማይ ኃይላት ሱራፌልም በደስታ ያመሰግኑሃል። እኛም ድምፃችንን ከነርሱ ጋር አስተባብረን እንዲህ ብለን እንድንወድስህ ፍቀድልን ።"
+                    : "It is truly right and just, our duty and our salvation, always and everywhere to give you thanks, Lord, holy Father, almighty and eternal God. For in your goodness you created man, and when he was justly condemned, you redeemed him through our Lord Jesus Christ. Through him the Angels praise your Majesty, the Dominions adore and the Powers tremble before you. Heaven and the Virtues of heaven and the blessed Seraphim worship together with exultation. May our voices, we pray, join with theirs in humble praise, as we acclaim:"
+              }
+            ]
+          },
+          {
+            "title": isAmharic ? "31. ቅዱስ፤ ቅዱስ፤ ቅዱስ (ሳንክቱስ)" : "31. The Sanctus",
+            "lines": [
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "ካህኑ ከሕዝቡ ጋር በመሆን ይህንን የሰማይ መዝሙር በኅብረት ይዘምራሉ፦"
+                    : "The Priest joins with the people in singing or saying the Sanctus:"
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ሁሉም" : "All",
+                "text": isAmharic
+                    ? "ቅዱስ ቅዱስ ቅዱስ እግዚአብሔር የሠራዊት ጌታ፤ ሰማያትና ምድር በክብርህ የተሞሉ ናቸው። ሆሣዕና በሰማያት፤ በእግዚአብሔር ስም የሚመጣ የተባረከ ነው። ሆሣዕና በሰማያት ።"
+                    : "Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest."
               },
             ]
           },
           {
-            "title": "25. Offering of the Chalice",
+            "title": isAmharic ? "23. የእንጀራ (የህብስት) ማቅረቢያ" : "23. Offering of the Bread",
             "lines": [
               {
                 "type": "rubric",
-                "text": "The Priest then takes the chalice and holds it slightly raised above the altar with both hands, saying in a low voice:"
+                "text": isAmharic
+                    ? "ቅዱስ ቅዱስ ከተዘመረ በኋላ ሁሉም ሕዝብ ይንበረከካል:: ካህኑ በመሠዊያው ቆሞ ህብስቱን የያዘውን ሰሃን (ፓተን) ወስዶ በሁለቱ እጆቹ ከመሠዊያው በላይ ከፍ አድርጎ በለስላሳ ድምፅ ይላል፦"
+                    : "The Priest, standing at the altar, takes the paten with the bread and holds it slightly raised above the altar with both hands, saying in a low voice:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Blessed are you, Lord God of all creation, for through your goodness we have received the wine we offer you: fruit of the vine and work of human hands, it will become our spiritual drink."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ሁሉን የፈጠርህ አምላክ እግዚአብሔር ሆይ፥ አንተን ክብር ይገባሃል። ከቸርነትህ የተነሣ ያቀረብነውን ይህን ህብስት ተቀብለናልና፤ እርሱም የምድር ፍሬ እና የሰው እጅ ሥራ ነው፥ የሕይወትም እንጀራ ይሆንልናል።"
+                    : "Blessed are you, Lord God of all creation, for through your goodness we have received the bread we offer you: fruit of the earth and work of human hands, it will become for us the bread of life."
               },
               {
                 "type": "rubric",
-                "text": "Then he places the chalice on the corporal."
+                "text": isAmharic
+                    ? "ከዚያም ህብስቱ ያለበትን ሰሃን በመዘርጊያው (ኮርፖራል) ላይ ያስቀምጠዋል።"
+                    : "Then he places the paten with the bread on the corporal."
               },
               {
                 "type": "rubric",
-                "text": "If the Offertory Chant is not sung, the Priest may speak these words aloud; at the end, the people may acclaim:"
+                "text": isAmharic
+                    ? "የመባ መዝሙር ካልተዘመረ ካህኑ እነዚህን ቃላት ድምፁን ከፍ አድርጎ ማለት ይችላል፤ በማጠናቀቂያውም ሕዝቡ እንዲህ ብሎ ይቀበላል፦"
+                    : "If the Offertory Chant is not sung, the Priest may speak these words aloud; at the end, the people may acclaim:"
               },
               {
                 "type": "dialogue",
-                "role": "People",
-                "text": "Blessed be God for ever."
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "እግዚአብሔር ለዘላለም የተባረከ ይሁን።" : "Blessed be God for ever."
               },
             ]
           },
           {
-            "title": "26. Prayer in a Humble Spirit",
+            "title": isAmharic ? "24. የውሃና የወይን ጠጅ መቀላቀል" : "24. Mingling of Water and Wine",
             "lines": [
               {
                 "type": "rubric",
-                "text": "After this, the Priest, bowing profoundly, says quietly:"
+                "text": isAmharic
+                    ? "ዲያቆኑ ወይም ካህኑ ወይን ጠጅና ጥቂት ውሃ ወደ ጽዋው እየቀላቀሉ በድብቅ እንዲህ ይላሉ፦"
+                    : "The Deacon, or the Priest, pours wine and a little water into the chalice, saying quietly:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "With humble spirit and contrite heart may we be accepted by you, O Lord, and may our sacrifice in your sight this day be pleasing to you, Lord God."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "በዚህ በውሃና በወይን ጠጅ ምሥጢር፥ ሰብአዊነታችንን ሊካፈል ራሱን ባዋረደው በክርስቶስ መለኮትነት ተካፋዮች እንድንሆን አድርገን።"
+                    : "By the mystery of this water and wine may we come to share in the divinity of Christ who humbled himself to share in our humanity."
               },
             ]
           },
           {
-            "title": "27. Incensation",
+            "title": isAmharic ? "25. የመሠዋዕተ ጽዋ (የወይን ጠጅ) ማቅረቢያ" : "25. Offering of the Chalice",
             "lines": [
               {
                 "type": "rubric",
-                "text": "If appropriate, he also incenses the offerings, the cross, and the altar. A Deacon or other minister then incenses the Priest and the people."
+                "text": isAmharic
+                    ? "ከዚያም ካህኑ ጽዋውን ወስዶ በሁለቱ እጆቹ ከመሠዊያው በላይ ከፍ አድርጎ በለስላሳ ድምፅ ይላል፦"
+                    : "The Priest then takes the chalice and holds it slightly raised above the altar with both hands, saying in a low voice:"
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "ሁሉን የፈጠርህ አምላክ እግዚአብሔር ሆይ፥ አንተን ክብር ይገባሃል። ከቸርነትህ የተነሣ ያቀረብነውን ይህን የወይን ጠጅ ተቀብለናልና፤ እርሱም የወይን ፍሬ እና የሰው እጅ ሥራ ነው፥ የመንፈስ መጠጥም ይሆንልናል።"
+                    : "Blessed are you, Lord God of all creation, for through your goodness we have received the wine we offer you: fruit of the vine and work of human hands, it will become our spiritual drink."
+              },
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "ከዚያም ጽዋውን በመዘርጊያው ላይ ያስቀምጠዋል።"
+                    : "Then he places the chalice on the corporal."
+              },
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "የመባ መዝሙር ካልተዘመረ ካህኑ እነዚህን ቃላት ድምፁን ከፍ አድርጎ ማለት ይችላል፤ በማጠናቀቂያውም ሕዝቡ እንዲህ ብሎ ይቀበላል፦"
+                    : "If the Offertory Chant is not sung, the Priest may speak these words aloud; at the end, the people may acclaim:"
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ሕዝብ" : "People",
+                "text": isAmharic ? "እግዚአብሔር ለዘላለም የተባረከ ይሁን።" : "Blessed be God for ever."
               },
             ]
           },
           {
-            "title": "28. Washing of Hands",
+            "title": isAmharic ? "26. በትሕትና መንፈስ የሚደረግ ጸሎት" : "26. Prayer in a Humble Spirit",
             "lines": [
               {
                 "type": "rubric",
-                "text": "Then the Priest, standing at the side of the altar, washes his hands, saying quietly:"
+                "text": isAmharic
+                    ? "ከዚህ በኋላ ካህኑ ጥልቅ ሰግዶ በድብቅ እንዲህ ይላል፦"
+                    : "After this, the Priest, bowing profoundly, says quietly:"
               },
               {
                 "type": "dialogue",
-                "role": "Priest",
-                "text": "Wash me, O Lord, from my iniquity and cleanse me from my sin."
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "አቤቱ፥ በትሕትና መንፈስና በተሰበረ ልብ እንቀበል ዘንድ አንተ ውሰደን፤ ዛሬም በعينህ ፊት የምናቀርበው መሥዋዕት አምላክ እግዚአብሔር ሆይ፥ በእጅጉ ደስ ያሰኝህ።"
+                    : "With humble spirit and contrite heart may we be accepted by you, O Lord, and may our sacrifice in your sight this day be pleasing to you, Lord God."
+              },
+            ]
+          },
+          {
+            "title": isAmharic ? "27. ዕጣን ማጠን" : "27. Incensation",
+            "lines": [
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "ከተቻለ መባውን፣ መስቀሉንና መሠዊያውን ያጠናል። ከዚያም ዲያቆኑ ወይም ሌላ አገልጋይ ካህኑንና ሕዝቡን ያጥናል።"
+                    : "If appropriate, he also incenses the offerings, the cross, and the altar. A Deacon or other minister then incenses the Priest and the people."
+              },
+            ]
+          },
+          {
+            "title": isAmharic ? "28. እጅ መታጠብ" : "28. Washing of Hands",
+            "lines": [
+              {
+                "type": "rubric",
+                "text": isAmharic
+                    ? "ቀጥሎም ካህኑ በመሠዊያው ጎን ቆሞ እጆቹን እየታጠበ በድብቅ እንዲህ ይላል፦"
+                    : "Then the Priest, standing at the side of the altar, washes his hands, saying quietly:"
+              },
+              {
+                "type": "dialogue",
+                "role": isAmharic ? "ካህን" : "Priest",
+                "text": isAmharic
+                    ? "አቤቱ፥ ከእኩይ ሥራዬ አጥበኝ፥ ከኃጢአቴም አንጻኝ።"
+                    : "Wash me, O Lord, from my iniquity and cleanse me from my sin."
               },
             ]
           },
@@ -840,62 +1190,7 @@ class _UserMassState extends State<UserMass> {
               },
             ]
           },
-          {
-            "title": "31. Preface Dialogue and Sanctus",
-            "lines": [
-              {
-                "type": "rubric",
-                "text": "Then the Priest begins the Eucharistic Prayer. Extending his hands, he says:"
-              },
-              {
-                "type": "dialogue",
-                "role": "Priest",
-                "text": "The Lord be with you."
-              },
-              {
-                "type": "dialogue",
-                "role": "People",
-                "text": "And with your spirit."
-              },
-              {
-                "type": "rubric",
-                "text": "The Priest, raising his hands, continues:"
-              },
-              {
-                "type": "dialogue",
-                "role": "Priest",
-                "text": "Lift up your hearts."
-              },
-              {
-                "type": "dialogue",
-                "role": "People",
-                "text": "We lift them up to the Lord."
-              },
-              {
-                "type": "rubric",
-                "text": "The Priest, with hands extended, adds:"
-              },
-              {
-                "type": "dialogue",
-                "role": "Priest",
-                "text": "Let us give thanks to the Lord our God."
-              },
-              {
-                "type": "dialogue",
-                "role": "People",
-                "text": "It is right and just."
-              },
-              {
-                "type": "rubric",
-                "text": "The Priest, with hands extended, continues the Preface. At the end of the Preface he joins his hands and concludes with the people, singing or saying aloud:"
-              },
-              {
-                "type": "dialogue",
-                "role": "All",
-                "text": "Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest."
-              },
-            ]
-          },
+
           {
             "title": "32. The Eucharistic Prayer",
             "lines": [
